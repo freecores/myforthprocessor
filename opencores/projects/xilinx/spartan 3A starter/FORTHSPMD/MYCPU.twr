@@ -1,0 +1,2069 @@
+--------------------------------------------------------------------------------
+Release 14.2 Trace  (nt64)
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+E:\Xilinx\14.2\ISE_DS\ISE\bin\nt64\unwrapped\trce.exe -intstyle ise -v 3 -s 4
+-n 3 -fastpaths -xml MYCPU.twx MYCPU.ncd -o MYCPU.twr MYCPU.pcf -ucf MYCPU.ucf
+
+Design file:              MYCPU.ncd
+Physical constraint file: MYCPU.pcf
+Device,package,speed:     xc3s700a,fg484,-4 (PRODUCTION 1.42 2012-07-09)
+Report level:             verbose report
+
+Environment Variable      Effect 
+--------------------      ------ 
+NONE                      No environment variables were set
+--------------------------------------------------------------------------------
+
+INFO:Timing:3412 - To improve timing, see the Timing Closure User Guide (UG612).
+INFO:Timing:2752 - To get complete path coverage, use the unconstrained paths 
+   option. All paths that are not constrained will be reported in the 
+   unconstrained paths section(s) of the report.
+INFO:Timing:3339 - The clock-to-out numbers in this timing report are based on 
+   a 50 Ohm transmission line loading model.  For the details of this model, 
+   and for more information on accounting for different loading conditions, 
+   please see the device datasheet.
+INFO:Timing:3390 - This architecture does not support a default System Jitter 
+   value, please add SYSTEM_JITTER constraint to the UCF to modify the Clock 
+   Uncertainty calculation.
+INFO:Timing:3389 - This architecture does not support 'Discrete Jitter' and 
+   'Phase Error' calculations, these terms will be zero in the Clock 
+   Uncertainty calculation.  Please make appropriate modification to 
+   SYSTEM_JITTER to account for the unsupported Discrete Jitter and Phase 
+   Error.
+
+================================================================================
+Timing constraint: NET "mydcm/CLKIN_IBUFG" PERIOD = 20 ns HIGH 40%;
+For more information, see Period Analysis in the Timing Closure User Guide (UG612).
+
+ 0 paths analyzed, 0 endpoints analyzed, 0 failing endpoints
+ 0 timing errors detected. (0 component switching limit errors)
+ Minimum period is   7.500ns.
+--------------------------------------------------------------------------------
+
+Component Switching Limit Checks: NET "mydcm/CLKIN_IBUFG" PERIOD = 20 ns HIGH 40%;
+--------------------------------------------------------------------------------
+Slack: 12.500ns (period - (min high pulse limit / (high pulse / period)))
+  Period: 20.000ns
+  High pulse: 8.000ns
+  High pulse limit: 3.000ns (Tdcmpw_CLKIN_50_100)
+  Physical resource: mydcm/DCM_SP_INST/CLKIN
+  Logical resource: mydcm/DCM_SP_INST/CLKIN
+  Location pin: DCM_X2Y3.CLKIN
+  Clock network: mydcm/CLKIN_IBUFG
+--------------------------------------------------------------------------------
+Slack: 15.000ns (period - (min low pulse limit / (low pulse / period)))
+  Period: 20.000ns
+  Low pulse: 12.000ns
+  Low pulse limit: 3.000ns (Tdcmpw_CLKIN_50_100)
+  Physical resource: mydcm/DCM_SP_INST/CLKIN
+  Logical resource: mydcm/DCM_SP_INST/CLKIN
+  Location pin: DCM_X2Y3.CLKIN
+  Clock network: mydcm/CLKIN_IBUFG
+--------------------------------------------------------------------------------
+Slack: 16.001ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 3.999ns (250.063MHz) (Tdcmpc)
+  Physical resource: mydcm/DCM_SP_INST/CLKIN
+  Logical resource: mydcm/DCM_SP_INST/CLKIN
+  Location pin: DCM_X2Y3.CLKIN
+  Clock network: mydcm/CLKIN_IBUFG
+--------------------------------------------------------------------------------
+
+================================================================================
+Timing constraint: PERIOD analysis for net "mydcm/CLKFX_BUF" derived from  NET 
+"mydcm/CLKIN_IBUFG" PERIOD = 20 ns HIGH 40%;  divided by 1.25 to 16 nS and duty 
+cycle corrected to HIGH 8 nS  
+For more information, see Period Analysis in the Timing Closure User Guide (UG612).
+
+ 1022745 paths analyzed, 10029 endpoints analyzed, 0 failing endpoints
+ 0 timing errors detected. (0 setup errors, 0 hold errors, 0 component switching limit errors)
+ Minimum period is  15.932ns.
+--------------------------------------------------------------------------------
+
+Paths for end point myCore/myProgramCounter/nextPC_1_1 (SLICE_X5Y37.BY), 3063 paths
+--------------------------------------------------------------------------------
+Slack (setup path):     0.068ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               myCore/myStacks/SelectedOp_0_1 (FF)
+  Destination:          myCore/myProgramCounter/nextPC_1_1 (FF)
+  Requirement:          16.000ns
+  Data Path Delay:      15.818ns (Levels of Logic = 10)
+  Clock Path Skew:      -0.114ns (0.623 - 0.737)
+  Source Clock:         Clock rising at 0.000ns
+  Destination Clock:    Clock rising at 16.000ns
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: myCore/myStacks/SelectedOp_0_1 to myCore/myProgramCounter/nextPC_1_1
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X36Y39.YQ      Tcko                  0.676   myCore/myStacks/SelectedOp_0_1
+                                                       myCore/myStacks/SelectedOp_0_1
+    SLICE_X33Y39.G3      net (fanout=7)        0.842   myCore/myStacks/SelectedOp_0_1
+    SLICE_X33Y39.Y       Tilo                  0.648   myCore/myStacks/N764
+                                                       myCore/myStacks/visible_0_mux0000<10>11
+    SLICE_X38Y37.F2      net (fanout=23)       1.005   myCore/myStacks/N222
+    SLICE_X38Y37.X       Tilo                  0.692   myCore/myStacks/N728
+                                                       myCore/myStacks/visible_0_mux0000<10>_SW0
+    SLICE_X31Y39.G3      net (fanout=3)        2.289   myCore/myStacks/N728
+    SLICE_X31Y39.COUT    Topcyg                1.178   myCore/myProgramCounter/newnextPC_cmp_eq0001_wg_cy<1>
+                                                       myCore/myProgramCounter/newnextPC_cmp_eq0001_wg_lut<1>
+                                                       myCore/myProgramCounter/newnextPC_cmp_eq0001_wg_cy<1>
+    SLICE_X31Y40.CIN     net (fanout=1)        0.000   myCore/myProgramCounter/newnextPC_cmp_eq0001_wg_cy<1>
+    SLICE_X31Y40.COUT    Tbyp                  0.130   myCore/myProgramCounter/newnextPC_cmp_eq0001_wg_cy<3>
+                                                       myCore/myProgramCounter/newnextPC_cmp_eq0001_wg_cy<2>
+                                                       myCore/myProgramCounter/newnextPC_cmp_eq0001_wg_cy<3>
+    SLICE_X31Y41.CIN     net (fanout=1)        0.000   myCore/myProgramCounter/newnextPC_cmp_eq0001_wg_cy<3>
+    SLICE_X31Y41.COUT    Tbyp                  0.130   myCore/myStacks/ImmediatePop<31>
+                                                       myCore/myProgramCounter/newnextPC_cmp_eq0001_wg_cy<4>
+                                                       myCore/myProgramCounter/newnextPC_cmp_eq0001_wg_cy<5>
+    SLICE_X31Y42.CIN     net (fanout=1)        0.000   myCore/myProgramCounter/newnextPC_cmp_eq0001_wg_cy<5>
+    SLICE_X31Y42.COUT    Tbyp                  0.130   myCore/myProgramCounter/newnextPC_cmp_eq0001
+                                                       myCore/myProgramCounter/newnextPC_cmp_eq0001_wg_cy<6>
+                                                       myCore/myProgramCounter/newnextPC_cmp_eq0001_wg_cy<7>
+    SLICE_X12Y36.G1      net (fanout=7)        1.657   myCore/myProgramCounter/newnextPC_cmp_eq0001
+    SLICE_X12Y36.Y       Tilo                  0.707   N1272
+                                                       myCore/myProgramCounter/newnextPC_mux0011<2>1141
+    SLICE_X8Y32.F2       net (fanout=6)        1.685   myCore/myProgramCounter/N881
+    SLICE_X8Y32.X        Tilo                  0.692   myCore/myProgramCounter/N94
+                                                       myCore/myProgramCounter/newnextPC_mux0011<0>11
+    SLICE_X4Y36.G4       net (fanout=1)        1.018   myCore/myProgramCounter/N94
+    SLICE_X4Y36.Y        Tilo                  0.707   myCore/myProgramCounter/nextPC<1>
+                                                       myCore/myProgramCounter/nextPC_mux0000<1>51_SW0
+    SLICE_X4Y36.F4       net (fanout=1)        0.060   myCore/myProgramCounter/nextPC_mux0000<1>51_SW0/O
+    SLICE_X4Y36.X        Tilo                  0.692   myCore/myProgramCounter/nextPC<1>
+                                                       myCore/myProgramCounter/nextPC_mux0000<1>51
+    SLICE_X5Y37.BY       net (fanout=1)        0.566   myCore/myProgramCounter/nextPC_mux0000<1>
+    SLICE_X5Y37.CLK      Tdick                 0.314   myCore/myProgramCounter/nextPC_1_1
+                                                       myCore/myProgramCounter/nextPC_1_1
+    -------------------------------------------------  ---------------------------
+    Total                                     15.818ns (6.696ns logic, 9.122ns route)
+                                                       (42.3% logic, 57.7% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     0.117ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               myCore/myStacks/SelectedOp_0_1 (FF)
+  Destination:          myCore/myProgramCounter/nextPC_1_1 (FF)
+  Requirement:          16.000ns
+  Data Path Delay:      15.769ns (Levels of Logic = 11)
+  Clock Path Skew:      -0.114ns (0.623 - 0.737)
+  Source Clock:         Clock rising at 0.000ns
+  Destination Clock:    Clock rising at 16.000ns
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: myCore/myStacks/SelectedOp_0_1 to myCore/myProgramCounter/nextPC_1_1
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X36Y39.YQ      Tcko                  0.676   myCore/myStacks/SelectedOp_0_1
+                                                       myCore/myStacks/SelectedOp_0_1
+    SLICE_X33Y39.G3      net (fanout=7)        0.842   myCore/myStacks/SelectedOp_0_1
+    SLICE_X33Y39.Y       Tilo                  0.648   myCore/myStacks/N764
+                                                       myCore/myStacks/visible_0_mux0000<10>11
+    SLICE_X38Y37.F2      net (fanout=23)       1.005   myCore/myStacks/N222
+    SLICE_X38Y37.X       Tilo                  0.692   myCore/myStacks/N728
+                                                       myCore/myStacks/visible_0_mux0000<10>_SW0
+    SLICE_X31Y39.G3      net (fanout=3)        2.289   myCore/myStacks/N728
+    SLICE_X31Y39.COUT    Topcyg                1.178   myCore/myProgramCounter/newnextPC_cmp_eq0001_wg_cy<1>
+                                                       myCore/myProgramCounter/newnextPC_cmp_eq0001_wg_lut<1>
+                                                       myCore/myProgramCounter/newnextPC_cmp_eq0001_wg_cy<1>
+    SLICE_X31Y40.CIN     net (fanout=1)        0.000   myCore/myProgramCounter/newnextPC_cmp_eq0001_wg_cy<1>
+    SLICE_X31Y40.COUT    Tbyp                  0.130   myCore/myProgramCounter/newnextPC_cmp_eq0001_wg_cy<3>
+                                                       myCore/myProgramCounter/newnextPC_cmp_eq0001_wg_cy<2>
+                                                       myCore/myProgramCounter/newnextPC_cmp_eq0001_wg_cy<3>
+    SLICE_X31Y41.CIN     net (fanout=1)        0.000   myCore/myProgramCounter/newnextPC_cmp_eq0001_wg_cy<3>
+    SLICE_X31Y41.COUT    Tbyp                  0.130   myCore/myStacks/ImmediatePop<31>
+                                                       myCore/myProgramCounter/newnextPC_cmp_eq0001_wg_cy<4>
+                                                       myCore/myProgramCounter/newnextPC_cmp_eq0001_wg_cy<5>
+    SLICE_X31Y42.CIN     net (fanout=1)        0.000   myCore/myProgramCounter/newnextPC_cmp_eq0001_wg_cy<5>
+    SLICE_X31Y42.COUT    Tbyp                  0.130   myCore/myProgramCounter/newnextPC_cmp_eq0001
+                                                       myCore/myProgramCounter/newnextPC_cmp_eq0001_wg_cy<6>
+                                                       myCore/myProgramCounter/newnextPC_cmp_eq0001_wg_cy<7>
+    SLICE_X21Y41.F4      net (fanout=7)        1.053   myCore/myProgramCounter/newnextPC_cmp_eq0001
+    SLICE_X21Y41.X       Tilo                  0.643   myCore/myProgramCounter/newnextPC_mux0011<2>1141
+                                                       myCore/myProgramCounter/newnextPC_mux0011<2>1141_1
+    SLICE_X14Y34.BX      net (fanout=1)        1.007   myCore/myProgramCounter/newnextPC_mux0011<2>1141
+    SLICE_X14Y34.X       Tbxx                  0.860   myCore/myProgramCounter/N18
+                                                       myCore/myProgramCounter/newnextPC_mux0011<2>11
+    SLICE_X12Y35.G3      net (fanout=2)        0.385   myCore/myProgramCounter/N18
+    SLICE_X12Y35.Y       Tilo                  0.707   N1442
+                                                       myCore/myProgramCounter/newnextPC_mux0011<2>1
+    SLICE_X4Y36.G2       net (fanout=5)        1.055   myCore/myProgramCounter/N01
+    SLICE_X4Y36.Y        Tilo                  0.707   myCore/myProgramCounter/nextPC<1>
+                                                       myCore/myProgramCounter/nextPC_mux0000<1>51_SW0
+    SLICE_X4Y36.F4       net (fanout=1)        0.060   myCore/myProgramCounter/nextPC_mux0000<1>51_SW0/O
+    SLICE_X4Y36.X        Tilo                  0.692   myCore/myProgramCounter/nextPC<1>
+                                                       myCore/myProgramCounter/nextPC_mux0000<1>51
+    SLICE_X5Y37.BY       net (fanout=1)        0.566   myCore/myProgramCounter/nextPC_mux0000<1>
+    SLICE_X5Y37.CLK      Tdick                 0.314   myCore/myProgramCounter/nextPC_1_1
+                                                       myCore/myProgramCounter/nextPC_1_1
+    -------------------------------------------------  ---------------------------
+    Total                                     15.769ns (7.507ns logic, 8.262ns route)
+                                                       (47.6% logic, 52.4% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     0.127ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               myCore/myStacks/BufferedInput_19 (FF)
+  Destination:          myCore/myProgramCounter/nextPC_1_1 (FF)
+  Requirement:          16.000ns
+  Data Path Delay:      15.812ns (Levels of Logic = 9)
+  Clock Path Skew:      -0.061ns (0.623 - 0.684)
+  Source Clock:         Clock rising at 0.000ns
+  Destination Clock:    Clock rising at 16.000ns
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: myCore/myStacks/BufferedInput_19 to myCore/myProgramCounter/nextPC_1_1
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X39Y33.XQ      Tcko                  0.591   myCore/myStacks/BufferedInput<19>
+                                                       myCore/myStacks/BufferedInput_19
+    SLICE_X38Y43.G2      net (fanout=18)       2.320   myCore/myStacks/BufferedInput<19>
+    SLICE_X38Y43.Y       Tilo                  0.707   myCore/myStacks/Actual<0><0><14>
+                                                       myCore/myStacks/Actual<0>_0_mux0000<19>1
+    SLICE_X32Y43.G3      net (fanout=3)        0.607   myCore/myStacks/Actual<0><0><19>
+    SLICE_X32Y43.Y       Tilo                  0.707   myCore/myStacks/ImmediatePop<22>
+                                                       myCore/myStacks/visible_0_mux0000<19>_SW0
+    SLICE_X32Y43.F3      net (fanout=2)        0.048   myCore/myStacks/N655
+    SLICE_X32Y43.X       Tilo                  0.692   myCore/myStacks/ImmediatePop<22>
+                                                       myCore/myStacks/visible_0_mux0000<19>
+    SLICE_X31Y41.F1      net (fanout=7)        0.717   myCore/First<19>
+    SLICE_X31Y41.COUT    Topcyf                1.195   myCore/myStacks/ImmediatePop<31>
+                                                       myCore/myProgramCounter/newnextPC_cmp_eq0001_wg_lut<4>
+                                                       myCore/myProgramCounter/newnextPC_cmp_eq0001_wg_cy<4>
+                                                       myCore/myProgramCounter/newnextPC_cmp_eq0001_wg_cy<5>
+    SLICE_X31Y42.CIN     net (fanout=1)        0.000   myCore/myProgramCounter/newnextPC_cmp_eq0001_wg_cy<5>
+    SLICE_X31Y42.COUT    Tbyp                  0.130   myCore/myProgramCounter/newnextPC_cmp_eq0001
+                                                       myCore/myProgramCounter/newnextPC_cmp_eq0001_wg_cy<6>
+                                                       myCore/myProgramCounter/newnextPC_cmp_eq0001_wg_cy<7>
+    SLICE_X12Y36.G1      net (fanout=7)        1.657   myCore/myProgramCounter/newnextPC_cmp_eq0001
+    SLICE_X12Y36.Y       Tilo                  0.707   N1272
+                                                       myCore/myProgramCounter/newnextPC_mux0011<2>1141
+    SLICE_X8Y32.F2       net (fanout=6)        1.685   myCore/myProgramCounter/N881
+    SLICE_X8Y32.X        Tilo                  0.692   myCore/myProgramCounter/N94
+                                                       myCore/myProgramCounter/newnextPC_mux0011<0>11
+    SLICE_X4Y36.G4       net (fanout=1)        1.018   myCore/myProgramCounter/N94
+    SLICE_X4Y36.Y        Tilo                  0.707   myCore/myProgramCounter/nextPC<1>
+                                                       myCore/myProgramCounter/nextPC_mux0000<1>51_SW0
+    SLICE_X4Y36.F4       net (fanout=1)        0.060   myCore/myProgramCounter/nextPC_mux0000<1>51_SW0/O
+    SLICE_X4Y36.X        Tilo                  0.692   myCore/myProgramCounter/nextPC<1>
+                                                       myCore/myProgramCounter/nextPC_mux0000<1>51
+    SLICE_X5Y37.BY       net (fanout=1)        0.566   myCore/myProgramCounter/nextPC_mux0000<1>
+    SLICE_X5Y37.CLK      Tdick                 0.314   myCore/myProgramCounter/nextPC_1_1
+                                                       myCore/myProgramCounter/nextPC_1_1
+    -------------------------------------------------  ---------------------------
+    Total                                     15.812ns (7.134ns logic, 8.678ns route)
+                                                       (45.1% logic, 54.9% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point myCore/myProgramCounter/nextPC_4 (SLICE_X8Y25.G2), 2690 paths
+--------------------------------------------------------------------------------
+Slack (setup path):     0.086ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               myCore/myProgramCounter/thefirst_13 (FF)
+  Destination:          myCore/myProgramCounter/nextPC_4 (FF)
+  Requirement:          16.000ns
+  Data Path Delay:      15.778ns (Levels of Logic = 10)
+  Clock Path Skew:      -0.136ns (0.566 - 0.702)
+  Source Clock:         Clock rising at 0.000ns
+  Destination Clock:    Clock rising at 16.000ns
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: myCore/myProgramCounter/thefirst_13 to myCore/myProgramCounter/nextPC_4
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X1Y68.XQ       Tcko                  0.591   myCore/myProgramCounter/thefirst<13>
+                                                       myCore/myProgramCounter/thefirst_13
+    SLICE_X3Y40.G2       net (fanout=2)        2.577   myCore/myProgramCounter/thefirst<13>
+    SLICE_X3Y40.X        Tif5x                 0.924   myCore/myProgramCounter/saved<5>
+                                                       myCore/myProgramCounter/frame<5>_F
+                                                       myCore/myProgramCounter/frame<5>
+    SLICE_X2Y38.G1       net (fanout=5)        1.030   myCore/myProgramCounter/frame<5>
+    SLICE_X2Y38.Y        Tilo                  0.707   myRAM/top0/controller0/auto_ref_wait
+                                                       myCore/myProgramCounter/lastNibble_or000147
+    SLICE_X2Y37.F4       net (fanout=1)        0.337   myCore/myProgramCounter/lastNibble_or000147
+    SLICE_X2Y37.X        Tilo                  0.692   myCore/myProgramCounter/lastNibble_or0001
+                                                       myCore/myProgramCounter/lastNibble_or000158
+    SLICE_X5Y36.G3       net (fanout=2)        0.517   myCore/myProgramCounter/lastNibble_or0001
+    SLICE_X5Y36.Y        Tilo                  0.648   myCore/myProgramCounter/lastNibble<2>
+                                                       myCore/myProgramCounter/lastNibble<2>_SW0
+    SLICE_X5Y36.F3       net (fanout=1)        0.043   myCore/myProgramCounter/lastNibble<2>_SW0/O
+    SLICE_X5Y36.X        Tilo                  0.643   myCore/myProgramCounter/lastNibble<2>
+                                                       myCore/myProgramCounter/lastNibble<2>
+    SLICE_X5Y37.G1       net (fanout=7)        0.664   myCore/myProgramCounter/lastNibble<2>
+    SLICE_X5Y37.Y        Tilo                  0.648   myCore/myProgramCounter/nextPC_1_1
+                                                       myCore/myProgramCounter/nextPC_mux0000<2>138_SW0
+    SLICE_X5Y37.F4       net (fanout=1)        0.044   myCore/myProgramCounter/nextPC_mux0000<2>138_SW0/O
+    SLICE_X5Y37.X        Tilo                  0.643   myCore/myProgramCounter/nextPC_1_1
+                                                       myCore/myProgramCounter/nextPC_mux0000<2>138
+    SLICE_X9Y33.G4       net (fanout=6)        0.698   myCore/myProgramCounter/nextPC_mux0000<2>138
+    SLICE_X9Y33.Y        Tilo                  0.648   N1735
+                                                       myCore/myProgramCounter/nextPC_mux0000<2>141_1
+    SLICE_X6Y22.BX       net (fanout=12)       1.607   myCore/myProgramCounter/nextPC_mux0000<2>141
+    SLICE_X6Y22.X        Tbxx                  0.860   N1779
+                                                       myCore/myProgramCounter/nextPC_mux0000<4>_SW2
+    SLICE_X8Y25.G2       net (fanout=1)        0.440   N1779
+    SLICE_X8Y25.CLK      Tgck                  0.817   myCore/myProgramCounter/nextPC<3>
+                                                       myCore/myProgramCounter/nextPC_mux0000<4>
+                                                       myCore/myProgramCounter/nextPC_4
+    -------------------------------------------------  ---------------------------
+    Total                                     15.778ns (7.821ns logic, 7.957ns route)
+                                                       (49.6% logic, 50.4% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     0.313ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               myCore/myProgramCounter/thefirst_21 (FF)
+  Destination:          myCore/myProgramCounter/nextPC_4 (FF)
+  Requirement:          16.000ns
+  Data Path Delay:      15.593ns (Levels of Logic = 10)
+  Clock Path Skew:      -0.094ns (0.566 - 0.660)
+  Source Clock:         Clock rising at 0.000ns
+  Destination Clock:    Clock rising at 16.000ns
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: myCore/myProgramCounter/thefirst_21 to myCore/myProgramCounter/nextPC_4
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X6Y62.XQ       Tcko                  0.631   myCore/myProgramCounter/thefirst<21>
+                                                       myCore/myProgramCounter/thefirst_21
+    SLICE_X3Y40.F4       net (fanout=3)        2.352   myCore/myProgramCounter/thefirst<21>
+    SLICE_X3Y40.X        Tif5x                 0.924   myCore/myProgramCounter/saved<5>
+                                                       myCore/myProgramCounter/frame<5>_G
+                                                       myCore/myProgramCounter/frame<5>
+    SLICE_X2Y38.G1       net (fanout=5)        1.030   myCore/myProgramCounter/frame<5>
+    SLICE_X2Y38.Y        Tilo                  0.707   myRAM/top0/controller0/auto_ref_wait
+                                                       myCore/myProgramCounter/lastNibble_or000147
+    SLICE_X2Y37.F4       net (fanout=1)        0.337   myCore/myProgramCounter/lastNibble_or000147
+    SLICE_X2Y37.X        Tilo                  0.692   myCore/myProgramCounter/lastNibble_or0001
+                                                       myCore/myProgramCounter/lastNibble_or000158
+    SLICE_X5Y36.G3       net (fanout=2)        0.517   myCore/myProgramCounter/lastNibble_or0001
+    SLICE_X5Y36.Y        Tilo                  0.648   myCore/myProgramCounter/lastNibble<2>
+                                                       myCore/myProgramCounter/lastNibble<2>_SW0
+    SLICE_X5Y36.F3       net (fanout=1)        0.043   myCore/myProgramCounter/lastNibble<2>_SW0/O
+    SLICE_X5Y36.X        Tilo                  0.643   myCore/myProgramCounter/lastNibble<2>
+                                                       myCore/myProgramCounter/lastNibble<2>
+    SLICE_X5Y37.G1       net (fanout=7)        0.664   myCore/myProgramCounter/lastNibble<2>
+    SLICE_X5Y37.Y        Tilo                  0.648   myCore/myProgramCounter/nextPC_1_1
+                                                       myCore/myProgramCounter/nextPC_mux0000<2>138_SW0
+    SLICE_X5Y37.F4       net (fanout=1)        0.044   myCore/myProgramCounter/nextPC_mux0000<2>138_SW0/O
+    SLICE_X5Y37.X        Tilo                  0.643   myCore/myProgramCounter/nextPC_1_1
+                                                       myCore/myProgramCounter/nextPC_mux0000<2>138
+    SLICE_X9Y33.G4       net (fanout=6)        0.698   myCore/myProgramCounter/nextPC_mux0000<2>138
+    SLICE_X9Y33.Y        Tilo                  0.648   N1735
+                                                       myCore/myProgramCounter/nextPC_mux0000<2>141_1
+    SLICE_X6Y22.BX       net (fanout=12)       1.607   myCore/myProgramCounter/nextPC_mux0000<2>141
+    SLICE_X6Y22.X        Tbxx                  0.860   N1779
+                                                       myCore/myProgramCounter/nextPC_mux0000<4>_SW2
+    SLICE_X8Y25.G2       net (fanout=1)        0.440   N1779
+    SLICE_X8Y25.CLK      Tgck                  0.817   myCore/myProgramCounter/nextPC<3>
+                                                       myCore/myProgramCounter/nextPC_mux0000<4>
+                                                       myCore/myProgramCounter/nextPC_4
+    -------------------------------------------------  ---------------------------
+    Total                                     15.593ns (7.861ns logic, 7.732ns route)
+                                                       (50.4% logic, 49.6% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     0.426ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               myCore/myProgramCounter/thefirst_13 (FF)
+  Destination:          myCore/myProgramCounter/nextPC_4 (FF)
+  Requirement:          16.000ns
+  Data Path Delay:      15.438ns (Levels of Logic = 9)
+  Clock Path Skew:      -0.136ns (0.566 - 0.702)
+  Source Clock:         Clock rising at 0.000ns
+  Destination Clock:    Clock rising at 16.000ns
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: myCore/myProgramCounter/thefirst_13 to myCore/myProgramCounter/nextPC_4
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X1Y68.XQ       Tcko                  0.591   myCore/myProgramCounter/thefirst<13>
+                                                       myCore/myProgramCounter/thefirst_13
+    SLICE_X3Y40.G2       net (fanout=2)        2.577   myCore/myProgramCounter/thefirst<13>
+    SLICE_X3Y40.X        Tif5x                 0.924   myCore/myProgramCounter/saved<5>
+                                                       myCore/myProgramCounter/frame<5>_F
+                                                       myCore/myProgramCounter/frame<5>
+    SLICE_X3Y38.BX       net (fanout=5)        1.006   myCore/myProgramCounter/frame<5>
+    SLICE_X3Y38.X        Tbxx                  0.756   myCore/myProgramCounter/lastNibble_or000217
+                                                       myCore/myProgramCounter/lastNibble_or000217_f5
+    SLICE_X3Y37.G2       net (fanout=1)        0.407   myCore/myProgramCounter/lastNibble_or000217
+    SLICE_X3Y37.Y        Tilo                  0.648   myCore/myProgramCounter/lastNibble<1>
+                                                       myCore/myProgramCounter/lastNibble_or000294
+    SLICE_X3Y37.F4       net (fanout=2)        0.081   myCore/myProgramCounter/lastNibble_or0002
+    SLICE_X3Y37.X        Tilo                  0.643   myCore/myProgramCounter/lastNibble<1>
+                                                       myCore/myProgramCounter/lastNibble<1>
+    SLICE_X5Y37.G3       net (fanout=3)        1.400   myCore/myProgramCounter/lastNibble<1>
+    SLICE_X5Y37.Y        Tilo                  0.648   myCore/myProgramCounter/nextPC_1_1
+                                                       myCore/myProgramCounter/nextPC_mux0000<2>138_SW0
+    SLICE_X5Y37.F4       net (fanout=1)        0.044   myCore/myProgramCounter/nextPC_mux0000<2>138_SW0/O
+    SLICE_X5Y37.X        Tilo                  0.643   myCore/myProgramCounter/nextPC_1_1
+                                                       myCore/myProgramCounter/nextPC_mux0000<2>138
+    SLICE_X9Y33.G4       net (fanout=6)        0.698   myCore/myProgramCounter/nextPC_mux0000<2>138
+    SLICE_X9Y33.Y        Tilo                  0.648   N1735
+                                                       myCore/myProgramCounter/nextPC_mux0000<2>141_1
+    SLICE_X6Y22.BX       net (fanout=12)       1.607   myCore/myProgramCounter/nextPC_mux0000<2>141
+    SLICE_X6Y22.X        Tbxx                  0.860   N1779
+                                                       myCore/myProgramCounter/nextPC_mux0000<4>_SW2
+    SLICE_X8Y25.G2       net (fanout=1)        0.440   N1779
+    SLICE_X8Y25.CLK      Tgck                  0.817   myCore/myProgramCounter/nextPC<3>
+                                                       myCore/myProgramCounter/nextPC_mux0000<4>
+                                                       myCore/myProgramCounter/nextPC_4
+    -------------------------------------------------  ---------------------------
+    Total                                     15.438ns (7.178ns logic, 8.260ns route)
+                                                       (46.5% logic, 53.5% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point myCore/myProgramCounter/nextPC_12 (SLICE_X6Y24.F3), 2199 paths
+--------------------------------------------------------------------------------
+Slack (setup path):     0.109ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               myCore/myStacks/SelectedOp_0_1 (FF)
+  Destination:          myCore/myProgramCounter/nextPC_12 (FF)
+  Requirement:          16.000ns
+  Data Path Delay:      15.721ns (Levels of Logic = 11)
+  Clock Path Skew:      -0.170ns (0.567 - 0.737)
+  Source Clock:         Clock rising at 0.000ns
+  Destination Clock:    Clock rising at 16.000ns
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: myCore/myStacks/SelectedOp_0_1 to myCore/myProgramCounter/nextPC_12
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X36Y39.YQ      Tcko                  0.676   myCore/myStacks/SelectedOp_0_1
+                                                       myCore/myStacks/SelectedOp_0_1
+    SLICE_X33Y39.G3      net (fanout=7)        0.842   myCore/myStacks/SelectedOp_0_1
+    SLICE_X33Y39.Y       Tilo                  0.648   myCore/myStacks/N764
+                                                       myCore/myStacks/visible_0_mux0000<10>11
+    SLICE_X38Y37.F2      net (fanout=23)       1.005   myCore/myStacks/N222
+    SLICE_X38Y37.X       Tilo                  0.692   myCore/myStacks/N728
+                                                       myCore/myStacks/visible_0_mux0000<10>_SW0
+    SLICE_X31Y39.G3      net (fanout=3)        2.289   myCore/myStacks/N728
+    SLICE_X31Y39.COUT    Topcyg                1.178   myCore/myProgramCounter/newnextPC_cmp_eq0001_wg_cy<1>
+                                                       myCore/myProgramCounter/newnextPC_cmp_eq0001_wg_lut<1>
+                                                       myCore/myProgramCounter/newnextPC_cmp_eq0001_wg_cy<1>
+    SLICE_X31Y40.CIN     net (fanout=1)        0.000   myCore/myProgramCounter/newnextPC_cmp_eq0001_wg_cy<1>
+    SLICE_X31Y40.COUT    Tbyp                  0.130   myCore/myProgramCounter/newnextPC_cmp_eq0001_wg_cy<3>
+                                                       myCore/myProgramCounter/newnextPC_cmp_eq0001_wg_cy<2>
+                                                       myCore/myProgramCounter/newnextPC_cmp_eq0001_wg_cy<3>
+    SLICE_X31Y41.CIN     net (fanout=1)        0.000   myCore/myProgramCounter/newnextPC_cmp_eq0001_wg_cy<3>
+    SLICE_X31Y41.COUT    Tbyp                  0.130   myCore/myStacks/ImmediatePop<31>
+                                                       myCore/myProgramCounter/newnextPC_cmp_eq0001_wg_cy<4>
+                                                       myCore/myProgramCounter/newnextPC_cmp_eq0001_wg_cy<5>
+    SLICE_X31Y42.CIN     net (fanout=1)        0.000   myCore/myProgramCounter/newnextPC_cmp_eq0001_wg_cy<5>
+    SLICE_X31Y42.COUT    Tbyp                  0.130   myCore/myProgramCounter/newnextPC_cmp_eq0001
+                                                       myCore/myProgramCounter/newnextPC_cmp_eq0001_wg_cy<6>
+                                                       myCore/myProgramCounter/newnextPC_cmp_eq0001_wg_cy<7>
+    SLICE_X21Y41.F4      net (fanout=7)        1.053   myCore/myProgramCounter/newnextPC_cmp_eq0001
+    SLICE_X21Y41.X       Tilo                  0.643   myCore/myProgramCounter/newnextPC_mux0011<2>1141
+                                                       myCore/myProgramCounter/newnextPC_mux0011<2>1141_1
+    SLICE_X14Y34.BX      net (fanout=1)        1.007   myCore/myProgramCounter/newnextPC_mux0011<2>1141
+    SLICE_X14Y34.X       Tbxx                  0.860   myCore/myProgramCounter/N18
+                                                       myCore/myProgramCounter/newnextPC_mux0011<2>11
+    SLICE_X12Y35.G3      net (fanout=2)        0.385   myCore/myProgramCounter/N18
+    SLICE_X12Y35.Y       Tilo                  0.707   N1442
+                                                       myCore/myProgramCounter/newnextPC_mux0011<2>1
+    SLICE_X8Y30.G3       net (fanout=5)        0.666   myCore/myProgramCounter/N01
+    SLICE_X8Y30.Y        Tilo                  0.707   myCore/myProgramCounter/nextPC<18>
+                                                       myCore/myProgramCounter/nextPC_mux0000<10>11
+    SLICE_X6Y24.F3       net (fanout=12)       1.171   myCore/myProgramCounter/N02
+    SLICE_X6Y24.CLK      Tfck                  0.802   myCore/myProgramCounter/nextPC<12>
+                                                       myCore/myProgramCounter/nextPC_mux0000<12>
+                                                       myCore/myProgramCounter/nextPC_12
+    -------------------------------------------------  ---------------------------
+    Total                                     15.721ns (7.303ns logic, 8.418ns route)
+                                                       (46.5% logic, 53.5% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     0.168ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               myCore/myStacks/BufferedInput_19 (FF)
+  Destination:          myCore/myProgramCounter/nextPC_12 (FF)
+  Requirement:          16.000ns
+  Data Path Delay:      15.715ns (Levels of Logic = 10)
+  Clock Path Skew:      -0.117ns (0.567 - 0.684)
+  Source Clock:         Clock rising at 0.000ns
+  Destination Clock:    Clock rising at 16.000ns
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: myCore/myStacks/BufferedInput_19 to myCore/myProgramCounter/nextPC_12
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X39Y33.XQ      Tcko                  0.591   myCore/myStacks/BufferedInput<19>
+                                                       myCore/myStacks/BufferedInput_19
+    SLICE_X38Y43.G2      net (fanout=18)       2.320   myCore/myStacks/BufferedInput<19>
+    SLICE_X38Y43.Y       Tilo                  0.707   myCore/myStacks/Actual<0><0><14>
+                                                       myCore/myStacks/Actual<0>_0_mux0000<19>1
+    SLICE_X32Y43.G3      net (fanout=3)        0.607   myCore/myStacks/Actual<0><0><19>
+    SLICE_X32Y43.Y       Tilo                  0.707   myCore/myStacks/ImmediatePop<22>
+                                                       myCore/myStacks/visible_0_mux0000<19>_SW0
+    SLICE_X32Y43.F3      net (fanout=2)        0.048   myCore/myStacks/N655
+    SLICE_X32Y43.X       Tilo                  0.692   myCore/myStacks/ImmediatePop<22>
+                                                       myCore/myStacks/visible_0_mux0000<19>
+    SLICE_X31Y41.F1      net (fanout=7)        0.717   myCore/First<19>
+    SLICE_X31Y41.COUT    Topcyf                1.195   myCore/myStacks/ImmediatePop<31>
+                                                       myCore/myProgramCounter/newnextPC_cmp_eq0001_wg_lut<4>
+                                                       myCore/myProgramCounter/newnextPC_cmp_eq0001_wg_cy<4>
+                                                       myCore/myProgramCounter/newnextPC_cmp_eq0001_wg_cy<5>
+    SLICE_X31Y42.CIN     net (fanout=1)        0.000   myCore/myProgramCounter/newnextPC_cmp_eq0001_wg_cy<5>
+    SLICE_X31Y42.COUT    Tbyp                  0.130   myCore/myProgramCounter/newnextPC_cmp_eq0001
+                                                       myCore/myProgramCounter/newnextPC_cmp_eq0001_wg_cy<6>
+                                                       myCore/myProgramCounter/newnextPC_cmp_eq0001_wg_cy<7>
+    SLICE_X21Y41.F4      net (fanout=7)        1.053   myCore/myProgramCounter/newnextPC_cmp_eq0001
+    SLICE_X21Y41.X       Tilo                  0.643   myCore/myProgramCounter/newnextPC_mux0011<2>1141
+                                                       myCore/myProgramCounter/newnextPC_mux0011<2>1141_1
+    SLICE_X14Y34.BX      net (fanout=1)        1.007   myCore/myProgramCounter/newnextPC_mux0011<2>1141
+    SLICE_X14Y34.X       Tbxx                  0.860   myCore/myProgramCounter/N18
+                                                       myCore/myProgramCounter/newnextPC_mux0011<2>11
+    SLICE_X12Y35.G3      net (fanout=2)        0.385   myCore/myProgramCounter/N18
+    SLICE_X12Y35.Y       Tilo                  0.707   N1442
+                                                       myCore/myProgramCounter/newnextPC_mux0011<2>1
+    SLICE_X8Y30.G3       net (fanout=5)        0.666   myCore/myProgramCounter/N01
+    SLICE_X8Y30.Y        Tilo                  0.707   myCore/myProgramCounter/nextPC<18>
+                                                       myCore/myProgramCounter/nextPC_mux0000<10>11
+    SLICE_X6Y24.F3       net (fanout=12)       1.171   myCore/myProgramCounter/N02
+    SLICE_X6Y24.CLK      Tfck                  0.802   myCore/myProgramCounter/nextPC<12>
+                                                       myCore/myProgramCounter/nextPC_mux0000<12>
+                                                       myCore/myProgramCounter/nextPC_12
+    -------------------------------------------------  ---------------------------
+    Total                                     15.715ns (7.741ns logic, 7.974ns route)
+                                                       (49.3% logic, 50.7% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     0.206ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               myCore/myStacks/SelectedOp_0_1 (FF)
+  Destination:          myCore/myProgramCounter/nextPC_12 (FF)
+  Requirement:          16.000ns
+  Data Path Delay:      15.624ns (Levels of Logic = 11)
+  Clock Path Skew:      -0.170ns (0.567 - 0.737)
+  Source Clock:         Clock rising at 0.000ns
+  Destination Clock:    Clock rising at 16.000ns
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: myCore/myStacks/SelectedOp_0_1 to myCore/myProgramCounter/nextPC_12
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X36Y39.YQ      Tcko                  0.676   myCore/myStacks/SelectedOp_0_1
+                                                       myCore/myStacks/SelectedOp_0_1
+    SLICE_X33Y39.G3      net (fanout=7)        0.842   myCore/myStacks/SelectedOp_0_1
+    SLICE_X33Y39.Y       Tilo                  0.648   myCore/myStacks/N764
+                                                       myCore/myStacks/visible_0_mux0000<10>11
+    SLICE_X41Y39.F3      net (fanout=23)       0.964   myCore/myStacks/N222
+    SLICE_X41Y39.X       Tilo                  0.643   myCore/myStacks/Stack<1>.StackPtr_2
+                                                       myCore/myStacks/visible_0_mux0000<7>_SW0
+    SLICE_X31Y39.F2      net (fanout=3)        2.265   myCore/myStacks/N754
+    SLICE_X31Y39.COUT    Topcyf                1.195   myCore/myProgramCounter/newnextPC_cmp_eq0001_wg_cy<1>
+                                                       myCore/myProgramCounter/newnextPC_cmp_eq0001_wg_lut<0>
+                                                       myCore/myProgramCounter/newnextPC_cmp_eq0001_wg_cy<0>
+                                                       myCore/myProgramCounter/newnextPC_cmp_eq0001_wg_cy<1>
+    SLICE_X31Y40.CIN     net (fanout=1)        0.000   myCore/myProgramCounter/newnextPC_cmp_eq0001_wg_cy<1>
+    SLICE_X31Y40.COUT    Tbyp                  0.130   myCore/myProgramCounter/newnextPC_cmp_eq0001_wg_cy<3>
+                                                       myCore/myProgramCounter/newnextPC_cmp_eq0001_wg_cy<2>
+                                                       myCore/myProgramCounter/newnextPC_cmp_eq0001_wg_cy<3>
+    SLICE_X31Y41.CIN     net (fanout=1)        0.000   myCore/myProgramCounter/newnextPC_cmp_eq0001_wg_cy<3>
+    SLICE_X31Y41.COUT    Tbyp                  0.130   myCore/myStacks/ImmediatePop<31>
+                                                       myCore/myProgramCounter/newnextPC_cmp_eq0001_wg_cy<4>
+                                                       myCore/myProgramCounter/newnextPC_cmp_eq0001_wg_cy<5>
+    SLICE_X31Y42.CIN     net (fanout=1)        0.000   myCore/myProgramCounter/newnextPC_cmp_eq0001_wg_cy<5>
+    SLICE_X31Y42.COUT    Tbyp                  0.130   myCore/myProgramCounter/newnextPC_cmp_eq0001
+                                                       myCore/myProgramCounter/newnextPC_cmp_eq0001_wg_cy<6>
+                                                       myCore/myProgramCounter/newnextPC_cmp_eq0001_wg_cy<7>
+    SLICE_X21Y41.F4      net (fanout=7)        1.053   myCore/myProgramCounter/newnextPC_cmp_eq0001
+    SLICE_X21Y41.X       Tilo                  0.643   myCore/myProgramCounter/newnextPC_mux0011<2>1141
+                                                       myCore/myProgramCounter/newnextPC_mux0011<2>1141_1
+    SLICE_X14Y34.BX      net (fanout=1)        1.007   myCore/myProgramCounter/newnextPC_mux0011<2>1141
+    SLICE_X14Y34.X       Tbxx                  0.860   myCore/myProgramCounter/N18
+                                                       myCore/myProgramCounter/newnextPC_mux0011<2>11
+    SLICE_X12Y35.G3      net (fanout=2)        0.385   myCore/myProgramCounter/N18
+    SLICE_X12Y35.Y       Tilo                  0.707   N1442
+                                                       myCore/myProgramCounter/newnextPC_mux0011<2>1
+    SLICE_X8Y30.G3       net (fanout=5)        0.666   myCore/myProgramCounter/N01
+    SLICE_X8Y30.Y        Tilo                  0.707   myCore/myProgramCounter/nextPC<18>
+                                                       myCore/myProgramCounter/nextPC_mux0000<10>11
+    SLICE_X6Y24.F3       net (fanout=12)       1.171   myCore/myProgramCounter/N02
+    SLICE_X6Y24.CLK      Tfck                  0.802   myCore/myProgramCounter/nextPC<12>
+                                                       myCore/myProgramCounter/nextPC_mux0000<12>
+                                                       myCore/myProgramCounter/nextPC_12
+    -------------------------------------------------  ---------------------------
+    Total                                     15.624ns (7.271ns logic, 8.353ns route)
+                                                       (46.5% logic, 53.5% route)
+
+--------------------------------------------------------------------------------
+
+Hold Paths: PERIOD analysis for net "mydcm/CLKFX_BUF" derived from
+ NET "mydcm/CLKIN_IBUFG" PERIOD = 20 ns HIGH 40%;
+ divided by 1.25 to 16 nS and duty cycle corrected to HIGH 8 nS 
+
+--------------------------------------------------------------------------------
+
+Paths for end point myCore/myStacks/ImmediateStep_26 (SLICE_X39Y50.BY), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      0.846ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               myCore/myStacks/ImmediatePop_26 (FF)
+  Destination:          myCore/myStacks/ImmediateStep_26 (FF)
+  Requirement:          0.000ns
+  Data Path Delay:      1.002ns (Levels of Logic = 0)
+  Clock Path Skew:      0.156ns (0.425 - 0.269)
+  Source Clock:         Clock rising at 16.000ns
+  Destination Clock:    Clock rising at 16.000ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path: myCore/myStacks/ImmediatePop_26 to myCore/myStacks/ImmediateStep_26
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X37Y51.YQ      Tcko                  0.464   myCore/myStacks/ImmediatePop<26>
+                                                       myCore/myStacks/ImmediatePop_26
+    SLICE_X39Y50.BY      net (fanout=4)        0.398   myCore/myStacks/ImmediatePop<26>
+    SLICE_X39Y50.CLK     Tckdi       (-Th)    -0.140   myCore/myStacks/ImmediateStep<26>
+                                                       myCore/myStacks/ImmediateStep_26
+    -------------------------------------------------  ---------------------------
+    Total                                      1.002ns (0.604ns logic, 0.398ns route)
+                                                       (60.3% logic, 39.7% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point oneUART/sfifo/BU2/U0/grf.rf/gl0.rd/rpntr/count_d1_8 (SLICE_X59Y41.BX), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      0.915ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               oneUART/sfifo/BU2/U0/grf.rf/gl0.rd/rpntr/count_8 (FF)
+  Destination:          oneUART/sfifo/BU2/U0/grf.rf/gl0.rd/rpntr/count_d1_8 (FF)
+  Requirement:          0.000ns
+  Data Path Delay:      0.979ns (Levels of Logic = 0)
+  Clock Path Skew:      0.064ns (0.366 - 0.302)
+  Source Clock:         Clock rising at 16.000ns
+  Destination Clock:    Clock rising at 16.000ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path: oneUART/sfifo/BU2/U0/grf.rf/gl0.rd/rpntr/count_8 to oneUART/sfifo/BU2/U0/grf.rf/gl0.rd/rpntr/count_d1_8
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X57Y41.XQ      Tcko                  0.473   oneUART/sfifo/BU2/U0/grf.rf/gl0.rd/rpntr/count<8>
+                                                       oneUART/sfifo/BU2/U0/grf.rf/gl0.rd/rpntr/count_8
+    SLICE_X59Y41.BX      net (fanout=3)        0.417   oneUART/sfifo/BU2/U0/grf.rf/gl0.rd/rpntr/count<8>
+    SLICE_X59Y41.CLK     Tckdi       (-Th)    -0.089   oneUART/sfifo/BU2/U0/grf.rf/gl0.rd/rpntr/count_d1<8>
+                                                       oneUART/sfifo/BU2/U0/grf.rf/gl0.rd/rpntr/count_d1_8
+    -------------------------------------------------  ---------------------------
+    Total                                      0.979ns (0.562ns logic, 0.417ns route)
+                                                       (57.4% logic, 42.6% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point oneUART/sfifo/BU2/U0/grf.rf/gl0.rd/rpntr/count_d1_9 (SLICE_X59Y41.BY), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      0.921ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               oneUART/sfifo/BU2/U0/grf.rf/gl0.rd/rpntr/count_9 (FF)
+  Destination:          oneUART/sfifo/BU2/U0/grf.rf/gl0.rd/rpntr/count_d1_9 (FF)
+  Requirement:          0.000ns
+  Data Path Delay:      0.985ns (Levels of Logic = 0)
+  Clock Path Skew:      0.064ns (0.366 - 0.302)
+  Source Clock:         Clock rising at 16.000ns
+  Destination Clock:    Clock rising at 16.000ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path: oneUART/sfifo/BU2/U0/grf.rf/gl0.rd/rpntr/count_9 to oneUART/sfifo/BU2/U0/grf.rf/gl0.rd/rpntr/count_d1_9
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X57Y41.YQ      Tcko                  0.464   oneUART/sfifo/BU2/U0/grf.rf/gl0.rd/rpntr/count<8>
+                                                       oneUART/sfifo/BU2/U0/grf.rf/gl0.rd/rpntr/count_9
+    SLICE_X59Y41.BY      net (fanout=3)        0.381   oneUART/sfifo/BU2/U0/grf.rf/gl0.rd/rpntr/count<9>
+    SLICE_X59Y41.CLK     Tckdi       (-Th)    -0.140   oneUART/sfifo/BU2/U0/grf.rf/gl0.rd/rpntr/count_d1<8>
+                                                       oneUART/sfifo/BU2/U0/grf.rf/gl0.rd/rpntr/count_d1_9
+    -------------------------------------------------  ---------------------------
+    Total                                      0.985ns (0.604ns logic, 0.381ns route)
+                                                       (61.3% logic, 38.7% route)
+
+--------------------------------------------------------------------------------
+
+Component Switching Limit Checks: PERIOD analysis for net "mydcm/CLKFX_BUF" derived from
+ NET "mydcm/CLKIN_IBUFG" PERIOD = 20 ns HIGH 40%;
+ divided by 1.25 to 16 nS and duty cycle corrected to HIGH 8 nS 
+
+--------------------------------------------------------------------------------
+Slack: 10.000ns (period - (min low pulse limit / (low pulse / period)))
+  Period: 16.000ns
+  Low pulse: 8.000ns
+  Low pulse limit: 3.000ns (Tdcmpw_CLKIN_50_100)
+  Physical resource: myRAM/infrastructure_top0/clk_dcm0/DCM_INST1/DCM_SP/CLKIN
+  Logical resource: myRAM/infrastructure_top0/clk_dcm0/DCM_INST1/DCM_SP/CLKIN
+  Location pin: DCM_X1Y0.CLKIN
+  Clock network: Clock
+--------------------------------------------------------------------------------
+Slack: 10.000ns (period - (min high pulse limit / (high pulse / period)))
+  Period: 16.000ns
+  High pulse: 8.000ns
+  High pulse limit: 3.000ns (Tdcmpw_CLKIN_50_100)
+  Physical resource: myRAM/infrastructure_top0/clk_dcm0/DCM_INST1/DCM_SP/CLKIN
+  Logical resource: myRAM/infrastructure_top0/clk_dcm0/DCM_INST1/DCM_SP/CLKIN
+  Location pin: DCM_X1Y0.CLKIN
+  Clock network: Clock
+--------------------------------------------------------------------------------
+Slack: 12.001ns (period - min period limit)
+  Period: 16.000ns
+  Min period limit: 3.999ns (250.063MHz) (Tdcmpc)
+  Physical resource: myRAM/infrastructure_top0/clk_dcm0/DCM_INST1/DCM_SP/CLKIN
+  Logical resource: myRAM/infrastructure_top0/clk_dcm0/DCM_INST1/DCM_SP/CLKIN
+  Location pin: DCM_X1Y0.CLKIN
+  Clock network: Clock
+--------------------------------------------------------------------------------
+
+================================================================================
+Timing constraint: PERIOD analysis for net 
+"myRAM/infrastructure_top0/clk_dcm0/clk0dcm" derived from  PERIOD analysis for 
+net "mydcm/CLKFX_BUF" derived from NET "mydcm/CLKIN_IBUFG" PERIOD = 20 ns HIGH 
+40%; divided by 1.25 to 16 nS and duty cycle corrected to HIGH 8 nS   duty 
+cycle corrected to 16 nS  HIGH 8 nS  
+For more information, see Period Analysis in the Timing Closure User Guide (UG612).
+
+ 2298 paths analyzed, 989 endpoints analyzed, 0 failing endpoints
+ 0 timing errors detected. (0 setup errors, 0 hold errors, 0 component switching limit errors)
+ Minimum period is  15.248ns.
+--------------------------------------------------------------------------------
+
+Paths for end point myRAM/top0/controller0/rdburst_end_1 (SLICE_X1Y21.SR), 2 paths
+--------------------------------------------------------------------------------
+Slack (setup path):     0.188ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               burst_done (FF)
+  Destination:          myRAM/top0/controller0/rdburst_end_1 (FF)
+  Requirement:          4.000ns
+  Data Path Delay:      3.561ns (Levels of Logic = 1)
+  Clock Path Skew:      -0.251ns (1.570 - 1.821)
+  Source Clock:         Clock90 rising at 4.000ns
+  Destination Clock:    myRAM/clk_0 falling at 8.000ns
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: burst_done to myRAM/top0/controller0/rdburst_end_1
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X2Y26.YQ       Tcko                  0.676   burst_done
+                                                       burst_done
+    SLICE_X0Y20.G1       net (fanout=1)        0.710   burst_done
+    SLICE_X0Y20.Y        Tilo                  0.707   myRAM/top0/controller0/rst_dqs_div_r
+                                                       myRAM/top0/controller0/rdburst_end_1_or00001
+    SLICE_X1Y21.SR       net (fanout=1)        0.601   myRAM/top0/controller0/rdburst_end_1_or0000
+    SLICE_X1Y21.CLK      Tsrck                 0.867   myRAM/top0/controller0/rdburst_end_1
+                                                       myRAM/top0/controller0/rdburst_end_1
+    -------------------------------------------------  ---------------------------
+    Total                                      3.561ns (2.250ns logic, 1.311ns route)
+                                                       (63.2% logic, 36.8% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     10.753ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               myRAM/top0/controller0/rst180_r (FF)
+  Destination:          myRAM/top0/controller0/rdburst_end_1 (FF)
+  Requirement:          16.000ns
+  Data Path Delay:      5.324ns (Levels of Logic = 1)
+  Clock Path Skew:      0.077ns (0.346 - 0.269)
+  Source Clock:         myRAM/clk_0 falling at 8.000ns
+  Destination Clock:    myRAM/clk_0 falling at 24.000ns
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: myRAM/top0/controller0/rst180_r to myRAM/top0/controller0/rdburst_end_1
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X10Y21.YQ      Tcko                  0.676   myRAM/top0/controller0/rst180_r
+                                                       myRAM/top0/controller0/rst180_r
+    SLICE_X0Y20.G4       net (fanout=93)       2.473   myRAM/top0/controller0/rst180_r
+    SLICE_X0Y20.Y        Tilo                  0.707   myRAM/top0/controller0/rst_dqs_div_r
+                                                       myRAM/top0/controller0/rdburst_end_1_or00001
+    SLICE_X1Y21.SR       net (fanout=1)        0.601   myRAM/top0/controller0/rdburst_end_1_or0000
+    SLICE_X1Y21.CLK      Tsrck                 0.867   myRAM/top0/controller0/rdburst_end_1
+                                                       myRAM/top0/controller0/rdburst_end_1
+    -------------------------------------------------  ---------------------------
+    Total                                      5.324ns (2.250ns logic, 3.074ns route)
+                                                       (42.3% logic, 57.7% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point myRAM/top0/controller0/INIT_PRE_COUNT_4 (SLICE_X5Y1.SR), 3 paths
+--------------------------------------------------------------------------------
+Slack (setup path):     0.496ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               user_command_register_1 (FF)
+  Destination:          myRAM/top0/controller0/INIT_PRE_COUNT_4 (FF)
+  Requirement:          8.000ns
+  Data Path Delay:      7.293ns (Levels of Logic = 1)
+  Clock Path Skew:      -0.211ns (0.859 - 1.070)
+  Source Clock:         Clock rising at 0.000ns
+  Destination Clock:    myRAM/clk_0 falling at 8.000ns
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: user_command_register_1 to myRAM/top0/controller0/INIT_PRE_COUNT_4
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X1Y34.XQ       Tcko                  0.591   user_command_register<1>
+                                                       user_command_register_1
+    SLICE_X6Y11.G2       net (fanout=5)        3.425   user_command_register<1>
+    SLICE_X6Y11.Y        Tilo                  0.707   myCore/myStacks/myALU/Mmult_product_mult0000_116
+                                                       myRAM/top0/controller0/INIT_PRE_COUNT_or00001
+    SLICE_X5Y1.SR        net (fanout=5)        1.703   myRAM/top0/controller0/INIT_PRE_COUNT_or0000
+    SLICE_X5Y1.CLK       Tsrck                 0.867   myRAM/top0/controller0/INIT_PRE_COUNT<4>
+                                                       myRAM/top0/controller0/INIT_PRE_COUNT_4
+    -------------------------------------------------  ---------------------------
+    Total                                      7.293ns (2.165ns logic, 5.128ns route)
+                                                       (29.7% logic, 70.3% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     1.484ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               user_command_register_2 (FF)
+  Destination:          myRAM/top0/controller0/INIT_PRE_COUNT_4 (FF)
+  Requirement:          8.000ns
+  Data Path Delay:      6.280ns (Levels of Logic = 1)
+  Clock Path Skew:      -0.236ns (0.859 - 1.095)
+  Source Clock:         Clock rising at 0.000ns
+  Destination Clock:    myRAM/clk_0 falling at 8.000ns
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: user_command_register_2 to myRAM/top0/controller0/INIT_PRE_COUNT_4
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X0Y37.XQ       Tcko                  0.631   user_command_register<2>
+                                                       user_command_register_2
+    SLICE_X6Y11.G3       net (fanout=5)        2.372   user_command_register<2>
+    SLICE_X6Y11.Y        Tilo                  0.707   myCore/myStacks/myALU/Mmult_product_mult0000_116
+                                                       myRAM/top0/controller0/INIT_PRE_COUNT_or00001
+    SLICE_X5Y1.SR        net (fanout=5)        1.703   myRAM/top0/controller0/INIT_PRE_COUNT_or0000
+    SLICE_X5Y1.CLK       Tsrck                 0.867   myRAM/top0/controller0/INIT_PRE_COUNT<4>
+                                                       myRAM/top0/controller0/INIT_PRE_COUNT_4
+    -------------------------------------------------  ---------------------------
+    Total                                      6.280ns (2.205ns logic, 4.075ns route)
+                                                       (35.1% logic, 64.9% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     10.642ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               myRAM/top0/controller0/rst180_r (FF)
+  Destination:          myRAM/top0/controller0/INIT_PRE_COUNT_4 (FF)
+  Requirement:          16.000ns
+  Data Path Delay:      5.344ns (Levels of Logic = 1)
+  Clock Path Skew:      -0.014ns (0.255 - 0.269)
+  Source Clock:         myRAM/clk_0 falling at 8.000ns
+  Destination Clock:    myRAM/clk_0 falling at 24.000ns
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: myRAM/top0/controller0/rst180_r to myRAM/top0/controller0/INIT_PRE_COUNT_4
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X10Y21.YQ      Tcko                  0.676   myRAM/top0/controller0/rst180_r
+                                                       myRAM/top0/controller0/rst180_r
+    SLICE_X6Y11.G1       net (fanout=93)       1.391   myRAM/top0/controller0/rst180_r
+    SLICE_X6Y11.Y        Tilo                  0.707   myCore/myStacks/myALU/Mmult_product_mult0000_116
+                                                       myRAM/top0/controller0/INIT_PRE_COUNT_or00001
+    SLICE_X5Y1.SR        net (fanout=5)        1.703   myRAM/top0/controller0/INIT_PRE_COUNT_or0000
+    SLICE_X5Y1.CLK       Tsrck                 0.867   myRAM/top0/controller0/INIT_PRE_COUNT<4>
+                                                       myRAM/top0/controller0/INIT_PRE_COUNT_4
+    -------------------------------------------------  ---------------------------
+    Total                                      5.344ns (2.250ns logic, 3.094ns route)
+                                                       (42.1% logic, 57.9% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point myRAM/top0/controller0/INIT_PRE_COUNT_0 (SLICE_X5Y1.SR), 3 paths
+--------------------------------------------------------------------------------
+Slack (setup path):     0.496ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               user_command_register_1 (FF)
+  Destination:          myRAM/top0/controller0/INIT_PRE_COUNT_0 (FF)
+  Requirement:          8.000ns
+  Data Path Delay:      7.293ns (Levels of Logic = 1)
+  Clock Path Skew:      -0.211ns (0.859 - 1.070)
+  Source Clock:         Clock rising at 0.000ns
+  Destination Clock:    myRAM/clk_0 falling at 8.000ns
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: user_command_register_1 to myRAM/top0/controller0/INIT_PRE_COUNT_0
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X1Y34.XQ       Tcko                  0.591   user_command_register<1>
+                                                       user_command_register_1
+    SLICE_X6Y11.G2       net (fanout=5)        3.425   user_command_register<1>
+    SLICE_X6Y11.Y        Tilo                  0.707   myCore/myStacks/myALU/Mmult_product_mult0000_116
+                                                       myRAM/top0/controller0/INIT_PRE_COUNT_or00001
+    SLICE_X5Y1.SR        net (fanout=5)        1.703   myRAM/top0/controller0/INIT_PRE_COUNT_or0000
+    SLICE_X5Y1.CLK       Tsrck                 0.867   myRAM/top0/controller0/INIT_PRE_COUNT<4>
+                                                       myRAM/top0/controller0/INIT_PRE_COUNT_0
+    -------------------------------------------------  ---------------------------
+    Total                                      7.293ns (2.165ns logic, 5.128ns route)
+                                                       (29.7% logic, 70.3% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     1.484ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               user_command_register_2 (FF)
+  Destination:          myRAM/top0/controller0/INIT_PRE_COUNT_0 (FF)
+  Requirement:          8.000ns
+  Data Path Delay:      6.280ns (Levels of Logic = 1)
+  Clock Path Skew:      -0.236ns (0.859 - 1.095)
+  Source Clock:         Clock rising at 0.000ns
+  Destination Clock:    myRAM/clk_0 falling at 8.000ns
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: user_command_register_2 to myRAM/top0/controller0/INIT_PRE_COUNT_0
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X0Y37.XQ       Tcko                  0.631   user_command_register<2>
+                                                       user_command_register_2
+    SLICE_X6Y11.G3       net (fanout=5)        2.372   user_command_register<2>
+    SLICE_X6Y11.Y        Tilo                  0.707   myCore/myStacks/myALU/Mmult_product_mult0000_116
+                                                       myRAM/top0/controller0/INIT_PRE_COUNT_or00001
+    SLICE_X5Y1.SR        net (fanout=5)        1.703   myRAM/top0/controller0/INIT_PRE_COUNT_or0000
+    SLICE_X5Y1.CLK       Tsrck                 0.867   myRAM/top0/controller0/INIT_PRE_COUNT<4>
+                                                       myRAM/top0/controller0/INIT_PRE_COUNT_0
+    -------------------------------------------------  ---------------------------
+    Total                                      6.280ns (2.205ns logic, 4.075ns route)
+                                                       (35.1% logic, 64.9% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     10.642ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               myRAM/top0/controller0/rst180_r (FF)
+  Destination:          myRAM/top0/controller0/INIT_PRE_COUNT_0 (FF)
+  Requirement:          16.000ns
+  Data Path Delay:      5.344ns (Levels of Logic = 1)
+  Clock Path Skew:      -0.014ns (0.255 - 0.269)
+  Source Clock:         myRAM/clk_0 falling at 8.000ns
+  Destination Clock:    myRAM/clk_0 falling at 24.000ns
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: myRAM/top0/controller0/rst180_r to myRAM/top0/controller0/INIT_PRE_COUNT_0
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X10Y21.YQ      Tcko                  0.676   myRAM/top0/controller0/rst180_r
+                                                       myRAM/top0/controller0/rst180_r
+    SLICE_X6Y11.G1       net (fanout=93)       1.391   myRAM/top0/controller0/rst180_r
+    SLICE_X6Y11.Y        Tilo                  0.707   myCore/myStacks/myALU/Mmult_product_mult0000_116
+                                                       myRAM/top0/controller0/INIT_PRE_COUNT_or00001
+    SLICE_X5Y1.SR        net (fanout=5)        1.703   myRAM/top0/controller0/INIT_PRE_COUNT_or0000
+    SLICE_X5Y1.CLK       Tsrck                 0.867   myRAM/top0/controller0/INIT_PRE_COUNT<4>
+                                                       myRAM/top0/controller0/INIT_PRE_COUNT_0
+    -------------------------------------------------  ---------------------------
+    Total                                      5.344ns (2.250ns logic, 3.094ns route)
+                                                       (42.1% logic, 57.9% route)
+
+--------------------------------------------------------------------------------
+
+Hold Paths: PERIOD analysis for net "myRAM/infrastructure_top0/clk_dcm0/clk0dcm" derived from
+ PERIOD analysis for net "mydcm/CLKFX_BUF" derived from NET "mydcm/CLKIN_IBUFG" PERIOD = 20 ns HIGH 40%; divided by 1.25 to 16 nS and duty cycle corrected to HIGH 8 nS 
+ duty cycle corrected to 16 nS  HIGH 8 nS 
+
+--------------------------------------------------------------------------------
+
+Paths for end point myRAM/top0/iobs0/datapath_iobs0/s3_dqs_iob0/U1/N (K2.T1), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      0.658ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               myRAM/top0/controller0/DQS_enable2 (FF)
+  Destination:          myRAM/top0/iobs0/datapath_iobs0/s3_dqs_iob0/U1/N (FF)
+  Requirement:          0.000ns
+  Data Path Delay:      0.722ns (Levels of Logic = 0)
+  Clock Path Skew:      0.064ns (0.316 - 0.252)
+  Source Clock:         myRAM/clk_0 rising at 16.000ns
+  Destination Clock:    myRAM/clk_0 rising at 16.000ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path: myRAM/top0/controller0/DQS_enable2 to myRAM/top0/iobs0/datapath_iobs0/s3_dqs_iob0/U1/N
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X0Y56.XQ       Tcko                  0.505   myRAM/top0/controller0/DQS_enable2
+                                                       myRAM/top0/controller0/DQS_enable2
+    K2.T1                net (fanout=4)        0.382   myRAM/top0/controller0/DQS_enable2
+    K2.OTCLK1            Tiockt      (-Th)     0.165   SD_LDQS_N
+                                                       myRAM/top0/iobs0/datapath_iobs0/s3_dqs_iob0/U1/N
+    -------------------------------------------------  ---------------------------
+    Total                                      0.722ns (0.340ns logic, 0.382ns route)
+                                                       (47.1% logic, 52.9% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point myRAM/top0/iobs0/datapath_iobs0/s3_dqs_iob0/U2/ODDR2/N/FF0 (K2.O1), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      0.811ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               myRAM/top0/controller0/DQS_reset2_clk0 (FF)
+  Destination:          myRAM/top0/iobs0/datapath_iobs0/s3_dqs_iob0/U2/ODDR2/N/FF0 (FF)
+  Requirement:          0.000ns
+  Data Path Delay:      0.875ns (Levels of Logic = 0)
+  Clock Path Skew:      0.064ns (0.316 - 0.252)
+  Source Clock:         myRAM/clk_0 rising at 16.000ns
+  Destination Clock:    myRAM/clk_0 rising at 16.000ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path: myRAM/top0/controller0/DQS_reset2_clk0 to myRAM/top0/iobs0/datapath_iobs0/s3_dqs_iob0/U2/ODDR2/N/FF0
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X0Y56.YQ       Tcko                  0.541   myRAM/top0/controller0/DQS_enable2
+                                                       myRAM/top0/controller0/DQS_reset2_clk0
+    K2.O1                net (fanout=4)        0.346   myRAM/top0/controller0/DQS_reset2_clk0
+    K2.OTCLK1            Tiocko      (-Th)     0.012   SD_LDQS_N
+                                                       myRAM/top0/iobs0/datapath_iobs0/s3_dqs_iob0/U2/ODDR2/N/FF0
+    -------------------------------------------------  ---------------------------
+    Total                                      0.875ns (0.529ns logic, 0.346ns route)
+                                                       (60.5% logic, 39.5% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point myRAM/top0/iobs0/datapath_iobs0/s3_dqs_iob0/U1 (K3.T1), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      0.853ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               myRAM/top0/controller0/DQS_enable2 (FF)
+  Destination:          myRAM/top0/iobs0/datapath_iobs0/s3_dqs_iob0/U1 (FF)
+  Requirement:          0.000ns
+  Data Path Delay:      0.917ns (Levels of Logic = 0)
+  Clock Path Skew:      0.064ns (0.316 - 0.252)
+  Source Clock:         myRAM/clk_0 rising at 16.000ns
+  Destination Clock:    myRAM/clk_0 rising at 16.000ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path: myRAM/top0/controller0/DQS_enable2 to myRAM/top0/iobs0/datapath_iobs0/s3_dqs_iob0/U1
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X0Y56.XQ       Tcko                  0.505   myRAM/top0/controller0/DQS_enable2
+                                                       myRAM/top0/controller0/DQS_enable2
+    K3.T1                net (fanout=4)        0.577   myRAM/top0/controller0/DQS_enable2
+    K3.OTCLK1            Tiockt      (-Th)     0.165   SD_LDQS_P
+                                                       myRAM/top0/iobs0/datapath_iobs0/s3_dqs_iob0/U1
+    -------------------------------------------------  ---------------------------
+    Total                                      0.917ns (0.340ns logic, 0.577ns route)
+                                                       (37.1% logic, 62.9% route)
+
+--------------------------------------------------------------------------------
+
+Component Switching Limit Checks: PERIOD analysis for net "myRAM/infrastructure_top0/clk_dcm0/clk0dcm" derived from
+ PERIOD analysis for net "mydcm/CLKFX_BUF" derived from NET "mydcm/CLKIN_IBUFG" PERIOD = 20 ns HIGH 40%; divided by 1.25 to 16 nS and duty cycle corrected to HIGH 8 nS 
+ duty cycle corrected to 16 nS  HIGH 8 nS 
+
+--------------------------------------------------------------------------------
+Slack: 12.001ns (period - min period limit)
+  Period: 16.000ns
+  Min period limit: 3.999ns (250.063MHz) (Tdcmpco)
+  Physical resource: myRAM/infrastructure_top0/clk_dcm0/DCM_INST1/DCM_SP/CLK0
+  Logical resource: myRAM/infrastructure_top0/clk_dcm0/DCM_INST1/DCM_SP/CLK0
+  Location pin: DCM_X1Y0.CLK0
+  Clock network: myRAM/infrastructure_top0/clk_dcm0/clk0dcm
+--------------------------------------------------------------------------------
+Slack: 14.398ns (period - (min low pulse limit / (low pulse / period)))
+  Period: 16.000ns
+  Low pulse: 8.000ns
+  Low pulse limit: 0.801ns (Tcl)
+  Physical resource: myRAM/top0/iobs0/controller_iobs0/ddr_cke_int/CLK
+  Logical resource: myRAM/top0/iobs0/controller_iobs0/iob_cke1/CK
+  Location pin: SLICE_X0Y44.CLK
+  Clock network: myRAM/clk_0
+--------------------------------------------------------------------------------
+Slack: 14.398ns (period - (min high pulse limit / (high pulse / period)))
+  Period: 16.000ns
+  High pulse: 8.000ns
+  High pulse limit: 0.801ns (Tch)
+  Physical resource: myRAM/top0/iobs0/controller_iobs0/ddr_cke_int/CLK
+  Logical resource: myRAM/top0/iobs0/controller_iobs0/iob_cke1/CK
+  Location pin: SLICE_X0Y44.CLK
+  Clock network: myRAM/clk_0
+--------------------------------------------------------------------------------
+
+================================================================================
+Timing constraint: PERIOD analysis for net 
+"myRAM/infrastructure_top0/clk_dcm0/clk90dcm" derived from  PERIOD analysis for 
+net "mydcm/CLKFX_BUF" derived from NET "mydcm/CLKIN_IBUFG" PERIOD = 20 ns HIGH 
+40%; divided by 1.25 to 16 nS and duty cycle corrected to HIGH 8 nS   duty 
+cycle corrected to 16 nS  HIGH 8 nS  
+For more information, see Period Analysis in the Timing Closure User Guide (UG612).
+
+ 679 paths analyzed, 404 endpoints analyzed, 0 failing endpoints
+ 0 timing errors detected. (0 setup errors, 0 hold errors, 0 component switching limit errors)
+ Minimum period is  12.736ns.
+--------------------------------------------------------------------------------
+
+Paths for end point user_data_mask_3 (SLICE_X4Y93.F3), 1 path
+--------------------------------------------------------------------------------
+Slack (setup path):     0.816ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               mymask_3 (FF)
+  Destination:          user_data_mask_3 (FF)
+  Requirement:          4.000ns
+  Data Path Delay:      2.919ns (Levels of Logic = 1)
+  Clock Path Skew:      -0.265ns (0.822 - 1.087)
+  Source Clock:         Clock rising at 0.000ns
+  Destination Clock:    Clock90 rising at 4.000ns
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: mymask_3 to user_data_mask_3
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X1Y79.XQ       Tcko                  0.591   mymask<3>
+                                                       mymask_3
+    SLICE_X4Y93.F3       net (fanout=2)        1.526   mymask<3>
+    SLICE_X4Y93.CLK      Tfck                  0.802   user_data_mask<3>
+                                                       user_data_mask_mux0001<3>1
+                                                       user_data_mask_3
+    -------------------------------------------------  ---------------------------
+    Total                                      2.919ns (1.393ns logic, 1.526ns route)
+                                                       (47.7% logic, 52.3% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point myRAM/top0/data_path0/data_write0/Mshreg_write_data4_16/SRL16E (SLICE_X12Y66.BY), 1 path
+--------------------------------------------------------------------------------
+Slack (setup path):     1.083ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               user_input_data_16 (FF)
+  Destination:          myRAM/top0/data_path0/data_write0/Mshreg_write_data4_16/SRL16E (FF)
+  Requirement:          4.000ns
+  Data Path Delay:      2.592ns (Levels of Logic = 1)
+  Clock Path Skew:      -0.325ns (0.807 - 1.132)
+  Source Clock:         Clock rising at 0.000ns
+  Destination Clock:    Clock90 rising at 4.000ns
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: user_input_data_16 to myRAM/top0/data_path0/data_write0/Mshreg_write_data4_16/SRL16E
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X20Y73.YQ      Tcko                  0.676   user_input_data<22>
+                                                       user_input_data_16
+    SLICE_X12Y66.BY      net (fanout=1)        1.741   user_input_data<16>
+    SLICE_X12Y66.CLK     Tds                   0.175   myRAM/top0/data_path0/data_write0/write_data4<23>
+                                                       myRAM/top0/data_path0/data_write0/Mshreg_write_data4_16/SRL16E
+    -------------------------------------------------  ---------------------------
+    Total                                      2.592ns (0.851ns logic, 1.741ns route)
+                                                       (32.8% logic, 67.2% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point user_data_mask_0 (SLICE_X1Y44.G3), 1 path
+--------------------------------------------------------------------------------
+Slack (setup path):     1.135ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               mymask_0 (FF)
+  Destination:          user_data_mask_0 (FF)
+  Requirement:          4.000ns
+  Data Path Delay:      2.700ns (Levels of Logic = 1)
+  Clock Path Skew:      -0.165ns (0.870 - 1.035)
+  Source Clock:         Clock rising at 0.000ns
+  Destination Clock:    Clock90 rising at 4.000ns
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: mymask_0 to user_data_mask_0
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X0Y64.XQ       Tcko                  0.631   mymask<0>
+                                                       mymask_0
+    SLICE_X1Y44.G3       net (fanout=2)        1.342   mymask<0>
+    SLICE_X1Y44.CLK      Tgck                  0.727   user_data_mask<0>
+                                                       user_data_mask_mux0001<0>1
+                                                       user_data_mask_0
+    -------------------------------------------------  ---------------------------
+    Total                                      2.700ns (1.358ns logic, 1.342ns route)
+                                                       (50.3% logic, 49.7% route)
+
+--------------------------------------------------------------------------------
+
+Hold Paths: PERIOD analysis for net "myRAM/infrastructure_top0/clk_dcm0/clk90dcm" derived from
+ PERIOD analysis for net "mydcm/CLKFX_BUF" derived from NET "mydcm/CLKIN_IBUFG" PERIOD = 20 ns HIGH 40%; divided by 1.25 to 16 nS and duty cycle corrected to HIGH 8 nS 
+ duty cycle corrected to 16 nS  HIGH 8 nS 
+
+--------------------------------------------------------------------------------
+
+Paths for end point myRAM/top0/data_path0/data_write0/Mshreg_write_data_mask_1/SRL16E (SLICE_X0Y93.BX), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      0.875ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               user_data_mask_1 (FF)
+  Destination:          myRAM/top0/data_path0/data_write0/Mshreg_write_data_mask_1/SRL16E (FF)
+  Requirement:          0.000ns
+  Data Path Delay:      0.882ns (Levels of Logic = 1)
+  Clock Path Skew:      0.007ns (0.041 - 0.034)
+  Source Clock:         Clock90 rising at 20.000ns
+  Destination Clock:    Clock90 rising at 20.000ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path: user_data_mask_1 to myRAM/top0/data_path0/data_write0/Mshreg_write_data_mask_1/SRL16E
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X1Y93.YQ       Tcko                  0.464   user_data_mask<1>
+                                                       user_data_mask_1
+    SLICE_X0Y93.BX       net (fanout=1)        0.564   user_data_mask<1>
+    SLICE_X0Y93.CLK      Tdh         (-Th)     0.146   myRAM/top0/data_mask_f<1>
+                                                       myRAM/top0/data_path0/data_write0/Mshreg_write_data_mask_1/SRL16E
+    -------------------------------------------------  ---------------------------
+    Total                                      0.882ns (0.318ns logic, 0.564ns route)
+                                                       (36.1% logic, 63.9% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point myRAM/top0/data_path0/data_read0/first_sdr_data_23 (SLICE_X11Y76.BX), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      0.889ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               myRAM/top0/data_path0/data_read0/fifo_00_data_out_r_7 (FF)
+  Destination:          myRAM/top0/data_path0/data_read0/first_sdr_data_23 (FF)
+  Requirement:          0.000ns
+  Data Path Delay:      0.894ns (Levels of Logic = 0)
+  Clock Path Skew:      0.005ns (0.085 - 0.080)
+  Source Clock:         Clock90 rising at 20.000ns
+  Destination Clock:    Clock90 rising at 20.000ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path: myRAM/top0/data_path0/data_read0/fifo_00_data_out_r_7 to myRAM/top0/data_path0/data_read0/first_sdr_data_23
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X11Y75.YQ      Tcko                  0.464   myRAM/top0/data_path0/data_read0/fifo_00_data_out_r<7>
+                                                       myRAM/top0/data_path0/data_read0/fifo_00_data_out_r_7
+    SLICE_X11Y76.BX      net (fanout=1)        0.341   myRAM/top0/data_path0/data_read0/fifo_00_data_out_r<7>
+    SLICE_X11Y76.CLK     Tckdi       (-Th)    -0.089   user_output_data<23>
+                                                       myRAM/top0/data_path0/data_read0/first_sdr_data_23
+    -------------------------------------------------  ---------------------------
+    Total                                      0.894ns (0.553ns logic, 0.341ns route)
+                                                       (61.9% logic, 38.1% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point myRAM/top0/data_path0/data_read0/first_sdr_data_20 (SLICE_X7Y74.BX), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      0.900ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               myRAM/top0/data_path0/data_read0/fifo_00_data_out_r_4 (FF)
+  Destination:          myRAM/top0/data_path0/data_read0/first_sdr_data_20 (FF)
+  Requirement:          0.000ns
+  Data Path Delay:      0.903ns (Levels of Logic = 0)
+  Clock Path Skew:      0.003ns (0.065 - 0.062)
+  Source Clock:         Clock90 rising at 20.000ns
+  Destination Clock:    Clock90 rising at 20.000ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path: myRAM/top0/data_path0/data_read0/fifo_00_data_out_r_4 to myRAM/top0/data_path0/data_read0/first_sdr_data_20
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X7Y72.XQ       Tcko                  0.473   myRAM/top0/data_path0/data_read0/fifo_00_data_out_r<4>
+                                                       myRAM/top0/data_path0/data_read0/fifo_00_data_out_r_4
+    SLICE_X7Y74.BX       net (fanout=1)        0.341   myRAM/top0/data_path0/data_read0/fifo_00_data_out_r<4>
+    SLICE_X7Y74.CLK      Tckdi       (-Th)    -0.089   user_output_data<20>
+                                                       myRAM/top0/data_path0/data_read0/first_sdr_data_20
+    -------------------------------------------------  ---------------------------
+    Total                                      0.903ns (0.562ns logic, 0.341ns route)
+                                                       (62.2% logic, 37.8% route)
+
+--------------------------------------------------------------------------------
+
+Component Switching Limit Checks: PERIOD analysis for net "myRAM/infrastructure_top0/clk_dcm0/clk90dcm" derived from
+ PERIOD analysis for net "mydcm/CLKFX_BUF" derived from NET "mydcm/CLKIN_IBUFG" PERIOD = 20 ns HIGH 40%; divided by 1.25 to 16 nS and duty cycle corrected to HIGH 8 nS 
+ duty cycle corrected to 16 nS  HIGH 8 nS 
+
+--------------------------------------------------------------------------------
+Slack: 12.001ns (period - min period limit)
+  Period: 16.000ns
+  Min period limit: 3.999ns (250.063MHz) (Tdcmpco)
+  Physical resource: myRAM/infrastructure_top0/clk_dcm0/DCM_INST1/DCM_SP/CLK90
+  Logical resource: myRAM/infrastructure_top0/clk_dcm0/DCM_INST1/DCM_SP/CLK90
+  Location pin: DCM_X1Y0.CLK90
+  Clock network: myRAM/infrastructure_top0/clk_dcm0/clk90dcm
+--------------------------------------------------------------------------------
+Slack: 14.398ns (period - (min low pulse limit / (low pulse / period)))
+  Period: 16.000ns
+  Low pulse: 8.000ns
+  Low pulse limit: 0.801ns (Tcl)
+  Physical resource: myRAM/top0/data_path0/fifo1_rd_addr<0>/CLK
+  Logical resource: myRAM/top0/data_path0/data_read0/fifo0_rd_addr_inst/bit0/CK
+  Location pin: SLICE_X2Y94.CLK
+  Clock network: Clock90
+--------------------------------------------------------------------------------
+Slack: 14.398ns (period - (min high pulse limit / (high pulse / period)))
+  Period: 16.000ns
+  High pulse: 8.000ns
+  High pulse limit: 0.801ns (Tch)
+  Physical resource: myRAM/top0/data_path0/fifo1_rd_addr<0>/CLK
+  Logical resource: myRAM/top0/data_path0/data_read0/fifo0_rd_addr_inst/bit0/CK
+  Location pin: SLICE_X2Y94.CLK
+  Clock network: Clock90
+--------------------------------------------------------------------------------
+
+================================================================================
+Timing constraint: NET "myRAM/top0/rst_dqs_div_int" MAXDELAY = 3 ns;
+
+ 1 net analyzed, 0 failing nets detected.
+ 0 timing errors detected.
+ Maximum net delay is   1.741ns.
+--------------------------------------------------------------------------------
+Slack:                  1.259ns myRAM/top0/rst_dqs_div_int
+Report:    1.741ns delay meets   3.000ns timing constraint by 1.259ns
+From                              To                                Delay(ns)
+SLICE_X0Y43.YQ                    H3.O1                                 1.741  
+
+--------------------------------------------------------------------------------
+
+================================================================================
+Timing constraint: NET "SD_LOOP_IN" MAXDELAY = 3 ns;
+
+ 0 nets analyzed, 0 failing nets detected.
+ 0 timing errors detected.
+--------------------------------------------------------------------------------
+
+================================================================================
+Timing constraint: NET "myRAM/top0/dqs_div_rst" MAXDELAY = 3 ns;
+
+ 1 net analyzed, 0 failing nets detected.
+ 0 timing errors detected.
+ Maximum net delay is   1.142ns.
+--------------------------------------------------------------------------------
+Slack:                  1.858ns myRAM/top0/dqs_div_rst
+Report:    1.142ns delay meets   3.000ns timing constraint by 1.858ns
+From                              To                                Delay(ns)
+H4.I                              SLICE_X1Y67.G4                        1.023  
+H4.I                              SLICE_X0Y67.F3                        0.537  
+H4.I                              SLICE_X0Y67.G1                        1.142  
+H4.I                              SLICE_X1Y66.F2                        0.617  
+H4.I                              SLICE_X1Y66.G2                        0.599  
+H4.I                              SLICE_X0Y66.F3                        0.537  
+
+--------------------------------------------------------------------------------
+
+================================================================================
+Timing constraint: NET "SD_LOOP_OUT" MAXDELAY = 3 ns;
+
+ 0 nets analyzed, 0 failing nets detected.
+ 0 timing errors detected.
+--------------------------------------------------------------------------------
+
+================================================================================
+Timing constraint: NET "myRAM/infrastructure_top0/cal_top0/tap_dly0/tap<7>" 
+MAXDELAY = 0.7 ns;
+
+ 1 net analyzed, 0 failing nets detected.
+ 0 timing errors detected.
+ Maximum net delay is   0.398ns.
+--------------------------------------------------------------------------------
+Slack:                  0.302ns tap<7>
+Report:    0.398ns delay meets   0.700ns timing constraint by 0.302ns
+From                              To                                Delay(ns)
+SLICE_X9Y47.X                     SLICE_X8Y44.G2                        0.398  
+
+--------------------------------------------------------------------------------
+
+================================================================================
+Timing constraint: NET "myRAM/infrastructure_top0/cal_top0/tap_dly0/tap<15>" 
+MAXDELAY = 0.7 ns;
+
+ 1 net analyzed, 0 failing nets detected.
+ 0 timing errors detected.
+ Maximum net delay is   0.398ns.
+--------------------------------------------------------------------------------
+Slack:                  0.302ns tap<15>
+Report:    0.398ns delay meets   0.700ns timing constraint by 0.302ns
+From                              To                                Delay(ns)
+SLICE_X9Y45.X                     SLICE_X8Y42.G2                        0.398  
+
+--------------------------------------------------------------------------------
+
+================================================================================
+Timing constraint: NET "myRAM/infrastructure_top0/cal_top0/tap_dly0/tap<23>" 
+MAXDELAY = 0.7 ns;
+
+ 1 net analyzed, 0 failing nets detected.
+ 0 timing errors detected.
+ Maximum net delay is   0.398ns.
+--------------------------------------------------------------------------------
+Slack:                  0.302ns tap<23>
+Report:    0.398ns delay meets   0.700ns timing constraint by 0.302ns
+From                              To                                Delay(ns)
+SLICE_X9Y43.X                     SLICE_X8Y40.G2                        0.398  
+
+--------------------------------------------------------------------------------
+
+================================================================================
+Timing constraint: NET "myRAM/top0/data_path0/fifo_01_wr_en" MAXDELAY = 2 ns;
+
+ 1 net analyzed, 0 failing nets detected.
+ 0 timing errors detected.
+ Maximum net delay is   1.746ns.
+--------------------------------------------------------------------------------
+Slack:                  0.254ns fifo_01_wr_en
+Report:    1.746ns delay meets   2.000ns timing constraint by 0.254ns
+From                              To                                Delay(ns)
+SLICE_X3Y53.Y                     SLICE_X2Y63.SR                        1.381  
+SLICE_X3Y53.Y                     SLICE_X2Y59.SR                        1.392  
+SLICE_X3Y53.Y                     SLICE_X2Y51.SR                        1.475  
+SLICE_X3Y53.Y                     SLICE_X0Y53.SR                        1.746  
+SLICE_X3Y53.Y                     SLICE_X2Y53.SR                        1.400  
+SLICE_X3Y53.Y                     SLICE_X0Y51.SR                        0.786  
+SLICE_X3Y53.Y                     SLICE_X0Y59.SR                        1.654  
+SLICE_X3Y53.Y                     SLICE_X0Y63.SR                        1.713  
+SLICE_X3Y53.Y                     SLICE_X3Y50.CE                        0.846  
+SLICE_X3Y53.Y                     SLICE_X3Y49.CE                        0.810  
+
+--------------------------------------------------------------------------------
+
+================================================================================
+Timing constraint: NET "myRAM/top0/data_path0/fifo_00_wr_en" MAXDELAY = 2 ns;
+
+ 1 net analyzed, 0 failing nets detected.
+ 0 timing errors detected.
+ Maximum net delay is   1.223ns.
+--------------------------------------------------------------------------------
+Slack:                  0.777ns fifo_00_wr_en
+Report:    1.223ns delay meets   2.000ns timing constraint by 0.777ns
+From                              To                                Delay(ns)
+SLICE_X1Y53.Y                     SLICE_X2Y62.SR                        0.914  
+SLICE_X1Y53.Y                     SLICE_X2Y58.SR                        0.904  
+SLICE_X1Y53.Y                     SLICE_X2Y50.SR                        1.223  
+SLICE_X1Y53.Y                     SLICE_X0Y52.SR                        1.062  
+SLICE_X1Y53.Y                     SLICE_X2Y52.SR                        0.919  
+SLICE_X1Y53.Y                     SLICE_X0Y50.SR                        1.198  
+SLICE_X1Y53.Y                     SLICE_X0Y58.SR                        0.855  
+SLICE_X1Y53.Y                     SLICE_X0Y62.SR                        0.865  
+SLICE_X1Y53.Y                     SLICE_X1Y50.CE                        0.925  
+SLICE_X1Y53.Y                     SLICE_X1Y49.CE                        1.061  
+
+--------------------------------------------------------------------------------
+
+================================================================================
+Timing constraint: NET "myRAM/top0/data_path0/fifo_11_wr_en" MAXDELAY = 2 ns;
+
+ 1 net analyzed, 0 failing nets detected.
+ 0 timing errors detected.
+ Maximum net delay is   1.300ns.
+--------------------------------------------------------------------------------
+Slack:                  0.700ns fifo_11_wr_en
+Report:    1.300ns delay meets   2.000ns timing constraint by 0.700ns
+From                              To                                Delay(ns)
+SLICE_X3Y72.Y                     SLICE_X2Y71.SR                        1.297  
+SLICE_X3Y72.Y                     SLICE_X0Y79.SR                        1.084  
+SLICE_X3Y72.Y                     SLICE_X2Y69.SR                        0.741  
+SLICE_X3Y72.Y                     SLICE_X0Y77.SR                        1.254  
+SLICE_X3Y72.Y                     SLICE_X2Y77.SR                        0.817  
+SLICE_X3Y72.Y                     SLICE_X0Y71.SR                        1.300  
+SLICE_X3Y72.Y                     SLICE_X0Y69.SR                        0.686  
+SLICE_X3Y72.Y                     SLICE_X2Y79.SR                        0.822  
+SLICE_X3Y72.Y                     SLICE_X3Y70.CE                        0.752  
+SLICE_X3Y72.Y                     SLICE_X3Y69.CE                        0.774  
+
+--------------------------------------------------------------------------------
+
+================================================================================
+Timing constraint: NET "myRAM/top0/data_path0/fifo_10_wr_en" MAXDELAY = 2 ns;
+
+ 1 net analyzed, 0 failing nets detected.
+ 0 timing errors detected.
+ Maximum net delay is   1.232ns.
+--------------------------------------------------------------------------------
+Slack:                  0.768ns fifo_10_wr_en
+Report:    1.232ns delay meets   2.000ns timing constraint by 0.768ns
+From                              To                                Delay(ns)
+SLICE_X1Y72.Y                     SLICE_X2Y70.SR                        1.008  
+SLICE_X1Y72.Y                     SLICE_X0Y78.SR                        0.817  
+SLICE_X1Y72.Y                     SLICE_X2Y68.SR                        0.673  
+SLICE_X1Y72.Y                     SLICE_X0Y76.SR                        0.812  
+SLICE_X1Y72.Y                     SLICE_X2Y76.SR                        0.922  
+SLICE_X1Y72.Y                     SLICE_X0Y70.SR                        1.004  
+SLICE_X1Y72.Y                     SLICE_X0Y68.SR                        0.669  
+SLICE_X1Y72.Y                     SLICE_X2Y78.SR                        1.079  
+SLICE_X1Y72.Y                     SLICE_X1Y70.CE                        0.744  
+SLICE_X1Y72.Y                     SLICE_X1Y69.CE                        1.232  
+
+--------------------------------------------------------------------------------
+
+================================================================================
+Timing constraint: NET 
+"myRAM/top0/data_path0/data_read_controller0/rst_dqs_div" MAXDELAY = 3 ns;
+
+ 1 net analyzed, 0 failing nets detected.
+ 0 timing errors detected.
+ Maximum net delay is   1.942ns.
+--------------------------------------------------------------------------------
+Slack:                  1.058ns data_read_controller0/rst_dqs_div
+Report:    1.942ns delay meets   3.000ns timing constraint by 1.058ns
+From                              To                                Delay(ns)
+SLICE_X0Y67.X                     SLICE_X3Y53.F4                        1.016  
+SLICE_X0Y67.X                     SLICE_X3Y72.F1                        0.793  
+SLICE_X0Y67.X                     SLICE_X1Y53.BY                        1.942  
+SLICE_X0Y67.X                     SLICE_X1Y53.G3                        1.344  
+SLICE_X0Y67.X                     SLICE_X1Y72.BY                        0.948  
+SLICE_X0Y67.X                     SLICE_X1Y72.G4                        0.600  
+
+--------------------------------------------------------------------------------
+
+================================================================================
+Timing constraint: NET 
+"myRAM/top0/data_path0/data_read_controller0/rst_dqs_div_delayed1/delay5"       
+  MAXDELAY = 3 ns;
+
+ 1 net analyzed, 0 failing nets detected.
+ 0 timing errors detected.
+ Maximum net delay is   0.074ns.
+--------------------------------------------------------------------------------
+Slack:                  2.926ns data_read_controller0/rst_dqs_div_delayed1/delay5
+Report:    0.074ns delay meets   3.000ns timing constraint by 2.926ns
+From                              To                                Delay(ns)
+SLICE_X1Y66.Y                     SLICE_X0Y67.F2                        0.074  
+
+--------------------------------------------------------------------------------
+
+================================================================================
+Timing constraint: NET 
+"myRAM/top0/data_path0/data_read_controller0/rst_dqs_div_delayed1/delay3"       
+  MAXDELAY = 3 ns;
+
+ 0 nets analyzed, 0 failing nets detected.
+ 0 timing errors detected.
+--------------------------------------------------------------------------------
+
+================================================================================
+Timing constraint: NET 
+"myRAM/top0/data_path0/data_read_controller0/rst_dqs_div_delayed1/delay4"       
+  MAXDELAY = 3 ns;
+
+ 1 net analyzed, 0 failing nets detected.
+ 0 timing errors detected.
+ Maximum net delay is   0.046ns.
+--------------------------------------------------------------------------------
+Slack:                  2.954ns data_read_controller0/rst_dqs_div_delayed1/delay4
+Report:    0.046ns delay meets   3.000ns timing constraint by 2.954ns
+From                              To                                Delay(ns)
+SLICE_X0Y66.X                     SLICE_X1Y66.G4                        0.046  
+
+--------------------------------------------------------------------------------
+
+================================================================================
+Timing constraint: NET 
+"myRAM/top0/data_path0/data_read_controller0/rst_dqs_div_delayed1/delay1"       
+  MAXDELAY = 3 ns;
+
+ 1 net analyzed, 0 failing nets detected.
+ 0 timing errors detected.
+ Maximum net delay is   0.044ns.
+--------------------------------------------------------------------------------
+Slack:                  2.956ns data_read_controller0/rst_dqs_div_delayed1/delay1
+Report:    0.044ns delay meets   3.000ns timing constraint by 2.956ns
+From                              To                                Delay(ns)
+SLICE_X1Y66.X                     SLICE_X0Y67.G3                        0.044  
+
+--------------------------------------------------------------------------------
+
+================================================================================
+Timing constraint: NET 
+"myRAM/top0/data_path0/data_read_controller0/rst_dqs_div_delayed1/delay2"       
+  MAXDELAY = 3 ns;
+
+ 1 net analyzed, 0 failing nets detected.
+ 0 timing errors detected.
+ Maximum net delay is   0.105ns.
+--------------------------------------------------------------------------------
+Slack:                  2.895ns data_read_controller0/rst_dqs_div_delayed1/delay2
+Report:    0.105ns delay meets   3.000ns timing constraint by 2.895ns
+From                              To                                Delay(ns)
+SLICE_X0Y67.Y                     SLICE_X1Y67.G2                        0.105  
+
+--------------------------------------------------------------------------------
+
+================================================================================
+Timing constraint: NET "myRAM/top0/dqs_int_delay_in0" MAXDELAY = 0.7 ns;
+
+ 1 net analyzed, 0 failing nets detected.
+ 0 timing errors detected.
+ Maximum net delay is   0.529ns.
+--------------------------------------------------------------------------------
+Slack:                  0.171ns myRAM/top0/dqs_int_delay_in0
+Report:    0.529ns delay meets   0.700ns timing constraint by 0.171ns
+From                              To                                Delay(ns)
+K3.I                              SLICE_X0Y54.F3                        0.435  
+K3.I                              SLICE_X0Y54.G3                        0.436  
+K3.I                              SLICE_X0Y55.F3                        0.435  
+K3.I                              SLICE_X0Y55.G3                        0.436  
+K3.I                              SLICE_X2Y54.F3                        0.447  
+K3.I                              SLICE_X2Y54.G3                        0.448  
+K3.I                              SLICE_X2Y55.F4                        0.403  
+K3.I                              SLICE_X2Y55.G4                        0.449  
+K3.I                              SLICE_X3Y55.G1                        0.529  
+K3.I                              SLICE_X1Y55.G3                        0.424  
+K3.I                              SLICE_X3Y54.G2                        0.509  
+K3.I                              SLICE_X1Y54.G2                        0.497  
+
+--------------------------------------------------------------------------------
+
+================================================================================
+Timing constraint: NET 
+"myRAM/top0/data_path0/data_read_controller0/dqs_delay0_col0/delay2"         
+MAXDELAY = 0.36 ns;
+
+ 0 nets analyzed, 0 failing nets detected.
+ 0 timing errors detected.
+--------------------------------------------------------------------------------
+
+================================================================================
+Timing constraint: NET 
+"myRAM/top0/data_path0/data_read_controller0/dqs_delay0_col0/delay3"         
+MAXDELAY = 0.36 ns;
+
+ 1 net analyzed, 0 failing nets detected.
+ 0 timing errors detected.
+ Maximum net delay is   0.121ns.
+--------------------------------------------------------------------------------
+Slack:                  0.239ns data_read_controller0/dqs_delay0_col0/delay3
+Report:    0.121ns delay meets   0.360ns timing constraint by 0.239ns
+From                              To                                Delay(ns)
+SLICE_X3Y54.Y                     SLICE_X2Y55.G2                        0.121  
+
+--------------------------------------------------------------------------------
+
+================================================================================
+Timing constraint: NET 
+"myRAM/top0/data_path0/data_read_controller0/dqs_delay0_col0/delay4"         
+MAXDELAY = 0.36 ns;
+
+ 0 nets analyzed, 0 failing nets detected.
+ 0 timing errors detected.
+--------------------------------------------------------------------------------
+
+================================================================================
+Timing constraint: NET 
+"myRAM/top0/data_path0/data_read_controller0/dqs_delay0_col0/delay5"         
+MAXDELAY = 0.36 ns;
+
+ 1 net analyzed, 0 failing nets detected.
+ 0 timing errors detected.
+ Maximum net delay is   0.155ns.
+--------------------------------------------------------------------------------
+Slack:                  0.205ns data_read_controller0/dqs_delay0_col0/delay5
+Report:    0.155ns delay meets   0.360ns timing constraint by 0.205ns
+From                              To                                Delay(ns)
+SLICE_X3Y55.Y                     SLICE_X2Y55.F1                        0.155  
+
+--------------------------------------------------------------------------------
+
+================================================================================
+Timing constraint: NET 
+"myRAM/top0/data_path0/data_read_controller0/dqs_delay0_col0/delay1"         
+MAXDELAY = 0.36 ns;
+
+ 1 net analyzed, 0 failing nets detected.
+ 0 timing errors detected.
+ Maximum net delay is   0.165ns.
+--------------------------------------------------------------------------------
+Slack:                  0.195ns data_read_controller0/dqs_delay0_col0/delay1
+Report:    0.165ns delay meets   0.360ns timing constraint by 0.195ns
+From                              To                                Delay(ns)
+SLICE_X2Y54.X                     SLICE_X2Y54.G1                        0.165  
+
+--------------------------------------------------------------------------------
+
+================================================================================
+Timing constraint: NET 
+"myRAM/top0/data_path0/data_read_controller0/dqs_delay0_col1/delay2"         
+MAXDELAY = 0.36 ns;
+
+ 0 nets analyzed, 0 failing nets detected.
+ 0 timing errors detected.
+--------------------------------------------------------------------------------
+
+================================================================================
+Timing constraint: NET 
+"myRAM/top0/data_path0/data_read_controller0/dqs_delay0_col1/delay3"         
+MAXDELAY = 0.36 ns;
+
+ 1 net analyzed, 0 failing nets detected.
+ 0 timing errors detected.
+ Maximum net delay is   0.121ns.
+--------------------------------------------------------------------------------
+Slack:                  0.239ns data_read_controller0/dqs_delay0_col1/delay3
+Report:    0.121ns delay meets   0.360ns timing constraint by 0.239ns
+From                              To                                Delay(ns)
+SLICE_X1Y54.Y                     SLICE_X0Y55.G2                        0.121  
+
+--------------------------------------------------------------------------------
+
+================================================================================
+Timing constraint: NET 
+"myRAM/top0/data_path0/data_read_controller0/dqs_delay0_col1/delay4"         
+MAXDELAY = 0.36 ns;
+
+ 0 nets analyzed, 0 failing nets detected.
+ 0 timing errors detected.
+--------------------------------------------------------------------------------
+
+================================================================================
+Timing constraint: NET 
+"myRAM/top0/data_path0/data_read_controller0/dqs_delay0_col1/delay5"         
+MAXDELAY = 0.36 ns;
+
+ 1 net analyzed, 0 failing nets detected.
+ 0 timing errors detected.
+ Maximum net delay is   0.155ns.
+--------------------------------------------------------------------------------
+Slack:                  0.205ns data_read_controller0/dqs_delay0_col1/delay5
+Report:    0.155ns delay meets   0.360ns timing constraint by 0.205ns
+From                              To                                Delay(ns)
+SLICE_X1Y55.Y                     SLICE_X0Y55.F1                        0.155  
+
+--------------------------------------------------------------------------------
+
+================================================================================
+Timing constraint: NET 
+"myRAM/top0/data_path0/data_read_controller0/dqs_delay0_col1/delay1"         
+MAXDELAY = 0.36 ns;
+
+ 1 net analyzed, 0 failing nets detected.
+ 0 timing errors detected.
+ Maximum net delay is   0.165ns.
+--------------------------------------------------------------------------------
+Slack:                  0.195ns data_read_controller0/dqs_delay0_col1/delay1
+Report:    0.165ns delay meets   0.360ns timing constraint by 0.195ns
+From                              To                                Delay(ns)
+SLICE_X0Y54.X                     SLICE_X0Y54.G1                        0.165  
+
+--------------------------------------------------------------------------------
+
+================================================================================
+Timing constraint: NET "myRAM/top0/dqs_int_delay_in1" MAXDELAY = 0.7 ns;
+
+ 1 net analyzed, 0 failing nets detected.
+ 0 timing errors detected.
+ Maximum net delay is   0.486ns.
+--------------------------------------------------------------------------------
+Slack:                  0.214ns myRAM/top0/dqs_int_delay_in1
+Report:    0.486ns delay meets   0.700ns timing constraint by 0.214ns
+From                              To                                Delay(ns)
+K6.I                              SLICE_X0Y74.F3                        0.411  
+K6.I                              SLICE_X0Y74.G4                        0.452  
+K6.I                              SLICE_X0Y75.F4                        0.406  
+K6.I                              SLICE_X0Y75.G3                        0.412  
+K6.I                              SLICE_X2Y74.F4                        0.414  
+K6.I                              SLICE_X2Y74.G3                        0.425  
+K6.I                              SLICE_X2Y75.F4                        0.414  
+K6.I                              SLICE_X2Y75.G3                        0.425  
+K6.I                              SLICE_X3Y75.G2                        0.486  
+K6.I                              SLICE_X1Y75.G3                        0.472  
+K6.I                              SLICE_X3Y74.G2                        0.486  
+K6.I                              SLICE_X1Y74.G3                        0.472  
+
+--------------------------------------------------------------------------------
+
+================================================================================
+Timing constraint: NET 
+"myRAM/top0/data_path0/data_read_controller0/dqs_delay1_col0/delay2"         
+MAXDELAY = 0.36 ns;
+
+ 0 nets analyzed, 0 failing nets detected.
+ 0 timing errors detected.
+--------------------------------------------------------------------------------
+
+================================================================================
+Timing constraint: NET 
+"myRAM/top0/data_path0/data_read_controller0/dqs_delay1_col0/delay3"         
+MAXDELAY = 0.36 ns;
+
+ 1 net analyzed, 0 failing nets detected.
+ 0 timing errors detected.
+ Maximum net delay is   0.121ns.
+--------------------------------------------------------------------------------
+Slack:                  0.239ns data_read_controller0/dqs_delay1_col0/delay3
+Report:    0.121ns delay meets   0.360ns timing constraint by 0.239ns
+From                              To                                Delay(ns)
+SLICE_X3Y74.Y                     SLICE_X2Y75.G2                        0.121  
+
+--------------------------------------------------------------------------------
+
+================================================================================
+Timing constraint: NET 
+"myRAM/top0/data_path0/data_read_controller0/dqs_delay1_col0/delay4"         
+MAXDELAY = 0.36 ns;
+
+ 0 nets analyzed, 0 failing nets detected.
+ 0 timing errors detected.
+--------------------------------------------------------------------------------
+
+================================================================================
+Timing constraint: NET 
+"myRAM/top0/data_path0/data_read_controller0/dqs_delay1_col0/delay5"         
+MAXDELAY = 0.36 ns;
+
+ 1 net analyzed, 0 failing nets detected.
+ 0 timing errors detected.
+ Maximum net delay is   0.155ns.
+--------------------------------------------------------------------------------
+Slack:                  0.205ns data_read_controller0/dqs_delay1_col0/delay5
+Report:    0.155ns delay meets   0.360ns timing constraint by 0.205ns
+From                              To                                Delay(ns)
+SLICE_X3Y75.Y                     SLICE_X2Y75.F1                        0.155  
+
+--------------------------------------------------------------------------------
+
+================================================================================
+Timing constraint: NET 
+"myRAM/top0/data_path0/data_read_controller0/dqs_delay1_col0/delay1"         
+MAXDELAY = 0.36 ns;
+
+ 1 net analyzed, 0 failing nets detected.
+ 0 timing errors detected.
+ Maximum net delay is   0.165ns.
+--------------------------------------------------------------------------------
+Slack:                  0.195ns data_read_controller0/dqs_delay1_col0/delay1
+Report:    0.165ns delay meets   0.360ns timing constraint by 0.195ns
+From                              To                                Delay(ns)
+SLICE_X2Y74.X                     SLICE_X2Y74.G1                        0.165  
+
+--------------------------------------------------------------------------------
+
+================================================================================
+Timing constraint: NET 
+"myRAM/top0/data_path0/data_read_controller0/dqs_delay1_col1/delay2"         
+MAXDELAY = 0.36 ns;
+
+ 0 nets analyzed, 0 failing nets detected.
+ 0 timing errors detected.
+--------------------------------------------------------------------------------
+
+================================================================================
+Timing constraint: NET 
+"myRAM/top0/data_path0/data_read_controller0/dqs_delay1_col1/delay3"         
+MAXDELAY = 0.36 ns;
+
+ 1 net analyzed, 0 failing nets detected.
+ 0 timing errors detected.
+ Maximum net delay is   0.121ns.
+--------------------------------------------------------------------------------
+Slack:                  0.239ns data_read_controller0/dqs_delay1_col1/delay3
+Report:    0.121ns delay meets   0.360ns timing constraint by 0.239ns
+From                              To                                Delay(ns)
+SLICE_X1Y74.Y                     SLICE_X0Y75.G2                        0.121  
+
+--------------------------------------------------------------------------------
+
+================================================================================
+Timing constraint: NET 
+"myRAM/top0/data_path0/data_read_controller0/dqs_delay1_col1/delay4"         
+MAXDELAY = 0.36 ns;
+
+ 0 nets analyzed, 0 failing nets detected.
+ 0 timing errors detected.
+--------------------------------------------------------------------------------
+
+================================================================================
+Timing constraint: NET 
+"myRAM/top0/data_path0/data_read_controller0/dqs_delay1_col1/delay5"         
+MAXDELAY = 0.36 ns;
+
+ 1 net analyzed, 0 failing nets detected.
+ 0 timing errors detected.
+ Maximum net delay is   0.155ns.
+--------------------------------------------------------------------------------
+Slack:                  0.205ns data_read_controller0/dqs_delay1_col1/delay5
+Report:    0.155ns delay meets   0.360ns timing constraint by 0.205ns
+From                              To                                Delay(ns)
+SLICE_X1Y75.Y                     SLICE_X0Y75.F1                        0.155  
+
+--------------------------------------------------------------------------------
+
+================================================================================
+Timing constraint: NET 
+"myRAM/top0/data_path0/data_read_controller0/dqs_delay1_col1/delay1"         
+MAXDELAY = 0.36 ns;
+
+ 1 net analyzed, 0 failing nets detected.
+ 0 timing errors detected.
+ Maximum net delay is   0.165ns.
+--------------------------------------------------------------------------------
+Slack:                  0.195ns data_read_controller0/dqs_delay1_col1/delay1
+Report:    0.165ns delay meets   0.360ns timing constraint by 0.195ns
+From                              To                                Delay(ns)
+SLICE_X0Y74.X                     SLICE_X0Y74.G1                        0.165  
+
+--------------------------------------------------------------------------------
+
+================================================================================
+Timing constraint: TS_Clock = PERIOD TIMEGRP "Clock" 16 ns HIGH 50%;
+For more information, see Period Analysis in the Timing Closure User Guide (UG612).
+
+ 0 paths analyzed, 0 endpoints analyzed, 0 failing endpoints
+ 0 timing errors detected. (0 component switching limit errors)
+ Minimum period is   6.000ns.
+--------------------------------------------------------------------------------
+
+Component Switching Limit Checks: TS_Clock = PERIOD TIMEGRP "Clock" 16 ns HIGH 50%;
+--------------------------------------------------------------------------------
+Slack: 10.000ns (period - (min low pulse limit / (low pulse / period)))
+  Period: 16.000ns
+  Low pulse: 8.000ns
+  Low pulse limit: 3.000ns (Tdcmpw_CLKIN_50_100)
+  Physical resource: myRAM/infrastructure_top0/clk_dcm0/DCM_INST1/DCM_SP/CLKIN
+  Logical resource: myRAM/infrastructure_top0/clk_dcm0/DCM_INST1/DCM_SP/CLKIN
+  Location pin: DCM_X1Y0.CLKIN
+  Clock network: Clock
+--------------------------------------------------------------------------------
+Slack: 10.000ns (period - (min high pulse limit / (high pulse / period)))
+  Period: 16.000ns
+  High pulse: 8.000ns
+  High pulse limit: 3.000ns (Tdcmpw_CLKIN_50_100)
+  Physical resource: myRAM/infrastructure_top0/clk_dcm0/DCM_INST1/DCM_SP/CLKIN
+  Logical resource: myRAM/infrastructure_top0/clk_dcm0/DCM_INST1/DCM_SP/CLKIN
+  Location pin: DCM_X1Y0.CLKIN
+  Clock network: Clock
+--------------------------------------------------------------------------------
+Slack: 12.001ns (period - min period limit)
+  Period: 16.000ns
+  Min period limit: 3.999ns (250.063MHz) (Tdcmpc)
+  Physical resource: myRAM/infrastructure_top0/clk_dcm0/DCM_INST1/DCM_SP/CLKIN
+  Logical resource: myRAM/infrastructure_top0/clk_dcm0/DCM_INST1/DCM_SP/CLKIN
+  Location pin: DCM_X1Y0.CLKIN
+  Clock network: Clock
+--------------------------------------------------------------------------------
+
+================================================================================
+Timing constraint: TS_myRAM_infrastructure_top0_clk_dcm0_clk0dcm = PERIOD 
+TIMEGRP         "myRAM_infrastructure_top0_clk_dcm0_clk0dcm" TS_Clock HIGH 50%;
+For more information, see Period Analysis in the Timing Closure User Guide (UG612).
+
+ 0 paths analyzed, 0 endpoints analyzed, 0 failing endpoints
+ 0 timing errors detected. (0 component switching limit errors)
+ Minimum period is   2.014ns.
+--------------------------------------------------------------------------------
+
+Component Switching Limit Checks: TS_myRAM_infrastructure_top0_clk_dcm0_clk0dcm = PERIOD TIMEGRP
+        "myRAM_infrastructure_top0_clk_dcm0_clk0dcm" TS_Clock HIGH 50%;
+--------------------------------------------------------------------------------
+Slack: 13.986ns (period - (min low pulse limit / (low pulse / period)))
+  Period: 16.000ns
+  Low pulse: 8.000ns
+  Low pulse limit: 1.007ns (Twpl)
+  Physical resource: myRAM/top0/controller0/ROW_ADDRESS_reg<4>/CLK
+  Logical resource: myRAM/top0/controller0/Mshreg_ROW_ADDRESS_reg_4/SRL16E/WS
+  Location pin: SLICE_X14Y15.CLK
+  Clock network: myRAM/clk_0
+--------------------------------------------------------------------------------
+Slack: 13.986ns (period - (min high pulse limit / (high pulse / period)))
+  Period: 16.000ns
+  High pulse: 8.000ns
+  High pulse limit: 1.007ns (Twph)
+  Physical resource: myRAM/top0/controller0/ROW_ADDRESS_reg<4>/CLK
+  Logical resource: myRAM/top0/controller0/Mshreg_ROW_ADDRESS_reg_4/SRL16E/WS
+  Location pin: SLICE_X14Y15.CLK
+  Clock network: myRAM/clk_0
+--------------------------------------------------------------------------------
+Slack: 13.986ns (period - min period limit)
+  Period: 16.000ns
+  Min period limit: 2.014ns (496.524MHz) (Tcp)
+  Physical resource: myRAM/top0/controller0/ROW_ADDRESS_reg<4>/CLK
+  Logical resource: myRAM/top0/controller0/Mshreg_ROW_ADDRESS_reg_4/SRL16E/WS
+  Location pin: SLICE_X14Y15.CLK
+  Clock network: myRAM/clk_0
+--------------------------------------------------------------------------------
+
+================================================================================
+Timing constraint: TS_myRAM_infrastructure_top0_clk_dcm0_clk90dcm = PERIOD 
+TIMEGRP         "myRAM_infrastructure_top0_clk_dcm0_clk90dcm" TS_Clock PHASE 4 
+ns HIGH         50%;
+For more information, see Period Analysis in the Timing Closure User Guide (UG612).
+
+ 0 paths analyzed, 0 endpoints analyzed, 0 failing endpoints
+ 0 timing errors detected. (0 component switching limit errors)
+ Minimum period is   3.204ns.
+--------------------------------------------------------------------------------
+
+Component Switching Limit Checks: TS_myRAM_infrastructure_top0_clk_dcm0_clk90dcm = PERIOD TIMEGRP
+        "myRAM_infrastructure_top0_clk_dcm0_clk90dcm" TS_Clock PHASE 4 ns HIGH
+        50%;
+--------------------------------------------------------------------------------
+Slack: 12.796ns (period - (min low pulse limit / (low pulse / period)))
+  Period: 16.000ns
+  Low pulse: 8.000ns
+  Low pulse limit: 1.602ns (Trpw)
+  Physical resource: captured<7>/SR
+  Logical resource: captured_7/SR
+  Location pin: SLICE_X14Y78.SR
+  Clock network: myRAM/infrastructure_top0/sys_rst
+--------------------------------------------------------------------------------
+Slack: 12.796ns (period - (min high pulse limit / (high pulse / period)))
+  Period: 16.000ns
+  High pulse: 8.000ns
+  High pulse limit: 1.602ns (Trpw)
+  Physical resource: captured<7>/SR
+  Logical resource: captured_7/SR
+  Location pin: SLICE_X14Y78.SR
+  Clock network: myRAM/infrastructure_top0/sys_rst
+--------------------------------------------------------------------------------
+Slack: 12.796ns (period - (min low pulse limit / (low pulse / period)))
+  Period: 16.000ns
+  Low pulse: 8.000ns
+  Low pulse limit: 1.602ns (Trpw)
+  Physical resource: captured<11>/SR
+  Logical resource: captured_11/SR
+  Location pin: SLICE_X12Y75.SR
+  Clock network: myRAM/infrastructure_top0/sys_rst
+--------------------------------------------------------------------------------
+
+
+Derived Constraint Report
+Derived Constraints for mydcm/CLKIN_IBUFG
++-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+|                               |   Period    |       Actual Period       |      Timing Errors        |      Paths Analyzed       |
+|           Constraint          | Requirement |-------------+-------------|-------------+-------------|-------------+-------------|
+|                               |             |   Direct    | Derivative  |   Direct    | Derivative  |   Direct    | Derivative  |
++-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+|mydcm/CLKIN_IBUFG              |     20.000ns|      7.500ns|     19.915ns|            0|            0|            0|      1025722|
+| mydcm/CLKFX_BUF               |     16.000ns|     15.932ns|     15.248ns|            0|            0|      1022745|         2977|
+|  myRAM/infrastructure_top0/clk|     16.000ns|     15.248ns|          N/A|            0|            0|         2298|            0|
+|  _dcm0/clk0dcm                |             |             |             |             |             |             |             |
+|  myRAM/infrastructure_top0/clk|     16.000ns|     12.736ns|          N/A|            0|            0|          679|            0|
+|  _dcm0/clk90dcm               |             |             |             |             |             |             |             |
++-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+
+Derived Constraints for TS_Clock
++-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+|                               |   Period    |       Actual Period       |      Timing Errors        |      Paths Analyzed       |
+|           Constraint          | Requirement |-------------+-------------|-------------+-------------|-------------+-------------|
+|                               |             |   Direct    | Derivative  |   Direct    | Derivative  |   Direct    | Derivative  |
++-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+|TS_Clock                       |     16.000ns|      6.000ns|      3.204ns|            0|            0|            0|            0|
+| TS_myRAM_infrastructure_top0_c|     16.000ns|      2.014ns|          N/A|            0|            0|            0|            0|
+| lk_dcm0_clk0dcm               |             |             |             |             |             |             |             |
+| TS_myRAM_infrastructure_top0_c|     16.000ns|      3.204ns|          N/A|            0|            0|            0|            0|
+| lk_dcm0_clk90dcm              |             |             |             |             |             |             |             |
++-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+
+All constraints were met.
+
+
+Data Sheet report:
+-----------------
+All values displayed in nanoseconds (ns)
+
+Clock to Setup on destination clock SysClock
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+SysClock       |   15.932|    7.741|    7.504|    9.044|
+---------------+---------+---------+---------+---------+
+
+
+Timing summary:
+---------------
+
+Timing errors: 0  Score: 0  (Setup/Max: 0, Hold: 0)
+
+Constraints cover 1025722 paths, 28 nets, and 31294 connections
+
+Design statistics:
+   Minimum period:  15.932ns{1}   (Maximum frequency:  62.767MHz)
+   Maximum net delay:   1.942ns
+
+
+------------------------------------Footnotes-----------------------------------
+1)  The minimum period statistic assumes all single cycle delays.
+
+Analysis completed Mon Oct 29 11:39:44 2012 
+--------------------------------------------------------------------------------
+
+Trace Settings:
+-------------------------
+Trace Settings 
+
+Peak Memory Usage: 322 MB
+
+
+

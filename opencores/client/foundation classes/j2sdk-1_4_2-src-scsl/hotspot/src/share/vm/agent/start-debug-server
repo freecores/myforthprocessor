@@ -1,0 +1,9 @@
+#!/bin/csh -f
+
+set startdir   = `dirname $0`
+set classesdir = `dirname $0`/classes
+
+# License file for development version of dbx
+setenv LM_LICENSE_FILE 7588@extend.eng:/usr/dist/local/config/sparcworks/license.dat:7588@setlicense
+
+java -Xbootclasspath/p:$classesdir -Djava.rmi.server.codebase=file:/$classesdir -Djava.security.policy=$startdir\/grantAll.policy sun.jvm.hotspot.DebugServer $*

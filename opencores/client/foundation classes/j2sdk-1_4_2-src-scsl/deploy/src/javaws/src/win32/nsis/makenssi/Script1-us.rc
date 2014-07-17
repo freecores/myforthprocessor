@@ -1,0 +1,107 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_ICON1               ICON    DISCARDABLE     "icon.ico"
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    JAVAWS_TEST             "This is a test."
+    JAVAWS_ERROR_RESOURCE   "Error loading resource."
+    JAVAWS_ERROR_RESOURCE_CAPTION "Installer Error"
+    JAVAWS_ERROR_DEFLATEINIT "add_data_compress: deflateInit() failed! ABORT!"
+    JAVAWS_ERROR_COMPRESS   "add_data_compress: ack! compress did something funky! ABORT!"
+    JAVAWS_UNINST_SECTION   "add_section: switching to uninstall section"
+    JAVAWS_ERROR_UNINST     "add_section: ERROR: uninstall section specified, and compiler was not built with NSIS_CONFIG_UNINSTALL_SUPPORT!"
+    JAVAWS_DONE_UNINST      "add_section: switching from uninstall section"
+    JAVAWS_PROCESSING_SCRIPT "Processing script"
+    JAVAWS_ERROR_TOKEN      "Error: command ""%1"" expects %2!d! parameters on line %3!d!"
+    JAVAWS_ERROR_INVALIDCOMMAND 
+                            "Error: invalid command (""%1"") on line %2!d!"
+    JAVAWS_PARSE_NAME       "Name: ""%1"""
+    JAVAWS_PARSE_ICON       "Icon: ""%1"""
+    JAVAWS_ERROR_NOUNINSTALLSUPPORT 
+                            "UninstallIcon: installer not built with NSIS_CONFIG_UNINSTALL_SUPPORT"
+    JAVAWS_PARSE_UNINSTALLICON "UninstallIcon: ""%1"""
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    JAVAWS_PARSE_ENABLEDBITMAP "EnabledBitmap: ""%1"""
+    JAVAWS_PARSE_DISABLEDBITMAP "DisabledBitmap: ""%1"""
+    JAVAWS_PARSE_DIRTEXT    "DirText: ""%1"""
+    JAVAWS_PARSE_COMPONENTTEXT "ComponentText: ""%1"""
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

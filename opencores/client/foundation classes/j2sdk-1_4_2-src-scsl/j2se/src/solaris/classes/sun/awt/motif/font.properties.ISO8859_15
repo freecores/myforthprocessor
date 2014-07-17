@@ -1,0 +1,180 @@
+# @(#)font.properties.ISO8859_15	1.8 02/03/07
+#
+# Copyright 2002 Sun Microsystems, Inc. All rights reserved.
+#
+
+# Component Font Mappings
+#
+serif.0=-monotype-times-regular-r-normal--*-%d-*-*-p-*-iso8859-15
+serif.1=-urw-itc zapfdingbats-medium-r-normal--*-%d-*-*-p-*-sun-fontspecific
+serif.2=--symbol-medium-r-normal--*-%d-*-*-p-*-sun-fontspecific
+
+serif.italic.0=-monotype-times-regular-i-normal--*-%d-*-*-p-*-iso8859-15
+serif.italic.1=-urw-itc zapfdingbats-medium-r-normal--*-%d-*-*-p-*-sun-fontspecific
+serif.italic.2=-*-symbol-medium-r-normal--*-%d-*-*-p-*-sun-fontspecific
+
+serif.bold.0=-monotype-times-bold-r-normal--*-%d-*-*-p-*-iso8859-15
+serif.bold.1=-urw-itc zapfdingbats-medium-r-normal--*-%d-*-*-p-*-sun-fontspecific
+serif.bold.2=-*-symbol-medium-r-normal--*-%d-*-*-p-*-sun-fontspecific
+
+serif.bolditalic.0=-monotype-times-bold-i-normal--*-%d-*-*-p-*-iso8859-15
+serif.bolditalic.1=-urw-itc zapfdingbats-medium-r-normal--*-%d-*-*-p-*-sun-fontspecific
+serif.bolditalic.2=-*-symbol-medium-r-normal--*-%d-*-*-p-*-sun-fontspecific
+
+sansserif.0=-monotype-arial-regular-r-normal--*-%d-*-*-p-*-iso8859-15
+sansserif.1=-urw-itc zapfdingbats-medium-r-normal--*-%d-*-*-p-*-sun-fontspecific
+sansserif.2=--symbol-medium-r-normal--*-%d-*-*-p-*-sun-fontspecific
+
+sansserif.italic.0=-monotype-arial-regular-i-normal--*-%d-*-*-p-*-iso8859-15
+sansserif.italic.1=-urw-itc zapfdingbats-medium-r-normal--*-%d-*-*-p-*-sun-fontspecific
+sansserif.italic.2=-*-symbol-medium-r-normal--*-%d-*-*-p-*-sun-fontspecific
+
+sansserif.bold.0=-monotype-arial-bold-r-normal--*-%d-*-*-p-*-iso8859-15
+sansserif.bold.1=-urw-itc zapfdingbats-medium-r-normal--*-%d-*-*-p-*-sun-fontspecific
+sansserif.bold.2=-*-symbol-medium-r-normal--*-%d-*-*-p-*-sun-fontspecific
+
+sansserif.bolditalic.0=-monotype-arial-bold-i-normal--*-%d-*-*-p-*-iso8859-15
+sansserif.bolditalic.1=-urw-itc zapfdingbats-medium-r-normal--*-%d-*-*-p-*-sun-fontspecific
+sansserif.bolditalic.2=-*-symbol-medium-r-normal--*-%d-*-*-p-*-sun-fontspecific
+
+monospaced.0=-monotype-courier-regular-r-normal--*-%d-*-*-m-*-iso8859-15
+monospaced.1=-urw-itc zapfdingbats-medium-r-normal--*-%d-*-*-p-*-sun-fontspecific
+monospaced.2=--symbol-medium-r-normal--*-%d-*-*-p-*-sun-fontspecific
+
+monospaced.italic.0=-monotype-courier-regular-i-normal--*-%d-*-*-m-*-iso8859-15
+monospaced.italic.1=-urw-itc zapfdingbats-medium-r-normal--*-%d-*-*-p-*-sun-fontspecific
+monospaced.italic.2=-*-symbol-medium-r-normal--*-%d-*-*-p-*-sun-fontspecific
+
+monospaced.bold.0=-monotype-courier-bold-r-normal--*-%d-*-*-m-*-iso8859-15
+monospaced.bold.1=-urw-itc zapfdingbats-medium-r-normal--*-%d-*-*-p-*-sun-fontspecific
+monospaced.bold.2=-*-symbol-medium-r-normal--*-%d-*-*-p-*-sun-fontspecific
+
+monospaced.bolditalic.0=-monotype-courier-bold-i-normal--*-%d-*-*-m-*-iso8859-15
+monospaced.bolditalic.1=-urw-itc zapfdingbats-medium-r-normal--*-%d-*-*-p-*-sun-fontspecific
+monospaced.bolditalic.2=-*-symbol-medium-r-normal--*-%d-*-*-p-*-sun-fontspecific
+
+dialog.0=-monotype-arial-regular-r-normal--*-%d-*-*-p-*-iso8859-15
+dialog.1=-urw-itc zapfdingbats-medium-r-normal--*-%d-*-*-p-*-sun-fontspecific
+dialog.2=--symbol-medium-r-normal--*-%d-*-*-p-*-sun-fontspecific
+
+dialog.italic.0=-monotype-arial-regular-i-normal--*-%d-*-*-p-*-iso8859-15
+dialog.italic.1=-urw-itc zapfdingbats-medium-r-normal--*-%d-*-*-p-*-sun-fontspecific
+dialog.italic.2=-*-symbol-medium-r-normal--*-%d-*-*-p-*-sun-fontspecific
+
+dialog.bold.0=-monotype-arial-bold-r-normal--*-%d-*-*-p-*-iso8859-15
+dialog.bold.1=-urw-itc zapfdingbats-medium-r-normal--*-%d-*-*-p-*-sun-fontspecific
+dialog.bold.2=-*-symbol-medium-r-normal--*-%d-*-*-p-*-sun-fontspecific
+
+dialog.bolditalic.0=-monotype-arial-bold-i-normal--*-%d-*-*-p-*-iso8859-15
+dialog.bolditalic.1=-urw-itc zapfdingbats-medium-r-normal--*-%d-*-*-p-*-sun-fontspecific
+dialog.bolditalic.2=-*-symbol-medium-r-normal--*-%d-*-*-p-*-sun-fontspecific
+
+dialoginput.0=-monotype-courier-regular-r-normal--*-%d-*-*-m-*-iso8859-15
+dialoginput.1=-urw-itc zapfdingbats-medium-r-normal--*-%d-*-*-p-*-sun-fontspecific
+dialoginput.2=--symbol-medium-r-normal--*-%d-*-*-p-*-sun-fontspecific
+
+dialoginput.italic.0=-monotype-courier-regular-i-normal--*-%d-*-*-m-*-iso8859-15
+dialoginput.italic.1=-urw-itc zapfdingbats-medium-r-normal--*-%d-*-*-p-*-sun-fontspecific
+dialoginput.italic.2=-*-symbol-medium-r-normal--*-%d-*-*-p-*-sun-fontspecific
+
+dialoginput.bold.0=-monotype-courier-bold-r-normal--*-%d-*-*-m-*-iso8859-15
+dialoginput.bold.1=-urw-itc zapfdingbats-medium-r-normal--*-%d-*-*-p-*-sun-fontspecific
+dialoginput.bold.2=-*-symbol-medium-r-normal--*-%d-*-*-p-*-sun-fontspecific
+
+dialoginput.bolditalic.0=-monotype-courier-bold-i-normal--*-%d-*-*-m-*-iso8859-15
+dialoginput.bolditalic.1=-urw-itc zapfdingbats-medium-r-normal--*-%d-*-*-p-*-sun-fontspecific
+dialoginput.bolditalic.2=-*-symbol-medium-r-normal--*-%d-*-*-p-*-sun-fontspecific
+
+# Missing Glyph Character
+#
+default.char=274f
+
+# Component Font Character Encodings
+#
+fontcharset.serif.0=sun.io.CharToByteISO8859_15
+fontcharset.serif.1=sun.awt.motif.CharToByteX11Dingbats
+fontcharset.serif.2=sun.awt.CharToByteSymbol
+
+fontcharset.sansserif.0=sun.io.CharToByteISO8859_15
+fontcharset.sansserif.1=sun.awt.motif.CharToByteX11Dingbats
+fontcharset.sansserif.2=sun.awt.CharToByteSymbol
+
+fontcharset.monospaced.0=sun.io.CharToByteISO8859_15
+fontcharset.monospaced.1=sun.awt.motif.CharToByteX11Dingbats
+fontcharset.monospaced.2=sun.awt.CharToByteSymbol
+
+fontcharset.dialog.0=sun.io.CharToByteISO8859_15
+fontcharset.dialog.1=sun.awt.motif.CharToByteX11Dingbats
+fontcharset.dialog.2=sun.awt.CharToByteSymbol
+
+fontcharset.dialoginput.0=sun.io.CharToByteISO8859_15
+fontcharset.dialoginput.1=sun.awt.motif.CharToByteX11Dingbats
+fontcharset.dialoginput.2=sun.awt.CharToByteSymbol
+
+# Exclusion Ranges
+#
+
+# XFontSet Information
+#
+fontset.serif.plain=\
+-monotype-times-regular-r-normal--*-%d-*-*-p-*-iso8859-15
+
+fontset.serif.italic=\
+-monotype-times-regular-i-normal--*-%d-*-*-p-*-iso8859-15
+
+fontset.serif.bold=\
+-monotype-times-bold-r-normal--*-%d-*-*-p-*-iso8859-15
+
+fontset.serif.bolditalic=\
+-monotype-times-bold-i-normal--*-%d-*-*-p-*-iso8859-15
+
+fontset.sansserif.italic=\
+-monotype-arial-regular-i-normal--*-%d-*-*-p-*-iso8859-15
+ 
+fontset.sansserif.bold=\
+-monotype-arial-bold-r-normal--*-%d-*-*-p-*-iso8859-15
+ 
+fontset.sansserif.bolditalic=\
+-monotype-arial-bold-i-normal--*-%d-*-*-p-*-iso8859-15
+ 
+fontset.sansserif.plain=\
+-monotype-arial-regular-r-normal--*-%d-*-*-p-*-iso8859-15
+
+fontset.monospaced.italic=\
+-monotype-courier-regular-i-normal--*-%d-*-*-m-*-iso8859-15
+ 
+fontset.monospaced.bold=\
+-monotype-courier-bold-r-normal--*-%d-*-*-m-*-iso8859-15
+ 
+fontset.monospaced.bolditalic=\
+-monotype-courier-bold-i-normal--*-%d-*-*-m-*-iso8859-15
+ 
+fontset.monospaced.plain=\
+-monotype-courier-regular-r-normal--*-%d-*-*-m-*-iso8859-15
+ 
+fontset.dialog.italic=\
+-monotype-arial-regular-i-normal--*-%d-*-*-p-*-iso8859-15
+ 
+fontset.dialog.bold=\
+-monotype-arial-bold-r-normal--*-%d-*-*-p-*-iso8859-15
+ 
+fontset.dialog.bolditalic=\
+-monotype-arial-bold-i-normal--*-%d-*-*-p-*-iso8859-15
+ 
+fontset.dialog.plain=\
+-monotype-arial-regular-r-normal--*-%d-*-*-p-*-iso8859-15
+ 
+fontset.dialoginput.italic=\
+-monotype-courier-regular-i-normal--*-%d-*-*-m-*-iso8859-15
+ 
+fontset.dialoginput.bold=\
+-monotype-courier-bold-r-normal--*-%d-*-*-m-*-iso8859-15
+ 
+fontset.dialoginput.bolditalic=\
+-monotype-courier-bold-i-normal--*-%d-*-*-m-*-iso8859-15
+
+fontset.dialoginput.plain=\
+-monotype-courier-regular-r-normal--*-%d-*-*-m-*-iso8859-15
+
+fontset.default=\
+-monotype-arial-regular-r-normal--*-%d-*-*-p-*-iso8859-15

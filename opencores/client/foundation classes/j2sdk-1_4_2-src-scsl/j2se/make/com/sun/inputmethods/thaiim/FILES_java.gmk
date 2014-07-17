@@ -1,0 +1,11 @@
+#
+# @(#)FILES_java.gmk	1.2 03/01/23
+#
+# Copyright 2003 Sun Microsystems, Inc. All rights reserved.
+# SUN PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
+#
+FILES_java = \
+	$(TARGDIR)com/sun/inputmethods/internal/thaiim/ThaiInputMethod.java \
+	$(TARGDIR)com/sun/inputmethods/internal/thaiim/ThaiInputMethodImpl.java \
+	$(TARGDIR)com/sun/inputmethods/internal/thaiim/ThaiInputMethodDescriptor.java \
+	$(TARGDIR)com/sun/inputmethods/internal/thaiim/ThaiRules.java

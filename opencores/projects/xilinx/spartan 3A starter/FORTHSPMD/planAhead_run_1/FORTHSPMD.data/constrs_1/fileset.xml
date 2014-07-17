@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<DARoots Version="1" Minor="6">
+	<FileSet Name="constrs_1" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">
+		<Filter Type="Constrs"/>
+		<Root Path="C:/Xilinx/FORTHSPMD/MYCPU.ucf">
+		</Root>
+		<Config>
+			<Option Name="TargetPart" Val="xc3s700afg484-4"/>
+		</Config>
+	</FileSet>
+</DARoots>
+

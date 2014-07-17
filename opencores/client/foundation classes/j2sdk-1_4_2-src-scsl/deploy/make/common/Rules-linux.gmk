@@ -1,0 +1,64 @@
+#
+# @(#)Rules-linux.gmk	1.35 03/01/23
+#
+# Copyright 2003 Sun Microsystems, Inc. All rights reserved.
+# SUN PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
+#
+
+FILES_java = $(JDK_1_2_FILES) $(UNIX_SHARE_FILES)
+
+TAR_FILES = \
+	javawsbin$(SUFFIX) \
+	javaws.jar \
+	javaws.policy \
+	javaws$(SUFFIX) \
+	cacerts \
+	resources \
+
+ZIP_FILES = \
+	javalogo52x88.gif \
+	sunlogo64x30.gif \
+	readme.html 
+
+ifeq ($(I18N),1)
+	TAR_FILES += $(I18N_JAR_ABS)
+
+	ZIP_FILES += \
+		readme_de.html \
+		readme_es.html \
+		readme_fr.html \
+		readme_it.html \
+		readme_ja.html \
+		readme_ko.html \
+		readme_sv.html \
+		readme_zh_CN.html \
+		readme_zh_TW.html 
+endif
+
+PROTO_FILES=$(TAR_FILES:%=$(PROTO_DIR)/%)
+PROTO_FILES+=$(ZIP_FILES:%=$(PROTO_DIR)/%)
+
+proto-platform: $(PROTO_DIR)/cacerts
+	$(CP) -f $(RESOURCE_SRC)/Readme.html $(PROTO_DIR)/readme.html
+ifdef I18N
+	for file in $(README_I18N_SRC) ; do \
+	   fname=`$(BASENAME) $$file`; \
+	   lname=$(PROTO_DIR)/`$(ECHO) $$fname | $(SED) s/R/r/`; \
+	   $(ECHO) "Copying "$$file" to "$$lname; \
+	   $(CP) -f $$file $$lname; \
+	done
+endif
+	$(CP) -f $(RESOURCE_SRC)/javalogo52x88.gif $(PROTO_DIR)
+	$(CP) -f $(RESOURCE_SRC)/sunlogo64x30.gif  $(PROTO_DIR)
+	$(CP) -f $(RESOURCEDIR)/javaws$(SUFFIX) $(PROTO_DIR)
+	$(CHMOD) a+x $(PROTO_DIR)/javaws$(SUFFIX)
+	$(CP) -f $(SHARE_SRC)/config/javaws.policy $(PROTO_DIR)
+	$(CP) -f $(AU_PATH) $(PROTO_DIR)
+
+image: $(IMAGE_DIR) FRC
+	$(CP) -Rf $(PROTO_FILES) $(IMAGE_DIR)
+
+dev-platform:
+
+FRC:
+.PHONY: proto-platform image dev-platform

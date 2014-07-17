@@ -1,0 +1,62 @@
+#
+# @(#)SwingHTML32DTD.gmk	1.27 03/01/23
+#
+# Copyright 2003 Sun Microsystems, Inc. All rights reserved.
+# SUN PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
+#
+
+#
+# Build the dtd for text.html.parser swing package. 
+#
+
+swing-html32dtd:
+	$(MAKE) make-html32dtd
+
+#
+# Files to compile.
+#
+FILES_java = 	dtdbuilder/PublicMapping.java \
+		dtdbuilder/DTDParser.java \
+		dtdbuilder/DTDInputStream.java \
+		dtdbuilder/DTDBuilder.java
+
+#
+# Rules.
+#
+include $(BUILDDIR)/common/Defs.gmk
+include $(BUILDDIR)/common/Classes.gmk
+
+BUILDTOOLSDIR = $(BUILDDIR)/tools
+
+$(CLASSDESTDIR)/%.class: $(BUILDTOOLSDIR)/%.java
+	@$(ECHO) $? >> $(TMPDIR)/.classes.list
+
+SWINGPKG        = javax/swing
+
+LOCAL_JAVA	    = $(JAVA) -ms16m -mx64m
+ifeq ($(NOCORE),true)
+    JAVAC_CMD	    = $(JAVAC) $(JAVAC_BOOTCLASSPATH_NAME) $(CLASSBINDIR)$(CLASSPATH_SEPARATOR)$(BOOTDIR)/jre/lib/rt.jar -sourcepath $(BUILDTOOLSDIR) -d $(CLASSDESTDIR)
+endif
+
+#
+# Shared defintions.
+#
+HTML32DTD = $(CLASSBINDIR)/$(SWINGPKG)/text/html/parser/html32.bdtd
+
+#
+# Real rules.
+#
+make-html32dtd: classes $(HTML32DTD)
+
+$(HTML32DTD): $(FILES_class)
+	$(RM) $(HTML32DTD)
+	($(LOCAL_JAVA) \
+		-classpath "$(CLASSDESTDIR)$(CLASSPATH_SEPARATOR)$(CLASSPATH)" \
+		-Ddtd_home=$(BUILDTOOLSDIR)/dtdbuilder/dtds \
+		dtdbuilder.DTDBuilder html32 > $@) || exit 1
+
+html32dtd.clean:: 
+	$(RM) -r $(CLASSDESTDIR)
+	$(RM) $(TMPDIR)/.classes.list
+
+.PHONY: swing-html32dtd make-html32dtd html32dtd.clean 

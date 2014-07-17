@@ -1,0 +1,610 @@
+# On this board, VCCAUX is 3.3 volts.
+CONFIG VCCAUX = "3.3" ;
+
+# Configure SUSPEND mode options.
+CONFIG ENABLE_SUSPEND = "FILTERED" ;
+
+# FILTERED is appropriate for use with the switch on this board. Other allowed
+# settings are NO or UNFILTERED.  If set NO, the AWAKE pin becomes general I/O.
+# Please read the FPGA User Guide for more information.
+# Configure POST_CRC options.
+CONFIG POST_CRC = "DISABLE" ;
+
+# DISABLE the post-configuration CRC checking so INIT_B is available for
+# general I/O after configuration is done.  On this board, INIT_B is used
+# after configuration to control the Platform Flash device.  Other allowed
+# settings are ENABLE.  Please read the FPGA User Guide for more information.
+
+NET "Clock" TNM_NET = "Clock";
+TIMESPEC "TS_Clock" = PERIOD "Clock" 16.0 ns HIGH 50 %;
+
+#NET "CLKFX" TNM_NET = "CLKFX";
+#TIMESPEC "TS_CLKFX" = PERIOD "CLKFX" 30 ns HIGH 50 %;
+
+##############################################################################
+# Clock oscilator
+##############################################################################
+NET "SysClock" LOC = "E12" | IOSTANDARD = "LVCMOS33" | PERIOD = 20 ns HIGH 40 %;
+
+##############################################################################
+# 
+##############################################################################
+NET "Interrupt<0>"      LOC = "T16"  | IOSTANDARD = LVCMOS33 | PULLDOWN ;
+NET "Interrupt<1>"     LOC = "T14"  | IOSTANDARD = LVCMOS33 | PULLDOWN ;
+NET "Interrupt<2>"     LOC = "T15"  | IOSTANDARD = LVCMOS33 | PULLDOWN ;
+NET "Interrupt<3>"      LOC = "U15"  | IOSTANDARD = LVCMOS33 | PULLDOWN ;
+NET "Interrupt<4>"         LOC = "T13"  | IOSTANDARD = LVCMOS33 | PULLDOWN ;
+NET "Interrupt<5>"         LOC = "R14"  | IOSTANDARD = LVCMOS33 | PULLDOWN ;
+NET "Interrupt<6>"         LOC = "H12"  | IOSTANDARD = LVCMOS33 | PULLDOWN ;
+NET "Interrupt<7>"         LOC = "G12"  | IOSTANDARD = LVCMOS33 | PULLDOWN ;
+
+##############################################################################
+# Rotary Knob (ROT center)
+##############################################################################
+NET "Reset" LOC = "R13" | IOSTANDARD = "LVCMOS33" | PULLDOWN;
+
+##############################################################################
+# Discrete Indicators (LED)
+##############################################################################
+NET "LED<0>" LOC = "R20" | IOSTANDARD = "LVCMOS33" | DRIVE = 8 | SLEW = SLOW;
+NET "LED<1>" LOC = "T19" | IOSTANDARD = "LVCMOS33" | DRIVE = 8 | SLEW = SLOW;
+NET "LED<2>" LOC = "U20" | IOSTANDARD = "LVCMOS33" | DRIVE = 8 | SLEW = SLOW;
+NET "LED<3>" LOC = "U19" | IOSTANDARD = "LVCMOS33" | DRIVE = 8 | SLEW = SLOW;
+NET "LED<4>" LOC = "V19" | IOSTANDARD = "LVCMOS33" | DRIVE = 8 | SLEW = SLOW;
+NET "LED<5>" LOC = "V20" | IOSTANDARD = "LVCMOS33" | DRIVE = 8 | SLEW = SLOW;
+NET "LED<6>" LOC = "Y22" | IOSTANDARD = "LVCMOS33" | DRIVE = 8 | SLEW = SLOW;
+NET "LED<7>" LOC = "W21" | IOSTANDARD = "LVCMOS33" | DRIVE = 8 | SLEW = SLOW;
+
+##############################################################################
+# Mechanical Switches (SW) (counter events)
+##############################################################################
+NET "source<0>" LOC = "V8" | IOSTANDARD = "LVCMOS33";
+NET "source<1>" LOC = "U10" | IOSTANDARD = "LVCMOS33";
+NET "source<2>" LOC = "U8" | IOSTANDARD = "LVCMOS33";
+NET "source<3>" LOC = "T9" | IOSTANDARD = "LVCMOS33";
+
+##############################################################################
+# Serial Ports (RS232 crossed out)
+##############################################################################
+NET "RxD2" LOC = "F16"  | IOSTANDARD = LVCMOS33 ;
+NET "TxD2" LOC = "E15"  | IOSTANDARD = LVCMOS33 | DRIVE = 8 | SLEW = SLOW ;
+
+NET "RxD1" LOC = "E16"  | IOSTANDARD = LVCMOS33 ;
+NET "TxD1" LOC = "F15"  | IOSTANDARD = LVCMOS33 | DRIVE = 8 | SLEW = SLOW ;
+
+
+##############################################################################
+# DDR2 SDRAM Device (SD)
+##############################################################################
+NET "SD_A<0>" LOC = "R2" | IOSTANDARD = "SSTL18_I";
+NET "SD_A<1>" LOC = "T4" | IOSTANDARD = "SSTL18_I";
+NET "SD_A<2>" LOC = "R1" | IOSTANDARD = "SSTL18_I";
+NET "SD_A<3>" LOC = "U3" | IOSTANDARD = "SSTL18_I";
+NET "SD_A<4>" LOC = "U2" | IOSTANDARD = "SSTL18_I";
+NET "SD_A<5>" LOC = "U4" | IOSTANDARD = "SSTL18_I";
+NET "SD_A<6>" LOC = "U1" | IOSTANDARD = "SSTL18_I";
+NET "SD_A<7>" LOC = "Y1" | IOSTANDARD = "SSTL18_I";
+NET "SD_A<8>" LOC = "W1" | IOSTANDARD = "SSTL18_I";
+NET "SD_A<9>" LOC = "W2" | IOSTANDARD = "SSTL18_I";
+NET "SD_A<10>" LOC = "T3" | IOSTANDARD = "SSTL18_I";
+NET "SD_A<11>" LOC = "V1" | IOSTANDARD = "SSTL18_I";
+NET "SD_A<12>" LOC = "Y2" | IOSTANDARD = "SSTL18_I";
+#NET "SD_A<13>"      LOC = "V3"   | IOSTANDARD = SSTL18_I ;
+#NET "SD_A<14>"      LOC = "V4"   | IOSTANDARD = SSTL18_I ;
+#NET "SD_A<15>"      LOC = "W3"   | IOSTANDARD = SSTL18_I ;
+NET "SD_BA<0>" LOC = "P3" | IOSTANDARD = "SSTL18_I";
+NET "SD_BA<1>" LOC = "R3" | IOSTANDARD = "SSTL18_I";
+#NET "SD_BA<2>"      LOC = "P5"   | IOSTANDARD = SSTL18_I ;
+NET "SD_RAS" LOC = "M3" | IOSTANDARD = "SSTL18_I";
+NET "SD_CAS" LOC = "M4" | IOSTANDARD = "SSTL18_I";
+NET "SD_CK_N" LOC = "M2" | IOSTANDARD = "DIFF_SSTL18_I";
+NET "SD_CK_P" LOC = "M1" | IOSTANDARD = "DIFF_SSTL18_I";
+NET "SD_CKE" LOC = "N3" | IOSTANDARD = "SSTL18_I";
+NET "SD_ODT" LOC = "P1" | IOSTANDARD = "SSTL18_I";
+NET "SD_CS" LOC = "M5" | IOSTANDARD = "SSTL18_I";
+NET "SD_WE" LOC = "N4" | IOSTANDARD = "SSTL18_I";
+NET "SD_LDM" LOC = "J3" | IOSTANDARD = "SSTL18_I";
+NET "SD_LDQS_N" LOC = "K2" | IOSTANDARD = "DIFF_SSTL18_I";
+NET "SD_LDQS_P" LOC = "K3" | IOSTANDARD = "DIFF_SSTL18_I";
+NET "SD_LOOP_IN" LOC = "H4" | IOSTANDARD = "SSTL18_I";
+NET "SD_LOOP_OUT" LOC = "H3" | IOSTANDARD = "SSTL18_I";
+NET "SD_UDM" LOC = "E3" | IOSTANDARD = "SSTL18_I";
+NET "SD_UDQS_N" LOC = "J5" | IOSTANDARD = "DIFF_SSTL18_I";
+NET "SD_UDQS_P" LOC = "K6" | IOSTANDARD = "DIFF_SSTL18_I";
+
+NET "SD_DQ<0>" LOC = "H1" | IOSTANDARD = "SSTL18_I";
+NET "SD_DQ<1>" LOC = "K5" | IOSTANDARD = "SSTL18_I";
+NET "SD_DQ<2>" LOC = "K1" | IOSTANDARD = "SSTL18_I";
+NET "SD_DQ<3>" LOC = "L3" | IOSTANDARD = "SSTL18_I";
+NET "SD_DQ<4>" LOC = "L5" | IOSTANDARD = "SSTL18_I";
+NET "SD_DQ<5>" LOC = "L1" | IOSTANDARD = "SSTL18_I";
+NET "SD_DQ<6>" LOC = "K4" | IOSTANDARD = "SSTL18_I";
+NET "SD_DQ<7>" LOC = "H2" | IOSTANDARD = "SSTL18_I";
+NET "SD_DQ<8>" LOC = "F2" | IOSTANDARD = "SSTL18_I";
+NET "SD_DQ<9>" LOC = "G4" | IOSTANDARD = "SSTL18_I";
+NET "SD_DQ<10>" LOC = "G1" | IOSTANDARD = "SSTL18_I";
+NET "SD_DQ<11>" LOC = "H6" | IOSTANDARD = "SSTL18_I";
+NET "SD_DQ<12>" LOC = "H5" | IOSTANDARD = "SSTL18_I";
+NET "SD_DQ<13>" LOC = "F1" | IOSTANDARD = "SSTL18_I";
+NET "SD_DQ<14>" LOC = "G3" | IOSTANDARD = "SSTL18_I";
+NET "SD_DQ<15>" LOC = "F3" | IOSTANDARD = "SSTL18_I";
+
+# Prohibit VREF pins on FPGA I/O Bank 3
+CONFIG PROHIBIT = H7;
+CONFIG PROHIBIT = J1;
+CONFIG PROHIBIT = J8;
+CONFIG PROHIBIT = L8;
+CONFIG PROHIBIT = N1;
+CONFIG PROHIBIT = R6;
+CONFIG PROHIBIT = T1;
+CONFIG PROHIBIT = T6;
+
+##############################################################################
+# Below this line are constraints specific to the SDRAM controller design
+##############################################################################
+
+NET "Reset" TIG ;
+NET "myRAM/top0/controller0/rst_calib*" TIG;
+NET "myRAM/top0/infrastructure0/delay_sel_val*" TIG;
+NET "myRAM/top0/infrastructure0/rst_calib*" TIG;
+INST "myRAM/top0/data_path0/data_read_controller0/dqs_delay*_col*" TIG;
+INST "myRAM/top0/data_path0/data_read_controller0/rst_dqs_div_delayed*" TIG;
+
+#######################################################################################################################
+# Calibration Circuit Constraints #
+#######################################################################################################################
+# Placement constraints for luts in tap delay ckt #
+#######################################################################################################################
+
+INST  "myRAM/infrastructure_top0/cal_top0/tap_dly0/l0"  RLOC=X0Y6;
+INST  "myRAM/infrastructure_top0/cal_top0/tap_dly0/l0"  U_SET = "myRAM/infrastructure_top0/cal_top0/tap_dly0/l0";
+ 
+INST  "myRAM/infrastructure_top0/cal_top0/tap_dly0/l1" RLOC=X0Y6;
+INST  "myRAM/infrastructure_top0/cal_top0/tap_dly0/l1"  U_SET = "myRAM/infrastructure_top0/cal_top0/tap_dly0/l0";
+ 
+INST  "myRAM/infrastructure_top0/cal_top0/tap_dly0/l2" RLOC=X0Y7;
+INST  "myRAM/infrastructure_top0/cal_top0/tap_dly0/l2"  U_SET = "myRAM/infrastructure_top0/cal_top0/tap_dly0/l0";
+
+INST  "myRAM/infrastructure_top0/cal_top0/tap_dly0/l3" RLOC=X0Y7;
+INST  "myRAM/infrastructure_top0/cal_top0/tap_dly0/l3"  U_SET = "myRAM/infrastructure_top0/cal_top0/tap_dly0/l0";
+
+INST  "myRAM/infrastructure_top0/cal_top0/tap_dly0/l4" RLOC=X1Y6;
+INST  "myRAM/infrastructure_top0/cal_top0/tap_dly0/l4"  U_SET = "myRAM/infrastructure_top0/cal_top0/tap_dly0/l0";
+
+INST  "myRAM/infrastructure_top0/cal_top0/tap_dly0/l5" RLOC=X1Y6;
+INST  "myRAM/infrastructure_top0/cal_top0/tap_dly0/l5"  U_SET = "myRAM/infrastructure_top0/cal_top0/tap_dly0/l0";
+
+INST  "myRAM/infrastructure_top0/cal_top0/tap_dly0/l6" RLOC=X1Y7;
+INST  "myRAM/infrastructure_top0/cal_top0/tap_dly0/l6"  U_SET = "myRAM/infrastructure_top0/cal_top0/tap_dly0/l0";
+
+INST  "myRAM/infrastructure_top0/cal_top0/tap_dly0/l7" RLOC=X1Y7;
+INST  "myRAM/infrastructure_top0/cal_top0/tap_dly0/l7"  U_SET = "myRAM/infrastructure_top0/cal_top0/tap_dly0/l0";
+  
+INST  "myRAM/infrastructure_top0/cal_top0/tap_dly0/l8" RLOC=X0Y4;
+INST  "myRAM/infrastructure_top0/cal_top0/tap_dly0/l8"  U_SET = "myRAM/infrastructure_top0/cal_top0/tap_dly0/l0";
+ 
+INST  "myRAM/infrastructure_top0/cal_top0/tap_dly0/l9" RLOC=X0Y4;
+INST  "myRAM/infrastructure_top0/cal_top0/tap_dly0/l9"  U_SET = "myRAM/infrastructure_top0/cal_top0/tap_dly0/l0";
+ 
+INST  "myRAM/infrastructure_top0/cal_top0/tap_dly0/l10" RLOC=X0Y5;
+INST  "myRAM/infrastructure_top0/cal_top0/tap_dly0/l10"  U_SET = "myRAM/infrastructure_top0/cal_top0/tap_dly0/l0";
+ 
+INST  "myRAM/infrastructure_top0/cal_top0/tap_dly0/l11" RLOC=X0Y5;
+INST  "myRAM/infrastructure_top0/cal_top0/tap_dly0/l11"  U_SET = "myRAM/infrastructure_top0/cal_top0/tap_dly0/l0";
+ 
+INST  "myRAM/infrastructure_top0/cal_top0/tap_dly0/l12" RLOC=X1Y4;
+INST  "myRAM/infrastructure_top0/cal_top0/tap_dly0/l12"  U_SET = "myRAM/infrastructure_top0/cal_top0/tap_dly0/l0";
+ 
+INST  "myRAM/infrastructure_top0/cal_top0/tap_dly0/l13" RLOC=X1Y4;
+INST  "myRAM/infrastructure_top0/cal_top0/tap_dly0/l13"  U_SET = "myRAM/infrastructure_top0/cal_top0/tap_dly0/l0";
+ 
+INST  "myRAM/infrastructure_top0/cal_top0/tap_dly0/l14" RLOC=X1Y5;
+INST  "myRAM/infrastructure_top0/cal_top0/tap_dly0/l14"  U_SET = "myRAM/infrastructure_top0/cal_top0/tap_dly0/l0";
+
+INST  "myRAM/infrastructure_top0/cal_top0/tap_dly0/l15" RLOC=X1Y5;
+INST  "myRAM/infrastructure_top0/cal_top0/tap_dly0/l15"  U_SET = "myRAM/infrastructure_top0/cal_top0/tap_dly0/l0";
+
+INST  "myRAM/infrastructure_top0/cal_top0/tap_dly0/l16" RLOC=X0Y2;
+INST  "myRAM/infrastructure_top0/cal_top0/tap_dly0/l16"  U_SET = "myRAM/infrastructure_top0/cal_top0/tap_dly0/l0";
+
+INST  "myRAM/infrastructure_top0/cal_top0/tap_dly0/l17" RLOC=X0Y2;
+INST  "myRAM/infrastructure_top0/cal_top0/tap_dly0/l17"  U_SET = "myRAM/infrastructure_top0/cal_top0/tap_dly0/l0";
+
+INST  "myRAM/infrastructure_top0/cal_top0/tap_dly0/l18" RLOC=X0Y3;
+INST  "myRAM/infrastructure_top0/cal_top0/tap_dly0/l18"  U_SET = "myRAM/infrastructure_top0/cal_top0/tap_dly0/l0";
+
+INST  "myRAM/infrastructure_top0/cal_top0/tap_dly0/l19" RLOC=X0Y3;
+INST  "myRAM/infrastructure_top0/cal_top0/tap_dly0/l19"  U_SET = "myRAM/infrastructure_top0/cal_top0/tap_dly0/l0";
+
+INST  "myRAM/infrastructure_top0/cal_top0/tap_dly0/l20" RLOC=X1Y2;
+INST  "myRAM/infrastructure_top0/cal_top0/tap_dly0/l20"  U_SET = "myRAM/infrastructure_top0/cal_top0/tap_dly0/l0";
+
+INST  "myRAM/infrastructure_top0/cal_top0/tap_dly0/l21" RLOC=X1Y2;
+INST  "myRAM/infrastructure_top0/cal_top0/tap_dly0/l21"  U_SET = "myRAM/infrastructure_top0/cal_top0/tap_dly0/l0";
+
+INST  "myRAM/infrastructure_top0/cal_top0/tap_dly0/l22" RLOC=X1Y3;
+INST  "myRAM/infrastructure_top0/cal_top0/tap_dly0/l22"  U_SET = "myRAM/infrastructure_top0/cal_top0/tap_dly0/l0";
+
+INST  "myRAM/infrastructure_top0/cal_top0/tap_dly0/l23" RLOC=X1Y3;
+INST  "myRAM/infrastructure_top0/cal_top0/tap_dly0/l23"  U_SET = "myRAM/infrastructure_top0/cal_top0/tap_dly0/l0";
+
+INST  "myRAM/infrastructure_top0/cal_top0/tap_dly0/l24" RLOC=X0Y0;
+INST  "myRAM/infrastructure_top0/cal_top0/tap_dly0/l24"  U_SET = "myRAM/infrastructure_top0/cal_top0/tap_dly0/l0";
+
+INST  "myRAM/infrastructure_top0/cal_top0/tap_dly0/l25" RLOC=X0Y0;
+INST  "myRAM/infrastructure_top0/cal_top0/tap_dly0/l25"  U_SET = "myRAM/infrastructure_top0/cal_top0/tap_dly0/l0";
+
+INST  "myRAM/infrastructure_top0/cal_top0/tap_dly0/l26" RLOC=X0Y1;
+INST  "myRAM/infrastructure_top0/cal_top0/tap_dly0/l26"  U_SET = "myRAM/infrastructure_top0/cal_top0/tap_dly0/l0";
+
+INST  "myRAM/infrastructure_top0/cal_top0/tap_dly0/l27" RLOC=X0Y1;
+INST  "myRAM/infrastructure_top0/cal_top0/tap_dly0/l27"  U_SET = "myRAM/infrastructure_top0/cal_top0/tap_dly0/l0";
+
+INST  "myRAM/infrastructure_top0/cal_top0/tap_dly0/l28" RLOC=X1Y0;
+INST  "myRAM/infrastructure_top0/cal_top0/tap_dly0/l28"  U_SET = "myRAM/infrastructure_top0/cal_top0/tap_dly0/l0";
+
+INST  "myRAM/infrastructure_top0/cal_top0/tap_dly0/l29" RLOC=X1Y0;
+INST  "myRAM/infrastructure_top0/cal_top0/tap_dly0/l29"  U_SET = "myRAM/infrastructure_top0/cal_top0/tap_dly0/l0";
+
+INST  "myRAM/infrastructure_top0/cal_top0/tap_dly0/l30" RLOC=X1Y1;
+INST  "myRAM/infrastructure_top0/cal_top0/tap_dly0/l30"  U_SET = "myRAM/infrastructure_top0/cal_top0/tap_dly0/l0";
+
+INST  "myRAM/infrastructure_top0/cal_top0/tap_dly0/l31" RLOC=X1Y1;
+INST  "myRAM/infrastructure_top0/cal_top0/tap_dly0/l31"  U_SET = "myRAM/infrastructure_top0/cal_top0/tap_dly0/l0";
+
+#######################################################################################################################
+# Placement constraints for first stage flops in tap delay ckt #
+#######################################################################################################################
+ 
+INST  "myRAM/infrastructure_top0/cal_top0/tap_dly0/r0"    RLOC=X0Y6;
+INST  "myRAM/infrastructure_top0/cal_top0/tap_dly0/r0"   U_SET = "myRAM/infrastructure_top0/cal_top0/tap_dly0/l0";
+
+INST "myRAM/infrastructure_top0/cal_top0/tap_dly0/r1" RLOC=X0Y6;
+INST "myRAM/infrastructure_top0/cal_top0/tap_dly0/r1"  U_SET = "myRAM/infrastructure_top0/cal_top0/tap_dly0/l0";
+
+INST "myRAM/infrastructure_top0/cal_top0/tap_dly0/r2" RLOC=X0Y7;
+INST  "myRAM/infrastructure_top0/cal_top0/tap_dly0/r2"  U_SET = "myRAM/infrastructure_top0/cal_top0/tap_dly0/l0";
+
+INST "myRAM/infrastructure_top0/cal_top0/tap_dly0/r3" RLOC=X0Y7;
+INST  "myRAM/infrastructure_top0/cal_top0/tap_dly0/r3"  U_SET = "myRAM/infrastructure_top0/cal_top0/tap_dly0/l0";
+
+INST "myRAM/infrastructure_top0/cal_top0/tap_dly0/r4" RLOC=X1Y6;
+INST  "myRAM/infrastructure_top0/cal_top0/tap_dly0/r4"  U_SET = "myRAM/infrastructure_top0/cal_top0/tap_dly0/l0";
+
+INST "myRAM/infrastructure_top0/cal_top0/tap_dly0/r5" RLOC=X1Y6;
+INST  "myRAM/infrastructure_top0/cal_top0/tap_dly0/r5"  U_SET = "myRAM/infrastructure_top0/cal_top0/tap_dly0/l0";
+
+INST "myRAM/infrastructure_top0/cal_top0/tap_dly0/r6" RLOC=X1Y7;
+INST  "myRAM/infrastructure_top0/cal_top0/tap_dly0/r6"  U_SET = "myRAM/infrastructure_top0/cal_top0/tap_dly0/l0";
+
+INST "myRAM/infrastructure_top0/cal_top0/tap_dly0/r7" RLOC=X1Y7;
+INST  "myRAM/infrastructure_top0/cal_top0/tap_dly0/r7"  U_SET = "myRAM/infrastructure_top0/cal_top0/tap_dly0/l0";
+
+INST "myRAM/infrastructure_top0/cal_top0/tap_dly0/r8" RLOC=X0Y4;
+INST  "myRAM/infrastructure_top0/cal_top0/tap_dly0/r8"  U_SET = "myRAM/infrastructure_top0/cal_top0/tap_dly0/l0";
+
+INST "myRAM/infrastructure_top0/cal_top0/tap_dly0/r9" RLOC=X0Y4;
+INST  "myRAM/infrastructure_top0/cal_top0/tap_dly0/r9"  U_SET = "myRAM/infrastructure_top0/cal_top0/tap_dly0/l0";
+
+INST "myRAM/infrastructure_top0/cal_top0/tap_dly0/r10" RLOC=X0Y5;
+INST  "myRAM/infrastructure_top0/cal_top0/tap_dly0/r10"  U_SET = "myRAM/infrastructure_top0/cal_top0/tap_dly0/l0";
+
+INST "myRAM/infrastructure_top0/cal_top0/tap_dly0/r11" RLOC=X0Y5;
+INST  "myRAM/infrastructure_top0/cal_top0/tap_dly0/r11"  U_SET = "myRAM/infrastructure_top0/cal_top0/tap_dly0/l0";
+
+INST "myRAM/infrastructure_top0/cal_top0/tap_dly0/r12" RLOC=X1Y4;
+INST  "myRAM/infrastructure_top0/cal_top0/tap_dly0/r12"  U_SET = "myRAM/infrastructure_top0/cal_top0/tap_dly0/l0";
+
+INST "myRAM/infrastructure_top0/cal_top0/tap_dly0/r13" RLOC=X1Y4;
+INST  "myRAM/infrastructure_top0/cal_top0/tap_dly0/r13"  U_SET = "myRAM/infrastructure_top0/cal_top0/tap_dly0/l0";
+
+INST "myRAM/infrastructure_top0/cal_top0/tap_dly0/r14" RLOC=X1Y5;
+INST  "myRAM/infrastructure_top0/cal_top0/tap_dly0/r14"  U_SET = "myRAM/infrastructure_top0/cal_top0/tap_dly0/l0";
+
+INST "myRAM/infrastructure_top0/cal_top0/tap_dly0/r15" RLOC=X1Y5;
+INST  "myRAM/infrastructure_top0/cal_top0/tap_dly0/r15"  U_SET = "myRAM/infrastructure_top0/cal_top0/tap_dly0/l0";
+
+INST  "myRAM/infrastructure_top0/cal_top0/tap_dly0/r16" RLOC=X0Y2;
+INST  "myRAM/infrastructure_top0/cal_top0/tap_dly0/r16"  U_SET = "myRAM/infrastructure_top0/cal_top0/tap_dly0/l0";
+
+INST  "myRAM/infrastructure_top0/cal_top0/tap_dly0/r17" RLOC=X0Y2;
+INST  "myRAM/infrastructure_top0/cal_top0/tap_dly0/r17"  U_SET = "myRAM/infrastructure_top0/cal_top0/tap_dly0/l0";
+
+INST  "myRAM/infrastructure_top0/cal_top0/tap_dly0/r18" RLOC=X0Y3;
+INST  "myRAM/infrastructure_top0/cal_top0/tap_dly0/r18"  U_SET = "myRAM/infrastructure_top0/cal_top0/tap_dly0/l0";
+
+INST  "myRAM/infrastructure_top0/cal_top0/tap_dly0/r19" RLOC=X0Y3;
+INST  "myRAM/infrastructure_top0/cal_top0/tap_dly0/r19"  U_SET = "myRAM/infrastructure_top0/cal_top0/tap_dly0/l0";
+
+INST  "myRAM/infrastructure_top0/cal_top0/tap_dly0/r20" RLOC=X1Y2;
+INST  "myRAM/infrastructure_top0/cal_top0/tap_dly0/r20"  U_SET = "myRAM/infrastructure_top0/cal_top0/tap_dly0/l0";
+
+INST  "myRAM/infrastructure_top0/cal_top0/tap_dly0/r21" RLOC=X1Y2;
+INST  "myRAM/infrastructure_top0/cal_top0/tap_dly0/r21"  U_SET = "myRAM/infrastructure_top0/cal_top0/tap_dly0/l0";
+
+INST  "myRAM/infrastructure_top0/cal_top0/tap_dly0/r22" RLOC=X1Y3;
+INST  "myRAM/infrastructure_top0/cal_top0/tap_dly0/r22"  U_SET = "myRAM/infrastructure_top0/cal_top0/tap_dly0/l0";
+
+INST  "myRAM/infrastructure_top0/cal_top0/tap_dly0/r23" RLOC=X1Y3;
+INST  "myRAM/infrastructure_top0/cal_top0/tap_dly0/r23"  U_SET = "myRAM/infrastructure_top0/cal_top0/tap_dly0/l0";
+
+INST  "myRAM/infrastructure_top0/cal_top0/tap_dly0/r24" RLOC=X0Y0;
+INST  "myRAM/infrastructure_top0/cal_top0/tap_dly0/r24"  U_SET = "myRAM/infrastructure_top0/cal_top0/tap_dly0/l0";
+
+INST  "myRAM/infrastructure_top0/cal_top0/tap_dly0/r25" RLOC=X0Y0;
+INST  "myRAM/infrastructure_top0/cal_top0/tap_dly0/r25"  U_SET = "myRAM/infrastructure_top0/cal_top0/tap_dly0/l0";
+
+INST  "myRAM/infrastructure_top0/cal_top0/tap_dly0/r26" RLOC=X0Y1;
+INST  "myRAM/infrastructure_top0/cal_top0/tap_dly0/r26"  U_SET = "myRAM/infrastructure_top0/cal_top0/tap_dly0/l0";
+
+INST  "myRAM/infrastructure_top0/cal_top0/tap_dly0/r27" RLOC=X0Y1;
+INST  "myRAM/infrastructure_top0/cal_top0/tap_dly0/r27"  U_SET = "myRAM/infrastructure_top0/cal_top0/tap_dly0/l0";
+
+INST  "myRAM/infrastructure_top0/cal_top0/tap_dly0/r28" RLOC=X1Y0;
+INST  "myRAM/infrastructure_top0/cal_top0/tap_dly0/r28"  U_SET = "myRAM/infrastructure_top0/cal_top0/tap_dly0/l0";
+
+INST  "myRAM/infrastructure_top0/cal_top0/tap_dly0/r29" RLOC=X1Y0;
+INST  "myRAM/infrastructure_top0/cal_top0/tap_dly0/r29"  U_SET = "myRAM/infrastructure_top0/cal_top0/tap_dly0/l0";
+
+INST  "myRAM/infrastructure_top0/cal_top0/tap_dly0/r30" RLOC=X1Y1;
+INST  "myRAM/infrastructure_top0/cal_top0/tap_dly0/r30"  U_SET = "myRAM/infrastructure_top0/cal_top0/tap_dly0/l0";
+
+INST  "myRAM/infrastructure_top0/cal_top0/tap_dly0/r31" RLOC=X1Y1;
+INST  "myRAM/infrastructure_top0/cal_top0/tap_dly0/r31"  U_SET = "myRAM/infrastructure_top0/cal_top0/tap_dly0/l0";
+
+#######################################################################################################################
+# BEL constraints for luts in tap delay ckt #
+#######################################################################################################################
+
+INST "myRAM/infrastructure_top0/cal_top0/tap_dly0/l0" BEL= G;
+INST "myRAM/infrastructure_top0/cal_top0/tap_dly0/l1" BEL= F;
+INST "myRAM/infrastructure_top0/cal_top0/tap_dly0/l2" BEL= G;
+INST "myRAM/infrastructure_top0/cal_top0/tap_dly0/l3" BEL= F;
+INST "myRAM/infrastructure_top0/cal_top0/tap_dly0/l4" BEL= G;
+INST "myRAM/infrastructure_top0/cal_top0/tap_dly0/l5" BEL= F;
+INST "myRAM/infrastructure_top0/cal_top0/tap_dly0/l6" BEL= G;
+INST "myRAM/infrastructure_top0/cal_top0/tap_dly0/l7" BEL= F;
+INST "myRAM/infrastructure_top0/cal_top0/tap_dly0/l8" BEL= G;
+INST "myRAM/infrastructure_top0/cal_top0/tap_dly0/l9" BEL= F;
+INST "myRAM/infrastructure_top0/cal_top0/tap_dly0/l10" BEL= G;
+INST "myRAM/infrastructure_top0/cal_top0/tap_dly0/l11" BEL= F;
+INST "myRAM/infrastructure_top0/cal_top0/tap_dly0/l12" BEL= G;
+INST "myRAM/infrastructure_top0/cal_top0/tap_dly0/l13" BEL= F;
+INST "myRAM/infrastructure_top0/cal_top0/tap_dly0/l14" BEL= G;
+INST "myRAM/infrastructure_top0/cal_top0/tap_dly0/l15" BEL= F;
+INST "myRAM/infrastructure_top0/cal_top0/tap_dly0/l16" BEL= G;
+INST "myRAM/infrastructure_top0/cal_top0/tap_dly0/l17" BEL= F;
+INST "myRAM/infrastructure_top0/cal_top0/tap_dly0/l18" BEL= G;
+INST "myRAM/infrastructure_top0/cal_top0/tap_dly0/l19" BEL= F;
+INST "myRAM/infrastructure_top0/cal_top0/tap_dly0/l20" BEL= G;
+INST "myRAM/infrastructure_top0/cal_top0/tap_dly0/l21" BEL= F;
+INST "myRAM/infrastructure_top0/cal_top0/tap_dly0/l22" BEL= G;
+INST "myRAM/infrastructure_top0/cal_top0/tap_dly0/l23" BEL= F;
+INST "myRAM/infrastructure_top0/cal_top0/tap_dly0/l24" BEL= G;
+INST "myRAM/infrastructure_top0/cal_top0/tap_dly0/l25" BEL= F;  
+INST "myRAM/infrastructure_top0/cal_top0/tap_dly0/l26" BEL= G;
+INST "myRAM/infrastructure_top0/cal_top0/tap_dly0/l27" BEL= F;
+INST "myRAM/infrastructure_top0/cal_top0/tap_dly0/l28" BEL= G;
+INST "myRAM/infrastructure_top0/cal_top0/tap_dly0/l29" BEL= F;
+INST "myRAM/infrastructure_top0/cal_top0/tap_dly0/l30" BEL= G;
+INST "myRAM/infrastructure_top0/cal_top0/tap_dly0/l31" BEL= F;
+
+ ######################################################################################
+ ##### constraints to have the inverter connetion wire length to be the same   ########
+ ###### the following  constraints are independent of frequency  ######################
+ ######################################################################################
+
+ ###### maxdelay of 400 ps will not be met. This constraint is just to get a better delay####
+ NET "myRAM/infrastructure_top0/cal_top0/tap_dly0/tap[7]"  MAXDELAY = 700ps;
+ NET "myRAM/infrastructure_top0/cal_top0/tap_dly0/tap[15]"  MAXDELAY = 700ps;
+ NET "myRAM/infrastructure_top0/cal_top0/tap_dly0/tap[23]"  MAXDELAY = 700ps;
+ 
+ ##################################################################
+ ##### constraints from the dqs pin ########
+ ##################################################################
+
+ ###### maxdelay of 460 ps will not be met. This constraint is just to get a better delay####
+ ###### The reported delay will be in the range of 500 to 600 ps####
+ #NET "myRAM/top0/dqs_int_delay_in*" 	MAXDELAY = 560ps;
+ ###### maxdelay of 170 ps will not be met. This constraint is just to get a better delay####
+ ###### The reported delay will be in the range of 200 to 360 ps####
+ NET "myRAM/top0/data_path0/data_read_controller0/dqs_delay*_col*/delay*" 	MAXDELAY = 360ps;
+
+#######################################################################################################################
+# Area Group Constraint For tap_dly and cal_ctl module #
+#######################################################################################################################
+
+INST  "myRAM/infrastructure_top0/cal_top0/cal_ctl0" AREA_GROUP = cal_ctl;
+INST  "myRAM/infrastructure_top0/cal_top0/tap_dly0" AREA_GROUP = cal_ctl;
+AREA_GROUP "cal_ctl" RANGE = SLICE_X8Y40:SLICE_X19Y53;  
+AREA_GROUP "cal_ctl" GROUP = CLOSED;  
+
+############################################################################
+# IO Signals Registering Constraints                                           #
+############################################################################
+INST "myRAM/top0/iobs0/datapath_iobs0/s3_dqs_iob*"  IOB = TRUE;
+INST "myRAM/top0/iobs0/datapath_iobs0/s3_ddr_iob*"  IOB = TRUE;
+#INST "myRAM/top0/controller0/rst_iob_out"            IOB = TRUE;
+INST "myRAM/top0/iobs0/controller_iobs0/iob_addr*" IOB = TRUE;
+INST "myRAM/top0/iobs0/controller_iobs0/iob_ba*" IOB = TRUE;
+INST "myRAM/top0/iobs0/controller_iobs0/iob_rasb"      IOB = TRUE;
+INST "myRAM/top0/iobs0/controller_iobs0/iob_casb"      IOB = TRUE;
+INST "myRAM/top0/iobs0/controller_iobs0/iob_web"     IOB = TRUE;
+INST "myRAM/top0/iobs0/controller_iobs0/iob_cke"     IOB = TRUE;
+
+#########################################################################
+# MAXDELAY constraints                                                                        #
+#########################################################################
+NET  "myRAM/top0/data_path0/data_read_controller0/rst_dqs_div"        MAXDELAY = 3000ps;
+NET  "myRAM/top0/iobs0/controller_iobs0/rst_dqs_div*"         MAXDELAY = 3000ps;
+NET  "myRAM/top0/data_path0/data_read_controller0/rst_dqs_div_delayed*"         MAXDELAY = 3000ps;
+NET  "myRAM/top0/data_path0/data_read0/fifo*_wr_en"              MAXDELAY = 2000ps;
+NET  "myRAM/top0/data_path0/dqs_int_delay_in*"  MAXDELAY = 700ps;
+#########################################################################
+#############################################################
+##  constraints for bit cntrl0_DDR2_DQ, 1, location in tile: 0
+INST "myRAM/top0/data_path0/data_read0/strobe0/fifo_bit1" LOC = SLICE_X2Y58;
+INST "myRAM/top0/data_path0/data_read0/strobe0_n/fifo_bit1" LOC = SLICE_X2Y59;
+#############################################################
+##  constraints for bit cntrl0_DDR2_DQ, 0, location in tile: 0
+INST "myRAM/top0/data_path0/data_read0/strobe0/fifo_bit0" LOC = SLICE_X2Y62;
+INST "myRAM/top0/data_path0/data_read0/strobe0_n/fifo_bit0" LOC = SLICE_X2Y63;
+#############################################################
+##  constraints for bit cntrl0_DDR2_DQ, 3, location in tile: 0
+INST "myRAM/top0/data_path0/data_read0/strobe0/fifo_bit3" LOC = SLICE_X0Y52;
+INST "myRAM/top0/data_path0/data_read0/strobe0_n/fifo_bit3" LOC = SLICE_X0Y53;
+#############################################################
+##  constraints for bit cntrl0_DDR2_DQ, 2, location in tile: 0
+INST "myRAM/top0/data_path0/data_read0/strobe0/fifo_bit2" LOC = SLICE_X2Y50;
+INST "myRAM/top0/data_path0/data_read0/strobe0_n/fifo_bit2" LOC = SLICE_X2Y51;
+#############################################################
+##  constraints for bit cntrl0_DDR2_DQS_P, 0, location in tile: 0
+
+## LUT location constraints for col 0
+INST "myRAM/top0/data_path0/data_read_controller0/dqs_delay0_col0/one" LOC = SLICE_X2Y55;
+INST "myRAM/top0/data_path0/data_read_controller0/dqs_delay0_col0/one" BEL = F;
+INST "myRAM/top0/data_path0/data_read_controller0/dqs_delay0_col0/two" LOC = SLICE_X2Y55;
+INST "myRAM/top0/data_path0/data_read_controller0/dqs_delay0_col0/two" BEL = G;
+INST "myRAM/top0/data_path0/data_read_controller0/dqs_delay0_col0/three" LOC = SLICE_X2Y54;
+INST "myRAM/top0/data_path0/data_read_controller0/dqs_delay0_col0/three" BEL = G;
+INST "myRAM/top0/data_path0/data_read_controller0/dqs_delay0_col0/four" LOC = SLICE_X2Y54;
+INST "myRAM/top0/data_path0/data_read_controller0/dqs_delay0_col0/four" BEL = F;
+INST "myRAM/top0/data_path0/data_read_controller0/dqs_delay0_col0/five" LOC = SLICE_X3Y55;
+INST "myRAM/top0/data_path0/data_read_controller0/dqs_delay0_col0/five" BEL = G;
+INST "myRAM/top0/data_path0/data_read_controller0/dqs_delay0_col0/six" LOC = SLICE_X3Y54;
+INST "myRAM/top0/data_path0/data_read_controller0/dqs_delay0_col0/six" BEL = G;
+
+## LUT location constraints for col 1
+INST "myRAM/top0/data_path0/data_read_controller0/dqs_delay0_col1/one" LOC = SLICE_X0Y55;
+INST "myRAM/top0/data_path0/data_read_controller0/dqs_delay0_col1/one" BEL = F;
+INST "myRAM/top0/data_path0/data_read_controller0/dqs_delay0_col1/two" LOC = SLICE_X0Y55;
+INST "myRAM/top0/data_path0/data_read_controller0/dqs_delay0_col1/two" BEL = G;
+INST "myRAM/top0/data_path0/data_read_controller0/dqs_delay0_col1/three" LOC = SLICE_X0Y54;
+INST "myRAM/top0/data_path0/data_read_controller0/dqs_delay0_col1/three" BEL = G;
+INST "myRAM/top0/data_path0/data_read_controller0/dqs_delay0_col1/four" LOC = SLICE_X0Y54;
+INST "myRAM/top0/data_path0/data_read_controller0/dqs_delay0_col1/four" BEL = F;
+INST "myRAM/top0/data_path0/data_read_controller0/dqs_delay0_col1/five" LOC = SLICE_X1Y55;
+INST "myRAM/top0/data_path0/data_read_controller0/dqs_delay0_col1/five" BEL = G;
+INST "myRAM/top0/data_path0/data_read_controller0/dqs_delay0_col1/six" LOC = SLICE_X1Y54;
+INST "myRAM/top0/data_path0/data_read_controller0/dqs_delay0_col1/six" BEL = G;
+
+########################WRITE ADD & WRITE_EN##########
+INST "myRAM/top0/data_path0/data_read_controller0/fifo_00_wr_addr_inst/bit0" LOC = SLICE_X1Y50;
+INST "myRAM/top0/data_path0/data_read_controller0/fifo_00_wr_addr_inst/bit1" LOC = SLICE_X1Y50;
+INST "myRAM/top0/data_path0/data_read_controller0/fifo_00_wr_addr_inst/bit2" LOC = SLICE_X1Y49;
+INST "myRAM/top0/data_path0/data_read_controller0/fifo_00_wr_addr_inst/bit3" LOC = SLICE_X1Y49;
+INST "myRAM/top0/data_path0/data_read_controller0/fifo_01_wr_addr_inst/bit0" LOC = SLICE_X3Y49;
+INST "myRAM/top0/data_path0/data_read_controller0/fifo_01_wr_addr_inst/bit1" LOC = SLICE_X3Y49;
+INST "myRAM/top0/data_path0/data_read_controller0/fifo_01_wr_addr_inst/bit2" LOC = SLICE_X3Y50;
+INST "myRAM/top0/data_path0/data_read_controller0/fifo_01_wr_addr_inst/bit3" LOC = SLICE_X3Y50;
+INST "myRAM/top0/data_path0/data_read_controller0/fifo_00_wr_en_inst" LOC = SLICE_X1Y53;
+INST "myRAM/top0/data_path0/data_read_controller0/fifo_01_wr_en_inst" LOC = SLICE_X3Y53;
+#############################################################
+##  constraints for bit cntrl0_DDR2_DQ, 5, location in tile: 0
+INST "myRAM/top0/data_path0/data_read0/strobe0/fifo_bit5" LOC = SLICE_X0Y50;
+INST "myRAM/top0/data_path0/data_read0/strobe0_n/fifo_bit5" LOC = SLICE_X0Y51;
+#############################################################
+##  constraints for bit cntrl0_DDR2_DQ, 4, location in tile: 0
+INST "myRAM/top0/data_path0/data_read0/strobe0/fifo_bit4" LOC = SLICE_X2Y52;
+INST "myRAM/top0/data_path0/data_read0/strobe0_n/fifo_bit4" LOC = SLICE_X2Y53;
+#############################################################
+##  constraints for bit cntrl0_DDR2_DQ, 7, location in tile: 0
+INST "myRAM/top0/data_path0/data_read0/strobe0/fifo_bit7" LOC = SLICE_X0Y62;
+INST "myRAM/top0/data_path0/data_read0/strobe0_n/fifo_bit7" LOC = SLICE_X0Y63;
+#############################################################
+##  constraints for bit cntrl0_DDR2_DQ, 6, location in tile: 0
+INST "myRAM/top0/data_path0/data_read0/strobe0/fifo_bit6" LOC = SLICE_X0Y58;
+INST "myRAM/top0/data_path0/data_read0/strobe0_n/fifo_bit6" LOC = SLICE_X0Y59;
+#############################################################
+##  constraints for bit cntrl0_DDR2_DQ, 9, location in tile: 0
+INST "myRAM/top0/data_path0/data_read0/strobe1/fifo_bit1" LOC = SLICE_X0Y78;
+INST "myRAM/top0/data_path0/data_read0/strobe1_n/fifo_bit1" LOC = SLICE_X0Y79;
+#############################################################
+##  constraints for bit cntrl0_DDR2_DQ, 8, location in tile: 0
+INST "myRAM/top0/data_path0/data_read0/strobe1/fifo_bit0" LOC = SLICE_X2Y70;
+INST "myRAM/top0/data_path0/data_read0/strobe1_n/fifo_bit0" LOC = SLICE_X2Y71;
+#############################################################
+##  constraints for bit cntrl0_DDR2_DQ, 11, location in tile: 0
+INST "myRAM/top0/data_path0/data_read0/strobe1/fifo_bit3" LOC = SLICE_X0Y76;
+INST "myRAM/top0/data_path0/data_read0/strobe1_n/fifo_bit3" LOC = SLICE_X0Y77;
+#############################################################
+##  constraints for bit cntrl0_DDR2_DQ, 10, location in tile: 0
+INST "myRAM/top0/data_path0/data_read0/strobe1/fifo_bit2" LOC = SLICE_X2Y68;
+INST "myRAM/top0/data_path0/data_read0/strobe1_n/fifo_bit2" LOC = SLICE_X2Y69;
+#############################################################
+##  constraints for bit cntrl0_DDR2_DQS_P, 1, location in tile: 0
+
+## LUT location constraints for col 0
+INST "myRAM/top0/data_path0/data_read_controller0/dqs_delay1_col0/one" LOC = SLICE_X2Y75;
+INST "myRAM/top0/data_path0/data_read_controller0/dqs_delay1_col0/one" BEL = F;
+INST "myRAM/top0/data_path0/data_read_controller0/dqs_delay1_col0/two" LOC = SLICE_X2Y75;
+INST "myRAM/top0/data_path0/data_read_controller0/dqs_delay1_col0/two" BEL = G;
+INST "myRAM/top0/data_path0/data_read_controller0/dqs_delay1_col0/three" LOC = SLICE_X2Y74;
+INST "myRAM/top0/data_path0/data_read_controller0/dqs_delay1_col0/three" BEL = G;
+INST "myRAM/top0/data_path0/data_read_controller0/dqs_delay1_col0/four" LOC = SLICE_X2Y74;
+INST "myRAM/top0/data_path0/data_read_controller0/dqs_delay1_col0/four" BEL = F;
+INST "myRAM/top0/data_path0/data_read_controller0/dqs_delay1_col0/five" LOC = SLICE_X3Y75;
+INST "myRAM/top0/data_path0/data_read_controller0/dqs_delay1_col0/five" BEL = G;
+INST "myRAM/top0/data_path0/data_read_controller0/dqs_delay1_col0/six" LOC = SLICE_X3Y74;
+INST "myRAM/top0/data_path0/data_read_controller0/dqs_delay1_col0/six" BEL = G;
+
+## LUT location constraints for col 1
+INST "myRAM/top0/data_path0/data_read_controller0/dqs_delay1_col1/one" LOC = SLICE_X0Y75;
+INST "myRAM/top0/data_path0/data_read_controller0/dqs_delay1_col1/one" BEL = F;
+INST "myRAM/top0/data_path0/data_read_controller0/dqs_delay1_col1/two" LOC = SLICE_X0Y75;
+INST "myRAM/top0/data_path0/data_read_controller0/dqs_delay1_col1/two" BEL = G;
+INST "myRAM/top0/data_path0/data_read_controller0/dqs_delay1_col1/three" LOC = SLICE_X0Y74;
+INST "myRAM/top0/data_path0/data_read_controller0/dqs_delay1_col1/three" BEL = G;
+INST "myRAM/top0/data_path0/data_read_controller0/dqs_delay1_col1/four" LOC = SLICE_X0Y74;
+INST "myRAM/top0/data_path0/data_read_controller0/dqs_delay1_col1/four" BEL = F;
+INST "myRAM/top0/data_path0/data_read_controller0/dqs_delay1_col1/five" LOC = SLICE_X1Y75;
+INST "myRAM/top0/data_path0/data_read_controller0/dqs_delay1_col1/five" BEL = G;
+INST "myRAM/top0/data_path0/data_read_controller0/dqs_delay1_col1/six" LOC = SLICE_X1Y74;
+INST "myRAM/top0/data_path0/data_read_controller0/dqs_delay1_col1/six" BEL = G;
+
+########################WRITE ADD & WRITE_EN##########
+INST "myRAM/top0/data_path0/data_read_controller0/fifo_10_wr_addr_inst/bit0" LOC = SLICE_X1Y69;
+INST "myRAM/top0/data_path0/data_read_controller0/fifo_10_wr_addr_inst/bit1" LOC = SLICE_X1Y69;
+INST "myRAM/top0/data_path0/data_read_controller0/fifo_10_wr_addr_inst/bit2" LOC = SLICE_X1Y70;
+INST "myRAM/top0/data_path0/data_read_controller0/fifo_10_wr_addr_inst/bit3" LOC = SLICE_X1Y70;
+INST "myRAM/top0/data_path0/data_read_controller0/fifo_11_wr_addr_inst/bit0" LOC = SLICE_X3Y69;
+INST "myRAM/top0/data_path0/data_read_controller0/fifo_11_wr_addr_inst/bit1" LOC = SLICE_X3Y69;
+INST "myRAM/top0/data_path0/data_read_controller0/fifo_11_wr_addr_inst/bit2" LOC = SLICE_X3Y70;
+INST "myRAM/top0/data_path0/data_read_controller0/fifo_11_wr_addr_inst/bit3" LOC = SLICE_X3Y70;
+INST "myRAM/top0/data_path0/data_read_controller0/fifo_10_wr_en_inst" LOC = SLICE_X1Y72;
+INST "myRAM/top0/data_path0/data_read_controller0/fifo_11_wr_en_inst" LOC = SLICE_X3Y72;
+#############################################################
+##  constraints for bit cntrl0_DDR2_DQ, 13, location in tile: 0
+INST "myRAM/top0/data_path0/data_read0/strobe1/fifo_bit5" LOC = SLICE_X0Y70;
+INST "myRAM/top0/data_path0/data_read0/strobe1_n/fifo_bit5" LOC = SLICE_X0Y71;
+#############################################################
+##  constraints for bit cntrl0_DDR2_DQ, 12, location in tile: 0
+INST "myRAM/top0/data_path0/data_read0/strobe1/fifo_bit4" LOC = SLICE_X2Y76;
+INST "myRAM/top0/data_path0/data_read0/strobe1_n/fifo_bit4" LOC = SLICE_X2Y77;
+#############################################################
+##  constraints for bit cntrl0_DDR2_DQ, 15, location in tile: 0
+INST "myRAM/top0/data_path0/data_read0/strobe1/fifo_bit7" LOC = SLICE_X2Y78;
+INST "myRAM/top0/data_path0/data_read0/strobe1_n/fifo_bit7" LOC = SLICE_X2Y79;
+#############################################################
+##  constraints for bit cntrl0_DDR2_DQ, 14, location in tile: 0
+INST "myRAM/top0/data_path0/data_read0/strobe1/fifo_bit6" LOC = SLICE_X0Y68;
+INST "myRAM/top0/data_path0/data_read0/strobe1_n/fifo_bit6" LOC = SLICE_X0Y69;
+#############################################################
+##  constraints for bit cntrl0_rst_dqs_div_in, 1, location in tile: 1
+
+## LUT location constraints for col 1
+INST "myRAM/top0/data_path0/data_read_controller0/rst_dqs_div_delayed1/one" LOC = SLICE_X0Y67;
+INST "myRAM/top0/data_path0/data_read_controller0/rst_dqs_div_delayed1/one" BEL = F;
+INST "myRAM/top0/data_path0/data_read_controller0/rst_dqs_div_delayed1/two" LOC = SLICE_X0Y66;
+INST "myRAM/top0/data_path0/data_read_controller0/rst_dqs_div_delayed1/two" BEL = F;
+INST "myRAM/top0/data_path0/data_read_controller0/rst_dqs_div_delayed1/three" LOC = SLICE_X0Y67;
+INST "myRAM/top0/data_path0/data_read_controller0/rst_dqs_div_delayed1/three" BEL = G;
+INST "myRAM/top0/data_path0/data_read_controller0/rst_dqs_div_delayed1/four" LOC = SLICE_X1Y66;
+INST "myRAM/top0/data_path0/data_read_controller0/rst_dqs_div_delayed1/four" BEL = F;
+INST "myRAM/top0/data_path0/data_read_controller0/rst_dqs_div_delayed1/five" LOC = SLICE_X1Y66;
+INST "myRAM/top0/data_path0/data_read_controller0/rst_dqs_div_delayed1/five" BEL = G;
+INST "myRAM/top0/data_path0/data_read_controller0/rst_dqs_div_delayed1/six" LOC = SLICE_X1Y67;
+INST "myRAM/top0/data_path0/data_read_controller0/rst_dqs_div_delayed1/six" BEL = G;
+#############################################################
+##  constraints for bit cntrl0_rst_dqs_div_out, 1, location in tile: 0
+#################################################################################

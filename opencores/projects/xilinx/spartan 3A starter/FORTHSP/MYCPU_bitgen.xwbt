@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=E:\opencores\projects\xilinx\spartan 3A starter\FORTHSP\MYCPU.ncd
+OUTFILE=E:\opencores\projects\xilinx\spartan 3A starter\FORTHSP\MYCPU.bit
+FAMILY=Spartan3A and Spartan3AN
+PART=xc3s700a-4fg484
+WORKINGDIR=E:\opencores\projects\xilinx\spartan 3A starter\FORTHSP
+LICENSE=WebPack
+USER_INFO=174235898_177282037_0_859

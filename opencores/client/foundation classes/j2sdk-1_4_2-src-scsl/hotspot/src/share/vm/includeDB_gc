@@ -1,0 +1,32 @@
+// @(#)includeDB_gc	1.9 02/12/04 12:59:39
+// 
+// Copyright 1993-2002 Sun Microsystems, Inc.  All rights reserved.
+// SUN PROPRIETARY/CONFIDENTIAL.  Use is subject to license terms.
+// 
+
+// NOTE: DO NOT CHANGE THIS COPYRIGHT TO NEW STYLE - IT WILL BREAK makeDeps!
+
+collectedHeap.cpp                       collectedHeap.hpp
+collectedHeap.cpp                       collectedHeap.inline.hpp
+collectedHeap.cpp                       init.hpp
+collectedHeap.cpp                       oop.inline.hpp
+collectedHeap.cpp                       threadLocalAllocBuffer.inline.hpp
+collectedHeap.cpp                       thread_<os_family>.inline.hpp
+
+collectedHeap.hpp                       allocation.hpp
+collectedHeap.hpp                       barrierSet.hpp
+collectedHeap.hpp                       gcCause.hpp
+collectedHeap.hpp                       handles.hpp
+
+collectedHeap.inline.hpp                arrayOop.hpp
+collectedHeap.inline.hpp                collectedHeap.hpp
+collectedHeap.inline.hpp                memory.hpp
+collectedHeap.inline.hpp                safepoint.hpp
+collectedHeap.inline.hpp                thread.hpp
+collectedHeap.inline.hpp                threadLocalAllocBuffer.hpp
+collectedHeap.inline.hpp                universe.hpp
+collectedHeap.inline.hpp                thread_<os_family>.inline.hpp
+
+gcCause.hpp                             allocation.hpp
+
+gcCause.cpp                             gcCause.hpp

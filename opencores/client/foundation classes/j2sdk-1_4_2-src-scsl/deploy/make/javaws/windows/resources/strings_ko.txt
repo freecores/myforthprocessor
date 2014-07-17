@@ -1,0 +1,12 @@
+# Placeholder for Nullsoft install script strings - strings to be added soon!
+# @(#)strings_ko.txt	1.9 02/07/16
+LIC_TXT=설치하기 전에 다음 라이센스 계약에 동의해야 합니다.
+COMP_TXT=Java Web Start 1.2-rc을 설치합니다.
+DIR_TXT=다음 위치에 설치됩니다. 원한다면 설치 디렉토리를 지금 변경하십시오.
+# Following line is CHANGED FOR 1.2 by sbohne
+UNINST_TXT=Java Web Start가 제거됩니다. 웹 브라우저를 모두 닫고 제거를 계속하십시오.
+NETSCAPE_TXT=Netscape가 실행 중입니다. 설치를 완료하려면 Netscape를 다시 시작해야 합니다.\n\nNetscape(Netscape 메일러와 작성기 포함)를 종료한 다음, 확인을 누르십시오.
+DONE_TXT=설치가 완료되었습니다. Readme.html을 보시겠습니까?
+UNDONE_TXT=제거가 완료되었습니다.
+# Do not translate following line
+README_TXT=Readme_ko.html

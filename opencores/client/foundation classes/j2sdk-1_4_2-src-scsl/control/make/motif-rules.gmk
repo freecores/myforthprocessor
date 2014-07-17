@@ -1,0 +1,95 @@
+#
+# Copyright 2003 Sun Microsystems, Inc.  All rights reserved.
+# SUN PROPRIETARY/CONFIDENTIAL.  Use is subject to license terms.
+
+#
+# @(#)motif-rules.gmk	1.22 03/04/18
+
+################################################################
+# MOTIF TARGETS
+################################################################
+
+
+motif-bringover:
+	@if [ -d $(MOTIF_TOPDIR)/Codemgr_wsdata ]; then \
+	  $(BRINGOVER) -p $(MOTIF_MASTER) -w $(MOTIF_TOPDIR) $(MOTIF_SOURCE) ; \
+	else \
+	  $(BRINGOVER) -C -q -p $(MOTIF_MASTER) -w $(MOTIF_TOPDIR) $(MOTIF_SOURCE) ; \
+	fi
+
+ifeq ($(PLATFORM), linux)
+# LINUX vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv LINUX
+
+# Build motif if the workspace exists.
+BUILD_MOTIF =
+ifeq ($(shell if [ -r $(MOTIF_TOPDIR)/lib/Xm/Makefile ]; then $(ECHO) true; fi), true)
+  BUILD_MOTIF = true
+endif
+
+ifdef BUILD_MOTIF
+  ABS_MOTIF_TOPDIR := $(shell $(CD) $(MOTIF_TOPDIR); $(PWD))
+  dummy := $(shell $(MKDIR) -p $(MOTIF_DIR))
+  ABS_MOTIF_DIR := $(shell $(CD) $(MOTIF_DIR); $(PWD))
+endif
+
+MOTIF = $(MOTIF_DIR)/lib/libXm.a 
+
+motif: motif-build motif-install
+
+$(MOTIF): motif-build motif-install
+
+motif-build:
+  ifdef BUILD_MOTIF
+	$(CD) $(MOTIF_TOPDIR)/lib/Xm ; \
+	$(MAKE) MAKEFLAGS= ARCH_DATA_MODEL=$(ARCH_DATA_MODEL); \
+	$(MAKE) includes MAKEFLAGS= ARCH_DATA_MODEL=$(ARCH_DATA_MODEL)
+  endif
+
+motif-install: motif-install-lib motif-install-include
+
+motif-install-lib: $(MOTIF_DIR)/lib 
+  ifdef BUILD_MOTIF
+	$(CD) $(MOTIF_DIR)/lib; \
+	$(RM) libXm.a ; \
+	$(LN) -s $(ABS_MOTIF_TOPDIR)/lib/libXm.a .
+  endif
+
+motif-install-include: $(MOTIF_DIR)/include 
+  ifdef BUILD_MOTIF
+	$(CD) $(MOTIF_DIR)/include; \
+	$(RM) Xm ; \
+	$(LN) -s $(ABS_MOTIF_TOPDIR)/lib/Xm/exports/include/Xm .
+  endif
+#
+# clobber the workspace, but note that the motif code misses some
+# clobber files in $(MOTIF_TOPDIR), so clean them up too. 
+# Also, remove the staging area - $(MOTIF_DIR)
+#
+motif-clobber:
+  ifdef BUILD_MOTIF
+	( $(CD) $(MOTIF_TOPDIR)/lib/Xm ; \
+		$(MAKE) clean MAKEFLAGS= ARCH_DATA_MODEL=$(ARCH_DATA_MODEL); ); \
+	$(RM) $(MOTIF_TOPDIR)/lib/libXm.a \
+	      $(MOTIF_TOPDIR)/lib/Xm/Xm.msg 
+	$(RM) -r $(MOTIF_TOPDIR)/lib/Xm/exports
+	$(RM) -r $(MOTIF_DIR)/lib $(MOTIF_DIR)/include $(MOTIF_DIR)
+	$(RM) $(MOTIF_TOPDIR)/include 
+  endif
+
+$(MOTIF_DIR) $(MOTIF_DIR)/lib $(MOTIF_DIR)/include:
+	$(MKDIR) -p $@
+
+# LINUX ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ LINUX
+else
+# NON-LINUX vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv NON-LINUX
+
+motif:
+
+motif-clobber:
+
+.PHONY: motif motif-build motif-install motif-install-lib \
+	motif-bringover motif-install-include motif-clobber 
+
+
+# NON-LINUX ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ NON-LINUX
+endif

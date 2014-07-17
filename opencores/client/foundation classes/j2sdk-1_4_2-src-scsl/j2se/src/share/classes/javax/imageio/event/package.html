@@ -1,0 +1,53 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+<!--
+
+  @(#)package.html	1.8 00/12/08
+
+  Copyright 2000 by Sun Microsystems, Inc.,
+  901 San Antonio Road, Palo Alto, California, 94303, U.S.A.
+  All rights reserved.
+ 
+  This software is the confidential and proprietary information
+  of Sun Microsystems, Inc. ("Confidential Information").  You
+  shall not disclose such Confidential Information and shall use
+  it only in accordance with the terms of the license agreement
+  you entered into with Sun.
+
+-->
+
+</head>
+
+<body bgcolor="white">
+
+A package of the Java Image I/O API dealing with synchronous
+notification of events during the reading and writing of images.
+
+<p>
+
+The <code>IIOReadProgressListener</code> interface allows for
+notification of the percentage of an image that has been read
+successfully.
+
+<p>
+
+The <code>IIOReadUpdateListener</code> interface allows for
+notification of the portions of an image that have been read.  This is
+useful, for example, for implementing dynamic display of an image as
+it is loaded.
+
+<p>
+
+The <code>IIOReadWarningListener</code> interface allows for
+notification of non-fatal errors during reading.
+
+<p>
+
+The <code>IIOWriteWarningListener</code> and
+<code>IIOWriteProgressListener</code> interfaces perform analogous
+functions for writers.
+
+@since 1.4
+</body>
+</html>

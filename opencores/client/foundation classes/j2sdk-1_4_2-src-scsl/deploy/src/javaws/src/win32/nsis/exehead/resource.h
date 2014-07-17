@@ -1,0 +1,123 @@
+//{{NO_DEPENDENCIES}}
+// Microsoft Developer Studio generated include file.
+// Used by resource-us.rc
+//
+#define JAVAWS_TEST                     1
+#define JAVAWS_NS_COPYRIGHT             2
+#define JAVAWS_ERROR_RESOURCE           3
+#define JAVAWS_ERROR_RESOURCE_CAPTION   4
+#define JAVAWS_ERROR_OPENSELF           5
+#define JAVAWS_ERROR_GCAPTION           6
+#define JAVAWS_ERROR_READCRC            7
+#define JAVAWS_ERROR_READDATA           8
+#define JAVAWS_ERROR_CRC                9
+#define JAVAWS_ERROR_TOOSHORT           10
+#define JAVAWS_ERROR_FINDDATA           11
+#define JAVAWS_STATUS_OUTDIR            12
+#define JAVAWS_STATUS_SKIPPED           13
+#define JAVAWS_ERROR_OPENWRITE          14
+#define JAVAWS_ERROR_ABORTWRITE         15
+#define JAVAWS_STATUS_EXTRACT           16
+#define JAVAWS_STATUS_EXECUTE           17
+#define JAVAWS_STATUS_CREATESHORTCUT    18
+#define JAVAWS_STATUS_DELETEFILE        19
+#define JAVAWS_STATUS_ABORTED           20
+#define JAVAWS_STATUS_REMOVEDIR         21
+#define JAVAWS_ERROR_INSTCORRUPT        22
+#define JAVAWS_MESSAGE_UNINSTALL        23
+#define JAVAWS_MESSAGE_SETUP            24
+#define JAVAWS_MESSAGE_SELECTDIR        25
+#define JAVAWS_MESSAGE_LICENSE          26
+#define JAVAWS_MESSAGE_INSTOPT          27
+#define JAVAWS_MESSAGE_INSTDIR          28
+#define JAVAWS_MESSAGE_INSTFILES        29
+#define JAVAWS_MESSAGE_SETUP2           30
+#define JAVAWS_MESSAGE_CONFIRM          31
+#define JAVAWS_MESSAGE_UNINSTFILES      32
+#define JAVAWS_MESSAGE_UNINSTALL2       33
+#define JAVAWS_MESSAGE_SELECTDIR2       34
+#define JAVAWS_MESSAGE_SELECTDIR3       35
+#define JAVAWS_MESSAGE_SPACEREQ         36
+#define JAVAWS_MESSAGE_SPACEAVAIL       37
+#define JAVAWS_MESSAGE_SELECTCOMPS      38
+#define JAVAWS_MESSAGE_CUSTOMTYPE       39
+#define JAVAWS_MESSAGE_REQDCOMPS        40
+#define JAVAWS_STATUS_CREATEUNINST      41
+#define JAVAWS_MESSAGE_UNINSTPROGRESS   42
+#define JAVAWS_ERROR_STRINGTABLE        43
+#define JAVAWS_TEST2                    44
+#define JAVAWS_STATUS_MAKEDIR           44
+#define JAVAWS_STATUS_REGDLL            45
+#define JAVAWS_STATUS_UNREGDLL          46
+#define JAVAWS_ERROR_REGDLL             47
+#define JAVAWS_ERROR_REGDLLU            48
+#define JAVAWS_ERROR_OLEINIT            49
+#define JAVAWS_MESSAGE_REBOOT           50
+#define JAVAWS_ERROR_PRIVALUE           51
+#define JAVAWS_ERROR_OPENTOKEN          52
+#define JAVAWS_ERROR_ADJUSTTOKEN        53
+#define JAVAWS_ERROR_EXITWINDOWS        54
+#define JAVAWS_MESSAGE_INSTPROG         55
+#define JAVAWS_DECLINE                  56
+#define JAVAWS_ACCEPT                   57
+#define JAVAWS_NEXT                     58
+#define JAVAWS_BACK                     59
+#define JAVAWS_CANCEL                   60
+#define JAVAWS_MESSAGE_JRE              61
+#define JAVAWS_MESSAGE_JRE2             62
+#define JAVAWS_MESSAGE_NEWERVERSION     63
+#define JAVAWS_ERROR_PRIVILEGE          64
+#define IDD_DIALOG1                     101
+#define IDI_ICON1                       102
+#define IDD_DIALOG2                     102
+#define IDD_LICENSE                     102
+#define IDI_ICON2                       103
+#define IDD_DIR                         103
+#define IDD_SELCOM                      104
+#define IDD_INST                        105
+#define IDD_INSTFILES                   106
+#define IDD_UNINST                      107
+#define IDD_DIR1                        108
+#define IDB_BITMAP1                     109
+#define IDB_BITMAP2                     110
+#define IDC_EDIT1                       1000
+#define IDC_BROWSE                      1001
+#define IDC_BACK                        1002
+#define IDC_COPYRIGHT                   1003
+#define IDC_PROGRESS1                   1004
+#define IDC_FN                          1005
+#define IDC_INTROTEXT                   1006
+#define IDC_WMA                         1007
+#define IDC_CHECK1                      1008
+#define IDC_MJF                         1008
+#define IDC_VERSION                     1009
+#define IDC_DIRCAPTION                  1011
+#define IDC_STATUSTEXT                  1014
+#define IDC_LICTEXT                     1015
+#define IDC_LIST1                       1016
+#define IDC_COMBO1                      1017
+#define IDC_CHILDRECT                   1018
+#define IDC_DIR                         1019
+#define IDC_SELDIRTEXT                  1020
+#define IDC_TEXT1                       1021
+#define IDC_TEXT2                       1022
+#define IDC_SPACEREQUIRED               1023
+#define IDC_SPACEAVAILABLE              1024
+#define IDC_INSTVER                     1024
+#define IDC_UNINSTTEXT                  1025
+#define IDC_PROGRESSTEXT                1026
+#define IDC_CANCEL                      1028
+#define IDC_OK                          1029
+#define IDC_RICHEDIT1                   1030
+
+// Next default values for new objects
+// 
+#ifdef APSTUDIO_INVOKED
+#ifndef APSTUDIO_READONLY_SYMBOLS
+#define _APS_NO_MFC                     1
+#define _APS_NEXT_RESOURCE_VALUE        110
+#define _APS_NEXT_COMMAND_VALUE         40001
+#define _APS_NEXT_CONTROL_VALUE         1031
+#define _APS_NEXT_SYMED_VALUE           101
+#endif
+#endif

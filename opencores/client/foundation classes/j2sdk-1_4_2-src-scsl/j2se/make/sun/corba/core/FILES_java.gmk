@@ -1,0 +1,57 @@
+#
+# @(#)FILES_java.gmk	1.2 02/09/19
+#
+
+RMI = \
+	$(TARGDIR)javax/rmi/PortableRemoteObject.java \
+	$(TARGDIR)com/sun/corba/se/internal/javax/rmi/PortableRemoteObject.java
+
+CORBA = \
+        $(TARGDIR)javax/rmi/CORBA/Stub.java \
+        $(TARGDIR)javax/rmi/CORBA/StubDelegate.java \
+        $(TARGDIR)javax/rmi/CORBA/Tie.java \
+        $(TARGDIR)javax/rmi/CORBA/Util.java \
+        $(TARGDIR)javax/rmi/CORBA/UtilDelegate.java \
+        $(TARGDIR)javax/rmi/CORBA/ValueHandler.java \
+        $(TARGDIR)javax/rmi/CORBA/ClassDesc.java \
+        $(TARGDIR)javax/rmi/CORBA/PortableRemoteObjectDelegate.java \
+        $(TARGDIR)javax/rmi/CORBA/GetORBPropertiesFileAction.java \
+	\
+        $(TARGDIR)com/sun/corba/se/internal/javax/rmi/CORBA/Util.java \
+        $(TARGDIR)com/sun/corba/se/internal/javax/rmi/CORBA/StubDelegateImpl.java
+
+TRANSACTION = \
+        $(TARGDIR)javax/transaction/InvalidTransactionException.java \
+        $(TARGDIR)javax/transaction/TransactionRequiredException.java \
+        $(TARGDIR)javax/transaction/TransactionRolledbackException.java
+
+UTIL = \
+	$(TARGDIR)com/sun/corba/se/internal/util/IdentityHashtable.java \
+        $(TARGDIR)com/sun/corba/se/internal/util/MinorCodes.java \
+        $(TARGDIR)com/sun/corba/se/internal/util/RepositoryId.java \
+        $(TARGDIR)com/sun/corba/se/internal/util/RepositoryIdCache.java \
+        $(TARGDIR)com/sun/corba/se/internal/util/SUNVMCID.java \
+	\
+        $(TARGDIR)com/sun/corba/se/internal/util/Utility.java \
+        $(TARGDIR)com/sun/corba/se/internal/util/Version.java \
+        $(TARGDIR)com/sun/corba/se/internal/util/ORBProperties.java \
+        $(TARGDIR)com/sun/corba/se/internal/util/JDKBridge.java \
+        $(TARGDIR)com/sun/corba/se/internal/util/PackagePrefixChecker.java \
+	\
+        $(TARGDIR)com/sun/corba/se/internal/util/JDKClassLoader.java 
+
+IO = \
+        $(TARGDIR)com/sun/corba/se/internal/io/FVDCodeBaseImpl.java \
+        $(TARGDIR)com/sun/corba/se/internal/io/ValueUtility.java \
+        $(TARGDIR)com/sun/corba/se/internal/io/ObjectStreamClass.java \
+        $(TARGDIR)com/sun/corba/se/internal/io/ObjectStreamClassCorbaExt.java \
+        $(TARGDIR)com/sun/corba/se/internal/io/ObjectStreamField.java \
+        $(TARGDIR)com/sun/corba/se/internal/io/OptionalDataException.java \
+        $(TARGDIR)com/sun/corba/se/internal/io/ValueHandlerImpl.java \
+        $(TARGDIR)com/sun/corba/se/internal/io/IIOPInputStream.java \
+        $(TARGDIR)com/sun/corba/se/internal/io/IIOPOutputStream.java \
+        $(TARGDIR)com/sun/corba/se/internal/io/LibraryManager.java \
+        $(TARGDIR)com/sun/corba/se/internal/io/TypeMismatchException.java \
+        $(TARGDIR)com/sun/corba/se/internal/io/InputStreamHook.java \
+        $(TARGDIR)com/sun/corba/se/internal/io/OutputStreamHook.java 
+

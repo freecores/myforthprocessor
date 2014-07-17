@@ -1,0 +1,201 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; CHARSET=ISO-2022-JP">
+   <title>Java(TM) Web Start $B%$%s%9%H!<%k%,%$%I(J</title>
+</head>
+<body bgcolor="#FFFFFF">
+&nbsp;
+<table BORDER=0 WIDTH="100%" >
+<tr>
+<td WIDTH="40"><img SRC="javalogo52x88.gif" ALT="Java" BORDER=0 height=88 width=52></td>
+
+<td ALIGN=CENTER>
+<h1>
+$B%$%s%9%H!<%k%,%$%I(J</h1>
+
+<h2>
+Java<sup><font size=-2> TM</font></sup> Web Start</h2>
+
+<h3>
+$B%P!<%8%g%s(J 1.0.1_01</h3>
+</td>
+
+<td ALIGN=RIGHT VALIGN=TOP WIDTH="40"><font size=+2>&nbsp;</font></td>
+</tr>
+</table>
+
+<blockquote>
+$B$3$N%$%s%9%H!<%k%,%$%I$G$O!"(JJava Web Start $B$N$3$N%j%j!<%9MQ$N%7%9src/javaws/share/resources/SCCS/s..del-installguide_ja.html-Jul-10-01`MW7o$*$h$S%$%s%9%H!<%kJ}K!$K$D$$$F5-=R$7$F$$$^$9!#(J<br><br>
+$B%3%a%s%H$NAwIU@h(J : <a href="mailto:javawebstart-feedback@sun.com">javawebstart-feedback@sun.com</a>
+</blockquote>
+
+<h2>
+$BL\<!(J</h2>
+<blockquote>
+<br><b><a href="#req">$B%7%9src/javaws/share/resources/SCCS/s..del-installguide_ja.html-Jul-10-01`MW7o(J</a></b><br>
+<b><a href="#1_0">1.0 $B%j%j!<%9$+$i$N%"37W%0%l!<%I(J</a></b><br>
+<b><a href="#1_0_beta">1.0 Beta $B%j%j!<%9$+$i$N%"38W%0%l!<%I(J</a></b><br>
+<b><a href="#windows">Windows 95/98/Me/NT/2000 $B$X$N%$%s%9%H!<%k(J</a></b><br>
+<b><a href="#unix">Solaris/Linux $B$X$N%$%s%9%H!<%k(J</a></b><br>
+<b><a href="#netscape">Netscape 6/6.01 $B$G$N(J Java Web Start $B$N;HMQ(J</a></b><br>
+<b><a href="#new_jre">$B?75,(J JRE $B$NDI2C(J</a></b><br>
+<b><a href="#trouble">$B%$%s%9%H!<%k$N09/10/03i%V%k%7%e!<src/javaws/share/resources/SCCS/s..del-installguide_ja.html-Jul-10-01#%s%0(J</a></b><br>
+</blockquote>
+<a NAME="req"></a>
+<h2>
+$B%7%9src/javaws/share/resources/SCCS/s..del-installguide_ja.html-Jul-10-01`MW7o(J</h2>
+
+<blockquote>$B$3$N%j%j!<%9$N(J Java Web Start $B$O!"<!$N%7%9src/javaws/share/resources/SCCS/s..del-installguide_ja.html-Jul-10-01`$Gsrc/javaws/share/resources/SCCS/s..del-installguide_ja.html-Jul-10-019%H$5$l$F$$$^$9!#(J
+<ul>
+<li>
+Windows 95/98/Me/NT/2000 (JRE 1.2.2$B!"(JJRE 1.3.0 $B$*$h$S(J JRE 1.3.1 $B$r;HMQ(J)</li>
+
+<li>
+Solaris (JRE 1.2.2$B!"(JJRE 1.3.0 $B$*$h$S(J JRE 1.3.1 $B$r;HMQ(J)</li>
+
+<li>
+Linux (RH 6.1($BF|K\8lHG$O(J 6.2)/x86) (JRE 1.2.2$B!"(JJRE 1.3.0 $B$*$h$S(J JRE 1.3.1 $B$r;HMQ(J)</li>
+</ul>
+Java Web Start $B$r;HMQ$9$k$?$a$N@(#).del-installguide_ja.html-Jul-10-01	1.1i60H14:59:18)!<%`MW7o$O!"(JJRE $B<BAu$G?d>)$5$l$F$$$k$b$N$HF1$8$G$9!#(J</blockquote>
+
+<a NAME="1_0"></a>
+<h2>
+1.0 $B%j%j!<%9$+$i$N%"64W%0%l!<%I(J</h2>
+<blockquote>
+Java Web Start $B$r%$%s%9%H!<%k$9$k$H%@%&%s%m!<1.1-%c667%e$O>C5n$5$l!"0JA0%$%s%9%H!<%k$5$l$?(J Java Web Start $B$N%"@(#).del-installguide_ja.html-Jul-10-01	1.1j%1!<%7%g%s$O$9$Y$F:FEY%@%&%s%m!<%I$9$kI,MW$,$"$k$?$a!"(JJava Web Start $B$r%$%s%9%H!<%k$9$kA0$K!"(J1.0 $B%j%j!<%9$r%"%s%$%s%9%H!<%k$9$kI,MW$O$"$j$^$;$s!#$?$@$7!"$3$N%$%s%9%H!<%k$K$h$j(J 1.0 $B%j%j!<%9$,>e=q$-$5$l!"?75,(J $B%j%j!<%9$r;HMQ$9$k$h$&$K%V%i%&%6$,99?7$5$l$^$9!#(J<b>1.0 $B%j%j!<%9$r:FEY%"%/src/javaws/share/resources/SCCS/s..del-installguide_ja.html-Jul-10-01#%V$K$9$k$K$O!"(J1.0 $B%j%j!<%9$r:F%$%s%9%H!<%k$9$kI,MW$,$"$j$^$9!#(J</b>
+  <p>
+Java Web Start $B$,;HMQ$9$k9=@.14:59:18!%$%k$*$h$S@(#).del-installguide_ja.html-Jul-10-01	1.1m%0%i%`14:59:18!%$%k14:59:18)%k%@$OJQ99$5$l$^$;$s!#$3$N$?$a!"%"68W%0%l!<%I8e$b!"@_Dj$O$9$Y$F0];}$5$l$^$9!#(J
+  <p>
+Windows $B$N>l9g!"(JJava Runtime Environment $B$r4^$^$J$$FCJL$N%"70W%0%l!<1.1P%s1.1k$,Ds6!$5$l$F$$$^$9!#(JJava Web Start 1.0 $B$,%$%s%9%H!<%k:Q$_$N>l9g$K$O!"$3$N%"70W%0%l!<1.1P%s1.1k$r%@%&%s%m!<%I$7$F%$%s%9%H!<%k$9$k$3$H$r$*4+$a$7$^$9!#(J
+</blockquote>
+
+<a NAME="1_0_beta"></a>
+<h2>1.0 Beta $B%j%j!<%9$+$i$N%"74W%0%l!<%I(J</h2>
+<blockquote>
+1.0 Beta $B$H$3$N%j%j!<%9$H$G$O!"(J<tt>javaws.cfg</tt> $B$N%-%c767%e%l%$%"%&%H$*$h$S0LCV$,JQ99$5$l$F$$$^$9!#$3$N$?$a!"$^$l$K(J Java Web Start $B$,F0:n$7$J$$>l9g$,$"$j$^$9!#$3$N>l9g!"%f!<%6$N%m!<%+%k9=@.07/10/01#%l%/09/10/03j$r>C5n$7$F!"LdBj$r2r7h$9$kI,MW$,$"$j$^$9!#%f!<%6$N%m!<%+%k9=@.07/10/01#%l%/09/10/03j$O!"(JSolaris/Linux $B$N>l9g(J <tt>~/.javaws/ </tt> $B$K!"(JWindows $B$N>l9g!"DL>o(J <tt>C:\Windows\Profiles\.javaws</tt> $B$^$?$O(J <tt>C:\Windows\Profiles\&lt;username&gt;\.javaws</tt> $B$KB8:_$7$^$9!#(J
+</blockquote>
+
+<a NAME="windows"></a>
+<h2>
+Windows 95/98/Me/NT/2000 $B$X$N%$%s%9%H!<%k(J</h2>
+<blockquote>
+java.sun.com $B$N(J Web $B%5%$%H$G!"(J<i>[DOWNLOAD NOW]</i> $B%"%$%3%s$r%/%j83/$7$F!"(J<tt>javaws-1_0_1-win-int-rt.exe</tt> $B14:59:18!%$%k$r%@%&%s%m!<%I$7$^$9!#<!$K!"%@%&%s%m!<%I$7$?14:59:18!%$%k$r<B9T$7$^$9!#$3$l$K$h$j!"I8=`E*$J(J Windows $B7A<0$N%$%s%9%H!<%k@(#).del-installguide_ja.html-Jul-10-01	1.1m%0%i%`$,5/F0$7$F!"%$%s%9%H!<%k<j=g$r<($7$^$9!#%$%s%9%H!<%k@(#).del-installguide_ja.html-Jul-10-01	1.1m%0%i%`$K$h$j!"%$%s%9%H!<%k07/10/01#%l%/09/10/03j$N;XDj$,5a$a$i$l$^$9(J ($B07/10/01U%)%k%H$O(J <tt>c:\Program Files\Java Web Start</tt>)$B!#(J
+$B$?$$$F$$$N>l9g!"07/10/01U%)%k%H$N@_Dj$G$+$^$$$^$;$s!#(J[$B<!(J] $B%\%?%s$r%/%j84/$9$k$H!"%$%s%9%H!<%k@(#).del-installguide_ja.html-Jul-10-01	1.1m%0%i%`$K$h$j(J Java Web Start $B$KI,MW$J$9$Y$F$N14:59:18!%$%k$*$h$S@_Dj$,%$%s%9%H!<%k$5$l$^$9!#(JNetscape Navigator $B%V%i%&%6$,<B9TCf$N>l9g$O!"%V%i%&%6$N:F5/F0$rB%$9%a84;!<%8$,I=<($5$l$^$9!#(J
+<p>$B%$%s%9%H!<%k@(#).del-installguide_ja.html-Jul-10-01	1.1m%0%i%`$O!"(JWindows $B%l%8%909/10/03j$G!"%$%s%9%H!<%k:Q$_$N(J Java Runtime Environment (JRE) $B%P!<%8%g%s(J 1.2.2 $B0J9_$r8!:w$7!"(JJava Web Start $B$,$=$l$r;HMQ$9$k$h$&<+F0E*$K9=@.$7$^$9!#$3$l$,B8:_$7$J$$>l9g$K$O!"%$%s%9%H!<%k@(#).del-installguide_ja.html-Jul-10-01	1.1m%0%i%`$O(J Java 2 Runtime Environment 1.3.0_03 $B$r%$%s%9%H!<%k$7$^$9!#(J
+<p>$B%$%s%9%H!<%k@(#).del-installguide_ja.html-Jul-10-01	1.1m%0%i%`$K$h$j!"14:59:18!%$%k3HD%;R(J <tt>.jnlp</tt> $B$H(J MIME $B%?%$%W(J <tt>application/x-java-jnlp-file</tt> $B$,(J Windows $B$KEPO?$5$l$k$?$a!"(JJNLP $B14:59:18!%$%k$X$N%j%s%/$,%"%/src/javaws/share/resources/SCCS/s..del-installguide_ja.html-Jul-10-01#%V$K$J$k$H!"(JNetscape Navigator $B$H(J Internet Explorer ($B$*$h$SB>$NBgH>$N%V%i%&%6(J) $B$+$i(J Java Web Start $B$r5/F0$G$-$^$9!#$5$i$K!"%$%s%9%H!<%k@(#).del-installguide_ja.html-Jul-10-01	1.1m%0%i%`$O!"%"@(#).del-installguide_ja.html-Jul-10-01	1.1j%1!<%7%g%s%^%M!<%8%c$X$N%7%g!<09/10/03+86H$r07/10/019%/09/10/03C%W$*$h$S(J Windows $B$N(J [$B%9%?!<%H(J] $B%a%K%e!<$K%$%s%9%H!<%k$7$^$9!#(J
+</blockquote>
+
+<a NAME="unix"></a>
+<h2>
+Solaris/Linux $B$X$N%$%s%9%H!<%k(J</h2>
+<blockquote>
+Solaris $B$*$h$S(J Linux $BMQ$N(J Java Web Start $B$O!"(JZIP $B14:59:18!%$%k$GDs6!$5$l$^$9!#$3$N(J ZIP $B14:59:18!%$%k$K$O!"%$%s%9%H!<%k%9%/%j@(#).del-installguide_ja.html-Jul-10-01	1.1H(J <tt>install.sh</tt>$B!"$*$h$S(J <tt>Readme_ja.html</tt> $B$,4^$^$l$^$9!#%$%s%9%H!<%k%9%/%j@(#).del-installguide_ja.html-Jul-10-01	1.1H$O!"(JSolaris $B$N>l9g(J <tt>sh</tt> $B%7%'%k%9%/%j@(#).del-installguide_ja.html-Jul-10-01	1.1H!"(JLinux $B$N>l9g(J <tt>bash</tt> $B%7%'%k%9%/%j@(#).del-installguide_ja.html-Jul-10-01	1.1H$G$9!#%$%s%9%H!<%k@(#).del-installguide_ja.html-Jul-10-01	1.1m%0%i%`$O!"(JJRE $B$K$O4^$^$l$^$;$s!#$3$N$?$a!"%$%s%9%H!<%k@(#).del-installguide_ja.html-Jul-10-01	1.1m%0%i%`$r$"$i$+$8$a%7%9src/javaws/share/resources/SCCS/s..del-installguide_ja.html-Jul-10-01`$K%$%s%9%H!<%k$7$F$*$/I,MW$,$"$j$^$9!#(J
+<p>Solaris/SPARC $B$N>l9g$O(J <tt>javaws-1_0_1_01-solsparc-int.zip</tt> $B$r!"(JSolaris/x86 $B$N>l9g$O(J <tt>javaws-1_0_1_01-solx86-int.zip</tt> $B$r!"(JLinux/x86 $B$N>l9g$O(J <tt>javaws-1_0_1_01-linux-int.zip</tt>$B$r%@%&%s%m!<%I$7$^$9!#(J
+<p>Java Web Start $B%$%s%9%H!<%k@(#).del-installguide_ja.html-Jul-10-01	1.1m%0%i%`$rJ]B8$9$k>l=j$r;XDj$9$k$h$&5a$a$i$l$?$i!"<+J,$N%[!<%`07/10/01#%l%/09/10/03j$J$I!"(JJava Web Start $B$N7QB3E*$J%[!<%`07/10/01#%l%/09/10/03j$H$7$F;HMQ2DG=$J07/10/01#%l%/09/10/03j$r;XDj$7$F$/$@$5$$!#(J
+<p>$B%@%&%s%m!<%I$,40N;$7$?$i!"(JJava Web Start $B%$%s%9%H!<%k%9%/%j@(#).del-installguide_ja.html-Jul-10-01	1.1H$r2rE`$*$h$S<B9T$7$^$9!#(J
+$B%9%/%j@(#).del-installguide_ja.html-Jul-10-01	1.1H$K$h$j!"(JJava 2 $B8_49$N(J JRE $B$N>l=j$r;XDj$9$k$h$&5a$a$i$l$^$9!#<!$KNc$r<($7$^$9(J (<font color="#FF0000">$B@V(J</font>$B$NJ8;z$O!"%f!<%6$,F~NO$9$kJ8;zNs$G$9(J)$B!#(J
+<p><tt>mushmouth% <font color="red">unzip javaws-1_0_1_01-solsparc-int.zip</font></tt>
+<br><tt>mushmouth% <font color="red">./install.sh</font></tt>
+<br><tt>...
+<br><tt>Do you agree to the above license terms? [yes or no]</tt>
+<br><tt><font color="red">yes</font></tt>
+<br><tt>In order to use Java Web Start you must have a version of Java
+2 standard edition installed. If you do not, you can download one from http://java.sun.com.</tt>
+<br><tt>Please enter the path of your installation (e.g. /usr/local/java/jdk1.2):</tt>
+<font color="#FF0000">/usr/local/java/jdk1.2.2</font></tt>
+<br><tt>Creating javaws.cfg...</tt>
+<br><tt>Extracting...</tt>
+<br><tt>Updating action...</tt>
+<br><tt>Updating ~/.mailcap...</tt>
+<br><tt>Updating ~/.mime.types...</tt>
+<p>$B%$%s%9%H!<%k@(#).del-installguide_ja.html-Jul-10-01	1.1m%0%i%`$K$h$j!"(J<tt>javaws</tt> $B%5%V07/10/01#%l%/09/10/03j$,:n@.$5$l!"$=$NCf$K(J Java Web Start $B14:59:18!%$%k$9$Y$F$,%$%s%9%H!<%k$5$l$^$9!#(J
+<p>$B%$%s%9%H!<%k@(#).del-installguide_ja.html-Jul-10-01	1.1m%0%i%`$K$h$j!"(J<tt>.mailcap</tt> $B$*$h$S(J <tt>.mime.types</tt> $B14:59:18!%$%k$b99?7$5$l$k$?$a!"(JNetscape Navigator $B$,(J JNLP $B$X$N%j%s%/$KAx6x$9$k$H!"(JJava Web Start $B$,8F$S=P$5$l$^$9!#(JSolaris $B$G$O!"(JCDE $BFb$K14:59:18C%/$,%$%s%9%H!<%k$5$l$k$?$a!"14:59:18!%$%k%^%M!<%8%c$G(J <tt>.jnlp</tt> $B14:59:18!%$%k$r%@%V%k%/%j113/$7$F$b!"(JJava Web Start $B$r5/F0$G$-$^$9!#(J
+<p>$B?75,(J MIME $B%?%$%W$NG'<1$r3N<B$K$9$k$?$a!"(J<b>Netscape $B$r:F5/F0(J</b>$B$7$F$/$@$5$$!#(J
+</blockquote>
+
+<a NAME="netscape"></a>
+<h2>
+Netscape 6/6.01 $B$G$N(J Java Web Start $B$N;HMQ(J</h2>
+<blockquote>
+Netscape 6/6.01 $B%f!<%6$N>l9g!"(J[$BJT=8(J]$B"*(J[$B@_Dj(J]$B"*(J[Navigator] $B$N=g$KA*Br$7!"(J[$B%"@(#).del-installguide_ja.html-Jul-10-01	1.1j%1!<%7%g%s(J] $B%;%/%7%g%s$G!"(JJava Web Start MIME $B%?%$%W(J (JNLP) $B$r@_Dj$7$F$/$@$5$$!#14:59:18!%$%k3HD%;R$O!V(Jjnlp$B!W!"(JMIME $B%?%$%W$O!V(Japplication/x-java-jnlp-file$B!W$G$9!#$^$?!"(JJava Web Start $B07/10/01#%l%/09/10/03jFb$N(J javaws $B<B9T2DG=14:59:18!%$%k$G!"$3$l$r=hM}$9$kI,MW$,$"$j$^$9!#(J
+<p>
+$B$5$i$K!"(JNetscape 6/6.01 $B$G$O(J JavaScript $B$N<B9T$KLdBj$,$"$k$?$a!"(JJavaScript $B$r;HMQ$7$J$$07/10/01b%Z!<%8$r<B9T$9$kI,MW$,$"$j$^$9!#>\:Y$O!"!V(J<a href="http://www.java.sun.com/products/javawebstart/ja/docs/developersguide_ja.html">$B3+H/<T%,%$%I(J</a>$B!W$r;2>H$7$F$/$@$5$$!#(J
+</blockquote>
+
+<a NAME="new_jre"></a>
+<h2>$B?75,(J JRE $B$NDI2C(J</h2>
+<blockquote> Windows $B$N>l9g!"(JJava Web Start $B$O(J Java 2 Runtime Environment 1.3.0 $B$r4^$s$G$$$^$9!#$3$N$?$a!"$3$N(J JRE $B$O!"(JJava Web Start $B$r;H$C$F5/F0$7$?%"@(#).del-installguide_ja.html-Jul-10-01	1.1j%1!<%7%g%s$+$i<+F0E*$KMxMQ2DG=$K$J$j$^$9!#(JSolaris $B$*$h$S(J Linux $B$N>l9g!"%$%s%9%H!<%k@(#).del-installguide_ja.html-Jul-10-01	1.1m%0%i%`$K$h$j(J Java 2 Runtime Environment $B$N>l=j$N;XDj$,5a$a$i$l$^$9!#;XDj$9$k(J Java 2 Runtime Environment $B$N%j%j!<%9$O!"(J1.2.2 $B$G$b(J 1.3.0 $B$G$b$+$^$$$^$;$s!#(J
+<p>$BAH$_9~$_:Q$_$N%"@(#).del-installguide_ja.html-Jul-10-01	1.1j%1!<%7%g%s%^%M!<%8%c$N(J [$B@_Dj(J] $BM%k$r;H$C$F!"?7$?$K;XDj$7$?(J JRE $B$r(J Java Web Start $B$K4XO"IU$1$k$3$H$,$G$-$^$9!#%"@(#).del-installguide_ja.html-Jul-10-01	1.1j%1!<%7%g%s%^%M!<%8%c$N5/F0J}K!$K$D$$$F$O!"!V(J<a href="http://www.java.sun.com/products/javawebstart/ja/docs/Readme_ja.html#appman">$BAH$_9~$_:Q$_$N%"@(#).del-installguide_ja.html-Jul-10-01	1.1j%1!<%7%g%s%^%M!<%8%c$+$i$N5/F0(J</a>$B!W$r;2>H$7$F$/$@$5$$!#(J
+<p>[$B@_Dj(J] $BM%k$G$N(J [Java] $B%?%V$rA*Br$7$^$9!#(J<i></i>$B$3$N%?%V$K$O!"%"@(#).del-installguide_ja.html-Jul-10-01	1.1j%1!<%7%g%s$N5/F0$,2DG=$J!"4XO"IU$1$N9T$o$l$F$$$k(J JRE $B$9$Y$F$,0lMwI=<($5$l$^$9!#?75,(J JRE $B$rDI2C$9$k$b$C$H$b4JC1$JJ}K!$O!"(J[$B8!:w(J...] $B%\%?%s$r%/%j130/$9$k$3$H$G$9!#(J<i></i>$B$3$l$K$h$j!"%&%#%6!<%I$,I=<($5$l$F!"%O!<1.1G%#%9%/$K%$%s%9%H!<%k:Q$_$N(J JRE $B$r8!:w$G$-$^$9!#(J
+<p>2 $BHVL\$NM%k$G$O!"<!$N$$$:$l$+$r<B9T$7$^$9!#(J
+<ul>
+<li>
+[$B<!$X(J] $B%\%?%s$r%/%j134/$;$:$K!"(J[$B14:59:18!%$%k@(#) .del-installguide_ja.html-Jul-10-01 1.1@(#)e!<%6(J] $B%@%$%"%m%0$K8!:w9$rF~NO$7$F(J
+Enter $B%-!<$r2!$7$^$9!#(J<i></i></li>
+
+<li>
+$B07/10/01#%l%/09/10/03j$rA*Br$7$F$+$i(J [$B<!$X(J] $B%\%?%s$r%/%j138/$7$^$9!#(J<i></i></li>
+</ul>
+$B$3$l$K$h$j!";XDj$5$l$?07/10/01#%l%/09/10/03j$G8!:w$,3+;O$5$l$^$9!#(J
+</blockquote>
+
+<a NAME="trouble"></a>
+<h2>
+$B%$%s%9%H!<%k$N09/10/03i%V%k%7%e!<src/javaws/share/resources/SCCS/s..del-installguide_ja.html-Jul-10-01#%s%0(J</h2>
+$B%$%s%9%H!<%k;~$K!"(JJava Web Start $B$,IT@5$J%(%i!<%a146;!<%8$r=PNO$9$k>l9g!"(JJava Web Start $B$,(J JRE $B$NE,@5$J0LCV>pJs$r;H$C$F9=@.$5$l$F$$$J$$$3$H$,860x$G$9!#(J
+<tt>javaws.cfg</tt> $B14:59:18!%$%k$NFbMF$r8!::$7$F$/$@$5$$!#$3$N14:59:18!%$%k$O!"(JJava Web Start $B$N%$%s%9%H!<%k07/10/01#%l%/09/10/03j(J (Windows $B$N>l9g!"DL>o$O(J <tt>C:\Program Files\Java Web Start\javaws.cfg</tt>) $B$KB8:_$7$^$9!#(J
+<p>$B14:59:18!%$%kFb$N9=@.%(%s09/10/03j$O!"%7%9src/javaws/share/resources/SCCS/s..del-installguide_ja.html-Jul-10-01`$K%$%s%9%H!<%k$5$l$?(J Java 2 SE JRE $B$N0LCV$rH?1G$9$kI,MW$,$"$j$^$9!#<!$KNc$r<($7$^$9!#(J
+<p><tt>javaws.cfg.jre.0.path=/usr/local/java/jdk1.3/solaris/bin/java</tt>
+<br><tt>javaws.cfg.jre.0.platform=1.3</tt>
+<br><tt>javaws.cfg.jre.0.product=1.3.0</tt>
+<br><tt>javaws.cfg.jre.1.path=/usr/local/java/jdk1.2.2/solaris/bin/java</tt>
+<br><tt>javaws.cfg.jre.1.product=1.2.2-W</tt>
+<br><tt>javaws.cfg.jre.1.platform=1.2</tt>
+<br><tt>javaws.cfg.jre.default=0</tt>
+<p><tt>javaws.cfg.jre.&lt;n>.location$B!"(Jjavaws.cfg.jre.&lt;n>.path$B!"(Jjavaws.cfg.jre.&lt;n>.platform</tt>$B!"$*$h$S(J <tt>javaws.cfg.jre.&lt;n>.product</tt> $B%(%s09/10/03j$rDI2C$^$?$O:o=|$7$F!"%7%9src/javaws/share/resources/SCCS/s..del-installguide_ja.html-Jul-10-01`9=@.$rH?1G$9$k$h$&$K$3$N14:59:18!%$%k$rJQ99$7$^$9!#(J
+<tt>javaws.cfg.jre.default=&lt;n></tt> $B$,4{B8$N%(%s09/10/03j$r;2>H$7$F$$$k$3$H$r3NG'$7$F$/$@$5$$!#%(%s09/10/03j$K$O!"(J0 $B$+$i;O$^$kO"HV$,IU$1$i$l$^$9!#(J
+<p>Java Web Start $B$O!"(JJRE 1.1.x $B0JA0$N%P!<%8%g%s$G$OF0:n$7$^$;$s!#(J
+<p>
+</blockquote>
+
+
+<TABLE WIDTH="100%" CELLPADDING="0" BORDER="0" CELLSPACING="5">
+<TR>
+        <TD BGCOLOR="#CCCCCC">
+        <IMG SRC="/images/pixel.gif" WIDTH="1" HEIGHT="1" ALT=""></TD>
+</TR>
+<TR>
+        <TD>
+                <TABLE WIDTH="100%" CELLPADDING="0" BORDER="0" CELLSPACING="0">
+                <TR>
+                <TD WIDTH="50%">
+                <FONT SIZE="-2">
+                For more information on Java technology<BR>
+                and other software from Sun Microsystems, call:<BR>
+                </FONT>
+                <FONT SIZE="-1">
+                (800) 786-7638<BR></FONT>
+                <FONT SIZE="-2">
+                Outside the U.S. and Canada, dial your country's <A
+HREF="http://www.att.com/tollfree/international/dialguide/">AT&amp;T&nbsp;Direct&nbsp;Access&nbsp;Number</A> first.<BR>
+                </FONT>
+                </TD>
+                <TD ALIGN="RIGHT" WIDTH="50%">
+                <A HREF="http://www.sun.com">
+                <IMG SRC="sunlogo64x30.gif" width="64"
+                height="30" border="0" ALT="Sun Microsystems, Inc."></A><BR>
+                <FONT SIZE="-2">
+                Copyright &copy; 2000-2001
+                <A HREF="http://www.sun.com">Sun Microsystems, Inc.</A><BR>
+                All Rights Reserved. <a
+                href="http://www.sun.com/share/text/termsofuse.html">Terms
+                of Use</a>. <A HREF="http://www.sun.com/privacy">Privacy&nbsp;Policy</A>.
+                </FONT>
+                </TD></TR>
+                </TABLE>
+        </TD>
+</TR>
+</TABLE>
+</body>
+</html>

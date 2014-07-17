@@ -1,0 +1,12 @@
+# Placeholder for Nullsoft install script strings - strings to be added soon!
+# @(#)strings_zh_TW.txt	1.10 02/07/16
+LIC_TXT=在安裝之前，您必須接受下列授權合約。
+COMP_TXT=這會在您的電腦上安裝 Java Web Start 1.2-rc。
+DIR_TXT=安裝程式已決定最佳安裝位置。如果您想要變更目錄，請現在變更。
+# Following line is CHANGED FOR 1.2 by sbohne
+UNINST_TXT=這會從您的電腦解除安裝 Java Web Start。請在繼續之前關閉所有的網頁瀏覽器。
+NETSCAPE_TXT=您目前正在執行 Netscape。若要完成安裝，您必須重新啟動 Netscape。\n\n請結束 Netscape（包括 Netscape 電子郵件及 Composer），然後按一下「確定」。
+DONE_TXT=安裝完成。您要檢視 Readme.html？
+UNDONE_TXT=順利完成解除安裝。
+# Do not translate following line
+README_TXT=Readme_zh_TW.html

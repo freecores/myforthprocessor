@@ -1,0 +1,88 @@
+<!DOCTYPE REFENTRY PUBLIC "-//Sun Microsystems//DTD DocBook V3.0-Based SolBook Subset V2.0//EN" [
+<!--ArborText, Inc., 1988-1998, v.4001-->
+<!ENTITY % javaents SYSTEM "javaman.ent">
+%javaents;
+]>
+<?Pub UDT _bookmark _target>
+<?Pub EntList minus bsol>
+<?Pub Inc>
+<refentry id="servertool-1">
+<!--@(#)servertool.1 1.1 01/03/14 SMI;-->
+<refmeta><refentrytitle>servertool</refentrytitle><manvolnum>1</manvolnum>
+<refmiscinfo class="date">2001 年 11 月 30 日</refmiscinfo>
+<refmiscinfo class="sectdesc">&man1;</refmiscinfo>
+<refmiscinfo class="software">&java-release;</refmiscinfo>
+<refmiscinfo class="arch">generic</refmiscinfo>
+<refmiscinfo class="copyright"> Copyright 2001 Sun Microsystems, Inc. All rights reserved.  Copyright 2001 Sun Microsystems, Inc. Tous droits r&eacute;serv&eacute;s.  </refmiscinfo>
+</refmeta>
+<refnamediv><indexterm><primary sortas="servertool">servertool &mdash; Java IDL Server Tool</primary></indexterm><indexterm><primary sortas="Java server tool">Java IDL Server Tool &mdash; servertool</primary></indexterm><refname>servertool</refname><refpurpose>Java IDL Server Tool</refpurpose></refnamediv>
+<refsynopsisdiv><title>&synp-tt;</title>
+<cmdsynopsis><command>servertool</command><arg choice="opt">&nbsp;<replaceable>options</replaceable></arg>
+</cmdsynopsis></refsynopsisdiv>
+<refsect1><title>&desc-tt;</title>
+<para>Java&trade; IDL Server Tool (<command>servertool</command>) は、アプリケーション開発者がサーバの登録 (<command>register</command>)、登録解除 (<command>unregister</command>)、起動 (<command>startup</command>)、停止 (<command>shutdown</command>) を行うための使いやすいインタフェースを提供します。これらの 4 つのコマンドのほかに、サーバに関するさまざまな統計情報を取得するためのコマンドも用意されています。</para>
+<para>このサーバツールの起動時に、&rdquo;<literal>servertool ></literal>&rdquo; プロンプトに以下のオプションのうち 1 つを入力してください。</para>
+</refsect1>
+<refsect1><title>&opts-tt;</title>
+<para>以下のオプションがサポートされています。</para>
+<cmdsynopsis><command>register</command><arg choice="plain"><option>server</option>&nbsp;<replaceable>server-class-name</replaceable></arg><arg choice="plain"><option>applicationName</option> <replaceable>alternate-server-name</replaceable></arg><arg choice="plain"><option>classpath</option> <replaceable>classpath-to-server</replaceable></arg><arg choice="plain"><option>args</option> <replaceable>args-to-server</replaceable></arg><arg choice="plain"><option>vmargs</option> <replaceable>flags-to-be-passed-to-Java-VM</replaceable></arg>
+</cmdsynopsis>
+<para><simplelist><member>Object Request Broker Daemon (<acronym>ORBD</acronym>) に新しいサーバを登録します。サーバがまだ登録されてない場合は、登録と起動が行われます。</member></simplelist></para>
+<cmdsynopsis><command>unregister</command><group><arg choice="plain"><option>serverid</option>&nbsp;<replaceable>server-ID</replaceable></arg><arg choice="plain"><option>applicationName</option> <replaceable>name</replaceable></arg></group>
+</cmdsynopsis>
+<para><simplelist><member><acronym>ORBD</acronym> からサーバの登録を解除します。</member></simplelist></para>
+<cmdsynopsis><command>getserverid</command><arg choice="plain"><option>applicationName</option>&nbsp;<replaceable>name</replaceable></arg>
+</cmdsynopsis>
+<para><simplelist><member>サーバに関連付けられた <acronym>ORBD</acronym> からサーバ ID を返します。</member></simplelist></para>
+<cmdsynopsis><command>list</command>
+</cmdsynopsis>
+<para><simplelist><member>Object Request Broker Daemon (<acronym>ORBD</acronym>) に登録されているすべてのサーバのすべての情報を一覧で示します。このコマンドを実行すると、ORBD 内の各サーバのサーバ ID、サーバ名、対応するサーバアプリケーション名が取り出され、ユーザに表示されます。</member></simplelist></para>
+<cmdsynopsis><command>listappnames</command>
+</cmdsynopsis>
+<para><simplelist><member><acronym>ORBD</acronym> に現在登録されているすべてのサーバのアプリケーション名を一覧で示します。</member></simplelist></para>
+<cmdsynopsis><command>listactive</command>
+</cmdsynopsis>
+<para><simplelist><member>マシン上のすべての現アクティブサーバに関するすべての情報を一覧で示します。アクティブサーバとは、<acronym>ORBD</acronym> によって起動され、現在稼働しているサーバのことです。このコマンドを実行すると、各アクティブサーバのサーバ ID、サーバ名、および対応するサーバアプリケーション名が取り出され、ユーザに表示されます。</member></simplelist></para>
+<cmdsynopsis><command>locate</command><group><arg choice="plain"><option>serverid</option>&nbsp;<replaceable>server-id</replaceable></arg><arg choice="plain"><option>applicationName</option> <replaceable>name</replaceable></arg></group><arg><option>endpointType</option> <replaceable>endpointType</replaceable></arg>
+</cmdsynopsis>
+<para><simplelist><member>登録されているサーバによって作成されたすべての <acronym>ORB</acronym> の特定のタイプのエンドポイント (ポート) を特定します。サーバがまだ稼働していない場合は、起動されます。エンドポイントタイプが指定されないと、サーバ内の各 <acronym>ORB</acronym> に関連したプレーン / 非保護のエンドポイントが返されます。</member></simplelist></para>
+<cmdsynopsis><command>locateperorb</command><group><arg choice="plain"><option>serverid</option>&nbsp;<replaceable>server-id</replaceable></arg><arg choice="plain"><option>applicationName</option> <replaceable>name</replaceable></arg></group><arg><option>orbid</option> <replaceable>ORB-name</replaceable></arg>
+</cmdsynopsis>
+<para><simplelist><member>登録されているサーバの特定の <acronym>ORB</acronym> によって登録されたすべてのエンドポイント (ポート) を特定します。サーバがまだ動作していない場合は、起動されます。<replaceable>orbid</replaceable> が指定されないと、デフォルト値である "" が <replaceable>orbid</replaceable> に割り当てられます。空の文字列の <replaceable>orbid</replaceable> を使用して <acronym>ORB</acronym> が作成されると、それによって登録されているすべてのポートが返されます。</member></simplelist></para>
+<cmdsynopsis><command>orblist</command><group><arg choice="plain"><option>serverid</option>&nbsp;<replaceable>server-id</replaceable></arg><arg choice="plain"><option>applicationName</option> <replaceable>name</replaceable></arg></group>
+</cmdsynopsis>
+<para><simplelist><member><acronym>ORBId</acronym> の整数マッピングを一覧で示します。<acronym>ORBId</acronym> は、そのサーバによって作成された <acronym>ORB</acronym> の文字列名です。サーバが特定の <acronym>ORBId</acronym> を使用して <acronym>ORB</acronym> を初期化する場合、その特定の <acronym>ORBId</acronym> の整数マッピングが取得されます。Object Request Broker Daemon (ORBD) における要求でサーバ内の正しい <acronym>ORB</acronym> を特定しやすいように、この整数マッピングはオブジェクトキー内に配置されます。サーバがまだ稼働していない場合は、起動されます。</member></simplelist></para>
+<cmdsynopsis><command>shutdown</command><group><arg choice="plain"><option>serverid</option>&nbsp;<replaceable>server-id</replaceable></arg><arg choice="plain"><option>applicationName</option> <replaceable>name</replaceable></arg></group>
+</cmdsynopsis>
+<para><simplelist><member>登録されているアクティブサーバを停止します。このコマンドの実行時には、サーバプロセスを適切に停止するために、サーバアプリケーションプログラム内で定義されている <literal>shutdown()</literal> メソッドも呼び出されます。</member></simplelist></para>
+<cmdsynopsis><command>startup</command><group><arg choice="plain"><option>serverid</option>&nbsp;<replaceable>server-id</replaceable></arg><arg choice="plain"><option>applicationName</option> <replaceable>name</replaceable></arg></group>
+</cmdsynopsis>
+<para><simplelist><member>登録されているサーバを起動または有効化します。サーバが稼働していない場合、このコマンドはサーバを起動します。サーバが既に稼働している場合は、エラーメッセージがユーザに返されます。</member></simplelist></para>
+<cmdsynopsis><command>help</command>
+</cmdsynopsis>
+<para><simplelist><member>このサーバツールを使用してサーバに対して実行できるすべてのコマンドを一覧表示します。</member></simplelist></para>
+<cmdsynopsis><command>quit</command>
+</cmdsynopsis>
+<para><simplelist><member>このサーバツールを終了します。</member></simplelist></para>
+</refsect1>
+<refsect1><title>&envr-tt;</title>
+<variablelist termlength="narrow"><varlistentry><term remap="15"><envar>CLASSPATH</envar> </term><listitem><para>システムにユーザ定義クラスへのパスを提供するために使用されます。ディレクトリはコロンで区切ります。例を示します。<informalexample>
+<para><literal>.:/home/avh/classes:/usr/local/java/classes</literal> </para>
+</informalexample></para>
+</listitem></varlistentry>
+</variablelist>
+</refsect1>
+<refsect1><title>&attr-tt;</title>
+<para>次の属性については、<citerefentry><refentrytitle>attributes</refentrytitle><manvolnum>5</manvolnum></citerefentry> を参照してください。</para>
+<informaltable frame="All" orient="Port"><tgroup cols="2" colsep="1" rowsep="1"><colspec colnum="1" colname="col1" colwidth="1*" colsep="1" align="Left"><colspec colnum="2" colname="col2" colwidth="1*" align="Left"><thead><row><entry colname="col1" align="center" valign="top">属性タイプ</entry><entry colname="col2" align="center" valign="top">属性値</entry></row></thead><tbody><row><entry>使用条件</entry><entry>SUNWj3dev</entry></row></tbody></tgroup></informaltable>
+</refsect1>
+<refsect1><title>&also-tt;</title>
+<para><citerefentry><refentrytitle>orbd</refentrytitle><manvolnum>1</manvolnum></citerefentry>, <citerefentry><refentrytitle>attributes</refentrytitle><manvolnum>5</manvolnum></citerefentry> </para>
+<para>次については、<literal>java.sun.com</literal> を参照または検索してください。</para>
+<variablelist termlength="wholeline"><varlistentry><term remap="10"><citetitle>クラスパスの設定 (Setting the Classpath) :</citetitle></term><listitem><comment><ulink url="http://java.sun.com/j2se/1.4/ja/docs/tooldocs/solaris/classpath.html">http://java.sun.com/j2se/1.4/ja/docs/tooldocs/solaris/classpath.html</ulink></comment>
+<para><ulink url="http://java.sun.com/j2se/1.4/docs/tooldocs/solaris/classpath.html">http://java.sun.com/j2se/1.4/docs/tooldocs/solaris/classpath.html</ulink>: 英語版</para>
+</listitem></varlistentry>
+</variablelist>
+</refsect1>
+</refentry>
+<?Pub *0000008891 -2>

@@ -1,0 +1,189 @@
+//Microsoft Developer Studio generated resource script.
+//
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+IDD_LICENSE DIALOG DISCARDABLE  0, 0, 246, 125
+STYLE DS_CONTROL | DS_CENTER | WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+   ICON            IDI_ICON2,-1,0,1,20,20
+   LTEXT           "licenstext\r\ntvå linjer",IDC_LICTEXT,30,0,216,16
+   EDITTEXT        IDC_EDIT1,0,24,246,100,ES_MULTILINE | ES_READONLY | 
+                   WS_VSCROLL
+END
+				  
+IDD_DIR DIALOG DISCARDABLE  0, 0, 246, 125
+STYLE DS_CONTROL | DS_CENTER | WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+   EDITTEXT        IDC_DIR,12,43,180,12,ES_AUTOHSCROLL
+   PUSHBUTTON      "Bläddra...",IDC_BROWSE,193,43,50,14
+   LTEXT           "textbeskrivnning\r\ntvå linjer\r\ntre linjer",
+                   IDC_INTROTEXT,23,0,204,26
+   ICON            IDI_ICON2,-1,0,0,20,20
+   LTEXT           "Statisk",IDC_SELDIRTEXT,0,33,190,8
+   LTEXT           "Utrymme som krävs: 128k",IDC_SPACEREQUIRED,0,97,97,8
+   LTEXT           "Tillgängligt utrymme på enheten: 2234000k",IDC_SPACEAVAILABLE,
+                   0,86,141,8
+   // CHANGED FOR 1.2
+   CONTROL         "Skapa genvägar för alla användare",IDC_CHECK1,"Button",
+                   BS_AUTOCHECKBOX | NOT WS_VISIBLE | WS_TABSTOP,12,64,231,
+                   10
+END
+				   
+IDD_INST DIALOG DISCARDABLE  0, 0, 260, 159
+STYLE DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+FONT 8, "MS Sans Serif"
+BEGIN
+   PUSHBUTTON      "Nästa >",IDOK,203,139,50,14
+   PUSHBUTTON      "Avbryt",IDCANCEL,7,139,50,14
+   CONTROL         "",-1,"Static",SS_ETCHEDHORZ,7,134,246,1
+   CONTROL         "",IDC_CHILDRECT,"Static",SS_BLACKRECT | NOT WS_VISIBLE,
+                   7,6,246,125
+   PUSHBUTTON      "< Bakåt",IDC_BACK,151,139,50,14
+   LTEXT           "Nullsoft Install System v1.0j",IDC_INSTVER,60,143,86,8,
+                   NOT WS_VISIBLE
+END
+				   
+IDD_INSTFILES DIALOG DISCARDABLE  0, 0, 246, 125
+STYLE DS_CONTROL | DS_CENTER | WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+   CONTROL         "Progress2",IDC_PROGRESS1,"msctls_progress32",WS_BORDER,
+                   24,10,221,11
+   LTEXT           "Installationsstatus:",IDC_PROGRESSTEXT,24,0,79,8
+   LISTBOX         IDC_LIST1,0,23,245,101,LBS_NOINTEGRALHEIGHT | LBS_NOSEL | 
+                   WS_VSCROLL | WS_TABSTOP
+   ICON            IDI_ICON2,IDC_STATIC,0,0,20,20
+END
+
+IDD_UNINST DIALOG DISCARDABLE  0, 0, 246, 125
+STYLE DS_CONTROL | DS_CENTER | WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+   ICON            IDI_ICON2,IDC_STATIC,0,1,20,20
+   LTEXT           "",IDC_UNINSTTEXT,30,0,216,20
+   LTEXT           "Avinstallerar från:",IDC_STATIC,0,31,54,8
+   EDITTEXT        IDC_EDIT1,55,29,190,12,ES_AUTOHSCROLL | ES_READONLY
+END
+   
+IDD_DIR1 DIALOG DISCARDABLE  0, 0, 246, 127
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+FONT 8, "MS Sans Serif"
+BEGIN
+   EDITTEXT        IDC_DIR,10,55,180,12,ES_AUTOHSCROLL
+   PUSHBUTTON      "Bläddra...",IDC_BROWSE,195,55,50,14
+   LTEXT           "textbeskrivning\r\ntvå rader",IDC_INTROTEXT,25,2,204,
+                   16
+   ICON            IDI_ICON2,-1,0,0,20,20
+   LTEXT           "Statisk",IDC_SELDIRTEXT,0,45,245,10
+   DEFPUSHBUTTON   "Ok",IDC_OK,140,110,50,14
+   PUSHBUTTON      "Avbryt",IDC_CANCEL,195,110,50,14
+END
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED 
+GUIDELINES DESIGNINFO DISCARDABLE
+BEGIN
+   IDD_INST, DIALOG
+   BEGIN
+       LEFTMARGIN, 7
+       RIGHTMARGIN, 253
+       TOPMARGIN, 6
+       BOTTOMMARGIN, 153
+   END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+STRINGTABLE DISCARDABLE 
+BEGIN
+   JAVAWS_TEST             "Detta är bara ett test."
+   JAVAWS_NS_COPYRIGHT     "NSIS Copyright (C) 2000 Nullsoft, Inc."
+   JAVAWS_ERROR_RESOURCE   "Ett fel uppstod när resursen laddades."
+   JAVAWS_ERROR_RESOURCE_CAPTION "Fel i installationsprogrammet"
+   JAVAWS_ERROR_OPENSELF   "Ett fel uppstod under självextrahering."
+   JAVAWS_ERROR_GCAPTION   "Fel i Nullsoft-installationssystemet"
+   JAVAWS_ERROR_READCRC    "Ett fel uppstod när CRC lästes från installationsfilen."
+   JAVAWS_ERROR_READDATA   "Ett fel uppstod när data lästes från installationsfilen."
+   JAVAWS_ERROR_CRC        "CRC-kontroll av installationsprogrammet misslyckades.  Försök att hämta installationsprogrammet igen."
+   JAVAWS_ERROR_TOOSHORT   "Fel: Installationsdatablocket var för kort."
+   JAVAWS_ERROR_FINDDATA   "Fel vid försök att hitta installationsdata."
+   JAVAWS_STATUS_OUTDIR    "Utdatamapp: %1"
+   JAVAWS_STATUS_SKIPPED   "Hoppades över: %1"
+   JAVAWS_ERROR_OPENWRITE  "Fel vid försök att öppna fil för skrivning: %1\r\nTryck på Avbryt om du vill avbryta installationen, Försök igen om du vill försöka skriva till filen igen, eller Ignorera om du vill hoppa över filen."
+   JAVAWS_ERROR_ABORTWRITE "Processen avbröts när skrivfilen inte kunde hittas: %1"
+END
+STRINGTABLE DISCARDABLE 
+BEGIN
+   JAVAWS_STATUS_EXTRACT   "Extrahera: %1"
+   JAVAWS_STATUS_EXECUTE   "Kör: %1"
+   JAVAWS_STATUS_CREATESHORTCUT "Skapade genvägen: %1"
+   JAVAWS_STATUS_DELETEFILE "Ta bort fil: %1"
+   JAVAWS_STATUS_ABORTED   "Avbröt på användarens begäran: %1"
+   JAVAWS_STATUS_REMOVEDIR "Ta bort mapp: %1"
+   JAVAWS_ERROR_INSTCORRUPT "Installationsprogrammet var skadat."
+   JAVAWS_MESSAGE_UNINSTALL "%1Avinstallera"
+   JAVAWS_MESSAGE_SETUP    "%1 Installation"
+   JAVAWS_MESSAGE_SELECTDIR "Välj installationsmapp"
+   JAVAWS_MESSAGE_LICENSE  "Licensavtal"
+   JAVAWS_MESSAGE_INSTOPT  "Installationsalternativ"
+   JAVAWS_MESSAGE_INSTDIR  "Installationsmapp"
+   JAVAWS_MESSAGE_INSTFILES "Installerar filer"
+   JAVAWS_MESSAGE_SETUP2   "%1 Installation: %2"
+   JAVAWS_MESSAGE_CONFIRM  "Bekräftelse"
+END
+STRINGTABLE DISCARDABLE 
+BEGIN
+   JAVAWS_MESSAGE_UNINSTFILES "Avinstallerar filer"
+   JAVAWS_MESSAGE_UNINSTALL2 "%1 Avinstallera: %2"
+   JAVAWS_MESSAGE_SELECTDIR2 "Välj mappen du vill installera %1 till:"
+   JAVAWS_MESSAGE_SELECTDIR3 "Välj en mapp:"
+   JAVAWS_MESSAGE_SPACEREQ "Utrymme som krävs: %1!d! kB"
+   JAVAWS_MESSAGE_SPACEAVAIL "Tillgängligt utrymme: %1!d! kB"
+   JAVAWS_MESSAGE_SELECTCOMPS "Välj komponenter att installera:"
+   JAVAWS_MESSAGE_CUSTOMTYPE "Anpassad"
+   JAVAWS_MESSAGE_REQDCOMPS "Komponenter som krävs"
+   JAVAWS_STATUS_CREATEUNINST "Skapar avinstallationsprogram"
+   JAVAWS_MESSAGE_UNINSTPROGRESS "Avinstallation:"
+   JAVAWS_ERROR_STRINGTABLE "Varning: lokaliserad text hittades inte."
+   JAVAWS_STATUS_MAKEDIR   "Skapa mapp: %1"
+   JAVAWS_STATUS_REGDLL    "Registrerad DLL: %1"
+   JAVAWS_STATUS_UNREGDLL  "Oregistrerad DLL:"
+   JAVAWS_ERROR_REGDLL     "Fel vid försök att registrera DLL-filen.\r\nDllRegisterServer hittades inte i %1."
+END
+STRINGTABLE DISCARDABLE 
+BEGIN
+   JAVAWS_ERROR_REGDLLU    "Fel vid försök att registrera DLL-filen.\r\nDet gick inte att ladda %1."
+   JAVAWS_ERROR_OLEINIT    "Fel vid försök at registrera DLL-filen: %1.\r\nDet gick inte att initiera OLE."
+   JAVAWS_MESSAGE_REBOOT   "Du måste stänga av och starta om din dator innan du startar Java Web Start.\r\nVill du starta om din dator nu?"
+   JAVAWS_ERROR_PRIVALUE   "Fel vid uppslagning av behörighet."
+   JAVAWS_ERROR_OPENTOKEN  "Fel vid försök att öppna nyckel."
+   JAVAWS_ERROR_ADJUSTTOKEN "Fel vid försök att justera nyckelprivilegier."
+   JAVAWS_ERROR_EXITWINDOWS 
+                           "Ett fel inträffade när du startade om.\r\nStäng av och starta om din dator med hjälp av Start-menyn."
+   JAVAWS_MESSAGE_INSTPROG "Installationsstatus:"
+   JAVAWS_DECLINE          "Avböj"
+   JAVAWS_ACCEPT           "Acceptera"
+   JAVAWS_NEXT             "Nästa >"
+   JAVAWS_BACK             "< Bakåt"
+   JAVAWS_CANCEL           "Avbryt"
+   JAVAWS_MESSAGE_JRE      "Installationsprogrammet upptäckte inget Java 2 Runtime Environment som kunde användas."
+   JAVAWS_MESSAGE_JRE2     "Vil du installera version %1 av Java 2 Runtime Environment?"
+   JAVAWS_MESSAGE_NEWERVERSION 
+                           "Installationsprogrammet har upptäckt att du försöker ersätta Java Web Start %1 med Java Web Start %2.  Är du säker?"
+   // Following is NEW FOR 1.2 -sbohne
+   JAVAWS_ERROR_PRIVILEGE  "Du är inte medlem i gruppen med administratörer eller priviligierade användare. Vi rekommenderar att du låter en administratör eller priviligierad användare installera programmet. Klicka på OK om du vill avsluta programmet eller på Avbryt om du vill bortse från den här varningen. "
+END
+

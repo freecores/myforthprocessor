@@ -1,0 +1,25 @@
+# Ordered list of files to include in charsets.jar.
+# This is a generated file - do not edit.
+#
+# Test Null
+# Test Exit
+# Test Hello
+# Test Sleep
+# Test IntToString
+# Test LoadToolkit
+# Test LoadFrame
+# Test LoadJFrame
+# Test JHello
+# SwingSet
+sun/io/CharToByteEUC_TW.class
+sun/io/CharToByteDoubleByte.class
+sun/io/CharToByteBig5.class
+sun/io/CharToByteEUC_CN.class
+sun/io/CharToByteGBK.class
+sun/io/CharToByteTIS620.class
+sun/io/CharToByteEUC_KR.class
+sun/io/CharToByteJohab.class
+sun/io/CharToByteJIS0212.class
+sun/io/CharToByteJIS0208.class
+sun/io/CharToByteISO8859_8.class
+sun/io/CharToByteISO8859_6.class

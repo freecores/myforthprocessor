@@ -1,0 +1,10 @@
+#
+# @(#)FILES_java.gmk	1.3 02/09/19
+#
+FILES_java = \
+	$(TARGDIR)sun/tools/jar/Main.java \
+	$(TARGDIR)sun/tools/jar/Manifest.java \
+	$(TARGDIR)sun/tools/jar/JarImageSource.java \
+	$(TARGDIR)sun/tools/jar/JarVerifierStream.java \
+	$(TARGDIR)sun/tools/jar/SignatureFile.java \
+	$(TARGDIR)sun/tools/jar/JarException.java

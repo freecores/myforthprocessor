@@ -1,0 +1,236 @@
+package equation;
+
+/**
+ * <p>Überschrift: Curve Fitting</p>
+ *
+ * <p>Beschreibung: solve a symmetric equation system using gauss's method</p>
+ *
+ * <p>Copyright: Copyright (c) 2008</p>
+ *
+ * <p>Organisation: </p>
+ *
+ * @author Gerhard Hohner
+ * @version 1.0
+ */
+public class Gauss
+{
+    private double[][] lumat;
+    private int [] perm;
+    private int signd;
+    private final double MACH_EPS = 1.e-18;
+
+
+        /*====================================================================*
+         *                                                                    *
+         *  Gauss  berechnet die Zerlegung einer n x n Matrix in eine         *
+         *  untere und eine obere Dreieckmatrix. Diese Zerlegung wird zur     *
+         *  Loesung eines linearen Gleichungssystems benoetigt. Die Zerlegung *
+         *  befindet sich nach Aufruf von gaudec in der n x n Matrix lumat.   *
+         *                                                                    *
+         *====================================================================*
+         *                                                                    *
+         *   Eingabeparameter:                                                *
+         *   ================                                                 *
+         *      n        int n;  (n > 0)                                      *
+         *               Dimension von mat und lumat,                         *
+         *               Anzahl der Komponenten des b-Vektors, des Loe-       *
+         *               sungsvektors x, des Permutationsvektors perm.        *
+         *      mat      REAL   *mat[];                                       *
+         *               Matrix des Gleichungssystems. Diese wird als Vektor  *
+         *               von Zeigern uebergeben.                              *
+         *                                                                    *
+         *   Ausgabeparameter:                                                *
+         *   ================                                                 *
+         *      lumat    REAL   *lumat[];                                     *
+         *               LU-Dekompositionsmatrix, die die Zerlegung von       *
+         *               mat in eine untere und obere Dreieckmatrix ent-      *
+         *               haelt.                                               *
+         *      perm     int perm[];                                          *
+         *               Permutationsvektor, der die Zeilenvertauschungen     *
+         *               von lumat enthaelt.                                  *
+         *      signd    int signd;                                          *
+         *               Vorzeichen der Determinante von mat; die De-         *
+         *               terminante kann durch das Produkt der Diagonal-      *
+         *               elemente mal signd bestimmt werden.                  *
+         *                                                                    *
+         *====================================================================*
+         *                                                                    *
+         *   Benutzte Konstanten: MACH_EPS                              *
+         *====================================================================*/
+    public Gauss(double [][] mat) throws Exception {
+        int  m, j, i, j0;
+        double piv, tmp, zmax;
+        double [] d = new double[mat.length];
+        perm = new int[mat.length];
+        lumat = new double[mat.length][mat.length];
+
+                                              /* d = Skalierungsvektor      */
+                                              /* fuer Pivotsuche            */
+        for(i = 0; i < mat.length; i++)
+         for(j = 0; j < mat.length; j++)
+          lumat[i][j] = mat[i][j];
+
+        for (i = 0; i < mat.length; i++)
+        {
+          perm[i] = i;                        /* Initialisiere perm         */
+          zmax = 0.0;
+          for (j = 0; j < mat.length; j++)             /* Zeilenmaximum bestimmen    */
+          {
+            tmp = Math.abs (lumat[i][j]);
+            if (tmp > zmax) zmax = tmp;
+          }
+
+          if (zmax == 0.0)                   /* mat singulaer              */
+           throw new Exception("system singular");
+          d[i] = 1. / zmax;
+        }
+
+        signd = 1;                         /* Vorzeichen der Determinante  */
+
+        for (i = 0; i < mat.length; i++)
+        {
+          piv = Math.abs (lumat[i][i]) * d[i];
+          j0 = i;                           /* Suche aktuelles Pivotelement */
+          for (j = i + 1; j < mat.length; j++)
+          {
+            tmp = Math.abs (lumat[j][i]) * d[j];
+            if (piv < tmp)
+            {
+              piv = tmp;                    /* Merke Pivotelement u.        */
+              j0 = j;                       /* dessen Index                 */
+            }
+          }
+
+          if (piv < MACH_EPS)               /* Wenn piv zu klein, so ist    */
+           throw new Exception("system almost singular " + piv);
+
+          if (j0 != i)
+          {
+            signd = - signd;              /* Vorzeichen Determinante *(-1)*/
+
+            int x = perm[j0];             /* Tausche Pivoteintraege       */
+            perm[j0] = perm[i];
+            perm[i] = x;
+                                          /* Tausche Eintraege im         */
+            tmp = d[j0];                  /* Skalierungsvektor            */
+            d[j0] = d[i];
+            d[i] = tmp;
+
+            double [] y = lumat[j0];      /* Tausch j0-te u. i-te  */
+            lumat[j0] = lumat[i];         /* Zeile von lumat       */
+            lumat[i] = y;
+          }
+
+          for (j = i + 1; j < mat.length; j++)       /* Gauss Eliminationsschritt    */
+          {
+            if (lumat[j][i] != 0.0)
+            {
+              lumat[j][i] /= lumat[i][i];
+              tmp = lumat[j][i];
+              for (m = i + 1; m < mat.length; m++)
+                lumat[j][m] -= tmp * lumat[i][m];
+            }
+          }
+        } /* end i */
+    }
+
+    /*====================================================================*
+     *                                                                    *
+     *  solve  bestimmt die Loesung x des linearen Gleichungssystems     *
+     *  lumat * x = b mit der n x n Koeffizientenmatrix lumat, wobei      *
+     *  lumat in zerlegter Form (LU - Dekomposition) vorliegt, wie        *
+     *  sie von gaudec als Ausgabe geliefert wird.                        *
+     *                                                                    *
+     *====================================================================*
+     *                                                                    *
+     *   Eingabeparameter:                                                *
+     *   ================                                                 *
+     *      n        int n;  (n > 0)                                      *
+     *               Dimension von lumat,                                 *
+     *               Anzahl der Komponenten des b-Vektors, des Loe-       *
+     *               sungsvektors x, des Permutationsvektors perm.        *
+     *      lumat    REAL   *lumat[];                                     *
+     *               LU-Dekompositionsmatrix, wie sie von gaudec          *
+     *               geliefert wird.                                      *
+     *      perm     int perm[];                                          *
+     *               Permutationsvektor, der die Zeilenvertauschungen     *
+     *               von lumat enthaelt.                                  *
+     *      b        REAL   b[];                                          *
+     *               Rechte Seite des Gleichungssystems.                  *
+     *                                                                    *
+     *   Ausgabeparameter:                                                *
+     *   ================                                                 *
+     *      x        REAL   x[];                                          *
+     *               Loesungsvektor des Systems.                          *
+     *                                                                    *
+     *====================================================================*/
+   public double [] solve(double [] b) throws Exception
+    {
+      int  j, k;
+      double sum;
+      double [] x = new double[lumat.length];
+
+      for (k = 0; k < lumat.length; k++)                   /* Vorwaertselimination   */
+      {
+        x[k] = b[perm[k]];
+        for (j = 0; j < k; j++)
+          x[k] -= lumat[k][j] * x[j];
+      }
+
+      for (k = lumat.length - 1; k >= 0; k--)              /* Rueckwaertselimination */
+      {
+        sum = 0.0;
+        for (j = k + 1; j < lumat.length; j++)
+          sum += lumat[k][j] * x[j];
+
+        if (lumat[k][k] == 0.)
+         throw new Exception("invalid decomposition");
+
+        x[k] = (x[k] - sum) / lumat[k][k];
+      }
+
+      return x;
+    }
+
+    /*====================================================================*
+     *                                                                    *
+     *  det berechnet die Determinante einer n x n Matrix.                *
+     *                                                                    *
+     *====================================================================*
+     *                                                                    *
+     *   Eingabeparameter:                                                *
+     *   ================                                                 *
+     *      n        int n;  (n > 0)                                      *
+     *               Dimension von mat.                                   *
+     *      mat      REAL   *mat[];                                       *
+     *               n x n Matrix, deren Determinante zu bestimmen ist.   *
+     *                                                                    *
+     *   Rueckgabewert:                                                   *
+     *   =============                                                    *
+     *      REAL     Determinante von mat.                                *
+     *               Ist der Rueckgabewert = 0, so ist die Matrix ent-    *
+     *               weder singulaer oder es ist nicht genuegend Speicher *
+     *               vorhanden.                                           *
+     *                                                                    *
+     *====================================================================*/
+    public double det() throws Exception
+    {
+      int   i;
+      double  tmpdet;
+
+      if (lumat.length < 1 || signd == 0)
+          throw new Exception("no valid matrix");
+                                                  /* berechnen            */
+      tmpdet = signd;
+      for (i = 0; i < lumat.length; i++)
+      {
+        if (Math.abs(tmpdet) < MACH_EPS * MACH_EPS)
+            throw new Exception("no valid matrix");
+
+        tmpdet *= lumat[i][i];                     /* Berechne det         */
+      }
+
+      return tmpdet;
+    }
+
+}

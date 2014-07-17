@@ -1,0 +1,405 @@
+'\" t
+.\" @(#)java.1 1.20 00/05/12 SMI;
+.\" Copyright 2003 Sun Microsystems, Inc. All rights reserved.
+.\" Copyright 2003 Sun Microsystems, Inc. Tous droits r蜩erv蜩.
+.\" 
+.TH java 1 "2000 年 7 月 28 日"
+.SH "名前"
+java \- Java インタプリタ
+.SH "形式"
+.B java 
+[ 
+.IB options 
+] 
+.I class 
+[ 
+.I argument ... 
+]
+.LP
+.B java 
+[ 
+.I options 
+] 
+.BI \-jar " file.jar"
+.if n .ti +5n
+[ 
+.I argument ... 
+]
+.SH  "パラメータ"
+オプションの指定順序は任意です。特定のオプションに適用されるパラメータ
+については、以下の「オプション」節を参照してください。
+.TP 15
+.I options
+コマンド行オプション。以下の「オプション」節を参照
+.TP
+.I class
+呼び出されるクラスの名前
+.TP
+.I file.jar
+呼び出されるファイルの名前。必ず
+.B \-jar
+と同時に使用される
+.SH "機能説明"
+.IX "Java interpreter" "" "Java interpreter \(em \fLjava\fP"
+.IX "java" "" "\fLjava\fP \(em Java interpreter"
+.LP
+.B java
+ツールは、Java アプリケーションを起動します。
+.B java
+ツールは、Java Runtime Environment を起動したあと、指定されたクラスをロードし、このクラスの
+.B main 
+メソッドを呼び出して Java アプリケーションを起動します。
+.B main 
+メソッドは次のシグニチャーを持っていなければなりません。 
+.LP
+.ft 3
+.nf
+   public static void main(String args[])
+.fi
+.ft 1
+.LP
+このメソッドは
+.B public
+および 
+.BR static
+で宣言され、値を返さず、パラメータとして
+.B String
+配列を使用できなければなりません。
+デフォルトでは、オプションではない最初の引数が、呼び出すクラスの名前に
+なります。この名前には、完全指定のクラス名を使用する必要があります。
+.B \-jar
+オプションを指定した場合、オプションではない最初の引数は、アプリケーションの
+クラスファイルとリソースファイルを含む JAR アーカイブの名前になります。
+この場合、Main-Class マニフェストヘッダで指定されたクラスがスタート
+アップクラスになります。 
+.LP
+Java Runtime は、ブートストラップクラスパス、インストール型拡張機能、
+およびユーザクラスパスの 3 つの場所から、起動クラスとその他の
+使用するクラスを探します。 
+.LP
+クラス名または JAR ファイル名のあとにあるオプションではない引数は、
+main 関数に渡されます。 
+.LP
+.SH "オプション"
+起動コマンドには、現在の実行環境および将来のリリースでサポートされる
+標準オプションがあります。ただし以下で説明するように、別のオプションに
+置き換えられたオプションは現在では使われておらず、将来のリリース
+では削除される予定です。このほかの非標準オプションは、
+現在の Virtual Machine 実装に固有のオプションで、将来変更される
+可能性があります。非標準オプションは 
+.BR  \-X
+で始まります。 
+.SS "標準オプション"
+.IX "java" "Standard Options" "\fLjava\fP \(em Java interpreter"
+.TP 20
+.B \-client
+Java HotSpot Client
+.SM VM\s0
+を選択します。これがデフォルトです。
+.TP
+.B \-server
+Java HotSpot Server
+.SM VM\s0
+を選択します。
+.TP
+.BI \-classpath " classpath"
+.PD 0
+.TP
+.BI \-cp " classpath"
+.PD
+クラスファイルを探すディレクトリ、JAR アーカイブ、および ZIP アーカイブのリストを指定します。クラスパスの各エントリはコロン (:) で区切ります。
+.B \-classpath 
+または 
+.B \-cp
+を指定すると、これらのオプションの値によって 
+.SB CLASSPATH
+環境変数の設定は上書きされます。 
+.sp 1n
+.BR java 
+で 
+.B \-classpath
+または
+.B \-cp
+を使う場合、これらのオプションによって指定されるのはユーザクラスの
+クラスパスだけです。
+.BR oldjava
+で 
+.B \-classpath
+または
+.B \-cp
+を使う場合、これらのオプションによって指定されるのは、ユーザクラスと
+ブートストラップクラスの両方のクラスパスです。 
+.sp 1n
+.B \-classpath
+と
+.B \-cp 
+を使用せず、
+.SB CLASSPATH
+も設定されていない場合、ユーザクラスパスは現在のディレクトリ (.) になります。 
+.TP
+.B \-debug
+.BR \-Xdebug
+に置き換わりました。
+.TP
+.BI \-D property=value
+システムプロパティの値を設定します。 
+.TP
+.B \-jar
+JAR の中にカプセル化されたプログラムを実行します。最初の引数は、起動クラスの名前ではなく、JAR アーカイブファイルの名前になります。
+このオプションが動作するためには、JAR ファイルのマニフェストに形式 \f3Main-Class:\f1\f2classname\f1 の行が入っていなければなりません。
+.I classname
+は、ユーザのアプリケーションの開始点となる 
+.B public static void main(String[] args) 
+メソッドを持つクラスを識別します。Jar ファイルと Jar ファイルのマニフェストを扱う方法については、Jar ツールのリファレンスページと「Java Tutorial」の「Jar Files」を参照してください。このオプションを使用するときは、JAR ファイルがすべてのユーザクラスのソースとなるため、他のユーザクラスパスの設定は無視されます。
+.sp 1n
+Solaris 8 では、\f3java \-jar\f1 オプションで実行できる 
+JAR ファイルに、実行のたびにオプションを指定する必要がない
+アクセス権を設定できます。
+.TP
+.B  \-noclassgc
+.BR \-Xnoclassgc
+に置き換わりました。
+.TP
+.BI \-ms h
+.B \-Xms
+.IR n 
+に置き換わりました。
+.TP
+.BI \-mx n
+.B \-Xmx
+.IR n 
+に置き換わりました。
+.TP
+.BI \-ss n
+.B \-Xss
+.IR n 
+に置き換わりました。
+.TP
+.B \-verbose
+.PD 0
+.TP
+.BI \-verbose: class
+クラスがロードされるたびにクラスに関する情報を表示します。 
+.PD
+.TP
+.B \-verbosegc
+.BR \-verbose:gc
+に置き換わりました。
+.TP
+.B \-verbose:gc
+ガベージコレクションイベントが発生するたびに報告します。 
+.TP
+.B \-verbose:jni
+ネイティブメソッドおよびその他の Java Native Interface (JNI) の使用に関する
+情報を報告します。 
+.TP
+.B \-version
+バージョン情報を表示して終了します。 
+.TP
+.B \-showversion
+バージョン情報を表示して、実行を継続します。
+.TP
+.B \-?
+.PD 0
+.TP
+.B \-help
+使用法を表示して終了します。 
+.PD
+.TP
+.B \-X
+非標準オプションに関する情報を表示して終了します。 
+.LP
+.SS "非標準オプション"
+.IX "java" "Non-Standard Options" "\fLjava\fP \(em Java interpreter"
+.TP 20
+.B \-Xint
+インタプリタ専用モードで動作します。ネイティブコードへのコンパイルは
+無効になり、すべてのバイトコードがインタプリタによって実行されます。
+Java HotSpot VM 適応型コンパイラによって得られるパフォーマンス上の
+利点は、このモードでは実現されません。 
+.TP
+.BI \-Xbootclasspath: bootclasspath
+ブートクラスファイルを探すディレクトリ、JAR アーカイブ、および ZIP 
+アーカイブをコロンで区切ったリストを指定します。指定されたパスに
+存在するブートクラスファイルは、Java 2 SDK と Java 2 
+Runtime Environment に含まれるブートクラスファイルの代わりに使わ
+れます。 
+.TP
+.BI \-Xbootclasspath/a: path
+デフォルトのブートストラップクラスパスに追加するディレクトリ、
+.SM JAR
+アーカイブ、および
+.SM ZIP
+アーカイブのパスをコロンで区切って指定します。 
+.TP
+.BI \-Xbootclasspath/p: path
+デフォルトのブートストラップクラスパスの前に追加する
+ディレクトリ、
+.SM JAR
+アーカイブ、および
+.SM ZIP
+アーカイブのパスをコロンで区切って指定します。
+注: このオプションを、
+.B rt.jar
+内のクラスをオーバーライド
+する目的で使用するアプリケーションは指定しないでください。
+指定すると、Java 2 Runtime Environment 
+バイナリコードライセンス違反になることがあります。 
+.TP
+.B \-Xdebug
+デバッガが有効な状態で起動します。Java インタプリタは、
+.BR jdb (1)
+が使用するパスワードを表示します。詳細と例については、「
+.BR jdb (1)
+の説明」 を参照してください。
+注: このリリースでは、このオプションの前に
+.B \-Djava.compiler=NONE
+を指定することにより、事前にコンパイラを無効にしておく
+必要があります。この制限は将来のリリースではなくなる予定です。
+.\" -- Not supported yet: --
+.\" .TP 15
+.\" .B \-Xcheck:jni
+.\" Java Native Interface 機能に追加チェックを実行します。
+.TP
+.B \-Xfuture
+厳密なクラスファイル形式の検査を実行します。下位互換性を維持
+するため、Java 2 SDK の Virtual Machine で実行されるデフォルトの
+形式検査は、JDK ソフトウェアの 1.1.x バージョンで実行される検査よりも
+厳密ではありません。
+.B \-Xfuture
+フラグを使用すると、クラスファイル形式を
+より仕様に準拠したものにするための、さらに厳密なクラスファイル形式検査が
+有効になります。開発者が新しいコードを開発する際には、このフラグの
+使用を推奨します。Java アプリケーション起動ツールの
+将来のリリースでは、より厳密な検査がデフォルトになるからです。 
+.TP
+.B \-Xnoclassgc
+クラスのガベージコレクションを無効にします。 
+.TP
+.BI \-Xms n
+メモリ割り当てプールの初期サイズを指定します。指定する値は、1000 より
+大きくなければなりません。
+.IR n
+の単位を変更するには、K バイトには文字 
+.B k
+を、M バイトには文字
+.B m
+を数値の後に付けます。デフォルトは 8m です。 
+.TP
+.BI \-Xmx n
+メモリ割り当てプールの最大サイズを指定します。指定する値は、
+1000 より大きくなければなりません。
+.IR n
+の単位を変更するには、K バイトには文字
+.B k
+を、M バイトには文字
+.B m
+を数値の後に付けます。
+デフォルトは 24m です。 
+.TP
+.BI \-Xprof
+実行中のプログラムのプロファイルを生成し、プロファイリングデータを
+標準出力に送ります。このオプションは、プログラム開発に役立つ
+ユーティリティとして提供されているもので、本番稼動システムでの使用を
+目的としたものではありません。 
+.TP
+\f3\-Xrunhprof[:help][:\f2suboption\f3=\f2value\f1,...]
+CPU、ヒープ、またはモニターのプロファイリングを有効にします。通常、このオプションのあとには、コンマで区切られた「
+.IR suboption = value
+」のペアが続きます。サブオプションおよびそれらのデフォルト値の一覧を取得するには、コマンド
+.B java \-Xrunhprof:help
+を実行します。 
+.\" .TP
+.\" -Xcheck:jni
+.\" Perform additional check for Java Native Interface functions.
+.\" .TP
+.\" -Xverify
+.\" -Xverify:all
+.\" Verify that all class files obey language constraints.
+.\" .TP
+.\" -Xverify:remote
+.\" Verify only remote class files. This is the default
+.\" verification level.
+.\" .TP
+.\" -Xverify:none
+.\" Disable class file verification.
+.TP
+.BI \-Xss n
+Java スレッドはそれぞれ 2 つのスタックを持っています。1 つは Java コード用で、もう 1 つは C コード用です。
+.B \-Xss
+オプションは、1 つのスレッド内の C コードが使用できる最大スタックサイズを
+.I n
+に設定します。
+.B java
+に渡されたプログラムの実行中に生成されたスレッドは
+それぞれ、独自の C ス
+タックサイズとして 
+.IR n
+を持っています。
+.I n
+のデフォルトの単位はバイトで、
+.I n
+は 1000 バイトよりも大きくなければなりません。
+.sp 1n
+.IR n
+の意味を変更する場合、キロバイトにするには文字 
+.B k
+を、メガバイトにするには文字 
+.B m
+を追加します。デフォルトのスタックサイズは 128 K バイトです 
+(\f3\-Xss128k\f1)。
+.TP
+.SH "環境変数"
+.TP 20
+.SB CLASSPATH
+ユーザ定義クラスへのパスをシステムに通知するために使用します。
+複数のディレクトリを指定する場合はコロンで区切ります。
+次に例を示します。
+.RS 25
+.sp 1n
+.B .:/home/avh/classes:/usr/local/java/classes
+.RE 
+.br
+.ne 12
+.SH "属性"
+次の属性については、
+.BR attributes (5)
+のマニュアルページを参照してください。
+.sp 
+.TS
+box;
+cbp-1 | cbp-1
+l | l .
+属性タイプ	属性値
+=
+使用条件	SUNWj2rt、SUNWj2dev
+オプションの使用方法	「注意事項」を参照
+.TE
+.SH "関連項目"
+.BR javac (1)、
+.BR jdb (1)、
+.BR javac (1)、
+.BR jar (1)、
+.BR set (1)、
+.BR attributes (5)
+.LP
+次については、
+.BR java.sun.com
+を参照または検索してください。
+.TP 10
+.B JDK のファイル構造 @
+http://java.sun.com/j2se/1.3/ja/docs/ja/tooldocs/solaris/jdkfiles.html
+(http://java.sun.com/j2se/1.3/docs/tooldocs/solaris/jdkfiles.html ：英語版)
+.TP
+.B クラスパスの設定 @
+http://java.sun.com/j2se/1.3/docs/ja/tooldocs/ja/solaris/classpath.html
+(http://java.sun.com/j2se/1.3/docs/tooldocs/solaris/classpath.html ：英語版)
+.TP
+.B JAR Files @ 
+http://java.sun.com/docs/books/tutorial/jar/
+.SH "注意事項"
+すべての
+.B \-X
+オプションは流動的です。「オプション」の節で
+説明しているように、いくつかの標準オプションは現在では
+使われていません。

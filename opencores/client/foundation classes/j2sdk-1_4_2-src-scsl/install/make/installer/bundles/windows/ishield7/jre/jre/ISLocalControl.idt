@@ -1,0 +1,29 @@
+Dialog_	Control_	ISLanguage_	Attributes	X	Y	Width	Height	Binary_	ISBuildSourcePath
+s72	s50	s50	I4	I2	I2	I2	I2	S50	S255
+ISLocalControl	Dialog_	Control_	ISLanguage_
+Browsers	CheckBox1	1028	3	25	88	11	11		
+Browsers	CheckBox2	1028	3	25	62	11	11		
+Browsers	DlgDesc	1028	65539	22	23	292	25		
+Browsers	Text1	1028	65539	51	88	148	19		
+Browsers	Text2	1028	3	51	62	148	19		
+Browsers	Text3	1028	65539	72	186	271	24		
+LicenseAgreement	Memo	1028	7	10	54	358	130		<ISProjectFolder>\LICENSE_zh_TW.rtf
+LicenseAgreement	Memo	1031	7	8	55	358	130		<ISProjectFolder>\LICENSE_de.rtf
+LicenseAgreement	Memo	1034	7	8	55	358	130		<ISProjectFolder>\LICENSE_es.rtf
+LicenseAgreement	Memo	1036	7	8	55	358	130		<ISProjectFolder>\LICENSE_fr.rtf
+LicenseAgreement	Memo	1040	7	8	55	358	130		<ISProjectFolder>\LICENSE_it.rtf
+LicenseAgreement	Memo	1041	7	8	55	358	130		<ISProjectFolder>\LICENSE_ja.rtf
+LicenseAgreement	Memo	1042	7	8	55	358	130		<ISProjectFolder>\LICENSE_ko.rtf
+LicenseAgreement	Memo	1053	7	8	55	358	130		<ISProjectFolder>\LICENSE_sv.rtf
+LicenseAgreement	Memo	2052	7	9	55	358	130		<ISProjectFolder>\LICENSE_zh_CN.rtf
+SetupType	CompText	1041	3	80	93	247	40		
+SetupType	CompText	1042	3	82	97	247	37		
+SetupType	CustText	1028	3	82	150	247	52		
+SetupType	CustText	1031	3	82	157	247	52		
+SetupType	CustText	1034	3	82	157	247	52		
+SetupType	CustText	1036	3	82	157	247	45		
+SetupType	CustText	1040	3	82	157	247	52		
+SetupType	CustText	1041	3	80	153	240	47		
+SetupType	CustText	1042	3	82	157	247	52		
+SetupType	CustText	1053	3	82	157	240	45		
+SetupType	CustText	2052	3	82	157	247	52		

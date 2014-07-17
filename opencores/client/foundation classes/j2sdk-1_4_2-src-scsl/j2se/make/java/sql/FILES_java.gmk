@@ -1,0 +1,33 @@
+#
+# @(#)FILES_java.gmk	1.8 02/09/19
+#
+FILES_java = \
+	$(TARGDIR)java/sql/Array.java \
+	$(TARGDIR)java/sql/BatchUpdateException.java \
+	$(TARGDIR)java/sql/Blob.java \
+	$(TARGDIR)java/sql/Clob.java \
+	$(TARGDIR)java/sql/Ref.java \
+	$(TARGDIR)java/sql/SQLData.java \
+	$(TARGDIR)java/sql/SQLInput.java \
+	$(TARGDIR)java/sql/SQLOutput.java \
+	$(TARGDIR)java/sql/Struct.java \
+	$(TARGDIR)java/sql/Connection.java \
+	$(TARGDIR)java/sql/Date.java \
+	$(TARGDIR)java/sql/Driver.java \
+	$(TARGDIR)java/sql/DriverManager.java \
+	$(TARGDIR)java/sql/DriverPropertyInfo.java \
+	$(TARGDIR)java/sql/SQLException.java \
+	$(TARGDIR)java/sql/Statement.java \
+	$(TARGDIR)java/sql/PreparedStatement.java \
+	$(TARGDIR)java/sql/CallableStatement.java \
+	$(TARGDIR)java/sql/ResultSet.java \
+	$(TARGDIR)java/sql/Time.java \
+	$(TARGDIR)java/sql/Timestamp.java \
+	$(TARGDIR)java/sql/Types.java \
+	$(TARGDIR)java/sql/SQLWarning.java \
+	$(TARGDIR)java/sql/DataTruncation.java \
+	$(TARGDIR)java/sql/DatabaseMetaData.java \
+	$(TARGDIR)java/sql/ResultSetMetaData.java \
+	$(TARGDIR)java/sql/SQLPermission.java \
+	$(TARGDIR)java/sql/Savepoint.java \
+	$(TARGDIR)java/sql/ParameterMetaData.java

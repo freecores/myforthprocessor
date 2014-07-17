@@ -1,0 +1,386 @@
+'\" t
+.\" @(#)rmic.1 1.12 03/01/23 SMI;
+.\" Copyright 2003 Sun Microsystems, Inc. All rights reserved.
+.\" Copyright 2003 Sun Microsystems, Inc. Tous droits réservés.
+.\" 
+.TH rmic 1 "14 July 2000"
+.SH NAME
+rmic \- Java RMI stub compiler
+.\"
+.\" This comment retained for historical purposes only:
+.\"  This document was created by saving an HTML file as text
+.\"  from the JavaSoft web site:
+.\" 
+.\" http://java.sun.com/products/jdk/1.2/docs/tooldocs/tools.html
+.\" 
+.\"  and adding appropriate troff macros.
+.\" 
+.SH SYNOPSIS
+.B rmic 
+[
+.BI \-bootclasspath " path"
+] [ 
+.BI \-classpath " path" 
+]
+.if n .ti +5n
+[ 
+.BI \-d " directory" 
+] [ 
+.B \-depend 
+]
+.if t .ti +5n
+[
+.BI \-extdirs " path"
+] [ 
+.B \-g 
+]
+.if n .ti +5n
+[
+.B \-idl
+] [
+.B \-iiop
+] [ 
+.B \-keepgenerated 
+] [
+.B \-J 
+]
+.ti +5n
+[ 
+.B \-nowarn 
+] [
+.BI \-sourcepath " path"
+] [
+.B \-vcompat
+]
+.if n .ti +5n
+[ 
+.B \-verbose 
+] [
+.B \-v1.1
+] [
+.B \-v1.2
+]
+.ti +5n
+.I package-qualified-class-names
+.SH DESCRIPTION
+.IX "Java RMI stub compiler" "" "Java RMI stub compiler \(em \fLrmic\fP"
+.IX "rmic" "" "\fLrmic\fP \(em Java RMI stub compiler"
+The 
+.B rmic 
+compiler generates stub and skeleton class files for
+remote objects from the names of compiled Java\(tm classes that
+contain remote object implementations.
+A remote object is one that
+implements the interface \f3java.rmi.Remote\f1. The classes named in
+the 
+.B rmic 
+command must have compiled
+successfully with the 
+.BR javac (1) 
+command and be fully package-qualified.
+For example, running 
+.B rmic 
+on the class file name
+.B HelloImpl 
+as shown here:
+.LP
+.RS
+.B example% rmic hello.HelloImpl
+.RE
+.LP
+creates the 
+.B HelloImpl_Skel.class 
+and 
+.B HelloImpl_Stub.class 
+files.
+.LP
+A skeleton for a remote object is a server-side entity 
+containing a method that dispatches calls to the remote
+object implementation.
+.LP
+A stub is a proxy for a remote object that is responsible for
+forwarding method invocations on remote objects to the server
+where the actual remote object implementation resides. Therefore,
+a client's
+reference to a remote object is actually a reference
+to a local stub.
+.LP
+The stub implements only the remote interfaces, not local
+interfaces also implemented by the remote object. Because the
+stub implements exactly the same set of remote interfaces as the
+remote object, a client can use the Java language's
+built-in operators for casting and type-checking.
+.SH OPTIONS
+The following options are supported:
+.if t .TP 20
+.if n .TP 15
+.BI \-bootclasspath " path"
+Overrides location of bootstrap class files.
+.if t .TP 20
+.if n .TP 15
+.BI \-classpath " path"
+Specifies the path 
+.B rmic 
+uses to look up classes.
+Setting this option
+overrides the default or the 
+.SB CLASSPATH 
+environment variable.
+Directories are separated by colons.
+Thus, the
+general format for
+.I path
+is:
+.sp 1n
+.ti +5n
+.BI .:< your_path >
+.sp 1n
+For example:
+.sp 1n
+.ti +5n
+.B .:/usr/local/java/classes
+.if t .TP 20
+.if n .TP 15
+.BI \-d " directory"
+Specifies the root directory of the class hierarchy. If
+omitted, the root defaults to the current directory.
+.if t .TP 20
+.if n .TP 15
+.B \-depend
+Causes the compiler to recompile classes 
+referenced by other classes.
+Normally, the compiler only recompiles
+missing or out-of-date classes referred to from
+source code.
+.TP
+.BI \-extdirs " path"
+Overrides location of installed extensions.
+.if t .TP 20
+.if n .TP 15
+.B \-g
+Enables debugging table generation. Debugging tables
+contain information about line numbers and local 
+variables.
+This information is
+used by Java debugging tools. By default, only
+line numbers are generated.
+.if t .TP 20
+.if n .TP 15
+.B \-idl
+Causes
+.B rmic
+to generate
+.SM OMG IDL
+for the classes specified and any classes referenced.
+.SM IDL
+provides a purely declarative, programming
+language-independent way of specifying an object's
+.SM API\s0.
+The
+.SM IDL
+is used as a specification for methods
+and data that can be written in and invoked from any
+language that provides
+.SM CORBA
+bindings.
+This includes
+Java and C++ among others.
+When the
+.B \-idl
+option is used, other options also include:
+.RS
+.TP 5
+.BR \-always " or " \-alwaysgenerate
+Forces re-generation even when existing
+stubs/ties/\s-1IDL\s0 are newer than the input class.
+.PD 0
+.TP
+.B \-factory
+Uses factory keyword in generated
+.SM IDL\s0.
+.TP
+.B \-idlModule fromJavaPackage[.class] toIDLModule
+Specifies
+.B IDLEntity
+package mapping.
+For example:
+.sp 1n
+.in +5n
+.ft 3
+.nf
+\-idlModule foo.bar
+my::real::idlmod.
+.fi
+.ft 1
+.in
+.sp 1n
+.TP
+.B \-idlFile fromJavaPackage[.class] toIDLFile
+Specifies
+.B IDLEntity file mapping.
+For example:
+.sp 1n
+.ti +5n
+.B \-idlFile test.pkg.X TEST16.idl
+.RE
+.PD
+.if t .TP 20
+.if n .TP 15
+.B \-iiop
+Causes
+.B rmic
+to generate
+.SM IIOP
+stub and tie classes, rather than
+.SM JRMP
+stub and skeleton classes.
+A stub class is a local proxy for a remote object and
+is used by clients to send calls to a server.
+Each remote interface requires a stub class, which implements
+that remote interface.
+A client's reference to a remote object is actually a reference to
+a stub.
+Tie classes are used on the server side to process
+incoming calls and dispatch the calls to the proper
+implementation class.
+Each implementation class requires a tie class.
+.sp 1n
+Invoking
+.B rmic
+with
+.B \-iiop
+generates stubs and
+ties that conform to this naming convention:
+.sp 1n
+.in +5n
+.ft 3
+.nf
+_<implementationName>_stub.class
+.sp 1n
+_<interfaceName>_tie.class
+.ft 1
+.fi
+.in
+.sp 1n
+When the
+.B \-iiop
+option is used, other options also include:
+.sp 1n
+.ne 1
+.bp
+.RS
+.PD 0
+.TP 5
+.BR \-always " or " \-alwaysgenerate
+Forces re-generation even when existing
+stubs/ties/\s-1IDL\s0 are newer than the input class.
+.TP
+.B \-nolocalstubs
+Does not create stubs optimized for same-process
+clients and servers.
+.TP
+.B \-noValueMethods
+Must be used with the
+.B \-idl
+option.
+Prevents addition of valuetype methods and initializers
+to emitted
+.SM IDL\s0.
+These methods and initializers
+are optional for valuetypes and are generated
+unless the
+.B \-noValueMethods
+option is specified when using the
+.B \-idl
+option.
+.PD
+.RE
+.TP 20
+.if t .TP 20
+.if n .TP 15
+.B \-J
+Used in conjunction with the
+.B \-D
+option, the
+.B \-J
+option passes the option following it (no spaces between
+.B \-J
+and
+.BR  \-D )
+on to the java interpreter.
+.if t .TP 20
+.if n .TP 15
+.B \-keepgenerated
+Retains the generated 
+.B .java 
+source files for the stubs and
+skeletons.
+If the
+.B \-d 
+option if specified,
+.B \-keepgenerated
+writes them to the same directory as the 
+.B .class
+files.
+.if t .TP 20
+.if n .TP 15
+.B \-nowarn
+Turns off warnings. If used, the compiler does not print 
+warnings.
+.if t .TP 20
+.if n .TP 15
+.BI \-sourcepath " path"
+Specifies where to find user source files.
+.if t .TP 20
+.if n .TP 15
+.B \-vcompat
+Creates stubs and skeletons compatible with both JDK 1.1
+and 1.2 stub protocoal versions (default).
+.if t .TP 20
+.if n .TP 15
+.B \-verbose
+Causes the compiler and linker to display
+messages about
+the classes being compiled and what class files 
+being loaded.
+.if t .TP 20
+.if n .TP 15
+.B  \-v1.1
+Creates stubs and skeletons for JDK 1.1 stub protocol version.
+.if t .TP 20
+.if n .TP 15
+.B  \-v1.2
+Creates stubs for JDK 1.2 stub protocol version only.
+.SH ENVIRONMENT VARIABLES
+.if t .TP 20
+.if n .TP 15
+.SB CLASSPATH
+Used to provide the system with a path to user-defined classes.
+Directories are separated by colons.
+For example,
+.sp 1n
+.ti +5n
+.B .:/usr/local/java/classes
+.SH ATTRIBUTES
+See
+.BR attributes (5)
+for a description of the following attributes:
+.sp 1n
+.TS
+box;
+cbp-1 | cbp-1
+l | l .
+ATTRIBUTE TYPE	ATTRIBUTE VALUE
+=
+Availability	SUNWj3dev
+.TE
+.SH SEE ALSO
+.BR javac (1),
+.BR attributes (5)
+.LP
+See (or search
+.BR java.sun.com )
+for the following:
+.TP 10
+.B Setting the Classpath @
+http://java.sun.com/j2se/1.3/docs/tooldocs/solaris/classpath.html

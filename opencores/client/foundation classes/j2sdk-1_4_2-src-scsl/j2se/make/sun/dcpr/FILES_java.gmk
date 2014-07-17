@@ -1,0 +1,13 @@
+# @(#)FILES_java.gmk	1.9 02/09/19
+
+FILES_java = \
+	$(TARGDIR)sun/dc/path/FastPathProducer.java \
+	$(TARGDIR)sun/dc/path/PathConsumer.java \
+	$(TARGDIR)sun/dc/path/PathError.java \
+	$(TARGDIR)sun/dc/path/PathException.java \
+	$(TARGDIR)sun/dc/pr/PRError.java \
+	$(TARGDIR)sun/dc/pr/PRException.java \
+	$(TARGDIR)sun/dc/pr/PathDasher.java \
+	$(TARGDIR)sun/dc/pr/PathFiller.java \
+	$(TARGDIR)sun/dc/pr/PathStroker.java \
+	$(TARGDIR)sun/dc/pr/Rasterizer.java

@@ -1,0 +1,4 @@
+# Zone	NAME		GMTOFF	RULES	FORMAT	[UNTIL]
+Zone	GMT		0:00	-	GMT
+
+Link GMT UTC

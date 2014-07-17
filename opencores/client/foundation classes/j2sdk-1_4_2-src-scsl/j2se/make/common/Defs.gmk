@@ -1,0 +1,613 @@
+#
+# Copyright 2003 Sun Microsystems, Inc. All rights reserved.
+# SUN PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
+#
+
+#
+# @(#)Defs.gmk	1.176 03/01/23
+#
+# Common variables used by all the Java makefiles.  This file should
+# not contain rules.
+#
+
+include $(BUILDDIR)/common/Platform.gmk
+include $(BUILDDIR)/common/CancelImplicits.gmk
+include $(BUILDDIR)/common/Defs-$(PLATFORM).gmk
+
+ifndef JDK_MAJOR_VERSION
+   JDK_MAJOR_VERSION = 1
+endif
+
+ifndef JDK_MINOR_VERSION
+   JDK_MINOR_VERSION = 4
+endif
+
+ifndef JDK_MICRO_VERSION
+   JDK_MICRO_VERSION = 2
+endif
+
+ifndef MILESTONE
+   MILESTONE = internal
+endif
+
+ifndef BUILD_NUMBER
+#   use ':=' to keep this value from changing as time marches on...
+  BUILD_NUMBER := $(shell $(ECHO) $(USER)_`$(DATE) '+%d_%b_%Y_%H_%M' | $(TR) "A-Z" "a-z"`)
+endif
+
+#
+# These default values are redefined during a release build.
+#
+# CTE can set JDK_UPDATE_VERSION during the update release
+#
+
+ifdef JDK_UPDATE_VERSION
+  JDK_VERSION  = $(JDK_MAJOR_VERSION).$(JDK_MINOR_VERSION).$(JDK_MICRO_VERSION)_$(JDK_UPDATE_VERSION)
+else
+  JDK_VERSION  = $(JDK_MAJOR_VERSION).$(JDK_MINOR_VERSION).$(JDK_MICRO_VERSION)
+endif
+
+# RELEASE is JDK_VERSION and -MILESTONE if MILESTONE is set
+ifneq ($(MILESTONE),fcs)
+RELEASE      = $(JDK_VERSION)-$(MILESTONE)
+else
+RELEASE      = $(JDK_VERSION)
+endif
+
+# FULL_VERSION is RELEASE and -BUILD_NUMBER if BUILD_NUMBER is set
+ifneq ($(BUILD_NUMBER),)
+FULL_VERSION = $(RELEASE)-$(BUILD_NUMBER)
+else
+FULL_VERSION = $(RELEASE)
+endif
+
+PREVIOUS_JDK_VERSION = 1.4.1
+ifdef ALT_PREVIOUS_JDK_VERSION
+ PREVIOUS_JDK_VERSION = $(ALT_PREVIOUS_JDK_VERSION)
+endif
+export PREVIOUS_JDK_VERSION
+
+PREVIOUS_JDK_UNDERSCORE_VERSION =  $(subst .,_,$(PREVIOUS_JDK_VERSION))
+
+#
+# Localizations for the different parts of the product beyond English
+#
+
+J2RE_LOCALES   = de es fr it ja ko sv zh_CN zh_TW
+PLUGIN_LOCALES = de es fr it ja ko sv zh_CN zh_TW
+J2SDK_LOCALES  = ja
+
+#
+# Lint support.
+#
+ifdef LIBRARY
+  LINTFLAGS_COMMON += -errfmt=simple -olib$(LIBRARY) -v -Ncheck -Nlevel=3
+endif
+
+ifdef PROGRAM
+  LINTFLAGS_COMMON += -errfmt=simple -v -Ncheck -Nlevel=4 
+endif
+
+#
+# All libraries except libjava and libjvm itself link against libjvm and
+# libjava, the latter for its exported common utilities.  libjava only links
+# against libjvm.  Programs' makefiles take their own responsibility for
+# adding other libs.
+#
+ifdef PACKAGE
+# put JAVALIB first, but do not lose any platform specific values....
+  LDLIBS_COMMON = $(JAVALIB)
+endif # PACKAGE
+
+#
+# Libraries that must appear ahread of libc.so on the link command line
+#
+ifdef PROGRAM
+
+  ifeq ($(PLATFORM), solaris)
+    LDLIBS_COMMON = -lthread -ldl
+  endif
+
+  ifeq ($(PLATFORM), linux)
+    LDLIBS_COMMON = -ldl
+  endif
+
+endif # PROGRAM
+
+LDLIBS_COMMON += $(EXTRA_LIBS)
+
+#
+# Historically PLATFORM_SRC used to be src/$(PLATFORM), but we switched it to
+# src/solaris so if you want to build on Linux you didn't need a src/linux
+# directory.  In an ideal world it would be called src/genunix but we are not
+# there yet.
+#
+ifndef SHARE_SRC
+# SHARE_SRC may be set by  by .../ext/*/build/.../Defs.gmk
+  SHARE_SRC    = $(TOPDIR)/src/share
+endif
+
+CACERTS_EXT   = $(SHARE_SRC)/lib/security/cacerts
+CACERTS_INT   = $(SHARE_SRC)/lib/security/cacerts.internal
+
+#
+# Use ALT_CACERTS_FILE if it's set, otherwise if the internal version of
+# the file (that is, non-empty) is available, use it, otherwise use an
+# empty keystore.
+#
+# We put this variable here for sanity checks and in case another
+# components will need to know which cacerts file is being used.
+#
+ifdef ALT_CACERTS_FILE
+  CACERTS_FILE := $(subst \,/,$(ALT_CACERTS_FILE))
+else
+  CACERTS_FILE := $(subst \,/,$(shell \
+    if [ -r $(CACERTS_INT) ]; then \
+      $(ECHO) $(CACERTS_INT); \
+    else \
+      $(ECHO) $(CACERTS_EXT); \
+  fi))
+endif
+
+TARGDIR      = 
+
+#
+# Set HOTSPOT_CLIENT/SERVER_PATH: Use ALT_HOTSPOT_CLIENT/SERVER_PATH 
+# if it's set, otherwise use the default from 
+# _HOTSPOT_CLIENT/SERVER_PATH.
+
+HOTSPOT_CLIENT_PATH = $(_HOTSPOT_CLIENT_PATH)
+ifdef ALT_HOTSPOT_CLIENT_PATH
+ HOTSPOT_CLIENT_PATH = $(subst \,/,$(ALT_HOTSPOT_CLIENT_PATH))
+endif # ALT_HOTSPOT_CLIENT_PATH
+export HOTSPOT_CLIENT_PATH
+
+HOTSPOT_SERVER_PATH = $(_HOTSPOT_SERVER_PATH)
+ifdef ALT_HOTSPOT_SERVER_PATH
+ HOTSPOT_SERVER_PATH = $(subst \,/,$(ALT_HOTSPOT_SERVER_PATH))
+endif # ALT_HOTSPOT_SERVER_PATH
+export HOTSPOT_SERVER_PATH
+
+#
+# Set PREVIOUS_JDK_FILE: use ALT_PREVIOUS_JDK_FILE if it's set, otherwise use
+# default from _PREVIOUS_JDK_FILE
+#
+PREVIOUS_JDK_FILE = $(_PREVIOUS_JDK_FILE)
+ifdef ALT_PREVIOUS_JDK_FILE
+PREVIOUS_JDK_FILE = $(subst \,/,$(ALT_PREVIOUS_JDK_FILE))
+endif
+export PREVIOUS_JDK_FILE
+
+#
+# Set PREVIOUS_JRE_FILE: use ALT_PREVIOUS_JRE_FILE if it's set, otherwise use
+# default from _PREVIOUS_JRE_FILE
+#
+PREVIOUS_JRE_FILE = $(_PREVIOUS_JRE_FILE)
+ifdef ALT_PREVIOUS_JRE_FILE
+PREVIOUS_JRE_FILE = $(subst \,/,$(ALT_PREVIOUS_JRE_FILE))
+endif
+export PREVIOUS_JRE_FILE
+
+#
+# Set PREVIOUS_RELEASE_PATH: use ALT_PREVIOUS_RELEASE_PATH if it's set, otherwise use
+# default from _PREVIOUS_RELEASE_PATH
+#
+PREVIOUS_RELEASE_PATH = $(_PREVIOUS_RELEASE_PATH)
+ifdef ALT_PREVIOUS_RELEASE_PATH
+PREVIOUS_RELEASE_PATH = $(subst \,/,$(ALT_PREVIOUS_RELEASE_PATH))
+endif
+export PREVIOUS_RELEASE_PATH
+
+#
+# Set BOOTDIR: Use ALT_BOOTDIR if it's set, otherwise use the default
+# from _BOOTDIR.
+#
+BOOTDIR = $(_BOOTDIR)
+ifdef ALT_BOOTDIR
+ BOOTDIR = $(subst \,/,$(ALT_BOOTDIR))
+endif # ALT_BOOTDIR
+export BOOTDIR
+
+# choose the output directory if it is not specified. It really
+# should be outside of the workspace, but there is no guarantee 
+# anyplace outside is writeable and unique. So, it will be
+# in the root of the workspace.
+#
+OUTPUTDIR = $(TOPDIR)/build/$(PLATFORM)-$(ARCH)
+
+ifdef ALT_OUTPUTDIR
+  OUTPUTDIR = $(subst \,/,$(ALT_OUTPUTDIR))
+endif # ALT_OUTPUTDIR
+
+# In some cases, notably in bundling, the absolute path to
+# OUTPUDIR is required. This methodology and this defintion
+# should only be used in these makefiles as a last resort...
+dummy := $(shell $(MKDIR) -p $(OUTPUTDIR))
+ifndef USING_CYGWIN
+   ABS_OUTPUTDIR := $(shell $(CD) $(OUTPUTDIR); $(PWD))
+else
+   ABS_OUTPUTDIR := $(shell $(CYGPATH) -w -a $(OUTPUTDIR))
+endif
+
+# for generated libraries
+LIBDIR              = $(OUTPUTDIR)/lib
+
+dummy := $(shell $(MKDIR) -p $(LIBDIR))
+
+# for ext jre files
+EXTDIR              = $(LIBDIR)/ext
+# for generated include files
+INCLUDEDIR          = $(OUTPUTDIR)/include
+# for generated class files
+CLASSBINDIR         = $(OUTPUTDIR)/classes
+# for generated source files
+GENSRCDIR           = $(OUTPUTDIR)/gensrc
+# for generated demo
+DEMODIR             = $(OUTPUTDIR)/demo
+# for generated documentation
+DOCSDIR             = $(OUTPUTDIR)/doc
+
+# The MESSAGE, WARNING and ERROR files are used to store sanityck and 
+# SCCS check messages, warnings and errors. 
+ifndef ERROR_FILE
+  ERROR_FILE   = $(OUTPUTDIR)/sanityCheckErrors.txt
+endif
+ifndef WARNING_FILE
+  WARNING_FILE = $(OUTPUTDIR)/sanityCheckWarnings.txt
+endif
+ifndef MESSAGE_FILE
+  MESSAGE_FILE = $(OUTPUTDIR)/sanityCheckMessages.txt
+endif
+
+ifndef USING_CYGWIN
+   JDK_IMAGE_DIR       := $(shell $(CD) $(OUTPUTDIR); $(PWD))/j2sdk-image
+   JDK_DEBUG_IMAGE_DIR := $(shell $(CD) $(OUTPUTDIR); $(PWD))/j2sdk-debug-image
+   JRE_IMAGE_DIR       := $(shell $(CD) $(OUTPUTDIR); $(PWD))/j2re-image
+else
+   dummy :=  $(shell $(CD) $(OUTPUTDIR); $(PWD))
+   JDK_IMAGE_DIR       := `$(CYGPATH) -w $(dummy)/j2sdk-image`
+   JDK_DEBUG_IMAGE_DIR := `$(CYGPATH) -w $(dummy)/j2sdk-debug-image`
+   JRE_IMAGE_DIR       := `$(CYGPATH) -w $(dummy)/j2re-image`
+endif
+#where the demo source can be found
+DEMOSRCDIR          = $(SHARE_SRC)/demo
+
+# An attempt is made to generate unique enough directories for the
+# generated files to not have name collisisons. Most build units
+# defines PRODUCT (except Release.gmk), but then they may or may 
+# not define PACKAGE, THREADIR (only HPI uses this), PROGRAM, and 
+# LIBRARY. This code chunk attempts to generate a unique 
+# OBJDIR/CLASSHDRDIR for each build unit based on which of those 
+# values are set within each build unit.
+
+UNIQUE_LOCATION_STRING = tmp
+
+ifneq ($(PRODUCT),)
+  UNIQUE_LOCATION_STRING += /$(PRODUCT)
+endif
+
+ifneq ($(PACKAGE),)
+  UNIQUE_LOCATION_STRING += /$(PACKAGE)
+endif
+
+ifneq ($(PROGRAM),)
+  UNIQUE_LOCATION_STRING += /$(PROGRAM)
+endif
+
+ifneq ($(LIBRARY),)
+  ifneq ($(LIBRARY_OUTPUT),)
+    UNIQUE_LOCATION_STRING += /$(LIBRARY_OUTPUT)
+  else
+    UNIQUE_LOCATION_STRING += /$(LIBRARY)
+  endif
+endif
+
+ifneq ($(THREADDIR),)
+  UNIQUE_LOCATION_STRING += /$(THREADDIR)
+endif
+
+# the use of += above makes a space separated list which we need to 
+# remove for filespecs.
+#
+NULLSTRING :=
+ONESPACE := $(NULLSTRING) # space before this comment is required.
+UNIQUE_PATH = $(subst $(ONESPACE),,$(UNIQUE_LOCATION_STRING))
+
+# TMPDIR is a unique general purpose directory
+# need to use 'override' because GNU Make on Linux exports the wrong
+# value.
+override TMPDIR      = $(OUTPUTDIR)/$(UNIQUE_PATH)
+dummy := $(shell $(MKDIR) -p $(TMPDIR))
+
+# OBJDIRNAME is the name of the directory where the object code is to
+#   be placed. It's name depends on whether is it debug or optimized code
+#   and whether it the data model architecture is 32-bit or not.
+# Sometimes we need to specifically identify either the DEBUG or OPTIMIZED
+# location.
+# BINDIR is for generated binaries
+ifneq ($(ARCH_DATA_MODEL), 32)
+  OBJDIRNAME  = obj$(SUFFIX)$(ARCH_DATA_MODEL)
+  OBJDIR      = $(TMPDIR)/$(OBJDIRNAME)
+  DBG_OBJDIR  = $(TMPDIR)/obj$(DBG_SUFFIX)$(ARCH_DATA_MODEL)
+  OPT_OBJDIR  = $(TMPDIR)/obj$(OPT_SUFFIX)$(ARCH_DATA_MODEL)
+else
+  OBJDIRNAME  = obj$(SUFFIX)
+  OBJDIR      = $(TMPDIR)/$(OBJDIRNAME)
+  DBG_OBJDIR  = $(TMPDIR)/obj$(DBG_SUFFIX)
+  OPT_OBJDIR  = $(TMPDIR)/obj$(OPT_SUFFIX)
+endif
+ifeq ($(ARCH), sparcv9)
+  BINDIR      = $(OUTPUTDIR)/bin/$(ARCH)
+else
+  BINDIR      = $(OUTPUTDIR)/bin
+endif
+
+
+dummy := $(shell $(MKDIR) -p $(BINDIR))
+
+# CLASSHDRDIR is where the generated C Class Header files go.
+CLASSHDRDIR = $(TMPDIR)/CClassHeaders
+
+#
+# CLASSDESTDIR can be used to specify the directory where generated classes
+# are to be placed. The default is CLASSBINDIR.
+#
+ifndef CLASSDESTDIR
+CLASSDESTDIR = $(CLASSBINDIR)
+endif
+
+INCLUDES = -I. -I$(CLASSHDRDIR) \
+	$(patsubst %,-I%,$(subst :, ,$(VPATH.h))) $(OTHER_INCLUDES)
+OTHER_CPPFLAGS = $(INCLUDES)
+
+
+#
+# vpaths.  These are the default locations searched for source files.
+# GNUmakefiles of individual areas often override the default settings.
+# There are no longer default vpath entries for C and assembler files
+# so we can ensure that libraries don't get their hands on JVM files.
+#
+# We define an intermediate variable for Java files because
+# we use its value later to help define $SOURCEPATH
+
+VPATH.java = $(GENSRCDIR)$(CLASSPATH_SEPARATOR)$(PLATFORM_SRC)/classes$(CLASSPATH_SEPARATOR)$(SHARE_SRC)/classes
+vpath %.java $(VPATH.java)
+vpath %.class $(CLASSBINDIR)
+vpath %.$(OBJECT_SUFFIX) $(OBJDIR)
+
+#
+# VPATH.h is used elsewhere to generate include flags.  By default, 
+# anyone has access to the include files that the JVM area exports,
+# namely jni.h, jvm.h, and jni_utils.h, plus their platform-specific
+# relatives.
+#
+VPATH.h =   $(PLATFORM_SRC)/javavm/export:$(SHARE_SRC)/javavm/export:$(SHARE_SRC)/javavm/include:$(PLATFORM_SRC)/javavm/include
+vpath %.h   $(VPATH.h)
+
+#
+# Used in two ways: helps link against libjava.so. Also if overridden
+# determines where your shared library is installed.
+#
+ifndef LIB_LOCATION
+  LIB_LOCATION    =  $(LIBDIR)/$(LIBARCH)
+endif
+
+#
+# Java header and stub variables
+#
+CLASSHDRS     = $(patsubst %,$(CLASSHDRDIR)/%.h,$(subst .,_,$(CLASSES.export)))
+CLASSSTUBOBJS = classstubs.$(OBJECT_SUFFIX)
+STUBPREAMBLE  = $(INCLUDEDIR)/StubPreamble.h
+
+#
+# Classpath seen by javac (different from the one seen by the VM
+# running javac), and useful variables.
+#
+SOURCEPATH	= $(VPATH.java)
+PKG		= $(shell $(EXPR) $(PACKAGE) : '\([a-z]*\)')
+PKGDIR		= $(shell $(ECHO) $(PACKAGE) | $(SED) 's:\.:/:g')
+
+#
+# Suffixes for various VARIANTs
+#
+OPT_SUFFIX      =
+DBG_SUFFIX      = _g
+SUFFIX          = $($(VARIANT)_SUFFIX)
+
+#
+# Java tools. 
+# The standard build procedure is to use the generated tools
+# to build the product. When build the J2RE only the tools
+# are not generated, so the bootstrap ones must be used. The
+# bootstrap tools are also retained for cross-compiling (currently 
+# only done with win64). 
+#
+# $(SUFFIX) is appended so (if you are crazy enough), you
+# will be able to build the debug without building optimized.
+#
+ifdef J2RE_ONLY
+  USE_ONLY_BOOTDIR_TOOLS = true
+endif
+
+ifdef USE_ONLY_BOOTDIR_TOOLS
+  JAVA		= $(BOOTDIR)/bin/java
+  JAVAC		= $(BOOTDIR)/bin/javac
+  JAR		= $(BOOTDIR)/bin/jar
+  ifndef USING_CYGWIN
+    ABS_JAR      := $(shell $(CD) $(BOOTDIR)/bin; $(PWD))/jar
+    ABS_JAVA     := $(shell $(CD) $(BOOTDIR)/bin; $(PWD))/java
+  else
+    ABS_JAR      := $(shell $(CYGPATH) -u -a $(BOOTDIR)/bin)/jar
+    ABS_JAVA     := $(shell $(CYGPATH) -u -a $(BOOTDIR)/bin)/java
+  endif
+  JAVADOC	= $(BOOTDIR)/bin/javadoc
+  JAVAH_CMD	= $(BOOTDIR)/bin/javah
+  RMIC		= $(BOOTDIR)/bin/rmic
+else
+  JAVA		= $(BINDIR)/java$(SUFFIX)
+  JAVAC		= $(BINDIR)/javac$(SUFFIX)
+  JAR		= $(BINDIR)/jar$(SUFFIX)
+  ifndef USING_CYGWIN
+    ABS_JAR      := $(shell $(CD) $(BINDIR); $(PWD))/jar
+    ABS_JAVA     := $(shell $(CD) $(BINDIR); $(PWD))/java
+  else
+    ABS_JAR      := $(shell $(CYGPATH) -u -a $(BINDIR))/jar
+    ABS_JAVA     := $(shell $(CYGPATH) -u -a $(BINDIR))/java
+  endif
+  JAVADOC	= $(BINDIR)/javadoc$(SUFFIX)
+  JAVAH_CMD	= $(BINDIR)/javah$(SUFFIX)
+  # temporary fix: Itanium on windows fails using javah_g
+  ifeq ($(PLATFORM), windows)
+    ifeq ($(ARCH_DATA_MODEL), 64)
+      JAVAH_CMD = $(BINDIR)/javah
+    endif
+  endif
+  RMIC		= $(BINDIR)/rmic$(SUFFIX)
+endif
+
+#
+# 64-bit builds require a larger thread stack size.
+#
+ifeq ($(ARCH_DATA_MODEL), 32)
+  STACKSIZE	= 768
+else
+  STACKSIZE	= 1024
+endif
+STACKSIZEFLAG	= -XX:ThreadStackSize=$(STACKSIZE)
+JAVAHFLAGS	+= -J$(STACKSIZEFLAG)
+
+#
+# Invoking the Java compiler.   In leaf makefiles, choose as follows:
+#  -- Use JAVAC if you want to take full control of what options get
+#     passed to javac.
+#  -- Use JAVAC_CMD if you want to take the defaults given to you.
+#
+JAVAC_VMFLAGS1	   = $(STACKSIZEFLAG) -Xms64m -Xmx256m -Xmaxf1
+JAVAC_VMFLAGS      = $(JIT_OPTION) $(JAVAC_VMFLAGS1)
+JAVAC_VMFLAGS_J    = $(JIT_OPTION) $(patsubst %,-J%,$(JAVAC_VMFLAGS1))
+JAVAC_SRC_FLAG     = -sourcepath "$(SOURCEPATH)"
+LANGUAGE_VERSION   = -source 1.4
+JAVAC_DST_FLAG     = -d $(CLASSDESTDIR)
+
+ifdef DEMOS
+  JAVAC_BCP        = $(BOOTCLASSPATH)
+else
+  JAVAC_BCP        = "$(LIBDIR)/jce.jar$(CLASSPATH_SEPARATOR)$(LIBDIR)/jsse.jar"
+endif
+
+JAVAC_CP           = $(CLASSBINDIR)
+JAVAC_CLS_FLAG     = -classpath $(JAVAC_CP) -bootclasspath $(JAVAC_BCP)
+
+JAVAC_PATHFLAGS    = $(JAVAC_CLS_FLAG) $(JAVAC_SRC_FLAG) $(JAVAC_DST_FLAG)
+JAVACFLAGS_COMMON  = $(JAVAC_PATHFLAGS)
+
+ifeq ($(DEBUG_CLASSFILES),true)
+  JAVACFLAGS_COMMON += -g
+endif
+
+ifdef USE_HOTSPOT_INTERPRETER_MODE
+  OTHER_JAVACFLAGS = -J-Xint
+endif
+
+JAVACFLAGS	   = $(JAVACFLAGS_COMMON) $(OTHER_JAVACFLAGS)
+JAVAC_CMD 	   = $(JAVAC) $(JAVAC_VMFLAGS_J) $(JAVACFLAGS) $(LANGUAGE_VERSION)
+
+#
+# The bootstrap java compiler. Use must be restricted to BOOTSUBDIRS
+# variable in $(BUILDDIR)/java/GNUmakefile.
+#
+JAVA_BOOT      = $(BOOTDIR)/bin/java
+JAVAC_BOOT     = $(BOOTDIR)/bin/javac
+JAVAC_BOOT_CMD = $(JAVAC_BOOT) $(JAVAC_BOOT_FLAGS) $(JAVACFLAGS)
+JAVAH_BOOT_CMD = $(BOOTDIR)/bin/javah
+
+# Setting USEBOOTENV in the environment allows using the boot environment
+# for all targets - very useful to allow a merge to proceed while debugging
+# jvm failures.
+
+ifdef USEBOOTENV
+  JAVAC_CMD	= $(JAVAC_BOOT_CMD)
+  JAVAH_CMD   = $(JAVAH_BOOT_CMD)
+endif
+
+#
+# Set opt level to ALT_OPT if set otherwise _OPT
+#
+POPT = $(_OPT$(ALT_OPT))$(ALT_OPT)
+
+#
+# Convenient macros
+#
+
+define install-file
+@$(MKDIR) -p $(@D)
+@$(RM) $@
+$(CP) $< $@
+endef
+
+define install-stripped-properties-file
+@$(MKDIR) -p $(@D)
+@$(RM) $@
+$(JAVA) -classpath $(BUILDDIR)/tools/strip StripProperties < $< > $@
+endef
+
+define compile-properties-file
+@$(MKDIR) -p $(@D)
+@$(RM) $@
+$(JAVA) -classpath $(BUILDDIR)/tools/CompileProperties CompileProperties $< $@
+endef
+
+#
+# Tool flags
+#
+CFLAGS          = $(CFLAGS_$(VARIANT)) $(CFLAGS_COMMON) $(OTHER_CFLAGS)
+CXXFLAGS        = $(CXXFLAGS_$(VARIANT)) $(CXXFLAGS_COMMON) $(OTHER_CXXFLAGS)
+LCFLAGS         = $(CFLAGS_$(VARIANT)) $(LCFLAGS_COMMON) $(OTHER_CFLAGS)
+CPPFLAGS        = $(CPPFLAGS_$(VARIANT)) $(CPPFLAGS_COMMON) $(OTHER_CPPFLAGS) \
+		  $(DEFINES) $(OPTIONS:%=-D%)
+LCPPFLAGS       = $(CPPFLAGS_$(VARIANT)) $(LCPPFLAGS_COMMON) \
+		  $(OTHER_CPPFLAGS) $(DEFINES) $(OPTIONS:%=-D%)
+LDFLAGS         = $(LDFLAGS_$(VARIANT)) $(LDFLAGS_COMMON) $(OTHER_LDFLAGS)
+LDLIBS          = $(OTHER_LDLIBS) $(LDLIBS_$(VARIANT)) $(LDLIBS_COMMON)
+LINTFLAGS       = $(LINTFLAGS_$(VARIANT)) $(LINTFLAGS_COMMON) \
+		  $(OTHER_LINTFLAGS)
+
+# this should be moved into Defs-<platform>.gmk.....
+ifeq ($(PLATFORM), windows)
+  VERSION_DEFINES = -DRELEASE="\"$(RELEASE)\"" -DFULL_VERSION="\"$(FULL_VERSION)\""
+else
+  VERSION_DEFINES = -DRELEASE='"$(RELEASE)"' -DFULL_VERSION='"$(FULL_VERSION)"'
+endif
+
+# Note: As a rule, GNU Make rules should not appear in any of the 
+# Defs*.gmk files. These were added for Kestrel-Solaris and do address
+# a TeamWare bug. They should be moved elsewhere for Merlin.
+# 
+#  Override gnumake built-in rules which do sccs get operations badly.
+#  (They put the checked out code in the current directory, not in the
+#  directory of the original file.)  Since this a symptom of a teamware
+#  failure, and since not all problems can be detected by gnumake due
+#  to incomplete dependency checking... just complain.
+%:: s.%
+	@$(ECHO) "WARNING: File" $@ "referenced while building in" $(shell $(PWD)) >> $(WARNING_FILE)
+	@$(ECHO) "         is out of date with respect to its SCCS file." >> $(WARNING_FILE)
+	@$(ECHO) "         This file may be from an unresolved Teamware conflict." >> $(WARNING_FILE)
+	@$(ECHO) "         This is also a symptom of a Teamware bringover/putback failure" >> $(WARNING_FILE)
+	@$(ECHO) "         in which SCCS files are updated but not checked out." >> $(WARNING_FILE)
+	@$(ECHO) "         Check for other out of date files in your workspace." >> $(WARNING_FILE)
+	@$(ECHO) "" >> $(WARNING_FILE)
+	@#exit 666
+
+%:: SCCS/s.%
+	@$(ECHO) "WARNING: File" $@ "referenced while building in" $(shell $(PWD)) >> $(WARNING_FILE)
+	@$(ECHO) "         is out of date with respect to its SCCS file." >> $(WARNING_FILE)
+	@$(ECHO) "         This file may be from an unresolved Teamware conflict." >> $(WARNING_FILE)
+	@$(ECHO) "         This is also a symptom of a Teamware bringover/putback failure" >> $(WARNING_FILE)
+	@$(ECHO) "         in which SCCS files are updated but not checked out." >> $(WARNING_FILE)
+	@$(ECHO) "         Check for other out of date files in your workspace." >> $(WARNING_FILE)
+	@$(ECHO) "" >> $(WARNING_FILE)
+	@#exit 666
+
+ifdef INSANE
+  export INSANE
+endif

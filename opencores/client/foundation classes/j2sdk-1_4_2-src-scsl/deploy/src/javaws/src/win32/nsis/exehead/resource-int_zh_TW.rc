@@ -1,0 +1,188 @@
+//Microsoft Developer Studio generated resource script.
+//
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_LICENSE DIALOG DISCARDABLE  0, 0, 246, 125
+STYLE DS_CONTROL | DS_CENTER | WS_CHILD
+BEGIN
+    ICON            IDI_ICON2,-1,0,1,20,20
+    LTEXT           "授權文字\r\n兩行",IDC_LICTEXT,30,0,216,16
+    EDITTEXT        IDC_EDIT1,0,24,246,100,ES_MULTILINE | ES_READONLY | 
+                    WS_VSCROLL
+END
+
+IDD_DIR DIALOG DISCARDABLE  0, 0, 246, 125
+STYLE DS_CONTROL | DS_CENTER | WS_CHILD
+BEGIN
+    EDITTEXT        IDC_DIR,12,43,180,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "瀏覽...",IDC_BROWSE,193,43,50,14
+    LTEXT           "文字說明\r\n兩行\r\n三行",
+                    IDC_INTROTEXT,23,0,204,26
+    ICON            IDI_ICON2,-1,0,0,20,20
+    LTEXT           "靜態",IDC_SELDIRTEXT,0,33,190,8
+    LTEXT           "需要的空間：128k",IDC_SPACEREQUIRED,0,97,97,8
+    LTEXT           "磁碟可用空間：2234000k",IDC_SPACEAVAILABLE,
+                    0,86,131,8
+    // CHANGED FOR 1.2
+    CONTROL         "為所有的使用者建立捷徑",IDC_CHECK1,"Button",
+                    BS_AUTOCHECKBOX | NOT WS_VISIBLE | WS_TABSTOP,12,64,231,
+                    10
+END
+
+IDD_INST DIALOG DISCARDABLE  0, 0, 260, 159
+STYLE DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+BEGIN
+    PUSHBUTTON      "下一步 >",IDOK,203,139,50,14
+    PUSHBUTTON      "取消",IDCANCEL,7,139,50,14
+    CONTROL         "",-1,"Static",SS_ETCHEDHORZ,7,134,246,1
+    CONTROL         "",IDC_CHILDRECT,"Static",SS_BLACKRECT | NOT WS_VISIBLE,
+                    7,6,246,125
+    PUSHBUTTON      "< 上一步",IDC_BACK,151,139,50,14
+    LTEXT           "Nullsoft Install System v1.0j",IDC_INSTVER,60,143,86,8,
+                    NOT WS_VISIBLE
+END
+
+IDD_INSTFILES DIALOG DISCARDABLE  0, 0, 246, 125
+STYLE DS_CONTROL | DS_CENTER | WS_CHILD
+BEGIN
+    CONTROL         "Progress2",IDC_PROGRESS1,"msctls_progress32",WS_BORDER,
+                    24,10,221,11
+    LTEXT           "安裝進度：",IDC_PROGRESSTEXT,24,0,79,8
+    LISTBOX         IDC_LIST1,0,23,245,101,LBS_NOINTEGRALHEIGHT | LBS_NOSEL | 
+                    WS_VSCROLL | WS_TABSTOP
+    ICON            IDI_ICON2,IDC_STATIC,0,0,20,20
+END
+
+IDD_UNINST DIALOG DISCARDABLE  0, 0, 246, 125
+STYLE DS_CONTROL | DS_CENTER | WS_CHILD
+BEGIN
+    ICON            IDI_ICON2,IDC_STATIC,0,1,20,20
+    LTEXT           "",IDC_UNINSTTEXT,30,0,216,20
+    LTEXT           "解除安裝目錄：",IDC_STATIC,0,31,60,8
+    EDITTEXT        IDC_EDIT1,61,29,185,12,ES_AUTOHSCROLL | ES_READONLY
+END
+
+IDD_DIR1 DIALOG DISCARDABLE  0, 0, 246, 127
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+BEGIN
+    EDITTEXT        IDC_DIR,10,55,180,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "瀏覽...",IDC_BROWSE,195,55,50,14
+    LTEXT           "文字說明\r\n兩行",IDC_INTROTEXT,25,2,204,
+                    16
+    ICON            IDI_ICON2,-1,0,0,20,20
+    LTEXT           "靜態",IDC_SELDIRTEXT,0,45,245,10
+    DEFPUSHBUTTON   "確定",IDC_OK,140,110,50,14
+    PUSHBUTTON      "取消",IDC_CANCEL,195,110,50,14
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_INST, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 253
+        TOPMARGIN, 6
+        BOTTOMMARGIN, 153
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    JAVAWS_TEST             "這只是測試。"
+    JAVAWS_NS_COPYRIGHT     "NSIS Copyright (C) 2000 Nullsoft, Inc."
+    JAVAWS_ERROR_RESOURCE   "載入資源錯誤。"
+    JAVAWS_ERROR_RESOURCE_CAPTION "安裝程式錯誤"
+    JAVAWS_ERROR_OPENSELF   "自行開啟錯誤。"
+    JAVAWS_ERROR_GCAPTION   "Nullsoft Install System 錯誤"
+    JAVAWS_ERROR_READCRC    "讀取安裝程式檔的 CRC 時發生錯誤。"
+    JAVAWS_ERROR_READDATA   "讀取安裝程式檔資料時發生錯誤。"
+    JAVAWS_ERROR_CRC        "安裝程式上的 CRC 檢查失敗。請重新下載這個安裝程式。"
+    JAVAWS_ERROR_TOOSHORT   "錯誤：安裝資料區塊太短。"
+    JAVAWS_ERROR_FINDDATA   "錯誤：正尋找安裝資料。"
+    JAVAWS_STATUS_OUTDIR    "輸出目錄：%1"
+    JAVAWS_STATUS_SKIPPED   "已略過：%1"
+    JAVAWS_ERROR_OPENWRITE  "開啟檔案來寫入時發生錯誤：%1\r\n按一下「中斷」來中斷安裝、按一下「重試」來重新寫入檔案，或按一下「不予處理」來略過此檔案。"
+    JAVAWS_ERROR_ABORTWRITE "無法寫入檔案時中斷：%1"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    JAVAWS_STATUS_EXTRACT   "擷取：%1"
+    JAVAWS_STATUS_EXECUTE   "執行：%1"
+    JAVAWS_STATUS_CREATESHORTCUT "已建立捷徑：%1"
+    JAVAWS_STATUS_DELETEFILE "刪除檔案：%1"
+    JAVAWS_STATUS_ABORTED   "因使用者中斷而中斷：%1"
+    JAVAWS_STATUS_REMOVEDIR "移除目錄：%1"
+    JAVAWS_ERROR_INSTCORRUPT "安裝程式已毀壞。"
+    JAVAWS_MESSAGE_UNINSTALL "%1 解除安裝"
+    JAVAWS_MESSAGE_SETUP    "%1 安裝"
+    JAVAWS_MESSAGE_SELECTDIR "選取安裝目錄"
+    JAVAWS_MESSAGE_LICENSE  "軟體授權合約"
+    JAVAWS_MESSAGE_INSTOPT  "安裝選項"
+    JAVAWS_MESSAGE_INSTDIR  "安裝目錄"
+    JAVAWS_MESSAGE_INSTFILES "安裝檔案"
+    JAVAWS_MESSAGE_SETUP2   "%1 安裝：%2"
+    JAVAWS_MESSAGE_CONFIRM  "確認"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    JAVAWS_MESSAGE_UNINSTFILES "解除安裝檔案"
+    JAVAWS_MESSAGE_UNINSTALL2 "%1 解除安裝：%2"
+    JAVAWS_MESSAGE_SELECTDIR2 "選取要在其中安裝 %1 的目錄："
+    JAVAWS_MESSAGE_SELECTDIR3 "選取目錄："
+    JAVAWS_MESSAGE_SPACEREQ "需要的空間：%1!d! KB"
+    JAVAWS_MESSAGE_SPACEAVAIL "可用空間：%1!d! KB"
+    JAVAWS_MESSAGE_SELECTCOMPS "選取安裝元件："
+    JAVAWS_MESSAGE_CUSTOMTYPE "自訂"
+    JAVAWS_MESSAGE_REQDCOMPS "必需的元件"
+    JAVAWS_STATUS_CREATEUNINST "建立解除安裝程式"
+    JAVAWS_MESSAGE_UNINSTPROGRESS "解除安裝進度："
+    JAVAWS_ERROR_STRINGTABLE "警告：找不到本土化文字。"
+    JAVAWS_STATUS_MAKEDIR   "建立目錄：%1"
+    JAVAWS_STATUS_REGDLL    "登錄 DLL：%1"
+    JAVAWS_STATUS_UNREGDLL  "取消登錄 DLL："
+    JAVAWS_ERROR_REGDLL     "登錄 DLL 發生錯誤。\r\n在 %1 中找不到 DllRegisterServer。"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    JAVAWS_ERROR_REGDLLU    "登錄 DLL 發生錯誤。\r\n無法載入 %1。"
+    JAVAWS_ERROR_OLEINIT    "登錄 DLL 發生錯誤：%1。\r\n無法起始設定 OLE。"
+    JAVAWS_MESSAGE_REBOOT   "執行 Java Web Start 之前，您必須關機並重新啟動電腦。\r\n您要立即重新啟動電腦嗎？"
+    JAVAWS_ERROR_PRIVALUE   "特權尋找錯誤。"
+    JAVAWS_ERROR_OPENTOKEN  "開啟處理 token 時發生錯誤。"
+    JAVAWS_ERROR_ADJUSTTOKEN "調整 token 特權時發生錯誤。"
+    JAVAWS_ERROR_EXITWINDOWS 
+                            "重新啟動發生錯誤。\r\n請使用「開始」功能表關機並重新啟動電腦。"
+    JAVAWS_MESSAGE_INSTPROG "安裝進度："
+    JAVAWS_DECLINE          "拒絕"
+    JAVAWS_ACCEPT           "接受"
+    JAVAWS_NEXT             "下一步 >"
+    JAVAWS_BACK             "< 上一步"
+    JAVAWS_CANCEL           "取消"
+    JAVAWS_MESSAGE_JRE      "安裝程式無法偵測可用的 Java 2 Runtime Environment。"
+    JAVAWS_MESSAGE_JRE2     "您要安裝 Java 2 Runtime Environment 的 %1 版本嗎？"
+    JAVAWS_MESSAGE_NEWERVERSION 
+                            "安裝程式偵測到您嘗試將 Java Web Start %1 取代為 Java Web Start %2。確定要這麼做嗎？"
+    // Following is NEW FOR 1.2 -sbohne
+    JAVAWS_ERROR_PRIVILEGE  "安裝程式偵測到您不是 Administrator 或 Power User 群組中的一員。強烈建議您讓 Administrator 或 Power User 安裝此軟體。按一下「確定」結束安裝程式，或按一下「取消」忽略該警告。"
+END

@@ -1,0 +1,16 @@
+#
+# @(#)FILES_java.gmk	1.4 02/09/19
+#
+FILES_java = \
+	$(TARGDIR)com/sun/jndi/cosnaming/CNBindingEnumeration.java \
+	$(TARGDIR)com/sun/jndi/cosnaming/CNCtx.java \
+	$(TARGDIR)com/sun/jndi/cosnaming/CNCtxFactory.java \
+	$(TARGDIR)com/sun/jndi/cosnaming/CNNameParser.java \
+	$(TARGDIR)com/sun/jndi/cosnaming/CorbanameUrl.java \
+	$(TARGDIR)com/sun/jndi/cosnaming/ExceptionMapper.java \
+	$(TARGDIR)com/sun/jndi/cosnaming/IiopUrl.java \
+	$(TARGDIR)com/sun/jndi/cosnaming/RemoteToCorba.java \
+	$(TARGDIR)com/sun/jndi/url/iiop/iiopURLContext.java \
+	$(TARGDIR)com/sun/jndi/url/iiop/iiopURLContextFactory.java \
+	$(TARGDIR)com/sun/jndi/url/iiopname/iiopnameURLContextFactory.java \
+	$(TARGDIR)com/sun/jndi/url/corbaname/corbanameURLContextFactory.java

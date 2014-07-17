@@ -1,0 +1,71 @@
+//Microsoft Developer Studio generated resource script.
+//
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_ICON1               ICON    DISCARDABLE     "icon.ico"
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    JAVAWS_TEST             "这是一个测试。"
+    JAVAWS_ERROR_RESOURCE   "加载资源错误。"
+    JAVAWS_ERROR_RESOURCE_CAPTION "安装程序错误"
+    JAVAWS_ERROR_DEFLATEINIT "add_data_compress：deflateInit() 失败！放弃！"
+    JAVAWS_ERROR_COMPRESS   "add_data_compress：确认！压缩异常！放弃！ "
+    JAVAWS_UNINST_SECTION   "add_section：切换到卸载部分"
+    JAVAWS_ERROR_UNINST     "add_section：错误：指定了卸载部分，但编译器没有带 NSIS_CONFIG_UNINSTALL_SUPPORT  参数编译！"
+    JAVAWS_DONE_UNINST      "add_section：从卸载部分返回"
+    JAVAWS_PROCESSING_SCRIPT "正在处理脚本"
+    JAVAWS_ERROR_TOKEN      "错误：命令 ""%1"" 在第 %3!d! 行期望 %2!d! 个参数"
+    JAVAWS_ERROR_INVALIDCOMMAND 
+                            "错误：第 %2!d! 行命令 (""%1"") 无效"
+    JAVAWS_PARSE_NAME       "名称：""%1"""
+    JAVAWS_PARSE_ICON       "图标：""%1"""
+    JAVAWS_ERROR_NOUNINSTALLSUPPORT 
+                            "UninstallIcon：安装程序没有带 NSIS_CONFIG_UNINSTALL_SUPPORT 参数编译"
+    JAVAWS_PARSE_UNINSTALLICON "UninstallIcon: ""%1"""
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    JAVAWS_PARSE_ENABLEDBITMAP "EnabledBitmap: ""%1"""
+    JAVAWS_PARSE_DISABLEDBITMAP "DisabledBitmap: ""%1"""
+    JAVAWS_PARSE_DIRTEXT    "DirText: ""%1"""
+    JAVAWS_PARSE_COMPONENTTEXT "ComponentText: ""%1"""
+END

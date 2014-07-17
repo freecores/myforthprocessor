@@ -1,0 +1,28 @@
+00000010  56           0 VAL 
+00000011  0d00000000   sort.BasicIO._staticBlocking VAL ( will be modified! ) 
+00000016  00           NOP ( will be modified! ) 
+00000017  01           ! 
+00000018  3d           EXIT 
+
+instruction usage:
+load/store:		1	(20.0%)
+32-bit values:		1	(20.0%)
+16-bit values:		0	(0.0%)
+5-bit values:		1	(20.0%)
+values total:		2	(40.0%)
+arithmetic/logical:	0	(0.0%)
+relations:		0	(0.0%)
+flow control:		1	(20.0%)
+other:			1	(20.0%)
+total:			5
+
+average bytes per instruction: 4.8
+
+string storage in byte:	0
+unresolved references:	1
+
+Size of static code: 15
+Size of initial code: 9
+
+references:
+ffffffff	1	sort.BasicIO._staticBlocking

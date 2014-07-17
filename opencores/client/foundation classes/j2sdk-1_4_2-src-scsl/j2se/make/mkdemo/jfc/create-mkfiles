@@ -1,0 +1,79 @@
+#!/bin/ksh
+#
+# @(#)create-mkfiles	1.9 99/07/23
+#
+# This script can be used to automatically update the .mk files for the Swing demos.
+# Rerun this script if you add/remove/rename files for a demo.
+#
+# Run this script from the directory where the .mk files live.  With no arguments,
+# the script will update the .mk files for all the Swing demos.  You can update  
+# specific demos by giving their names on the command line.  Don't forget to check 
+# the .mk files out of SCCS before trying to update them.
+#
+
+if [ $# -gt 0 ]; then
+    demos="$@"
+else
+    demos="FileChooserDemo Metalworks  Notepad  SampleTree SimpleExample
+           Stylepad        SwingApplet SwingSet SwingSet2  TableExample"
+fi
+
+if [ ! -f `basename $0` ]; then
+   echo You must run this script in the same directory that the script 
+   echo lives.
+   exit 1
+fi
+
+s0='s-^\./-  -g'
+s1='s-^\.-  $(DEMODST)-g'
+s2='s/$/ \\/g'
+
+where=`pwd`
+
+for i in $demos; do
+    cd ../../../../src/share/demo/jfc/$i
+    o=$where/$i.mk
+
+    javalist=/tmp/$i.mk.$$
+    rm -f $javalist
+    for f in *.java; do
+	if [ "$f" != '*.java' ]; then echo $f >> $javalist; fi
+    done
+
+
+    echo '# Warning: this file was automatically generated!  Consult'    > $o
+    echo '# the co-located "create-mkfiles" script to make changes.'    >> $o
+    echo                                                                >> $o
+
+    if egrep -s '((if)|(if_not))\[' *.java 2> /dev/null ; then
+        echo 'USE_MUNGE = 1'                                            >> $o
+        echo                                                            >> $o
+        echo                                                            >> $o
+    fi
+
+
+    echo 'DEMO_java = \'                                                >> $o
+    cat $javalist | sed -e 's-^-  $(DEMODST_SRC)-g' -e "$s2"            >> $o
+    echo                                                                >> $o
+    echo                                                                >> $o
+
+    echo 'DEMO_class = \'                                               >> $o
+    cat $javalist | sed -e 's-^-  $(DEMODST_CLASS)/-g' \
+                        -e 's-\.java$-.class-g' -e "$s2"                >> $o
+    echo                                                                >> $o
+    echo                                                                >> $o
+
+    echo 'DEMO_dirs = \'                                                >> $o
+    find . -type d|grep -v SCCS|grep -v munge| \
+                        sed -e "$s1" -e "$s2"  | sort -f                >> $o
+    echo                                                                >> $o
+    echo                                                                >> $o
+
+    echo 'DEMO_other = \'                                               >> $o
+    find . -type f -a ! -name '*.java' -print | grep -v SCCS |  \
+                                    sed -e "$s1" -e "$s2" | sort -f     >> $o
+    echo                                                                >> $o
+    echo                                                                >> $o
+    cd $where
+    rm -f $javalist
+done

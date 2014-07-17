@@ -1,0 +1,165 @@
+#
+# @(#)FILES_java.gmk	1.17 02/11/07
+#
+
+FILES_midi = \
+	$(TARGDIR)javax/sound/midi/ControllerEventListener.java \
+	$(TARGDIR)javax/sound/midi/Instrument.java \
+	$(TARGDIR)javax/sound/midi/InvalidMidiDataException.java \
+	$(TARGDIR)javax/sound/midi/MetaMessage.java \
+	$(TARGDIR)javax/sound/midi/MetaEventListener.java \
+	$(TARGDIR)javax/sound/midi/MidiChannel.java \
+	$(TARGDIR)javax/sound/midi/MidiDevice.java \
+	$(TARGDIR)javax/sound/midi/MidiEvent.java \
+	$(TARGDIR)javax/sound/midi/MidiFileFormat.java \
+	$(TARGDIR)javax/sound/midi/MidiMessage.java \
+	$(TARGDIR)javax/sound/midi/MidiSystem.java \
+	$(TARGDIR)javax/sound/midi/MidiUnavailableException.java \
+	$(TARGDIR)javax/sound/midi/Patch.java \
+	$(TARGDIR)javax/sound/midi/Receiver.java \
+	$(TARGDIR)javax/sound/midi/SoundbankResource.java \
+	$(TARGDIR)javax/sound/midi/Sequence.java \
+	$(TARGDIR)javax/sound/midi/Sequencer.java \
+	$(TARGDIR)javax/sound/midi/ShortMessage.java \
+	$(TARGDIR)javax/sound/midi/Soundbank.java \
+	$(TARGDIR)javax/sound/midi/Synthesizer.java \
+	$(TARGDIR)javax/sound/midi/SysexMessage.java \
+	$(TARGDIR)javax/sound/midi/Track.java \
+	$(TARGDIR)javax/sound/midi/Transmitter.java \
+	$(TARGDIR)javax/sound/midi/VoiceStatus.java \
+	$(TARGDIR)javax/sound/midi/spi/MidiDeviceProvider.java \
+	$(TARGDIR)javax/sound/midi/spi/MidiFileWriter.java \
+	$(TARGDIR)javax/sound/midi/spi/MidiFileReader.java \
+	$(TARGDIR)javax/sound/midi/spi/SoundbankReader.java
+
+FILES_sampled = \
+	$(TARGDIR)javax/sound/sampled/AudioFileFormat.java \
+	$(TARGDIR)javax/sound/sampled/AudioFormat.java \
+	$(TARGDIR)javax/sound/sampled/AudioInputStream.java \
+	$(TARGDIR)javax/sound/sampled/AudioPermission.java \
+	$(TARGDIR)javax/sound/sampled/AudioSystem.java \
+	$(TARGDIR)javax/sound/sampled/BooleanControl.java \
+	$(TARGDIR)javax/sound/sampled/Clip.java \
+	$(TARGDIR)javax/sound/sampled/Control.java \
+	$(TARGDIR)javax/sound/sampled/CompoundControl.java \
+	$(TARGDIR)javax/sound/sampled/DataLine.java \
+	$(TARGDIR)javax/sound/sampled/EnumControl.java \
+	$(TARGDIR)javax/sound/sampled/FloatControl.java \
+	$(TARGDIR)javax/sound/sampled/Line.java \
+	$(TARGDIR)javax/sound/sampled/LineEvent.java \
+	$(TARGDIR)javax/sound/sampled/LineListener.java \
+	$(TARGDIR)javax/sound/sampled/LineUnavailableException.java \
+	$(TARGDIR)javax/sound/sampled/Mixer.java \
+	$(TARGDIR)javax/sound/sampled/Port.java \
+	$(TARGDIR)javax/sound/sampled/ReverbType.java \
+	$(TARGDIR)javax/sound/sampled/SourceDataLine.java \
+	$(TARGDIR)javax/sound/sampled/TargetDataLine.java \
+	$(TARGDIR)javax/sound/sampled/UnsupportedAudioFileException.java \
+	$(TARGDIR)javax/sound/sampled/spi/AudioFileWriter.java \
+	$(TARGDIR)javax/sound/sampled/spi/AudioFileReader.java \
+	$(TARGDIR)javax/sound/sampled/spi/FormatConversionProvider.java \
+	$(TARGDIR)javax/sound/sampled/spi/MixerProvider.java
+
+FILES_sound_impl = \
+	$(TARGDIR)com/sun/media/sound/AbstractDataLine.java \
+	$(TARGDIR)com/sun/media/sound/AbstractLine.java \
+	$(TARGDIR)com/sun/media/sound/AbstractPlayer.java \
+	$(TARGDIR)com/sun/media/sound/AbstractMidiDevice.java \
+	$(TARGDIR)com/sun/media/sound/AbstractMidiDeviceProvider.java \
+	$(TARGDIR)com/sun/media/sound/AbstractMixer.java \
+	$(TARGDIR)com/sun/media/sound/AiffFileFormat.java \
+	$(TARGDIR)com/sun/media/sound/AiffFileReader.java \
+	$(TARGDIR)com/sun/media/sound/AiffFileWriter.java \
+	$(TARGDIR)com/sun/media/sound/AlawCodec.java \
+	$(TARGDIR)com/sun/media/sound/AuFileFormat.java \
+	$(TARGDIR)com/sun/media/sound/AuFileReader.java \
+	$(TARGDIR)com/sun/media/sound/AuFileWriter.java \
+	$(TARGDIR)com/sun/media/sound/AutoClosingClip.java \
+	$(TARGDIR)com/sun/media/sound/CircularBuffer.java \
+	$(TARGDIR)com/sun/media/sound/DataPusher.java \
+	$(TARGDIR)com/sun/media/sound/DefaultSecurity.java \
+	$(TARGDIR)com/sun/media/sound/DisabledSecurity.java \
+	$(TARGDIR)com/sun/media/sound/EventDispatcher.java \
+	$(TARGDIR)com/sun/media/sound/FastShortMessage.java \
+	$(TARGDIR)com/sun/media/sound/FastSysexMessage.java \
+	$(TARGDIR)com/sun/media/sound/HeadspaceInstrument.java \
+	$(TARGDIR)com/sun/media/sound/HeadspaceMixer.java \
+	$(TARGDIR)com/sun/media/sound/HeadspaceMixerProvider.java \
+	$(TARGDIR)com/sun/media/sound/HeadspaceSample.java \
+	$(TARGDIR)com/sun/media/sound/HeadspaceSoundbank.java \
+	$(TARGDIR)com/sun/media/sound/HsbParser.java \
+	$(TARGDIR)com/sun/media/sound/IESecurity.java \
+	$(TARGDIR)com/sun/media/sound/JavaSoundAudioClip.java \
+	$(TARGDIR)com/sun/media/sound/JSSecurity.java \
+	$(TARGDIR)com/sun/media/sound/JSSecurityManager.java \
+	$(TARGDIR)com/sun/media/sound/JDK12.java \
+	$(TARGDIR)com/sun/media/sound/JDK12ConfigureThreadAction.java \
+	$(TARGDIR)com/sun/media/sound/JDK12LoadLibraryAction.java \
+	$(TARGDIR)com/sun/media/sound/JDK12NewMixerThreadAction.java \
+	$(TARGDIR)com/sun/media/sound/JDK12PropertyAction.java \
+	$(TARGDIR)com/sun/media/sound/JDK12Security.java \
+	$(TARGDIR)com/sun/media/sound/JDK12TopmostThreadGroupAction.java \
+	$(TARGDIR)com/sun/media/sound/JDK13Services.java \
+	$(TARGDIR)com/sun/media/sound/MidiInDevice.java \
+	$(TARGDIR)com/sun/media/sound/MidiInDeviceProvider.java \
+	$(TARGDIR)com/sun/media/sound/MidiOutDevice.java \
+	$(TARGDIR)com/sun/media/sound/MidiOutDeviceProvider.java \
+	$(TARGDIR)com/sun/media/sound/MixerClip.java \
+	$(TARGDIR)com/sun/media/sound/MixerMidiChannel.java \
+	$(TARGDIR)com/sun/media/sound/MixerSequencer.java \
+	$(TARGDIR)com/sun/media/sound/MixerSequencerProvider.java \
+	$(TARGDIR)com/sun/media/sound/MixerSourceLine.java \
+	$(TARGDIR)com/sun/media/sound/MixerSynth.java \
+	$(TARGDIR)com/sun/media/sound/MixerSynthProvider.java \
+	$(TARGDIR)com/sun/media/sound/MixerThread.java \
+	$(TARGDIR)com/sun/media/sound/NetscapeSecurity.java \
+	$(TARGDIR)com/sun/media/sound/Platform.java \
+	$(TARGDIR)com/sun/media/sound/PortMixer.java \
+	$(TARGDIR)com/sun/media/sound/PortMixerProvider.java \
+	$(TARGDIR)com/sun/media/sound/Printer.java \
+	$(TARGDIR)com/sun/media/sound/PCMtoPCMCodec.java \
+	$(TARGDIR)com/sun/media/sound/RmfFileReader.java \
+	$(TARGDIR)com/sun/media/sound/SimpleInputDevice.java \
+	$(TARGDIR)com/sun/media/sound/SimpleInputDeviceProvider.java \
+	$(TARGDIR)com/sun/media/sound/StandardMidiFileReader.java \
+	$(TARGDIR)com/sun/media/sound/StandardMidiFileWriter.java \
+	$(TARGDIR)com/sun/media/sound/SunCodec.java \
+	$(TARGDIR)com/sun/media/sound/SunFileReader.java \
+	$(TARGDIR)com/sun/media/sound/SunFileWriter.java \
+	$(TARGDIR)com/sun/media/sound/SunMidiFileReader.java \
+	$(TARGDIR)com/sun/media/sound/Toolkit.java \
+	$(TARGDIR)com/sun/media/sound/UlawCodec.java \
+	$(TARGDIR)com/sun/media/sound/WaveFileFormat.java \
+	$(TARGDIR)com/sun/media/sound/WaveFileReader.java \
+	$(TARGDIR)com/sun/media/sound/WaveFileWriter.java
+#	$(TARGDIR)com/sun/media/sound/SimpleOutputDevice.java \
+#	$(TARGDIR)com/sun/media/sound/SimpleOutputDeviceProvider.java \
+
+
+FILES_java = $(FILES_midi) $(FILES_sampled) $(FILES_sound_impl)
+
+#
+# Files that just need cp.
+#
+SERVICEDIR = $(CLASSBINDIR)/META-INF/services
+
+FILES_copy = \
+	$(SERVICEDIR)/javax.sound.midi.spi.MidiDeviceProvider \
+	$(SERVICEDIR)/javax.sound.midi.spi.MidiFileWriter \
+	$(SERVICEDIR)/javax.sound.midi.spi.MidiFileReader \
+	$(SERVICEDIR)/javax.sound.midi.spi.SoundbankReader \
+	$(SERVICEDIR)/javax.sound.sampled.spi.AudioFileWriter \
+	$(SERVICEDIR)/javax.sound.sampled.spi.AudioFileReader \
+	$(SERVICEDIR)/javax.sound.sampled.spi.FormatConversionProvider \
+	$(SERVICEDIR)/javax.sound.sampled.spi.MixerProvider \
+	$(LIBDIR)/audio/soundbank.gm
+
+FILES_mkdirs = \
+	$(CLASSBINDIR)/META-INF \
+	$(CLASSBINDIR)/META-INF/services \
+	$(LIBDIR)/audio
+
+FILES_copydirs = \
+	$(CLASSBINDIR) \
+	$(LIBDIR) \
+	$(FILES_mkdirs)

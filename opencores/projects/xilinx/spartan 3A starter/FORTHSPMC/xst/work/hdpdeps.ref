@@ -1,0 +1,391 @@
+V3 223
+FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/ALU.vhd" 2010/02/03.02:23:51 P.28xd
+EN work/ALU 1351505137 \
+      FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/ALU.vhd" \
+      LB UNISIM PB ieee/std_logic_1164 1341906176 PB ieee/std_logic_arith 1341906177 \
+      PB work/Global 1351505085 PH unisim/VCOMPONENTS 1341906184
+AR work/ALU/Rtl 1351505138 \
+      FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/ALU.vhd" \
+      EN work/ALU 1351505137
+FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/counter.vhd" 2007/10/22.05:24:52 P.28xd
+EN work/counter 1351505155 \
+      FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/counter.vhd" \
+      PB ieee/std_logic_1164 1341906176 PB ieee/std_logic_arith 1341906177 \
+      PB work/Global 1351505085
+AR work/counter/Rtl 1351505156 \
+      FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/counter.vhd" \
+      EN work/counter 1351505155
+FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/dcm1.vhd" 2007/11/26.10:28:34 P.28xd
+EN work/dcm1 1351505149 \
+      FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/dcm1.vhd" \
+      PB ieee/std_logic_1164 1341906176 PB ieee/NUMERIC_STD 1341906182 LB UNISIM \
+      PH unisim/VCOMPONENTS 1341906184
+AR work/dcm1/BEHAVIORAL 1351505150 \
+      FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/dcm1.vhd" \
+      EN work/dcm1 1351505149 CP BUFG CP IBUFG CP DCM_SP
+FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/fifo_generator_v6_1.vhd" 2010/06/25.07:03:18 P.28xd
+EN work/fifo_generator_v6_1 1351505143 \
+      FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/fifo_generator_v6_1.vhd" \
+      PB ieee/std_logic_1164 1341906176
+AR work/fifo_generator_v6_1/fifo_generator_v6_1_a 1351505144 \
+      FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/fifo_generator_v6_1.vhd" \
+      EN work/fifo_generator_v6_1 1351505143
+FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/global.vhd" 2010/08/05.14:35:19 P.28xd
+PH work/Global 1351505084 \
+      FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/global.vhd" \
+      PB ieee/std_logic_1164 1341906176 PB ieee/std_logic_arith 1341906177
+PB work/Global 1351505085 \
+      FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/global.vhd" \
+      PH work/Global 1351505084
+FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/IntVectors.vhd" 2010/05/01.06:44:09 P.28xd
+EN work/IntVectors 1351505157 \
+      FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/IntVectors.vhd" \
+      PB ieee/std_logic_1164 1341906176 PB ieee/NUMERIC_STD 1341906182 \
+      PB work/Global 1351505085
+AR work/IntVectors/Rtl 1351505158 \
+      FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/IntVectors.vhd" \
+      EN work/IntVectors 1351505157
+FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/mycpu.vhd" 2010/06/29.06:40:02 P.28xd
+EN work/MYCPU 1351505163 \
+      FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/mycpu.vhd" \
+      PB ieee/std_logic_1164 1341906176 PB ieee/std_logic_arith 1341906177 \
+      PH work/vhdl_syn_bl4_parameters_0 1351505086 PB work/Global 1351505085
+AR work/MYCPU/Rtl 1351505164 \
+      FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/mycpu.vhd" \
+      EN work/MYCPU 1351505163 AR work/dcm1/BEHAVIORAL 1351505150 \
+      AR work/theCore/Rtl 1351505152 AR work/UART/Rtl 1351505154 \
+      AR work/counter/Rtl 1351505156 AR work/IntVectors/Rtl 1351505158 \
+      AR work/ROMcode/Rtl 1351505160 AR work/vhdl_syn_bl4/arc_mem_interface_top 1351505162 \
+      CP dcm1 CP theCore CP UART CP counter CP IntVectors CP ROMcode CP vhdl_syn_bl4
+FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/ProgramCounter.vhd" 2010/06/06.23:16:40 P.28xd
+EN work/ProgramCounter 1351505147 \
+      FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/ProgramCounter.vhd" \
+      PB ieee/std_logic_1164 1341906176 PB ieee/std_logic_arith 1341906177 \
+      PB work/Global 1351505085
+AR work/ProgramCounter/Rtl 1351505148 \
+      FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/ProgramCounter.vhd" \
+      EN work/ProgramCounter 1351505147
+FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/ROMcode.vhd" 2010/07/30.08:16:26 P.28xd
+EN work/ROMcode 1351505159 \
+      FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/ROMcode.vhd" \
+      PB ieee/std_logic_1164 1341906176 PB ieee/std_logic_arith 1341906177 \
+      PB work/Global 1351505085
+AR work/ROMcode/Rtl 1351505160 \
+      FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/ROMcode.vhd" \
+      EN work/ROMcode 1351505159
+FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/theCore.vhd" 2009/09/02.15:04:26 P.28xd
+EN work/theCore 1351505151 \
+      FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/theCore.vhd" \
+      PB ieee/std_logic_1164 1341906176 PB ieee/std_logic_arith 1341906177 \
+      PB work/Global 1351505085
+AR work/theCore/Rtl 1351505152 \
+      FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/theCore.vhd" \
+      EN work/theCore 1351505151 AR work/theStacks/Rtl 1351505146 \
+      AR work/ProgramCounter/Rtl 1351505148 CP theStacks CP ProgramCounter
+FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/theStacks.vhd" 2010/06/18.02:00:59 P.28xd
+EN work/theStacks 1351505145 \
+      FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/theStacks.vhd" \
+      PB ieee/std_logic_1164 1341906176 PB ieee/NUMERIC_STD 1341906182 \
+      PB work/Global 1351505085
+AR work/theStacks/Rtl 1351505146 \
+      FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/theStacks.vhd" \
+      EN work/theStacks 1351505145 AR work/ALU/Rtl 1351505138 CP ALU
+FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/UART.vhd" 2010/07/27.10:23:39 P.28xd
+EN work/UART 1351505153 \
+      FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/UART.vhd" \
+      PB ieee/std_logic_1164 1341906176 PB ieee/std_logic_arith 1341906177 \
+      PB work/Global 1351505085
+AR work/UART/Rtl 1351505154 \
+      FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/UART.vhd" \
+      EN work/UART 1351505153 AR work/fifo_generator_v6_1/fifo_generator_v6_1_a 1351505144 \
+      CP fifo_generator_v6_1
+FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/vhdl_syn_bl4.vhd" 2007/09/06.09:57:12 P.28xd
+EN work/vhdl_syn_bl4 1351505161 \
+      FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/vhdl_syn_bl4.vhd" \
+      LB UNISIM PB ieee/std_logic_1164 1341906176 PH unisim/VCOMPONENTS 1341906184
+AR work/vhdl_syn_bl4/arc_mem_interface_top 1351505162 \
+      FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/vhdl_syn_bl4.vhd" \
+      EN work/vhdl_syn_bl4 1351505161 CP vhdl_syn_bl4_top_0 \
+      CP vhdl_syn_bl4_infrastructure_top
+FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/vhdl_syn_bl4_cal_ctl_0.vhd" 2010/08/04.17:02:34 P.28xd
+EN work/vhdl_syn_bl4_cal_ctl 1351505107 \
+      FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/vhdl_syn_bl4_cal_ctl_0.vhd" \
+      LB UNISIM PB ieee/std_logic_1164 1341906176 PB ieee/STD_LOGIC_UNSIGNED 1341906179 \
+      PH unisim/VCOMPONENTS 1341906184
+AR work/vhdl_syn_bl4_cal_ctl/arc_cal_ctl 1351505108 \
+      FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/vhdl_syn_bl4_cal_ctl_0.vhd" \
+      EN work/vhdl_syn_bl4_cal_ctl 1351505107
+FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/vhdl_syn_bl4_cal_top.vhd" 2010/08/04.17:02:33 P.28xd
+EN work/vhdl_syn_bl4_cal_top 1351505127 \
+      FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/vhdl_syn_bl4_cal_top.vhd" \
+      LB UNISIM PB ieee/std_logic_1164 1341906176 PB ieee/STD_LOGIC_UNSIGNED 1341906179 \
+      PH unisim/VCOMPONENTS 1341906184
+AR work/vhdl_syn_bl4_cal_top/arc 1351505128 \
+      FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/vhdl_syn_bl4_cal_top.vhd" \
+      EN work/vhdl_syn_bl4_cal_top 1351505127 CP vhdl_syn_bl4_cal_ctl \
+      CP vhdl_syn_bl4_tap_dly
+FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/vhdl_syn_bl4_clk_dcm.vhd" 2010/08/05.13:17:53 P.28xd
+EN work/vhdl_syn_bl4_clk_dcm 1351505125 \
+      FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/vhdl_syn_bl4_clk_dcm.vhd" \
+      LB UNISIM PB ieee/std_logic_1164 1341906176 PH unisim/VCOMPONENTS 1341906184
+AR work/vhdl_syn_bl4_clk_dcm/arc 1351505126 \
+      FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/vhdl_syn_bl4_clk_dcm.vhd" \
+      EN work/vhdl_syn_bl4_clk_dcm 1351505125 CP DCM CP BUFGMUX
+FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/vhdl_syn_bl4_controller_0.vhd" 2007/10/10.12:21:32 P.28xd
+EN work/vhdl_syn_bl4_controller_0 1351505129 \
+      FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/vhdl_syn_bl4_controller_0.vhd" \
+      LB UNISIM PB ieee/std_logic_1164 1341906176 PB ieee/STD_LOGIC_UNSIGNED 1341906179 \
+      PH unisim/VCOMPONENTS 1341906184 PB work/Global 1351505085 \
+      PH work/vhdl_syn_bl4_parameters_0 1351505086
+AR work/vhdl_syn_bl4_controller_0/arc 1351505130 \
+      FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/vhdl_syn_bl4_controller_0.vhd" \
+      EN work/vhdl_syn_bl4_controller_0 1351505129 CP FD
+FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/vhdl_syn_bl4_controller_iobs_0.vhd" 2010/08/05.00:39:15 P.28xd
+EN work/vhdl_syn_bl4_controller_iobs_0 1351505113 \
+      FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/vhdl_syn_bl4_controller_iobs_0.vhd" \
+      LB UNISIM PB ieee/std_logic_1164 1341906176 PB ieee/STD_LOGIC_UNSIGNED 1341906179 \
+      PH unisim/VCOMPONENTS 1341906184 PH work/vhdl_syn_bl4_parameters_0 1351505086
+AR work/vhdl_syn_bl4_controller_iobs_0/arc 1351505114 \
+      FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/vhdl_syn_bl4_controller_iobs_0.vhd" \
+      EN work/vhdl_syn_bl4_controller_iobs_0 1351505113 CP FD CP OBUF CP IBUF
+FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/vhdl_syn_bl4_data_path_0.vhd" 2010/08/05.00:59:07 P.28xd
+EN work/vhdl_syn_bl4_data_path_0 1351505131 \
+      FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/vhdl_syn_bl4_data_path_0.vhd" \
+      LB UNISIM PB ieee/std_logic_1164 1341906176 PB ieee/STD_LOGIC_UNSIGNED 1341906179 \
+      PH unisim/VCOMPONENTS 1341906184 PH work/vhdl_syn_bl4_parameters_0 1351505086
+AR work/vhdl_syn_bl4_data_path_0/arc 1351505132 \
+      FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/vhdl_syn_bl4_data_path_0.vhd" \
+      EN work/vhdl_syn_bl4_data_path_0 1351505131 CP vhdl_syn_bl4_data_read_0 \
+      CP vhdl_syn_bl4_data_read_controller_0 CP vhdl_syn_bl4_data_write_0 \
+      CP vhdl_syn_bl4_data_path_rst
+FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/vhdl_syn_bl4_data_path_iobs_0.vhd" 2007/03/16.11:53:52 P.28xd
+EN work/vhdl_syn_bl4_data_path_iobs_0 1351505115 \
+      FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/vhdl_syn_bl4_data_path_iobs_0.vhd" \
+      PB ieee/std_logic_1164 1341906176 PB ieee/STD_LOGIC_UNSIGNED 1341906179 \
+      LB UNISIM PH unisim/VCOMPONENTS 1341906184 PH work/vhdl_syn_bl4_parameters_0 1351505086
+AR work/vhdl_syn_bl4_data_path_iobs_0/arc 1351505116 \
+      FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/vhdl_syn_bl4_data_path_iobs_0.vhd" \
+      EN work/vhdl_syn_bl4_data_path_iobs_0 1351505115 CP vhdl_syn_bl4_ddr2_dm_0 \
+      CP vhdl_syn_bl4_s3_dqs_iob CP vhdl_syn_bl4_s3_ddr_iob
+FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/vhdl_syn_bl4_data_path_rst.vhd" 2007/03/16.11:53:52 P.28xd
+EN work/vhdl_syn_bl4_data_path_rst 1351505123 \
+      FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/vhdl_syn_bl4_data_path_rst.vhd" \
+      PB ieee/std_logic_1164 1341906176 PB ieee/STD_LOGIC_UNSIGNED 1341906179 \
+      LB UNISIM PH unisim/VCOMPONENTS 1341906184
+AR work/vhdl_syn_bl4_data_path_rst/arc 1351505124 \
+      FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/vhdl_syn_bl4_data_path_rst.vhd" \
+      EN work/vhdl_syn_bl4_data_path_rst 1351505123 CP FD
+FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/vhdl_syn_bl4_data_read_0.vhd" 2010/08/05.00:58:36 P.28xd
+EN work/vhdl_syn_bl4_data_read_0 1351505117 \
+      FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/vhdl_syn_bl4_data_read_0.vhd" \
+      LB UNISIM PB ieee/std_logic_1164 1341906176 PB ieee/STD_LOGIC_UNSIGNED 1341906179 \
+      PH unisim/VCOMPONENTS 1341906184 PH work/vhdl_syn_bl4_parameters_0 1351505086
+AR work/vhdl_syn_bl4_data_read_0/arc 1351505118 \
+      FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/vhdl_syn_bl4_data_read_0.vhd" \
+      EN work/vhdl_syn_bl4_data_read_0 1351505117 CP vhdl_syn_bl4_rd_gray_cntr \
+      CP vhdl_syn_bl4_RAM8D_0 CP vhdl_syn_bl4_RAM8D_1
+FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/vhdl_syn_bl4_data_read_controller_0.vhd" 2007/03/16.11:53:52 P.28xd
+EN work/vhdl_syn_bl4_data_read_controller_0 1351505119 \
+      FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/vhdl_syn_bl4_data_read_controller_0.vhd" \
+      LB UNISIM PB ieee/std_logic_1164 1341906176 PB ieee/STD_LOGIC_UNSIGNED 1341906179 \
+      PH unisim/VCOMPONENTS 1341906184 PH work/vhdl_syn_bl4_parameters_0 1351505086
+AR work/vhdl_syn_bl4_data_read_controller_0/arc 1351505120 \
+      FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/vhdl_syn_bl4_data_read_controller_0.vhd" \
+      EN work/vhdl_syn_bl4_data_read_controller_0 1351505119 \
+      CP vhdl_syn_bl4_dqs_delay CP vhdl_syn_bl4_fifo_0_wr_en_0 \
+      CP vhdl_syn_bl4_fifo_1_wr_en_0 CP vhdl_syn_bl4_wr_gray_cntr
+FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/vhdl_syn_bl4_data_write_0.vhd" 2007/03/16.11:53:52 P.28xd
+EN work/vhdl_syn_bl4_data_write_0 1351505121 \
+      FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/vhdl_syn_bl4_data_write_0.vhd" \
+      PB ieee/std_logic_1164 1341906176 PB ieee/STD_LOGIC_UNSIGNED 1341906179 \
+      LB UNISIM PH unisim/VCOMPONENTS 1341906184 PH work/vhdl_syn_bl4_parameters_0 1351505086
+AR work/vhdl_syn_bl4_data_write_0/arc 1351505122 \
+      FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/vhdl_syn_bl4_data_write_0.vhd" \
+      EN work/vhdl_syn_bl4_data_write_0 1351505121
+FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/vhdl_syn_bl4_ddr2_dm_0.vhd" 2007/03/16.11:53:52 P.28xd
+EN work/vhdl_syn_bl4_ddr2_dm_0 1351505087 \
+      FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/vhdl_syn_bl4_ddr2_dm_0.vhd" \
+      LB UNISIM PB ieee/std_logic_1164 1341906176 PB ieee/STD_LOGIC_UNSIGNED 1341906179 \
+      PH unisim/VCOMPONENTS 1341906184 PH work/vhdl_syn_bl4_parameters_0 1351505086
+AR work/vhdl_syn_bl4_ddr2_dm_0/arc 1351505088 \
+      FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/vhdl_syn_bl4_ddr2_dm_0.vhd" \
+      EN work/vhdl_syn_bl4_ddr2_dm_0 1351505087 CP FDDRRSE CP OBUF
+FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/vhdl_syn_bl4_dqs_delay_0.vhd" 2007/03/16.11:53:54 P.28xd
+EN work/vhdl_syn_bl4_dqs_delay 1351505093 \
+      FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/vhdl_syn_bl4_dqs_delay_0.vhd" \
+      LB UNISIM PB ieee/std_logic_1164 1341906176 PB ieee/STD_LOGIC_UNSIGNED 1341906179 \
+      PH unisim/VCOMPONENTS 1341906184
+AR work/vhdl_syn_bl4_dqs_delay/arc_dqs_delay 1351505094 \
+      FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/vhdl_syn_bl4_dqs_delay_0.vhd" \
+      EN work/vhdl_syn_bl4_dqs_delay 1351505093 CP LUT4
+FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/vhdl_syn_bl4_fifo_0_wr_en_0.vhd" 2010/08/05.00:29:45 P.28xd
+EN work/vhdl_syn_bl4_fifo_0_wr_en_0 1351505095 \
+      FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/vhdl_syn_bl4_fifo_0_wr_en_0.vhd" \
+      LB UNISIM PB ieee/std_logic_1164 1341906176 PB ieee/STD_LOGIC_UNSIGNED 1341906179 \
+      PH unisim/VCOMPONENTS 1341906184
+AR work/vhdl_syn_bl4_fifo_0_wr_en_0/arc 1351505096 \
+      FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/vhdl_syn_bl4_fifo_0_wr_en_0.vhd" \
+      EN work/vhdl_syn_bl4_fifo_0_wr_en_0 1351505095 CP FDCE
+FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/vhdl_syn_bl4_fifo_1_wr_en_0.vhd" 2010/08/05.00:42:18 P.28xd
+EN work/vhdl_syn_bl4_fifo_1_wr_en_0 1351505097 \
+      FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/vhdl_syn_bl4_fifo_1_wr_en_0.vhd" \
+      LB UNISIM PB ieee/std_logic_1164 1341906176 PB ieee/STD_LOGIC_UNSIGNED 1341906179 \
+      PH unisim/VCOMPONENTS 1341906184
+AR work/vhdl_syn_bl4_fifo_1_wr_en_0/arc 1351505098 \
+      FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/vhdl_syn_bl4_fifo_1_wr_en_0.vhd" \
+      EN work/vhdl_syn_bl4_fifo_1_wr_en_0 1351505097 CP FDCE
+FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/vhdl_syn_bl4_infrastructure.vhd" 2007/03/16.11:53:52 P.28xd
+EN work/vhdl_syn_bl4_infrastructure 1351505133 \
+      FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/vhdl_syn_bl4_infrastructure.vhd" \
+      LB UNISIM PB ieee/std_logic_1164 1341906176 PB ieee/STD_LOGIC_UNSIGNED 1341906179 \
+      PH unisim/VCOMPONENTS 1341906184
+AR work/vhdl_syn_bl4_infrastructure/arc 1351505134 \
+      FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/vhdl_syn_bl4_infrastructure.vhd" \
+      EN work/vhdl_syn_bl4_infrastructure 1351505133
+FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/vhdl_syn_bl4_infrastructure_iobs_0.vhd" 2007/03/16.11:53:54 P.28xd
+EN work/vhdl_syn_bl4_infrastructure_iobs_0 1351505111 \
+      FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/vhdl_syn_bl4_infrastructure_iobs_0.vhd" \
+      LB UNISIM PB ieee/std_logic_1164 1341906176 PB ieee/STD_LOGIC_UNSIGNED 1341906179 \
+      PH unisim/VCOMPONENTS 1341906184 PH work/vhdl_syn_bl4_parameters_0 1351505086
+AR work/vhdl_syn_bl4_infrastructure_iobs_0/arc 1351505112 \
+      FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/vhdl_syn_bl4_infrastructure_iobs_0.vhd" \
+      EN work/vhdl_syn_bl4_infrastructure_iobs_0 1351505111 CP FDDRRSE CP OBUFDS
+FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/vhdl_syn_bl4_infrastructure_top_0.vhd" 2007/10/20.15:48:12 P.28xd
+EN work/vhdl_syn_bl4_infrastructure_top 1351505141 \
+      FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/vhdl_syn_bl4_infrastructure_top_0.vhd" \
+      LB UNISIM PB ieee/std_logic_1164 1341906176 PB ieee/STD_LOGIC_UNSIGNED 1341906179 \
+      PH unisim/VCOMPONENTS 1341906184 PB work/Global 1351505085 \
+      PH work/vhdl_syn_bl4_parameters_0 1351505086
+AR work/vhdl_syn_bl4_infrastructure_top/arc 1351505142 \
+      FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/vhdl_syn_bl4_infrastructure_top_0.vhd" \
+      EN work/vhdl_syn_bl4_infrastructure_top 1351505141 CP vhdl_syn_bl4_clk_dcm \
+      CP vhdl_syn_bl4_cal_top
+FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/vhdl_syn_bl4_iobs_0.vhd" 2007/03/16.11:53:54 P.28xd
+EN work/vhdl_syn_bl4_iobs_0 1351505135 \
+      FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/vhdl_syn_bl4_iobs_0.vhd" \
+      PB ieee/std_logic_1164 1341906176 PB ieee/STD_LOGIC_UNSIGNED 1341906179 \
+      PH work/vhdl_syn_bl4_parameters_0 1351505086 LB UNISIM PH unisim/VCOMPONENTS 1341906184
+AR work/vhdl_syn_bl4_iobs_0/arc 1351505136 \
+      FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/vhdl_syn_bl4_iobs_0.vhd" \
+      EN work/vhdl_syn_bl4_iobs_0 1351505135 \
+      CP vhdl_syn_bl4_infrastructure_iobs_0 CP vhdl_syn_bl4_controller_iobs_0 \
+      CP vhdl_syn_bl4_data_path_iobs_0
+FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/vhdl_syn_bl4_parameters_0.vhd" 2007/11/03.03:33:30 P.28xd
+PH work/vhdl_syn_bl4_parameters_0 1351505086 \
+      FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/vhdl_syn_bl4_parameters_0.vhd" \
+      LB UNISIM PB ieee/std_logic_1164 1341906176 PH unisim/VCOMPONENTS 1341906184 \
+      PB work/Global 1351505085
+FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/vhdl_syn_bl4_RAM8D_0.vhd" 2007/04/09.14:57:46 P.28xd
+EN work/vhdl_syn_bl4_RAM8D_0 1351505103 \
+      FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/vhdl_syn_bl4_RAM8D_0.vhd" \
+      LB UNISIM PB ieee/std_logic_1164 1341906176 PB ieee/std_logic_arith 1341906177 \
+      PB ieee/STD_LOGIC_UNSIGNED 1341906179 PH unisim/VCOMPONENTS 1341906184 \
+      PH work/vhdl_syn_bl4_parameters_0 1351505086
+AR work/vhdl_syn_bl4_RAM8D_0/arc 1351505104 \
+      FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/vhdl_syn_bl4_RAM8D_0.vhd" \
+      EN work/vhdl_syn_bl4_RAM8D_0 1351505103 CP RAM16X1D
+FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/vhdl_syn_bl4_RAM8D_1.vhd" 2007/04/09.14:58:32 P.28xd
+EN work/vhdl_syn_bl4_RAM8D_1 1351505105 \
+      FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/vhdl_syn_bl4_RAM8D_1.vhd" \
+      LB UNISIM PB ieee/std_logic_1164 1341906176 PB ieee/std_logic_arith 1341906177 \
+      PB ieee/STD_LOGIC_UNSIGNED 1341906179 PH unisim/VCOMPONENTS 1341906184 \
+      PH work/vhdl_syn_bl4_parameters_0 1351505086
+AR work/vhdl_syn_bl4_RAM8D_1/arc 1351505106 \
+      FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/vhdl_syn_bl4_RAM8D_1.vhd" \
+      EN work/vhdl_syn_bl4_RAM8D_1 1351505105 CP RAM16X1D
+FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/vhdl_syn_bl4_rd_gray_cntr.vhd" 2007/03/16.11:53:52 P.28xd
+EN work/vhdl_syn_bl4_rd_gray_cntr 1351505101 \
+      FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/vhdl_syn_bl4_rd_gray_cntr.vhd" \
+      LB UNISIM PB ieee/std_logic_1164 1341906176 PB ieee/std_logic_arith 1341906177 \
+      PH unisim/VCOMPONENTS 1341906184
+AR work/vhdl_syn_bl4_rd_gray_cntr/arc 1351505102 \
+      FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/vhdl_syn_bl4_rd_gray_cntr.vhd" \
+      EN work/vhdl_syn_bl4_rd_gray_cntr 1351505101 CP FDRE
+FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/vhdl_syn_bl4_s3_ddr_iob.vhd" 2007/03/16.11:53:52 P.28xd
+EN work/vhdl_syn_bl4_s3_ddr_iob 1351505091 \
+      FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/vhdl_syn_bl4_s3_ddr_iob.vhd" \
+      LB UNISIM PB ieee/std_logic_1164 1341906176 PB ieee/std_logic_arith 1341906177 \
+      PH unisim/VCOMPONENTS 1341906184
+AR work/vhdl_syn_bl4_s3_ddr_iob/arc 1351505092 \
+      FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/vhdl_syn_bl4_s3_ddr_iob.vhd" \
+      EN work/vhdl_syn_bl4_s3_ddr_iob 1351505091 CP FDDRRSE CP FD CP OBUFT CP IBUF
+FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/vhdl_syn_bl4_s3_dqs_iob.vhd" 2007/03/16.11:53:52 P.28xd
+EN work/vhdl_syn_bl4_s3_dqs_iob 1351505089 \
+      FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/vhdl_syn_bl4_s3_dqs_iob.vhd" \
+      PB ieee/std_logic_1164 1341906176 LB UNISIM PH unisim/VCOMPONENTS 1341906184
+AR work/vhdl_syn_bl4_s3_dqs_iob/arc 1351505090 \
+      FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/vhdl_syn_bl4_s3_dqs_iob.vhd" \
+      EN work/vhdl_syn_bl4_s3_dqs_iob 1351505089 CP FD CP FDDRRSE CP OBUFTDS \
+      CP IBUFDS
+FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/vhdl_syn_bl4_tap_dly_0.vhd" 2010/08/04.17:02:34 P.28xd
+EN work/vhdl_syn_bl4_tap_dly 1351505109 \
+      FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/vhdl_syn_bl4_tap_dly_0.vhd" \
+      LB UNISIM PB ieee/std_logic_1164 1341906176 PB ieee/STD_LOGIC_UNSIGNED 1341906179 \
+      PH unisim/VCOMPONENTS 1341906184
+AR work/vhdl_syn_bl4_tap_dly/arc_tap_dly 1351505110 \
+      FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/vhdl_syn_bl4_tap_dly_0.vhd" \
+      EN work/vhdl_syn_bl4_tap_dly 1351505109 CP LUT4 CP FDR
+FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/vhdl_syn_bl4_top_0.vhd" 2007/03/16.11:53:54 P.28xd
+EN work/vhdl_syn_bl4_top_0 1351505139 \
+      FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/vhdl_syn_bl4_top_0.vhd" \
+      LB UNISIM PB ieee/std_logic_1164 1341906176 \
+      PH work/vhdl_syn_bl4_parameters_0 1351505086 PH unisim/VCOMPONENTS 1341906184
+AR work/vhdl_syn_bl4_top_0/arc 1351505140 \
+      FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/vhdl_syn_bl4_top_0.vhd" \
+      EN work/vhdl_syn_bl4_top_0 1351505139 CP vhdl_syn_bl4_controller_0 \
+      CP vhdl_syn_bl4_data_path_0 CP vhdl_syn_bl4_infrastructure \
+      CP vhdl_syn_bl4_iobs_0
+FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/vhdl_syn_bl4_wr_gray_cntr.vhd" 2007/03/16.11:53:52 P.28xd
+EN work/vhdl_syn_bl4_wr_gray_cntr 1351505099 \
+      FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/vhdl_syn_bl4_wr_gray_cntr.vhd" \
+      LB UNISIM PB ieee/std_logic_1164 1341906176 PB ieee/std_logic_arith 1341906177 \
+      PH unisim/VCOMPONENTS 1341906184
+AR work/vhdl_syn_bl4_wr_gray_cntr/arc 1351505100 \
+      FL "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/vhdl_syn_bl4_wr_gray_cntr.vhd" \
+      EN work/vhdl_syn_bl4_wr_gray_cntr 1351505099 CP FDCE
+FL E:/Xilinx/FORTHSPMC/ALU.vhd 2010/02/03.03:23:51 P.28xd
+FL E:/Xilinx/FORTHSPMC/counter.vhd 2007/10/22.06:24:52 P.28xd
+FL E:/Xilinx/FORTHSPMC/dcm1.vhd 2007/11/26.11:28:34 P.28xd
+FL E:/Xilinx/FORTHSPMC/FiFo.vhd 2012/09/25.09:34:39 P.28xd
+EN work/FiFo 1349168035 FL E:/Xilinx/FORTHSPMC/FiFo.vhd PB ieee/std_logic_1164 1341906176 \
+      PB ieee/std_logic_arith 1341906177 PB work/Global 1351505085
+AR work/fifo/Rtl 1349168036 \
+      FL E:/Xilinx/FORTHSPMC/FiFo.vhd EN work/FiFo 1349168035
+FL E:/Xilinx/FORTHSPMC/fifo_generator_v6_1.vhd 2010/06/25.08:03:18 P.28xd
+FL E:/Xilinx/FORTHSPMC/global.vhd 2010/08/05.15:35:19 P.28xd
+FL E:/Xilinx/FORTHSPMC/IntVectors.vhd 2010/05/01.07:44:09 P.28xd
+FL E:/Xilinx/FORTHSPMC/mycpu.vhd 2010/06/29.07:40:02 P.28xd
+FL E:/Xilinx/FORTHSPMC/ProgramCounter.vhd 2010/06/07.00:16:40 P.28xd
+FL E:/Xilinx/FORTHSPMC/ROMcode.vhd 2010/07/30.09:16:26 P.28xd
+FL E:/Xilinx/FORTHSPMC/theCore.vhd 2009/09/02.16:04:26 P.28xd
+FL E:/Xilinx/FORTHSPMC/theStacks.vhd 2010/06/18.03:00:59 P.28xd
+FL E:/Xilinx/FORTHSPMC/UART.vhd 2010/07/27.11:23:39 P.28xd
+FL E:/Xilinx/FORTHSPMC/vhdl_syn_bl4.vhd 2007/09/06.10:57:12 P.28xd
+FL E:/Xilinx/FORTHSPMC/vhdl_syn_bl4_cal_ctl_0.vhd 2010/08/04.18:02:34 P.28xd
+FL E:/Xilinx/FORTHSPMC/vhdl_syn_bl4_cal_top.vhd 2010/08/04.18:02:33 P.28xd
+FL E:/Xilinx/FORTHSPMC/vhdl_syn_bl4_clk_dcm.vhd 2010/08/05.14:17:53 P.28xd
+FL E:/Xilinx/FORTHSPMC/vhdl_syn_bl4_controller_0.vhd 2007/10/10.13:21:32 P.28xd
+FL E:/Xilinx/FORTHSPMC/vhdl_syn_bl4_controller_iobs_0.vhd 2010/08/05.01:39:15 P.28xd
+FL E:/Xilinx/FORTHSPMC/vhdl_syn_bl4_data_path_0.vhd 2010/08/05.01:59:07 P.28xd
+FL E:/Xilinx/FORTHSPMC/vhdl_syn_bl4_data_path_iobs_0.vhd 2007/03/16.12:53:52 P.28xd
+FL E:/Xilinx/FORTHSPMC/vhdl_syn_bl4_data_path_rst.vhd 2007/03/16.12:53:52 P.28xd
+FL E:/Xilinx/FORTHSPMC/vhdl_syn_bl4_data_read_0.vhd 2010/08/05.01:58:36 P.28xd
+FL E:/Xilinx/FORTHSPMC/vhdl_syn_bl4_data_read_controller_0.vhd 2007/03/16.12:53:52 P.28xd
+FL E:/Xilinx/FORTHSPMC/vhdl_syn_bl4_data_write_0.vhd 2007/03/16.12:53:52 P.28xd
+FL E:/Xilinx/FORTHSPMC/vhdl_syn_bl4_ddr2_dm_0.vhd 2007/03/16.12:53:52 P.28xd
+FL E:/Xilinx/FORTHSPMC/vhdl_syn_bl4_dqs_delay_0.vhd 2007/03/16.12:53:54 P.28xd
+FL E:/Xilinx/FORTHSPMC/vhdl_syn_bl4_fifo_0_wr_en_0.vhd 2010/08/05.01:29:45 P.28xd
+FL E:/Xilinx/FORTHSPMC/vhdl_syn_bl4_fifo_1_wr_en_0.vhd 2010/08/05.01:42:18 P.28xd
+FL E:/Xilinx/FORTHSPMC/vhdl_syn_bl4_infrastructure.vhd 2007/03/16.12:53:52 P.28xd
+FL E:/Xilinx/FORTHSPMC/vhdl_syn_bl4_infrastructure_iobs_0.vhd 2007/03/16.12:53:54 P.28xd
+FL E:/Xilinx/FORTHSPMC/vhdl_syn_bl4_infrastructure_top_0.vhd 2007/10/20.16:48:12 P.28xd
+FL E:/Xilinx/FORTHSPMC/vhdl_syn_bl4_iobs_0.vhd 2007/03/16.12:53:54 P.28xd
+FL E:/Xilinx/FORTHSPMC/vhdl_syn_bl4_parameters_0.vhd 2007/11/03.04:33:30 P.28xd
+FL E:/Xilinx/FORTHSPMC/vhdl_syn_bl4_RAM8D_0.vhd 2007/04/09.15:57:46 P.28xd
+FL E:/Xilinx/FORTHSPMC/vhdl_syn_bl4_RAM8D_1.vhd 2007/04/09.15:58:32 P.28xd
+FL E:/Xilinx/FORTHSPMC/vhdl_syn_bl4_rd_gray_cntr.vhd 2007/03/16.12:53:52 P.28xd
+FL E:/Xilinx/FORTHSPMC/vhdl_syn_bl4_s3_ddr_iob.vhd 2007/03/16.12:53:52 P.28xd
+FL E:/Xilinx/FORTHSPMC/vhdl_syn_bl4_s3_dqs_iob.vhd 2007/03/16.12:53:52 P.28xd
+FL E:/Xilinx/FORTHSPMC/vhdl_syn_bl4_tap_dly_0.vhd 2010/08/04.18:02:34 P.28xd
+FL E:/Xilinx/FORTHSPMC/vhdl_syn_bl4_top_0.vhd 2007/03/16.12:53:54 P.28xd
+FL E:/Xilinx/FORTHSPMC/vhdl_syn_bl4_wr_gray_cntr.vhd 2007/03/16.12:53:52 P.28xd

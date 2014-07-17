@@ -1,0 +1,8 @@
+#
+# @(#)FILES_c.gmk	1.1 98/11/21
+#
+FILES_c = \
+        $(CTARGDIR)socketTransport.c \
+        $(CTARGDIR)socket_md.c
+
+

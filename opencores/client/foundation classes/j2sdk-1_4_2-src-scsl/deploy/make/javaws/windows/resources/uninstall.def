@@ -1,0 +1,4 @@
+LIBRARY	uninstall
+
+EXPORTS
+	 ViseEntry

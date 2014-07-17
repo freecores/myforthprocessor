@@ -1,0 +1,13 @@
+# Placeholder for Nullsoft install script strings - strings to be added soon!
+# @(#)strings_it.txt	1.9 02/07/16
+LIC_TXT=Prima dell'installazione è necessario accettare la licenza seguente.
+COMP_TXT=Java Web Start 1.2-rc verrà installato nel computer.
+DIR_TXT=È stata individuata la posizione migliore per l'installazione. Se si desidera scegliere una directory diversa, è possibile farlo ora.
+# Following line is CHANGED FOR 1.2 by sbohne
+UNINST_TXT=Java Web Start 1.0.1_01 verrà disinstallato dal computer. Chiudere tutte le finestre del browser prima di continuare.
+NETSCAPE_TXT=Se si sta utilizzando Netscape,  è necessario riavviarlo per terminare l'installazione.\n\nChiudere Netscape (compresi Composer e Messenger) e fare clic su OK.
+DONE_TXT=Installazione completata. Visualizzare il file Readme.html?
+UNDONE_TXT=Disinstallazione completata correttamente.
+# Do not translate following line
+README_TXT=Readme_it.html
+

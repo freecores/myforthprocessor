@@ -1,0 +1,14 @@
+.( hello )
+0
+IF
+M1 LABEL
+.( core  )
+GETCOREID [CHAR] 0 + EMIT
+0 SWITCH
+ELSE
+.( core  )
+GETCOREID [CHAR] 0 + EMIT
+ENDIF
+M1 VAL 1 SETPC
+1 SWITCH
+.( done )

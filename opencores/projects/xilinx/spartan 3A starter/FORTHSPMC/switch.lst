@@ -1,0 +1,112 @@
+00000008  0400         §4 LABEL 
+0000000a  646f6e65     " done " 
+0000000e  0500         §2 LABEL 
+00000010  636f726520   " core  " 
+00000015  0500         §0 LABEL 
+00000017  68656c6c6f   " hello " 
+0000001c  0d19000000   §0 VAL 
+00000021  1e           HALF+ 
+00000022  0e           DUP 
+00000023  19           1- 
+00000024  04           C@ 
+00000025  4e           8 VAL 
+00000026  20           LSHIFT 
+00000027  0f           OVER 
+00000028  19           1- 
+00000029  19           1- 
+0000002a  04           C@ 
+0000002b  22           OR 
+0000002c  0d00000000   TYPE VAL will be modified! 
+00000031  00           NOP will be modified! 
+00000032  56           0 VAL 
+00000033  422700       §1 0BRANCH 
+00000036               M1 LABEL 
+00000036  0d12000000   §2 VAL 
+0000003b  1e           HALF+ 
+0000003c  0e           DUP 
+0000003d  19           1- 
+0000003e  04           C@ 
+0000003f  4e           8 VAL 
+00000040  20           LSHIFT 
+00000041  0f           OVER 
+00000042  19           1- 
+00000043  19           1- 
+00000044  04           C@ 
+00000045  22           OR 
+00000046  0d00000000   TYPE VAL will be modified! 
+0000004b  00           NOP will be modified! 
+0000004c  60           GETCOREID 
+0000004d  463000       48 VAL 
+00000050  16           + 
+00000051  0d00000000   EMIT VAL will be modified! 
+00000056  00           NOP will be modified! 
+00000057  5f0000       0 SWITCH 
+0000005a  402100       §3 BRANCH 
+0000005d               §1 LABEL 
+0000005d  0d12000000   §2 VAL 
+00000062  1e           HALF+ 
+00000063  0e           DUP 
+00000064  19           1- 
+00000065  04           C@ 
+00000066  4e           8 VAL 
+00000067  20           LSHIFT 
+00000068  0f           OVER 
+00000069  19           1- 
+0000006a  19           1- 
+0000006b  04           C@ 
+0000006c  22           OR 
+0000006d  0d00000000   TYPE VAL will be modified! 
+00000072  00           NOP will be modified! 
+00000073  60           GETCOREID 
+00000074  463000       48 VAL 
+00000077  16           + 
+00000078  0d00000000   EMIT VAL will be modified! 
+0000007d  00           NOP will be modified! 
+0000007e               §3 LABEL 
+0000007e  0d3e000000   M1 VAL 
+00000083  5e0100       1 SETPC 
+00000086  5f0100       1 SWITCH 
+00000089  0d0c000000   §4 VAL 
+0000008e  1e           HALF+ 
+0000008f  0e           DUP 
+00000090  19           1- 
+00000091  04           C@ 
+00000092  4e           8 VAL 
+00000093  20           LSHIFT 
+00000094  0f           OVER 
+00000095  19           1- 
+00000096  19           1- 
+00000097  04           C@ 
+00000098  22           OR 
+00000099  0d00000000   TYPE VAL will be modified! 
+0000009e  00           NOP will be modified! 
+0000009f  3d           EXIT 
+
+instruction usage:
+load/store:		8	(10.81081081081081%)
+32-bit values:		11	(14.864864864864865%)
+16-bit values:		2	(2.7027027027027026%)
+5-bit values:		5	(6.756756756756757%)
+values total:		18	(24.324324324324326%)
+arithmetic/logical:	26	(35.13513513513514%)
+relations:		0	(0.0%)
+flow control:		3	(4.054054054054054%)
+other:			19	(25.675675675675674%)
+total:			74
+
+average bytes per instruction: 1.8918918918918919
+
+string storage in byte:	20
+unresolved references:	11
+
+Size of static code: 28
+Size of initial code: 132
+
+references:
+ffffffff	2	EMIT
+3e	1	M1
+3e	1	M1
+ffffffff	4	TYPE
+19	1	§0
+12	2	§2
+c	1	§4

@@ -1,0 +1,44 @@
+#
+# @(#)Platform.gmk	1.15 02/03/08
+#
+# Generic definition of PLATFORM, and related, factored-out variables
+#
+
+ifndef PLATFORM
+
+uname = $(shell uname)
+
+ifeq ($(uname), SunOS)
+PLATFORM = solaris
+endif
+
+ifeq ($(uname), Linux)
+PLATFORM = linux
+endif
+
+ifeq ($(uname), Windows_NT)
+PLATFORM = windows
+endif
+
+ifeq ($(uname), CYGWIN_NT-4.0)
+PLATFORM = windows
+USING_CYGWIN = true
+export USING_CYGWIN
+endif
+
+ifeq ($(uname), CYGWIN_NT-5.0)
+PLATFORM = windows
+USING_CYGWIN = true
+export USING_CYGWIN
+endif
+
+ifeq ($(uname), CYGWIN_NT-5.1)
+PLATFORM = windows
+USING_CYGWIN = true
+export USING_CYGWIN
+endif
+
+export PLATFORM
+endif     # PLATFORM
+
+TOPDIR = $(BUILDDIR)/..

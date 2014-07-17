@@ -1,0 +1,1138 @@
+package dhbinterpolation;
+
+/***********************************************************************
+*                                                                      *
+* Funktionen zur schnellen Fouriertransformation:                      *
+* -----------------------------------------------                      *
+* - reell:                                      rfft()                 *
+* - komplex:                                    fft()                  *
+* - komplex mit beliebiger Koeffizientenanzahl: fftb()                 *
+*                                                                      *
+* Programmiersprache: ANSI C                                           *
+* Compiler:           Borland C++ 2.0                                  *
+* Rechner:            IBM PS/2 70 mit 80387                            *
+* Autor:              Klaus Niederdrenk (FORTRAN)                      *
+* Bearbeiter:         Juergen Dietel, Rechenzentrum der RWTH Aachen    *
+* Quelle:             [NIED84]                                         *
+* Datum:              MO 28. 9. 1992                                   *
+*                                                                      *
+***********************************************************************/
+
+class FFT
+{
+public static void rfft /* schnelle reelle Fouriertransformation ...............*/
+    (
+     int  tau,            /* 2^tau = Zahl der Stuetzwerte ............*/
+     double y[],          /* Stuetzwerte bzw. Fourierkoeffizienten....*/
+     boolean synthese     /* Transformationsrichtung .................*/
+    )                     /* Fehlercode ..............................*/
+
+/***********************************************************************
+* fuer  synthese = 0  zu  N = 2^tau  gegebenen reellen Funktionswerten *
+* y[0], ...., y[N-1] die diskreten Fourierkoeffizienten                *
+*          a[0], ...., a[N/2]  und  b[1], ...., b[N/2 - 1]             *
+* der zugehoerigen diskreten Fourierteilsumme                          *
+*    a[0] + Summe(k=1,2,...,N/2-1)  (a[k] * cos(k * omega * x) +       *
+*                                    b[k] * sin(k * omega * x))        *
+*         + a[N/2]*cos(N/2*omega*x)                                    *
+* berechnen mit:                                                       *
+*            omega  =  2 * PI / L  (L = Periodenlaenge)                *
+* und fuer  synthese = 1  die Umkehrtransformation (Fouriersynthese)   *
+* ausfuehren.                                                          *
+* Die (Umkehr-)Transformation erfolgt mit einer schnellen              *
+* Fouriertransformation (Fast Fourier Transform, FFT) halber Laenge.   *
+* Diese Funktion entstand in Anlehnung an das Buch:                    *
+*      K. Niederdrenk: Die endliche Fourier- und Walsh-Transformation  *
+*                      mit einer Einfuehrung in die Bildverarbeitung,  *
+*                      2. Auflage 1984, Wiesbaden.                     *
+* Dieses Buch enthaelt auch eine ausfuehrliche Herleitung des          *
+* verwendeten Algorithmus.                                             *
+*                                                                      *
+* Eingabeparameter:                                                    *
+* =================                                                    *
+* tau:      Zweierlogarithmus der Anzahl der Funktionswerte oder,      *
+*           anders ausgedrueckt: Die Anzahl der Funktionswerte ist     *
+*           N = 2^tau. Es muss  tau >= 1  sein.                        *
+* y:        [0..N-1]-Vektor, der in Abhaengigkeit von synthese wie     *
+*           folgt belegt sein muss:                                    *
+*             synthese = 0: y enthaelt die Funktionswerte.             *
+*             synthese = 1: y enthaelt die diskreten                   *
+*                           Fourierkoeffizienten wie folgt:            *
+*                             y[0] = a[0],                             *
+*                             y[k] = a[(k+1)/2] fuer k=1,3, ..,N-1     *
+*                             y[k] = b[k/2]     fuer k=2,4, ..,N-2     *
+*                                       also in der Reihenfolge        *
+*                             a[0], a[1], b[1], a[2], b[2], ...        *
+* synthese: Flagge zur Steuerung der Richtung der auszufuehrenden      *
+*           Transformation:                                            *
+*             synthese = 0: Berechnung der diskreten                   *
+*                           Fourierkoeffizienten (Fourieranalyse)      *
+*             synthese = 1: Berechnung der Funktionswerte              *
+*                           (Fouriersynthese)                          *
+*                                                                      *
+* Ausgabeparameter:                                                    *
+* =================                                                    *
+* y: [0..N-1]-Vektor, der in Abhaengigkeit von synthese folgende Werte *
+*    enthaelt:                                                         *
+*      synthese = 0: y enthaelt die diskreten Fourierkoeffizienten     *
+*                    wie folgt:                                        *
+*                      y[0] = a[0],                                    *
+*                      a[k] = y[2*k-1] fuer k=1,2, ..,N/2              *
+*                      b[k] = y[2*k]   fuer k=1,2, ..,N/2-1            *
+*                                also in der Reihenfolge               *
+*                      a[0], a[1], b[1], a[2], b[2], ...               *
+*      synthese = 1: y enthaelt die Funktionswerte.                    *
+*                                                                      *
+* Funktionswert:                                                       *
+* ==============                                                       *
+* 0: kein Fehler                                                       *
+* 1: tau < 1                                                           *
+* 2: tau zu gross (Ueberlauf bei der Berechnung von 2^tau)             *
+***********************************************************************/
+
+{
+
+  int  N,           /* Anzahl der Funktionswerte                      */
+       Nd2,         /* N / 2                                          */
+       Nd4,         /* N / 4                                          */
+       sigma,       /* die Spiegelung der tau-1 Ziffern der Binaer-   */
+                    /* darstellung von j an ihrer Mitte               */
+       min_n,       /* 2 ^ (tau - 1 - n)                              */
+       n_min_0,     /* 2 ^ n                                          */
+       n_min_1,     /* 2 ^ (n - 1)                                    */
+       ind1,        /* Zwischenspeicher fuer haeufig verwendete       */
+       ind2,        /* komplizierte Indexausdruecke                   */
+       k, j,        /* Laufvariablen                                  */
+       n, l;        /* Laufvariablen                                  */
+  double faktor,    /* Normierungsfaktor 2/N fuer die Fourier-        */
+                    /* koeffizienten im Fall der Analyse, sonst 1     */
+                    /* fuer die Synthese der Funktionswerte           */
+       arg,         /* Winkel von (wr,wi)                             */
+       arg_m,       /* Winkel der N. Einheitswurzel                   */
+       arg_md2,     /* Winkel der (N/2). Einheitwurzel                */
+       ew_r,        /* Real- und Imaginaerteil                        */
+       ew_i,        /* der N. Einheitswurzel                          */
+       eps_r,       /* Real- und Imaginaerteil von                    */
+       eps_i,       /* (N. Einheitswurzel) ^ k   bzw. von             */
+                    /* ((N/2). Einheitswurzel) ^ (l * 2^min_n)        */
+       ur, ui,      /* Zwischenspeicher fuer eine komplexe Zahl       */
+       wr, wi,      /* Real- bzw. Imaginaerteil von                   */
+                    /* ((N/2). Einheitswurzel) ^ (2^min_n)            */
+       rett,        /* Zwischenspeicher fuer den alten Wert von eps_r */
+       yhilf,       /* Hilfsvariable                                  */
+       hilf1,       /* Hilfsvariable                                  */
+       hilf2,       /* Hilfsvariable                                  */
+       hilf3,       /* Hilfsvariable                                  */
+       hilf4;       /* Hilfsvariable                                  */
+
+
+  if (tau < 1)                        /* zu kleiner Wert fuer tau?    */
+    return;
+
+  if (tau > 8 * 4 - 2)                /* zu grosser Wert fuer tau?    */
+    return;                           /* (Ueberlaufgefahr bei 2^tau!) */
+
+  N       = 1 << tau;                             /* N  =  2 hoch tau */
+  Nd2     = N / 2;
+  Nd4     = Nd2 / 2;
+  faktor  = 1. / Nd2;
+  arg_md2 = 2. * Math.PI * faktor;
+  arg_m   = .5 * arg_md2;
+
+  if (synthese)
+    faktor = 1.;
+
+
+  if (synthese)               /* die reellen Daten zusammenfassen zur */
+  {                           /* Ausfuehrung einer FFT halber Laenge  */
+    yhilf =  y[1];
+    y[1]  =  y[0] - y[N - 1];
+    y[0]  += y[N - 1];
+
+    ew_r = Math.cos(arg_m);       /* (ew_r,ew_i) = N. Einheitswurzel       */
+    ew_i = Math.sin(arg_m);
+    eps_r = 1.;                   /* (eps_r,eps_i) = (N. Einheitswurzel)^k */
+    eps_i = 0.;
+
+    for (k = 1; k < Nd4; k++)
+    {
+      ind1 = 2 * k;
+      ind2 = N - ind1;
+      rett = eps_r;
+      eps_r = rett * ew_r - eps_i * ew_i;
+      eps_i = rett * ew_i + eps_i * ew_r;
+      hilf1 = .5 * (eps_r * (yhilf   - y[ind2 - 1]) +
+                     eps_i * (y[ind1] + y[ind2]));
+      hilf2 = .5 * (eps_i * (yhilf   - y[ind2 - 1]) -
+                      eps_r * (y[ind1] + y[ind2]));
+      hilf3 = .5 * (yhilf   + y[ind2 - 1]);
+      hilf4 = .5 * (y[ind1] - y[ind2]);
+      yhilf = y[ind1 + 1];
+      y[ind1]     = hilf3 - hilf2;
+      y[ind1 + 1] = hilf1 - hilf4;
+      y[ind2]     = hilf2 + hilf3;
+      y[ind2 + 1] = hilf1 + hilf4;
+    }
+    y[Nd2 + 1] = y[Nd2];
+    y[Nd2]     = yhilf;
+  }
+
+
+  for (j = 0; j < Nd2; j++)                       /* mit der Bit-     */
+  {                                               /* Umkehrfunktion   */
+    for (k = j, n = 1, sigma = 0; n < tau; n++)   /* umspeichern, im  */
+    {
+     sigma <<= 1; /* Fall der Analyse */
+     sigma |= k & 1; /* gleichzeitig     */
+     k >>= 1; /* normieren        */
+    }
+    if (j <= sigma)
+    {
+     ind1 = 2 * j;
+      ind2 = 2 * sigma;
+      ur = y[ind1];
+      ui = y[ind1 + 1];
+      y[ind1] = y[ind2] * faktor;
+      y[ind1 + 1] = y[ind2 + 1] * faktor;
+      y[ind2] = ur * faktor;
+      y[ind2 + 1] = ui * faktor;
+    }
+  }
+
+
+  for (min_n = Nd2, n_min_1 = 1, n = 1; n < tau; n++)   /* die FFT    */
+  {                                                     /* halber     */
+    min_n   /= 2;                                       /* Laenge     */
+    n_min_0 =  2 * n_min_1;                             /* ausfuehren */
+    arg =  arg_md2 * min_n;
+    wr  =  Math.cos(arg);
+    wi  =  synthese ? 1. : -1.;
+    wi  *= Math.sin(arg);
+    eps_r = 1.;                          /* (eps_r,eps_i) =           */
+    eps_i = 0.;                          /* ((N/2). Einheitswurzel) ^ */
+                                         /* (l * 2^min_n)             */
+    for (l = 0; l < n_min_1; l++)
+    {
+      for (j = 0; j <= Nd2 - n_min_0; j += n_min_0)
+      {
+        ind1 = (j + l) * 2;
+        ind2 = ind1 + n_min_0;
+        ur = y[ind2] * eps_r - y[ind2 + 1] * eps_i;
+        ui = y[ind2] * eps_i + y[ind2 + 1] * eps_r;
+        y[ind2]     =  y[ind1]     - ur;
+        y[ind2 + 1] =  y[ind1 + 1] - ui;
+        y[ind1]     += ur;
+        y[ind1 + 1] += ui;
+      }
+      rett  = eps_r;
+      eps_r = rett * wr - eps_i * wi;
+      eps_i = rett * wi + eps_i * wr;
+    }
+    n_min_1 = n_min_0;
+  }
+
+
+  if (! synthese)                          /* die zusammengefasst     */
+  {                                        /* transformierten Daten   */
+    yhilf = y[N - 1];                      /* trennen im Fall der     */
+    y[N - 1] = .5 * (y[0] - y[1]);         /* Fourieranalyse          */
+    y[0]     = .5 * (y[0] + y[1]);
+
+    ew_r =  Math.cos(arg_m);
+    ew_i = -Math.sin(arg_m);
+
+    eps_r = 1.;                           /* (eps_r,eps_i) =         */
+    eps_i = 0.;                           /* (N. Einheitswurzel) ^ k */
+
+    for (k = 1; k < Nd4; k++)
+    {
+      rett = eps_r;
+      eps_r = rett * ew_r - eps_i * ew_i;
+      eps_i = rett * ew_i + eps_i * ew_r;
+      ind1 = k * 2;
+      ind2 = N - ind1;
+      hilf1 = .5 * (eps_i * (y[ind1]     - y[ind2]) +
+                      eps_r * (y[ind1 + 1] + yhilf));
+      hilf2 = .5 * (eps_r * (y[ind1]     - y[ind2]) -
+                      eps_i * (y[ind1 + 1] + yhilf));
+      hilf3 = .5 * (y[ind1]     + y[ind2]);
+      hilf4 = .5 * (y[ind1 + 1] - yhilf);
+      yhilf = y[ind2 - 1];
+      y[ind1 - 1] = hilf1 + hilf3;
+      y[ind1]     = hilf2 - hilf4;
+      y[ind2 - 1] = hilf3 - hilf1;
+      y[ind2]     = hilf2 + hilf4;
+    }
+    y[Nd2 - 1] = y[Nd2];
+    y[Nd2]     = yhilf;
+  }
+
+
+  return;
+}
+
+
+
+/* --------------- komplexe Multiplikation:  c = a * b -------------- */
+
+private static void COMMUL(Complex c, Complex a, Complex b)
+{
+  double re, im;
+  re    = a.x * b.x - a.y * b.y;
+  im    = a.x * b.y + a.y * b.x;
+  c.x = re;
+  c.y = im;
+}
+
+
+
+/* ------------------------------------------------------------------ */
+
+public static void fft    /* schnelle komplexe Fouriertransformation .............*/
+    (
+     int     tau,         /* 2^tau = Zahl der Stuetzwerte ............*/
+     Complex y[],         /* Stuetzwerte bzw. Fourierkoeffizienten....*/
+     boolean synthese     /* Transformationsrichtung .................*/
+    )                     /* Fehlercode ..............................*/
+/***********************************************************************
+* fuer  synthese = 0  zu  N = 2^tau  gegebenen reellen oder komplexen  *
+* Funktionswerten y(0),....,y(N-1) die diskreten Fourierkoeffizienten  *
+* c(-N/2),....,c(N/2-1) der zugehoerigen diskreten Fourierteilsumme    *
+*        Summe(k=-N/2,...,N/2-1) (c(k) * exp(i * k * omega * x))       *
+* berechnen mit:                                                       *
+*            omega  =  2 * PI / L  (L = Periodenlaenge)                *
+* und fuer  synthese = 1  die Umkehrtransformation (Fouriersynthese)   *
+* ausfuehren.                                                          *
+*                                                                      *
+* Eingabeparameter:                                                    *
+* =================                                                    *
+* tau:      Zweierlogarithmus der Anzahl der Funktionswerte oder,      *
+*           anders ausgedrueckt: Die Anzahl der Funktionswerte ist     *
+*           N = 2^tau. Es muss  tau >= 1  sein.                        *
+* y:        [0..N-1,0..1]-Vektor fuer N komplexe Zahlen, der in        *
+*           Abhaengigkeit von synthese wie folgt belegt sein muss:     *
+*             synthese = 0: y enthaelt die Funktionswerte y(i).        *
+*             synthese = 1: y enthaelt die diskreten                   *
+*                           Fourierkoeffizienten c(i), und zwar fuer   *
+*                           i=0,...,N/2-1 in y[i] und fuer             *
+*                           i=-N/2,...,-1 in y[i+N].                   *
+* synthese: Flagge zur Steuerung der Richtung der auszufuehrenden      *
+*           Transformation:                                            *
+*             synthese = 0: Berechnung der diskreten                   *
+*                           Fourierkoeffizienten (Fourieranalyse)      *
+*             synthese = 1: Berechnung der Funktionswerte              *
+*                           (Fouriersynthese)                          *
+*                                                                      *
+* Ausgabeparameter:                                                    *
+* =================                                                    *
+* y: [0..N-1]-Vektor fuer N komplexe Zahlen, der in Abhaengigkeit von  *
+*    synthese folgende Werte enthaelt:                                 *
+*      synthese = 0: die diskreten Fourierkoeffizienten c(i), und zwar *
+*                    fuer i=0,...,N/2-1 in y[i] und                    *
+*                    fuer i=-N/2,...,-1 in y[i+N];                     *
+*      synthese = 1: die Funktionswerte y(i).                          *
+*                                                                      *
+* Funktionswert:                                                       *
+* ==============                                                       *
+* 0: kein Fehler                                                       *
+* 1: tau < 1                                                           *
+* 2: tau zu gross (Ueberlauf bei der Berechnung von 2^tau)             *
+***********************************************************************/
+
+{
+  int     N,        /* Anzahl der Funktionswerte                      */
+          n_min_0,  /* 2 ^ n                                          */
+          n_min_1,  /* 2 ^ (n - 1)                                    */
+          sigma,    /* die Spiegelung der tau Ziffern der             */
+                    /* Binaerdarstellung von j an ihrer Mitte         */
+          ind1,     /* Zwischenspeicher fuer mehrmals verwendete      */
+          ind2,     /* komplizierte Indexausdruecke                   */
+          j, n, l;  /* Laufvariablen                                  */
+  double    faktor, /* Normierungsfaktor 1/N fuer die                 */
+                    /* Fourierkoeffizienten im Fall der Analyse,      */
+                    /* sonst Eins fuer die Synthese der               */
+                    /* Funktionswerte                                 */
+          ewphi;    /* Winkel der N. Einheitswurzel                   */
+  Complex ew = new Complex(),       /* N. Einheitswurzel                              */
+          w = new Complex(),        /* ew ^ (2^(tau - n))                             */
+          eps = new Complex(),      /* ew ^ (l * 2^(tau - n))                         */
+          u = new Complex();        /* Zwischenspeicher fuer eine komplexe Zahl       */
+
+
+  if (tau < 1)                        /* zu kleiner Wert fuer tau?    */
+    return;
+
+  if (tau > 8 * 4 - 2)                /* zu grosser Wert fuer tau?    */
+    return;                           /* (Ueberlaufgefahr bei 2^tau!) */
+
+
+  N      = 1 << tau;                              /* N  =  2 hoch tau */
+  faktor = 1. / N;
+  ewphi  = -2. * Math.PI * faktor;
+  if (synthese)
+    ewphi = -ewphi;
+  ew.x = Math.cos(ewphi);
+  ew.y = Math.sin(ewphi);
+
+  if (synthese)
+    faktor = 1.;
+
+
+  for (j = 0; j < N; j++)                         /* mit der Bit-     */
+  {                                               /* Umkehrfunktion   */
+    for (l = j, sigma = 0, n = tau; n > 0; n--)   /* umspeichern, im  */
+    {
+     sigma <<= 1;                                 /* Fall der Analyse */
+      sigma |= l & 1;                             /* gleichzeitig     */
+      l >>= 1;                                    /* normieren        */
+    }
+    if (j <= sigma)
+    {
+     u = y[j];
+      y[j].x = y[sigma].x * faktor;
+      y[j].y = y[sigma].y * faktor;
+      y[sigma].x = u.x * faktor;
+      y[sigma].y = u.y * faktor;
+    }
+  }
+
+
+  /* ----- die Transformation (Analyse oder Synthese) ausfuehren ---- */
+
+  for (n_min_1 = 1, n = 1; n <= tau; n++, n_min_1 = n_min_0)
+  {
+    for (w = ew, l = tau - n; l != 0; l--)    /* w = ew ^ (2^(tau-n)) */
+      COMMUL(w, w, w);                        /* berechnen            */
+
+    eps.x = 1.;                           /* eps mit Eins vorbesetzen */
+    eps.y = 0.;
+    for (n_min_0 = n_min_1 + n_min_1, l = 0; l < n_min_1; l++)
+    {
+      for (j = 0; j <= N - n_min_0; j += n_min_0)
+      {
+        ind1      =  j + l;
+        ind2      =  ind1 + n_min_1;
+        COMMUL(u, y[ind2], eps);         /* u        =  y(ind2) * eps */
+        y[ind2].x =  y[ind1].x - u.x;    /* y(ind2)  =  y(ind1) - u   */
+        y[ind2].y =  y[ind1].y - u.y;
+        y[ind1].x += u.x;                /* y(ind1)  += u             */
+        y[ind1].y += u.y;
+      }
+      COMMUL(eps, eps, w);               /* eps      *= w             */
+    }
+  }
+
+
+  return;
+}
+
+
+
+/* ------------------------------------------------------------------ */
+
+public static void fftb    /* komplexe FFT mit beliebiger Stuetzstellenzahl .......*/
+    (
+     int     N,            /* Anzahl der Stuetzwerte .................*/
+     Complex y[],          /* Stuetzwerte bzw. Fourierkoeffizienten...*/
+     boolean synthese      /* Transformationsrichtung ................*/
+    )                      /* Fehlercode .............................*/
+
+/***********************************************************************
+* fuer  synthese = 0  zu einer beliebigen Anzahl N gegebener reeller   *
+* oder komplexer Funktionswerte y(0),...,y(N-1) die diskreten          *
+* Fourierkoeffizienten c(k) der zugehoerigen diskreten                 *
+* Fourierteilsumme                                                     *
+*     Summe(k=-N/2,...,N/2-1) (c(k) * exp(i * k * omega * x)),         *
+* falls N gerade ist, bzw.                                             *
+*     Summe(k=-(N-1)/2,...,(N-1)/2) (c(k) * exp(i * k * omega * x)),   *
+* falls N ungerade ist, berechnen mit:                                 *
+*         omega  =  2 * PI / L            (L = Periodenlaenge),        *
+*         i      =  komplexe Zahl (0,1),                               *
+* und fuer  synthese = 1  die Umkehrtransformation (Fouriersynthese)   *
+* ausfuehren.                                                          *
+* Die Berechnung erfolgt mit der FFT fuer Zweierpotenzen auf dem Umweg *
+* ueber eine diskrete Faltung.                                         *
+*                                                                      *
+* Eingabeparameter:                                                    *
+* =================                                                    *
+* N         Anzahl der Funktionswerte bzw. Fourierkoeffizienten.       *
+*           Hier gilt es zu bedenken, dass jeder der unten benoetigten *
+*           Hilfsvektoren f1 und g fuer 2^tau komplexe Zahlen Platz    *
+*           bieten muss, wobei  N <= (2^tau + 1) / 2  gelten muss.     *
+* y:        [0..N-1]-Vektor fuer N komplexe Zahlen, der in             *
+*           Abhaengigkeit von synthese wie folgt belegt sein muss:     *
+*             synthese = 0: y enthaelt die Funktionswerte y(k).        *
+*             synthese = 1: y enthaelt die diskreten                   *
+*                           Fourierkoeffizienten c(k), und zwar fuer   *
+*                           k=0,...,N/2-1 (N gerade) bzw.              *
+*                           k=0,...,(N-1)/2 (N ungerade) in y[k] und   *
+*                           fuer k=-N/2,...,-1 (N gerade) bzw.         *
+*                           fuer k=-(N-1)/2,...,-1 (N ungerade) in     *
+*                           y[k+N].                                    *
+* synthese: Flagge zur Steuerung der Richtung der auszufuehrenden      *
+*           Transformation:                                            *
+*             synthese = 0: Berechnung der diskreten                   *
+*                           Fourierkoeffizienten (Fourieranalyse)      *
+*             synthese = 1: Berechnung der Funktionswerte              *
+*                           (Fouriersynthese)                          *
+*                                                                      *
+* Ausgabeparameter:                                                    *
+* =================                                                    *
+* y: [0..N-1]-Vektor fuer N komplexe Zahlen, der in Abhaengigkeit von  *
+*    synthese folgende Werte enthaelt:                                 *
+*      synthese = 0: die diskreten Fourierkoeffizienten c(k), und zwar *
+*                    fuer k=0,...,N/2-1 (N gerade) bzw.                *
+*                    fuer k=0,...,(N-1)/2 (N ungerade) in y[k] und     *
+*                    fuer k=-N/2,...,-1 (N gerade) bzw.                *
+*                    fuer k=-(N-1)/2,...,-1 (N ungerade) y[k+N].       *
+*      synthese = 1: die Funktionswerte y(k).                          *
+*                                                                      *
+* Funktionswert:                                                       *
+* ==============                                                       *
+* 0: kein Fehler                                                       *
+* 1: N < 2                                                             *
+* 2: N zu gross (Ueberlauf bei der Berechnung von 2^tau)               *
+* 3: Speichermangel                                                    *
+***********************************************************************/
+
+{
+  int     tau,       /* [ln(2*N-1)/ln(2)+1]                           */
+          l,         /* 2 ^ tau                                       */
+          k,         /* Laufvariable                                  */
+          fehler;    /* Fehlercode von fft()                          */
+  Complex ew1 = new Complex(),       /* (2N). Einheitswurzel                          */
+          ew2 = new Complex(),       /* ew2  =  ew1 ^ 2                               */
+          ew3 = new Complex(),       /* Hilfsvariable                                 */
+          ew4 = new Complex(),       /* Hilfsvariable                                 */
+          ewk = new Complex(),       /* ewk  =  ew1 ^ (k^2),                          */
+          f1[],      /* [0..2^tau-1]-Hilfsvektor                      */
+          g[];       /* [0..2^tau-1]-Hilfsvektor                      */
+  double    faktor,  /* Normierungsfaktor 1/N fuer die                */
+                     /* Fourierkoeffizienten im Fall der Analyse,     */
+                     /* sonst Eins fuer die Synthese der              */
+                     /* Funktionswerte                                */
+          faktl,     /* faktor * l                                    */
+          ew1phi;    /* Winkel der komplexen Zahl ew1                 */
+
+
+  if (N < 2)                            /* zu kleiner Wert fuer N?    */
+    return;
+
+
+  /* ------------ eine geeignete Zweierpotenz als Laenge ------------ */
+  /* ------------ der Hilfsvektoren f1 und g bestimmen   ------------ */
+
+  tau = (int)(Math.log(2. * (double)N - 1.) / Math.log(2.)) + 1;
+
+  if (tau > 8 * 4 - 2)                /* zu grosser Wert fuer tau?    */
+    return;                           /* (Ueberlaufgefahr bei 2^tau!) */
+
+  l = 1 << tau;                                 /* l  =  2 hoch tau   */
+  if (l / 2 >= 3 * N - 2)                       /* l unnoetig gross?  */
+  {
+   l /= 2;                                      /* halbieren und tau  */
+    tau--;                                      /* um Eins vermindern */
+  }
+
+  /* -------------- die Hilfsvektoren dynamisch anlegen ------------- */
+
+  f1 = new Complex[1 << tau];
+  g  = new Complex[1 << tau];
+
+  faktor = 1. / N;
+  ew1phi = -Math.PI * faktor;
+  if (synthese)
+    ew1phi = -ew1phi;
+
+  ew1.x = Math.cos(ew1phi);                     /* ew1  =  exp(i * ew1phi) */
+  ew1.y = Math.sin(ew1phi);
+
+  COMMUL(ew2, ew1, ew1);
+
+  if (synthese)
+    faktor = 1.;
+
+
+  /* ------------- die Hilfsfelder f1 und g vorbesetzen ------------- */
+
+  for (k = 0; k < l; k++)
+    f1[k].x = f1[k].y = g[k].x = g[k].y = 0.;
+  f1[0]      = y[0];
+  g[N - 1].x = 1.;
+  g[N - 1].y = 0.;
+
+
+  ewk = ew1;
+  ew3 = ew1;
+
+  for (k = 1; k < N; k++)
+  {
+    COMMUL(f1[k], y[k], ewk);              /* f1(k)     =  y(k) * ewk */
+    g[N - 1 + k].x = ewk.x;                /* g(N-1+k)  =  CONJG(ewk) */
+    g[N - 1 + k].y = -ewk.y;
+    g[N - 1 - k]   = g[N - 1 + k];
+    COMMUL(ew3, ew3, ew2);                 /* ew3       *= ew2        */
+    COMMUL(ewk, ewk, ew3);                 /* ewk       *= ew3        */
+  }
+
+
+  /* ----------- die diskrete Faltung der Felder f1 und g ----------- */
+  /* ----------- mit Hilfe der FFT ausfuehren             ----------- */
+
+  fft(tau, f1, false);
+
+  fft(tau, g,  false);
+
+  for (k = 0; k < l; k++)
+    COMMUL(f1[k], f1[k], g[k]);                    /* f1(k)  *=  g(k) */
+
+  fft(tau, f1, true);
+
+
+  /* ------- die benoetigten Werte in den Vektor y umspeichern ------ */
+
+  faktl  = faktor * l;
+
+  y[0].x = f1[N - 1].x * faktl;     /* y(0)  =  f1(N-1) * faktor * l  */
+  y[0].y = f1[N - 1].y * faktl;
+  ewk    = ew1;
+  ew3    = ew1;
+
+  for (k = 1; k < N; k++)
+  {
+    ew4.x = ewk.x * faktl;          /* y(k) = f1(k+N-1) * ewk * faktl */
+    ew4.y = ewk.y * faktl;
+    COMMUL(y[k], f1[k + N - 1], ew4);
+
+    COMMUL(ew3, ew3, ew2);                            /* ew3  *=  ew2 */
+    COMMUL(ewk, ewk, ew3);                            /* ewk  *=  ew3 */
+  }
+
+
+  return;
+}
+
+
+
+/* ------------------------------------------------------------------ */
+
+private static int ist_zweierpotenz    /* Ist m eine Zweierpotenz? ...........*/
+    (
+     int m                             /* zu untersuchende Zahl (> 1) */
+    )                                  /* ld(m) oder Null             */
+
+/***********************************************************************
+* ermitteln, ob m eine Zweierpotenz ist, und diese als Funktionswert   *
+* zurueckgeben, falls das zutrifft, sonst Null. Fuer den               *
+* Funktionswert t gilt also, falls t verschieden von Null: 2^t = m.    *
+***********************************************************************/
+
+{
+  int potenz;
+  int exponent;
+
+  for (potenz = 1, exponent = 0; potenz != 0; potenz <<= 1, exponent++)
+    if (potenz == m)
+      return exponent;
+
+  return 0;
+}
+
+
+
+/* ------------------------------------------------------------------ */
+
+public static void fdicht  /* trig. Interpolationspolynom an verschob. Stuetzst. ..*/
+    (
+     int     M,            /* Groesse der Wertetabelle ...............*/
+     Complex F[],          /* Wertetabelle der Funktion f ............*/
+     double    p,          /* Periode von f ..........................*/
+     double    theta       /* Betrag der Verschiebung ................*/
+    )                      /* Fehlercode .............................*/
+
+/***********************************************************************
+* Diese Funktion berechnet mit der schnellen Fouriertransformation     *
+* (FFT) zu einem Satz vorgegebener Funktionswerte  F[0]..F[M-1]  einer *
+* p-periodischen Funktion an im Periodenintervall aequidistant         *
+* verteilten Stellen  t[0]..t[M-1]  mit  t[j] = j*p/M  die Werte des   *
+* zugehoerigen trigonometrischen Interpolationspolynoms (= diskrete    *
+* Fourierteilsumme) an einem Satz verschobener Stuetzstellen           *
+* t[j] + theta  fuer  j=0..M-1 ("Verdichtung der Funktionswerte").     *
+*                                                                      *
+* Eingabeparameter:                                                    *
+* =================                                                    *
+* M      Anzahl der uebergebenen Werte.                                *
+*        Ist M eine Zweierpotenz (M = 2^tau  mit einer natuerlichen    *
+*        Zahl tau), so wird die Funktion fft() aufgerufen, die keine   *
+*        weiteren Einschraenkungen an M stellt. Ist M keine            *
+*        Zweierpotenz, so erfolgt die Fouriertransformation ueber die  *
+*        Funktion fftb().                                              *
+* F      [0..M-1]-Vektor fuer die M komplexen Funktionswerte           *
+* p      Periodenlaenge der zugrundeliegenden Funktion                 *
+* theta  Verschiebungswert: Die neu berechneten Werte entsprechen den  *
+*        vorgegebenen an um  theta  verschobenen Argumenten.           *
+*                                                                      *
+* Ausgabeparameter:                                                    *
+* =================                                                    *
+* F      [0..M-1]-Vektor mit den den M komplexen Funktionswerten des   *
+*        zugehoerigen trigonometrischen Interpolationspolynoms an den  *
+*        gleichverteilten Stellen                                      *
+*          tneu[j] = t[j] + theta = j*p/M + theta  fuer  j=0..M-1.     *
+*                                                                      *
+* Funktionswert:                                                       *
+* ==============                                                       *
+* 0: kein Fehler                                                       *
+* 1: M < 2                                                             *
+* 2: tau in fft() oder fftb() und damit M zu gross                     *
+* 3: Speichermangel                                                    *
+*                                                                      *
+* Autor:              Klaus Niederdrenk (FORTRAN 77)                   *
+* Datum:              30.06.1994                                       *
+* Bearbeiter:         Juergen Dietel, Rechenzentrum der RWTH Aachen    *
+* Datum:              MI 2. 8. 1995                                    *
+***********************************************************************/
+
+{
+  int     tau;                    /* Zweierlogarithmus von M          */
+  int     k;                      /* Laufvariable                     */
+  int     fehler;                 /* Fehlercode von fft() bzw. fftb() */
+  double    faktor;
+  double    tetpi;
+  Complex ek = new Complex();
+  Complex ekk = new Complex();    /* die zu `ek' konjugierte Zahl     */
+  Complex h = new Complex();
+
+
+  if (M < 2)                            /* zu kleiner Wert fuer M?    */
+    return;
+
+  tau = ist_zweierpotenz(M);    /* feststellen, ob M Zweierpotenz ist */
+
+  /* Bestimmung der diskreten Fouriertransformation                   */
+
+  if (tau != 0)                          /* M ist Zweierpotenz 2^tau? */
+  {
+    fft(tau, F, false);
+  }
+  else                                   /* M keine Zweierpotenz?     */
+  {
+    fftb(M, F, false);
+  }
+
+  /* Bestimmung der Werte der diskreten Fouriertransformation zu den  */
+  /* verschobenen Stuetzstellen                                       */
+
+  faktor = 2. * Math.PI * theta / p;
+  tetpi  = (double)(-M / 2) * faktor;
+  ek.x   = Math.cos(tetpi);
+  ek.y   = Math.sin(tetpi);
+  COMMUL(h, F[M / 2], ek);
+  for (k = -(M - 1) / 2; k <= -1; k++)
+  {
+    tetpi = (double)k * faktor;
+    ek.x  = Math.cos(tetpi);
+    ek.y  = Math.sin(tetpi);
+    ekk   = ek;
+    ekk.y = -ekk.y;
+    COMMUL(F[k + M], F[k + M], ek);
+    COMMUL(F[-k],    F[-k],    ekk);
+  }
+  F[M / 2] = h;
+
+  /* Bestimmung der zugehoerigen Funktionswerte                       */
+
+  if (tau != 0)                          /* M ist Zweierpotenz 2^tau? */
+    fft(tau, F, true);
+  else                                   /* M keine Zweierpotenz?     */
+    fftb(M, F, true);
+}
+
+
+
+/* ------------------------------------------------------------------ */
+
+public static void fourn   /* Fouriertransformierte fuer nichtperiodische Funktion */
+    (
+     int     M,            /* Groesse der Wertetabelle ...............*/
+     Complex F[],          /* Wertetabelle der Funktion f ............*/
+     double    a,          /* linker Rand des Stuetzstellenintervalls */
+     double    deltax      /* Stuetzstellenabstand ...................*/
+    )                      /* Fehlercode .............................*/
+
+/***********************************************************************
+* Diese Funktion berechnet mit der schnellen Fouriertransformation     *
+* (FFT) zu einem Satz vorgegebener Funktionswerte  F[0]..F[M-1]  einer *
+* nichtperiodischen Funktion an aequidistant verteilten Stellen mit    *
+* Abstand  deltax  aus dem Bereich, in dem die entsprechende Funktion  *
+* Werte ungleich Null hat, naeherungsweise an mit Abstand  deltax      *
+* gleichverteilten Stellen Werte der zugehoerigen                      *
+* Fouriertransformierten                                               *
+*                                                                      *
+*       f^(tj) = ((Iintegral ueber) f(x) * exp(-i*tj*x) dx)            *
+*                                                                      *
+* (i: imaginaere Einheit mit  i^2 = -1)  fuer  j=-M/2..M/2-1.          *
+*                                                                      *
+* Eingabeparameter:                                                    *
+* =================                                                    *
+* M       Anzahl der uebergebenen Funktionswerte (gerade Zahl)         *
+*         Ist M eine Zweierpotenz (M = 2^tau   mit einer natuerlichen  *
+*         Zahl tau), so wird die Funktion fft() aufgerufen, die keine  *
+*         weiteren Einschraenkungen an M stellt. Ist M keine           *
+*         Zweierpotenz, so erfolgt die Fouriertransformation ueber die *
+*         Funktion fftb().                                             *
+* F       [0..M-1]-Vektor mit den M komplexen Funktionswerten von f an *
+*         den Stellen                                                  *
+*                 x[j] = a + j * deltax, j=0..M-1.                     *
+* a       Anfangsstelle der gegebenen Funktionswerte                   *
+* deltax  Stuetzstellenabstand der gegebenen Funktionswerte            *
+*                                                                      *
+* Ausgabeparameter:                                                    *
+* =================                                                    *
+* F       [0..M-1]-Vektor mit den M komplexen Funktionswerten der      *
+*         Fouriertransformierten f^, die wie folgt eingetragen wurden: *
+*                 F[k+M]  enthaelt  f^(tk)  fuer  k = -M/2..-1,        *
+*                 F[k]    enthaelt  f^(tk)  fuer  k = 0..-M/2-1,       *
+*         wobei  tk = k / (M * deltax).                                *
+*                                                                      *
+* Funktionswert:                                                       *
+* ==============                                                       *
+* 0: kein Fehler                                                       *
+* 1: M < 2                                                             *
+* 2: tau in fft() oder fftb() und damit M zu gross                     *
+* 3: Speichermangel                                                    *
+*                                                                      *
+* Autor:              Klaus Niederdrenk (FORTRAN 77)                   *
+* Datum:              30.06.1994                                       *
+* Bearbeiter:         Juergen Dietel, Rechenzentrum der RWTH Aachen    *
+* Datum:              DO 3. 8. 1995                                    *
+***********************************************************************/
+
+{
+  int     tau;                    /* Zweierlogarithmus von M          */
+  int     k;                      /* Laufvariable                     */
+  int     fehler;                 /* Fehlercode von fft() bzw. fftb() */
+  double    x;
+  double    faktor;
+  double    arg;
+  Complex ek = new Complex();
+  Complex ekk = new Complex();    /* die zu `ek' konjugierte Zahl     */
+
+
+  if (M < 2)                            /* zu kleiner Wert fuer M?    */
+    return;
+
+  tau = ist_zweierpotenz(M);    /* feststellen, ob M Zweierpotenz ist */
+
+  /* Bestimmung der diskreten Fourierkoeffizienten                    */
+
+  if (tau != 0)                          /* M ist Zweierpotenz 2^tau? */
+  {
+    fft(tau, F, false);
+  }
+  else                                   /* M keine Zweierpotenz?     */
+  {
+    fftb(M, F, false);
+  }
+
+  /* Uebertragung auf den nichtperiodischen Fall:                     */
+  /* Anpassung der Werte an die der Fouriertransformierten            */
+
+  x      = (double)M * deltax;
+  faktor = 2. * Math.PI * a / x;
+  for (k = -M / 2 + 1; k < 0; k++)
+  {
+    arg   = (double)k * faktor;
+    ek.x  = x * Math.cos(arg);
+    ek.y  = x * Math.sin(arg);
+    ekk   = ek;
+    ekk.y = -ekk.y;
+    COMMUL(F[k + M], F[k + M], ekk);
+    COMMUL(F[-k],    F[-k],    ek);
+  }
+  F[0].x *= x;
+  F[0].y *= x;
+  arg    =  (double)(M / 2) * faktor;
+  ek.x   =  x * Math.cos(arg);
+  ek.y   =  x * Math.sin(arg);
+  COMMUL(F[M / 2], F[M / 2], ek);
+
+
+  return;
+}
+
+
+
+/* ------------------------------------------------------------------ */
+
+public static void ffako   /* diskr. zykl. Faltung u. Korrelation, periodisch .....*/
+    (
+     int     M,            /* Groesse der Wertetabelle ...............*/
+     Complex F[],          /* Wertetabelle der Funktion f ............*/
+     Complex H[]           /* Wertetabelle der Funktion h ............*/
+    )                      /* Fehlercode .............................*/
+
+/***********************************************************************
+* Diese Funktion berechnet mit der schnellen Fouriertransformation     *
+* (FFT) zu von zwei periodischen Funktionen vorgegebenen komplexen     *
+* Funktionswerten  F[0]..F[M-1]  und  H[0]..H[M-1]  an im              *
+* Periodenintervall aequidistant verteilten Stellen die Werte der      *
+* zugehoerigen diskreten zyklischen Faltung                            *
+*                                                                      *
+*       Falt[j] = 1/M * ((Summe: k=0..M-1) F[j-k] * F[k])              *
+*                                                                      *
+* und der diskreten zyklischen Korrelation                             *
+*                                                                      *
+*       Korr[j] = 1/M * ((Summe: k=0..M-1) F[j+k] * conjug(H[k]))      *
+*                                                                      *
+* fuer  j=0..M-1.                                                      *
+*                                                                      *
+* Einbabeparameter:                                                    *
+* =================                                                    *
+* M  Anzahl der uebergebenen Werte.                                    *
+*    Ist M eine Zweierpotenz (M = 2^tau  mit einer natuerlichen Zahl   *
+*    tau), so wird die Funktion fft() aufgerufen, die keine weiteren   *
+*    Einschraenkungen an M stellt. Ist M keine Zweierpotenz, so        *
+*    erfolgt die Fouriertransformation ueber die Funktion fftb().      *
+* F  [0..M-1]-Vektor mit den komplexen Funktionswerten von f           *
+* H  [0..M-1]-Vektor mit den komplexen Funktionswerten von h           *
+*                                                                      *
+* Ausgabeparameter:                                                    *
+* =================                                                    *
+* F  [0..M-1]-Vektor mit den komplexen Werten  Falt[j]  der diskreten  *
+*    zyklischen Faltung.                                               *
+* H  [0..M-1]-Vektor mit den komplexen Werten  Korr[j]  der diskreten  *
+*    zyklischen Korrelation                                            *
+*                                                                      *
+* Funktionswert:                                                       *
+* ==============                                                       *
+* 0: kein Fehler                                                       *
+* 1: M < 2                                                             *
+* 2: tau in fft() oder fftb() und damit M zu gross                     *
+* 3: Speichermangel                                                    *
+*                                                                      *
+* benutzte globale Namen:                                              *
+* =======================                                              *
+* Complex, ist_zweierpotenz, fft, fftb, COMMUL                         *
+*                                                                      *
+* Autor:              Klaus Niederdrenk (FORTRAN 77)                   *
+* Datum:              08.09.1994                                       *
+* Bearbeiter:         Juergen Dietel, Rechenzentrum der RWTH Aachen    *
+* Datum:              MI 2. 8. 1995                                    *
+***********************************************************************/
+
+{
+  int     tau;                    /* Zweierlogarithmus von M          */
+  int     k;                      /* Laufvariable                     */
+  int     fehler;                 /* Fehlercode von fft() bzw. fftb() */
+  Complex h1 = new Complex();
+  Complex hkk = new Complex();    /* die zu `H[k]' konjugierte Zahl   */
+
+
+  if (M < 2)                            /* zu kleiner Wert fuer M?    */
+    return;
+
+  tau = ist_zweierpotenz(M);    /* feststellen, ob M Zweierpotenz ist */
+
+  /* Bestimmung der diskreten Fouriertransformation                   */
+
+  if (tau != 0)                          /* M ist Zweierpotenz 2^tau? */
+  {
+    fft(tau, F, false);
+    fft(tau, H, false);
+  }
+  else                                   /* M keine Zweierpotenz?     */
+  {
+    fftb(M, F, false);
+    fftb(M, H, false);
+  }
+
+  /* Bestimmung der Transformierten der zugehoerigen diskreten        */
+  /* zyklischen Faltung und diskreten zyklischen Korrelation          */
+
+  for ( k = 0; k < M; k++)
+  {
+    COMMUL(h1,   F[k], H[k]);
+    hkk   = H[k];
+    hkk.y = -hkk.y;
+    COMMUL(H[k], F[k], hkk);
+    F[k]  = h1;
+  }
+
+  /* Bestimmung der zugehoerigen Funktionswerte                       */
+
+  if (tau != 0)                          /* M ist Zweierpotenz 2^tau? */
+    {
+     fft(tau, F, true);
+     fft(tau, H, true);
+    }
+  else                                   /* M keine Zweierpotenz?     */
+    {
+     fftb(M, F, true);
+     fftb(M, H, true);
+    }
+}
+
+
+
+public static void ffakon  /* diskr. zykl. Faltung u. Korrelation, nichtperiodisch */
+    (
+     int     M,            /* Anzahl - 1 der Werte von f .............*/
+     Complex F[],          /* Wertetabelle der Funktion f ............*/
+     int     N,            /* Anzahl - 1 der Werte von h .............*/
+     Complex H[],          /* Wertetabelle der Funktion h ............*/
+     int     tau,          /* L = 2^tau = Laenge von F und H .........*/
+     double    deltax,     /* Stuetzstellenabstand ...................*/
+     int     faltung       /* Faltung oder Korrelation berechnen? ....*/
+    )                      /* Fehlercode .............................*/
+
+/***********************************************************************
+* Diese Funktion berechnet mit Hilfe der schnellen                     *
+* Fouriertransformation (FFT) zu von zwei nichtperiodischen Funktionen *
+* vorgegebenen Funktionswerten  F[0]..F[M]  und  H[0]..H[N]  an        *
+* aequidistant verteilten Stellen mit Abstand  deltax  aus jeweils dem *
+* Bereich, in dem die entsprechende Funktion  f  bzw.  h  nicht        *
+* verschwindet, naeherungsweise an mit Abstand  deltax                 *
+* gleichverteilten Stellen Werte der zugehoerigen Faltung              *
+*                                                                      *
+*       Falt[j] = (Integral ueber) f(xj-t) * h(t) dt                   *
+*                                                                      *
+* beziehungsweise der zugehoerigen Korrelation                         *
+*                                                                      *
+*       Korr[j] = (Integral ueber) f(xj+t) * conjug(h(t)) dt           *
+*                                                                      *
+* fuer  j=0..M+N.                                                      *
+*                                                                      *
+* Eingabeparameter:                                                    *
+* =================                                                    *
+* M        Anzahl der Werte - 1, die von der Funktion f gegeben sind   *
+* F        [0..L-1]-Vektor mit den M+1 komplexen Funktionswerten von f *
+*          (L = 2^tau)                                                 *
+* N        Anzahl der Werte - 1, die von der Funktion h gegeben sind   *
+* H        [0..L-1]-Vektor mit den N+1 komplexen Funktionswerten von h *
+*          (L = 2^tau)                                                 *
+* tau      Zweierlogarithmus der Laenge der beiden Vektoren F oder H   *
+*          oder, anders ausgedrueckt: F und H muessen fuer mindestens  *
+*          L=2^tau  komplexe Zahlen Platz bieten. Es muss              *
+*          tau >= 1  und  L >= M+N+1  sein.                            *
+* deltax   Stuetzstellenabstand der gegebenen Funktionswerte.          *
+* faltung  legt fest, ob Naeherungswerte der Faltung (Flagge           *
+*          verschieden von Null, also gesetzt) oder der Korrelation    *
+*          (Flagge geloescht) ermittelt werden sollen                  *
+*                                                                      *
+* Ausgabeparameter:                                                    *
+* =================                                                    *
+* F        [0..L-1]-Vektor mit den M+N+1 komplexen Naeherungswerten    *
+*          der Faltung Falt[j] (Flagge `faltung' gesetzt) bzw. der     *
+*          Korrelation Korr[j] (Flagge `faltung' geloescht)            *
+*          fuer j=0..M+N                                               *
+* H        [0..L-1]-Vektor mit den diskreten Fourierkoeffizienten der  *
+*          Funktion h so, wie sie zur effektiven Berechnung der        *
+*          Faltung bzw. Korrelation benoetigt werden (dient als        *
+*          Hilfsfeld)                                                  *
+*                                                                      *
+* Funktionswert:                                                       *
+* ==============                                                       *
+* 0: kein Fehler                                                       *
+* 1: M < 1  oder  N < 1                                                *
+* 2: tau < 1  oder  tau zu gross                                       *
+*                                                                      *
+* Autor:              Klaus Niederdrenk (FORTRAN 77)                   *
+* Datum:              08.09.1994                                       *
+* Bearbeiter:         Juergen Dietel, Rechenzentrum der RWTH Aachen    *
+* Datum:              DO 3. 8. 1995                                    *
+***********************************************************************/
+
+{
+  int     L;                                  /* 2 ^ tau              */
+  int     j;                                  /* Laufvariable         */
+  int     k;                                  /* Laufvariable         */
+  int     fehler;                             /* Fehlercode von fft() */
+  Complex Hkk;
+  double    x;
+
+
+  /* Ueberpruefung von Eingabeparametern                              */
+
+  if (M < 1 || N < 1)               /* zu kleiner Wert fuer M oder N? */
+    return;
+
+  if (tau < 1)                      /* zu kleiner Wert fuer tau?      */
+    return;
+
+  if (tau > 8 * 4 - 2)              /* zu grosser Wert fuer tau?      */
+    return;                         /* (Ueberlaufgefahr bei 2^tau!)   */
+
+  L = 1 << tau;                                   /* L  =  2 hoch tau */
+
+  /* Vorbesetzen der erweiterten Felder                               */
+
+  if (faltung != 0)
+    for (j = M + 1; j < L; j++)
+      F[j].x = F[j].y = 0.;
+  else
+  {
+    for (j = M + N + 1; j < L; j++)
+      F[j].x = F[j].y = 0.;
+    for (j = M + N; j >= N; j--)
+      F[j] = F[j - N];
+    for (j = 0; j < N; j++)
+      F[j].x = F[j].y = 0.;
+  }
+  for (j = N + 1; j < L; j++)
+    H[j].x = H[j].y = 0.;
+
+  /* Bestimmung der benoetigten diskreten Fourierkoeffizienten        */
+  /* mit Hilfe der FFT fuer Zweierpotenzen                            */
+
+  fft(tau, F, false);
+  fft(tau, H, false);
+
+  if (faltung != 0)
+    for (k = 0; k < L; k++)
+    {
+      COMMUL(F[k], F[k], H[k]);
+    }
+  else
+    for (k = 0; k < L; k++)
+    {
+      Hkk   = H[k];
+      Hkk.y = -Hkk.y;
+      COMMUL(F[k], F[k], Hkk);
+    }
+
+  /* Bestimmung der zugehoerigen Funktionswerte                       */
+
+  fft(tau, F, true);
+
+  x = (double)L * deltax;
+  for (j = 0; j <= M + N; j++)
+  {
+   F[j].x *= x;
+    F[j].y *= x;
+  }
+  for (j = M + N + 1; j < L; j++)
+    F[j].x = F[j].y = 0.;
+
+
+  return;
+}
+
+
+private static double quadsum(int n, double v[])
+{
+  double quadratsumme;
+  int  i;
+
+  for (quadratsumme = 0., i = 0; i < n; i++)
+    quadratsumme += Math.sqrt(v[i]);
+
+  return quadratsumme;
+}
+
+}
+
+class Complex
+ {
+  double x, y;
+ }
+

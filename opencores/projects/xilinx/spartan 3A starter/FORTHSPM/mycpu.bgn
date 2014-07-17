@@ -1,0 +1,727 @@
+Release 14.2 - Bitgen P.28xd (nt64)
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+Loading device for application Rf_Device from file '3s700a.nph' in environment
+E:\Xilinx\14.2\ISE_DS\ISE\.
+   "MYCPU" is an NCD, version 3.2, device xc3s700a, package fg484, speed -4
+Opened constraints file MYCPU.pcf.
+
+Mon Oct 29 11:03:17 2012
+
+E:\Xilinx\14.2\ISE_DS\ISE\bin\nt64\unwrapped\bitgen.exe -intstyle ise -w -g DebugBitstream:No -g Binary:no -g CRC:Enable -g Reset_on_err:No -g ConfigRate:25 -g ProgPin:PullUp -g DonePin:PullUp -g TckPin:PullUp -g TdiPin:PullUp -g TdoPin:PullUp -g TmsPin:PullUp -g UnusedPin:PullDown -g UserID:0xFFFFFFFF -g StartUpClk:CClk -g DONE_cycle:4 -g GTS_cycle:5 -g GWE_cycle:6 -g LCK_cycle:NoWait -g Security:None -g DonePipe:No -g DriveDone:No -g en_sw_gsr:No -g en_porb:Yes -g drive_awake:No -g sw_clk:Startupclk -g sw_gwe_cycle:5 -g sw_gts_cycle:4 MYCPU.ncd 
+
+Summary of Bitgen Options:
++----------------------+----------------------+
+| Option Name          | Current Setting      |
++----------------------+----------------------+
+| Compress             | (Not Specified)*     |
++----------------------+----------------------+
+| Readback             | (Not Specified)*     |
++----------------------+----------------------+
+| CRC                  | Enable**             |
++----------------------+----------------------+
+| DebugBitstream       | No**                 |
++----------------------+----------------------+
+| ConfigRate           | 25                   |
++----------------------+----------------------+
+| StartupClk           | Cclk**               |
++----------------------+----------------------+
+| DonePin              | Pullup**             |
++----------------------+----------------------+
+| ProgPin              | Pullup**             |
++----------------------+----------------------+
+| TckPin               | Pullup**             |
++----------------------+----------------------+
+| TdiPin               | Pullup**             |
++----------------------+----------------------+
+| TdoPin               | Pullup**             |
++----------------------+----------------------+
+| TmsPin               | Pullup**             |
++----------------------+----------------------+
+| UnusedPin            | Pulldown**           |
++----------------------+----------------------+
+| GWE_cycle            | 6**                  |
++----------------------+----------------------+
+| GTS_cycle            | 5**                  |
++----------------------+----------------------+
+| LCK_cycle            | NoWait**             |
++----------------------+----------------------+
+| DONE_cycle           | 4**                  |
++----------------------+----------------------+
+| Persist              | No*                  |
++----------------------+----------------------+
+| DriveDone            | No**                 |
++----------------------+----------------------+
+| DonePipe             | No**                 |
++----------------------+----------------------+
+| Security             | None**               |
++----------------------+----------------------+
+| UserID               | 0xFFFFFFFF**         |
++----------------------+----------------------+
+| ActivateGclk         | No*                  |
++----------------------+----------------------+
+| ActiveReconfig       | No*                  |
++----------------------+----------------------+
+| PartialMask0         | (Not Specified)*     |
++----------------------+----------------------+
+| PartialMask1         | (Not Specified)*     |
++----------------------+----------------------+
+| PartialMask2         | (Not Specified)*     |
++----------------------+----------------------+
+| PartialGclk          | (Not Specified)*     |
++----------------------+----------------------+
+| PartialLeft          | (Not Specified)*     |
++----------------------+----------------------+
+| PartialRight         | (Not Specified)*     |
++----------------------+----------------------+
+| drive_awake          | No**                 |
++----------------------+----------------------+
+| Reset_on_err         | No**                 |
++----------------------+----------------------+
+| suspend_filter       | Yes**                |
++----------------------+----------------------+
+| en_sw_gsr            | No**                 |
++----------------------+----------------------+
+| en_suspend           | Yes                  |
++----------------------+----------------------+
+| en_porb              | Yes**                |
++----------------------+----------------------+
+| sw_clk               | Startupclk**         |
++----------------------+----------------------+
+| sw_gwe_cycle         | 5**                  |
++----------------------+----------------------+
+| sw_gts_cycle         | 4**                  |
++----------------------+----------------------+
+| glutmask             | Yes*                 |
++----------------------+----------------------+
+| next_config_addr     | 0x00000000*          |
++----------------------+----------------------+
+| next_config_new_mode | No*                  |
++----------------------+----------------------+
+| next_config_boot_mode | 001*                 |
++----------------------+----------------------+
+| next_config_register_write | Enable*              |
++----------------------+----------------------+
+| ICAP_Enable          | Auto*                |
++----------------------+----------------------+
+| IEEE1532             | No*                  |
++----------------------+----------------------+
+| Binary               | No**                 |
++----------------------+----------------------+
+ *  Default setting.
+ ** The specified setting matches the default setting.
+
+There were 3 CONFIG constraint(s) processed from MYCPU.pcf.
+
+   CONFIG VCCAUX = "3.3"
+   CONFIG ENABLE_SUSPEND = FILTERED
+   CONFIG POST_CRC = DISABLE
+
+Running DRC.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net
+   myRAM/top0/data_path0/dqs0_delayed_col0 is sourced by a combinatorial pin.
+   This is not good design practice. Use the CE pin to control the loading of
+   data into the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net
+   myRAM/top0/data_path0/dqs0_delayed_col1 is sourced by a combinatorial pin.
+   This is not good design practice. Use the CE pin to control the loading of
+   data into the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net
+   myRAM/top0/data_path0/dqs1_delayed_col0 is sourced by a combinatorial pin.
+   This is not good design practice. Use the CE pin to control the loading of
+   data into the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net
+   myRAM/top0/data_path0/dqs1_delayed_col1 is sourced by a combinatorial pin.
+   This is not good design practice. Use the CE pin to control the loading of
+   data into the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net
+   myRAM/top0/data_path0/data_read_controller0/dqs0_delayed_col1_n is sourced by
+   a combinatorial pin. This is not good design practice. Use the CE pin to
+   control the loading of data into the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net
+   myRAM/top0/data_path0/data_read_controller0/dqs1_delayed_col1_n is sourced by
+   a combinatorial pin. This is not good design practice. Use the CE pin to
+   control the loading of data into the flip-flop.
+INFO:PhysDesignRules:772 - To achieve optimal frequency synthesis performance
+   with the CLKFX and CLKFX180 outputs of the DCM comp mydcm/DCM_SP_INST,
+   consult the device Interactive Data Sheet.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA0> on
+   block:<myROMcode/Mrom_bdata_0_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA1> on
+   block:<myROMcode/Mrom_bdata_0_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA2> on
+   block:<myROMcode/Mrom_bdata_0_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA3> on
+   block:<myROMcode/Mrom_bdata_0_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA4> on
+   block:<myROMcode/Mrom_bdata_0_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA5> on
+   block:<myROMcode/Mrom_bdata_0_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA6> on
+   block:<myROMcode/Mrom_bdata_0_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA7> on
+   block:<myROMcode/Mrom_bdata_0_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA8> on
+   block:<myROMcode/Mrom_bdata_0_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA9> on
+   block:<myROMcode/Mrom_bdata_0_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA10> on
+   block:<myROMcode/Mrom_bdata_0_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA11> on
+   block:<myROMcode/Mrom_bdata_0_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA12> on
+   block:<myROMcode/Mrom_bdata_0_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA13> on
+   block:<myROMcode/Mrom_bdata_0_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA14> on
+   block:<myROMcode/Mrom_bdata_0_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA15> on
+   block:<myROMcode/Mrom_bdata_0_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA16> on
+   block:<myROMcode/Mrom_bdata_0_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA17> on
+   block:<myROMcode/Mrom_bdata_0_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA18> on
+   block:<myROMcode/Mrom_bdata_0_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA19> on
+   block:<myROMcode/Mrom_bdata_0_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA20> on
+   block:<myROMcode/Mrom_bdata_0_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA21> on
+   block:<myROMcode/Mrom_bdata_0_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA22> on
+   block:<myROMcode/Mrom_bdata_0_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA23> on
+   block:<myROMcode/Mrom_bdata_0_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA24> on
+   block:<myROMcode/Mrom_bdata_0_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA25> on
+   block:<myROMcode/Mrom_bdata_0_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA26> on
+   block:<myROMcode/Mrom_bdata_0_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA27> on
+   block:<myROMcode/Mrom_bdata_0_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA28> on
+   block:<myROMcode/Mrom_bdata_0_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA29> on
+   block:<myROMcode/Mrom_bdata_0_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA30> on
+   block:<myROMcode/Mrom_bdata_0_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA31> on
+   block:<myROMcode/Mrom_bdata_0_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA0> on
+   block:<myROMcode/Mrom_bdata_1_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA1> on
+   block:<myROMcode/Mrom_bdata_1_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA2> on
+   block:<myROMcode/Mrom_bdata_1_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA3> on
+   block:<myROMcode/Mrom_bdata_1_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA4> on
+   block:<myROMcode/Mrom_bdata_1_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA5> on
+   block:<myROMcode/Mrom_bdata_1_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA6> on
+   block:<myROMcode/Mrom_bdata_1_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA7> on
+   block:<myROMcode/Mrom_bdata_1_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA8> on
+   block:<myROMcode/Mrom_bdata_1_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA9> on
+   block:<myROMcode/Mrom_bdata_1_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA10> on
+   block:<myROMcode/Mrom_bdata_1_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA11> on
+   block:<myROMcode/Mrom_bdata_1_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA12> on
+   block:<myROMcode/Mrom_bdata_1_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA13> on
+   block:<myROMcode/Mrom_bdata_1_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA14> on
+   block:<myROMcode/Mrom_bdata_1_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA15> on
+   block:<myROMcode/Mrom_bdata_1_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA16> on
+   block:<myROMcode/Mrom_bdata_1_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA17> on
+   block:<myROMcode/Mrom_bdata_1_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA18> on
+   block:<myROMcode/Mrom_bdata_1_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA19> on
+   block:<myROMcode/Mrom_bdata_1_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA20> on
+   block:<myROMcode/Mrom_bdata_1_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA21> on
+   block:<myROMcode/Mrom_bdata_1_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA22> on
+   block:<myROMcode/Mrom_bdata_1_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA23> on
+   block:<myROMcode/Mrom_bdata_1_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA24> on
+   block:<myROMcode/Mrom_bdata_1_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA25> on
+   block:<myROMcode/Mrom_bdata_1_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA26> on
+   block:<myROMcode/Mrom_bdata_1_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA27> on
+   block:<myROMcode/Mrom_bdata_1_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA28> on
+   block:<myROMcode/Mrom_bdata_1_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA29> on
+   block:<myROMcode/Mrom_bdata_1_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA30> on
+   block:<myROMcode/Mrom_bdata_1_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA31> on
+   block:<myROMcode/Mrom_bdata_1_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA0> on
+   block:<myROMcode/Mrom_bdata_2_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA1> on
+   block:<myROMcode/Mrom_bdata_2_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA2> on
+   block:<myROMcode/Mrom_bdata_2_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA3> on
+   block:<myROMcode/Mrom_bdata_2_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA4> on
+   block:<myROMcode/Mrom_bdata_2_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA5> on
+   block:<myROMcode/Mrom_bdata_2_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA6> on
+   block:<myROMcode/Mrom_bdata_2_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA7> on
+   block:<myROMcode/Mrom_bdata_2_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA8> on
+   block:<myROMcode/Mrom_bdata_2_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA9> on
+   block:<myROMcode/Mrom_bdata_2_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA10> on
+   block:<myROMcode/Mrom_bdata_2_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA11> on
+   block:<myROMcode/Mrom_bdata_2_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA12> on
+   block:<myROMcode/Mrom_bdata_2_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA13> on
+   block:<myROMcode/Mrom_bdata_2_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA14> on
+   block:<myROMcode/Mrom_bdata_2_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA15> on
+   block:<myROMcode/Mrom_bdata_2_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA16> on
+   block:<myROMcode/Mrom_bdata_2_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA17> on
+   block:<myROMcode/Mrom_bdata_2_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA18> on
+   block:<myROMcode/Mrom_bdata_2_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA19> on
+   block:<myROMcode/Mrom_bdata_2_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA20> on
+   block:<myROMcode/Mrom_bdata_2_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA21> on
+   block:<myROMcode/Mrom_bdata_2_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA22> on
+   block:<myROMcode/Mrom_bdata_2_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA23> on
+   block:<myROMcode/Mrom_bdata_2_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA24> on
+   block:<myROMcode/Mrom_bdata_2_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA25> on
+   block:<myROMcode/Mrom_bdata_2_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA26> on
+   block:<myROMcode/Mrom_bdata_2_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA27> on
+   block:<myROMcode/Mrom_bdata_2_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA28> on
+   block:<myROMcode/Mrom_bdata_2_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA29> on
+   block:<myROMcode/Mrom_bdata_2_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA30> on
+   block:<myROMcode/Mrom_bdata_2_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA31> on
+   block:<myROMcode/Mrom_bdata_2_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA0> on
+   block:<myROMcode/Mrom_bdata_3_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA1> on
+   block:<myROMcode/Mrom_bdata_3_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA2> on
+   block:<myROMcode/Mrom_bdata_3_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA3> on
+   block:<myROMcode/Mrom_bdata_3_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA4> on
+   block:<myROMcode/Mrom_bdata_3_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA5> on
+   block:<myROMcode/Mrom_bdata_3_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA6> on
+   block:<myROMcode/Mrom_bdata_3_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA7> on
+   block:<myROMcode/Mrom_bdata_3_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA8> on
+   block:<myROMcode/Mrom_bdata_3_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA9> on
+   block:<myROMcode/Mrom_bdata_3_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA10> on
+   block:<myROMcode/Mrom_bdata_3_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA11> on
+   block:<myROMcode/Mrom_bdata_3_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA12> on
+   block:<myROMcode/Mrom_bdata_3_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA13> on
+   block:<myROMcode/Mrom_bdata_3_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA14> on
+   block:<myROMcode/Mrom_bdata_3_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA15> on
+   block:<myROMcode/Mrom_bdata_3_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA16> on
+   block:<myROMcode/Mrom_bdata_3_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA17> on
+   block:<myROMcode/Mrom_bdata_3_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA18> on
+   block:<myROMcode/Mrom_bdata_3_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA19> on
+   block:<myROMcode/Mrom_bdata_3_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA20> on
+   block:<myROMcode/Mrom_bdata_3_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA21> on
+   block:<myROMcode/Mrom_bdata_3_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA22> on
+   block:<myROMcode/Mrom_bdata_3_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA23> on
+   block:<myROMcode/Mrom_bdata_3_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA24> on
+   block:<myROMcode/Mrom_bdata_3_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA25> on
+   block:<myROMcode/Mrom_bdata_3_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA26> on
+   block:<myROMcode/Mrom_bdata_3_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA27> on
+   block:<myROMcode/Mrom_bdata_3_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA28> on
+   block:<myROMcode/Mrom_bdata_3_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA29> on
+   block:<myROMcode/Mrom_bdata_3_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA30> on
+   block:<myROMcode/Mrom_bdata_3_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA31> on
+   block:<myROMcode/Mrom_bdata_3_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA0> on
+   block:<myROMcode/Mrom_bdata_4_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA1> on
+   block:<myROMcode/Mrom_bdata_4_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA2> on
+   block:<myROMcode/Mrom_bdata_4_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA3> on
+   block:<myROMcode/Mrom_bdata_4_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA4> on
+   block:<myROMcode/Mrom_bdata_4_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA5> on
+   block:<myROMcode/Mrom_bdata_4_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA6> on
+   block:<myROMcode/Mrom_bdata_4_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA7> on
+   block:<myROMcode/Mrom_bdata_4_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA8> on
+   block:<myROMcode/Mrom_bdata_4_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA9> on
+   block:<myROMcode/Mrom_bdata_4_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA10> on
+   block:<myROMcode/Mrom_bdata_4_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA11> on
+   block:<myROMcode/Mrom_bdata_4_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA12> on
+   block:<myROMcode/Mrom_bdata_4_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA13> on
+   block:<myROMcode/Mrom_bdata_4_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA14> on
+   block:<myROMcode/Mrom_bdata_4_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA15> on
+   block:<myROMcode/Mrom_bdata_4_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA16> on
+   block:<myROMcode/Mrom_bdata_4_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA17> on
+   block:<myROMcode/Mrom_bdata_4_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA18> on
+   block:<myROMcode/Mrom_bdata_4_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA19> on
+   block:<myROMcode/Mrom_bdata_4_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA20> on
+   block:<myROMcode/Mrom_bdata_4_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA21> on
+   block:<myROMcode/Mrom_bdata_4_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA22> on
+   block:<myROMcode/Mrom_bdata_4_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA23> on
+   block:<myROMcode/Mrom_bdata_4_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA24> on
+   block:<myROMcode/Mrom_bdata_4_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA25> on
+   block:<myROMcode/Mrom_bdata_4_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA26> on
+   block:<myROMcode/Mrom_bdata_4_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA27> on
+   block:<myROMcode/Mrom_bdata_4_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA28> on
+   block:<myROMcode/Mrom_bdata_4_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA29> on
+   block:<myROMcode/Mrom_bdata_4_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA30> on
+   block:<myROMcode/Mrom_bdata_4_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA31> on
+   block:<myROMcode/Mrom_bdata_4_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA0> on
+   block:<myROMcode/Mrom_bdata_5_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA1> on
+   block:<myROMcode/Mrom_bdata_5_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA2> on
+   block:<myROMcode/Mrom_bdata_5_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA3> on
+   block:<myROMcode/Mrom_bdata_5_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA4> on
+   block:<myROMcode/Mrom_bdata_5_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA5> on
+   block:<myROMcode/Mrom_bdata_5_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA6> on
+   block:<myROMcode/Mrom_bdata_5_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA7> on
+   block:<myROMcode/Mrom_bdata_5_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA8> on
+   block:<myROMcode/Mrom_bdata_5_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA9> on
+   block:<myROMcode/Mrom_bdata_5_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA10> on
+   block:<myROMcode/Mrom_bdata_5_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA11> on
+   block:<myROMcode/Mrom_bdata_5_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA12> on
+   block:<myROMcode/Mrom_bdata_5_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA13> on
+   block:<myROMcode/Mrom_bdata_5_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA14> on
+   block:<myROMcode/Mrom_bdata_5_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA15> on
+   block:<myROMcode/Mrom_bdata_5_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA16> on
+   block:<myROMcode/Mrom_bdata_5_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA17> on
+   block:<myROMcode/Mrom_bdata_5_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA18> on
+   block:<myROMcode/Mrom_bdata_5_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA19> on
+   block:<myROMcode/Mrom_bdata_5_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA20> on
+   block:<myROMcode/Mrom_bdata_5_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA21> on
+   block:<myROMcode/Mrom_bdata_5_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA22> on
+   block:<myROMcode/Mrom_bdata_5_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA23> on
+   block:<myROMcode/Mrom_bdata_5_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA24> on
+   block:<myROMcode/Mrom_bdata_5_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA25> on
+   block:<myROMcode/Mrom_bdata_5_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA26> on
+   block:<myROMcode/Mrom_bdata_5_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA27> on
+   block:<myROMcode/Mrom_bdata_5_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA28> on
+   block:<myROMcode/Mrom_bdata_5_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA29> on
+   block:<myROMcode/Mrom_bdata_5_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA30> on
+   block:<myROMcode/Mrom_bdata_5_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA31> on
+   block:<myROMcode/Mrom_bdata_5_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA0> on
+   block:<myROMcode/Mrom_bdata_6_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA1> on
+   block:<myROMcode/Mrom_bdata_6_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA2> on
+   block:<myROMcode/Mrom_bdata_6_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA3> on
+   block:<myROMcode/Mrom_bdata_6_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA4> on
+   block:<myROMcode/Mrom_bdata_6_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA5> on
+   block:<myROMcode/Mrom_bdata_6_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA6> on
+   block:<myROMcode/Mrom_bdata_6_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA7> on
+   block:<myROMcode/Mrom_bdata_6_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA8> on
+   block:<myROMcode/Mrom_bdata_6_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA9> on
+   block:<myROMcode/Mrom_bdata_6_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA10> on
+   block:<myROMcode/Mrom_bdata_6_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA11> on
+   block:<myROMcode/Mrom_bdata_6_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA12> on
+   block:<myROMcode/Mrom_bdata_6_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA13> on
+   block:<myROMcode/Mrom_bdata_6_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA14> on
+   block:<myROMcode/Mrom_bdata_6_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA15> on
+   block:<myROMcode/Mrom_bdata_6_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA16> on
+   block:<myROMcode/Mrom_bdata_6_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA17> on
+   block:<myROMcode/Mrom_bdata_6_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA18> on
+   block:<myROMcode/Mrom_bdata_6_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA19> on
+   block:<myROMcode/Mrom_bdata_6_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA20> on
+   block:<myROMcode/Mrom_bdata_6_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA21> on
+   block:<myROMcode/Mrom_bdata_6_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA22> on
+   block:<myROMcode/Mrom_bdata_6_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA23> on
+   block:<myROMcode/Mrom_bdata_6_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA24> on
+   block:<myROMcode/Mrom_bdata_6_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA25> on
+   block:<myROMcode/Mrom_bdata_6_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA26> on
+   block:<myROMcode/Mrom_bdata_6_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA27> on
+   block:<myROMcode/Mrom_bdata_6_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA28> on
+   block:<myROMcode/Mrom_bdata_6_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA29> on
+   block:<myROMcode/Mrom_bdata_6_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA30> on
+   block:<myROMcode/Mrom_bdata_6_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA31> on
+   block:<myROMcode/Mrom_bdata_6_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA0> on
+   block:<myROMcode/Mrom_bdata_7_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA1> on
+   block:<myROMcode/Mrom_bdata_7_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA2> on
+   block:<myROMcode/Mrom_bdata_7_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA3> on
+   block:<myROMcode/Mrom_bdata_7_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA4> on
+   block:<myROMcode/Mrom_bdata_7_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA5> on
+   block:<myROMcode/Mrom_bdata_7_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA6> on
+   block:<myROMcode/Mrom_bdata_7_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA7> on
+   block:<myROMcode/Mrom_bdata_7_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA8> on
+   block:<myROMcode/Mrom_bdata_7_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA9> on
+   block:<myROMcode/Mrom_bdata_7_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA10> on
+   block:<myROMcode/Mrom_bdata_7_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA11> on
+   block:<myROMcode/Mrom_bdata_7_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA12> on
+   block:<myROMcode/Mrom_bdata_7_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA13> on
+   block:<myROMcode/Mrom_bdata_7_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA14> on
+   block:<myROMcode/Mrom_bdata_7_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA15> on
+   block:<myROMcode/Mrom_bdata_7_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA16> on
+   block:<myROMcode/Mrom_bdata_7_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA17> on
+   block:<myROMcode/Mrom_bdata_7_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA18> on
+   block:<myROMcode/Mrom_bdata_7_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA19> on
+   block:<myROMcode/Mrom_bdata_7_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA20> on
+   block:<myROMcode/Mrom_bdata_7_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA21> on
+   block:<myROMcode/Mrom_bdata_7_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA22> on
+   block:<myROMcode/Mrom_bdata_7_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA23> on
+   block:<myROMcode/Mrom_bdata_7_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA24> on
+   block:<myROMcode/Mrom_bdata_7_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA25> on
+   block:<myROMcode/Mrom_bdata_7_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA26> on
+   block:<myROMcode/Mrom_bdata_7_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA27> on
+   block:<myROMcode/Mrom_bdata_7_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA28> on
+   block:<myROMcode/Mrom_bdata_7_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA29> on
+   block:<myROMcode/Mrom_bdata_7_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA30> on
+   block:<myROMcode/Mrom_bdata_7_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA31> on
+   block:<myROMcode/Mrom_bdata_7_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA0> on
+   block:<myROMcode/Mrom_bdata_8_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA1> on
+   block:<myROMcode/Mrom_bdata_8_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA2> on
+   block:<myROMcode/Mrom_bdata_8_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA3> on
+   block:<myROMcode/Mrom_bdata_8_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA4> on
+   block:<myROMcode/Mrom_bdata_8_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA5> on
+   block:<myROMcode/Mrom_bdata_8_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA6> on
+   block:<myROMcode/Mrom_bdata_8_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA7> on
+   block:<myROMcode/Mrom_bdata_8_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA8> on
+   block:<myROMcode/Mrom_bdata_8_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA9> on
+   block:<myROMcode/Mrom_bdata_8_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA10> on
+   block:<myROMcode/Mrom_bdata_8_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA11> on
+   block:<myROMcode/Mrom_bdata_8_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA12> on
+   block:<myROMcode/Mrom_bdata_8_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA13> on
+   block:<myROMcode/Mrom_bdata_8_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA14> on
+   block:<myROMcode/Mrom_bdata_8_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA15> on
+   block:<myROMcode/Mrom_bdata_8_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA16> on
+   block:<myROMcode/Mrom_bdata_8_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA17> on
+   block:<myROMcode/Mrom_bdata_8_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA18> on
+   block:<myROMcode/Mrom_bdata_8_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA19> on
+   block:<myROMcode/Mrom_bdata_8_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA20> on
+   block:<myROMcode/Mrom_bdata_8_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA21> on
+   block:<myROMcode/Mrom_bdata_8_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA22> on
+   block:<myROMcode/Mrom_bdata_8_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA23> on
+   block:<myROMcode/Mrom_bdata_8_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA24> on
+   block:<myROMcode/Mrom_bdata_8_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA25> on
+   block:<myROMcode/Mrom_bdata_8_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA26> on
+   block:<myROMcode/Mrom_bdata_8_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA27> on
+   block:<myROMcode/Mrom_bdata_8_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA28> on
+   block:<myROMcode/Mrom_bdata_8_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA29> on
+   block:<myROMcode/Mrom_bdata_8_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA30> on
+   block:<myROMcode/Mrom_bdata_8_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA31> on
+   block:<myROMcode/Mrom_bdata_8_rom0000>:<RAMB16BWE_RAMB16BWE>.
+DRC detected 0 errors and 294 warnings.  Please see the previously displayed
+individual error or warning messages for more details.
+Creating bit map...
+Saving bit stream in "mycpu.bit".
+Bitstream generation is complete.

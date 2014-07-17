@@ -1,0 +1,32 @@
+#
+# @(#)FILES_java.gmk	1.3 01/02/02
+#
+FILES_java = \
+	$(TARGDIR)com/sun/jndi/ldap/ext/StartTlsResponseImpl.java \
+	$(TARGDIR)com/sun/jndi/ldap/sasl/DefaultCallbackHandler.java \
+	$(TARGDIR)com/sun/jndi/ldap/sasl/LdapSasl.java \
+	$(TARGDIR)com/sun/jndi/ldap/sasl/SaslInputStream.java \
+	$(TARGDIR)com/sun/jndi/ldap/sasl/SaslOutputStream.java \
+	$(TARGDIR)com/sun/security/sasl/ClientFactory.java \
+	$(TARGDIR)com/sun/security/sasl/External.java \
+	$(TARGDIR)com/sun/security/sasl/digest/ClientFactory.java \
+	$(TARGDIR)com/sun/security/sasl/digest/DigestMD5.java \
+	$(TARGDIR)com/sun/security/sasl/digest/DigestSecurityCtx.java \
+	$(TARGDIR)com/sun/security/sasl/digest/DigestUtils.java \
+	$(TARGDIR)com/sun/security/sasl/gsskerb/ClientFactory.java \
+	$(TARGDIR)com/sun/security/sasl/gsskerb/GssKerberosV5.java \
+	$(TARGDIR)com/sun/security/sasl/preview/AuthorizeCallback.java \
+	$(TARGDIR)com/sun/security/sasl/preview/FactoryEnumeration.java \
+	$(TARGDIR)com/sun/security/sasl/preview/MergedEnumeration.java \
+	$(TARGDIR)com/sun/security/sasl/preview/RealmCallback.java \
+	$(TARGDIR)com/sun/security/sasl/preview/RealmChoiceCallback.java \
+	$(TARGDIR)com/sun/security/sasl/preview/Sasl.java \
+	$(TARGDIR)com/sun/security/sasl/preview/SaslClient.java \
+	$(TARGDIR)com/sun/security/sasl/preview/SaslClientFactory.java \
+	$(TARGDIR)com/sun/security/sasl/preview/SaslException.java \
+	$(TARGDIR)com/sun/security/sasl/preview/SaslServer.java \
+	$(TARGDIR)com/sun/security/sasl/preview/SaslServerFactory.java \
+	$(TARGDIR)com/sun/security/sasl/preview/VersionHelper.java \
+	$(TARGDIR)com/sun/security/sasl/preview/VersionHelper12.java \
+	$(TARGDIR)com/sun/security/sasl/util/Policy.java \
+	$(TARGDIR)com/sun/security/sasl/util/SaslImpl.java

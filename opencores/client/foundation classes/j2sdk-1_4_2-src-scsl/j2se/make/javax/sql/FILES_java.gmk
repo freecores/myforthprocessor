@@ -1,0 +1,18 @@
+#
+# @(#)FILES_java.gmk	1.2 02/09/19
+#
+FILES_java = \
+	$(TARGDIR)javax/sql/ConnectionEvent.java \
+	$(TARGDIR)javax/sql/ConnectionEventListener.java \
+	$(TARGDIR)javax/sql/ConnectionPoolDataSource.java \
+	$(TARGDIR)javax/sql/DataSource.java \
+	$(TARGDIR)javax/sql/PooledConnection.java \
+	$(TARGDIR)javax/sql/RowSet.java \
+	$(TARGDIR)javax/sql/RowSetEvent.java \
+	$(TARGDIR)javax/sql/RowSetInternal.java \
+	$(TARGDIR)javax/sql/RowSetListener.java \
+	$(TARGDIR)javax/sql/RowSetMetaData.java \
+	$(TARGDIR)javax/sql/RowSetReader.java \
+	$(TARGDIR)javax/sql/RowSetWriter.java \
+	$(TARGDIR)javax/sql/XAConnection.java \
+	$(TARGDIR)javax/sql/XADataSource.java

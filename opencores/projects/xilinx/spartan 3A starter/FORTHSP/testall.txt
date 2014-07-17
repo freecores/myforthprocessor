@@ -1,0 +1,62 @@
+.( Test der einfach ganzzahligen Arthmetik ) CR
+.( -7 3 SM/REM :  ) -7 S>D 3 SM/REM .( QUOT :=  ) . .(  REM :=  ) . CR
+.( -7 3 FM/MOD :  ) -7 S>D 3 FM/MOD .( QUOT :=  ) . .(  REM :=  ) . CR
+.( -7 2 3 */MOD :  ) -7 2 3 */MOD .( QUOT :=  ) . .(  REM :=  ) . CR
+.( 2000000000 -2000000000 M* :  ) 2000000000 -2000000000 M* D. CR
+.( 0 S>D " 1234567890 " COUNT >NUMBER :  ) 0 S>D " 1234567890 " COUNT >NUMBER 2DROP D. CR
+.( Test der doppelt ganzzahligen Arithmetik ) CR
+.( -8 >> 3 :  ) -8 S>D 3 ASHIFT D. CR
+.( -8 << 3 :  ) -8 S>D 3 SHIFTL D. CR
+.( -8 >>> 3 :  ) -8 S>D 3 SHIFTR D. CR
+.( print -1 unsigned:  ) -1 DUP 0 UD..R TYPE CR
+.( 20000000 -200000000000 D* :  ) 20000000 S>D -200000000000 D* D. CR
+.( 2000000000 -2000000000 D/ :  ) 2000000000 S>D -2000000000 S>D D/ D. CR
+.( 2000000000 -2000000000 DMOD* :  ) 2000000000 S>D -2000000000 S>D DMOD D. CR
+.( Test der doppelt genauen Fließkommaarithmetik ) CR
+.( " 12.95e-1 " COUNT >FLOAT :  ) " 12.95e-1 " COUNT >FLOAT DROP F. CR
+.( -1.4 FLOOR :  ) -1.4 FLOOR F. CR
+.( -1.4 FROUND :  ) -1.4 FROUND F. CR
+.( 5. 1.7 F** :  ) 5. 1.7 F** F. CR
+.( -.5 FATAN FTAN :  ) -.5 FATAN 2DUP F. CR FTAN F. CR
+.( -.5 FACOS FCOS :  ) -.5 FACOS 2DUP F. CR FCOS F. CR
+.( 1.5 FACOSH FCOSH :  ) 1.5 FACOSH 2DUP F. CR FCOSH F. CR
+.( 1.5 FASINH FSINH :  ) 1.5 FASINH 2DUP F. CR FSINH F. CR
+.( .5 FATANH FTANH :  ) .5 FATANH 2DUP F. CR FTANH F. CR
+.( .5 FLN FEXP : ) .5 FLN 2DUP F. CR FEXP F. CR
+.( 5e-7 FSQRT :  ) 5e-7 FSQRT FS. CR
+.( Test der remote procedures ) CR
+.( write text to file testwrite.txt and read it ) CR
+" testwrite.txt " COUNT R/W CREATE-FILE DROP A:R>
+S" Zeile 1 " R@ WRITE-LINE DROP 
+S" Zeile 2 " R@ WRITE-FILE DROP 
+0 DUP R@ REPOSITION-FILE DROP
+PAD 256 R@ READ-FILE DROP PAD SWAP TYPE CR
+R> CLOSE-FILE DROP
+.( rename file to junk ) CR
+" testwrite.txt " COUNT " junk " COUNT RENAME-FILE DROP
+.( path of file: ) PAD 256 " junk " COUNT ABSOLUTE-FILE DROP TYPE CR
+.( get file date ) CR
+" junk " COUNT GET-FILEDATE DROP D. CR
+.( set file date to 123 and read back ) CR
+0 123 " junk " COUNT SET-FILEDATE DROP
+" junk " COUNT GET-FILEDATE DROP D. CR
+.( get file status ) CR
+" junk " COUNT FILE-STATUS DROP . CR
+.( read from last file ) CR
+" junk " COUNT R/W OPEN-FILE DROP A:R>
+.( size:  ) R@ FILE-SIZE DROP D. CR
+.( skip first 4 chars and read line: ) 4 S>D R@ REPOSITION-FILE DROP PAD 256 R@ READ-LINE DROP PAD SWAP TYPE CR
+.( position:  ) R@ FILE-POSITION DROP D. CR
+.( read next 5 chars:  ) PAD 5 R@ READ-FILE DROP PAD SWAP TYPE CR
+.( resize file length to 3 and read file completely ) CR
+0 3 R@ RESIZE-FILE DROP
+0 DUP R@ REPOSITION-FILE DROP PAD 256 R@ READ-FILE DROP PAD SWAP TYPE CR
+R> CLOSE-FILE DROP
+.( redirect standard input to file junk and read out ) CR
+" junk " COUNT INCLUDED DROP 1000000 0 DO LOOP
+[CHAR] i WORD COUNT TYPE [CHAR] i EMIT CR
+.( delete file ) CR " junk " COUNT DELETE-FILE DROP
+\ .( list content of download directory )
+\ 5000 -1 " _ngo " COUNT ENTRIES-FILE
+\ 0= OVER 0<> AND IF TYPE ELSE 2DROP ENDIF
+.( end of test ) CR

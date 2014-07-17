@@ -1,0 +1,850 @@
+0000000d               
+0000000d               sort.Object.Object§1827294976 LABEL 
+0000000d  56           0 VAL 
+0000000e  90           A:R@ ( §this declared ) 
+0000000f  08           DROP 
+00000010  56           0 VAL 
+00000011  461c00       28 VAL 
+00000014  0d00000000   MALLOC VAL ( will be modified! ) 
+00000019  00           NOP ( will be modified! ) 
+0000001a  08           DROP 
+0000001b  0e           DUP ( §this will be modified! ) 
+0000001c  88           A:DROP 
+0000001d  90           A:R@ 
+0000001e  08           DROP 
+0000001f  0f           OVER 
+00000020  420900       §1 0BRANCH 
+00000023  0f           OVER 
+00000024  1d           CELL+ 
+00000025  02           @ 
+00000026  52           4 VAL 
+00000027  16           + 
+00000028  0f           OVER 
+00000029  0f           OVER 
+0000002a  01           ! 
+0000002b  08           DROP 
+0000002c               §1 LABEL 
+0000002c  1d           CELL+ 
+0000002d  02           @ 
+0000002e  0f           OVER 
+0000002f  0f           OVER 
+00000030  01           ! 
+00000031  0a           NIP 
+00000032  0d00000000   sort.Object§-1890496768.table VAL ( will be modified! ) 
+00000037  00           NOP ( will be modified! ) 
+00000038  0f           OVER 
+00000039  4a           12 VAL 
+0000003a  16           + 
+0000003b  01           ! 
+0000003c  0d0000518f   -1890516992 VAL 
+00000041  0f           OVER 
+00000042  461400       20 VAL 
+00000045  16           + 
+00000046  01           ! 
+00000047  0d65000000   §2 VAL 
+0000004c  0f           OVER 
+0000004d  461000       16 VAL 
+00000050  16           + 
+00000051  01           ! 
+00000052  08           DROP 
+00000053  56           0 VAL ( §this will be fetched! ) 
+00000054  10           R@ 
+00000055  1d           CELL+ 
+00000056  02           @ 
+00000057  461800       24 VAL 
+0000005a  16           + 
+0000005b  01           ! ( §this will be fetched! ) 
+0000005c  10           R@ 
+0000005d  56           0 VAL 
+0000005e               §break32 LABEL 
+0000005e  88           A:DROP 
+0000005f  08           DROP 
+00000060               §0 LABEL 
+00000060  3d           EXIT 
+00000061  0600         §2 LABEL 
+00000063  4f626a656374 " Object " 
+00000069               
+00000069               sort.Object.clone§-360160512 LABEL 
+00000069  90           A:R@ ( §this declared ) 
+0000006a  08           DROP ( §this will be fetched! ) 
+0000006b  10           R@ 
+0000006c  0d00000000   ALLOCATED-SIZE VAL ( will be modified! ) 
+00000071  00           NOP ( will be modified! ) 
+00000072  90           A:R@ 
+00000073  0d00000000   ALLOCATE VAL ( will be modified! ) 
+00000078  00           NOP ( will be modified! ) 
+00000079  08           DROP 
+0000007a  90           A:R@ 
+0000007b  08           DROP ( §this will be fetched! ) 
+0000007c  d4           2 A:VAL 
+0000007d  8b           A:PICK 
+0000007e  10           R@ 
+0000007f  88           A:DROP 
+00000080  1d           CELL+ 
+00000081  02           @ 
+00000082  10           R@ 
+00000083  1d           CELL+ 
+00000084  02           @ 
+00000085  11           R1@ 
+00000086  56           0 VAL 
+00000087  91           A:R1@ 
+00000088  90           A:R@ 
+00000089  09           2DROP 
+0000008a  400900       §6 BRANCH 
+0000008d               §4 LABEL 
+0000008d  0f           OVER 
+0000008e  10           R@ 
+0000008f  16           + 
+00000090  04           C@ 
+00000091  0f           OVER 
+00000092  10           R@ 
+00000093  16           + 
+00000094  03           C! 
+00000095  98           A:1+ 
+00000096               §6 LABEL 
+00000096  ad           A:CMP 
+00000097  b8           A:0> 
+00000098  9f           A:INVERT 
+00000099  c2f1ff       §4 A:0BRANCH 
+0000009c  89           A:2DROP 
+0000009d               §5 LABEL 
+0000009d  09           2DROP 
+0000009e  10           R@ 
+0000009f  1d           CELL+ 
+000000a0  02           @ 
+000000a1  0e           DUP 
+000000a2  0d00000000   INCREFERENCE VAL ( will be modified! ) 
+000000a7  00           NOP ( will be modified! ) 
+000000a8  1d           CELL+ 
+000000a9  0e           DUP 
+000000aa  0d00000000   INCREFERENCE VAL ( will be modified! ) 
+000000af  00           NOP ( will be modified! ) 
+000000b0  1d           CELL+ 
+000000b1  0d00000000   INCREFERENCE VAL ( will be modified! ) 
+000000b6  00           NOP ( will be modified! ) 
+000000b7  10           R@ 
+000000b8  89           A:2DROP 
+000000b9  56           0 VAL 
+000000ba               §break23 LABEL 
+000000ba  88           A:DROP 
+000000bb  08           DROP 
+000000bc               §3 LABEL 
+000000bc  3d           EXIT 
+000000bd               
+000000bd               sort.Object.equals§-240098048 LABEL 
+000000bd  90           A:R@ ( obj declared ) 
+000000be  08           DROP 
+000000bf  90           A:R@ ( §this declared ) 
+000000c0  08           DROP ( §this will be fetched! ) 
+000000c1  10           R@ ( obj will be fetched! ) 
+000000c2  d5           1 A:VAL 
+000000c3  8b           A:PICK 
+000000c4  10           R@ 
+000000c5  88           A:DROP 
+000000c6  17           - 
+000000c7  2c           0= 
+000000c8  56           0 VAL 
+000000c9  400100       §break22 BRANCH 
+000000cc  56           0 VAL 
+000000cd               §break22 LABEL ( obj will be fetched! ) 
+000000cd  d5           1 A:VAL 
+000000ce  8b           A:PICK 
+000000cf  10           R@ 
+000000d0  88           A:DROP 
+000000d1  57           -1 VAL 
+000000d2  0d00000000   equation.JavaArray.kill§1620077312 VAL ( will be modified! ) 
+000000d7  00           NOP ( will be modified! ) 
+000000d8  89           A:2DROP 
+000000d9  08           DROP 
+000000da               §7 LABEL 
+000000da  3d           EXIT 
+000000db               
+000000db               sort.Object.finalize§997811712 LABEL 
+000000db  90           A:R@ ( §this declared ) 
+000000dc  08           DROP 
+000000dd  56           0 VAL 
+000000de               §break31 LABEL 
+000000de  88           A:DROP 
+000000df  08           DROP 
+000000e0               §8 LABEL 
+000000e0  3d           EXIT 
+000000e1               
+000000e1               sort.Object.hashCode§-1604556800 LABEL 
+000000e1  90           A:R@ ( §this declared ) 
+000000e2  08           DROP ( §this will be fetched! ) 
+000000e3  10           R@ 
+000000e4  0e           DUP 
+000000e5  0d00000000   INCREFERENCE VAL ( will be modified! ) 
+000000ea  00           NOP ( will be modified! ) 
+000000eb  56           0 VAL 
+000000ec  400100       §break21 BRANCH 
+000000ef  56           0 VAL 
+000000f0               §break21 LABEL 
+000000f0  88           A:DROP 
+000000f1  08           DROP 
+000000f2               §9 LABEL 
+000000f2  3d           EXIT 
+000000f3               
+000000f3               sort.Object.notify§2134994432 LABEL 
+000000f3  90           A:R@ ( §this declared ) 
+000000f4  08           DROP 
+000000f5  56           0 VAL 
+000000f6               §break25 LABEL 
+000000f6  88           A:DROP 
+000000f7  08           DROP 
+000000f8               §10 LABEL 
+000000f8  3d           EXIT 
+000000f9               
+000000f9               sort.Object.notifyAll§2130144768 LABEL 
+000000f9  90           A:R@ ( §this declared ) 
+000000fa  08           DROP 
+000000fb  56           0 VAL 
+000000fc               §break26 LABEL 
+000000fc  88           A:DROP 
+000000fd  08           DROP 
+000000fe               §11 LABEL 
+000000fe  3d           EXIT 
+000000ff               
+000000ff               sort.Object.toString§1621718016 LABEL 
+000000ff  90           A:R@ ( §this declared ) 
+00000100  08           DROP 
+00000101  56           0 VAL 
+00000102  0e           DUP 
+00000103  0e           DUP 
+00000104  90           A:R@ ( h declared ) 
+00000105  08           DROP 
+00000106  90           A:R@ ( length declared ) 
+00000107  08           DROP 
+00000108  90           A:R@ ( string declared ) 
+00000109  08           DROP ( §this will be fetched! ) 
+0000010a  d3           3 A:VAL 
+0000010b  8b           A:PICK 
+0000010c  10           R@ 
+0000010d  88           A:DROP 
+0000010e  1d           CELL+ 
+0000010f  02           @ 
+00000110  461000       16 VAL 
+00000113  16           + 
+00000114  1e           HALF+ 
+00000115  0e           DUP 
+00000116  19           1- 
+00000117  04           C@ 
+00000118  4e           8 VAL 
+00000119  20           LSHIFT 
+0000011a  0f           OVER 
+0000011b  19           1- 
+0000011c  19           1- 
+0000011d  04           C@ 
+0000011e  22           OR ( length will be modified! ) 
+0000011f  90           A:R@ 
+00000120  d5           1 A:VAL 
+00000121  8c           A:PUT 
+00000122  08           DROP ( string will be modified! ) 
+00000123  88           A:DROP 
+00000124  90           A:R@ 
+00000125  08           DROP 
+00000126  56           0 VAL 
+00000127  0e           DUP 
+00000128  0e           DUP 
+00000129  0e           DUP 
+0000012a  90           A:R@ ( 3§ declared ) 
+0000012b  08           DROP 
+0000012c  90           A:R@ ( 2§ declared ) 
+0000012d  08           DROP 
+0000012e  90           A:R@ ( 1§ declared ) 
+0000012f  08           DROP 
+00000130  90           A:R@ ( 0§ declared ) 
+00000131  08           DROP ( length will be fetched! ) 
+00000132  d1           5 A:VAL 
+00000133  8b           A:PICK 
+00000134  10           R@ 
+00000135  88           A:DROP ( string will be fetched! ) 
+00000136  d2           4 A:VAL 
+00000137  8b           A:PICK 
+00000138  10           R@ 
+00000139  88           A:DROP 
+0000013a  0d00000000   equation.JavaArray.createString§-105880832 VAL ( will be modified! ) 
+0000013f  00           NOP ( will be modified! ) 
+00000140  0e           DUP ( 0§ will be modified! ) 
+00000141  88           A:DROP 
+00000142  90           A:R@ 
+00000143  08           DROP 
+00000144  0dfa010000   §13 VAL 
+00000149  1e           HALF+ 
+0000014a  0e           DUP 
+0000014b  19           1- 
+0000014c  04           C@ 
+0000014d  4e           8 VAL 
+0000014e  20           LSHIFT 
+0000014f  0f           OVER 
+00000150  19           1- 
+00000151  19           1- 
+00000152  04           C@ 
+00000153  22           OR 
+00000154  0d00000000   equation.JavaArray.createUnicode§-675323136 VAL ( will be modified! ) 
+00000159  00           NOP ( will be modified! ) 
+0000015a  0e           DUP ( 1§ will be modified! ) 
+0000015b  90           A:R@ 
+0000015c  d5           1 A:VAL 
+0000015d  8c           A:PUT 
+0000015e  08           DROP 
+0000015f  0e           DUP 
+00000160  0d00000000   INCREFERENCE VAL ( will be modified! ) 
+00000165  00           NOP ( will be modified! ) 
+00000166  0f           OVER 
+00000167  0d0063e4a8   -1461427456 VAL 
+0000016c  57           -1 VAL 
+0000016d  0d00000000   EXECUTE-METHOD VAL ( will be modified! ) 
+00000172  00           NOP ( will be modified! ) 
+00000173  0e           DUP ( 2§ will be modified! ) 
+00000174  90           A:R@ 
+00000175  d4           2 A:VAL 
+00000176  8c           A:PUT 
+00000177  08           DROP ( §this will be fetched! ) 
+00000178  cf           7 A:VAL 
+00000179  8b           A:PICK 
+0000017a  10           R@ 
+0000017b  88           A:DROP 
+0000017c  90           A:R@ 
+0000017d  10           R@ 
+0000017e  88           A:DROP 
+0000017f  0d00685ca0   -1604556800 VAL 
+00000184  57           -1 VAL 
+00000185  0d00000000   EXECUTE-METHOD VAL ( will be modified! ) 
+0000018a  00           NOP ( will be modified! ) 
+0000018b  0d00000000   <# VAL ( will be modified! ) 
+00000190  00           NOP ( will be modified! ) 
+00000191  56           0 VAL 
+00000192  0d00000000   ..R VAL ( will be modified! ) 
+00000197  00           NOP ( will be modified! ) 
+00000198  0d00000000   equation.JavaArray.createString§-105880832 VAL ( will be modified! ) 
+0000019d  00           NOP ( will be modified! ) 
+0000019e  0e           DUP ( 3§ will be modified! ) 
+0000019f  90           A:R@ 
+000001a0  d3           3 A:VAL 
+000001a1  8c           A:PUT 
+000001a2  08           DROP 
+000001a3  0e           DUP 
+000001a4  0d00000000   INCREFERENCE VAL ( will be modified! ) 
+000001a9  00           NOP ( will be modified! ) 
+000001aa  0f           OVER 
+000001ab  0d0063e4a8   -1461427456 VAL 
+000001b0  57           -1 VAL 
+000001b1  0d00000000   EXECUTE-METHOD VAL ( will be modified! ) 
+000001b6  00           NOP ( will be modified! ) ( 3§ will be fetched! ) 
+000001b7  d3           3 A:VAL 
+000001b8  8b           A:PICK 
+000001b9  10           R@ 
+000001ba  88           A:DROP 
+000001bb  57           -1 VAL 
+000001bc  0d00000000   equation.JavaArray.kill§1620077312 VAL ( will be modified! ) 
+000001c1  00           NOP ( will be modified! ) ( 2§ will be fetched! ) 
+000001c2  d4           2 A:VAL 
+000001c3  8b           A:PICK 
+000001c4  10           R@ 
+000001c5  88           A:DROP 
+000001c6  57           -1 VAL 
+000001c7  0d00000000   equation.JavaArray.kill§1620077312 VAL ( will be modified! ) 
+000001cc  00           NOP ( will be modified! ) ( 1§ will be fetched! ) 
+000001cd  d5           1 A:VAL 
+000001ce  8b           A:PICK 
+000001cf  10           R@ 
+000001d0  88           A:DROP 
+000001d1  57           -1 VAL 
+000001d2  0d00000000   equation.JavaArray.kill§1620077312 VAL ( will be modified! ) 
+000001d7  00           NOP ( will be modified! ) ( 0§ will be fetched! ) 
+000001d8  10           R@ 
+000001d9  57           -1 VAL 
+000001da  0d00000000   equation.JavaArray.kill§1620077312 VAL ( will be modified! ) 
+000001df  00           NOP ( will be modified! ) 
+000001e0  89           A:2DROP 
+000001e1  89           A:2DROP 
+000001e2  56           0 VAL 
+000001e3  400100       §break24 BRANCH 
+000001e6  56           0 VAL 
+000001e7               §break24 LABEL ( h will be fetched! ) 
+000001e7  d4           2 A:VAL 
+000001e8  8b           A:PICK 
+000001e9  10           R@ 
+000001ea  88           A:DROP 
+000001eb  57           -1 VAL 
+000001ec  0d00000000   equation.JavaArray.kill§1620077312 VAL ( will be modified! ) 
+000001f1  00           NOP ( will be modified! ) 
+000001f2  89           A:2DROP 
+000001f3  89           A:2DROP 
+000001f4  08           DROP 
+000001f5               §12 LABEL 
+000001f5  3d           EXIT 
+000001f6  0200         §13 LABEL 
+000001f8  4000         " @  " 
+000001fa               
+000001fa               sort.Object.wait§-1913293056 LABEL 
+000001fa  91           A:R1@ ( timeout declared ) 
+000001fb  90           A:R@ 
+000001fc  09           2DROP 
+000001fd  90           A:R@ ( §this declared ) 
+000001fe  08           DROP 
+000001ff               §15 LABEL 
+000001ff  0d00000000   MILLISECONDS VAL ( will be modified! ) 
+00000204  00           NOP ( will be modified! ) 
+00000205  90           A:R@ 
+00000206  1d           CELL+ 
+00000207  02           @ 
+00000208  10           R@ 
+00000209  88           A:DROP 
+0000020a  02           @ 
+0000020b               §17 LABEL 
+0000020b  0f           OVER 
+0000020c  0f           OVER 
+0000020d  0d00000000   MILLISECONDS VAL ( will be modified! ) 
+00000212  00           NOP ( will be modified! ) 
+00000213  90           A:R@ 
+00000214  1d           CELL+ 
+00000215  02           @ 
+00000216  10           R@ 
+00000217  88           A:DROP 
+00000218  02           @ 
+00000219  91           A:R1@ 
+0000021a  0a           NIP 
+0000021b  17           - 
+0000021c  10           R@ 
+0000021d  91           A:R1@ 
+0000021e  0a           NIP 
+0000021f  26           -B 
+00000220  10           R@ 
+00000221  89           A:2DROP 
+00000222  22           OR 
+00000223  2c           0= 
+00000224  1f           INVERT 
+00000225  42e3ff       §17 0BRANCH 
+00000228               §18 LABEL 
+00000228  09           2DROP ( timeout will be fetched! ) 
+00000229  d4           2 A:VAL 
+0000022a  8b           A:PICK 
+0000022b  10           R@ 
+0000022c  88           A:DROP 
+0000022d  d5           1 A:VAL 
+0000022e  8b           A:PICK 
+0000022f  10           R@ 
+00000230  88           A:DROP 
+00000231  56           0 VAL 
+00000232  55           1 VAL 
+00000233  91           A:R1@ 
+00000234  0a           NIP 
+00000235  17           - 
+00000236  10           R@ 
+00000237  91           A:R1@ 
+00000238  0a           NIP 
+00000239  26           -B 
+0000023a  10           R@ 
+0000023b  89           A:2DROP 
+0000023c  0f           OVER 
+0000023d  0f           OVER ( timeout will be modified! ) 
+0000023e  91           A:R1@ 
+0000023f  d4           2 A:VAL 
+00000240  8c           A:PUT 
+00000241  90           A:R@ 
+00000242  d5           1 A:VAL 
+00000243  8c           A:PUT 
+00000244  09           2DROP 
+00000245  22           OR 
+00000246  2c           0= 
+00000247  42b5ff       §15 0BRANCH 
+0000024a               §16 LABEL 
+0000024a  56           0 VAL 
+0000024b               §break27 LABEL 
+0000024b  89           A:2DROP 
+0000024c  88           A:DROP 
+0000024d  08           DROP 
+0000024e               §14 LABEL 
+0000024e  3d           EXIT 
+0000024f               
+0000024f               sort.Object.wait§-892045568 LABEL 
+0000024f  90           A:R@ ( §this declared ) 
+00000250  08           DROP ( §this will be fetched! ) 
+00000251  10           R@ 
+00000252  90           A:R@ 
+00000253  56           0 VAL 
+00000254  90           A:R@ 
+00000255  2a           0< 
+00000256  10           R@ 
+00000257  88           A:DROP 
+00000258  10           R@ 
+00000259  88           A:DROP 
+0000025a  0d0077f58d   -1913293056 VAL 
+0000025f  57           -1 VAL 
+00000260  0d00000000   EXECUTE-METHOD VAL ( will be modified! ) 
+00000265  00           NOP ( will be modified! ) 
+00000266  56           0 VAL 
+00000267               §break30 LABEL 
+00000267  88           A:DROP 
+00000268  08           DROP 
+00000269               §19 LABEL 
+00000269  3d           EXIT 
+0000026a               
+0000026a               sort.Object.wait§2084337408 LABEL 
+0000026a  90           A:R@ ( nanos declared ) 
+0000026b  08           DROP 
+0000026c  91           A:R1@ ( timeout declared ) 
+0000026d  90           A:R@ 
+0000026e  09           2DROP 
+0000026f  90           A:R@ ( §this declared ) 
+00000270  08           DROP ( nanos will be fetched! ) 
+00000271  d3           3 A:VAL 
+00000272  8b           A:PICK 
+00000273  10           R@ 
+00000274  88           A:DROP 
+00000275  0d20a10700   500000 VAL 
+0000027a  17           - 
+0000027b  2a           0< 
+0000027c  1f           INVERT 
+0000027d  2b           0=! 
+0000027e  421400       or_1975 0BRANCH 
+00000281  08           DROP ( nanos will be fetched! ) 
+00000282  d3           3 A:VAL 
+00000283  8b           A:PICK 
+00000284  10           R@ 
+00000285  88           A:DROP 
+00000286  36           0<> 
+00000287  410b00       and_1976 0BRANCH! 
+0000028a  08           DROP ( timeout will be fetched! ) 
+0000028b  d4           2 A:VAL 
+0000028c  8b           A:PICK 
+0000028d  10           R@ 
+0000028e  88           A:DROP 
+0000028f  d5           1 A:VAL 
+00000290  8b           A:PICK 
+00000291  10           R@ 
+00000292  88           A:DROP 
+00000293  22           OR 
+00000294  2c           0= 
+00000295               and_1976 LABEL 
+00000295               or_1975 LABEL 
+00000295  422a00       §21 0BRANCH ( timeout will be fetched! ) 
+00000298  d4           2 A:VAL 
+00000299  8b           A:PICK 
+0000029a  10           R@ 
+0000029b  88           A:DROP 
+0000029c  d5           1 A:VAL 
+0000029d  8b           A:PICK 
+0000029e  10           R@ 
+0000029f  88           A:DROP 
+000002a0  56           0 VAL 
+000002a1  0e           DUP 
+000002a2  18           1+ 
+000002a3  91           A:R1@ 
+000002a4  0a           NIP 
+000002a5  16           + 
+000002a6  10           R@ 
+000002a7  91           A:R1@ 
+000002a8  0a           NIP 
+000002a9  25           +B 
+000002aa  10           R@ 
+000002ab  89           A:2DROP ( timeout will be modified! ) 
+000002ac  91           A:R1@ 
+000002ad  d4           2 A:VAL 
+000002ae  8c           A:PUT 
+000002af  90           A:R@ 
+000002b0  d5           1 A:VAL 
+000002b1  8c           A:PUT 
+000002b2  09           2DROP 
+000002b3  56           0 VAL 
+000002b4               §break29 LABEL 
+000002b4  37           0>! 
+000002b5  420900       §22 0BRANCH 
+000002b8  0d01000100   65537 VAL 
+000002bd  17           - 
+000002be  401a00       §break28 BRANCH 
+000002c1               §22 LABEL 
+000002c1  08           DROP 
+000002c2               §21 LABEL ( §this will be fetched! ) 
+000002c2  10           R@ 
+000002c3  90           A:R@ ( timeout will be fetched! ) 
+000002c4  d3           3 A:VAL 
+000002c5  8b           A:PICK 
+000002c6  10           R@ 
+000002c7  88           A:DROP 
+000002c8  d4           2 A:VAL 
+000002c9  8b           A:PICK 
+000002ca  10           R@ 
+000002cb  88           A:DROP 
+000002cc  10           R@ 
+000002cd  88           A:DROP 
+000002ce  0d0077f58d   -1913293056 VAL 
+000002d3  57           -1 VAL 
+000002d4  0d00000000   EXECUTE-METHOD VAL ( will be modified! ) 
+000002d9  00           NOP ( will be modified! ) 
+000002da  56           0 VAL 
+000002db               §break28 LABEL 
+000002db  89           A:2DROP 
+000002dc  89           A:2DROP 
+000002dd  08           DROP 
+000002de               §20 LABEL 
+000002de  3d           EXIT 
+000002df               
+000002df               sort.Object.~destructor§-1086882304 LABEL 
+000002df  90           A:R@ ( §this declared ) 
+000002e0  08           DROP 
+000002e1  56           0 VAL 
+000002e2  90           A:R@ ( obj declared ) 
+000002e3  08           DROP ( §this will be fetched! ) 
+000002e4  d5           1 A:VAL 
+000002e5  8b           A:PICK 
+000002e6  10           R@ 
+000002e7  88           A:DROP 
+000002e8  02           @ 
+000002e9  19           1- 
+000002ea  2c           0= 
+000002eb  422600       §24 0BRANCH ( §this will be fetched! ) 
+000002ee  d5           1 A:VAL 
+000002ef  8b           A:PICK 
+000002f0  10           R@ 
+000002f1  88           A:DROP 
+000002f2  1d           CELL+ 
+000002f3  02           @ 
+000002f4  02           @ ( obj will be modified! ) 
+000002f5  88           A:DROP 
+000002f6  90           A:R@ 
+000002f7  08           DROP ( obj will be fetched! ) 
+000002f8  10           R@ 
+000002f9  56           0 VAL 
+000002fa  0d00000000   equation.JavaArray.kill§1620077312 VAL ( will be modified! ) 
+000002ff  00           NOP ( will be modified! ) ( §this will be fetched! ) 
+00000300  d5           1 A:VAL 
+00000301  8b           A:PICK 
+00000302  10           R@ 
+00000303  88           A:DROP 
+00000304  1d           CELL+ 
+00000305  02           @ 
+00000306  4e           8 VAL 
+00000307  16           + 
+00000308  02           @ ( obj will be modified! ) 
+00000309  88           A:DROP 
+0000030a  90           A:R@ 
+0000030b  08           DROP ( obj will be fetched! ) 
+0000030c  10           R@ 
+0000030d  56           0 VAL 
+0000030e  0d00000000   equation.JavaArray.kill§1620077312 VAL ( will be modified! ) 
+00000313  00           NOP ( will be modified! ) 
+00000314               §24 LABEL ( §this will be fetched! ) 
+00000314  d5           1 A:VAL 
+00000315  8b           A:PICK 
+00000316  10           R@ 
+00000317  88           A:DROP 
+00000318  0d00000000   DECREFERENCE VAL ( will be modified! ) 
+0000031d  00           NOP ( will be modified! ) 
+0000031e  56           0 VAL 
+0000031f               §break33 LABEL 
+0000031f  89           A:2DROP 
+00000320  08           DROP 
+00000321               §23 LABEL 
+00000321  3d           EXIT 
+00000322  1d00         §26 LABEL 
+00000324  736f72742e4f626a656374a72d313839303439363736382e7461626c65 " sort.Object§-1890496768.table " 
+00000341  1b00         §25 LABEL 
+00000343  736f72742e4f626a6563742e5f737461746963426c6f636b696e67 " sort.Object._staticBlocking " 
+00000360  0d00000000   ALIGN VAL ( will be modified! ) 
+00000365  00           NOP ( will be modified! ) 
+00000366  0d00000000   HERE VAL ( will be modified! ) 
+0000036b  00           NOP ( will be modified! ) 
+0000036c  54           2 VAL 
+0000036d  0d45030000   §25 VAL 
+00000372  0d00000000   create VAL ( will be modified! ) 
+00000377  00           NOP ( will be modified! ) 
+00000378  55           1 VAL 
+00000379  1a           2* 
+0000037a  1a           2* 
+0000037b  0d00000000   ALLOT VAL ( will be modified! ) 
+00000380  00           NOP ( will be modified! ) 
+00000381  8d00000000   HERE A:VAL ( will be modified! ) 
+00000386  80           A:NOP ( will be modified! ) 
+00000387  0d00000000   ALIGN VAL ( will be modified! ) 
+0000038c  00           NOP ( will be modified! ) 
+0000038d  0d00000000   HERE VAL ( will be modified! ) 
+00000392  00           NOP ( will be modified! ) 
+00000393  54           2 VAL 
+00000394  0d26030000   §26 VAL 
+00000399  0d00000000   create VAL ( will be modified! ) 
+0000039e  00           NOP ( will be modified! ) 
+0000039f  55           1 VAL 
+000003a0  1a           2* 
+000003a1  1a           2* 
+000003a2  0d00000000   ALLOT VAL ( will be modified! ) 
+000003a7  00           NOP ( will be modified! ) 
+000003a8  4a           12 VAL 
+000003a9  0e           DUP 
+000003aa  1a           2* 
+000003ab  1a           2* 
+000003ac  1a           2* 
+000003ad  0d00000000   ALLOT VAL ( will be modified! ) 
+000003b2  00           NOP ( will be modified! ) 
+000003b3  10           R@ 
+000003b4  01           ! 
+000003b5  9d           A:CELL+ 
+000003b6  0d004fea6c   1827294976 VAL 
+000003bb  10           R@ 
+000003bc  01           ! 
+000003bd  9d           A:CELL+ 
+000003be  0d11000000   sort.Object.Object§1827294976 VAL 
+000003c3  10           R@ 
+000003c4  01           ! 
+000003c5  9d           A:CELL+ 
+000003c6  0d006388ea   -360160512 VAL 
+000003cb  10           R@ 
+000003cc  01           ! 
+000003cd  9d           A:CELL+ 
+000003ce  0d6d000000   sort.Object.clone§-360160512 VAL 
+000003d3  10           R@ 
+000003d4  01           ! 
+000003d5  9d           A:CELL+ 
+000003d6  0d0065b0f1   -240098048 VAL 
+000003db  10           R@ 
+000003dc  01           ! 
+000003dd  9d           A:CELL+ 
+000003de  0dc1000000   sort.Object.equals§-240098048 VAL 
+000003e3  10           R@ 
+000003e4  01           ! 
+000003e5  9d           A:CELL+ 
+000003e6  0d0066793b   997811712 VAL 
+000003eb  10           R@ 
+000003ec  01           ! 
+000003ed  9d           A:CELL+ 
+000003ee  0ddf000000   sort.Object.finalize§997811712 VAL 
+000003f3  10           R@ 
+000003f4  01           ! 
+000003f5  9d           A:CELL+ 
+000003f6  0d00685ca0   -1604556800 VAL 
+000003fb  10           R@ 
+000003fc  01           ! 
+000003fd  9d           A:CELL+ 
+000003fe  0de5000000   sort.Object.hashCode§-1604556800 VAL 
+00000403  10           R@ 
+00000404  01           ! 
+00000405  9d           A:CELL+ 
+00000406  0d006e417f   2134994432 VAL 
+0000040b  10           R@ 
+0000040c  01           ! 
+0000040d  9d           A:CELL+ 
+0000040e  0df7000000   sort.Object.notify§2134994432 VAL 
+00000413  10           R@ 
+00000414  01           ! 
+00000415  9d           A:CELL+ 
+00000416  0d006ef77e   2130144768 VAL 
+0000041b  10           R@ 
+0000041c  01           ! 
+0000041d  9d           A:CELL+ 
+0000041e  0dfd000000   sort.Object.notifyAll§2130144768 VAL 
+00000423  10           R@ 
+00000424  01           ! 
+00000425  9d           A:CELL+ 
+00000426  0d0074a960   1621718016 VAL 
+0000042b  10           R@ 
+0000042c  01           ! 
+0000042d  9d           A:CELL+ 
+0000042e  0d03010000   sort.Object.toString§1621718016 VAL 
+00000433  10           R@ 
+00000434  01           ! 
+00000435  9d           A:CELL+ 
+00000436  0d0077f58d   -1913293056 VAL 
+0000043b  10           R@ 
+0000043c  01           ! 
+0000043d  9d           A:CELL+ 
+0000043e  0dfe010000   sort.Object.wait§-1913293056 VAL 
+00000443  10           R@ 
+00000444  01           ! 
+00000445  9d           A:CELL+ 
+00000446  0d0077d4ca   -892045568 VAL 
+0000044b  10           R@ 
+0000044c  01           ! 
+0000044d  9d           A:CELL+ 
+0000044e  0d53020000   sort.Object.wait§-892045568 VAL 
+00000453  10           R@ 
+00000454  01           ! 
+00000455  9d           A:CELL+ 
+00000456  0d00773c7c   2084337408 VAL 
+0000045b  10           R@ 
+0000045c  01           ! 
+0000045d  9d           A:CELL+ 
+0000045e  0d6e020000   sort.Object.wait§2084337408 VAL 
+00000463  10           R@ 
+00000464  01           ! 
+00000465  9d           A:CELL+ 
+00000466  0d007e37bf   -1086882304 VAL 
+0000046b  10           R@ 
+0000046c  01           ! 
+0000046d  9d           A:CELL+ 
+0000046e  0de3020000   sort.Object.~destructor§-1086882304 VAL 
+00000473  10           R@ 
+00000474  01           ! 
+00000475  9d           A:CELL+ 
+00000476  88           A:DROP 
+00000477  3d           EXIT 
+
+instruction usage:
+load/store:		53	(7.454289732770746%)
+32-bit values:		77	(10.829817158931084%)
+16-bit values:		5	(0.7032348804500703%)
+5-bit values:		84	(11.814345991561181%)
+values total:		166	(23.347398030942333%)
+arithmetic/logical:	85	(11.954992967651195%)
+relations:		11	(1.5471167369901548%)
+flow control:		27	(3.79746835443038%)
+other:			369	(51.89873417721519%)
+total:			711
+
+average bytes per instruction: 1.5049226441631505
+
+string storage in byte:	72
+unresolved references:	57
+
+Size of static code: 862
+Size of initial code: 280
+
+references:
+ffffffff	1	..R
+ffffffff	1	<#
+ffffffff	2	ALIGN
+ffffffff	1	ALLOCATE
+ffffffff	1	ALLOCATED-SIZE
+ffffffff	3	ALLOT
+ffffffff	1	DECREFERENCE
+ffffffff	5	EXECUTE-METHOD
+ffffffff	3	HERE
+ffffffff	6	INCREFERENCE
+ffffffff	1	MALLOC
+ffffffff	2	MILLISECONDS
+299	1	and_1976
+ffffffff	2	create
+ffffffff	2	equation.JavaArray.createString§-105880832
+ffffffff	1	equation.JavaArray.createUnicode§-675323136
+ffffffff	8	equation.JavaArray.kill§1620077312
+299	1	or_1975
+11	1	sort.Object.Object§1827294976
+11	1	sort.Object.Object§1827294976
+6d	1	sort.Object.clone§-360160512
+6d	1	sort.Object.clone§-360160512
+c1	1	sort.Object.equals§-240098048
+c1	1	sort.Object.equals§-240098048
+df	1	sort.Object.finalize§997811712
+df	1	sort.Object.finalize§997811712
+e5	1	sort.Object.hashCode§-1604556800
+e5	1	sort.Object.hashCode§-1604556800
+fd	1	sort.Object.notifyAll§2130144768
+fd	1	sort.Object.notifyAll§2130144768
+f7	1	sort.Object.notify§2134994432
+f7	1	sort.Object.notify§2134994432
+103	1	sort.Object.toString§1621718016
+103	1	sort.Object.toString§1621718016
+1fe	1	sort.Object.wait§-1913293056
+1fe	1	sort.Object.wait§-1913293056
+253	1	sort.Object.wait§-892045568
+253	1	sort.Object.wait§-892045568
+26e	1	sort.Object.wait§2084337408
+26e	1	sort.Object.wait§2084337408
+2e3	1	sort.Object.~destructor§-1086882304
+2e3	1	sort.Object.~destructor§-1086882304
+ffffffff	1	sort.Object§-1890496768.table
+1fa	1	§13
+65	1	§2
+345	1	§25
+326	1	§26

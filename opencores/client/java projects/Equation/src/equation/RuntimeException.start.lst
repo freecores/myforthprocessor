@@ -1,0 +1,44 @@
+00000018  56           0 VAL 
+00000019  0d00000000   RuntimeException._staticBlocking VAL ( will be modified! ) 
+0000001e  00           NOP ( will be modified! ) 
+0000001f  01           ! 
+00000020  56           0 VAL 
+00000021  0d00000000   RuntimeException._staticThread VAL ( will be modified! ) 
+00000026  00           NOP ( will be modified! ) 
+00000027  01           ! 
+00000028  0d47065f9e   -1637939641 VAL 
+0000002d  0de583340a   171213797 VAL 
+00000032  0d00000000   RuntimeException.serialVersionUID VAL ( will be modified! ) 
+00000037  00           NOP ( will be modified! ) 
+00000038  90           A:R@ 
+00000039  01           ! 
+0000003a  10           R@ 
+0000003b  88           A:DROP 
+0000003c  1d           CELL+ 
+0000003d  01           ! 
+0000003e  3d           EXIT 
+
+instruction usage:
+load/store:		4	(21.052631578947366%)
+32-bit values:		5	(26.31578947368421%)
+16-bit values:		0	(0.0%)
+5-bit values:		2	(10.526315789473683%)
+values total:		7	(36.84210526315789%)
+arithmetic/logical:	1	(5.263157894736842%)
+relations:		0	(0.0%)
+flow control:		1	(5.263157894736842%)
+other:			6	(31.57894736842105%)
+total:			19
+
+average bytes per instruction: 3.3157894736842106
+
+string storage in byte:	0
+unresolved references:	3
+
+Size of static code: 24
+Size of initial code: 39
+
+references:
+ffffffff	1	RuntimeException._staticBlocking
+ffffffff	1	RuntimeException._staticThread
+ffffffff	1	RuntimeException.serialVersionUID

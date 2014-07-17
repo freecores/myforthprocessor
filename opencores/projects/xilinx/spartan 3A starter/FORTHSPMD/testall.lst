@@ -1,0 +1,1619 @@
+00000009  0b00         §52 LABEL 
+0000000b  656e64206f662074657374 " end of test " 
+00000016  0b00         §51 LABEL 
+00000018  64656c6574652066696c65 " delete file " 
+00000023  3100         §47 LABEL 
+00000025  7265646972656374207374616e6461726420696e70757420746f2066696c65206a756e6b20616e642072656164206f7574 " redirect standard input to file junk and read out " 
+00000056  3000         §46 LABEL 
+00000058  726573697a652066696c65206c656e67746820746f203320616e6420726561642066696c6520636f6d706c6574656c79 " resize file length to 3 and read file completely " 
+00000088  1300         §45 LABEL 
+0000008a  72656164206e65787420352063686172733a20 " read next 5 chars:  " 
+0000009d  0a00         §44 LABEL 
+0000009f  706f736974696f6e3a20 " position:  " 
+000000a9  2100         §43 LABEL 
+000000ab  736b6970206669727374203420636861727320616e642072656164206c696e653a " skip first 4 chars and read line: " 
+000000cc  0600         §42 LABEL 
+000000ce  73697a653a20 " size:  " 
+000000d4  1300         §41 LABEL 
+000000d6  726561642066726f6d206c6173742066696c65 " read from last file " 
+000000e9  0f00         §40 LABEL 
+000000eb  6765742066696c6520737461747573 " get file status " 
+000000fa  2200         §39 LABEL 
+000000fc  7365742066696c65206461746520746f2031323320616e642072656164206261636b " set file date to 123 and read back " 
+0000011e  0d00         §38 LABEL 
+00000120  6765742066696c652064617465 " get file date " 
+0000012d  0d00         §37 LABEL 
+0000012f  70617468206f662066696c653a " path of file: " 
+0000013c  0400         §36 LABEL 
+0000013e  6a756e6b     " junk " 
+00000142  1300         §35 LABEL 
+00000144  72656e616d652066696c6520746f206a756e6b " rename file to junk " 
+00000157  0700         §34 LABEL 
+00000159  5a65696c652032 " Zeile 2 " 
+00000160  0700         §33 LABEL 
+00000162  5a65696c652031 " Zeile 1 " 
+00000169  0d00         §32 LABEL 
+0000016b  7465737477726974652e747874 " testwrite.txt " 
+00000178  2c00         §31 LABEL 
+0000017a  7772697465207465787420746f2066696c65207465737477726974652e74787420616e642072656164206974 " write text to file testwrite.txt and read it " 
+000001a6  1a00         §30 LABEL 
+000001a8  54657374206465722072656d6f74652070726f63656475726573 " Test der remote procedures " 
+000001c2  0d00         §29 LABEL 
+000001c4  35652d37204653515254203a20 " 5e-7 FSQRT :  " 
+000001d1  0d00         §28 LABEL 
+000001d3  2e3520464c4e2046455850203a " .5 FLN FEXP : " 
+000001e0  1200         §27 LABEL 
+000001e2  2e3520464154414e48204654414e48203a20 " .5 FATANH FTANH :  " 
+000001f4  1300         §26 LABEL 
+000001f6  312e3520464153494e48204653494e48203a20 " 1.5 FASINH FSINH :  " 
+00000209  1300         §25 LABEL 
+0000020b  312e35204641434f53482046434f5348203a20 " 1.5 FACOSH FCOSH :  " 
+0000021e  1100         §24 LABEL 
+00000220  2d2e35204641434f532046434f53203a20 " -.5 FACOS FCOS :  " 
+00000231  1100         §23 LABEL 
+00000233  2d2e3520464154414e204654414e203a20 " -.5 FATAN FTAN :  " 
+00000244  0d00         §22 LABEL 
+00000246  352e20312e3720462a2a203a20 " 5. 1.7 F** :  " 
+00000253  0e00         §21 LABEL 
+00000255  2d312e342046524f554e44203a20 " -1.4 FROUND :  " 
+00000263  0d00         §20 LABEL 
+00000265  2d312e3420464c4f4f52203a20 " -1.4 FLOOR :  " 
+00000272  0800         §19 LABEL 
+00000274  31322e3935652d31 " 12.95e-1 " 
+0000027c  1c00         §18 LABEL 
+0000027e  222031322e3935652d31202220434f554e54203e464c4f4154203a20 " " 12.95e-1 " COUNT >FLOAT :  " 
+0000029a  2d00         §17 LABEL 
+0000029c  546573742064657220646f7070656c742067656e6175656e20466c6965df6b6f6d6d6161726974686d6574696b " Test der doppelt genauen Fließkommaarithmetik " 
+000002c9  1f00         §16 LABEL 
+000002cb  32303030303030303030202d3230303030303030303020444d4f442a203a20 " 2000000000 -2000000000 DMOD* :  " 
+000002ea  1c00         §15 LABEL 
+000002ec  32303030303030303030202d3230303030303030303020442f203a20 " 2000000000 -2000000000 D/ :  " 
+00000308  1c00         §14 LABEL 
+0000030a  3230303030303030202d32303030303030303030303020442a203a20 " 20000000 -200000000000 D* :  " 
+00000326  1300         §13 LABEL 
+00000328  7072696e74202d3120756e7369676e65643a20 " print -1 unsigned:  " 
+0000033b  0b00         §12 LABEL 
+0000033d  2d38203e3e3e2033203a20 " -8 >>> 3 :  " 
+00000348  0a00         §11 LABEL 
+0000034a  2d38203c3c2033203a20 " -8 << 3 :  " 
+00000354  0a00         §10 LABEL 
+00000356  2d38203e3e2033203a20 " -8 >> 3 :  " 
+00000360  2800         §9 LABEL 
+00000362  546573742064657220646f7070656c742067616e7a7a61686c6967656e2041726974686d6574696b " Test der doppelt ganzzahligen Arithmetik " 
+0000038a  0a00         §8 LABEL 
+0000038c  31323334353637383930 " 1234567890 " 
+00000396  2500         §7 LABEL 
+00000398  3020533e4420222031323334353637383930202220434f554e54203e4e554d424552203a20 " 0 S>D " 1234567890 " COUNT >NUMBER :  " 
+000003bd  1c00         §6 LABEL 
+000003bf  32303030303030303030202d32303030303030303030204d2a203a20 " 2000000000 -2000000000 M* :  " 
+000003db  0f00         §5 LABEL 
+000003dd  2d3720322033202a2f4d4f44203a20 " -7 2 3 */MOD :  " 
+000003ec  0e00         §4 LABEL 
+000003ee  2d37203320464d2f4d4f44203a20 " -7 3 FM/MOD :  " 
+000003fc  0800         §3 LABEL 
+000003fe  2052454d203a3d20 "  REM :=  " 
+00000406  0800         §2 LABEL 
+00000408  51554f54203a3d20 " QUOT :=  " 
+00000410  0e00         §1 LABEL 
+00000412  2d37203320534d2f52454d203a20 " -7 3 SM/REM :  " 
+00000420  2700         §0 LABEL 
+00000422  54657374206465722065696e666163682067616e7a7a61686c6967656e20417274686d6574696b " Test der einfach ganzzahligen Arthmetik " 
+0000044c  0d24040000   §0 VAL 
+00000451  1e           HALF+ 
+00000452  0e           DUP 
+00000453  19           1- 
+00000454  04           C@ 
+00000455  4e           8 VAL 
+00000456  20           LSHIFT 
+00000457  0f           OVER 
+00000458  19           1- 
+00000459  19           1- 
+0000045a  04           C@ 
+0000045b  22           OR 
+0000045c  0d00000000   TYPE VAL ( will be modified! ) 
+00000461  00           NOP ( will be modified! ) 
+00000462  0d00000000   CR VAL ( will be modified! ) 
+00000467  00           NOP ( will be modified! ) 
+00000468  0d14040000   §1 VAL 
+0000046d  1e           HALF+ 
+0000046e  0e           DUP 
+0000046f  19           1- 
+00000470  04           C@ 
+00000471  4e           8 VAL 
+00000472  20           LSHIFT 
+00000473  0f           OVER 
+00000474  19           1- 
+00000475  19           1- 
+00000476  04           C@ 
+00000477  22           OR 
+00000478  0d00000000   TYPE VAL ( will be modified! ) 
+0000047d  00           NOP ( will be modified! ) 
+0000047e  3a           -7 VAL 
+0000047f  90           A:R@ 
+00000480  2a           0< 
+00000481  10           R@ 
+00000482  88           A:DROP 
+00000483  53           3 VAL 
+00000484  0d00000000   SM/REM VAL ( will be modified! ) 
+00000489  00           NOP ( will be modified! ) 
+0000048a  0d0a040000   §2 VAL 
+0000048f  1e           HALF+ 
+00000490  0e           DUP 
+00000491  19           1- 
+00000492  04           C@ 
+00000493  4e           8 VAL 
+00000494  20           LSHIFT 
+00000495  0f           OVER 
+00000496  19           1- 
+00000497  19           1- 
+00000498  04           C@ 
+00000499  22           OR 
+0000049a  0d00000000   TYPE VAL ( will be modified! ) 
+0000049f  00           NOP ( will be modified! ) 
+000004a0  0d00000000   . VAL ( will be modified! ) 
+000004a5  00           NOP ( will be modified! ) 
+000004a6  0d00040000   §3 VAL 
+000004ab  1e           HALF+ 
+000004ac  0e           DUP 
+000004ad  19           1- 
+000004ae  04           C@ 
+000004af  4e           8 VAL 
+000004b0  20           LSHIFT 
+000004b1  0f           OVER 
+000004b2  19           1- 
+000004b3  19           1- 
+000004b4  04           C@ 
+000004b5  22           OR 
+000004b6  0d00000000   TYPE VAL ( will be modified! ) 
+000004bb  00           NOP ( will be modified! ) 
+000004bc  0d00000000   . VAL ( will be modified! ) 
+000004c1  00           NOP ( will be modified! ) 
+000004c2  0d00000000   CR VAL ( will be modified! ) 
+000004c7  00           NOP ( will be modified! ) 
+000004c8  0df0030000   §4 VAL 
+000004cd  1e           HALF+ 
+000004ce  0e           DUP 
+000004cf  19           1- 
+000004d0  04           C@ 
+000004d1  4e           8 VAL 
+000004d2  20           LSHIFT 
+000004d3  0f           OVER 
+000004d4  19           1- 
+000004d5  19           1- 
+000004d6  04           C@ 
+000004d7  22           OR 
+000004d8  0d00000000   TYPE VAL ( will be modified! ) 
+000004dd  00           NOP ( will be modified! ) 
+000004de  3a           -7 VAL 
+000004df  90           A:R@ 
+000004e0  2a           0< 
+000004e1  10           R@ 
+000004e2  88           A:DROP 
+000004e3  53           3 VAL 
+000004e4  0d00000000   FM/MOD VAL ( will be modified! ) 
+000004e9  00           NOP ( will be modified! ) 
+000004ea  0d0a040000   §2 VAL 
+000004ef  1e           HALF+ 
+000004f0  0e           DUP 
+000004f1  19           1- 
+000004f2  04           C@ 
+000004f3  4e           8 VAL 
+000004f4  20           LSHIFT 
+000004f5  0f           OVER 
+000004f6  19           1- 
+000004f7  19           1- 
+000004f8  04           C@ 
+000004f9  22           OR 
+000004fa  0d00000000   TYPE VAL ( will be modified! ) 
+000004ff  00           NOP ( will be modified! ) 
+00000500  0d00000000   . VAL ( will be modified! ) 
+00000505  00           NOP ( will be modified! ) 
+00000506  0d00040000   §3 VAL 
+0000050b  1e           HALF+ 
+0000050c  0e           DUP 
+0000050d  19           1- 
+0000050e  04           C@ 
+0000050f  4e           8 VAL 
+00000510  20           LSHIFT 
+00000511  0f           OVER 
+00000512  19           1- 
+00000513  19           1- 
+00000514  04           C@ 
+00000515  22           OR 
+00000516  0d00000000   TYPE VAL ( will be modified! ) 
+0000051b  00           NOP ( will be modified! ) 
+0000051c  0d00000000   . VAL ( will be modified! ) 
+00000521  00           NOP ( will be modified! ) 
+00000522  0d00000000   CR VAL ( will be modified! ) 
+00000527  00           NOP ( will be modified! ) 
+00000528  0ddf030000   §5 VAL 
+0000052d  1e           HALF+ 
+0000052e  0e           DUP 
+0000052f  19           1- 
+00000530  04           C@ 
+00000531  4e           8 VAL 
+00000532  20           LSHIFT 
+00000533  0f           OVER 
+00000534  19           1- 
+00000535  19           1- 
+00000536  04           C@ 
+00000537  22           OR 
+00000538  0d00000000   TYPE VAL ( will be modified! ) 
+0000053d  00           NOP ( will be modified! ) 
+0000053e  3a           -7 VAL 
+0000053f  54           2 VAL 
+00000540  53           3 VAL 
+00000541  0d00000000   */MOD VAL ( will be modified! ) 
+00000546  00           NOP ( will be modified! ) 
+00000547  0d0a040000   §2 VAL 
+0000054c  1e           HALF+ 
+0000054d  0e           DUP 
+0000054e  19           1- 
+0000054f  04           C@ 
+00000550  4e           8 VAL 
+00000551  20           LSHIFT 
+00000552  0f           OVER 
+00000553  19           1- 
+00000554  19           1- 
+00000555  04           C@ 
+00000556  22           OR 
+00000557  0d00000000   TYPE VAL ( will be modified! ) 
+0000055c  00           NOP ( will be modified! ) 
+0000055d  0d00000000   . VAL ( will be modified! ) 
+00000562  00           NOP ( will be modified! ) 
+00000563  0d00040000   §3 VAL 
+00000568  1e           HALF+ 
+00000569  0e           DUP 
+0000056a  19           1- 
+0000056b  04           C@ 
+0000056c  4e           8 VAL 
+0000056d  20           LSHIFT 
+0000056e  0f           OVER 
+0000056f  19           1- 
+00000570  19           1- 
+00000571  04           C@ 
+00000572  22           OR 
+00000573  0d00000000   TYPE VAL ( will be modified! ) 
+00000578  00           NOP ( will be modified! ) 
+00000579  0d00000000   . VAL ( will be modified! ) 
+0000057e  00           NOP ( will be modified! ) 
+0000057f  0d00000000   CR VAL ( will be modified! ) 
+00000584  00           NOP ( will be modified! ) 
+00000585  0dc1030000   §6 VAL 
+0000058a  1e           HALF+ 
+0000058b  0e           DUP 
+0000058c  19           1- 
+0000058d  04           C@ 
+0000058e  4e           8 VAL 
+0000058f  20           LSHIFT 
+00000590  0f           OVER 
+00000591  19           1- 
+00000592  19           1- 
+00000593  04           C@ 
+00000594  22           OR 
+00000595  0d00000000   TYPE VAL ( will be modified! ) 
+0000059a  00           NOP ( will be modified! ) 
+0000059b  0d00943577   2000000000 VAL 
+000005a0  0d006cca88   -2000000000 VAL 
+000005a5  0d00000000   M* VAL ( will be modified! ) 
+000005aa  00           NOP ( will be modified! ) 
+000005ab  0d00000000   D. VAL ( will be modified! ) 
+000005b0  00           NOP ( will be modified! ) 
+000005b1  0d00000000   CR VAL ( will be modified! ) 
+000005b6  00           NOP ( will be modified! ) 
+000005b7  0d9a030000   §7 VAL 
+000005bc  1e           HALF+ 
+000005bd  0e           DUP 
+000005be  19           1- 
+000005bf  04           C@ 
+000005c0  4e           8 VAL 
+000005c1  20           LSHIFT 
+000005c2  0f           OVER 
+000005c3  19           1- 
+000005c4  19           1- 
+000005c5  04           C@ 
+000005c6  22           OR 
+000005c7  0d00000000   TYPE VAL ( will be modified! ) 
+000005cc  00           NOP ( will be modified! ) 
+000005cd  56           0 VAL 
+000005ce  90           A:R@ 
+000005cf  2a           0< 
+000005d0  10           R@ 
+000005d1  88           A:DROP 
+000005d2  0d8e030000   §8 VAL 
+000005d7  1e           HALF+ 
+000005d8  0e           DUP 
+000005d9  19           1- 
+000005da  04           C@ 
+000005db  4e           8 VAL 
+000005dc  20           LSHIFT 
+000005dd  0f           OVER 
+000005de  19           1- 
+000005df  19           1- 
+000005e0  04           C@ 
+000005e1  22           OR 
+000005e2  0d00000000   >NUMBER VAL ( will be modified! ) 
+000005e7  00           NOP ( will be modified! ) 
+000005e8  09           2DROP 
+000005e9  0d00000000   D. VAL ( will be modified! ) 
+000005ee  00           NOP ( will be modified! ) 
+000005ef  0d00000000   CR VAL ( will be modified! ) 
+000005f4  00           NOP ( will be modified! ) 
+000005f5  0d64030000   §9 VAL 
+000005fa  1e           HALF+ 
+000005fb  0e           DUP 
+000005fc  19           1- 
+000005fd  04           C@ 
+000005fe  4e           8 VAL 
+000005ff  20           LSHIFT 
+00000600  0f           OVER 
+00000601  19           1- 
+00000602  19           1- 
+00000603  04           C@ 
+00000604  22           OR 
+00000605  0d00000000   TYPE VAL ( will be modified! ) 
+0000060a  00           NOP ( will be modified! ) 
+0000060b  0d00000000   CR VAL ( will be modified! ) 
+00000610  00           NOP ( will be modified! ) 
+00000611  0d58030000   §10 VAL 
+00000616  1e           HALF+ 
+00000617  0e           DUP 
+00000618  19           1- 
+00000619  04           C@ 
+0000061a  4e           8 VAL 
+0000061b  20           LSHIFT 
+0000061c  0f           OVER 
+0000061d  19           1- 
+0000061e  19           1- 
+0000061f  04           C@ 
+00000620  22           OR 
+00000621  0d00000000   TYPE VAL ( will be modified! ) 
+00000626  00           NOP ( will be modified! ) 
+00000627  34           -8 VAL 
+00000628  90           A:R@ 
+00000629  2a           0< 
+0000062a  10           R@ 
+0000062b  88           A:DROP 
+0000062c  53           3 VAL 
+0000062d  0d00000000   ASHIFT VAL ( will be modified! ) 
+00000632  00           NOP ( will be modified! ) 
+00000633  0d00000000   D. VAL ( will be modified! ) 
+00000638  00           NOP ( will be modified! ) 
+00000639  0d00000000   CR VAL ( will be modified! ) 
+0000063e  00           NOP ( will be modified! ) 
+0000063f  0d4c030000   §11 VAL 
+00000644  1e           HALF+ 
+00000645  0e           DUP 
+00000646  19           1- 
+00000647  04           C@ 
+00000648  4e           8 VAL 
+00000649  20           LSHIFT 
+0000064a  0f           OVER 
+0000064b  19           1- 
+0000064c  19           1- 
+0000064d  04           C@ 
+0000064e  22           OR 
+0000064f  0d00000000   TYPE VAL ( will be modified! ) 
+00000654  00           NOP ( will be modified! ) 
+00000655  34           -8 VAL 
+00000656  90           A:R@ 
+00000657  2a           0< 
+00000658  10           R@ 
+00000659  88           A:DROP 
+0000065a  53           3 VAL 
+0000065b  0d00000000   SHIFTL VAL ( will be modified! ) 
+00000660  00           NOP ( will be modified! ) 
+00000661  0d00000000   D. VAL ( will be modified! ) 
+00000666  00           NOP ( will be modified! ) 
+00000667  0d00000000   CR VAL ( will be modified! ) 
+0000066c  00           NOP ( will be modified! ) 
+0000066d  0d3f030000   §12 VAL 
+00000672  1e           HALF+ 
+00000673  0e           DUP 
+00000674  19           1- 
+00000675  04           C@ 
+00000676  4e           8 VAL 
+00000677  20           LSHIFT 
+00000678  0f           OVER 
+00000679  19           1- 
+0000067a  19           1- 
+0000067b  04           C@ 
+0000067c  22           OR 
+0000067d  0d00000000   TYPE VAL ( will be modified! ) 
+00000682  00           NOP ( will be modified! ) 
+00000683  34           -8 VAL 
+00000684  90           A:R@ 
+00000685  2a           0< 
+00000686  10           R@ 
+00000687  88           A:DROP 
+00000688  53           3 VAL 
+00000689  0d00000000   SHIFTR VAL ( will be modified! ) 
+0000068e  00           NOP ( will be modified! ) 
+0000068f  0d00000000   D. VAL ( will be modified! ) 
+00000694  00           NOP ( will be modified! ) 
+00000695  0d00000000   CR VAL ( will be modified! ) 
+0000069a  00           NOP ( will be modified! ) 
+0000069b  0d2a030000   §13 VAL 
+000006a0  1e           HALF+ 
+000006a1  0e           DUP 
+000006a2  19           1- 
+000006a3  04           C@ 
+000006a4  4e           8 VAL 
+000006a5  20           LSHIFT 
+000006a6  0f           OVER 
+000006a7  19           1- 
+000006a8  19           1- 
+000006a9  04           C@ 
+000006aa  22           OR 
+000006ab  0d00000000   TYPE VAL ( will be modified! ) 
+000006b0  00           NOP ( will be modified! ) 
+000006b1  57           -1 VAL 
+000006b2  0e           DUP 
+000006b3  56           0 VAL 
+000006b4  0d00000000   UD..R VAL ( will be modified! ) 
+000006b9  00           NOP ( will be modified! ) 
+000006ba  0d00000000   TYPE VAL ( will be modified! ) 
+000006bf  00           NOP ( will be modified! ) 
+000006c0  0d00000000   CR VAL ( will be modified! ) 
+000006c5  00           NOP ( will be modified! ) 
+000006c6  0d0c030000   §14 VAL 
+000006cb  1e           HALF+ 
+000006cc  0e           DUP 
+000006cd  19           1- 
+000006ce  04           C@ 
+000006cf  4e           8 VAL 
+000006d0  20           LSHIFT 
+000006d1  0f           OVER 
+000006d2  19           1- 
+000006d3  19           1- 
+000006d4  04           C@ 
+000006d5  22           OR 
+000006d6  0d00000000   TYPE VAL ( will be modified! ) 
+000006db  00           NOP ( will be modified! ) 
+000006dc  0d002d3101   20000000 VAL 
+000006e1  90           A:R@ 
+000006e2  2a           0< 
+000006e3  10           R@ 
+000006e4  88           A:DROP 
+000006e5  46d1ff       -47 VAL 
+000006e8  0d0030126f   1863462912 VAL 
+000006ed  0d00000000   D* VAL ( will be modified! ) 
+000006f2  00           NOP ( will be modified! ) 
+000006f3  0d00000000   D. VAL ( will be modified! ) 
+000006f8  00           NOP ( will be modified! ) 
+000006f9  0d00000000   CR VAL ( will be modified! ) 
+000006fe  00           NOP ( will be modified! ) 
+000006ff  0dee020000   §15 VAL 
+00000704  1e           HALF+ 
+00000705  0e           DUP 
+00000706  19           1- 
+00000707  04           C@ 
+00000708  4e           8 VAL 
+00000709  20           LSHIFT 
+0000070a  0f           OVER 
+0000070b  19           1- 
+0000070c  19           1- 
+0000070d  04           C@ 
+0000070e  22           OR 
+0000070f  0d00000000   TYPE VAL ( will be modified! ) 
+00000714  00           NOP ( will be modified! ) 
+00000715  0d00943577   2000000000 VAL 
+0000071a  90           A:R@ 
+0000071b  2a           0< 
+0000071c  10           R@ 
+0000071d  88           A:DROP 
+0000071e  0d006cca88   -2000000000 VAL 
+00000723  90           A:R@ 
+00000724  2a           0< 
+00000725  10           R@ 
+00000726  88           A:DROP 
+00000727  0d00000000   D/ VAL ( will be modified! ) 
+0000072c  00           NOP ( will be modified! ) 
+0000072d  0d00000000   D. VAL ( will be modified! ) 
+00000732  00           NOP ( will be modified! ) 
+00000733  0d00000000   CR VAL ( will be modified! ) 
+00000738  00           NOP ( will be modified! ) 
+00000739  0dcd020000   §16 VAL 
+0000073e  1e           HALF+ 
+0000073f  0e           DUP 
+00000740  19           1- 
+00000741  04           C@ 
+00000742  4e           8 VAL 
+00000743  20           LSHIFT 
+00000744  0f           OVER 
+00000745  19           1- 
+00000746  19           1- 
+00000747  04           C@ 
+00000748  22           OR 
+00000749  0d00000000   TYPE VAL ( will be modified! ) 
+0000074e  00           NOP ( will be modified! ) 
+0000074f  0d00943577   2000000000 VAL 
+00000754  90           A:R@ 
+00000755  2a           0< 
+00000756  10           R@ 
+00000757  88           A:DROP 
+00000758  0d006cca88   -2000000000 VAL 
+0000075d  90           A:R@ 
+0000075e  2a           0< 
+0000075f  10           R@ 
+00000760  88           A:DROP 
+00000761  0d00000000   DMOD VAL ( will be modified! ) 
+00000766  00           NOP ( will be modified! ) 
+00000767  0d00000000   D. VAL ( will be modified! ) 
+0000076c  00           NOP ( will be modified! ) 
+0000076d  0d00000000   CR VAL ( will be modified! ) 
+00000772  00           NOP ( will be modified! ) 
+00000773  0d9e020000   §17 VAL 
+00000778  1e           HALF+ 
+00000779  0e           DUP 
+0000077a  19           1- 
+0000077b  04           C@ 
+0000077c  4e           8 VAL 
+0000077d  20           LSHIFT 
+0000077e  0f           OVER 
+0000077f  19           1- 
+00000780  19           1- 
+00000781  04           C@ 
+00000782  22           OR 
+00000783  0d00000000   TYPE VAL ( will be modified! ) 
+00000788  00           NOP ( will be modified! ) 
+00000789  0d00000000   CR VAL ( will be modified! ) 
+0000078e  00           NOP ( will be modified! ) 
+0000078f  0d80020000   §18 VAL 
+00000794  1e           HALF+ 
+00000795  0e           DUP 
+00000796  19           1- 
+00000797  04           C@ 
+00000798  4e           8 VAL 
+00000799  20           LSHIFT 
+0000079a  0f           OVER 
+0000079b  19           1- 
+0000079c  19           1- 
+0000079d  04           C@ 
+0000079e  22           OR 
+0000079f  0d00000000   TYPE VAL ( will be modified! ) 
+000007a4  00           NOP ( will be modified! ) 
+000007a5  0d76020000   §19 VAL 
+000007aa  1e           HALF+ 
+000007ab  0e           DUP 
+000007ac  19           1- 
+000007ad  04           C@ 
+000007ae  4e           8 VAL 
+000007af  20           LSHIFT 
+000007b0  0f           OVER 
+000007b1  19           1- 
+000007b2  19           1- 
+000007b3  04           C@ 
+000007b4  22           OR 
+000007b5  0d00000000   >FLOAT VAL ( will be modified! ) 
+000007ba  00           NOP ( will be modified! ) 
+000007bb  08           DROP 
+000007bc  0d00000000   F. VAL ( will be modified! ) 
+000007c1  00           NOP ( will be modified! ) 
+000007c2  0d00000000   CR VAL ( will be modified! ) 
+000007c7  00           NOP ( will be modified! ) 
+000007c8  0d67020000   §20 VAL 
+000007cd  1e           HALF+ 
+000007ce  0e           DUP 
+000007cf  19           1- 
+000007d0  04           C@ 
+000007d1  4e           8 VAL 
+000007d2  20           LSHIFT 
+000007d3  0f           OVER 
+000007d4  19           1- 
+000007d5  19           1- 
+000007d6  04           C@ 
+000007d7  22           OR 
+000007d8  0d00000000   TYPE VAL ( will be modified! ) 
+000007dd  00           NOP ( will be modified! ) 
+000007de  0d6666f6bf   -1074370970 VAL 
+000007e3  0d67666666   1717986919 VAL 
+000007e8  0d00000000   FLOOR VAL ( will be modified! ) 
+000007ed  00           NOP ( will be modified! ) 
+000007ee  0d00000000   F. VAL ( will be modified! ) 
+000007f3  00           NOP ( will be modified! ) 
+000007f4  0d00000000   CR VAL ( will be modified! ) 
+000007f9  00           NOP ( will be modified! ) 
+000007fa  0d57020000   §21 VAL 
+000007ff  1e           HALF+ 
+00000800  0e           DUP 
+00000801  19           1- 
+00000802  04           C@ 
+00000803  4e           8 VAL 
+00000804  20           LSHIFT 
+00000805  0f           OVER 
+00000806  19           1- 
+00000807  19           1- 
+00000808  04           C@ 
+00000809  22           OR 
+0000080a  0d00000000   TYPE VAL ( will be modified! ) 
+0000080f  00           NOP ( will be modified! ) 
+00000810  0d6666f6bf   -1074370970 VAL 
+00000815  0d67666666   1717986919 VAL 
+0000081a  0d00000000   FROUND VAL ( will be modified! ) 
+0000081f  00           NOP ( will be modified! ) 
+00000820  0d00000000   F. VAL ( will be modified! ) 
+00000825  00           NOP ( will be modified! ) 
+00000826  0d00000000   CR VAL ( will be modified! ) 
+0000082b  00           NOP ( will be modified! ) 
+0000082c  0d48020000   §22 VAL 
+00000831  1e           HALF+ 
+00000832  0e           DUP 
+00000833  19           1- 
+00000834  04           C@ 
+00000835  4e           8 VAL 
+00000836  20           LSHIFT 
+00000837  0f           OVER 
+00000838  19           1- 
+00000839  19           1- 
+0000083a  04           C@ 
+0000083b  22           OR 
+0000083c  0d00000000   TYPE VAL ( will be modified! ) 
+00000841  00           NOP ( will be modified! ) 
+00000842  0d00001440   1075052544 VAL 
+00000847  56           0 VAL 
+00000848  0d3333fb3f   1073427251 VAL 
+0000084d  0d34333333   858993460 VAL 
+00000852  0d00000000   F** VAL ( will be modified! ) 
+00000857  00           NOP ( will be modified! ) 
+00000858  0d00000000   F. VAL ( will be modified! ) 
+0000085d  00           NOP ( will be modified! ) 
+0000085e  0d00000000   CR VAL ( will be modified! ) 
+00000863  00           NOP ( will be modified! ) 
+00000864  0d35020000   §23 VAL 
+00000869  1e           HALF+ 
+0000086a  0e           DUP 
+0000086b  19           1- 
+0000086c  04           C@ 
+0000086d  4e           8 VAL 
+0000086e  20           LSHIFT 
+0000086f  0f           OVER 
+00000870  19           1- 
+00000871  19           1- 
+00000872  04           C@ 
+00000873  22           OR 
+00000874  0d00000000   TYPE VAL ( will be modified! ) 
+00000879  00           NOP ( will be modified! ) 
+0000087a  0d0000e0bf   -1075838976 VAL 
+0000087f  56           0 VAL 
+00000880  0d00000000   FATAN VAL ( will be modified! ) 
+00000885  00           NOP ( will be modified! ) 
+00000886  0f           OVER 
+00000887  0f           OVER 
+00000888  0d00000000   F. VAL ( will be modified! ) 
+0000088d  00           NOP ( will be modified! ) 
+0000088e  0d00000000   CR VAL ( will be modified! ) 
+00000893  00           NOP ( will be modified! ) 
+00000894  0d00000000   FTAN VAL ( will be modified! ) 
+00000899  00           NOP ( will be modified! ) 
+0000089a  0d00000000   F. VAL ( will be modified! ) 
+0000089f  00           NOP ( will be modified! ) 
+000008a0  0d00000000   CR VAL ( will be modified! ) 
+000008a5  00           NOP ( will be modified! ) 
+000008a6  0d22020000   §24 VAL 
+000008ab  1e           HALF+ 
+000008ac  0e           DUP 
+000008ad  19           1- 
+000008ae  04           C@ 
+000008af  4e           8 VAL 
+000008b0  20           LSHIFT 
+000008b1  0f           OVER 
+000008b2  19           1- 
+000008b3  19           1- 
+000008b4  04           C@ 
+000008b5  22           OR 
+000008b6  0d00000000   TYPE VAL ( will be modified! ) 
+000008bb  00           NOP ( will be modified! ) 
+000008bc  0d0000e0bf   -1075838976 VAL 
+000008c1  56           0 VAL 
+000008c2  0d00000000   FACOS VAL ( will be modified! ) 
+000008c7  00           NOP ( will be modified! ) 
+000008c8  0f           OVER 
+000008c9  0f           OVER 
+000008ca  0d00000000   F. VAL ( will be modified! ) 
+000008cf  00           NOP ( will be modified! ) 
+000008d0  0d00000000   CR VAL ( will be modified! ) 
+000008d5  00           NOP ( will be modified! ) 
+000008d6  0d00000000   FCOS VAL ( will be modified! ) 
+000008db  00           NOP ( will be modified! ) 
+000008dc  0d00000000   F. VAL ( will be modified! ) 
+000008e1  00           NOP ( will be modified! ) 
+000008e2  0d00000000   CR VAL ( will be modified! ) 
+000008e7  00           NOP ( will be modified! ) 
+000008e8  0d0d020000   §25 VAL 
+000008ed  1e           HALF+ 
+000008ee  0e           DUP 
+000008ef  19           1- 
+000008f0  04           C@ 
+000008f1  4e           8 VAL 
+000008f2  20           LSHIFT 
+000008f3  0f           OVER 
+000008f4  19           1- 
+000008f5  19           1- 
+000008f6  04           C@ 
+000008f7  22           OR 
+000008f8  0d00000000   TYPE VAL ( will be modified! ) 
+000008fd  00           NOP ( will be modified! ) 
+000008fe  0d0000f83f   1073217536 VAL 
+00000903  56           0 VAL 
+00000904  0d00000000   FACOSH VAL ( will be modified! ) 
+00000909  00           NOP ( will be modified! ) 
+0000090a  0f           OVER 
+0000090b  0f           OVER 
+0000090c  0d00000000   F. VAL ( will be modified! ) 
+00000911  00           NOP ( will be modified! ) 
+00000912  0d00000000   CR VAL ( will be modified! ) 
+00000917  00           NOP ( will be modified! ) 
+00000918  0d00000000   FCOSH VAL ( will be modified! ) 
+0000091d  00           NOP ( will be modified! ) 
+0000091e  0d00000000   F. VAL ( will be modified! ) 
+00000923  00           NOP ( will be modified! ) 
+00000924  0d00000000   CR VAL ( will be modified! ) 
+00000929  00           NOP ( will be modified! ) 
+0000092a  0df8010000   §26 VAL 
+0000092f  1e           HALF+ 
+00000930  0e           DUP 
+00000931  19           1- 
+00000932  04           C@ 
+00000933  4e           8 VAL 
+00000934  20           LSHIFT 
+00000935  0f           OVER 
+00000936  19           1- 
+00000937  19           1- 
+00000938  04           C@ 
+00000939  22           OR 
+0000093a  0d00000000   TYPE VAL ( will be modified! ) 
+0000093f  00           NOP ( will be modified! ) 
+00000940  0d0000f83f   1073217536 VAL 
+00000945  56           0 VAL 
+00000946  0d00000000   FASINH VAL ( will be modified! ) 
+0000094b  00           NOP ( will be modified! ) 
+0000094c  0f           OVER 
+0000094d  0f           OVER 
+0000094e  0d00000000   F. VAL ( will be modified! ) 
+00000953  00           NOP ( will be modified! ) 
+00000954  0d00000000   CR VAL ( will be modified! ) 
+00000959  00           NOP ( will be modified! ) 
+0000095a  0d00000000   FSINH VAL ( will be modified! ) 
+0000095f  00           NOP ( will be modified! ) 
+00000960  0d00000000   F. VAL ( will be modified! ) 
+00000965  00           NOP ( will be modified! ) 
+00000966  0d00000000   CR VAL ( will be modified! ) 
+0000096b  00           NOP ( will be modified! ) 
+0000096c  0de4010000   §27 VAL 
+00000971  1e           HALF+ 
+00000972  0e           DUP 
+00000973  19           1- 
+00000974  04           C@ 
+00000975  4e           8 VAL 
+00000976  20           LSHIFT 
+00000977  0f           OVER 
+00000978  19           1- 
+00000979  19           1- 
+0000097a  04           C@ 
+0000097b  22           OR 
+0000097c  0d00000000   TYPE VAL ( will be modified! ) 
+00000981  00           NOP ( will be modified! ) 
+00000982  0d0000e03f   1071644672 VAL 
+00000987  56           0 VAL 
+00000988  0d00000000   FATANH VAL ( will be modified! ) 
+0000098d  00           NOP ( will be modified! ) 
+0000098e  0f           OVER 
+0000098f  0f           OVER 
+00000990  0d00000000   F. VAL ( will be modified! ) 
+00000995  00           NOP ( will be modified! ) 
+00000996  0d00000000   CR VAL ( will be modified! ) 
+0000099b  00           NOP ( will be modified! ) 
+0000099c  0d00000000   FTANH VAL ( will be modified! ) 
+000009a1  00           NOP ( will be modified! ) 
+000009a2  0d00000000   F. VAL ( will be modified! ) 
+000009a7  00           NOP ( will be modified! ) 
+000009a8  0d00000000   CR VAL ( will be modified! ) 
+000009ad  00           NOP ( will be modified! ) 
+000009ae  0dd5010000   §28 VAL 
+000009b3  1e           HALF+ 
+000009b4  0e           DUP 
+000009b5  19           1- 
+000009b6  04           C@ 
+000009b7  4e           8 VAL 
+000009b8  20           LSHIFT 
+000009b9  0f           OVER 
+000009ba  19           1- 
+000009bb  19           1- 
+000009bc  04           C@ 
+000009bd  22           OR 
+000009be  0d00000000   TYPE VAL ( will be modified! ) 
+000009c3  00           NOP ( will be modified! ) 
+000009c4  0d0000e03f   1071644672 VAL 
+000009c9  56           0 VAL 
+000009ca  0d00000000   FLN VAL ( will be modified! ) 
+000009cf  00           NOP ( will be modified! ) 
+000009d0  0f           OVER 
+000009d1  0f           OVER 
+000009d2  0d00000000   F. VAL ( will be modified! ) 
+000009d7  00           NOP ( will be modified! ) 
+000009d8  0d00000000   CR VAL ( will be modified! ) 
+000009dd  00           NOP ( will be modified! ) 
+000009de  0d00000000   FEXP VAL ( will be modified! ) 
+000009e3  00           NOP ( will be modified! ) 
+000009e4  0d00000000   F. VAL ( will be modified! ) 
+000009e9  00           NOP ( will be modified! ) 
+000009ea  0d00000000   CR VAL ( will be modified! ) 
+000009ef  00           NOP ( will be modified! ) 
+000009f0  0dc6010000   §29 VAL 
+000009f5  1e           HALF+ 
+000009f6  0e           DUP 
+000009f7  19           1- 
+000009f8  04           C@ 
+000009f9  4e           8 VAL 
+000009fa  20           LSHIFT 
+000009fb  0f           OVER 
+000009fc  19           1- 
+000009fd  19           1- 
+000009fe  04           C@ 
+000009ff  22           OR 
+00000a00  0d00000000   TYPE VAL ( will be modified! ) 
+00000a05  00           NOP ( will be modified! ) 
+00000a06  0df7c6a03e   1050724087 VAL 
+00000a0b  0d8dedb5a0   -1598689907 VAL 
+00000a10  0d00000000   FSQRT VAL ( will be modified! ) 
+00000a15  00           NOP ( will be modified! ) 
+00000a16  0d00000000   FS. VAL ( will be modified! ) 
+00000a1b  00           NOP ( will be modified! ) 
+00000a1c  0d00000000   CR VAL ( will be modified! ) 
+00000a21  00           NOP ( will be modified! ) 
+00000a22  0daa010000   §30 VAL 
+00000a27  1e           HALF+ 
+00000a28  0e           DUP 
+00000a29  19           1- 
+00000a2a  04           C@ 
+00000a2b  4e           8 VAL 
+00000a2c  20           LSHIFT 
+00000a2d  0f           OVER 
+00000a2e  19           1- 
+00000a2f  19           1- 
+00000a30  04           C@ 
+00000a31  22           OR 
+00000a32  0d00000000   TYPE VAL ( will be modified! ) 
+00000a37  00           NOP ( will be modified! ) 
+00000a38  0d00000000   CR VAL ( will be modified! ) 
+00000a3d  00           NOP ( will be modified! ) 
+00000a3e  0d7c010000   §31 VAL 
+00000a43  1e           HALF+ 
+00000a44  0e           DUP 
+00000a45  19           1- 
+00000a46  04           C@ 
+00000a47  4e           8 VAL 
+00000a48  20           LSHIFT 
+00000a49  0f           OVER 
+00000a4a  19           1- 
+00000a4b  19           1- 
+00000a4c  04           C@ 
+00000a4d  22           OR 
+00000a4e  0d00000000   TYPE VAL ( will be modified! ) 
+00000a53  00           NOP ( will be modified! ) 
+00000a54  0d00000000   CR VAL ( will be modified! ) 
+00000a59  00           NOP ( will be modified! ) 
+00000a5a  0d6d010000   §32 VAL 
+00000a5f  1e           HALF+ 
+00000a60  0e           DUP 
+00000a61  19           1- 
+00000a62  04           C@ 
+00000a63  4e           8 VAL 
+00000a64  20           LSHIFT 
+00000a65  0f           OVER 
+00000a66  19           1- 
+00000a67  19           1- 
+00000a68  04           C@ 
+00000a69  22           OR 
+00000a6a  0d00000000   R/W VAL ( will be modified! ) 
+00000a6f  00           NOP ( will be modified! ) 
+00000a70  0d00000000   CREATE-FILE VAL ( will be modified! ) 
+00000a75  00           NOP ( will be modified! ) 
+00000a76  08           DROP 
+00000a77  90           A:R@ 
+00000a78  08           DROP 
+00000a79  0d64010000   §33 VAL 
+00000a7e  1e           HALF+ 
+00000a7f  0e           DUP 
+00000a80  19           1- 
+00000a81  04           C@ 
+00000a82  4e           8 VAL 
+00000a83  20           LSHIFT 
+00000a84  0f           OVER 
+00000a85  19           1- 
+00000a86  19           1- 
+00000a87  04           C@ 
+00000a88  22           OR 
+00000a89  10           R@ 
+00000a8a  0d00000000   WRITE-LINE VAL ( will be modified! ) 
+00000a8f  00           NOP ( will be modified! ) 
+00000a90  08           DROP 
+00000a91  0d5b010000   §34 VAL 
+00000a96  1e           HALF+ 
+00000a97  0e           DUP 
+00000a98  19           1- 
+00000a99  04           C@ 
+00000a9a  4e           8 VAL 
+00000a9b  20           LSHIFT 
+00000a9c  0f           OVER 
+00000a9d  19           1- 
+00000a9e  19           1- 
+00000a9f  04           C@ 
+00000aa0  22           OR 
+00000aa1  10           R@ 
+00000aa2  0d00000000   WRITE-FILE VAL ( will be modified! ) 
+00000aa7  00           NOP ( will be modified! ) 
+00000aa8  08           DROP 
+00000aa9  56           0 VAL 
+00000aaa  0e           DUP 
+00000aab  10           R@ 
+00000aac  0d00000000   REPOSITION-FILE VAL ( will be modified! ) 
+00000ab1  00           NOP ( will be modified! ) 
+00000ab2  08           DROP 
+00000ab3  0d00000000   PAD VAL ( will be modified! ) 
+00000ab8  00           NOP ( will be modified! ) 
+00000ab9  460001       256 VAL 
+00000abc  10           R@ 
+00000abd  0d00000000   READ-FILE VAL ( will be modified! ) 
+00000ac2  00           NOP ( will be modified! ) 
+00000ac3  08           DROP 
+00000ac4  0d00000000   PAD VAL ( will be modified! ) 
+00000ac9  00           NOP ( will be modified! ) 
+00000aca  91           A:R1@ 
+00000acb  0a           NIP 
+00000acc  10           R@ 
+00000acd  88           A:DROP 
+00000ace  0d00000000   TYPE VAL ( will be modified! ) 
+00000ad3  00           NOP ( will be modified! ) 
+00000ad4  0d00000000   CR VAL ( will be modified! ) 
+00000ad9  00           NOP ( will be modified! ) 
+00000ada  10           R@ 
+00000adb  88           A:DROP 
+00000adc  0d00000000   CLOSE-FILE VAL ( will be modified! ) 
+00000ae1  00           NOP ( will be modified! ) 
+00000ae2  08           DROP 
+00000ae3  0d46010000   §35 VAL 
+00000ae8  1e           HALF+ 
+00000ae9  0e           DUP 
+00000aea  19           1- 
+00000aeb  04           C@ 
+00000aec  4e           8 VAL 
+00000aed  20           LSHIFT 
+00000aee  0f           OVER 
+00000aef  19           1- 
+00000af0  19           1- 
+00000af1  04           C@ 
+00000af2  22           OR 
+00000af3  0d00000000   TYPE VAL ( will be modified! ) 
+00000af8  00           NOP ( will be modified! ) 
+00000af9  0d00000000   CR VAL ( will be modified! ) 
+00000afe  00           NOP ( will be modified! ) 
+00000aff  0d6d010000   §32 VAL 
+00000b04  1e           HALF+ 
+00000b05  0e           DUP 
+00000b06  19           1- 
+00000b07  04           C@ 
+00000b08  4e           8 VAL 
+00000b09  20           LSHIFT 
+00000b0a  0f           OVER 
+00000b0b  19           1- 
+00000b0c  19           1- 
+00000b0d  04           C@ 
+00000b0e  22           OR 
+00000b0f  0d40010000   §36 VAL 
+00000b14  1e           HALF+ 
+00000b15  0e           DUP 
+00000b16  19           1- 
+00000b17  04           C@ 
+00000b18  4e           8 VAL 
+00000b19  20           LSHIFT 
+00000b1a  0f           OVER 
+00000b1b  19           1- 
+00000b1c  19           1- 
+00000b1d  04           C@ 
+00000b1e  22           OR 
+00000b1f  0d00000000   RENAME-FILE VAL ( will be modified! ) 
+00000b24  00           NOP ( will be modified! ) 
+00000b25  08           DROP 
+00000b26  0d31010000   §37 VAL 
+00000b2b  1e           HALF+ 
+00000b2c  0e           DUP 
+00000b2d  19           1- 
+00000b2e  04           C@ 
+00000b2f  4e           8 VAL 
+00000b30  20           LSHIFT 
+00000b31  0f           OVER 
+00000b32  19           1- 
+00000b33  19           1- 
+00000b34  04           C@ 
+00000b35  22           OR 
+00000b36  0d00000000   TYPE VAL ( will be modified! ) 
+00000b3b  00           NOP ( will be modified! ) 
+00000b3c  0d00000000   PAD VAL ( will be modified! ) 
+00000b41  00           NOP ( will be modified! ) 
+00000b42  460001       256 VAL 
+00000b45  0d40010000   §36 VAL 
+00000b4a  1e           HALF+ 
+00000b4b  0e           DUP 
+00000b4c  19           1- 
+00000b4d  04           C@ 
+00000b4e  4e           8 VAL 
+00000b4f  20           LSHIFT 
+00000b50  0f           OVER 
+00000b51  19           1- 
+00000b52  19           1- 
+00000b53  04           C@ 
+00000b54  22           OR 
+00000b55  0d00000000   ABSOLUTE-FILE VAL ( will be modified! ) 
+00000b5a  00           NOP ( will be modified! ) 
+00000b5b  08           DROP 
+00000b5c  0d00000000   TYPE VAL ( will be modified! ) 
+00000b61  00           NOP ( will be modified! ) 
+00000b62  0d00000000   CR VAL ( will be modified! ) 
+00000b67  00           NOP ( will be modified! ) 
+00000b68  0d22010000   §38 VAL 
+00000b6d  1e           HALF+ 
+00000b6e  0e           DUP 
+00000b6f  19           1- 
+00000b70  04           C@ 
+00000b71  4e           8 VAL 
+00000b72  20           LSHIFT 
+00000b73  0f           OVER 
+00000b74  19           1- 
+00000b75  19           1- 
+00000b76  04           C@ 
+00000b77  22           OR 
+00000b78  0d00000000   TYPE VAL ( will be modified! ) 
+00000b7d  00           NOP ( will be modified! ) 
+00000b7e  0d00000000   CR VAL ( will be modified! ) 
+00000b83  00           NOP ( will be modified! ) 
+00000b84  0d40010000   §36 VAL 
+00000b89  1e           HALF+ 
+00000b8a  0e           DUP 
+00000b8b  19           1- 
+00000b8c  04           C@ 
+00000b8d  4e           8 VAL 
+00000b8e  20           LSHIFT 
+00000b8f  0f           OVER 
+00000b90  19           1- 
+00000b91  19           1- 
+00000b92  04           C@ 
+00000b93  22           OR 
+00000b94  0d00000000   GET-FILEDATE VAL ( will be modified! ) 
+00000b99  00           NOP ( will be modified! ) 
+00000b9a  08           DROP 
+00000b9b  0d00000000   D. VAL ( will be modified! ) 
+00000ba0  00           NOP ( will be modified! ) 
+00000ba1  0d00000000   CR VAL ( will be modified! ) 
+00000ba6  00           NOP ( will be modified! ) 
+00000ba7  0dfe000000   §39 VAL 
+00000bac  1e           HALF+ 
+00000bad  0e           DUP 
+00000bae  19           1- 
+00000baf  04           C@ 
+00000bb0  4e           8 VAL 
+00000bb1  20           LSHIFT 
+00000bb2  0f           OVER 
+00000bb3  19           1- 
+00000bb4  19           1- 
+00000bb5  04           C@ 
+00000bb6  22           OR 
+00000bb7  0d00000000   TYPE VAL ( will be modified! ) 
+00000bbc  00           NOP ( will be modified! ) 
+00000bbd  0d00000000   CR VAL ( will be modified! ) 
+00000bc2  00           NOP ( will be modified! ) 
+00000bc3  56           0 VAL 
+00000bc4  467b00       123 VAL 
+00000bc7  0d40010000   §36 VAL 
+00000bcc  1e           HALF+ 
+00000bcd  0e           DUP 
+00000bce  19           1- 
+00000bcf  04           C@ 
+00000bd0  4e           8 VAL 
+00000bd1  20           LSHIFT 
+00000bd2  0f           OVER 
+00000bd3  19           1- 
+00000bd4  19           1- 
+00000bd5  04           C@ 
+00000bd6  22           OR 
+00000bd7  0d00000000   SET-FILEDATE VAL ( will be modified! ) 
+00000bdc  00           NOP ( will be modified! ) 
+00000bdd  08           DROP 
+00000bde  0d40010000   §36 VAL 
+00000be3  1e           HALF+ 
+00000be4  0e           DUP 
+00000be5  19           1- 
+00000be6  04           C@ 
+00000be7  4e           8 VAL 
+00000be8  20           LSHIFT 
+00000be9  0f           OVER 
+00000bea  19           1- 
+00000beb  19           1- 
+00000bec  04           C@ 
+00000bed  22           OR 
+00000bee  0d00000000   GET-FILEDATE VAL ( will be modified! ) 
+00000bf3  00           NOP ( will be modified! ) 
+00000bf4  08           DROP 
+00000bf5  0d00000000   D. VAL ( will be modified! ) 
+00000bfa  00           NOP ( will be modified! ) 
+00000bfb  0d00000000   CR VAL ( will be modified! ) 
+00000c00  00           NOP ( will be modified! ) 
+00000c01  0ded000000   §40 VAL 
+00000c06  1e           HALF+ 
+00000c07  0e           DUP 
+00000c08  19           1- 
+00000c09  04           C@ 
+00000c0a  4e           8 VAL 
+00000c0b  20           LSHIFT 
+00000c0c  0f           OVER 
+00000c0d  19           1- 
+00000c0e  19           1- 
+00000c0f  04           C@ 
+00000c10  22           OR 
+00000c11  0d00000000   TYPE VAL ( will be modified! ) 
+00000c16  00           NOP ( will be modified! ) 
+00000c17  0d00000000   CR VAL ( will be modified! ) 
+00000c1c  00           NOP ( will be modified! ) 
+00000c1d  0d40010000   §36 VAL 
+00000c22  1e           HALF+ 
+00000c23  0e           DUP 
+00000c24  19           1- 
+00000c25  04           C@ 
+00000c26  4e           8 VAL 
+00000c27  20           LSHIFT 
+00000c28  0f           OVER 
+00000c29  19           1- 
+00000c2a  19           1- 
+00000c2b  04           C@ 
+00000c2c  22           OR 
+00000c2d  0d00000000   FILE-STATUS VAL ( will be modified! ) 
+00000c32  00           NOP ( will be modified! ) 
+00000c33  08           DROP 
+00000c34  0d00000000   . VAL ( will be modified! ) 
+00000c39  00           NOP ( will be modified! ) 
+00000c3a  0d00000000   CR VAL ( will be modified! ) 
+00000c3f  00           NOP ( will be modified! ) 
+00000c40  0dd8000000   §41 VAL 
+00000c45  1e           HALF+ 
+00000c46  0e           DUP 
+00000c47  19           1- 
+00000c48  04           C@ 
+00000c49  4e           8 VAL 
+00000c4a  20           LSHIFT 
+00000c4b  0f           OVER 
+00000c4c  19           1- 
+00000c4d  19           1- 
+00000c4e  04           C@ 
+00000c4f  22           OR 
+00000c50  0d00000000   TYPE VAL ( will be modified! ) 
+00000c55  00           NOP ( will be modified! ) 
+00000c56  0d00000000   CR VAL ( will be modified! ) 
+00000c5b  00           NOP ( will be modified! ) 
+00000c5c  0d40010000   §36 VAL 
+00000c61  1e           HALF+ 
+00000c62  0e           DUP 
+00000c63  19           1- 
+00000c64  04           C@ 
+00000c65  4e           8 VAL 
+00000c66  20           LSHIFT 
+00000c67  0f           OVER 
+00000c68  19           1- 
+00000c69  19           1- 
+00000c6a  04           C@ 
+00000c6b  22           OR 
+00000c6c  0d00000000   R/W VAL ( will be modified! ) 
+00000c71  00           NOP ( will be modified! ) 
+00000c72  0d00000000   OPEN-FILE VAL ( will be modified! ) 
+00000c77  00           NOP ( will be modified! ) 
+00000c78  08           DROP 
+00000c79  90           A:R@ 
+00000c7a  08           DROP 
+00000c7b  0dd0000000   §42 VAL 
+00000c80  1e           HALF+ 
+00000c81  0e           DUP 
+00000c82  19           1- 
+00000c83  04           C@ 
+00000c84  4e           8 VAL 
+00000c85  20           LSHIFT 
+00000c86  0f           OVER 
+00000c87  19           1- 
+00000c88  19           1- 
+00000c89  04           C@ 
+00000c8a  22           OR 
+00000c8b  0d00000000   TYPE VAL ( will be modified! ) 
+00000c90  00           NOP ( will be modified! ) 
+00000c91  10           R@ 
+00000c92  0d00000000   FILE-SIZE VAL ( will be modified! ) 
+00000c97  00           NOP ( will be modified! ) 
+00000c98  08           DROP 
+00000c99  0d00000000   D. VAL ( will be modified! ) 
+00000c9e  00           NOP ( will be modified! ) 
+00000c9f  0d00000000   CR VAL ( will be modified! ) 
+00000ca4  00           NOP ( will be modified! ) 
+00000ca5  0dad000000   §43 VAL 
+00000caa  1e           HALF+ 
+00000cab  0e           DUP 
+00000cac  19           1- 
+00000cad  04           C@ 
+00000cae  4e           8 VAL 
+00000caf  20           LSHIFT 
+00000cb0  0f           OVER 
+00000cb1  19           1- 
+00000cb2  19           1- 
+00000cb3  04           C@ 
+00000cb4  22           OR 
+00000cb5  0d00000000   TYPE VAL ( will be modified! ) 
+00000cba  00           NOP ( will be modified! ) 
+00000cbb  52           4 VAL 
+00000cbc  90           A:R@ 
+00000cbd  2a           0< 
+00000cbe  10           R@ 
+00000cbf  88           A:DROP 
+00000cc0  10           R@ 
+00000cc1  0d00000000   REPOSITION-FILE VAL ( will be modified! ) 
+00000cc6  00           NOP ( will be modified! ) 
+00000cc7  08           DROP 
+00000cc8  0d00000000   PAD VAL ( will be modified! ) 
+00000ccd  00           NOP ( will be modified! ) 
+00000cce  460001       256 VAL 
+00000cd1  10           R@ 
+00000cd2  0d00000000   READ-LINE VAL ( will be modified! ) 
+00000cd7  00           NOP ( will be modified! ) 
+00000cd8  08           DROP 
+00000cd9  0d00000000   PAD VAL ( will be modified! ) 
+00000cde  00           NOP ( will be modified! ) 
+00000cdf  91           A:R1@ 
+00000ce0  0a           NIP 
+00000ce1  10           R@ 
+00000ce2  88           A:DROP 
+00000ce3  0d00000000   TYPE VAL ( will be modified! ) 
+00000ce8  00           NOP ( will be modified! ) 
+00000ce9  0d00000000   CR VAL ( will be modified! ) 
+00000cee  00           NOP ( will be modified! ) 
+00000cef  0da1000000   §44 VAL 
+00000cf4  1e           HALF+ 
+00000cf5  0e           DUP 
+00000cf6  19           1- 
+00000cf7  04           C@ 
+00000cf8  4e           8 VAL 
+00000cf9  20           LSHIFT 
+00000cfa  0f           OVER 
+00000cfb  19           1- 
+00000cfc  19           1- 
+00000cfd  04           C@ 
+00000cfe  22           OR 
+00000cff  0d00000000   TYPE VAL ( will be modified! ) 
+00000d04  00           NOP ( will be modified! ) 
+00000d05  10           R@ 
+00000d06  0d00000000   FILE-POSITION VAL ( will be modified! ) 
+00000d0b  00           NOP ( will be modified! ) 
+00000d0c  08           DROP 
+00000d0d  0d00000000   D. VAL ( will be modified! ) 
+00000d12  00           NOP ( will be modified! ) 
+00000d13  0d00000000   CR VAL ( will be modified! ) 
+00000d18  00           NOP ( will be modified! ) 
+00000d19  0d8c000000   §45 VAL 
+00000d1e  1e           HALF+ 
+00000d1f  0e           DUP 
+00000d20  19           1- 
+00000d21  04           C@ 
+00000d22  4e           8 VAL 
+00000d23  20           LSHIFT 
+00000d24  0f           OVER 
+00000d25  19           1- 
+00000d26  19           1- 
+00000d27  04           C@ 
+00000d28  22           OR 
+00000d29  0d00000000   TYPE VAL ( will be modified! ) 
+00000d2e  00           NOP ( will be modified! ) 
+00000d2f  0d00000000   PAD VAL ( will be modified! ) 
+00000d34  00           NOP ( will be modified! ) 
+00000d35  51           5 VAL 
+00000d36  10           R@ 
+00000d37  0d00000000   READ-FILE VAL ( will be modified! ) 
+00000d3c  00           NOP ( will be modified! ) 
+00000d3d  08           DROP 
+00000d3e  0d00000000   PAD VAL ( will be modified! ) 
+00000d43  00           NOP ( will be modified! ) 
+00000d44  91           A:R1@ 
+00000d45  0a           NIP 
+00000d46  10           R@ 
+00000d47  88           A:DROP 
+00000d48  0d00000000   TYPE VAL ( will be modified! ) 
+00000d4d  00           NOP ( will be modified! ) 
+00000d4e  0d00000000   CR VAL ( will be modified! ) 
+00000d53  00           NOP ( will be modified! ) 
+00000d54  0d5a000000   §46 VAL 
+00000d59  1e           HALF+ 
+00000d5a  0e           DUP 
+00000d5b  19           1- 
+00000d5c  04           C@ 
+00000d5d  4e           8 VAL 
+00000d5e  20           LSHIFT 
+00000d5f  0f           OVER 
+00000d60  19           1- 
+00000d61  19           1- 
+00000d62  04           C@ 
+00000d63  22           OR 
+00000d64  0d00000000   TYPE VAL ( will be modified! ) 
+00000d69  00           NOP ( will be modified! ) 
+00000d6a  0d00000000   CR VAL ( will be modified! ) 
+00000d6f  00           NOP ( will be modified! ) 
+00000d70  56           0 VAL 
+00000d71  53           3 VAL 
+00000d72  10           R@ 
+00000d73  0d00000000   RESIZE-FILE VAL ( will be modified! ) 
+00000d78  00           NOP ( will be modified! ) 
+00000d79  08           DROP 
+00000d7a  56           0 VAL 
+00000d7b  0e           DUP 
+00000d7c  10           R@ 
+00000d7d  0d00000000   REPOSITION-FILE VAL ( will be modified! ) 
+00000d82  00           NOP ( will be modified! ) 
+00000d83  08           DROP 
+00000d84  0d00000000   PAD VAL ( will be modified! ) 
+00000d89  00           NOP ( will be modified! ) 
+00000d8a  460001       256 VAL 
+00000d8d  10           R@ 
+00000d8e  0d00000000   READ-FILE VAL ( will be modified! ) 
+00000d93  00           NOP ( will be modified! ) 
+00000d94  08           DROP 
+00000d95  0d00000000   PAD VAL ( will be modified! ) 
+00000d9a  00           NOP ( will be modified! ) 
+00000d9b  91           A:R1@ 
+00000d9c  0a           NIP 
+00000d9d  10           R@ 
+00000d9e  88           A:DROP 
+00000d9f  0d00000000   TYPE VAL ( will be modified! ) 
+00000da4  00           NOP ( will be modified! ) 
+00000da5  0d00000000   CR VAL ( will be modified! ) 
+00000daa  00           NOP ( will be modified! ) 
+00000dab  10           R@ 
+00000dac  88           A:DROP 
+00000dad  0d00000000   CLOSE-FILE VAL ( will be modified! ) 
+00000db2  00           NOP ( will be modified! ) 
+00000db3  08           DROP 
+00000db4  0d27000000   §47 VAL 
+00000db9  1e           HALF+ 
+00000dba  0e           DUP 
+00000dbb  19           1- 
+00000dbc  04           C@ 
+00000dbd  4e           8 VAL 
+00000dbe  20           LSHIFT 
+00000dbf  0f           OVER 
+00000dc0  19           1- 
+00000dc1  19           1- 
+00000dc2  04           C@ 
+00000dc3  22           OR 
+00000dc4  0d00000000   TYPE VAL ( will be modified! ) 
+00000dc9  00           NOP ( will be modified! ) 
+00000dca  0d00000000   CR VAL ( will be modified! ) 
+00000dcf  00           NOP ( will be modified! ) 
+00000dd0  0d40010000   §36 VAL 
+00000dd5  1e           HALF+ 
+00000dd6  0e           DUP 
+00000dd7  19           1- 
+00000dd8  04           C@ 
+00000dd9  4e           8 VAL 
+00000dda  20           LSHIFT 
+00000ddb  0f           OVER 
+00000ddc  19           1- 
+00000ddd  19           1- 
+00000dde  04           C@ 
+00000ddf  22           OR 
+00000de0  0d00000000   INCLUDED VAL ( will be modified! ) 
+00000de5  00           NOP ( will be modified! ) 
+00000de6  08           DROP 
+00000de7  0d40420f00   1000000 VAL 
+00000dec  56           0 VAL 
+00000ded  91           A:R1@ 
+00000dee  90           A:R@ 
+00000def  09           2DROP 
+00000df0               §48 LABEL 
+00000df0  98           A:1+ 
+00000df1               §50 LABEL 
+00000df1  ad           A:CMP 
+00000df2  b8           A:0> 
+00000df3  9f           A:INVERT 
+00000df4  c2f9ff       §48 A:0BRANCH 
+00000df7  89           A:2DROP 
+00000df8               §49 LABEL 
+00000df8  466900       105 VAL 
+00000dfb  0d00000000   WORD VAL ( will be modified! ) 
+00000e00  00           NOP ( will be modified! ) 
+00000e01  1e           HALF+ 
+00000e02  0e           DUP 
+00000e03  19           1- 
+00000e04  04           C@ 
+00000e05  4e           8 VAL 
+00000e06  20           LSHIFT 
+00000e07  0f           OVER 
+00000e08  19           1- 
+00000e09  19           1- 
+00000e0a  04           C@ 
+00000e0b  22           OR 
+00000e0c  0d00000000   TYPE VAL ( will be modified! ) 
+00000e11  00           NOP ( will be modified! ) 
+00000e12  466900       105 VAL 
+00000e15  0d00000000   EMIT VAL ( will be modified! ) 
+00000e1a  00           NOP ( will be modified! ) 
+00000e1b  0d00000000   CR VAL ( will be modified! ) 
+00000e20  00           NOP ( will be modified! ) 
+00000e21  0d1a000000   §51 VAL 
+00000e26  1e           HALF+ 
+00000e27  0e           DUP 
+00000e28  19           1- 
+00000e29  04           C@ 
+00000e2a  4e           8 VAL 
+00000e2b  20           LSHIFT 
+00000e2c  0f           OVER 
+00000e2d  19           1- 
+00000e2e  19           1- 
+00000e2f  04           C@ 
+00000e30  22           OR 
+00000e31  0d00000000   TYPE VAL ( will be modified! ) 
+00000e36  00           NOP ( will be modified! ) 
+00000e37  0d00000000   CR VAL ( will be modified! ) 
+00000e3c  00           NOP ( will be modified! ) 
+00000e3d  0d40010000   §36 VAL 
+00000e42  1e           HALF+ 
+00000e43  0e           DUP 
+00000e44  19           1- 
+00000e45  04           C@ 
+00000e46  4e           8 VAL 
+00000e47  20           LSHIFT 
+00000e48  0f           OVER 
+00000e49  19           1- 
+00000e4a  19           1- 
+00000e4b  04           C@ 
+00000e4c  22           OR 
+00000e4d  0d00000000   DELETE-FILE VAL ( will be modified! ) 
+00000e52  00           NOP ( will be modified! ) 
+00000e53  08           DROP 
+00000e54  0d0d000000   §52 VAL 
+00000e59  1e           HALF+ 
+00000e5a  0e           DUP 
+00000e5b  19           1- 
+00000e5c  04           C@ 
+00000e5d  4e           8 VAL 
+00000e5e  20           LSHIFT 
+00000e5f  0f           OVER 
+00000e60  19           1- 
+00000e61  19           1- 
+00000e62  04           C@ 
+00000e63  22           OR 
+00000e64  0d00000000   TYPE VAL ( will be modified! ) 
+00000e69  00           NOP ( will be modified! ) 
+00000e6a  0d00000000   CR VAL ( will be modified! ) 
+00000e6f  00           NOP ( will be modified! ) 
+00000e70  3d           EXIT 
+
+instruction usage:
+load/store:		128	(9.228550829127613%)
+32-bit values:		298	(21.485219899062724%)
+16-bit values:		8	(0.5767844268204758%)
+5-bit values:		95	(6.8493150684931505%)
+values total:		401	(28.91131939437635%)
+arithmetic/logical:	387	(27.901946647440518%)
+relations:		13	(0.9372746935832732%)
+flow control:		2	(0.14419610670511895%)
+other:			456	(32.87671232876712%)
+total:			1387
+
+average bytes per instruction: 1.8788752703677
+
+string storage in byte:	1088
+unresolved references:	274
+
+Size of static code: 1097
+Size of initial code: 2597
+
+references:
+ffffffff	1	*/MOD
+ffffffff	7	.
+ffffffff	1	>FLOAT
+ffffffff	1	>NUMBER
+ffffffff	1	ABSOLUTE-FILE
+ffffffff	1	ASHIFT
+ffffffff	2	CLOSE-FILE
+ffffffff	54	CR
+ffffffff	1	CREATE-FILE
+ffffffff	1	D*
+ffffffff	12	D.
+ffffffff	1	D/
+ffffffff	1	DELETE-FILE
+ffffffff	1	DMOD
+ffffffff	1	EMIT
+ffffffff	1	F**
+ffffffff	16	F.
+ffffffff	1	FACOS
+ffffffff	1	FACOSH
+ffffffff	1	FASINH
+ffffffff	1	FATAN
+ffffffff	1	FATANH
+ffffffff	1	FCOS
+ffffffff	1	FCOSH
+ffffffff	1	FEXP
+ffffffff	1	FILE-POSITION
+ffffffff	1	FILE-SIZE
+ffffffff	1	FILE-STATUS
+ffffffff	1	FLN
+ffffffff	1	FLOOR
+ffffffff	1	FM/MOD
+ffffffff	1	FROUND
+ffffffff	1	FS.
+ffffffff	1	FSINH
+ffffffff	1	FSQRT
+ffffffff	1	FTAN
+ffffffff	1	FTANH
+ffffffff	2	GET-FILEDATE
+ffffffff	1	INCLUDED
+ffffffff	1	M*
+ffffffff	1	OPEN-FILE
+ffffffff	9	PAD
+ffffffff	2	R/W
+ffffffff	3	READ-FILE
+ffffffff	1	READ-LINE
+ffffffff	1	RENAME-FILE
+ffffffff	3	REPOSITION-FILE
+ffffffff	1	RESIZE-FILE
+ffffffff	1	SET-FILEDATE
+ffffffff	1	SHIFTL
+ffffffff	1	SHIFTR
+ffffffff	1	SM/REM
+ffffffff	55	TYPE
+ffffffff	1	UD..R
+ffffffff	1	WORD
+ffffffff	1	WRITE-FILE
+ffffffff	1	WRITE-LINE
+424	1	§0
+414	1	§1
+358	1	§10
+34c	1	§11
+33f	1	§12
+32a	1	§13
+30c	1	§14
+2ee	1	§15
+2cd	1	§16
+29e	1	§17
+280	1	§18
+276	1	§19
+40a	3	§2
+267	1	§20
+257	1	§21
+248	1	§22
+235	1	§23
+222	1	§24
+20d	1	§25
+1f8	1	§26
+1e4	1	§27
+1d5	1	§28
+1c6	1	§29
+400	3	§3
+1aa	1	§30
+17c	1	§31
+16d	2	§32
+164	1	§33
+15b	1	§34
+146	1	§35
+140	9	§36
+131	1	§37
+122	1	§38
+fe	1	§39
+3f0	1	§4
+ed	1	§40
+d8	1	§41
+d0	1	§42
+ad	1	§43
+a1	1	§44
+8c	1	§45
+5a	1	§46
+27	1	§47
+3df	1	§5
+1a	1	§51
+d	1	§52
+3c1	1	§6
+39a	1	§7
+38e	1	§8
+364	1	§9

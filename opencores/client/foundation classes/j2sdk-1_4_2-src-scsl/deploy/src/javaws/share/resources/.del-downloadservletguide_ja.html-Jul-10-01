@@ -1,0 +1,565 @@
+<html>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; CHARSET=ISO-2022-JP">
+<title>JNLP アプリケーションの WAR 形式でのパッケージング</title>
+<body bgcolor="white">
+
+<table BORDER=0 WIDTH="100%" >
+<tr>
+<td WIDTH="40"><img SRC="javalogo52x88.gif" ALT="Java" BORDER=0 height=88 width=52></td>
+<td ALIGN=CENTER>
+<h1>
+JNLP アプリケーションの WAR 形式でのパッケージング</h1>
+<h2>
+Java<sup><font size=-2> TM</font></sup> Web Start</h2>
+<h3>
+Version 1.0.1</h3>
+</td>
+<td ALIGN=RIGHT VALIGN=TOP WIDTH="40"><font size=+2>&nbsp;</font></td>
+</tr>
+</table>
+
+<blockquote>
+<p>&nbsp;コメントおよびフィードバックの送付先 : <a href="mailto:javawebstart-feedback@sun.com">javawebstart-feedback@sun.com</a>
+</blockquote>
+<h2>
+目次</h2>
+
+<blockquote><b><a href="#intro">はじめに</a></b>
+<br><b><a href="#eg">例</a></b>
+<br><b><a href="#configuration">サーブレットの構成</a></b>
+<br><b><a href="#resources">リソースの指定</a></b>
+<br><b><a href="#mapping">リソースへの要求のマッピング</a></b>
+<br><b><a href="#jnlpfile">JNLP ファイルの処理</a></b></blockquote>
+
+<a NAME="intro"></a>
+<h2>はじめに</h2>
+<blockquote>
+Java Web Start の開発者向けパックには、JNLP ファイルおよび関連するリソースを Web Archive (.war) ファイルにパッケージングするために使用されるサーブレットが含まれています。このサーブレットの目的は、JNLP アプリケーション用の簡単で利便性の高いパッケージング形式を提供することによって、Tomcat や J2EE 準拠のアプリケーションサーバなどの Web コンテナに JNLP アプリケーションを容易に配備できるようにすることです。<p>
+ダウンロードサーブレットは、次の機能をサポートします。
+<ul>
+<li>JNLP ファイルへのコードベース URL の自動インストール。これにより、ハードコードされた URL を手動で JNLP ファイルへインストールする必要がなくなります。</li>
+<li>JNLP ファイルのタイムスタンプの明示的な指定。つまり、ファイルシステムのタイムスタンプとは別に、タイムスタンプを指定できます。</li>
+<li>JNLP 仕様 v1.0.1 に定義されている、すべてのダウンロードプロトコルのサポート。基本ダウンロードプロトコル、バージョンベースのダウンロードプロトコル、拡張ダウンロードプロトコルがあります。</li>
+<li>バージョンベースの情報は、Web Archive (.war) ファイルまたはディレクトリごとに設定されます。このため、アーカイブ全体を一元管理するためのファイルは必要ありません。
+<li>JARDiff ファイルの自動生成。</li>
+</ul>
+<p>
+パッケージングをサポートしているのは、<tt>JnlpDownloadServlet</tt> という 1 つのサーブレットです。このサーブレットは、<tt>jnlp-servlet.jar</tt> ファイルにパッケージ化されています。
+<p>
+これから、サーブレットの使用方法を示す 2 つの例を取り上げます。その後、サーブレットの機能を詳細に説明します。
+</blockquote>
+
+<a NAME="eg"></a>
+<h2>例</h2>
+<blockquote>
+1 つ目の例では、バージョンベースのダウンロードを使用せずに、アプリケーションを WAR ファイルにパッケージ化する方法を示します。<tt>JnlpDownloadServlet</tt> を使って、要求時に正確な URL (URL 絶対パス) を JNLP ファイルに挿入します。2 つ目の例では、バージョンベースのダウンロードをサポートする方法を示します。
+
+<a name="example1">
+<h3>バージョンダウンロードプロトコルを使用しない WAR ファイル</h3>
+
+<tt>example1.war</tt> には、以下が含まれています。
+<pre>
+   /index.html
+   /app/launch.jnlp
+   /app/application.jar
+   /app/images/icon.gif
+   /WEB-INF/web.xml
+   /WEB-INF/lib/jnlp-servlet.jar
+   /WEB-INF/lib/jaxp.jar
+   /WEB-INF/lib/parser.jar
+</pre>
+
+アプリケーションの JNLP ファイルは、次のようになります。
+<pre>
+   TS: 2000-08-23 19:21:05
+   &lt;?xml version="1.0" encoding="UTF-8"?>
+   &lt;jnlp codebase="$$codebase">
+     &lt;information>
+         &lt;title>Example 1&lt;/title>
+         &lt;vendor>Myself&lt;/vendor>
+         &lt;description>just an example&lt;/description>
+         &lt;icon href="images/icon.gif"/>
+     &lt;/information>
+     &lt;resources>
+       &lt;j2se version="1.2+"/>
+       &lt;jar href="application.jar"/>
+     &lt;/resources>
+     &lt;application-desc/>
+   &lt;/jnlp>
+</pre>
+<tt>TS</tt> タグの付いた最初の行には、サーブレットが返す JNLP ファイルのタイムスタンプが含まれています。タイムスタンプは、ISO 8601 形式で記述されます。この行が省略されると、WAR ファイル内のファイルのタイムスタンプが使用されます。文字列 <tt>$$codebase</tt> は、<tt>JnlpDownloadServlet</tt> によって、要求を行う実際の URL に置き換えられます。
+<p>
+<tt>web.xml</tt> ファイルは、JNLP ファイルへのすべての要求に対して <tt>JNLPDownloadServlet</tt> を呼び出すように、Web コンテナに指示します。
+<pre>
+  &lt;web-app>
+     &lt;servlet>
+        &lt;servlet-name>JnlpDownloadServlet&lt;/servlet-name>
+        &lt;servlet-class>com.sun.javaws.servlet.JnlpDownloadServlet&lt;/servlet-class>
+     &lt;/servlet>
+     &lt;servlet-mapping>
+        &lt;servlet-name>JnlpDownloadServlet&lt;/servlet-name>
+        &lt;url-pattern>*.jnlp&lt;/url-pattern>
+     &lt;/servlet-mapping>
+  &lt;/web-app>
+</pre>
+
+<tt>JnlpDownloadServlet</tt> が動作するためには、XML パーサが必要です。<tt>WEB-INF/lib</tt> 内の <tt>jaxp.jar</tt> および <tt>parser.jar</tt> が、XML パーサを実装します。リファレンス実装は、<a href="http://java.sun.com/xml/">http://java.sun.com/xml</a> からダウンロードできます。
+
+<a name="example2">
+<h3>バージョンダウンロードプロトコルを使用する WAR ファイル</h3>
+
+<tt>example2.war</tt> には、以下が含まれています。
+<pre>
+   /index.html
+   /app/version.xml
+   /app/launch.jnlp
+   /app/application.jar
+   /app/lib__V2.1.jar
+   /app/images/icon.gif
+   /WEB-INF/web.xml
+   /WEB-INF/lib/jnlp-servlet.jar
+   /WEB-INF/lib/jaxp.jar
+   /WEB-INF/lib/parser.jar
+</pre>
+<tt>/app</tt> ディレクトリには、2 つの JAR リソース、<tt>application.jar</tt> および <tt>lib.jar</tt> が含まれます。<tt>lib.jar</tt> は命名規約を使用して、バージョン ID 2.1 を関連付けます (つまり、バージョン情報はファイルごとに関連付けられます)。<tt>application.jar</tt> ファイルのバージョンは、<tt>version.xml</tt> ファイルに記述されます (つまり、バージョン情報はディレクトリごとに記述されます)。<tt>versions.xml</tt> ファイルは、次のようになります。
+<pre>
+   &lt;jnlp-versions>
+      &lt;resource>
+         &lt;pattern>
+           &lt;name>application.jar&lt;/name>
+            &lt;version-id>1.1&lt;/version-id>
+         &lt;/pattern>
+         &lt;file>application.jar&lt;/file>
+      &lt;/resource>
+   &lt;/jnlp-versions>
+</pre>
+アプリケーションの JNLP ファイルは、次のようになります。
+<pre>
+   TS: 2000-08-23 19:21:05
+   &lt;?xml version="1.0" encoding="UTF-8"?>
+   &lt;jnlp codebase="$$codebase" href="$$name">
+     &lt;information>
+         &lt;title>Example 2&lt;/title>
+         &lt;vendor>Myself&lt;/vendor>
+         &lt;description>just an example&lt;/description>
+         &lt;icon href="images/icon.gif"/>
+     &lt;/information>
+     &lt;resources>
+       &lt;j2se version="1.2+"/>
+       &lt;jar href="application.jar" version="1.1"/>
+       &lt;jar href="lib.jar" version="2.1"/>
+     &lt;/resources>
+     &lt;application-desc/>
+   &lt;/jnlp>
+</pre>
+最後に、<tt>/app</tt> ディレクトリへのすべての要求に対して <tt>JnlpDownloadServlet</tt> が呼び出されるように、<tt>web.xml</tt> ファイルを構成します。
+<pre>
+  &lt;web-app>
+     &lt;servlet>
+        &lt;servlet-name>JnlpDownloadServlet&lt;/servlet-name>
+        &lt;servlet-class>com.sun.javaws.servlet.JnlpDownloadServlet&lt;/servlet-class>
+     &lt;/servlet>
+     &lt;servlet-mapping>
+        &lt;servlet-name>JnlpDownloadServlet&lt;/servlet-name>
+        &lt;url-pattern>/app/*&lt;/url-pattern>
+     &lt;/servlet-mapping>
+  &lt;/web-app>
+</pre>
+</blockquote>
+
+<a name="configuration">
+<h2>サーブレットの構成</h2>
+<blockquote>
+このセクションでは、<tt>JnlpDownloadServlet</tt> を含めて WAR ファイルを構成する方法、およびサーブレットの構成方法を説明します。
+<p>
+<h3>WAR アーカイブへのサーブレットの追加</h3>
+まず、必要なサーブレットコードを、サーブレットのコンテナが利用できるようにする必要があります。これは、<tt>WEB-INF/lib</tt> ディレクトリを生成することにより行われます。<tt>WEB-INF/lib/</tt> ディレクトリに <tt>jnlp-servlet.jar</tt> ファイルを追加することによって、WAR アーカイブにサーブレットが追加されます。サーブレットは XML パーサにアクセスする必要があるため、Java XML パーサを実装する JAR ファイルも追加する必要があります。これらのファイルは、<a href="http://java.sun.com/xml/">http://java.sun.com/xml</a> からダウンロードできます。
+<p>
+サーブレットのコードが利用可能になったら、適切な JNLP ファイルおよび JAR ファイルのセットまたは指定されたサブディレクトリに対してサーブレットを呼び出すように、Web コンテナに指示する必要があります。これはすべて、<tt>WEB-INF/web.xml</tt> ファイルの <tt>&lt;web-app></tt> タグで指定します。
+<pre>
+   &lt;web-app>
+      ...
+   &lt;/web-app>
+</pre>
+
+最初に、サーブレットの呼び出し方法を Web コンテナに指示します。これには、<tt>&lt;servlet></tt> タグを使用します。
+<pre>
+   &lt;servlet>
+      &lt;servlet-name>JnlpDownloadServlet&lt;/servlet-name>
+      &lt;servlet-class>com.sun.javaws.servlet.JnlpDownloadServlet&lt;/servlet-class>
+   &lt;/servlet>
+</pre>
+
+次に、サーブレットをいつ呼び出すかを Web コンテナに指示します。これには、いくつかの方法があります。1 つの方法として、特定のディレクトリ、または特定の拡張子を持つファイルが指定された場合に呼び出すことができます。たとえば、JNLP ファイルに対してサーブレットを呼び出す場合は、<tt>web.xml</tt> ファイルに以下を追加します。
+<pre>
+   &lt;servlet-mapping>
+     &lt;servlet-name>JnlpDownloadServlet&lt;/servlet-name>
+     &lt;url-pattern>*.jnlp&lt;/url-pattern>
+   &lt;/servlet-mapping>
+</pre>
+特定のサブディレクトリに対してサーブレットを呼び出す場合は、以下を追加します。
+<pre>
+   &lt;servlet-mapping>
+     &lt;servlet-name>JnlpDownloadServlet&lt;/servlet-name>
+     &lt;url-pattern>/app/*&lt;/url-pattern>
+   &lt;/servlet-mapping>
+</pre>
+<p>
+サーブレットの構成方法の例については、<a href="#example1">example1</a> および <a href="#example2">example2</a> も参照してください。
+
+<h3>ログ</h3>
+サーブレットには、その動作を監視するためのログ機能が組み込まれています。生成されるログメッセージは、次の 4 つのカテゴリに分けられます。
+<dl>
+<dt>FATAL (致命的)<dt><dd>サーブレット内部で発生した機能不全エラーまたは内部エラー。</d>
+
+<dt>WARNING (警告)</dt><dd>WAR ファイル内の情報の処理中 (<tt>version.xml</tt> ファイルの構文解析など) に発生したエラー。</dd>
+
+<dt>INFORMATIONAL (情報)</dt><dd>すべての要求、応答、ディレクトリの再走査などのログ。</dd>
+
+<dt>DEBUG (デバッグ)</dt><dd>要求がどどのように処理されているかを示す詳細な内部情報</dd>
+
+</dl>
+
+ログ出力は、2 つのサーブレット初期化パラメータ、<tt>logLevel</tt> および <tt>logPath</tt> によって制御されます。ログレベルは、NONE、FATAL、WARNING、INFORMATIONAL、DEBUG のいずれかに設定することができます。ログパスには、出力の書き込み先のファイルを指定します。パスを指定しない場合は、ログはサーブレットの標準ログに書き込まれます (<tt>ServletContext.log</tt> メソッドを使用)。次に例を示します。
+<pre>
+ &lt;servlet>
+    &lt;servlet-name>
+      JnlpDownloadServlet
+    &lt;/servlet-name>
+    &lt;servlet-class>
+      com.sun.javaws.servlet.JnlpDownloadServlet
+    &lt;/servlet-class>
+
+    &lt;init-param>
+      &lt;param-name>
+        logLevel
+      &lt;/param-name>
+
+      &lt;param-value>
+        DEBUG
+      &lt;/param-value>
+    &lt;/init-param>
+
+    &lt;init-param>
+      &lt;param-name>
+        logPath
+      &lt;/param-name>
+
+      &lt;param-value>
+        /logs/jnlpdownloadservlet.log
+      &lt;/param-value>
+    &lt;/init-param>
+
+  &lt;/servlet>
+</pre>
+
+<h3>ファイル拡張子および MIME タイプの構成</h3>
+サーブレットは、JNLP ファイルおよび JAR ファイルを特別に扱います。<a href="#jnlpfile">後述の</a>セクションで説明するように、JNLP ファイルはマクロによって展開されます。JAR ファイルに対するバージョンベースの要求によって、増分更新が生成されることがあります。サーブレットは、拡張子を利用して、ファイルが JNLP または JAR のどちらであるかを特定します。JNLP ファイルのデフォルトの拡張子は <tt>.jnlp</tt>、JAR ファイルのデフォルトの拡張子は <tt>.jar</tt> です。これらのデフォルト拡張子は、初期化パラメータ <tt>jnlp-extension</tt> および <tt>jar-extension</tt> を使って変更できます。次に例を示します。
+<pre>
+    &lt;init-param>
+      &lt;param-name>
+        jnlp-extension
+      &lt;/param-name>
+
+      &lt;param-value>
+        .xjnlp
+      &lt;/param-value>
+    &lt;/init-param>
+</pre>
+
+返される MIME タイプも、ファイルの拡張子に基づいて決定されます。MIME タイプは、Web コンテナおよび WAR ファイルの構成ファイルで確認されます。マッピングが指定されていない場合、デフォルトの MIME タイプは次のようになります。
+<pre>
+       拡張子       デフォルト MIME タイプ
+     -------------------------------------------
+       .jnlp        application/x-java-jnlp-file
+       .jar         application/x-java-archive
+       .jardiff     application/x-java-archive-diff
+</pre>
+マッピングは、<tt>web.xml</tt> ファイルの <tt>&lt;mime-type></tt> 要素を使って変更できます。次に例を示します。
+<pre>
+  &lt;web-app>
+     ...
+     &lt;mime-mapping>
+        &lt;extension>jnlp&lt;/extension>
+        &lt;mime-type>text/ascii&lt;/mime-type>
+     &lt;/mime-mapping>
+     ...
+  &lt;/web-app>
+</pre>
+
+</blockquote>
+
+<a name="resources">
+<h2>リソースの指定</h2>
+<blockquote>
+イメージ、JAR ファイル、JNLP ファイルなどのアプリケーションリソースは、WAR ファイルに格納されます。WAR ファイル自体は階層ディレクトリ構造になっており、WAR ファイル中のリソースの配置により、検索に使用される URL が決まります。
+<p>
+WAR ファイル (またはサーブレット) が、<tt>http://www.mytool.com/tool/</tt> で始まるすべての URL 要求を処理するように構成されている場合を考えてみましょう。このとき、<tt>http://www.mytool.com/tool/app/launch.jnlp</tt> が要求されたとします。この場合、<tt>JnlpDownloadServlet</tt> は、WAR ファイル中の <tt>app/</tt> ディレクトリ内で <tt>launch.jnlp</tt> リソースを検索します。
+
+<h3>バージョン情報を保持しない場合</h3>
+
+関連付けられたバージョン情報を持たないリソース (アプリケーションの JNLP ファイルなど) は、単に WAR ファイルに追加されるだけです。たとえば、上の例では、WAR ファイルには次のファイルが含まれます。
+<pre>
+    /app/launch.jnlp
+</pre>
+通常、返されるタイムスタンプは、ファイルが WAR ファイル内で保持する最終更新タイムスタンプです。唯一の例外は JNLP ファイルで、タイムスタンプは JNLP ファイル内で明示的に指定されます (<a href="#jnlpfile">後述</a>の説明を参照)。
+
+<h3>バージョン情報その他</h3>
+
+JNLP 仕様に準拠したバージョンベースおよび拡張子ベースのダウンロードプロトコルでは、バージョン ID、オペレーティングシステム、システムアーキテクチャ、ロケールに基づいて、リソースを検索できます。<tt>JnlpDownloadServlet</tt> は、この情報をリソースに関連付ける、2 つの機構を提供します。一方は命名規約を使用してファイルごとに関連付けを行い、もう一方は構成ファイルを使用してディレクトリごとに関連付けを行います。同一のディレクトリに両方の機構を適用することも可能です。
+<p>
+次の情報を、リソースに関連付けることができます。
+<ul>
+<li>リソースのパス (例: <tt>/app</tt>)
+<li>リソースの名前 (例: <tt>launch.jnlp</tt>)
+<li>バージョン ID (例: <tt>1.1.0</tt>)
+<li>サポートするオペレーティングシステムのリスト (例: <tt>SunOS Linux</tt>)
+<li>サポートするアーキテクチャのリスト (例: <tt>x86</tt>)
+<li>サポートするロケールのリスト (例: <tt>da da_DK</tt>)
+<li>バージョン ID が、製品のバージョンまたはプラットフォームのバージョンのどちらであるかを示すフラグ (JRE ダウンロードでのみ使用)
+</ul>
+<p>
+パスは、WAR アーカイブ内のリソースの位置によって指定されます。残りの情報は、命名規約を使用することによって指定されるか、または <tt>version.xml</tt> ファイル内で指定されます。
+
+<h3>リソースの命名</h3>
+
+連続した 2 つの下線 (__) のマーカーがファイル名に含まれる場合、ファイルの命名規約が使用されます。ファイル名は、次に示す BNF 表記法に従って構文解析されます。
+<pre>
+	file    ::= name __ options . ext
+	options ::= option ( __ options ) *
+	option  ::= V version-id |
+        	    O os |
+            	    A arch |
+            	    L locale
+</pre>
+バージョン ID は、ファイルごとに 1 つだけ指定できます。ただし、os フィールド、arch フィールド、locale フィールドは、複数指定することができます。次に例を示します。
+<pre>
+	application__V1.2__Len_US__Len.jar
+</pre>
+この例では、リソース <tt>application.jar</tt> には、バージョン ID 1.2、およびロケール <tt>en_US</tt> および <tt>en</tt> が関連付けられています。
+
+<h3><tt>version.xml</tt> ファイル</h3>
+
+各ディレクトリに <tt>version.xml</tt> ファイルを配置することにより、特定のディレクトリ内のファイルの追加情報 (バージョン ID など) を記述できます。このファイルは、ファイル命名規約の代わりに使用することができます。
+<p>
+たとえば、ディレクトリ内にファイル <tt>application-1_2-us.jar</tt> および <tt>version.xml</tt> を配置し、<tt>version.xml</tt> の内容を次のようにします。
+<pre>
+       &lt;jnlp-versions>
+          &lt;resource>
+             &lt;pattern>
+                &lt;name>application.jar&lt;/name>
+                &lt;version-id>1.2&lt;/version-id>
+                &lt;locale>en_US&lt;/locale>
+                &lt;locale>en&lt;/locale>
+             &lt;/pattern>
+             &lt;file>application-1_2-us.jar&lt;/file>
+         &lt;/resource>
+       &lt;/jnlp-versions>
+</pre>
+これは、<tt>application__V1.2__Len_US__Len.jar</tt> という名前のファイルをディレクトリ内に配置するのと同じになります。
+<p>
+<tt>version.xml</tt> 中でプラットフォームバージョン ID を設定することにより、リソースを指定することもできます。この場合、リソースは、JRE 用の特定のプラットフォーム要求を満たすために使用されます。プラットフォームバージョン ID 付きのリソースは、<tt>&lt;platform></tt> 要素を使って指定されます。次に例を示します。
+<pre>
+	  &lt;platform>
+             &lt;pattern>
+                &lt;name>J2RE&lt;/name>
+                &lt;version-id>1.3&lt;/version-id>
+                &lt;locale>en_US&lt;/locale>
+                &lt;locale>en&lt;/locale>
+             &lt;/pattern>
+             &lt;file>j2re-1_3.0-us.jnlp&lt;/file>
+             &lt;product-version-id>1.3.0&lt;/product-version-id>
+         &lt;/platform>
+</pre>
+通常、現在ローカルシステムにインストールされていない Java 2 プラットフォームのバージョンをアプリケーションが要求すると、Java Web Start はプラットフォームバージョン要求を内部で生成します。
+<p>
+<tt>version.xml</tt> のすべての文書型定義 (DTD) を次に示します。
+<pre>
+   &lt;!ELEMENT jnlp-versions &lt;resource*, platform*)>
+   &lt;!ELEMENT resource (pattern, file)>
+   &lt;!ELEMENT platform (pattern, file, product-version-id)>
+   &lt;!ELEMENT pattern (name, version-id, os*, arch*, locale*)>
+   &lt;!ELEMENT name (#PCDATA)>
+   &lt;!ELEMENT version-id (#PCDATA)>
+   &lt;!ELEMENT os (#PCDATA)>
+   &lt;!ELEMENT arch (#PCDATA)>
+   &lt;!ELEMENT locale (#PCDATA)>
+   &lt;!ELEMENT file (#PCDATA)>
+   &lt;!ELEMENT product-version-id (#PCDATA)>
+</pre>
+
+</blockquote>
+
+<a NAME="mapping"></a>
+<h2>リソースへのマッピング要求</h2>
+<blockquote>
+JNLP 仕様には、4 種類の異なるダウンロード要求が定義されています。Java Web Start (より一般的には、JNLP クライアント) は、リソースの要求時に、サーバに対してこれらのダウンロード要求を実行できます。
+<ul>
+<li><b>基本ダウンロード要求 : </b>これは、特定のファイルに対する通常の URL 要求です。応答の <tt>Last-Modified</tt> フィールドを使って、サーバ上で更新が可能かどうかが判断されます。基本ダウンロード要求は、すべてのリソースタイプで使用できます。
+
+<li><b>バージョンベースのダウンロード要求 : </b>この要求タイプは、JAR ファイルおよびイメージに対して使用できます。つまり、<tt>version</tt> 属性が含まれている場合、<tt>&lt;jar></tt>、<tt>&lt;nativelib></tt>、<tt>&lt;icon></tt> 要素が存在すると、バージョンベースのダウンロード要求が生成されます。
+
+<li><b>拡張ダウンロード要求: </b>この要求タイプは、バージョンベースのダウンロード要求の拡張機能であり、<tt>&lt;j2se></tt> または <tt>&lt;extension></tt> 要素により生成されます。バージョン情報に加え、オペレーティングシステム、システムアーキテクチャ、およびロケールに関する情報が含まれます。
+<li><b>プラットフォームバージョンのダウンロード要求: </b>これは、拡張ダウンロード要求に似ていますが、Java 2 SE Runtime Environment (J2RE) の特定のバージョンを要求する際に使用されます。クライアントシステムに現在インストールされていない J2RE の特定バージョンを JNLP ファイルが要求した場合、この要求が Java Web Start により生成されます。
+</ul>
+<p>
+要求は、最初に <tt>JNLPDownloadServlet</tt> によって処理され、次の情報が抽出されます。
+<ul>
+<li> WAR ファイル内のパス
+<li> 要求されたファイルの名前
+<li> バージョン文字列 (<tt>version-id</tt> パラメータまたは <tt>platform-version-id</tt> パラメータ)
+<li> 現在のバージョン ID (<tt>current-version-id</tt> パラメータ)
+<li> オペレーティングシステムのリスト (<tt>os</tt> パラメータ)
+<li> アーキテクチャのリスト (<tt>arch</tt> パラメータ)
+<li> ロケールのリスト (<tt>locale</tt> パラメータ)
+</ul>
+<p>
+<a href="#example2">example2</a> の事例で、それが <tt>http://www.mytool.com/tool2/</tt> によりホストされる場合を考えてみましょう。<tt>http://www.mytool.com/tool2/app/lib.jar&version-id=2.1</tt> が実行されるとします。この場合、リソースのパスは、<tt>app/</tt> に、名前は <tt>lib.jar</tt> に、バージョン文字列は <tt>2.1</tt> に、OS、アーキテクチャ、およびロケールのリストは空になります。
+<p>
+ディレクトリへの要求 (<tt>http://www.mytool.com/tool2/app/</tt> など) にはデフォルトのファイル名 <tt>launch.jnlp</tt> が追加されます。このため、この要求は <tt>http://www.mytool.com/tool2/app/launch.jnlp</tt> と同じになります。
+
+<h3>基本ダウンロード要求の処理</h3>
+
+バージョン ID が指定されていない要求 (要求中に <tt>version-id</tt> パラメータも <tt>platform-version-id</tt> パラメータも指定されていない) は、基本ダウンロード要求として処理されます。
+<p>
+最初に、要求に二重下線 (__) が含まれるかどうか、または <tt>version.xml</tt> ファイルへの要求かどうかが検査されます。いずれかに該当する場合、要求は拒否され、HTTP 404 エラーコードが返されます。
+<p>
+次に、<tt>JnlpDownloadServlet</tt> は、指定されたパスおよび名前のリソースを WAR ファイル内で検索し、見つかった場合、それを返します。見つからなかった場合は、その要求に対して HTTP 404 エラーコードが返されます。
+<p>
+見つかったファイルが JNLP ファイルの場合、<a href="#jnlpfile">後述</a>の方法で前処理されてから返されます。
+
+<h3>バージョンベースのダウンロード要求の処理</h3>
+
+バージョン ID が指定されたリソースの検索方法は、バージョンベースのダウンロードプロトコル、拡張ダウンロードプロトコル、プラットフォームバージョンダウンロード要求において、同一です。
+<p>
+まず、<tt>JnlpDownloadServlet</tt> は、URL 要求が (要求中のパスに基づいて) アクセスする WAR ファイルディレクトリ内にあるすべてのリソースのデータベースを構築します。<tt>version.xml</tt> ファイル (存在する場合)、および前述の命名規約を使用するディレクトリ内のファイルリストを走査することによって、データベースが構築されます。サーブレットは、情報を内部にキャッシュします。<tt>version.xml</tt> ファイルのタイムスタンプが最後に走査したものよりも新しい場合にのみ、再走査が実行されます。このため、命名規約を利用してファイルを追加する場合、<tt>version.xml</tt> ファイルのタイムスタンプを更新して、サーブレットにより再走査が確実に実行されるようにしてください。
+<p>
+次に、サーブレットはデータベース内のエントリを走査して、指定された要求に一致するものを検索します (一致規則については後述します)。プラットフォームに関係しない要求の場合、最初に <tt>version.xml</tt> ファイル内の <tt>resource</tt> エントリが指定された順序で走査され、次に命名規約を使って指定されたエントリが走査されます。プラットフォームバージョン要求の場合、<tt>version.xml</tt> ファイル内の <tt>platform</tt> エントリが、指定された順序で走査されます。要求を満たすエントリが複数存在する場合、バージョン ID の値が最も大きいエントリが返されます。要求を満たすエントリが複数存在し、かつバージョン ID の値が等しい場合、指定された最初のエントリが返されます。
+<p>
+一致規則は、次のとおりです。
+<ol>
+<li>リソースの名前が、要求に一致する必要がある
+<li>リソースのバージョン ID が、要求内のバージョン文字列に一致する必要がある
+<li>オペレーティングシステム、アーキテクチャ、およびロケールリストに対して、次の規則が適用される
+  <ol>
+  <li>リソースに対し空のリストが指定された場合、一致と見なされる
+  <li>リソースに対し空でないリストが指定された場合、リソースで指定された 1 つ以上の値が、要求内で指定された 1 つ以上の値の前置と等しいなら、一致と見なされる
+  </ol>
+</ol>
+応答として返された <tt>x-java-jnlp-version-id</tt> は、対応するリソースのバージョン ID になります。ただし、プラットフォーム要求は例外で、<tt>version.xml</tt> ファイルの <tt>&lt;product-version-id></tt> フィールドから取得されます。
+<p>
+一致したファイルが JNLP ファイルの場合、<a href="#jnlpfile">後述</a>の方法で前処理されてから返されます。
+
+<h3>JARDiff の自動生成</h3>
+
+サーブレットは、可能な場合には増分更新を自動的に生成して、JAR ファイルに返します。<tt>current-version-id</tt> パラメータが要求に含まれており、サーブレットは、<tt>current-version-id</tt> の一致と要求されたバージョンの両方を (上述の一致規則で) 検索することができ、かつ要求が JAR ファイルに対するものである (ターゲットのリソースが拡張子が <tt>.jar</tt>) 場合、JARDiff ファイルがサーブレットにより生成されます。JARDiff ファイルは、そのサイズが要求されたバージョンのサイズよりも小さいものである限り返されます。
+<p>
+生成された JARDiff ファイルは、指定された Web コンテナに固有の一時ディレクトリに格納されます。サーブレットは、<tt>javax.servlet.context.tempdir</tt> コンテキスト属性を使って、一時作業ディレクトリを検索します。
+
+</blockquote>
+
+<a name="jnlpfile">
+<h2>JNLP ファイルの処理</h2>
+<blockquote>
+<tt>JnlpDownloadServlet</tt> は、JNLP ファイル内の特定のテンプレートの値を、マクロにより自動的に展開し、現行の要求に固有な URL で置き換えます。これにより、ハードコードされた URL を含めずに、JNLP ファイルを記述および配備することができます。
+
+<h3>マクロ展開</h3>
+
+サーブレットは、JNLP ファイル内の特定の固定キー (接頭辞 <tt>$$</tt> の付いた) を、現行の要求に基づく URL で置き換えます。位置に依存しない WAR ファイルを作成して Web コンテナ内に配備することができるように、キーが設計されています。
+<p>
+サーブレットが検索および置換を行う 3 つのキーを、次の表に示します。
+<pre>
+         パターン      値
+         ----------------------------------------------------------------
+         $$codebase    要求の完全な URL (JNLP ファイルの名前を除く)
+	 $$name        JNLP ファイルの名前
+         $$context     Web Archive のベース URL
+</pre>
+<b>例:</b> <a href="#example1">example1</a> の WAR ファイルを考えましょう。この WAR ファイルが、<tt>http://www.mytool.com/tool</tt> に配備されているとします。この場合、<tt>http://www.mytool.com/tool/app/launch.jnlp</tt> への要求により、JNLP ファイルが返されます。マクロにより展開されたキーの値は、次のようになります。
+<pre>
+      $$codebase = http://www.mytool.com/tool/app/
+      $$name     = launch.jnlp
+      $$context  = http://www.mytool.com/tool/
+</pre>
+<p>
+サーブレットは、JNLP ファイルの形式や、XML が正しく形成されているかどうかを検証することはありません。値の置き換えは、単ににテキスト上で行われます。
+
+<h3>明示的なタイムスタンプ</h3>
+
+明示的なタイムスタンプを JNLP ファイルに含めることにより、Web サーバが返すタイムスタンプを一定にできます。JNLP ファイルが、ラウンドロビン方式または負荷均衡方式で同一の URL のサーバとして稼動する複数の Web サーバ上で複製される場合、特に有用です。同様の手法は、JAR ファイルには適用されないことに注意してください。JAR ファイルの場合、バージョンベースのダウンロードプロトコルを代わりに使用する必要があります。
+<p>
+最初の行が <tt>TS:</tt> で始まる場合、明示的なタイムスタンプが JNLP に含まれます。この場合、タイムスタンプは ISO 8601 形式に基づいて構文解析されます (<a href="#iso8601">次を参照</a>)。最初の行は、コンテンツからも削除されます。
+<p>
+<tt>TS:</tt> 要素を使用したサンプル JNLP ファイルの例については、前述の <a href="#example1">example1</a> および <a href="#example2">example2</a> を参照してください。
+<p>
+<a name="iso8601">
+<h3>ISO 8601 形式</h3>
+一般的なタイムスタンプの形式は、次のとおりです。
+<pre>
+   YYYY-MM-DD hh:mm:ss
+</pre>
+次に示すように、ダッシュ、コロン、秒を付けずに記述することもできます。
+<pre>
+   YYYYMMDDhhmm
+</pre>
+hh は 24 時間単位で表記します。デフォルトでは、ローカルタイムゾーンが使用されます。次に示すように、時刻の最後に大文字の Z を追加することにより、UTC (世界標準時、GMT としても知られる) を指定することもできます。
+<pre>
+     23:59:59Z または 235959Z
+</pre>
+次の文字列を時刻に追加することにより、使用するローカルタイムゾーンが、UTC に hh 時間 mm 分を追加したものであることを指定できます。
+<pre>
+     +hh:mm、+hhmm、または +hh
+</pre>
+経度ゼロより西のタイムゾーン (UTC よりも前の時間になる) の場合は、次のように表記します。
+<pre>
+     -hh:mm, -hhmm, or -hh
+</pre>
+たとえば、中央ヨーロッパ標準時 (CET) は +0100、米国およびカナダの東部標準時 (EST) は -0500 となります。次の文字列は、すべて同じ時刻を指します。
+
+<pre>
+     12:00Z = 13:00+01:00 = 0700-0500
+</pre>
+
+<p>
+</blockquote>
+
+<TABLE WIDTH="100%" CELLPADDING="0" BORDER="0" CELLSPACING="5">
+<TR>
+        <TD BGCOLOR="#CCCCCC">
+        <IMG SRC="/images/pixel.gif" WIDTH="1" HEIGHT="1" ALT=""></TD>
+</TR>
+<TR>
+        <TD>
+                <TABLE WIDTH="100%" CELLPADDING="0" BORDER="0" CELLSPACING="0">
+                <TR>
+                <TD WIDTH="50%">
+                <FONT SIZE="-2">
+                For more information on Java technology<BR>
+                and other software from Sun Microsystems, call:<BR>
+                </FONT>
+                <FONT SIZE="-1">
+                (800) 786-7638<BR></FONT>
+                <FONT SIZE="-2">
+                Outside the U.S. and Canada, dial your country's <A
+HREF="http://www.att.com/tollfree/international/dialguide/">AT&amp;T&nbsp;Direct
+&nbsp;Access&nbsp;Number</A> first.<BR>
+                </FONT>
+                </TD>
+                <TD ALIGN="RIGHT" WIDTH="50%">
+                <A HREF="http://www.sun.com">
+                <IMG SRC="sunlogo64x30.gif" width="64"
+                height="30" border="0" ALT="Sun Microsystems, Inc."></A><BR>
+                <FONT SIZE="-2">
+                Copyright &copy; 2001
+                <A HREF="http://www.sun.com">Sun Microsystems, Inc.</A><BR>
+                All Rights Reserved. <a
+                href="http://www.sun.com/share/text/termsofuse.html">Terms
+                of Use</a>  <A HREF="http://www.sun.com/privacy">Privacy&nbsp;Policy</A>.
+                </FONT>
+                </TD></TR>
+                </TABLE>
+        </TD>
+</TR>
+</TABLE>
+</body>
+</html>

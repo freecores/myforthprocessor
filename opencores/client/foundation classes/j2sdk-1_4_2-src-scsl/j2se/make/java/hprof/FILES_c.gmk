@@ -1,0 +1,22 @@
+#
+# @(#)FILES_c.gmk	1.4 02/09/19
+#
+FILES_c = \
+	$(CTARGDIR)hprof.c \
+	$(CTARGDIR)hprof_md.c \
+	$(CTARGDIR)hprof_class.c \
+	$(CTARGDIR)hprof_cpu.c \
+	$(CTARGDIR)hprof_hash.c \
+	$(CTARGDIR)hprof_heapdump.c \
+	$(CTARGDIR)hprof_io.c \
+	$(CTARGDIR)hprof_jni.c \
+	$(CTARGDIR)hprof_listener.c \
+	$(CTARGDIR)hprof_method.c \
+	$(CTARGDIR)hprof_monitor.c \
+	$(CTARGDIR)hprof_name.c \
+	$(CTARGDIR)hprof_object.c \
+	$(CTARGDIR)hprof_setup.c \
+	$(CTARGDIR)hprof_site.c \
+	$(CTARGDIR)hprof_thread.c \
+	$(CTARGDIR)hprof_trace.c \
+	$(CTARGDIR)hprof_gc.c

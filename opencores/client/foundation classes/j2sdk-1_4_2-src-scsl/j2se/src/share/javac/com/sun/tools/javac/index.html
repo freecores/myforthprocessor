@@ -1,0 +1,111 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3.0//EN">
+<!--Converted with LaTeX2HTML 96.1-h (September 30, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<!--
+
+  @(#)index.html	1.4	03/01/23
+
+  Copyright 2003 by Sun Microsystems, Inc.,
+  901 San Antonio Road, Palo Alto, California, 94303, U.S.A.
+  All rights reserved.
+
+  This software is the confidential and proprietary information
+  of Sun Microsystems, Inc. ("Confidential Information").  You
+  shall not disclose such Confidential Information and shall use
+  it only in accordance with the terms of the license agreement
+  you entered into with Sun.
+
+-->
+<HTML>
+<HEAD>
+<TITLE>The Generic Java Compiler</TITLE>
+<META NAME="description" CONTENT="The Generic Java Compiler">
+<META NAME="keywords" CONTENT="index">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="index.css">
+</HEAD>
+<BODY LANG="EN" >
+ <H1><A NAME="SECTION00010000000000000000">The Generic Java Compiler</A></H1>
+<P>
+Martin Odersky
+<P>
+<B>Purpose</B>
+<P>
+The Generic Java Compiler GJC translates Generic Java Programs into
+Java bytecodes. It is meant to be a drop-in replacement for
+<code>javac</code>, with exactly the same functionality.
+<P>
+GJC is written in Generic Java. It compiles either conventional or
+generic Java Programs. The Generic Java extensions are enabled
+by setting a command line option ( <code>-gj</code> ).
+<P>
+GJC translates by default into Java bytecodes.  There is a command
+line option (<code>-s</code>) which makes GJC emit conventional Java source
+code instead.  Generally, the generated code corresponds to what a
+human programmer would have done to emulate the extensions of Generic
+Java. Therefore, the source output option of Generic Java is a
+convienient way to convert the compiler itself into a standard Java
+format.
+<P>
+GJC has been written from scratch, with the experience gained from the
+EspressoGrinder and Pizza compilers.  Great emphasis was put on a
+simple and clear design and a concise implementation which faithfully
+follows the Java spec.
+<P>
+GJC has been designed to be highly flexible and modular, so that the
+compiler itself, or some of its components, can be used in a variety
+of settings. This is reflected in a layered package structure which
+allows lower-level packages to be used without cooperation of
+higher-level packages.
+<P>
+GJC is completely functorized, without any global static data
+structures at all. This makes it easy to embed GJC in large software
+development environments where several projects can be run
+concurrently.
+<P>
+<B>Package Structure</B>
+<P>
+GJC package names have the structure <code>gjc.v</code><I>X</I><code>.</code><I>P</I> where
+<code>gjc</code> is the common prefix, the <I>X</I> stands for
+the current version number (currently, <I>X</I> = 3), and
+<I>P</I> stands for the package's name. For simplicity, we will
+omit the version part of package names in the rest of this
+description.
+<P>
+The packages of GJC form a layered structure, with classes in higher
+level layers only needing the services of classes of the same or lower
+layers.  Progressing from bottom to top, the layers are:
+<P>
+<UL>
+<LI> 
+Package <A NAME="tex2html1" HREF="v8/util/index.html"><code>gjc.v8.util</code></A> provides utility classes of general
+usefulness.
+<LI> 
+Package <A NAME="tex2html2" HREF="v8/code/index.html"><code>gjc.v8.code</code></A> provides all classes needed to map between
+Java classfiles and theri internal interpretation in terms of symbol
+tables, code buffers and constant pools.  The package is useful on its
+own for tools that read, interprete and write classfiles.
+<LI>
+Package <A NAME="tex2html3" HREF="v8/tree/index.html"><code>gjc.v8.tree</code></A> provides classes that define abstract Generic
+Java syntax trees, as well as generic factory and visitor classes for
+such trees. The package does not contain any classes or methods for
+the semantic processing of such trees.
+<LI>
+Package <A NAME="tex2html4" HREF="v8/parser/index.html"><code>gjc.v8.parser</code></A> provides classes to convert a source file to
+an abstract syntax tree. Combined with <code>gjc.tree</code>, this package
+is useful for tools that manipulate Java programs at an abstract
+syntax tree level.
+<LI>
+Package <A NAME="tex2html5" HREF="v8/comp/index.html"><code>gjc.v8.comp</code></A> provides classes that implement all phases of
+compilation after parsing.
+<LI>
+Package <A NAME="tex2html6" HREF="v8/index.html"><code>gjc.v8</code></A> provides the two main interfaces to the compiler,
+one as an internal component of a larger system, the other as a
+command line interpreter.
+</UL><BR> <HR>
+<P><ADDRESS>
+<I>Martin Odersky <BR>
+Mon Nov  2 16:51:36 CST 1998</I>
+</ADDRESS>
+</BODY>
+</HTML>

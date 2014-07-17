@@ -1,0 +1,121 @@
+#
+# @(#)FILES.gmk	1.9 02/09/19
+#
+# Java2Demo.
+#
+
+FILES_java = \
+	$(TARGDIR)java2d/demos/Arcs_Curves/Arcs.java \
+	$(TARGDIR)java2d/demos/Arcs_Curves/BezierAnim.java \
+	$(TARGDIR)java2d/demos/Arcs_Curves/Curves.java \
+	$(TARGDIR)java2d/demos/Arcs_Curves/Ellipses.java \
+	$(TARGDIR)java2d/demos/Clipping/ClipAnim.java \
+	$(TARGDIR)java2d/demos/Clipping/Text.java \
+	$(TARGDIR)java2d/demos/Clipping/Areas.java \
+	$(TARGDIR)java2d/demos/Clipping/Intersection.java \
+	$(TARGDIR)java2d/demos/Colors/ColorConvert.java \
+	$(TARGDIR)java2d/demos/Colors/BullsEye.java \
+	$(TARGDIR)java2d/demos/Colors/Rotator3D.java \
+	$(TARGDIR)java2d/demos/Composite/ACimages.java \
+	$(TARGDIR)java2d/demos/Composite/FadeAnim.java \
+	$(TARGDIR)java2d/demos/Composite/ACrules.java \
+	$(TARGDIR)java2d/demos/Fonts/AllFonts.java \
+	$(TARGDIR)java2d/demos/Fonts/Outline.java \
+	$(TARGDIR)java2d/demos/Fonts/Highlighting.java \
+	$(TARGDIR)java2d/demos/Fonts/Tree.java \
+	$(TARGDIR)java2d/demos/Fonts/AttributedStr.java \
+	$(TARGDIR)java2d/demos/Images/DukeAnim.java \
+	$(TARGDIR)java2d/demos/Images/ImageOps.java \
+	$(TARGDIR)java2d/demos/Images/WarpImage.java \
+	$(TARGDIR)java2d/demos/Images/JPEGFlip.java \
+	$(TARGDIR)java2d/demos/Lines/LineAnim.java \
+	$(TARGDIR)java2d/demos/Lines/Caps.java \
+	$(TARGDIR)java2d/demos/Lines/Joins.java \
+	$(TARGDIR)java2d/demos/Lines/Dash.java \
+	$(TARGDIR)java2d/demos/Mix/Stars3D.java \
+	$(TARGDIR)java2d/demos/Mix/Balls.java \
+	$(TARGDIR)java2d/demos/Mix/BezierScroller.java \
+	$(TARGDIR)java2d/demos/Paths/Append.java \
+	$(TARGDIR)java2d/demos/Paths/CurveQuadTo.java \
+	$(TARGDIR)java2d/demos/Paths/FillStroke.java \
+	$(TARGDIR)java2d/demos/Paths/WindingRule.java \
+	$(TARGDIR)java2d/demos/Transforms/Rotate.java \
+	$(TARGDIR)java2d/demos/Transforms/SelectTx.java \
+	$(TARGDIR)java2d/demos/Transforms/TransformAnim.java \
+	$(TARGDIR)java2d/demos/Paint/GradAnim.java \
+	$(TARGDIR)java2d/demos/Paint/TextureAnim.java \
+	$(TARGDIR)java2d/demos/Paint/Gradient.java \
+	$(TARGDIR)java2d/demos/Paint/Texture.java \
+	$(TARGDIR)java2d/DemoPanel.java \
+	$(TARGDIR)java2d/GlobalControls.java \
+	$(TARGDIR)java2d/MemoryMonitor.java \
+	$(TARGDIR)java2d/Surface.java \
+	$(TARGDIR)java2d/Java2Demo.java \
+	$(TARGDIR)java2d/Tools.java \
+	$(TARGDIR)java2d/PerformanceMonitor.java \
+	$(TARGDIR)java2d/RunWindow.java \
+	$(TARGDIR)java2d/TextureChooser.java \
+	$(TARGDIR)java2d/DemoGroup.java \
+	$(TARGDIR)java2d/GlobalPanel.java \
+	$(TARGDIR)java2d/Java2DemoApplet.java \
+	$(TARGDIR)java2d/DemoImages.java \
+	$(TARGDIR)java2d/DemoFonts.java \
+	$(TARGDIR)java2d/AnimatingSurface.java \
+	$(TARGDIR)java2d/AnimatingControlsSurface.java \
+	$(TARGDIR)java2d/ControlsSurface.java \
+	$(TARGDIR)java2d/Intro.java \
+	$(TARGDIR)java2d/CustomControlsContext.java \
+	$(TARGDIR)java2d/CustomControls.java \
+	$(TARGDIR)java2d/CloningFeature.java
+
+FILES_other = \
+	$(DEMODST)/images/stop.gif \
+	$(DEMODST)/images/clouds.jpg \
+	$(DEMODST)/images/HotJava-16.gif \
+	$(DEMODST)/images/duke.gif \
+	$(DEMODST)/images/duke.png \
+	$(DEMODST)/images/box.gif \
+	$(DEMODST)/images/start.gif \
+	$(DEMODST)/images/boxwave.gif \
+	$(DEMODST)/images/clone.gif \
+	$(DEMODST)/images/bld.jpg \
+	$(DEMODST)/images/boat.png \
+	$(DEMODST)/images/fight.gif \
+	$(DEMODST)/images/remove.gif \
+	$(DEMODST)/images/snooze.gif \
+	$(DEMODST)/images/tip.gif \
+	$(DEMODST)/images/surfing.gif \
+	$(DEMODST)/images/thumbsup.gif \
+	$(DEMODST)/images/duke.running.gif \
+	$(DEMODST)/images/dukeplug.gif \
+	$(DEMODST)/images/globe.gif \
+	$(DEMODST)/images/magnify.gif \
+	$(DEMODST)/images/painting.gif \
+	$(DEMODST)/images/jumptojavastrip.png \
+	$(DEMODST)/images/star7.gif \
+	$(DEMODST)/images/print.gif \
+	$(DEMODST)/images/stop2.gif \
+	$(DEMODST)/images/start2.gif \
+	$(DEMODST)/images/cupanim.gif \
+	$(DEMODST)/images/java_logo.gif \
+	$(DEMODST)/images/looping.gif \
+	$(DEMODST)/images/loop.gif \
+	$(DEMODST)/fonts/A.ttf
+
+FILES_dirs = \
+	$(DEMODST) \
+	$(SRCDST) \
+	$(SRCDST)/demos \
+	$(SRCDST)/demos/Arcs_Curves \
+	$(SRCDST)/demos/Clipping \
+	$(SRCDST)/demos/Colors \
+	$(SRCDST)/demos/Composite \
+	$(SRCDST)/demos/Fonts \
+	$(SRCDST)/demos/Images \
+	$(SRCDST)/demos/Lines \
+	$(SRCDST)/demos/Mix \
+	$(SRCDST)/demos/Paths \
+	$(SRCDST)/demos/Transforms \
+	$(SRCDST)/demos/Paint \
+	$(DEMODST)/fonts \
+	$(DEMODST)/images

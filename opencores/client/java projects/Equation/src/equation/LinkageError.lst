@@ -1,0 +1,312 @@
+00000017               
+00000017               LinkageError.LinkageError§-1828828160 LABEL 
+00000017  54           2 VAL 
+00000018  0d00000000   VALLOCATE VAL ( will be modified! ) 
+0000001d  00           NOP ( will be modified! ) 
+0000001e  90           A:R@ ( §base0 declared ) 
+0000001f  08           DROP 
+00000020  0e           DUP 
+00000021  52           4 VAL ( §base0 will be fetched! ) 
+00000022  10           R@ 
+00000023  16           + 
+00000024  0d00000000   V! VAL ( will be modified! ) 
+00000029  00           NOP ( will be modified! ) 
+0000002a  90           A:R@ ( s declared ) 
+0000002b  08           DROP 
+0000002c  56           0 VAL 
+0000002d  90           A:R@ ( §this declared ) 
+0000002e  08           DROP ( s will be fetched! ) 
+0000002f  d5           1 A:VAL 
+00000030  8b           A:PICK 
+00000031  10           R@ 
+00000032  88           A:DROP 
+00000033  0d00000000   Error§-32422656.table VAL ( will be modified! ) 
+00000038  00           NOP ( will be modified! ) 
+00000039  0d0045fec9   -906083072 VAL 
+0000003e  0d00000000   EXECUTE-NEW VAL ( will be modified! ) 
+00000043  00           NOP ( will be modified! ) 
+00000044  461c00       28 VAL 
+00000047  0d00000000   MALLOC VAL ( will be modified! ) 
+0000004c  00           NOP ( will be modified! ) 
+0000004d  08           DROP 
+0000004e  0e           DUP 
+0000004f  0e           DUP ( §base0 will be fetched! ) 
+00000050  d4           2 A:VAL 
+00000051  8b           A:PICK 
+00000052  10           R@ 
+00000053  88           A:DROP 
+00000054  0d00000000   V! VAL ( will be modified! ) 
+00000059  00           NOP ( will be modified! ) ( §this will be modified! ) 
+0000005a  88           A:DROP 
+0000005b  90           A:R@ 
+0000005c  08           DROP 
+0000005d  0f           OVER 
+0000005e  420900       §1 0BRANCH 
+00000061  0f           OVER 
+00000062  1d           CELL+ 
+00000063  02           @ 
+00000064  52           4 VAL 
+00000065  16           + 
+00000066  0f           OVER 
+00000067  0f           OVER 
+00000068  01           ! 
+00000069  08           DROP 
+0000006a               §1 LABEL 
+0000006a  1d           CELL+ 
+0000006b  02           @ 
+0000006c  0f           OVER 
+0000006d  0f           OVER 
+0000006e  01           ! 
+0000006f  0a           NIP 
+00000070  0d00000000   LinkageError§-2065150976.table VAL ( will be modified! ) 
+00000075  00           NOP ( will be modified! ) 
+00000076  0f           OVER 
+00000077  4a           12 VAL 
+00000078  16           + 
+00000079  01           ! 
+0000007a  0d0000e884   -2065170432 VAL 
+0000007f  0f           OVER 
+00000080  461400       20 VAL 
+00000083  16           + 
+00000084  01           ! 
+00000085  0db4000000   §2 VAL 
+0000008a  0f           OVER 
+0000008b  461000       16 VAL 
+0000008e  16           + 
+0000008f  01           ! 
+00000090  56           0 VAL 
+00000091  0f           OVER 
+00000092  461800       24 VAL 
+00000095  16           + 
+00000096  01           ! 
+00000097  08           DROP ( §this will be fetched! ) 
+00000098  10           R@ 
+00000099  0e           DUP 
+0000009a  56           0 VAL 
+0000009b  0d00000000   V! VAL ( will be modified! ) 
+000000a0  00           NOP ( will be modified! ) 
+000000a1  56           0 VAL 
+000000a2               §break30150 LABEL ( §base0 will be fetched! ) 
+000000a2  d4           2 A:VAL 
+000000a3  8b           A:PICK 
+000000a4  10           R@ 
+000000a5  88           A:DROP 
+000000a6  0d00000000   SETVTOP VAL ( will be modified! ) 
+000000ab  00           NOP ( will be modified! ) remove §this remove s remove §base0 
+000000ac  89           A:2DROP 
+000000ad  88           A:DROP 
+000000ae  08           DROP 
+000000af               §0 LABEL 
+000000af  3d           EXIT 
+000000b0  0c00         §2 LABEL 
+000000b2  4c696e6b6167654572726f72 " LinkageError " 
+000000be               
+000000be               LinkageError.LinkageError§1875594240 LABEL 
+000000be  55           1 VAL 
+000000bf  0d00000000   VALLOCATE VAL ( will be modified! ) 
+000000c4  00           NOP ( will be modified! ) 
+000000c5  90           A:R@ ( §base0 declared ) 
+000000c6  08           DROP 
+000000c7  56           0 VAL 
+000000c8  90           A:R@ ( §this declared ) 
+000000c9  08           DROP 
+000000ca  0d00000000   Error§-32422656.table VAL ( will be modified! ) 
+000000cf  00           NOP ( will be modified! ) 
+000000d0  0d0045ffe1   -503364352 VAL 
+000000d5  0d00000000   EXECUTE-NEW VAL ( will be modified! ) 
+000000da  00           NOP ( will be modified! ) 
+000000db  461c00       28 VAL 
+000000de  0d00000000   MALLOC VAL ( will be modified! ) 
+000000e3  00           NOP ( will be modified! ) 
+000000e4  08           DROP 
+000000e5  0e           DUP 
+000000e6  0e           DUP ( §base0 will be fetched! ) 
+000000e7  d5           1 A:VAL 
+000000e8  8b           A:PICK 
+000000e9  10           R@ 
+000000ea  88           A:DROP 
+000000eb  0d00000000   V! VAL ( will be modified! ) 
+000000f0  00           NOP ( will be modified! ) ( §this will be modified! ) 
+000000f1  88           A:DROP 
+000000f2  90           A:R@ 
+000000f3  08           DROP 
+000000f4  0f           OVER 
+000000f5  420900       §4 0BRANCH 
+000000f8  0f           OVER 
+000000f9  1d           CELL+ 
+000000fa  02           @ 
+000000fb  52           4 VAL 
+000000fc  16           + 
+000000fd  0f           OVER 
+000000fe  0f           OVER 
+000000ff  01           ! 
+00000100  08           DROP 
+00000101               §4 LABEL 
+00000101  1d           CELL+ 
+00000102  02           @ 
+00000103  0f           OVER 
+00000104  0f           OVER 
+00000105  01           ! 
+00000106  0a           NIP 
+00000107  0d00000000   LinkageError§-2065150976.table VAL ( will be modified! ) 
+0000010c  00           NOP ( will be modified! ) 
+0000010d  0f           OVER 
+0000010e  4a           12 VAL 
+0000010f  16           + 
+00000110  01           ! 
+00000111  0d0000e884   -2065170432 VAL 
+00000116  0f           OVER 
+00000117  461400       20 VAL 
+0000011a  16           + 
+0000011b  01           ! 
+0000011c  0db4000000   §2 VAL 
+00000121  0f           OVER 
+00000122  461000       16 VAL 
+00000125  16           + 
+00000126  01           ! 
+00000127  56           0 VAL 
+00000128  0f           OVER 
+00000129  461800       24 VAL 
+0000012c  16           + 
+0000012d  01           ! 
+0000012e  08           DROP ( §this will be fetched! ) 
+0000012f  10           R@ 
+00000130  0e           DUP 
+00000131  56           0 VAL 
+00000132  0d00000000   V! VAL ( will be modified! ) 
+00000137  00           NOP ( will be modified! ) 
+00000138  56           0 VAL 
+00000139               §break30149 LABEL ( §base0 will be fetched! ) 
+00000139  d5           1 A:VAL 
+0000013a  8b           A:PICK 
+0000013b  10           R@ 
+0000013c  88           A:DROP 
+0000013d  0d00000000   SETVTOP VAL ( will be modified! ) 
+00000142  00           NOP ( will be modified! ) remove §this remove §base0 
+00000143  89           A:2DROP 
+00000144  08           DROP 
+00000145               §3 LABEL 
+00000145  3d           EXIT 
+00000146  1e00         §7 LABEL 
+00000148  4c696e6b6167654572726f72a72d323036353135303937362e7461626c65 " LinkageError§-2065150976.table " 
+00000166  1a00         §6 LABEL 
+00000168  4c696e6b6167654572726f722e5f737461746963546872656164 " LinkageError._staticThread " 
+00000182  1c00         §5 LABEL 
+00000184  4c696e6b6167654572726f722e5f737461746963426c6f636b696e67 " LinkageError._staticBlocking " 
+000001a0  0d00000000   ALIGN VAL ( will be modified! ) 
+000001a5  00           NOP ( will be modified! ) 
+000001a6  0d00000000   HERE VAL ( will be modified! ) 
+000001ab  00           NOP ( will be modified! ) 
+000001ac  54           2 VAL 
+000001ad  0d86010000   §5 VAL 
+000001b2  0d00000000   create VAL ( will be modified! ) 
+000001b7  00           NOP ( will be modified! ) 
+000001b8  55           1 VAL 
+000001b9  1a           2* 
+000001ba  1a           2* 
+000001bb  0d00000000   ALLOT VAL ( will be modified! ) 
+000001c0  00           NOP ( will be modified! ) 
+000001c1  0d00000000   ALIGN VAL ( will be modified! ) 
+000001c6  00           NOP ( will be modified! ) 
+000001c7  0d00000000   HERE VAL ( will be modified! ) 
+000001cc  00           NOP ( will be modified! ) 
+000001cd  54           2 VAL 
+000001ce  0d6a010000   §6 VAL 
+000001d3  0d00000000   create VAL ( will be modified! ) 
+000001d8  00           NOP ( will be modified! ) 
+000001d9  55           1 VAL 
+000001da  1a           2* 
+000001db  1a           2* 
+000001dc  0d00000000   ALLOT VAL ( will be modified! ) 
+000001e1  00           NOP ( will be modified! ) 
+000001e2  0d00000000   HERE VAL ( will be modified! ) 
+000001e7  00           NOP ( will be modified! ) 
+000001e8  52           4 VAL 
+000001e9  17           - 
+000001ea  0d00000000   SALLOCATE VAL ( will be modified! ) 
+000001ef  00           NOP ( will be modified! ) 
+000001f0  8d00000000   HERE A:VAL ( will be modified! ) 
+000001f5  80           A:NOP ( will be modified! ) 
+000001f6  0d00000000   ALIGN VAL ( will be modified! ) 
+000001fb  00           NOP ( will be modified! ) 
+000001fc  0d00000000   HERE VAL ( will be modified! ) 
+00000201  00           NOP ( will be modified! ) 
+00000202  54           2 VAL 
+00000203  0d4a010000   §7 VAL 
+00000208  0d00000000   create VAL ( will be modified! ) 
+0000020d  00           NOP ( will be modified! ) 
+0000020e  55           1 VAL 
+0000020f  1a           2* 
+00000210  1a           2* 
+00000211  0d00000000   ALLOT VAL ( will be modified! ) 
+00000216  00           NOP ( will be modified! ) 
+00000217  54           2 VAL 
+00000218  0e           DUP 
+00000219  1a           2* 
+0000021a  1a           2* 
+0000021b  1a           2* 
+0000021c  0d00000000   ALLOT VAL ( will be modified! ) 
+00000221  00           NOP ( will be modified! ) 
+00000222  10           R@ 
+00000223  01           ! 
+00000224  9d           A:CELL+ 
+00000225  0d004cfe92   -1828828160 VAL 
+0000022a  10           R@ 
+0000022b  01           ! 
+0000022c  9d           A:CELL+ 
+0000022d  0d1b000000   LinkageError.LinkageError§-1828828160 VAL 
+00000232  10           R@ 
+00000233  01           ! 
+00000234  9d           A:CELL+ 
+00000235  0d004ccb6f   1875594240 VAL 
+0000023a  10           R@ 
+0000023b  01           ! 
+0000023c  9d           A:CELL+ 
+0000023d  0dc2000000   LinkageError.LinkageError§1875594240 VAL 
+00000242  10           R@ 
+00000243  01           ! 
+00000244  9d           A:CELL+ 
+00000245  88           A:DROP 
+00000246  3d           EXIT 
+
+instruction usage:
+load/store:		21	(8.333333333333332%)
+32-bit values:		46	(18.253968253968253%)
+16-bit values:		8	(3.1746031746031744%)
+5-bit values:		28	(11.11111111111111%)
+values total:		82	(32.53968253968254%)
+arithmetic/logical:	30	(11.904761904761903%)
+relations:		0	(0.0%)
+flow control:		5	(1.984126984126984%)
+other:			114	(45.23809523809524%)
+total:			252
+
+average bytes per instruction: 1.9007936507936507
+
+string storage in byte:	104
+unresolved references:	40
+
+Size of static code: 416
+Size of initial code: 167
+
+references:
+ffffffff	3	ALIGN
+ffffffff	4	ALLOT
+ffffffff	2	EXECUTE-NEW
+ffffffff	2	Error§-32422656.table
+ffffffff	5	HERE
+1b	1	LinkageError.LinkageError§-1828828160
+1b	1	LinkageError.LinkageError§-1828828160
+c2	1	LinkageError.LinkageError§1875594240
+c2	1	LinkageError.LinkageError§1875594240
+ffffffff	2	LinkageError§-2065150976.table
+ffffffff	2	MALLOC
+ffffffff	1	SALLOCATE
+ffffffff	2	SETVTOP
+ffffffff	5	V!
+ffffffff	2	VALLOCATE
+ffffffff	3	create
+b4	2	§2
+186	1	§5
+16a	1	§6
+14a	1	§7

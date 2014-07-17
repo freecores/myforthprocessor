@@ -1,0 +1,162 @@
+#
+# Copyright 2003 Sun Microsystems, Inc. All rights reserved.
+# SUN PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
+#
+
+#
+# @(#)Program.gmk	1.98 03/01/23
+#
+# Generic makefile for building executables.
+#
+
+ifndef LAUNCHER_PLATFORM_SRC
+LAUNCHER_PLATFORM_SRC = $(PLATFORM_SRC)
+endif
+
+ifndef LAUNCHER_SHARE_SRC
+LAUNCHER_SHARE_SRC = $(SHARE_SRC)
+endif
+
+.PHONY: all optimized debug classes clean clobber
+
+all: optimized debug
+
+OPTIMIZED = $(BINDIR)/$(PROGRAM)$(OPT_SUFFIX)$(EXE_SUFFIX)
+DEBUG     = $(BINDIR)/$(PROGRAM)$(DBG_SUFFIX)$(EXE_SUFFIX)
+include $(BUILDDIR)/common/Rules.gmk
+
+FILES_o  = $(OBJDIR)/$(PROGRAM).$(OBJECT_SUFFIX) $(OBJDIR)/$(PROGRAM)_md.$(OBJECT_SUFFIX)
+
+#
+# Note that we have to link -lthread even when USE_PTHREADS is true.
+# This is becuase checkForCorrectLibthread() croaks otherwise.
+#
+ifneq ($(PLATFORM), windows)
+LIBTHREAD = -lthread
+ifeq ($(USE_PTHREADS),true)
+THREADLIBS = -lpthread $(LIBTHREAD)
+else # USE_PTHREADS
+THREADLIBS = $(LIBTHREAD)
+endif # USE_PTHREADS
+endif # PLATFORM
+
+$(BINDIR)/$(PROGRAM)$(SUFFIX)$(EXE_SUFFIX):: \
+		classes $(OBJDIR)
+	@$(MKDIR) -p $(@D)
+
+JVMCFG = $(LIBDIR)/$(LIBARCH)/jvm.cfg
+
+#
+# This rule only applies on unix.  It supports quantify and its ilk.
+#
+$(BINDIR)/$(PROGRAM)$(SUFFIX):: $(FILES_o) $(JVMCFG)
+	@set -- $?; \
+	    $(ECHO) Rebuilding $@ because of $$1 $$2 $$3 $$4 $$5 $$6 $${7:+...};
+	$(LINK_PRE_CMD) $(CC) $(CC_OBJECT_OUTPUT_FLAG)$@ $(LDFLAGS) $(FILES_o) $(THREADLIBS) $(LDLIBS)
+	$(POST_PROCESS)
+
+
+$(OBJDIR)/$(PROGRAM)$(SUFFIX).lcf: $(FILES_o)
+	@$(ECHO) $(FILES_o) > $@ 
+ifeq ($(PLATFORM), windows)
+	@$(ECHO) setargv.obj >> $@
+endif
+	@$(ECHO) Created $@ 
+
+$(BINDIR)/$(PROGRAM)$(SUFFIX).exe:: classes $(OBJDIR)
+	@$(MKDIR) -p $(@D)
+
+$(BINDIR)/$(PROGRAM)$(SUFFIX).exe:: $(OBJDIR)/$(PROGRAM)$(SUFFIX)$(EXE_SUFFIX) $(JVMCFG)
+	@$(MKDIR) -p $(@D)
+	$(CP) $< $@
+
+ifeq ($(ARCH_DATA_MODEL), 32)
+  STACK_SIZE=262144
+else
+# We need more Stack for Windows Itanium
+  STACK_SIZE=1048576
+endif
+
+$(OBJDIR)/$(PROGRAM)$(SUFFIX).exe:: $(OBJDIR)/$(PROGRAM)$(SUFFIX).lcf $(FILES_o)
+	@set -- $?; \
+	    $(ECHO) Rebuilding $@ because of $$1 $$2 $$3 $$4 $$5 $$6 $${7:+...};
+	$(LINK) -out:$@ /STACK:$(STACK_SIZE) $(LFLAGS) @$(OBJDIR)/$(PROGRAM)$(SUFFIX).lcf $(LDLIBS)
+
+ifneq ($(PLATFORM), windows)
+# Additional dependencies.
+$(BINDIR)/$(PROGRAM)$(SUFFIX):: \
+		$(INIT) $(OBJDIR)/.program.dirs.$(ARCH) $(PROGRAM_HEADERS)
+	@$(TRUE)
+
+$(OBJDIR)/.program.dirs.$(ARCH):
+	$(MKDIR) -p $(OBJDIRS) $(BINDIR) $(CLASSDESTDIR)
+	-$(TOUCH) $(OBJDIR)/.program.dirs.$(ARCH)
+
+$(PROGRAM_HEADERS): $(FILES_export:%.java=$(CLASSDESTDIR)/%.class)
+	$(JAVAH) -bootclasspath $(CLASSPATH) -d $(CLASSHDRDIR) $(CLASSES.export)
+endif # PLATFORM
+
+clean:: 
+ifeq ($(PLATFORM), windows)
+	$(RM) $(OPT_OBJDIR)/$(PROGRAM).rc  $(DBG_OBJDIR)/$(PROGRAM).ico
+	$(RM) $(OPT_OBJDIR)/$(PROGRAM).lcf $(DBG_OBJDIR)/$(PROGRAM)$(DBG_SUFFIX).lcf 
+	$(RM) $(OPT_OBJDIR)/$(PROGRAM).map $(DBG_OBJDIR)/$(PROGRAM)$(DBG_SUFFIX).map
+	$(RM) $(OPT_OBJDIR)/$(PROGRAM).exp $(DBG_OBJDIR)/$(PROGRAM)$(DBG_SUFFIX).exp 
+	$(RM) $(OPT_OBJDIR)/$(PROGRAM).lib $(DBG_OBJDIR)/$(PROGRAM)$(DBG_SUFFIX).lib
+	$(RM) $(OPT_OBJDIR)/$(PROGRAM).exe $(DBG_OBJDIR)/$(PROGRAM)$(DBG_SUFFIX).exe
+	$(RM) $(OPT_OBJDIR)/$(PROGRAM).ilk $(DBG_OBJDIR)/$(PROGRAM)$(DBG_SUFFIX).ilk
+	$(RM) *.pdb
+endif
+
+
+clobber:: 
+	$(RM) $(OPTIMIZED) $(DEBUG)
+
+#
+# Now include make dependencies
+#
+files := $(foreach file, $(wildcard */$(ARCH)/*.d), $(file))
+ifneq ($(strip $(files)),)
+include $(files)
+endif
+
+
+ifdef JAVA_ARGS
+OTHER_CPPFLAGS += -DJAVA_ARGS=$(JAVA_ARGS)
+endif
+
+ifeq ($(PLATFORM), windows)
+ifdef RELEASE
+OTHER_CPPFLAGS += -DVERSION="$(RELEASE)"
+endif
+endif
+
+
+ifneq ($(PLATFORM), windows)
+HAVE_GETHRTIME=true
+endif
+
+ifeq ($(HAVE_GETHRTIME),true)
+OTHER_CPPFLAGS += -DHAVE_GETHRTIME
+endif
+
+OTHER_INCLUDES += -I$(LAUNCHER_SHARE_SRC)/bin -I$(LAUNCHER_PLATFORM_SRC)/bin
+
+# this may not be necessrary...
+ifeq ($(PLATFORM), windows)
+OTHER_CPPFLAGS += -DPROGNAME="\"$(PROGRAM)\""
+else
+OTHER_CPPFLAGS += -DPROGNAME='"$(PROGRAM)"'
+endif
+
+$(OBJDIR)/$(PROGRAM).$(OBJECT_SUFFIX): $(LAUNCHER_SHARE_SRC)/bin/java.c
+	$(CC) -c $(CC_OBJECT_OUTPUT_FLAG)$@ $(CPPFLAGS) $(CFLAGS) $(VERSION_DEFINES) $<
+
+$(OBJDIR)/$(PROGRAM)_md.$(OBJECT_SUFFIX): $(LAUNCHER_PLATFORM_SRC)/bin/java_md.c
+	$(CC) -c $(CC_OBJECT_OUTPUT_FLAG)$@ $(CPPFLAGS) $(CFLAGS) $<
+
+# 
+# How to install jvm.cfg. 
+# 
+$(JVMCFG): $(LAUNCHER_PLATFORM_SRC)/bin/$(ARCH)/jvm.cfg 
+	$(install-file)

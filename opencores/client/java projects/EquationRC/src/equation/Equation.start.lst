@@ -1,0 +1,40 @@
+00000010  56           0 VAL 
+00000011  0d00000000   Equation._staticBlocking VAL ( will be modified! ) 
+00000016  00           NOP ( will be modified! ) 
+00000017  01           ! 
+00000018  56           0 VAL 
+00000019  0d00000000   Equation._staticThread VAL ( will be modified! ) 
+0000001e  00           NOP ( will be modified! ) 
+0000001f  01           ! 
+00000020  56           0 VAL 
+00000021  0d00000000   Equation.main§505244928 VAL ( will be modified! ) 
+00000026  00           NOP ( will be modified! ) 
+00000027  56           0 VAL 
+00000028               §break18 LABEL 
+00000028  08           DROP 
+00000029  3d           EXIT 
+
+instruction usage:
+load/store:		2	(14.285714285714285%)
+32-bit values:		3	(21.428571428571427%)
+16-bit values:		0	(0.0%)
+5-bit values:		4	(28.57142857142857%)
+values total:		7	(50.0%)
+arithmetic/logical:	0	(0.0%)
+relations:		0	(0.0%)
+flow control:		1	(7.142857142857142%)
+other:			4	(28.57142857142857%)
+total:			14
+
+average bytes per instruction: 3.0
+
+string storage in byte:	0
+unresolved references:	3
+
+Size of static code: 16
+Size of initial code: 26
+
+references:
+ffffffff	1	Equation._staticBlocking
+ffffffff	1	Equation._staticThread
+ffffffff	1	Equation.main§505244928

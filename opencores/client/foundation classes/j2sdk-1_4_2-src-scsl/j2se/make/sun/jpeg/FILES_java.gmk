@@ -1,0 +1,9 @@
+#
+# @(#)FILES_java.gmk	1.7 02/09/19
+#
+FILES_java = \
+	$(TARGDIR)sun/awt/image/JPEGImageDecoder.java \
+	$(TARGDIR)sun/awt/image/codec/JPEGImageDecoderImpl.java \
+	$(TARGDIR)sun/awt/image/codec/JPEGImageEncoderImpl.java \
+	$(TARGDIR)com/sun/imageio/plugins/jpeg/JPEGImageReader.java \
+        $(TARGDIR)com/sun/imageio/plugins/jpeg/JPEGImageWriter.java

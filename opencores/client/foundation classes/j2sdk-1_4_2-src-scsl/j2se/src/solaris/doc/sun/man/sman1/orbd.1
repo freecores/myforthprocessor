@@ -1,0 +1,177 @@
+<!DOCTYPE REFENTRY PUBLIC "-//Sun Microsystems//DTD DocBook V3.0-Based SolBook Subset V2.0//EN" [
+<!--ArborText, Inc., 1988-1999, v.4002-->
+<!ENTITY % javaents SYSTEM "javaman.ent">
+%javaents;
+]>
+<?Pub UDT _bookmark _target>
+<?Pub Inc>
+<refentry id="orbd-1">
+<!--@(#)orbd.1 1.1 01/03/14 SMI;-->
+<refmeta><refentrytitle>orbd</refentrytitle><manvolnum>1</manvolnum>
+<refmiscinfo class="date">23 Apr 2001</refmiscinfo>
+<refmiscinfo class="sectdesc">&man1;</refmiscinfo>
+<refmiscinfo class="software">&java-release;</refmiscinfo>
+<refmiscinfo class="arch">generic</refmiscinfo>
+<refmiscinfo class="copyright"> Copyright 2001 Sun Microsystems, Inc. All
+rights reserved.  Copyright 2001 Sun Microsystems, Inc. Tous droits r&eacute;serv&eacute;s.
+ </refmiscinfo>
+</refmeta>
+<refnamediv><indexterm><primary sortas="orbd">orbd &mdash; Object Request
+Broker Daemon</primary></indexterm><indexterm><primary sortas="Object Request Broker Daemon">
+Object Request Broker Daemon &mdash; orbd</primary></indexterm><refname>orbd
+</refname><refpurpose>Object Request Broker Daemon</refpurpose></refnamediv>
+<refsynopsisdiv><title>&synp-tt;</title>
+<cmdsynopsis><command>orbd</command><arg choice="opt">&nbsp;<replaceable>
+options</replaceable></arg>
+</cmdsynopsis></refsynopsisdiv>
+<refsect1><title>&desc-tt;</title>
+<para>The <command>orbd</command> tool is used to enable clients to transparently
+locate and invoke persistent objects on servers in the <acronym>CORBA</acronym>
+environment. The persistent servers, while publishing the persistent object
+references in the Naming Service, include the port number of the <acronym>
+ORBD</acronym> in the object reference instead of the port number of the Server.
+The inclusion of the <acronym>ORBD</acronym> port number in the object reference
+for persistent object references has the following advantages:<itemizedlist>
+<listitem><para>The object reference in the Naming Service remains independent
+of the server life cycle. For example, the object reference could be published
+by the server in the Naming Service when it is first installed, and then,
+independent of how many times the server is started or shut down, the <acronym>
+ORBD</acronym> will always return the correct object reference to the invoking
+client.</para></listitem>
+<listitem><para>The client needs to look up the object reference in the Naming
+Service only once, and can keep reusing this reference independent of the
+changes introduced due to server life cycle.</para></listitem>
+</itemizedlist></para>
+<para>The <command>orbd</command> tool incorporates the following functionality:<itemizedlist>
+<listitem><para><replaceable>Server Manager</replaceable><informalexample>
+<para>When used in conjunction with the <citerefentry><refentrytitle>servertool
+</refentrytitle><manvolnum>1</manvolnum></citerefentry>, the Server Manager
+locates, registers, and activates a server when a client wants to access the
+server.</para>
+</informalexample></para></listitem>
+<listitem><para><replaceable>Server Manager</replaceable><informalexample>
+<para>When used in conjunction with the <citerefentry><refentrytitle>servertool
+</refentrytitle><manvolnum>1</manvolnum></citerefentry>, the Server Manager
+locates, registers, and activates a server when a client wants to access the
+server.</para>
+</informalexample></para></listitem>
+<listitem><para><replaceable>Interoperable Naming Service (INS) </replaceable><informalexample>
+<para>The naming service maps logical names to object references so that you
+can use the name to retrieve the object reference and invoke operations on
+that object. <acronym>ORBD</acronym> is used instead of the Transient Naming
+Service, <citerefentry><refentrytitle>tnameserv</refentrytitle><manvolnum>
+1</manvolnum></citerefentry>. <acronym>ORBD</acronym> includes both a Transient
+Naming Service and a Persistent Naming Service.</para>
+</informalexample></para></listitem>
+<listitem><para><replaceable>Bootstrap Name Server</replaceable><informalexample>
+<para>The persistent servers publish their object references in this Name
+Server. The clients can, in turn, contact this Name Server for looking up
+the object references. The advantage of providing this bootstrap name server
+as part of <acronym>ORBD</acronym> is that the user doesn't need to start
+an additional Name Server process for publishing and resolving object references.
+</para>
+</informalexample></para></listitem>
+</itemizedlist></para>
+<para>The <acronym>ORBD</acronym> works with the <citerefentry><refentrytitle>
+servertool</refentrytitle><manvolnum>1</manvolnum></citerefentry>, which is
+used to register, unregister, and list server information.</para>
+</refsect1>
+<refsect1><title>&opts-tt;</title>
+<para>The following options are supported:</para>
+<variablelist termlength="wholeline">
+<varlistentry><term remap="15"><option>port</option> <replaceable>port</replaceable></term>
+<listitem><para>(Optional) Specifies the activation port where the <acronym>
+ORBD</acronym> should be started. The default value for this port is <literal>
+1049</literal>. This port number is added to the port field of the persistent <acronym>
+IOR</acronym>s.</para>
+</listitem></varlistentry>
+<varlistentry><term remap="15"><option>defaultdb</option> <replaceable>directory
+</replaceable></term><listitem><para>(Optional) Specifies the base where the <acronym>
+ORBD</acronym> persistent storage directory <literal>orb.db</literal> is created.
+If this option is not specified, the default value is "<literal>./orb.db</literal>".
+</para>
+</listitem></varlistentry>
+<varlistentry><term remap="15"><option>serverid</option> <replaceable>ID</replaceable></term>
+<listitem><para>(Optional) Specifies the persistent server <acronym>ID</acronym>
+to be assigned to this <acronym>ORBD</acronym>. The default value is <literal>
+1</literal>.</para>
+</listitem></varlistentry>
+<varlistentry><term remap="15"><option>ORBInitialPort</option> <replaceable>
+nameserverport</replaceable></term><listitem><para>(Required) Specifies the
+port on which the bootstrap name server is running. Notice that when using
+Solaris software, you must become root to start a process on a port under <literal>
+1024</literal>. For this reason, we recommend that you use a port number greater
+than or equal to <literal>1024</literal>.</para>
+</listitem></varlistentry>
+<varlistentry><term remap="15"><option>ORBInitialHost </option> <replaceable>
+nameserverhost</replaceable></term><listitem><para>(Required) Specifies the
+host on which the bootstrap name server is running.</para>
+</listitem></varlistentry>
+<varlistentry><term><option>serverPollingTime</option> <replaceable>milliseconds
+</replaceable></term><listitem><para>Specifies how often the daemon thread
+checks for the health of registered servers. <acronym>ORBD</acronym> polls
+process health every <replaceable>milliseconds</replaceable>. The default
+value is <literal>1,000</literal> ms (or <literal>1</literal> second). The
+value specified for <replaceable>milliseconds</replaceable> must be a valid
+integer.</para>
+</listitem></varlistentry>
+<varlistentry><term><option>serverStartupDelay</option> <replaceable>milliseconds
+</replaceable></term><listitem><para>Specifies how long the <literal>ServerManager
+</literal> waits before sending a location forward exception after the server
+is restarted. <acronym>ORBD</acronym> waits for <replaceable>milliseconds
+</replaceable> before raising a location forward exception. The default value
+is <literal>1,000</literal> ms (or <literal>1</literal> second). The value
+specified for <replaceable>milliseconds</replaceable> must be a valid integer.
+</para>
+</listitem></varlistentry>
+<varlistentry><term><option role="nodash">J</option><replaceable>option</replaceable></term>
+<listitem><para>Pass <replaceable>option</replaceable> to the Java virtual
+machine, where option is one of the options described on the man page for
+the java application launcher, java (1). For example, <literal>-J-Xms48m</literal>
+sets the startup memory to 48 megabytes. It is a common convention for <literal>
+-J</literal> to pass options to the underlying virtual machine.</para>
+</listitem></varlistentry><?Pub Caret>
+</variablelist></refsect1>
+<refsect1><title>&envr-tt;</title>
+<variablelist termlength="narrow">
+<varlistentry><term remap="15"><envar>CLASSPATH</envar> </term><listitem>
+<para>Used to provide the system with a path to user-defined classes. Directories
+are separated by colons. For example: <informalexample><para><literal>.:/home/avh/classes:/usr/local/java/classes
+</literal> </para>
+</informalexample></para>
+</listitem></varlistentry>
+</variablelist></refsect1>
+<refsect1><title>&attr-tt;</title>
+<para>See <citerefentry><refentrytitle>attributes</refentrytitle><manvolnum>
+5</manvolnum></citerefentry> for a description of the following attributes:
+</para>
+<informaltable frame="All" orient="Port">
+<tgroup cols="2" colsep="1" rowsep="1"><colspec colnum="1" colname="col1"
+colwidth="1*" colsep="1" align="Left"><colspec colnum="2" colname="col2" colwidth="1*"
+align="Left">
+<thead>
+<row><entry colname="col1" align="center" valign="top">ATTRIBUTE TYPE</entry>
+<entry colname="col2" align="center" valign="top">ATTRIBUTE VALUE</entry>
+</row>
+</thead>
+<tbody>
+<row><entry>Availability</entry><entry>SUNWj3dev</entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1><title>&also-tt;</title>
+<para><citerefentry><refentrytitle>java</refentrytitle><manvolnum>1</manvolnum>
+</citerefentry>, <citerefentry><refentrytitle>javac</refentrytitle><manvolnum>
+1</manvolnum></citerefentry>, <citerefentry><refentrytitle>servertool</refentrytitle>
+<manvolnum>1</manvolnum></citerefentry>, <citerefentry><refentrytitle>attributes
+</refentrytitle><manvolnum>5</manvolnum></citerefentry> </para>
+<para>See (or search <literal>java.sun.com</literal>) for the following:</para>
+<variablelist termlength="wholeline">
+<varlistentry><term remap="10"><citetitle>Setting the Classpath</citetitle>
+@</term><listitem><para><ulink url="http://java.sun.com/j2se/1.4/docs/tooldocs/solaris/classpath.html">
+http://java.sun.com/j2se/1.4/docs/tooldocs/solaris/classpath.html</ulink></para>
+</listitem></varlistentry>
+</variablelist></refsect1>
+</refentry>
+<?Pub *0000010209>

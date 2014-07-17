@@ -1,0 +1,14 @@
+#
+# @(#)FILES_java.gmk	1.11 02/10/01
+#
+
+FILES_java = \
+	$(TARGDIR)java/util/jar/Attributes.java \
+	$(TARGDIR)java/util/jar/JarEntry.java \
+	$(TARGDIR)java/util/jar/JarException.java \
+	$(TARGDIR)java/util/jar/JarFile.java \
+	$(TARGDIR)java/util/jar/JarInputStream.java \
+	$(TARGDIR)java/util/jar/JarOutputStream.java \
+	$(TARGDIR)java/util/jar/JarVerifier.java \
+	$(TARGDIR)java/util/jar/JavaUtilJarAccessImpl.java \
+	$(TARGDIR)java/util/jar/Manifest.java

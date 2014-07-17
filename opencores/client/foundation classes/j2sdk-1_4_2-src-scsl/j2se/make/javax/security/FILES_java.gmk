@@ -1,0 +1,39 @@
+#
+# @(#)FILES_java.gmk	1.6 01/09/17
+#
+FILES_java = \
+	$(TARGDIR)javax/security/auth/AuthPermission.java \
+	$(TARGDIR)javax/security/auth/DestroyFailedException.java \
+	$(TARGDIR)javax/security/auth/Destroyable.java \
+	$(TARGDIR)javax/security/auth/PrivateCredentialPermission.java \
+	$(TARGDIR)javax/security/auth/Policy.java \
+	$(TARGDIR)javax/security/auth/RefreshFailedException.java \
+	$(TARGDIR)javax/security/auth/Refreshable.java \
+	$(TARGDIR)javax/security/auth/Subject.java \
+	$(TARGDIR)javax/security/auth/SubjectDomainCombiner.java \
+	$(TARGDIR)javax/security/auth/callback/TextInputCallback.java \
+	$(TARGDIR)javax/security/auth/callback/NameCallback.java \
+	$(TARGDIR)javax/security/auth/callback/Callback.java \
+	$(TARGDIR)javax/security/auth/callback/CallbackHandler.java \
+	$(TARGDIR)javax/security/auth/callback/ChoiceCallback.java \
+	$(TARGDIR)javax/security/auth/callback/UnsupportedCallbackException.java \
+	$(TARGDIR)javax/security/auth/callback/ConfirmationCallback.java \
+	$(TARGDIR)javax/security/auth/callback/LanguageCallback.java \
+	$(TARGDIR)javax/security/auth/callback/PasswordCallback.java \
+	$(TARGDIR)javax/security/auth/callback/TextOutputCallback.java \
+	$(TARGDIR)javax/security/auth/login/LoginContext.java \
+	$(TARGDIR)javax/security/auth/login/AccountExpiredException.java \
+	$(TARGDIR)javax/security/auth/login/AppConfigurationEntry.java \
+	$(TARGDIR)javax/security/auth/login/Configuration.java \
+	$(TARGDIR)javax/security/auth/login/CredentialExpiredException.java \
+	$(TARGDIR)javax/security/auth/login/FailedLoginException.java \
+	$(TARGDIR)javax/security/auth/login/LoginException.java \
+	$(TARGDIR)javax/security/auth/spi/LoginModule.java \
+	$(TARGDIR)javax/security/auth/x500/X500Principal.java \
+	$(TARGDIR)javax/security/auth/x500/X500PrivateCredential.java \
+        $(TARGDIR)javax/security/auth/kerberos/KeyImpl.java \
+        $(TARGDIR)javax/security/auth/kerberos/KerberosKey.java \
+        $(TARGDIR)javax/security/auth/kerberos/KerberosPrincipal.java \
+        $(TARGDIR)javax/security/auth/kerberos/KerberosTicket.java \
+        $(TARGDIR)javax/security/auth/kerberos/DelegationPermission.java \
+        $(TARGDIR)javax/security/auth/kerberos/ServicePermission.java

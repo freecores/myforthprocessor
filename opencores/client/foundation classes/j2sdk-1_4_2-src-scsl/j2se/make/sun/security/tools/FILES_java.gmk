@@ -1,0 +1,7 @@
+#
+# @(#)FILES_java.gmk	1.18 02/09/19
+#
+FILES_java = \
+	$(TARGDIR)sun/security/tools/PolicyTool.java \
+	$(TARGDIR)sun/security/tools/KeyTool.java \
+        $(TARGDIR)sun/security/tools/JarSigner.java

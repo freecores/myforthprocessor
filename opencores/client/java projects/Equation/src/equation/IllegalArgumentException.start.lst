@@ -1,0 +1,33 @@
+00000020  56           0 VAL 
+00000021  0d00000000   IllegalArgumentException._staticBlocking VAL ( will be modified! ) 
+00000026  00           NOP ( will be modified! ) 
+00000027  01           ! 
+00000028  56           0 VAL 
+00000029  0d00000000   IllegalArgumentException._staticThread VAL ( will be modified! ) 
+0000002e  00           NOP ( will be modified! ) 
+0000002f  01           ! 
+00000030  3d           EXIT 
+
+instruction usage:
+load/store:		2	(22.22222222222222%)
+32-bit values:		2	(22.22222222222222%)
+16-bit values:		0	(0.0%)
+5-bit values:		2	(22.22222222222222%)
+values total:		4	(44.44444444444444%)
+arithmetic/logical:	0	(0.0%)
+relations:		0	(0.0%)
+flow control:		1	(11.11111111111111%)
+other:			2	(22.22222222222222%)
+total:			9
+
+average bytes per instruction: 5.444444444444445
+
+string storage in byte:	0
+unresolved references:	2
+
+Size of static code: 32
+Size of initial code: 17
+
+references:
+ffffffff	1	IllegalArgumentException._staticBlocking
+ffffffff	1	IllegalArgumentException._staticThread

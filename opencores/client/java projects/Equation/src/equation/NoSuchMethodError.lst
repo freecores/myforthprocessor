@@ -1,0 +1,312 @@
+0000001c               
+0000001c               NoSuchMethodError.NoSuchMethodError§-1876144640 LABEL 
+0000001c  54           2 VAL 
+0000001d  0d00000000   VALLOCATE VAL ( will be modified! ) 
+00000022  00           NOP ( will be modified! ) 
+00000023  90           A:R@ ( §base0 declared ) 
+00000024  08           DROP 
+00000025  0e           DUP 
+00000026  52           4 VAL ( §base0 will be fetched! ) 
+00000027  10           R@ 
+00000028  16           + 
+00000029  0d00000000   V! VAL ( will be modified! ) 
+0000002e  00           NOP ( will be modified! ) 
+0000002f  90           A:R@ ( s declared ) 
+00000030  08           DROP 
+00000031  56           0 VAL 
+00000032  90           A:R@ ( §this declared ) 
+00000033  08           DROP ( s will be fetched! ) 
+00000034  d5           1 A:VAL 
+00000035  8b           A:PICK 
+00000036  10           R@ 
+00000037  88           A:DROP 
+00000038  0d00000000   IncompatibleClassChangeError§97667328.table VAL ( will be modified! ) 
+0000003d  00           NOP ( will be modified! ) 
+0000003e  0d00492aaf   -1356183296 VAL 
+00000043  0d00000000   EXECUTE-NEW VAL ( will be modified! ) 
+00000048  00           NOP ( will be modified! ) 
+00000049  461c00       28 VAL 
+0000004c  0d00000000   MALLOC VAL ( will be modified! ) 
+00000051  00           NOP ( will be modified! ) 
+00000052  08           DROP 
+00000053  0e           DUP 
+00000054  0e           DUP ( §base0 will be fetched! ) 
+00000055  d4           2 A:VAL 
+00000056  8b           A:PICK 
+00000057  10           R@ 
+00000058  88           A:DROP 
+00000059  0d00000000   V! VAL ( will be modified! ) 
+0000005e  00           NOP ( will be modified! ) ( §this will be modified! ) 
+0000005f  88           A:DROP 
+00000060  90           A:R@ 
+00000061  08           DROP 
+00000062  0f           OVER 
+00000063  420900       §1 0BRANCH 
+00000066  0f           OVER 
+00000067  1d           CELL+ 
+00000068  02           @ 
+00000069  52           4 VAL 
+0000006a  16           + 
+0000006b  0f           OVER 
+0000006c  0f           OVER 
+0000006d  01           ! 
+0000006e  08           DROP 
+0000006f               §1 LABEL 
+0000006f  1d           CELL+ 
+00000070  02           @ 
+00000071  0f           OVER 
+00000072  0f           OVER 
+00000073  01           ! 
+00000074  0a           NIP 
+00000075  0d00000000   NoSuchMethodError§-405778944.table VAL ( will be modified! ) 
+0000007a  00           NOP ( will be modified! ) 
+0000007b  0f           OVER 
+0000007c  4a           12 VAL 
+0000007d  16           + 
+0000007e  01           ! 
+0000007f  0d0000d0e7   -405798912 VAL 
+00000084  0f           OVER 
+00000085  461400       20 VAL 
+00000088  16           + 
+00000089  01           ! 
+0000008a  0db9000000   §2 VAL 
+0000008f  0f           OVER 
+00000090  461000       16 VAL 
+00000093  16           + 
+00000094  01           ! 
+00000095  56           0 VAL 
+00000096  0f           OVER 
+00000097  461800       24 VAL 
+0000009a  16           + 
+0000009b  01           ! 
+0000009c  08           DROP ( §this will be fetched! ) 
+0000009d  10           R@ 
+0000009e  0e           DUP 
+0000009f  56           0 VAL 
+000000a0  0d00000000   V! VAL ( will be modified! ) 
+000000a5  00           NOP ( will be modified! ) 
+000000a6  56           0 VAL 
+000000a7               §break30146 LABEL ( §base0 will be fetched! ) 
+000000a7  d4           2 A:VAL 
+000000a8  8b           A:PICK 
+000000a9  10           R@ 
+000000aa  88           A:DROP 
+000000ab  0d00000000   SETVTOP VAL ( will be modified! ) 
+000000b0  00           NOP ( will be modified! ) remove §this remove s remove §base0 
+000000b1  89           A:2DROP 
+000000b2  88           A:DROP 
+000000b3  08           DROP 
+000000b4               §0 LABEL 
+000000b4  3d           EXIT 
+000000b5  1100         §2 LABEL 
+000000b7  4e6f537563684d6574686f644572726f72 " NoSuchMethodError " 
+000000c8               
+000000c8               NoSuchMethodError.NoSuchMethodError§1581272576 LABEL 
+000000c8  55           1 VAL 
+000000c9  0d00000000   VALLOCATE VAL ( will be modified! ) 
+000000ce  00           NOP ( will be modified! ) 
+000000cf  90           A:R@ ( §base0 declared ) 
+000000d0  08           DROP 
+000000d1  56           0 VAL 
+000000d2  90           A:R@ ( §this declared ) 
+000000d3  08           DROP 
+000000d4  0d00000000   IncompatibleClassChangeError§97667328.table VAL ( will be modified! ) 
+000000d9  00           NOP ( will be modified! ) 
+000000da  0d00495011   290474240 VAL 
+000000df  0d00000000   EXECUTE-NEW VAL ( will be modified! ) 
+000000e4  00           NOP ( will be modified! ) 
+000000e5  461c00       28 VAL 
+000000e8  0d00000000   MALLOC VAL ( will be modified! ) 
+000000ed  00           NOP ( will be modified! ) 
+000000ee  08           DROP 
+000000ef  0e           DUP 
+000000f0  0e           DUP ( §base0 will be fetched! ) 
+000000f1  d5           1 A:VAL 
+000000f2  8b           A:PICK 
+000000f3  10           R@ 
+000000f4  88           A:DROP 
+000000f5  0d00000000   V! VAL ( will be modified! ) 
+000000fa  00           NOP ( will be modified! ) ( §this will be modified! ) 
+000000fb  88           A:DROP 
+000000fc  90           A:R@ 
+000000fd  08           DROP 
+000000fe  0f           OVER 
+000000ff  420900       §4 0BRANCH 
+00000102  0f           OVER 
+00000103  1d           CELL+ 
+00000104  02           @ 
+00000105  52           4 VAL 
+00000106  16           + 
+00000107  0f           OVER 
+00000108  0f           OVER 
+00000109  01           ! 
+0000010a  08           DROP 
+0000010b               §4 LABEL 
+0000010b  1d           CELL+ 
+0000010c  02           @ 
+0000010d  0f           OVER 
+0000010e  0f           OVER 
+0000010f  01           ! 
+00000110  0a           NIP 
+00000111  0d00000000   NoSuchMethodError§-405778944.table VAL ( will be modified! ) 
+00000116  00           NOP ( will be modified! ) 
+00000117  0f           OVER 
+00000118  4a           12 VAL 
+00000119  16           + 
+0000011a  01           ! 
+0000011b  0d0000d0e7   -405798912 VAL 
+00000120  0f           OVER 
+00000121  461400       20 VAL 
+00000124  16           + 
+00000125  01           ! 
+00000126  0db9000000   §2 VAL 
+0000012b  0f           OVER 
+0000012c  461000       16 VAL 
+0000012f  16           + 
+00000130  01           ! 
+00000131  56           0 VAL 
+00000132  0f           OVER 
+00000133  461800       24 VAL 
+00000136  16           + 
+00000137  01           ! 
+00000138  08           DROP ( §this will be fetched! ) 
+00000139  10           R@ 
+0000013a  0e           DUP 
+0000013b  56           0 VAL 
+0000013c  0d00000000   V! VAL ( will be modified! ) 
+00000141  00           NOP ( will be modified! ) 
+00000142  56           0 VAL 
+00000143               §break30145 LABEL ( §base0 will be fetched! ) 
+00000143  d5           1 A:VAL 
+00000144  8b           A:PICK 
+00000145  10           R@ 
+00000146  88           A:DROP 
+00000147  0d00000000   SETVTOP VAL ( will be modified! ) 
+0000014c  00           NOP ( will be modified! ) remove §this remove §base0 
+0000014d  89           A:2DROP 
+0000014e  08           DROP 
+0000014f               §3 LABEL 
+0000014f  3d           EXIT 
+00000150  2200         §7 LABEL 
+00000152  4e6f537563684d6574686f644572726f72a72d3430353737383934342e7461626c65 " NoSuchMethodError§-405778944.table " 
+00000174  1f00         §6 LABEL 
+00000176  4e6f537563684d6574686f644572726f722e5f737461746963546872656164 " NoSuchMethodError._staticThread " 
+00000195  2100         §5 LABEL 
+00000197  4e6f537563684d6574686f644572726f722e5f737461746963426c6f636b696e67 " NoSuchMethodError._staticBlocking " 
+000001b8  0d00000000   ALIGN VAL ( will be modified! ) 
+000001bd  00           NOP ( will be modified! ) 
+000001be  0d00000000   HERE VAL ( will be modified! ) 
+000001c3  00           NOP ( will be modified! ) 
+000001c4  54           2 VAL 
+000001c5  0d99010000   §5 VAL 
+000001ca  0d00000000   create VAL ( will be modified! ) 
+000001cf  00           NOP ( will be modified! ) 
+000001d0  55           1 VAL 
+000001d1  1a           2* 
+000001d2  1a           2* 
+000001d3  0d00000000   ALLOT VAL ( will be modified! ) 
+000001d8  00           NOP ( will be modified! ) 
+000001d9  0d00000000   ALIGN VAL ( will be modified! ) 
+000001de  00           NOP ( will be modified! ) 
+000001df  0d00000000   HERE VAL ( will be modified! ) 
+000001e4  00           NOP ( will be modified! ) 
+000001e5  54           2 VAL 
+000001e6  0d78010000   §6 VAL 
+000001eb  0d00000000   create VAL ( will be modified! ) 
+000001f0  00           NOP ( will be modified! ) 
+000001f1  55           1 VAL 
+000001f2  1a           2* 
+000001f3  1a           2* 
+000001f4  0d00000000   ALLOT VAL ( will be modified! ) 
+000001f9  00           NOP ( will be modified! ) 
+000001fa  0d00000000   HERE VAL ( will be modified! ) 
+000001ff  00           NOP ( will be modified! ) 
+00000200  52           4 VAL 
+00000201  17           - 
+00000202  0d00000000   SALLOCATE VAL ( will be modified! ) 
+00000207  00           NOP ( will be modified! ) 
+00000208  8d00000000   HERE A:VAL ( will be modified! ) 
+0000020d  80           A:NOP ( will be modified! ) 
+0000020e  0d00000000   ALIGN VAL ( will be modified! ) 
+00000213  00           NOP ( will be modified! ) 
+00000214  0d00000000   HERE VAL ( will be modified! ) 
+00000219  00           NOP ( will be modified! ) 
+0000021a  54           2 VAL 
+0000021b  0d54010000   §7 VAL 
+00000220  0d00000000   create VAL ( will be modified! ) 
+00000225  00           NOP ( will be modified! ) 
+00000226  55           1 VAL 
+00000227  1a           2* 
+00000228  1a           2* 
+00000229  0d00000000   ALLOT VAL ( will be modified! ) 
+0000022e  00           NOP ( will be modified! ) 
+0000022f  54           2 VAL 
+00000230  0e           DUP 
+00000231  1a           2* 
+00000232  1a           2* 
+00000233  1a           2* 
+00000234  0d00000000   ALLOT VAL ( will be modified! ) 
+00000239  00           NOP ( will be modified! ) 
+0000023a  10           R@ 
+0000023b  01           ! 
+0000023c  9d           A:CELL+ 
+0000023d  0d004e2c90   -1876144640 VAL 
+00000242  10           R@ 
+00000243  01           ! 
+00000244  9d           A:CELL+ 
+00000245  0d20000000   NoSuchMethodError.NoSuchMethodError§-1876144640 VAL 
+0000024a  10           R@ 
+0000024b  01           ! 
+0000024c  9d           A:CELL+ 
+0000024d  0d004e405e   1581272576 VAL 
+00000252  10           R@ 
+00000253  01           ! 
+00000254  9d           A:CELL+ 
+00000255  0dcc000000   NoSuchMethodError.NoSuchMethodError§1581272576 VAL 
+0000025a  10           R@ 
+0000025b  01           ! 
+0000025c  9d           A:CELL+ 
+0000025d  88           A:DROP 
+0000025e  3d           EXIT 
+
+instruction usage:
+load/store:		21	(8.333333333333332%)
+32-bit values:		46	(18.253968253968253%)
+16-bit values:		8	(3.1746031746031744%)
+5-bit values:		28	(11.11111111111111%)
+values total:		82	(32.53968253968254%)
+arithmetic/logical:	30	(11.904761904761903%)
+relations:		0	(0.0%)
+flow control:		5	(1.984126984126984%)
+other:			114	(45.23809523809524%)
+total:			252
+
+average bytes per instruction: 1.9206349206349207
+
+string storage in byte:	123
+unresolved references:	40
+
+Size of static code: 440
+Size of initial code: 167
+
+references:
+ffffffff	3	ALIGN
+ffffffff	4	ALLOT
+ffffffff	2	EXECUTE-NEW
+ffffffff	5	HERE
+ffffffff	2	IncompatibleClassChangeError§97667328.table
+ffffffff	2	MALLOC
+20	1	NoSuchMethodError.NoSuchMethodError§-1876144640
+20	1	NoSuchMethodError.NoSuchMethodError§-1876144640
+cc	1	NoSuchMethodError.NoSuchMethodError§1581272576
+cc	1	NoSuchMethodError.NoSuchMethodError§1581272576
+ffffffff	2	NoSuchMethodError§-405778944.table
+ffffffff	1	SALLOCATE
+ffffffff	2	SETVTOP
+ffffffff	5	V!
+ffffffff	2	VALLOCATE
+ffffffff	3	create
+b9	2	§2
+199	1	§5
+178	1	§6
+154	1	§7

@@ -1,0 +1,108 @@
+'\" t
+.\" @(#)rmiregistry.1 1.10 00/05/14 SMI;
+.\" Copyright 2003 Sun Microsystems, Inc. All rights reserved.
+.\" Copyright 2003 Sun Microsystems, Inc. Tous droits r蜩erv蜩.
+.\" 
+.TH rmiregistry 1 "2000 年 7 月 28 日"
+.SH "名前"
+rmiregistry \- Java リモートオブジェクトレジストリ
+.\" 
+.\"  This document was created by saving an HTML file as text
+.\"  from the JavaSoft web site:
+.\" 
+.\" http://java.sun.com/products/jdk/1.2/docs/tooldocs/tools.html
+.\" 
+.\"  and adding appropriate troff macros.  Because the JavaSoft web site 
+.\"  man pages can change without notice, it may be helpful to diff
+.\"  files to identify changes other than new functionality. 
+.\" 
+.SH "形式"
+.B rmiregistry 
+[
+.I port
+] [
+.BI \-J option
+]
+.SH "機能説明"
+.IX "Java remote object registry" "" "Java remote object registry \(em \fLrmiregistry\fP"
+.IX "rmiregistry" "" "\fLrmiregistry\fP \(em Java remote object registry"
+Java\(tm
+の
+.B rmiregistry
+コマンドは、現在のホスト上の指定されたポートに、リモートオブジェクト
+レジストリを作成し起動します。
+ポート番号が省略された場合には、ポート
+1099
+が使用されます。
+.B rmiregistry
+はバックグラウンドで実行され、何も出力しません。
+以下に指定例を示します。
+.LP
+.RS
+.B example% rmiregistry &
+.RE
+.LP
+リモートオブジェクトレジストリはブートストラップネームサービスで、
+ホスト上の
+RMI
+サーバがリモートオブジェクトに名前をバインドするために使用します。
+名前がついたあとは、クライアント側でリモートオブジェクトを探して
+リモートメソッドを呼び出すことができます。
+.LP
+レジストリは通常、アプリケーションがメソッドを呼び出す必要がある
+最初のリモートオブジェクトを指定するために使用されます。
+そのあと、そのオブジェクトを使って、アプリケーション固有の
+方法で他のオブジェクトを探すことが可能になります。
+.LP
+.B java.rmi.registry.LocateRegistry
+クラスのメソッドは、特定のホストまたは特定のホストとポート上で
+動作しているレジストリを得るために用いられます。
+.LP
+.B java.rmi.Naming
+クラスの
+URL
+用のメソッドはレジストリを操作するもので、
+リモートオブジェクトの探索、リモートオブジェクトへの
+名前
+(文字列)
+のバインド、新たな名前のバインド
+(以前のバインドを上書き)、
+バインドの取り消し、およびレジストリ中でバインドされている
+URL
+の一覧表示が可能です。
+.SH "オプション"
+以下のオプションが使用できます。
+.TP 15
+.BI \-J option
+java オプションと組み合わせて使います
+(
+.B \-J
+と java オプションの間にスペースは必要ありません)。 
+.B \-J
+の後ろに続くオプションを java インタプリタに渡します。
+.SH "属性"
+次の属性については、
+.BR attributes (5)
+のマニュアルページを参照してください。
+.sp
+.TS
+box;
+cbp-1 | cbp-1
+l | l .
+属性タイプ	属性値
+=
+使用条件	SUNWj2rt, SUNWj2dev
+.TE
+.SH "関連項目"
+.BR attributes (5)
+.LP
+次については、
+.BR java.sun.com 
+を参照または検索してください。
+.TP 10
+.B java.rmi.Naming @
+http://java.sun.com/j2se/1.3/docs/api/java/rmi/Naming.html
+.TP 10
+.B java.rmi.registry.LocateRegistry @
+http://java.sun.com/j2se/1.3/docs/api/java/rmi/registry/LocateRegistry.html
+

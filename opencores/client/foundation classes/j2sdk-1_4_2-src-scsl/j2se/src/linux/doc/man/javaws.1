@@ -1,0 +1,115 @@
+'\" t
+.\"
+.\" Copyright 2003 Sun Microsystems, Inc. All rights reserved.
+.\" SUN PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
+.\"
+.TH javaws 1 "25 February 2003"
+.SH NAME
+\fBjavaws \fP- Java Web Start command launcher
+\fB
+.SH SYNOPSIS
+.nf
+.fam C
+\fBjavaws\fP 
+.TP
+.B
+\fBjavaws\fP [ \fIoptions\fP ]
+.TP
+.B
+\fBjavaws\fP [ \fIoptions\fP ] \fIURL\fP
+.fam T
+.fi
+.SH PARAMETERS
+Options may be in any order. For a discussion of a specific option, 
+see OPTIONS below.
+.TP
+.B
+\fIoptions\fP
+Command-line \fIoptions\fP. See OPTIONS below.
+.TP
+.B
+\fIURL\fP
+Uniform Resource Locator (\fIURL\fP) of the JNLP (Java Network 
+Launching Protocol) file.
+.SH DESCRIPTION
+The \fBjavaws\fP command launches Java Web Start, which is the reference
+implementation of the Java Network Launching Protocol (JNLP).
+Java Web Start launches java application/applets hosted on a network.
+.PP
+Without any \fIoptions\fP \fBjavaws\fP will launch the Java Web Start application
+manager, which users can launch applications/applet or configure
+Java Web Start.
+.PP
+If an \fIURL\fP specifying a JNLP (Java Network Launching Protocol) file is
+specified, \fBjavaws\fP will launch the Java application/applet specified 
+in the JNLP file.
+.SH OPTIONS
+The \fBjavaws\fP launcher has a set of \fIoptions\fP that are supported in the
+current release.
+However, the \fIoptions\fP may be removed in a future  
+release.
+All \fB-X\fP \fIoptions\fP are non-standard and subject to change.
+.SS                          
+.TP
+.B
+\fB-offline\fP
+Runs Java Web Start in offline mode.
+.TP
+.B
+\fB-uninstall\fP <url>
+Removes a specific application/applet indicated
+by the \fIURL\fP to the JNLP file from the user's cache.
+If <url> is not specified, the entire cache is removed.
+Java Web Start will exit after the command
+is completed.
+.SS
+.TP
+.B
+\fB-updateVersions\fP
+Updates the Java Web Start configuration file based on the current machine's settings.  Java Web Start will exit after the command is completed.
+.SS        
+.TP
+.B
+\fB-Xclearcache\fP
+Clears the user's cache.  Java Web Start will exit
+after the command is completed.
+.SS        
+.TP
+.B
+\fB-Xnosplash\fP
+Disable the display of the initial splash screen.
+.SS
+.SH FILES
+.SS
+.TP
+.B
+\fB$HOME/.java/.deployment/deployment.properties\fP
+System configuration file for Java Deployment Products
+.SS        
+.TP
+.B
+\fB$HOME/.mailcap\fP
+User's mailcap file to specify helper applications for Netscape/
+Mozilla Browser 
+.SS
+.TP
+.B
+\fB$HOME/.mime.types\fP
+User's mimetype file to specify mimetypes supported in Netscape/
+Mozilla Browser 
+.SS        
+.TP
+.B
+\fB/etc/mailcap\fP
+System mailcap file to specify helper applications for Netscape/
+Mozilla Browser 
+.SS        
+.TP
+.B
+\fB/etc/mime.types\fP
+System mimetype file to specify mimetypes supported in Netscape/
+Mozilla Browser 
+.SS       
+.SH NOTES
+The Java Web Start Product Pages @
+http://java.sun.com/products/javawebstart

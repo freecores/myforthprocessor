@@ -1,0 +1,50 @@
+0000000c  56           0 VAL 
+0000000d  0d00000000   java.lang.Math._staticBlocking VAL ( will be modified! ) 
+00000012  00           NOP ( will be modified! ) 
+00000013  01           ! 
+00000014  0d0abf0540   1074118410 VAL 
+00000019  0d6957148b   -1961601175 VAL 
+0000001e  0d00000000   java.lang.Math.E VAL ( will be modified! ) 
+00000023  00           NOP ( will be modified! ) 
+00000024  90           A:R@ 
+00000025  01           ! 
+00000026  10           R@ 
+00000027  88           A:DROP 
+00000028  1d           CELL+ 
+00000029  01           ! 
+0000002a  0dfb210940   1074340347 VAL 
+0000002f  0d182d4454   1413754136 VAL 
+00000034  0d00000000   java.lang.Math.PI VAL ( will be modified! ) 
+00000039  00           NOP ( will be modified! ) 
+0000003a  90           A:R@ 
+0000003b  01           ! 
+0000003c  10           R@ 
+0000003d  88           A:DROP 
+0000003e  1d           CELL+ 
+0000003f  01           ! 
+00000040  3d           EXIT 
+
+instruction usage:
+load/store:		5	(20.0%)
+32-bit values:		7	(28.000000000000004%)
+16-bit values:		0	(0.0%)
+5-bit values:		1	(4.0%)
+values total:		8	(32.0%)
+arithmetic/logical:	2	(8.0%)
+relations:		0	(0.0%)
+flow control:		1	(4.0%)
+other:			9	(36.0%)
+total:			25
+
+average bytes per instruction: 2.6
+
+string storage in byte:	0
+unresolved references:	3
+
+Size of static code: 12
+Size of initial code: 53
+
+references:
+ffffffff	1	java.lang.Math.E
+ffffffff	1	java.lang.Math.PI
+ffffffff	1	java.lang.Math._staticBlocking

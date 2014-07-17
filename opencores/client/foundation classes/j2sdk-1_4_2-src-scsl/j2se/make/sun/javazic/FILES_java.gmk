@@ -1,0 +1,22 @@
+#
+# @(#)FILES_java.gmk	1.3 02/09/19
+#
+FILES_java = \
+	$(TARGDIR)sun/tools/javazic/Main.java \
+	$(TARGDIR)sun/tools/javazic/Calendar.java \
+	$(TARGDIR)sun/tools/javazic/Checksum.java \
+	$(TARGDIR)sun/tools/javazic/Gen.java \
+	$(TARGDIR)sun/tools/javazic/GenDoc.java \
+	$(TARGDIR)sun/tools/javazic/GenSrc.java \
+	$(TARGDIR)sun/tools/javazic/Mappings.java \
+	$(TARGDIR)sun/tools/javazic/Month.java \
+	$(TARGDIR)sun/tools/javazic/Rule.java \
+	$(TARGDIR)sun/tools/javazic/RuleDay.java \
+	$(TARGDIR)sun/tools/javazic/RuleRec.java \
+	$(TARGDIR)sun/tools/javazic/Simple.java \
+	$(TARGDIR)sun/tools/javazic/Time.java \
+	$(TARGDIR)sun/tools/javazic/Timezone.java \
+	$(TARGDIR)sun/tools/javazic/Zone.java \
+	$(TARGDIR)sun/tools/javazic/ZoneRec.java \
+	$(TARGDIR)sun/tools/javazic/Zoneinfo.java \
+	$(TARGDIR)sun/tools/javazic/BackEnd.java

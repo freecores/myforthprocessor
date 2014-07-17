@@ -1,0 +1,12 @@
+[Version]
+; This section is required for compatibility on both Windows 95 and Windows NT.
+Signature="$CHICAGO$"
+AdvancedInf=2.0
+
+[Add.Code]
+autoinstall.dll=autoinstall.dll
+
+[autoinstall.dll]
+file=thiscab
+clsid={8C5FCDE2-658D-11D5-B4EE-00010239B256}
+FileVersion=1,0,0,1

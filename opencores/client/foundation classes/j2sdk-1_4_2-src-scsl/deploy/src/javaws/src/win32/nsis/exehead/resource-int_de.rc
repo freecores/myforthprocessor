@@ -1,0 +1,196 @@
+//Microsoft Developer Studio generated resource script.
+//
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_LICENSE DIALOG DISCARDABLE  0, 0, 246, 125
+STYLE DS_CONTROL | DS_CENTER | WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+    ICON            IDI_ICON2,-1,0,1,20,20
+    LTEXT           "Lizenztext\r\nzwei Zeilen",IDC_LICTEXT,30,0,216,16
+    EDITTEXT        IDC_EDIT1,0,24,246,100,ES_MULTILINE | ES_READONLY | 
+                    WS_VSCROLL
+END
+
+IDD_DIR DIALOG DISCARDABLE  0, 0, 246, 125
+STYLE DS_CONTROL | DS_CENTER | WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_DIR,12,43,180,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "Durchsuchen...",IDC_BROWSE,193,43,50,14
+    LTEXT           "Beschreibungstext\r\nzwei Zeilen\r\ndrei Zeilen",
+                    IDC_INTROTEXT,23,0,204,26
+    ICON            IDI_ICON2,-1,0,0,20,20
+    LTEXT           "Statisch",IDC_SELDIRTEXT,0,33,190,8
+    LTEXT           "Benötigter Speicherplatz: 128k",IDC_SPACEREQUIRED,0,97,97,8
+    LTEXT           "Auf Laufwerk verfügbarer Speicherplatz: 2234000 k",IDC_SPACEAVAILABLE,
+                    0,86,187,8
+    // CHANGED FOR 1.2
+    CONTROL         "Eine Verknüpfung für alle Benutzer erstellen",IDC_CHECK1,"Button",
+                    BS_AUTOCHECKBOX | NOT WS_VISIBLE | WS_TABSTOP,12,64,231,
+                    10
+END
+
+IDD_INST DIALOG DISCARDABLE  0, 0, 260, 159
+STYLE DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+FONT 8, "MS Sans Serif"
+BEGIN
+    PUSHBUTTON      "Weiter >",IDOK,203,139,50,14
+    PUSHBUTTON      "Abbrechen",IDCANCEL,7,139,50,14
+    CONTROL         "",-1,"Static",SS_ETCHEDHORZ,7,134,246,1
+    CONTROL         "",IDC_CHILDRECT,"Static",SS_BLACKRECT | NOT WS_VISIBLE,
+                    7,6,246,125
+    PUSHBUTTON      "< Zurück",IDC_BACK,151,139,50,14
+    LTEXT           "Nullsoft Install System v1.0j",IDC_INSTVER,60,143,86,15,
+                    NOT WS_VISIBLE
+END
+
+IDD_INSTFILES DIALOG DISCARDABLE  0, 0, 246, 125
+STYLE DS_CONTROL | DS_CENTER | WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "Fortschritt2",IDC_PROGRESS1,"msctls_progress32",WS_BORDER,
+                    24,10,221,11
+    LTEXT           "Installationsfortschritt:",IDC_PROGRESSTEXT,24,0,79,8
+    LISTBOX         IDC_LIST1,0,23,245,101,LBS_NOINTEGRALHEIGHT | LBS_NOSEL | 
+                    WS_VSCROLL | WS_TABSTOP
+    ICON            IDI_ICON2,IDC_STATIC,0,0,20,20
+END
+
+IDD_UNINST DIALOG DISCARDABLE  0, 0, 246, 125
+STYLE DS_CONTROL | DS_CENTER | WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+    ICON            IDI_ICON2,IDC_STATIC,0,1,20,20
+    LTEXT           "",IDC_UNINSTTEXT,30,0,216,20
+    LTEXT           "Deinstallieren von:",IDC_STATIC,2,31,59,8
+    EDITTEXT        IDC_EDIT1,64,29,181,12,ES_AUTOHSCROLL | ES_READONLY
+END
+
+IDD_DIR1 DIALOG DISCARDABLE  0, 0, 246, 127
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_DIR,10,55,180,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "Durchsuchen...",IDC_BROWSE,195,55,50,14
+    LTEXT           "Textbeschreibung\r\nzwei Zeilen",IDC_INTROTEXT,25,2,204,
+                    16
+    ICON            IDI_ICON2,-1,0,0,20,20
+    LTEXT           "Static",IDC_SELDIRTEXT,0,45,245,10
+    DEFPUSHBUTTON   "Ok",IDC_OK,140,110,50,14
+    PUSHBUTTON      "Abbrechen",IDC_CANCEL,195,110,50,14
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_INST, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 253
+        TOPMARGIN, 6
+        BOTTOMMARGIN, 153
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    JAVAWS_TEST             "Dies ist nur ein Test."
+    JAVAWS_NS_COPYRIGHT     "NSIS Copyright (C) 2000 Nullsoft, Inc."
+    JAVAWS_ERROR_RESOURCE   "Fehler beim Laden der Ressource."
+    JAVAWS_ERROR_RESOURCE_CAPTION "Installationsprogrammfehler"
+    JAVAWS_ERROR_OPENSELF   "Fehler beim Öffnen von self."
+    JAVAWS_ERROR_GCAPTION   "Fehler Nullsoft-Installationssystem"
+    JAVAWS_ERROR_READCRC    "Fehler beim Lesen CRC von Datei des Installationsprogramms."
+    JAVAWS_ERROR_READDATA   "Fehler beim Lesen der Daten von Datei des Installationsprogramms."
+    JAVAWS_ERROR_CRC        "CRC-Prüfung für Installationsprogramm negativ. Bitte versuchen Sie, dieses Installationsprogramm noch einmal herunterzuladen."
+    JAVAWS_ERROR_TOOSHORT   "Fehler: Installationsdatenblock zu kurz"
+    JAVAWS_ERROR_FINDDATA   "Fehler - kann Installationsdaten nicht finden."
+    JAVAWS_STATUS_OUTDIR    "Ausgabeverzeichnis: %1"
+    JAVAWS_STATUS_SKIPPED   "Übersprungen: %1"
+    JAVAWS_ERROR_OPENWRITE  "Fehler beim Öffnen der Datei zum Schreiben: %1\r\nMit Abbruch können Sie die Installation abbrechen, mit Wiederholen können Sie das Schreiben der Datei wiederholen, mit Ignorieren können Sie diese Datei überspringen."
+    JAVAWS_ERROR_ABORTWRITE "Abbruch, da Schreiben nicht möglich in Datei: %1"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    JAVAWS_STATUS_EXTRACT   "Extrahieren: %1"
+    JAVAWS_STATUS_EXECUTE   "Ausführen: %1"
+    JAVAWS_STATUS_CREATESHORTCUT "Verknüpfung erstellt: %1"
+    JAVAWS_STATUS_DELETEFILE "Datei löschen: %1"
+    JAVAWS_STATUS_ABORTED   "Abbruch nach Benutzerabbruch: %1"
+    JAVAWS_STATUS_REMOVEDIR "Verzeichnis löschen: %1"
+    JAVAWS_ERROR_INSTCORRUPT "Installationsprogramm beschädigt."
+    JAVAWS_MESSAGE_UNINSTALL "%1 Deinstallieren"
+    JAVAWS_MESSAGE_SETUP    "%1 Setup"
+    JAVAWS_MESSAGE_SELECTDIR "Installationsverzeichnis auswählen"
+    JAVAWS_MESSAGE_LICENSE  "Lizenzvereinbarung"
+    JAVAWS_MESSAGE_INSTOPT  "Installationsoptionen"
+    JAVAWS_MESSAGE_INSTDIR  "Installationsverzeichnis"
+    JAVAWS_MESSAGE_INSTFILES "Dateien installieren"
+    JAVAWS_MESSAGE_SETUP2   "%1 Setup: %2"
+    JAVAWS_MESSAGE_CONFIRM  "Bestätigung"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    JAVAWS_MESSAGE_UNINSTFILES "Dateien deinstallieren"
+    JAVAWS_MESSAGE_UNINSTALL2 "%1 Deinstallation: %2"
+    JAVAWS_MESSAGE_SELECTDIR2 "Wählen Sie das Verzeichnis aus, in dem %1 installiert werden soll:"
+    JAVAWS_MESSAGE_SELECTDIR3 "Wählen Sie ein Verzeichnis aus:"
+    JAVAWS_MESSAGE_SPACEREQ "Benötigter Speicherplatz: %1!d! KB"
+    JAVAWS_MESSAGE_SPACEAVAIL "Verfügbarer Speicherplatz: %1!d! KB"
+    JAVAWS_MESSAGE_SELECTCOMPS "Zu installierende Komponenten auswählen:"
+    JAVAWS_MESSAGE_CUSTOMTYPE "Benutzerdefiniert"
+    JAVAWS_MESSAGE_REQDCOMPS "Erforderliche Komponenten"
+    JAVAWS_STATUS_CREATEUNINST "Deinstallationsprogramm wird erstellt"
+    JAVAWS_MESSAGE_UNINSTPROGRESS "Fortschritt der Deinstallation:"
+    JAVAWS_ERROR_STRINGTABLE "Warnung: lokalisierter Text konnte nicht gefunden werden."
+    JAVAWS_STATUS_MAKEDIR   "Verzeichnis erstellen: %1"
+    JAVAWS_STATUS_REGDLL    "Registrierte DLL: %1"
+    JAVAWS_STATUS_UNREGDLL  "Aus der Registrierung gelöschte DLL:"
+    JAVAWS_ERROR_REGDLL     "Fehler bei DLL-Registrierung.\r\nDllRegisterServer konnt nicht in %1 gefunden werden."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    JAVAWS_ERROR_REGDLLU    "Fehler bei DLL-Registrierung.\r\n%1 konnte nicht geladen werden."
+    JAVAWS_ERROR_OLEINIT    "Fehler bei DLL-Registrierung: %1\r\nOLE konnte nicht initialisiert werden."
+    JAVAWS_MESSAGE_REBOOT   "Vor dem Ausführen von Java Web Start muss der Rechner heruntergefahren und neu gestartet werden.\r\nSoll der Neustart jetzt durchgeführt werden?"
+    JAVAWS_ERROR_PRIVALUE   "Fehler bei Privilegsuche."
+    JAVAWS_ERROR_OPENTOKEN  "Fehler beim Öffnen des Prozesstokens."
+    JAVAWS_ERROR_ADJUSTTOKEN "Fehler beim Anpassen der Tokenprivilegien."
+    JAVAWS_ERROR_EXITWINDOWS 
+                            "Fehler beim Neustart.\r\nBitte fahren Sie Ihren Rechner über das Startmenü herunter, und starten Sie ihn neu."
+    JAVAWS_MESSAGE_INSTPROG "Installationsfortschritt:"
+    JAVAWS_DECLINE          "Ablehnen"
+    JAVAWS_ACCEPT           "Annehmen"
+    JAVAWS_NEXT             "Weiter >"
+    JAVAWS_BACK             "< Zurück"
+    JAVAWS_CANCEL           "Abbrechen"
+    JAVAWS_MESSAGE_JRE      "Das Setup-Programm konnte kein lauffähiges Java 2 Runtime Environment finden."
+    JAVAWS_MESSAGE_JRE2     "Möchten Sie die Version %1 des Java 2 Runtime Environment installieren?"
+    JAVAWS_MESSAGE_NEWERVERSION 
+                            "Das Setup-Programm hat festgestellt, dass Sie Java Web Start %1 durch Java Web Start %2 ersetzen wollen. Sind Sie sicher, dass dieser Vorgang durchgeführt werden soll?"
+    // Following is NEW FOR 1.2 -sbohne
+    JAVAWS_ERROR_PRIVILEGE  "Setup hat ermittelt, dass Sie weder Mitglied der Gruppe 'Administratoren' noch der Gruppe 'Hauptbenutzer' sind. Es empfiehlt sich, dass nur Mitglieder der Gruppen 'Administratoren' oder 'Hauptbenutzer' diese Software installieren. Klicken Sie auf 'OK', um Setup zu beenden, oder auf 'Abbrechen', um diese Warnung zu übergehen."
+                          
+END
+

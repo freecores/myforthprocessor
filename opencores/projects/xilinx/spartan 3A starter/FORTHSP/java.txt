@@ -1,0 +1,155 @@
+( 
+  BIOS for FORTH-System
+
+  Copyright © 2004-2008 by Gerhard Hohner
+)
+  
+
+DEFINE FATHER 0
+DEFINE SON 4
+DEFINE OUTER 8
+DEFINE TABLE 12
+DEFINE NAME 16
+DEFINE CODED 20
+DEFINE REFCOUNT 24
+DEFINE AREA 28
+
+DEFINE CLASS 4
+DEFINE PRIVATE 2
+DEFINE PROTECTED 1
+
+( cast to a super class
+  parameter:
+      counted string naming super class
+      address of object
+  returns:
+      address of super class, or 0 if not found
+)
+
+: INSTANCEOF OVER HANDLEVALID CALL
+             IF
+                BEGIN
+ 		      OVER 0<>!
+                      IF CELL+ @ NAME + @ OVER COMPARESTRING CALL 0<> ENDIF
+                WHILE
+		      A:R>
+		      CELL+ @ FATHER + @
+		      R>
+		REPEAT
+                DROP
+	     ELSE
+	        2DROP 0
+	     ENDIF
+	     ;
+
+( cast to distinct class
+  parameter:
+      counted string naming desired class
+      address of object
+  returns:
+      address of casted object, or 0 if not found
+)
+
+: CASTTO OVER HANDLEVALID CALL
+         IF
+            BEGIN
+               OVER DUP 0<>!
+               IF DROP OVER CASTIT CALL 0=! ENDIF
+            WHILE
+               A:R1@ 2DROP
+               CELL+ @ OUTER + @
+               R>
+            REPEAT
+            NIP NIP
+         ELSE
+            2DROP 0
+         ENDIF
+         ;
+
+(
+  parameter:
+      counted string
+      address of object
+  return:
+      address of super or outer object
+)
+
+:LOCAL CASTIT OVER OVER INSTANCEOF CALL 0=!
+              IF
+	          DROP
+	          BEGIN
+ 		      OVER 0<>!
+                      IF CELL+ @ NAME + @ OVER COMPARESTRING CALL 0<> ENDIF
+                  WHILE
+		      A:R>
+		      CELL+ @ SON + @
+		      R>
+	          REPEAT
+                  DROP
+              ELSE
+	          NIP NIP
+	      ENDIF
+	      ;
+
+( search hashcode in a table
+  parameter:
+      mask
+      table
+      hashcode
+  return:
+      routine, if found, otherwise 0
+)
+
+: SEARCH-METHOD      A:R> A:R@ 0<>!
+                     IF
+                        A:CELL+ @
+                        BEGIN OVER R@ @ XOR R1@ AND 0<> OVER 0<> AND WHILE 1- A:CELL+ A:CELL+ REPEAT
+                     ENDIF
+                     NIP DUP IF DROP R@ CELL+ @ ENDIF A:2DROP ;
+
+( locate and execute a constructor from a table
+  parameter:
+      hashcode
+      table
+  return:
+)
+
+: EXECUTE-NEW A:R1@ DUP R> -4 SEARCH-METHOD CALL 0<>!
+              IF NIP NIP A:EXIT ENDIF DROP
+              .( constructor  ) . .(  of class  )
+              CELL+ @ NAME + @ COUNT TYPE CALL .(  not found ) ABORT CALL ;
+
+( get and execute a method from table
+  parameter:
+      polymorph
+      hashcode
+      object
+  return:
+)
+
+: EXECUTE-METHOD A:R> A:R1@ R1@ A:NIP
+                 IF
+                    A:R> DUP HANDLEVALID CALL AND
+                    BEGIN 0<>! OVER CELL+ @ SON + @ OVER OVER 0<> AND WHILE NIP NIP REPEAT
+                    2DROP R>
+                 ENDIF
+                 OVER HANDLEVALID CALL INVERT
+                 IF
+                    .( method  ) . .(  of undefined object at address  ) R@ . .(  of class  ) R@ CELL+ @ NAME + @ COUNT TYPE CALL ABORT CALL
+                 ENDIF
+                 BEGIN
+                       OVER HANDLEVALID CALL
+                 WHILE
+                       OVER A:-4
+                       BEGIN
+                             0<>!
+                       WHILE
+                             OVER OVER CELL+ @ TABLE + @ R@ SEARCH-METHOD CALL 0<>!
+                             IF A:2DROP >R NIP NIP EXIT ENDIF
+                             DROP CELL+ @ FATHER + @ A:2/
+                       REPEAT
+                       DROP A:R> CELL+ @ OUTER + @ R@ A:2DROP
+                 REPEAT
+                 .( method  ) . .(  of class  ) R@ CELL+ @ NAME + @ COUNT TYPE CALL .(  not found, handle  ) R> . CALL
+                 ABORT CALL ;
+

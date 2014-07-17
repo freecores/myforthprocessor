@@ -1,0 +1,81 @@
+#
+#ident	"@(#)mapfile-vers	1.11	02/04/16 SMI"
+#
+# Copyright 2000 Sun Microsystems, Inc. All rights reserved.
+# Copyright 2000 Sun Microsystems, Inc. Tous droits réservés.
+#
+# This software is the proprietary information of Sun Microsystems, Inc.
+# Use is subject to license terms.
+#
+
+# Define public interface.
+
+SUNWprivate_1.1 {
+	global:
+		JNI_OnLoad;
+
+		Java_java_awt_AWTKeyStroke_allocateNewInstance;
+		Java_sun_awt_motif_X11RemoteOffScreenImage_initIDs;
+		Java_sun_awt_motif_X11RemoteOffScreenImage_setRasterNative;
+		Java_sun_awt_motif_X11RemoteOffScreenImage_setSurfaceDataNative;
+		Java_sun_awt_X11PMBlitLoops_Blit;
+		Java_sun_awt_X11PMBlitBgLoops_nativeBlitBg;
+		Java_sun_awt_X11Renderer_devFillSpans;
+		Java_sun_awt_X11Renderer_doDrawArc;
+		Java_sun_awt_X11Renderer_doDrawLine;
+		Java_sun_awt_X11Renderer_doDrawOval;
+		Java_sun_awt_X11Renderer_doDrawPoly;
+		Java_sun_awt_X11Renderer_doDrawRect;
+		Java_sun_awt_X11Renderer_doDrawRoundRect;
+		Java_sun_awt_X11Renderer_doFillArc;
+		Java_sun_awt_X11Renderer_doFillOval;
+		Java_sun_awt_X11Renderer_doFillPoly;
+		Java_sun_awt_X11Renderer_doFillRect;
+		Java_sun_awt_X11Renderer_doFillRoundRect;
+		Java_sun_awt_X11Renderer_devCopyArea;
+		Java_sun_awt_X11SurfaceData_initIDs;
+		Java_sun_awt_X11SurfaceData_initOps;
+		Java_sun_awt_X11SurfaceData_initSurface;
+		Java_sun_awt_X11SurfaceData_setInvalid;
+
+		X11SurfaceData_GetOps;
+		Java_java_awt_Font_initIDs;
+		Java_java_awt_Font_pDispose;
+		Java_sun_awt_font_NativeFontWrapper_getFontPath;
+		Java_sun_awt_font_NativeFontWrapper_setNativeFontPath;
+		Java_sun_awt_FontDescriptor_initIDs;
+		Java_sun_awt_PlatformFont_initIDs;
+
+		# libfontmanager entry points
+		AWTIsHeadless;
+                AWTLoadFont;
+                AWTFreeFont;
+                AWTFontMinByte1;
+                AWTFontMaxByte1;
+                AWTFontMinCharOrByte2;
+                AWTFontMaxCharOrByte2;
+                AWTFontDefaultChar;
+                AWTFontPerChar;
+                AWTFontMaxBounds;
+                AWTFontQueryTextExtents16;
+                AWTFreeChar;
+                AWTFontGenerateImage;
+                AWTCharWidth;
+                AWTCharLBearing;
+                AWTCharRBearing;
+                AWTCharAscent;
+                AWTCharDescent;
+                AWTDrawGlyphList;
+		AWTUseDPS;
+		AWTInitDPS;
+		AWTDPSError;
+		AWTGetDPSPath;
+		AWTCheckForFont;
+		AWTDrawOutline;
+		AWTGetOutline;
+
+
+	local:
+		*;
+};
+

@@ -1,0 +1,22 @@
+EntryPoint	Type	Source	Target
+s72	I4	s0	s255
+ISDLLWrapper	EntryPoint
+DLL1	0	RegUtils	BOOL=[VALUEINSTALL] RegUtils::InstallJavaJRERegistrySettings(in STRING=[INSTALLDIR], in STRING=[MAJOR], in STRING=[MINOR], in STRING=[MICRO], in STRING=[UPDATE], in BOOL=[SYSTRAY], in BOOL=[EULA])
+DLL12	64	RegUtils	BOOL=[INSTALLINTL] RegUtils::InstallIntlJRE()
+DLL13	0	RegUtils	void RegUtils::RemovePackFiles(in STRING=[INSTALLDIR])
+DLL14	64	RegUtils	void RegUtils::RegisterJavaWS(in STRING=[INSTALLDIR], in STRING="javaws", in STRING=[JDK_VERSION])
+DLL16	64	RegUtils	void RegUtils::CreateDesktopShortcut(in STRING=[INSTALLDIR], in STRING="javaws", in STRING="JavaCup.ico", in BOOL=1)
+DLL17	64	RegUtils	void RegUtils::CreateStartMenuShortcut(in STRING=[INSTALLDIR], in STRING="javaws", in STRING="JavaCup.ico", in BOOL=1)
+DLL2	0	RegUtils	BOOL=[VALUEINSTALL] RegUtils::RegJava2Netscape6Default(in STRING=[INSTALLDIR])
+DLL22	0	RegUtils	BOOL=[NETSCAPE6] RegUtils::IsNetscapeInstalled()
+DLL23	0	RegUtils	BOOL=[MOZILLA] RegUtils::IsMozillaInstalled()
+DLL24	0	RegUtils	BOOL=[JREREBOOT] RegUtils::UninstallJRE(in STRING=[JDK_VERSION])
+DLL25	0	RegUtils	BOOL=[IEXPLORER] RegUtils::IsIEInstalled()
+DLL4	0	RegUtils	BOOL=[VALUEINSTALL] RegUtils::RegJava2GeckoDefault(in STRING=[INSTALLDIR])
+DLL5	0	RegUtils	BOOL=[CONTROLPANELLOCKED] RegUtils::IsControlPanelLocked()
+DLL6	0	RegUtils	BOOL=[JAVAJAVAWLOCKED] RegUtils::IsJavaJavawLocked()
+DLL7	0	RegUtils	BOOL=[VALUEINSTALL] RegUtils::RegJava2IExplorerDefault(in STRING=[INSTALLDIR], in STRING=[MAJOR], in STRING=[MINOR], in STRING=[MICRO], in STRING=[UPDATE])
+DLL8	64	RegUtils	BOOL=[SEMICOLON] RegUtils::IsINSTALLDIRValid(in STRING=[INSTALLDIR])
+DLL9	0	RegUtils	BOOL=[VALUEINSTALL] RegUtils::RegJava2Netscape4Default(in STRING=[INSTALLDIR])
+DLL10	64	RegUtils	STRING=[LOGFILE] RegUtils::GetLogFileName()
+DLL15	0	RegUtils	BOOL=[JREREBOOT] RegUtils::NeedReboot()

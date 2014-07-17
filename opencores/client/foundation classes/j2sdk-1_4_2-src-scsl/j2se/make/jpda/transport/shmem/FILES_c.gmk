@@ -1,0 +1,10 @@
+#
+# @(#)FILES_c.gmk	1.1 99/02/10
+#
+FILES_c = \
+        $(CTARGDIR)SharedMemoryTransport.c \
+        $(CTARGDIR)SharedMemoryConnection.c \
+        $(CTARGDIR)shmemBack.c \
+        $(CTARGDIR)shmemBase.c \
+        $(CTARGDIR)shmem_md.c
+

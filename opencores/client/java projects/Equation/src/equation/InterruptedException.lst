@@ -1,0 +1,312 @@
+0000001f               
+0000001f               InterruptedException.InterruptedException§1322010880 LABEL 
+0000001f  55           1 VAL 
+00000020  0d00000000   VALLOCATE VAL ( will be modified! ) 
+00000025  00           NOP ( will be modified! ) 
+00000026  90           A:R@ ( §base0 declared ) 
+00000027  08           DROP 
+00000028  56           0 VAL 
+00000029  90           A:R@ ( §this declared ) 
+0000002a  08           DROP 
+0000002b  0d00000000   Exception§-1574681344.table VAL ( will be modified! ) 
+00000030  00           NOP ( will be modified! ) 
+00000031  0d00450589   -1996143360 VAL 
+00000036  0d00000000   EXECUTE-NEW VAL ( will be modified! ) 
+0000003b  00           NOP ( will be modified! ) 
+0000003c  461c00       28 VAL 
+0000003f  0d00000000   MALLOC VAL ( will be modified! ) 
+00000044  00           NOP ( will be modified! ) 
+00000045  08           DROP 
+00000046  0e           DUP 
+00000047  0e           DUP ( §base0 will be fetched! ) 
+00000048  d5           1 A:VAL 
+00000049  8b           A:PICK 
+0000004a  10           R@ 
+0000004b  88           A:DROP 
+0000004c  0d00000000   V! VAL ( will be modified! ) 
+00000051  00           NOP ( will be modified! ) ( §this will be modified! ) 
+00000052  88           A:DROP 
+00000053  90           A:R@ 
+00000054  08           DROP 
+00000055  0f           OVER 
+00000056  420900       §1 0BRANCH 
+00000059  0f           OVER 
+0000005a  1d           CELL+ 
+0000005b  02           @ 
+0000005c  52           4 VAL 
+0000005d  16           + 
+0000005e  0f           OVER 
+0000005f  0f           OVER 
+00000060  01           ! 
+00000061  08           DROP 
+00000062               §1 LABEL 
+00000062  1d           CELL+ 
+00000063  02           @ 
+00000064  0f           OVER 
+00000065  0f           OVER 
+00000066  01           ! 
+00000067  0a           NIP 
+00000068  0d00000000   InterruptedException§-1721546496.table VAL ( will be modified! ) 
+0000006d  00           NOP ( will be modified! ) 
+0000006e  0f           OVER 
+0000006f  4a           12 VAL 
+00000070  16           + 
+00000071  01           ! 
+00000072  0d00006399   -1721565184 VAL 
+00000077  0f           OVER 
+00000078  461400       20 VAL 
+0000007b  16           + 
+0000007c  01           ! 
+0000007d  0dab000000   §2 VAL 
+00000082  0f           OVER 
+00000083  461000       16 VAL 
+00000086  16           + 
+00000087  01           ! 
+00000088  56           0 VAL 
+00000089  0f           OVER 
+0000008a  461800       24 VAL 
+0000008d  16           + 
+0000008e  01           ! 
+0000008f  08           DROP ( §this will be fetched! ) 
+00000090  10           R@ 
+00000091  0e           DUP 
+00000092  56           0 VAL 
+00000093  0d00000000   V! VAL ( will be modified! ) 
+00000098  00           NOP ( will be modified! ) 
+00000099  56           0 VAL 
+0000009a               §break30127 LABEL ( §base0 will be fetched! ) 
+0000009a  d5           1 A:VAL 
+0000009b  8b           A:PICK 
+0000009c  10           R@ 
+0000009d  88           A:DROP 
+0000009e  0d00000000   SETVTOP VAL ( will be modified! ) 
+000000a3  00           NOP ( will be modified! ) remove §this remove §base0 
+000000a4  89           A:2DROP 
+000000a5  08           DROP 
+000000a6               §0 LABEL 
+000000a6  3d           EXIT 
+000000a7  1400         §2 LABEL 
+000000a9  496e746572727570746564457863657074696f6e " InterruptedException " 
+000000bd               
+000000bd               InterruptedException.InterruptedException§601573632 LABEL 
+000000bd  54           2 VAL 
+000000be  0d00000000   VALLOCATE VAL ( will be modified! ) 
+000000c3  00           NOP ( will be modified! ) 
+000000c4  90           A:R@ ( §base0 declared ) 
+000000c5  08           DROP 
+000000c6  0e           DUP 
+000000c7  52           4 VAL ( §base0 will be fetched! ) 
+000000c8  10           R@ 
+000000c9  16           + 
+000000ca  0d00000000   V! VAL ( will be modified! ) 
+000000cf  00           NOP ( will be modified! ) 
+000000d0  90           A:R@ ( s declared ) 
+000000d1  08           DROP 
+000000d2  56           0 VAL 
+000000d3  90           A:R@ ( §this declared ) 
+000000d4  08           DROP ( s will be fetched! ) 
+000000d5  d5           1 A:VAL 
+000000d6  8b           A:PICK 
+000000d7  10           R@ 
+000000d8  88           A:DROP 
+000000d9  0d00000000   Exception§-1574681344.table VAL ( will be modified! ) 
+000000de  00           NOP ( will be modified! ) 
+000000df  0d0045be0f   264127744 VAL 
+000000e4  0d00000000   EXECUTE-NEW VAL ( will be modified! ) 
+000000e9  00           NOP ( will be modified! ) 
+000000ea  461c00       28 VAL 
+000000ed  0d00000000   MALLOC VAL ( will be modified! ) 
+000000f2  00           NOP ( will be modified! ) 
+000000f3  08           DROP 
+000000f4  0e           DUP 
+000000f5  0e           DUP ( §base0 will be fetched! ) 
+000000f6  d4           2 A:VAL 
+000000f7  8b           A:PICK 
+000000f8  10           R@ 
+000000f9  88           A:DROP 
+000000fa  0d00000000   V! VAL ( will be modified! ) 
+000000ff  00           NOP ( will be modified! ) ( §this will be modified! ) 
+00000100  88           A:DROP 
+00000101  90           A:R@ 
+00000102  08           DROP 
+00000103  0f           OVER 
+00000104  420900       §4 0BRANCH 
+00000107  0f           OVER 
+00000108  1d           CELL+ 
+00000109  02           @ 
+0000010a  52           4 VAL 
+0000010b  16           + 
+0000010c  0f           OVER 
+0000010d  0f           OVER 
+0000010e  01           ! 
+0000010f  08           DROP 
+00000110               §4 LABEL 
+00000110  1d           CELL+ 
+00000111  02           @ 
+00000112  0f           OVER 
+00000113  0f           OVER 
+00000114  01           ! 
+00000115  0a           NIP 
+00000116  0d00000000   InterruptedException§-1721546496.table VAL ( will be modified! ) 
+0000011b  00           NOP ( will be modified! ) 
+0000011c  0f           OVER 
+0000011d  4a           12 VAL 
+0000011e  16           + 
+0000011f  01           ! 
+00000120  0d00006399   -1721565184 VAL 
+00000125  0f           OVER 
+00000126  461400       20 VAL 
+00000129  16           + 
+0000012a  01           ! 
+0000012b  0dab000000   §2 VAL 
+00000130  0f           OVER 
+00000131  461000       16 VAL 
+00000134  16           + 
+00000135  01           ! 
+00000136  56           0 VAL 
+00000137  0f           OVER 
+00000138  461800       24 VAL 
+0000013b  16           + 
+0000013c  01           ! 
+0000013d  08           DROP ( §this will be fetched! ) 
+0000013e  10           R@ 
+0000013f  0e           DUP 
+00000140  56           0 VAL 
+00000141  0d00000000   V! VAL ( will be modified! ) 
+00000146  00           NOP ( will be modified! ) 
+00000147  56           0 VAL 
+00000148               §break30128 LABEL ( §base0 will be fetched! ) 
+00000148  d4           2 A:VAL 
+00000149  8b           A:PICK 
+0000014a  10           R@ 
+0000014b  88           A:DROP 
+0000014c  0d00000000   SETVTOP VAL ( will be modified! ) 
+00000151  00           NOP ( will be modified! ) remove §this remove s remove §base0 
+00000152  89           A:2DROP 
+00000153  88           A:DROP 
+00000154  08           DROP 
+00000155               §3 LABEL 
+00000155  3d           EXIT 
+00000156  2600         §7 LABEL 
+00000158  496e746572727570746564457863657074696f6ea72d313732313534363439362e7461626c65 " InterruptedException§-1721546496.table " 
+0000017e  2200         §6 LABEL 
+00000180  496e746572727570746564457863657074696f6e2e5f737461746963546872656164 " InterruptedException._staticThread " 
+000001a2  2400         §5 LABEL 
+000001a4  496e746572727570746564457863657074696f6e2e5f737461746963426c6f636b696e67 " InterruptedException._staticBlocking " 
+000001c8  0d00000000   ALIGN VAL ( will be modified! ) 
+000001cd  00           NOP ( will be modified! ) 
+000001ce  0d00000000   HERE VAL ( will be modified! ) 
+000001d3  00           NOP ( will be modified! ) 
+000001d4  54           2 VAL 
+000001d5  0da6010000   §5 VAL 
+000001da  0d00000000   create VAL ( will be modified! ) 
+000001df  00           NOP ( will be modified! ) 
+000001e0  55           1 VAL 
+000001e1  1a           2* 
+000001e2  1a           2* 
+000001e3  0d00000000   ALLOT VAL ( will be modified! ) 
+000001e8  00           NOP ( will be modified! ) 
+000001e9  0d00000000   ALIGN VAL ( will be modified! ) 
+000001ee  00           NOP ( will be modified! ) 
+000001ef  0d00000000   HERE VAL ( will be modified! ) 
+000001f4  00           NOP ( will be modified! ) 
+000001f5  54           2 VAL 
+000001f6  0d82010000   §6 VAL 
+000001fb  0d00000000   create VAL ( will be modified! ) 
+00000200  00           NOP ( will be modified! ) 
+00000201  55           1 VAL 
+00000202  1a           2* 
+00000203  1a           2* 
+00000204  0d00000000   ALLOT VAL ( will be modified! ) 
+00000209  00           NOP ( will be modified! ) 
+0000020a  0d00000000   HERE VAL ( will be modified! ) 
+0000020f  00           NOP ( will be modified! ) 
+00000210  52           4 VAL 
+00000211  17           - 
+00000212  0d00000000   SALLOCATE VAL ( will be modified! ) 
+00000217  00           NOP ( will be modified! ) 
+00000218  8d00000000   HERE A:VAL ( will be modified! ) 
+0000021d  80           A:NOP ( will be modified! ) 
+0000021e  0d00000000   ALIGN VAL ( will be modified! ) 
+00000223  00           NOP ( will be modified! ) 
+00000224  0d00000000   HERE VAL ( will be modified! ) 
+00000229  00           NOP ( will be modified! ) 
+0000022a  54           2 VAL 
+0000022b  0d5a010000   §7 VAL 
+00000230  0d00000000   create VAL ( will be modified! ) 
+00000235  00           NOP ( will be modified! ) 
+00000236  55           1 VAL 
+00000237  1a           2* 
+00000238  1a           2* 
+00000239  0d00000000   ALLOT VAL ( will be modified! ) 
+0000023e  00           NOP ( will be modified! ) 
+0000023f  54           2 VAL 
+00000240  0e           DUP 
+00000241  1a           2* 
+00000242  1a           2* 
+00000243  1a           2* 
+00000244  0d00000000   ALLOT VAL ( will be modified! ) 
+00000249  00           NOP ( will be modified! ) 
+0000024a  10           R@ 
+0000024b  01           ! 
+0000024c  9d           A:CELL+ 
+0000024d  0d0049cc4e   1322010880 VAL 
+00000252  10           R@ 
+00000253  01           ! 
+00000254  9d           A:CELL+ 
+00000255  0d23000000   InterruptedException.InterruptedException§1322010880 VAL 
+0000025a  10           R@ 
+0000025b  01           ! 
+0000025c  9d           A:CELL+ 
+0000025d  0d0049db23   601573632 VAL 
+00000262  10           R@ 
+00000263  01           ! 
+00000264  9d           A:CELL+ 
+00000265  0dc1000000   InterruptedException.InterruptedException§601573632 VAL 
+0000026a  10           R@ 
+0000026b  01           ! 
+0000026c  9d           A:CELL+ 
+0000026d  88           A:DROP 
+0000026e  3d           EXIT 
+
+instruction usage:
+load/store:		21	(8.333333333333332%)
+32-bit values:		46	(18.253968253968253%)
+16-bit values:		8	(3.1746031746031744%)
+5-bit values:		28	(11.11111111111111%)
+values total:		82	(32.53968253968254%)
+arithmetic/logical:	30	(11.904761904761903%)
+relations:		0	(0.0%)
+flow control:		5	(1.984126984126984%)
+other:			114	(45.23809523809524%)
+total:			252
+
+average bytes per instruction: 1.9325396825396826
+
+string storage in byte:	136
+unresolved references:	40
+
+Size of static code: 456
+Size of initial code: 167
+
+references:
+ffffffff	3	ALIGN
+ffffffff	4	ALLOT
+ffffffff	2	EXECUTE-NEW
+ffffffff	2	Exception§-1574681344.table
+ffffffff	5	HERE
+23	1	InterruptedException.InterruptedException§1322010880
+23	1	InterruptedException.InterruptedException§1322010880
+c1	1	InterruptedException.InterruptedException§601573632
+c1	1	InterruptedException.InterruptedException§601573632
+ffffffff	2	InterruptedException§-1721546496.table
+ffffffff	2	MALLOC
+ffffffff	1	SALLOCATE
+ffffffff	2	SETVTOP
+ffffffff	5	V!
+ffffffff	2	VALLOCATE
+ffffffff	3	create
+ab	2	§2
+1a6	1	§5
+182	1	§6
+15a	1	§7

@@ -1,0 +1,548 @@
+00000015               
+00000015               java.lang.Exception.Exception§-1996143360 LABEL 
+00000015  56           0 VAL 
+00000016  90           A:R@ ( §this declared ) 
+00000017  08           DROP 
+00000018  56           0 VAL 
+00000019  0d00000000   java.lang.Exception§-1574681344.table VAL ( will be modified! ) 
+0000001e  00           NOP ( will be modified! ) 
+0000001f  0d0045be0f   264127744 VAL 
+00000024  0d00000000   EXECUTE-NEW VAL ( will be modified! ) 
+00000029  00           NOP ( will be modified! ) ( §this will be modified! ) 
+0000002a  88           A:DROP 
+0000002b  90           A:R@ 
+0000002c  08           DROP ( §this will be fetched! ) 
+0000002d  10           R@ 
+0000002e  56           0 VAL 
+0000002f               §break218 LABEL 
+0000002f  88           A:DROP 
+00000030  08           DROP 
+00000031               §0 LABEL 
+00000031  3d           EXIT 
+00000032               
+00000032               java.lang.Exception.Exception§264127744 LABEL 
+00000032  90           A:R@ ( message declared ) 
+00000033  08           DROP 
+00000034  56           0 VAL 
+00000035  90           A:R@ ( §this declared ) 
+00000036  08           DROP 
+00000037  0d00000000   sort.Object§-1890496768.table VAL ( will be modified! ) 
+0000003c  00           NOP ( will be modified! ) 
+0000003d  0d004fea6c   1827294976 VAL 
+00000042  0d00000000   EXECUTE-NEW VAL ( will be modified! ) 
+00000047  00           NOP ( will be modified! ) 
+00000048  462000       32 VAL 
+0000004b  0d00000000   MALLOC VAL ( will be modified! ) 
+00000050  00           NOP ( will be modified! ) 
+00000051  08           DROP 
+00000052  0e           DUP ( §this will be modified! ) 
+00000053  88           A:DROP 
+00000054  90           A:R@ 
+00000055  08           DROP 
+00000056  0f           OVER 
+00000057  420900       §2 0BRANCH 
+0000005a  0f           OVER 
+0000005b  1d           CELL+ 
+0000005c  02           @ 
+0000005d  52           4 VAL 
+0000005e  16           + 
+0000005f  0f           OVER 
+00000060  0f           OVER 
+00000061  01           ! 
+00000062  08           DROP 
+00000063               §2 LABEL 
+00000063  1d           CELL+ 
+00000064  02           @ 
+00000065  0f           OVER 
+00000066  0f           OVER 
+00000067  01           ! 
+00000068  0a           NIP 
+00000069  0d00000000   java.lang.Exception§-1574681344.table VAL ( will be modified! ) 
+0000006e  00           NOP ( will be modified! ) 
+0000006f  0f           OVER 
+00000070  4a           12 VAL 
+00000071  16           + 
+00000072  01           ! 
+00000073  0d000024a2   -1574699008 VAL 
+00000078  0f           OVER 
+00000079  461400       20 VAL 
+0000007c  16           + 
+0000007d  01           ! 
+0000007e  0dc3000000   §3 VAL 
+00000083  0f           OVER 
+00000084  461000       16 VAL 
+00000087  16           + 
+00000088  01           ! 
+00000089  08           DROP 
+0000008a  56           0 VAL ( §this will be fetched! ) 
+0000008b  10           R@ 
+0000008c  1d           CELL+ 
+0000008d  02           @ 
+0000008e  461800       24 VAL 
+00000091  16           + 
+00000092  01           ! ( message will be fetched! ) 
+00000093  d5           1 A:VAL 
+00000094  8b           A:PICK 
+00000095  10           R@ 
+00000096  88           A:DROP 
+00000097  0e           DUP 
+00000098  0d00000000   INCREFERENCE VAL ( will be modified! ) 
+0000009d  00           NOP ( will be modified! ) ( §this will be fetched! ) 
+0000009e  10           R@ 
+0000009f  1d           CELL+ 
+000000a0  02           @ 
+000000a1  461c00       28 VAL 
+000000a4  16           + 
+000000a5  0e           DUP 
+000000a6  02           @ 
+000000a7  57           -1 VAL 
+000000a8  0d00000000   equation.JavaArray.kill§1620077312 VAL ( will be modified! ) 
+000000ad  00           NOP ( will be modified! ) 
+000000ae  01           ! ( §this will be fetched! ) 
+000000af  10           R@ 
+000000b0  56           0 VAL 
+000000b1               §break219 LABEL ( message will be fetched! ) 
+000000b1  d5           1 A:VAL 
+000000b2  8b           A:PICK 
+000000b3  10           R@ 
+000000b4  88           A:DROP 
+000000b5  57           -1 VAL 
+000000b6  0d00000000   equation.JavaArray.kill§1620077312 VAL ( will be modified! ) 
+000000bb  00           NOP ( will be modified! ) 
+000000bc  89           A:2DROP 
+000000bd  08           DROP 
+000000be               §1 LABEL 
+000000be  3d           EXIT 
+000000bf  0900         §3 LABEL 
+000000c1  457863657074696f6e " Exception " 
+000000ca               
+000000ca               java.lang.Exception.getLocalizedMessage§1223845632 LABEL 
+000000ca  90           A:R@ ( §this declared ) 
+000000cb  08           DROP ( §this will be fetched! ) 
+000000cc  10           R@ 
+000000cd  90           A:R@ 
+000000ce  10           R@ 
+000000cf  88           A:DROP 
+000000d0  0d00670865   1695049472 VAL 
+000000d5  57           -1 VAL 
+000000d6  0d00000000   EXECUTE-METHOD VAL ( will be modified! ) 
+000000db  00           NOP ( will be modified! ) 
+000000dc  56           0 VAL 
+000000dd  400100       §break221 BRANCH 
+000000e0  56           0 VAL 
+000000e1               §break221 LABEL 
+000000e1  88           A:DROP 
+000000e2  08           DROP 
+000000e3               §4 LABEL 
+000000e3  3d           EXIT 
+000000e4               
+000000e4               java.lang.Exception.getMessage§1695049472 LABEL 
+000000e4  90           A:R@ ( §this declared ) 
+000000e5  08           DROP ( §this will be fetched! ) 
+000000e6  10           R@ 
+000000e7  1d           CELL+ 
+000000e8  02           @ 
+000000e9  461c00       28 VAL 
+000000ec  16           + 
+000000ed  02           @ 
+000000ee  0e           DUP 
+000000ef  0d00000000   INCREFERENCE VAL ( will be modified! ) 
+000000f4  00           NOP ( will be modified! ) 
+000000f5  56           0 VAL 
+000000f6  400100       §break220 BRANCH 
+000000f9  56           0 VAL 
+000000fa               §break220 LABEL 
+000000fa  88           A:DROP 
+000000fb  08           DROP 
+000000fc               §5 LABEL 
+000000fc  3d           EXIT 
+000000fd               
+000000fd               java.lang.Exception.toString§1621718016 LABEL 
+000000fd  90           A:R@ ( §this declared ) 
+000000fe  08           DROP 
+000000ff  56           0 VAL 
+00000100  0e           DUP 
+00000101  90           A:R@ ( message declared ) 
+00000102  08           DROP 
+00000103  90           A:R@ ( s declared ) 
+00000104  08           DROP ( §this will be fetched! ) 
+00000105  d4           2 A:VAL 
+00000106  8b           A:PICK 
+00000107  10           R@ 
+00000108  88           A:DROP 
+00000109  1d           CELL+ 
+0000010a  02           @ 
+0000010b  90           A:R@ 
+0000010c  10           R@ 
+0000010d  88           A:DROP 
+0000010e  0d0074a960   1621718016 VAL 
+00000113  56           0 VAL 
+00000114  0d00000000   EXECUTE-METHOD VAL ( will be modified! ) 
+00000119  00           NOP ( will be modified! ) ( s will be fetched! ) 
+0000011a  10           R@ 
+0000011b  57           -1 VAL 
+0000011c  0d00000000   equation.JavaArray.kill§1620077312 VAL ( will be modified! ) 
+00000121  00           NOP ( will be modified! ) ( s will be modified! ) 
+00000122  88           A:DROP 
+00000123  90           A:R@ 
+00000124  08           DROP ( §this will be fetched! ) 
+00000125  d4           2 A:VAL 
+00000126  8b           A:PICK 
+00000127  10           R@ 
+00000128  88           A:DROP 
+00000129  90           A:R@ 
+0000012a  10           R@ 
+0000012b  88           A:DROP 
+0000012c  0d0067f248   1223845632 VAL 
+00000131  57           -1 VAL 
+00000132  0d00000000   EXECUTE-METHOD VAL ( will be modified! ) 
+00000137  00           NOP ( will be modified! ) ( message will be fetched! ) 
+00000138  d5           1 A:VAL 
+00000139  8b           A:PICK 
+0000013a  10           R@ 
+0000013b  88           A:DROP 
+0000013c  57           -1 VAL 
+0000013d  0d00000000   equation.JavaArray.kill§1620077312 VAL ( will be modified! ) 
+00000142  00           NOP ( will be modified! ) ( message will be modified! ) 
+00000143  90           A:R@ 
+00000144  d5           1 A:VAL 
+00000145  8c           A:PUT 
+00000146  08           DROP 
+00000147  56           0 VAL 
+00000148  0e           DUP 
+00000149  90           A:R@ ( 1§ declared ) 
+0000014a  08           DROP 
+0000014b  90           A:R@ ( 0§ declared ) 
+0000014c  08           DROP ( message will be fetched! ) 
+0000014d  d3           3 A:VAL 
+0000014e  8b           A:PICK 
+0000014f  10           R@ 
+00000150  88           A:DROP 
+00000151  36           0<> 
+00000152  425200       §7 0BRANCH ( s will be fetched! ) 
+00000155  d4           2 A:VAL 
+00000156  8b           A:PICK 
+00000157  10           R@ 
+00000158  88           A:DROP 
+00000159  0de6010000   §8 VAL 
+0000015e  1e           HALF+ 
+0000015f  0e           DUP 
+00000160  19           1- 
+00000161  04           C@ 
+00000162  4e           8 VAL 
+00000163  20           LSHIFT 
+00000164  0f           OVER 
+00000165  19           1- 
+00000166  19           1- 
+00000167  04           C@ 
+00000168  22           OR 
+00000169  0d00000000   equation.JavaArray.createUnicode§-675323136 VAL ( will be modified! ) 
+0000016e  00           NOP ( will be modified! ) 
+0000016f  0e           DUP ( 0§ will be modified! ) 
+00000170  88           A:DROP 
+00000171  90           A:R@ 
+00000172  08           DROP 
+00000173  0e           DUP 
+00000174  0d00000000   INCREFERENCE VAL ( will be modified! ) 
+00000179  00           NOP ( will be modified! ) 
+0000017a  0f           OVER 
+0000017b  0d0063e4a8   -1461427456 VAL 
+00000180  57           -1 VAL 
+00000181  0d00000000   EXECUTE-METHOD VAL ( will be modified! ) 
+00000186  00           NOP ( will be modified! ) 
+00000187  0e           DUP ( 1§ will be modified! ) 
+00000188  90           A:R@ 
+00000189  d5           1 A:VAL 
+0000018a  8c           A:PUT 
+0000018b  08           DROP ( message will be fetched! ) 
+0000018c  d3           3 A:VAL 
+0000018d  8b           A:PICK 
+0000018e  10           R@ 
+0000018f  88           A:DROP 
+00000190  0e           DUP 
+00000191  0d00000000   INCREFERENCE VAL ( will be modified! ) 
+00000196  00           NOP ( will be modified! ) 
+00000197  0f           OVER 
+00000198  0d0063e4a8   -1461427456 VAL 
+0000019d  57           -1 VAL 
+0000019e  0d00000000   EXECUTE-METHOD VAL ( will be modified! ) 
+000001a3  00           NOP ( will be modified! ) 
+000001a4  400b00       §9 BRANCH 
+000001a7               §7 LABEL ( s will be fetched! ) 
+000001a7  d4           2 A:VAL 
+000001a8  8b           A:PICK 
+000001a9  10           R@ 
+000001aa  88           A:DROP 
+000001ab  0e           DUP 
+000001ac  0d00000000   INCREFERENCE VAL ( will be modified! ) 
+000001b1  00           NOP ( will be modified! ) 
+000001b2               §9 LABEL ( 1§ will be fetched! ) 
+000001b2  d5           1 A:VAL 
+000001b3  8b           A:PICK 
+000001b4  10           R@ 
+000001b5  88           A:DROP 
+000001b6  57           -1 VAL 
+000001b7  0d00000000   equation.JavaArray.kill§1620077312 VAL ( will be modified! ) 
+000001bc  00           NOP ( will be modified! ) ( 0§ will be fetched! ) 
+000001bd  10           R@ 
+000001be  57           -1 VAL 
+000001bf  0d00000000   equation.JavaArray.kill§1620077312 VAL ( will be modified! ) 
+000001c4  00           NOP ( will be modified! ) 
+000001c5  89           A:2DROP 
+000001c6  56           0 VAL 
+000001c7  400100       §break222 BRANCH 
+000001ca  56           0 VAL 
+000001cb               §break222 LABEL ( message will be fetched! ) 
+000001cb  d5           1 A:VAL 
+000001cc  8b           A:PICK 
+000001cd  10           R@ 
+000001ce  88           A:DROP 
+000001cf  57           -1 VAL 
+000001d0  0d00000000   equation.JavaArray.kill§1620077312 VAL ( will be modified! ) 
+000001d5  00           NOP ( will be modified! ) ( s will be fetched! ) 
+000001d6  10           R@ 
+000001d7  57           -1 VAL 
+000001d8  0d00000000   equation.JavaArray.kill§1620077312 VAL ( will be modified! ) 
+000001dd  00           NOP ( will be modified! ) 
+000001de  89           A:2DROP 
+000001df  88           A:DROP 
+000001e0  08           DROP 
+000001e1               §6 LABEL 
+000001e1  3d           EXIT 
+000001e2  0400         §8 LABEL 
+000001e4  3a002000     " :    " 
+000001e8               
+000001e8               java.lang.Exception.~destructor§-1086882304 LABEL 
+000001e8  90           A:R@ ( §this declared ) 
+000001e9  08           DROP 
+000001ea  56           0 VAL 
+000001eb  90           A:R@ ( obj declared ) 
+000001ec  08           DROP ( §this will be fetched! ) 
+000001ed  d5           1 A:VAL 
+000001ee  8b           A:PICK 
+000001ef  10           R@ 
+000001f0  88           A:DROP 
+000001f1  02           @ 
+000001f2  19           1- 
+000001f3  2c           0= 
+000001f4  423e00       §11 0BRANCH ( §this will be fetched! ) 
+000001f7  d5           1 A:VAL 
+000001f8  8b           A:PICK 
+000001f9  10           R@ 
+000001fa  88           A:DROP 
+000001fb  1d           CELL+ 
+000001fc  02           @ 
+000001fd  02           @ ( obj will be modified! ) 
+000001fe  88           A:DROP 
+000001ff  90           A:R@ 
+00000200  08           DROP ( obj will be fetched! ) 
+00000201  10           R@ 
+00000202  56           0 VAL 
+00000203  0d00000000   equation.JavaArray.kill§1620077312 VAL ( will be modified! ) 
+00000208  00           NOP ( will be modified! ) ( §this will be fetched! ) 
+00000209  d5           1 A:VAL 
+0000020a  8b           A:PICK 
+0000020b  10           R@ 
+0000020c  88           A:DROP 
+0000020d  1d           CELL+ 
+0000020e  02           @ 
+0000020f  4e           8 VAL 
+00000210  16           + 
+00000211  02           @ ( obj will be modified! ) 
+00000212  88           A:DROP 
+00000213  90           A:R@ 
+00000214  08           DROP ( obj will be fetched! ) 
+00000215  10           R@ 
+00000216  56           0 VAL 
+00000217  0d00000000   equation.JavaArray.kill§1620077312 VAL ( will be modified! ) 
+0000021c  00           NOP ( will be modified! ) ( §this will be fetched! ) 
+0000021d  d5           1 A:VAL 
+0000021e  8b           A:PICK 
+0000021f  10           R@ 
+00000220  88           A:DROP 
+00000221  1d           CELL+ 
+00000222  02           @ 
+00000223  461c00       28 VAL 
+00000226  16           + 
+00000227  02           @ 
+00000228  90           A:R@ 
+00000229  88           A:DROP ( obj will be modified! ) 
+0000022a  88           A:DROP 
+0000022b  90           A:R@ 
+0000022c  08           DROP ( obj will be fetched! ) 
+0000022d  10           R@ 
+0000022e  57           -1 VAL 
+0000022f  0d00000000   equation.JavaArray.kill§1620077312 VAL ( will be modified! ) 
+00000234  00           NOP ( will be modified! ) 
+00000235               §11 LABEL ( §this will be fetched! ) 
+00000235  d5           1 A:VAL 
+00000236  8b           A:PICK 
+00000237  10           R@ 
+00000238  88           A:DROP 
+00000239  0d00000000   DECREFERENCE VAL ( will be modified! ) 
+0000023e  00           NOP ( will be modified! ) 
+0000023f  56           0 VAL 
+00000240               §break223 LABEL 
+00000240  89           A:2DROP 
+00000241  08           DROP 
+00000242               §10 LABEL 
+00000242  3d           EXIT 
+00000243  2500         §14 LABEL 
+00000245  6a6176612e6c616e672e457863657074696f6ea72d313537343638313334342e7461626c65 " java.lang.Exception§-1574681344.table " 
+0000026a  2400         §13 LABEL 
+0000026c  6a6176612e6c616e672e457863657074696f6e2e73657269616c56657273696f6e554944 " java.lang.Exception.serialVersionUID " 
+00000290  2300         §12 LABEL 
+00000292  6a6176612e6c616e672e457863657074696f6e2e5f737461746963426c6f636b696e67 " java.lang.Exception._staticBlocking " 
+000002b8  0d00000000   ALIGN VAL ( will be modified! ) 
+000002bd  00           NOP ( will be modified! ) 
+000002be  0d00000000   HERE VAL ( will be modified! ) 
+000002c3  00           NOP ( will be modified! ) 
+000002c4  54           2 VAL 
+000002c5  0d94020000   §12 VAL 
+000002ca  0d00000000   create VAL ( will be modified! ) 
+000002cf  00           NOP ( will be modified! ) 
+000002d0  55           1 VAL 
+000002d1  1a           2* 
+000002d2  1a           2* 
+000002d3  0d00000000   ALLOT VAL ( will be modified! ) 
+000002d8  00           NOP ( will be modified! ) 
+000002d9  0d00000000   ALIGN VAL ( will be modified! ) 
+000002de  00           NOP ( will be modified! ) 
+000002df  0d00000000   HERE VAL ( will be modified! ) 
+000002e4  00           NOP ( will be modified! ) 
+000002e5  4f           7 VAL 
+000002e6  0d6e020000   §13 VAL 
+000002eb  0d00000000   create VAL ( will be modified! ) 
+000002f0  00           NOP ( will be modified! ) 
+000002f1  54           2 VAL 
+000002f2  1a           2* 
+000002f3  1a           2* 
+000002f4  0d00000000   ALLOT VAL ( will be modified! ) 
+000002f9  00           NOP ( will be modified! ) 
+000002fa  8d00000000   HERE A:VAL ( will be modified! ) 
+000002ff  80           A:NOP ( will be modified! ) 
+00000300  0d00000000   ALIGN VAL ( will be modified! ) 
+00000305  00           NOP ( will be modified! ) 
+00000306  0d00000000   HERE VAL ( will be modified! ) 
+0000030b  00           NOP ( will be modified! ) 
+0000030c  54           2 VAL 
+0000030d  0d47020000   §14 VAL 
+00000312  0d00000000   create VAL ( will be modified! ) 
+00000317  00           NOP ( will be modified! ) 
+00000318  55           1 VAL 
+00000319  1a           2* 
+0000031a  1a           2* 
+0000031b  0d00000000   ALLOT VAL ( will be modified! ) 
+00000320  00           NOP ( will be modified! ) 
+00000321  50           6 VAL 
+00000322  0e           DUP 
+00000323  1a           2* 
+00000324  1a           2* 
+00000325  1a           2* 
+00000326  0d00000000   ALLOT VAL ( will be modified! ) 
+0000032b  00           NOP ( will be modified! ) 
+0000032c  10           R@ 
+0000032d  01           ! 
+0000032e  9d           A:CELL+ 
+0000032f  0d00450589   -1996143360 VAL 
+00000334  10           R@ 
+00000335  01           ! 
+00000336  9d           A:CELL+ 
+00000337  0d19000000   java.lang.Exception.Exception§-1996143360 VAL 
+0000033c  10           R@ 
+0000033d  01           ! 
+0000033e  9d           A:CELL+ 
+0000033f  0d0045be0f   264127744 VAL 
+00000344  10           R@ 
+00000345  01           ! 
+00000346  9d           A:CELL+ 
+00000347  0d36000000   java.lang.Exception.Exception§264127744 VAL 
+0000034c  10           R@ 
+0000034d  01           ! 
+0000034e  9d           A:CELL+ 
+0000034f  0d0067f248   1223845632 VAL 
+00000354  10           R@ 
+00000355  01           ! 
+00000356  9d           A:CELL+ 
+00000357  0dce000000   java.lang.Exception.getLocalizedMessage§1223845632 VAL 
+0000035c  10           R@ 
+0000035d  01           ! 
+0000035e  9d           A:CELL+ 
+0000035f  0d00670865   1695049472 VAL 
+00000364  10           R@ 
+00000365  01           ! 
+00000366  9d           A:CELL+ 
+00000367  0de8000000   java.lang.Exception.getMessage§1695049472 VAL 
+0000036c  10           R@ 
+0000036d  01           ! 
+0000036e  9d           A:CELL+ 
+0000036f  0d0074a960   1621718016 VAL 
+00000374  10           R@ 
+00000375  01           ! 
+00000376  9d           A:CELL+ 
+00000377  0d01010000   java.lang.Exception.toString§1621718016 VAL 
+0000037c  10           R@ 
+0000037d  01           ! 
+0000037e  9d           A:CELL+ 
+0000037f  0d007e37bf   -1086882304 VAL 
+00000384  10           R@ 
+00000385  01           ! 
+00000386  9d           A:CELL+ 
+00000387  0dec010000   java.lang.Exception.~destructor§-1086882304 VAL 
+0000038c  10           R@ 
+0000038d  01           ! 
+0000038e  9d           A:CELL+ 
+0000038f  88           A:DROP 
+00000390  3d           EXIT 
+
+instruction usage:
+load/store:		37	(8.078602620087336%)
+32-bit values:		68	(14.847161572052403%)
+16-bit values:		7	(1.5283842794759825%)
+5-bit values:		61	(13.318777292576419%)
+values total:		136	(29.694323144104807%)
+arithmetic/logical:	47	(10.262008733624455%)
+relations:		2	(0.43668122270742354%)
+flow control:		14	(3.056768558951965%)
+other:			222	(48.47161572052402%)
+total:			458
+
+average bytes per instruction: 1.7008733624454149
+
+string storage in byte:	131
+unresolved references:	54
+
+Size of static code: 693
+Size of initial code: 217
+
+references:
+ffffffff	3	ALIGN
+ffffffff	4	ALLOT
+ffffffff	1	DECREFERENCE
+ffffffff	5	EXECUTE-METHOD
+ffffffff	2	EXECUTE-NEW
+ffffffff	4	HERE
+ffffffff	5	INCREFERENCE
+ffffffff	1	MALLOC
+ffffffff	3	create
+ffffffff	1	equation.JavaArray.createUnicode§-675323136
+ffffffff	11	equation.JavaArray.kill§1620077312
+19	1	java.lang.Exception.Exception§-1996143360
+19	1	java.lang.Exception.Exception§-1996143360
+36	1	java.lang.Exception.Exception§264127744
+36	1	java.lang.Exception.Exception§264127744
+ce	1	java.lang.Exception.getLocalizedMessage§1223845632
+ce	1	java.lang.Exception.getLocalizedMessage§1223845632
+e8	1	java.lang.Exception.getMessage§1695049472
+e8	1	java.lang.Exception.getMessage§1695049472
+101	1	java.lang.Exception.toString§1621718016
+101	1	java.lang.Exception.toString§1621718016
+1ec	1	java.lang.Exception.~destructor§-1086882304
+1ec	1	java.lang.Exception.~destructor§-1086882304
+ffffffff	2	java.lang.Exception§-1574681344.table
+ffffffff	1	sort.Object§-1890496768.table
+294	1	§12
+26e	1	§13
+247	1	§14
+c3	1	§3
+1e6	1	§8

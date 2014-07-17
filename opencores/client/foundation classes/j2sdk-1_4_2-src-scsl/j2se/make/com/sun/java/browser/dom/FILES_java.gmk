@@ -1,0 +1,12 @@
+#
+# @(#)FILES_java.gmk	1.2 02/09/19
+#
+DOM = \
+	$(TARGDIR)com/sun/java/browser/dom/DOMAccessException.java \
+	$(TARGDIR)com/sun/java/browser/dom/DOMAction.java \
+	$(TARGDIR)com/sun/java/browser/dom/DOMAccessor.java \
+	$(TARGDIR)com/sun/java/browser/dom/DOMService.java \
+	$(TARGDIR)com/sun/java/browser/dom/DOMServiceProvider.java \
+	$(TARGDIR)com/sun/java/browser/dom/DOMUnsupportedException.java 
+
+FILES_java = $(DOM)

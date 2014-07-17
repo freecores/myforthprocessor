@@ -1,0 +1,11 @@
+FILES_c = utils.c \
+          stubs.c
+
+FILES_cpp = GetFactory.cpp \
+            CNetscapeStream.cpp \
+            CJavaStream.cpp \
+            CJavaPluginInstance.cpp \
+            CJavaPluginFactory.cpp \
+            CJavaVM.cpp \
+            CPluginPrint.cpp \
+            badapter.cpp

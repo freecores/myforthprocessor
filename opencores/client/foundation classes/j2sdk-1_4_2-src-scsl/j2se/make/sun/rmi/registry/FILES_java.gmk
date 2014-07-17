@@ -1,0 +1,5 @@
+#
+# @(#)FILES_java.gmk	1.5 97/05/27
+#
+FILES_java = \
+	$(TARGDIR)sun/rmi/registry/RegistryImpl.java

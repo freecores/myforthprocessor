@@ -1,0 +1,18 @@
+#
+# @(#)FILES_java.gmk	1.11 02/09/19
+# Java IDL Server Activation Files
+#
+
+FILES_java = \
+	$(TARGDIR)com/sun/corba/se/internal/Activation/BootStrapActivation.java \
+	$(TARGDIR)com/sun/corba/se/internal/Activation/ProcessMonitorThread.java \
+	$(TARGDIR)com/sun/corba/se/internal/Activation/RepositoryImpl.java \
+	$(TARGDIR)com/sun/corba/se/internal/Activation/MinorCodes.java \
+	$(TARGDIR)com/sun/corba/se/internal/Activation/ServerTool.java \
+	$(TARGDIR)com/sun/corba/se/internal/Activation/ORBD.java \
+	$(TARGDIR)com/sun/corba/se/internal/Activation/InitialNamingImpl.java \
+	$(TARGDIR)com/sun/corba/se/internal/Activation/CommandHandler.java \
+	$(TARGDIR)com/sun/corba/se/internal/Activation/ServerManagerImpl.java \
+	$(TARGDIR)com/sun/corba/se/internal/Activation/ServerTableEntry.java \
+	$(TARGDIR)com/sun/corba/se/internal/Activation/NameServiceStartThread.java \
+	$(TARGDIR)com/sun/corba/se/internal/Activation/ServerMain.java

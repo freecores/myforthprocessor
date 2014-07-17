@@ -1,0 +1,77 @@
+<!DOCTYPE REFENTRY PUBLIC "-//Sun Microsystems//DTD DocBook V3.0-Based SolBook Subset V2.0//EN" [
+<!--ArborText, Inc., 1988-1998, v.4001-->
+<!ENTITY % javaents SYSTEM "javaman.ent">
+%javaents;
+]>
+<?Pub UDT _bookmark _target>
+<?Pub Inc>
+<refentry id="orbd-1">
+<!--@(#)orbd.1 1.1 01/03/14 SMI;-->
+<refmeta><refentrytitle>orbd</refentrytitle><manvolnum>1</manvolnum>
+<refmiscinfo class="date">2001 年 11 月 30 日</refmiscinfo>
+<refmiscinfo class="sectdesc">&man1;</refmiscinfo>
+<refmiscinfo class="software">&java-release;</refmiscinfo>
+<refmiscinfo class="arch">generic</refmiscinfo>
+<refmiscinfo class="copyright"> Copyright 2001 Sun Microsystems, Inc. All rights reserved.  Copyright 2001 Sun Microsystems, Inc. Tous droits r&eacute;serv&eacute;s.  </refmiscinfo>
+</refmeta>
+<refnamediv><indexterm><primary sortas="orbd">orbd &mdash; Object Request Broker Daemon</primary></indexterm><indexterm><primary sortas="Object Request Broker Daemon">Object Request Broker Daemon &mdash; orbd</primary></indexterm><refname>orbd</refname><refpurpose>Object Request Broker Daemon</refpurpose></refnamediv>
+<refsynopsisdiv><title>&synp-tt;</title>
+<cmdsynopsis><command>orbd</command><arg choice="opt"><replaceable>options</replaceable></arg>
+</cmdsynopsis></refsynopsisdiv>
+<refsect1><title>&desc-tt;</title>
+<para><command>orbd</command> ツールは、クライアントが <acronym>CORBA</acronym> 環境内のサーバ上に存在する持続オブジェクトを透過的に特定して呼び出す場合に使用します。持続サーバは、ネームサービス内の持続オブジェクト参照を発行する一方で、オブジェクト参照内にサーバのポート番号ではなく <acronym>ORBD</acronym> のポート番号を組み込みます。持続オブジェクト参照のためにオブジェクト参照内に <acronym>ORBD</acronym>ポート番号を組み込むと、以下の利点が得られます。<itemizedlist>
+<listitem><para>ネームサービス内のオブジェクト参照は、サーバのライフサイクルとは無関係に維持されます。たとえば、オブジェクト参照はサーバの最初のインストール時にネームサービス内でサーバによって発行され、その後は何度サーバの起動または停止が行われても <acronym>ORBD</acronym> は常に呼び出し側のクライアントに正しいオブジェクト参照を返します。</para>
+</listitem><listitem><para>クライアントはネームサービス内でオブジェクト参照を 1 度だけ確認する必要があり、サーバのライフサイクルが原因で起きる変更に関係なくこの参照を繰り返し使用できます。</para>
+</listitem></itemizedlist></para>
+<para><command>orbd</command> ツールには、以下の機能が含まれています。<itemizedlist>
+<listitem><para><replaceable>Server Manager</replaceable><informalexample><para><citerefentry><refentrytitle>servertool</refentrytitle><manvolnum>1</manvolnum></citerefentry> と共に使用されると、Server Manager はクライアントがサーバへのアクセスを望む時にサーバを特定し、登録し、起動します。</para>
+</informalexample></para>
+</listitem><listitem><para><replaceable>Interoperable Naming Service (INS) </replaceable><informalexample><para>このネームサービスは、オブジェクト参照に論理名を割り当てます。これにより、ユーザはこの論理名を使用してオブジェクト参照を検出し、そのオブジェクトに対する処理を呼び出すことができます。<acronym>ORBD</acronym> は、Transient Naming Service <citerefentry><refentrytitle>tnameserv</refentrytitle><manvolnum>1</manvolnum></citerefentry> の代わりに使用されます。<acronym>ORBD</acronym> には、Transient Naming Service と Persistent Naming Service の両方が含まれます。</para>
+</informalexample></para>
+</listitem><listitem><para><replaceable>Bootstrap Name Server</replaceable><informalexample><para>持続サーバは、このネームサーバでオブジェクト参照を発行します。クライアントは、オブジェクト参照を探すためにこのネームサーバとコンタクトをとります。この <replaceable>Bootstrap Name Server</replaceable> を <acronym>ORBD</acronym> の一部として提供すると、ユーザはオブジェクト参照の発行と解決のために別のネームサーバプロセスを開始する必要がないという利点が得られます。</para>
+</informalexample></para>
+</listitem></itemizedlist></para>
+<para><acronym>ORBD</acronym> は、サーバ情報の登録、登録解除、列挙に使用される <citerefentry><refentrytitle>servertool</refentrytitle><manvolnum>1</manvolnum></citerefentry> と連係動作します。</para>
+</refsect1>
+<refsect1><title>&opts-tt;</title>
+<para>サポートされるオプションを以下に示します。</para>
+<variablelist termlength="wholeline"><varlistentry><term remap="15"><option>port</option> <replaceable>port</replaceable></term><listitem><para>(省略可能) <acronym>ORBD</acronym> を開始する起動ポートを指定します。このポートのデフォルト値は <literal>1049</literal> です。このポート番号は、持続 <acronym>IOR</acronym> のポートフィールドに追加されます。</para>
+</listitem></varlistentry>
+<varlistentry><term remap="15"><option>defaultdb</option> <replaceable>directory</replaceable></term><listitem><para>(省略可能) <acronym>ORBD</acronym> 持続ストレージディレクトリである <literal>orb.db</literal> が作成されるベースを指定します。このオプションが指定されない場合、デフォルト値は <literal>./orb.db</literal> です。</para>
+</listitem></varlistentry>
+<varlistentry><term remap="15"><option>serverid</option> <replaceable>ID</replaceable></term><listitem><para>(省略可能) この <acronym>ORBD</acronym> に割り当てる持続サーバ <acronym>ID</acronym> を指定します。デフォルト値は <literal>1</literal> です。</para>
+</listitem></varlistentry>
+<varlistentry><term remap="15"><option>ORBInitialPort</option> <replaceable>nameserverport</replaceable></term><listitem><para>(必須) ブートストラップネームサーバが動作しているポートを指定します。Solaris ソフトウェアを使用している場合には、<literal>1024</literal> 未満のポートでプロセスを開始するには root になる必要があります。このため、<literal>1024</literal> またはそれ以上のポート番号を使用することをお勧めします。</para>
+</listitem></varlistentry>
+<varlistentry><term remap="15"><option>ORBInitialHost </option> <replaceable>nameserverhost</replaceable></term><listitem><para>(必須) ブートストラップネームサーバが動作しているホストを指定します。</para>
+</listitem></varlistentry>
+<varlistentry><term><option>serverPollingTime</option> <replaceable>milliseconds</replaceable></term><listitem><para>デーモンスレッドが登録されているサーバの健全度を検査する頻度を指定します。<acronym>ORBD</acronym> は、<replaceable>milliseconds</replaceable> ごとにプロセスの状態をポーリングします。デフォルト値は <literal>1,000</literal> ミリ秒 (<literal>1</literal> 秒) です。<replaceable>milliseconds</replaceable> に指定される値は、有効な整数でなければなりません。</para>
+</listitem></varlistentry>
+<varlistentry><term><option>serverStartupDelay</option> <replaceable>milliseconds</replaceable></term><listitem><para>サーバの再起動後ロケーション転送例外を送信するまでに <literal>ServerManager</literal> がどれだけの間待機するかを指定します。<acronym>ORBD</acronym> は、ロケーション転送例外を生成するまでに <replaceable>milliseconds</replaceable> の間待機します。デフォルト値は、<literal>1,000</literal> ミリ秒 (<literal>1</literal> 秒) です。<replaceable>milliseconds</replaceable> に指定される値は、有効な整数でなければなりません。</para>
+</listitem></varlistentry>
+<varlistentry><term><option role="nodash">J</option><replaceable>option</replaceable></term>
+<listitem><para>オプションを Java 仮想マシンに渡します。ここで <replaceable>option</replaceable> は、Java アプリケーション起動ツール java(1) のマニュアルページに記載されたオプションの 1 つです。 たとえば、<literal>-J-Xms48m</literal> と指定すると、スタートアップメモリは 48M バイトに設定されます。 <literal>-J</literal> を使って基本となる仮想マシンにオプションを渡すことはよく行われています。 </para>
+</listitem></varlistentry>
+</variablelist>
+</refsect1>
+<refsect1><title>&envr-tt;</title>
+<variablelist termlength="narrow"><varlistentry><term remap="15"><envar>CLASSPATH</envar> </term><listitem><para>システムにユーザ定義クラスへのパスを提供するために使用されます。ディレクトリはコロンで区切ります。例を示します。<informalexample>
+<para><literal>.:/home/avh/classes:/usr/local/java/classes</literal> </para>
+</informalexample></para>
+</listitem></varlistentry>
+</variablelist>
+</refsect1>
+<refsect1><title>&attr-tt;</title>
+<para>次の属性については、<citerefentry><refentrytitle>attributes</refentrytitle><manvolnum>5</manvolnum></citerefentry> を参照してください。</para>
+<informaltable frame="All" orient="Port"><tgroup cols="2" colsep="1" rowsep="1"><colspec colnum="1" colname="col1" colwidth="1*" colsep="1" align="Left"><colspec colnum="2" colname="col2" colwidth="1*" align="Left"><thead><row><entry colname="col1" align="center" valign="top">属性タイプ</entry><entry colname="col2" align="center" valign="top">属性値</entry></row></thead><tbody><row><entry>使用条件</entry><entry>SUNWj3dev</entry></row></tbody></tgroup></informaltable>
+</refsect1>
+<refsect1><title>&also-tt;</title>
+<para><citerefentry><refentrytitle>java</refentrytitle><manvolnum>1</manvolnum></citerefentry>, <citerefentry><refentrytitle>javac</refentrytitle><manvolnum>1</manvolnum></citerefentry>, <citerefentry><refentrytitle>servertool</refentrytitle><manvolnum>1</manvolnum></citerefentry>, <citerefentry><refentrytitle>attributes</refentrytitle><manvolnum>5</manvolnum></citerefentry> </para>
+<para>次については、<literal>java.sun.com</literal> を参照または検索してください。</para>
+<variablelist termlength="wholeline"><varlistentry><term remap="10"><citetitle>クラスパスの設定 (Setting the Classpath) :</citetitle></term><listitem><comment><ulink url="http://java.sun.com/j2se/1.4/ja/docs/tooldocs/solaris/classpath.html">http://java.sun.com/j2se/1.4/ja/docs/tooldocs/solaris/classpath.html</ulink></comment>
+<para><ulink url="http://java.sun.com/j2se/1.4/docs/tooldocs/solaris/classpath.html">http://java.sun.com/j2se/1.4/docs/tooldocs/solaris/classpath.html</ulink> : 英語版</para>
+</listitem></varlistentry>
+</variablelist>
+</refsect1>
+</refentry>
+<?Pub *0000007852 0>

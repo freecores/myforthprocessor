@@ -1,0 +1,13 @@
+Action	Condition	Sequence	ISComments	ISAttributes
+s72	S255	I2	S255	I4
+AdminUISequence	Action
+AdminWelcome		250	AdminWelcome	
+CostFinalize		200	CostFinalize	
+CostInitialize		100	CostInitialize	
+ExecuteAction		350	ExecuteAction	
+FileCost		150	FileCost	
+SetupCompleteError		-3	SetupCompleteError	
+SetupCompleteSuccess		-1	SetupCompleteSuccess	
+SetupInitialization		50	SetupInitialization	
+SetupInterrupted		-2	SetupInterrupted	
+SetupProgress		300	SetupProgress	

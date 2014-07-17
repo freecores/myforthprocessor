@@ -1,0 +1,11 @@
+-- ISO latin 1 entity set for HTML -- 
+PUBLIC	"ISO 8879-1986//ENTITIES Added Latin 1//EN//HTML"	ISOlat1.sgml
+
+-- HotJava - old --
+PUBLIC	"-//Mosaic Comm. Corp.//DTD HTML//EN//2.0mcom"		html2.dtd
+
+-- HotJava - test --
+PUBLIC	"-//JavaSoft//DTD HotJava 1.0 HTML 2.0//EN"		wilbur.dtd
+
+-- HotJava - 3.2+ support --
+PUBLIC  "-//HotJava//DTD HotJava 1.0 HTML 3.2 Draft 19960821//EN" html32.dtd

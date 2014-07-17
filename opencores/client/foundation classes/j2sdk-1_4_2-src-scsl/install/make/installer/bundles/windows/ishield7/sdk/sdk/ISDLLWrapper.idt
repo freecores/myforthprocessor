@@ -1,0 +1,13 @@
+EntryPoint	Type	Source	Target
+s72	I4	s0	s255
+ISDLLWrapper	EntryPoint
+DLL1	0	RegUtils	void RegUtils::InstallJavaSDKRegistrySettings(in STRING=[INSTALLDIR], in STRING=[MAJOR], in STRING=[MINOR], in STRING=[MICRO], in STRING=[UPDATE])
+DLL3	0	RegUtils	BOOL=[SEMICOLON] RegUtils::IsINSTALLDIRValid(in STRING=[INSTALLDIR])
+DLL4	0	RegUtils	void RegUtils::RemoveSDKPackFiles(in STRING=[INSTALLDIR])
+DLL6	64	RegUtils	BOOL=[SDKMOZILLA] RegUtils::IsMozillaInstalled()
+DLL7	64	RegUtils	BOOL=[SDKIEXPLORER] RegUtils::IsIEInstalled()
+DLL8	64	RegUtils	BOOL=[SDKNETSCAPE6] RegUtils::IsNetscapeInstalled()
+DLL9	0	RegUtils	BOOL=[SDKREBOOT] RegUtils::UninstallSDK(in STRING=[ProductVersion])
+DLL10	64	RegUtils	STRING=[LOGFILE] RegUtils::GetLogFileName()
+DLL11	0	RegUtils	BOOL=[SDKREBOOT] RegUtils::NeedReboot()
+DLL12	64	RegUtils	BOOL=[JREINSTALLED] RegUtils::IsjreInstalled(in STRING=[ProductVersion])

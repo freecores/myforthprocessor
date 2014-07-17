@@ -1,0 +1,122 @@
+/* 
+ * @(#)nrOutlines.psw	1.4 01/05/04
+ *
+ * Copyright 1998 by Sun Microsystems, Inc.,
+ * 901 San Antonio Road, Palo Alto, California, 94303, U.S.A. 
+ * All rights reserved. 
+ * 
+ * This software is the confidential and proprietary information
+ * of Sun Microsystems, Inc. ("Confidential Information").  You 
+ * shall not disclose such Confidential Information and shall use 
+ * it only in accordance with the terms of the license agreement 
+ * you entered into with Sun. 
+ */
+ 
+/* 
+ * @author Joe Warzecha
+ */ 
+
+defineps OutlineInit ()
+    /pointSize 1000 def
+    /points pointSize array def
+    /opSize 300 def
+    /ops opSize array def
+    /pathPointSize 200 def
+    /pathPoints pathPointSize array def
+    /nPoints 0 def
+    /nPaths 0 def
+    /pointIndex 0 def
+    /opIndex 0 def
+    /singleByte 1 string def
+    /doubleByte 2 string def
+
+    /movetoExecuted 1 def
+    /linetoExecuted 2 def
+    /curvetoExecuted 3 def
+    /closepathExecuted 4 def
+
+    /movetoProc {
+	nPoints 0 ne {
+	    closepathProc
+	} if
+	points pointIndex 4 -1 roll put
+	points pointIndex 1 add 3 -1 roll put
+	pointIndex 2 add /pointIndex exch store
+	ops opIndex movetoExecuted put
+	opIndex 1 add /opIndex exch store
+	nPoints 1 add /nPoints exch store
+    } def
+    /linetoProc {
+	points pointIndex 4 -1 roll put
+	points pointIndex 1 add 3 -1 roll put
+	pointIndex 2 add /pointIndex exch store
+	ops opIndex linetoExecuted put
+	opIndex 1 add /opIndex exch store
+	nPoints 1 add /nPoints exch store
+    } def
+    /curvetoProc {
+	points pointIndex 8 -1 roll put
+	points pointIndex 1 add 7 -1 roll put
+	points pointIndex 2 add 6 -1 roll put
+	points pointIndex 3 add 5 -1 roll put
+	points pointIndex 4 add 4 -1 roll put
+	points pointIndex 5 add 3 -1 roll put
+	pointIndex 6 add /pointIndex exch store
+	ops opIndex curvetoExecuted put
+	opIndex 1 add /opIndex exch store
+	nPoints 3 add /nPoints exch store
+    } def
+    /closepathProc {
+	ops opIndex closepathExecuted put
+	opIndex 1 add /opIndex exch store
+	pathPoints nPaths nPoints put
+	nPaths 1 add /nPaths exch store
+	/nPoints 0 store
+    } def
+endps
+
+defineps CheckForFont (char *fontname | short *found)
+    /fontname findfont
+    /FontName get (fontname) eq {
+	1 found
+    } {
+	0 found
+    } ifelse
+    clear
+endps	
+
+defineps DrawOutline (char *fontname; float size; int upper, lower |
+		      int *numOps, *numPoints, *numPaths)
+    /nPoints 0 store
+    /nOps 0 store
+    /nPaths 0 store
+    /nPoints 0 store
+    /pointIndex 0 store
+    /opIndex 0 store
+    [1.0 0.0 0.0 -1.0 0.0 0.0] setmatrix
+    /fontname findfont size scalefont setfont
+    newpath
+    0 0 moveto
+
+    upper 0 gt {
+	doubleByte 0 upper put
+	doubleByte 1 lower put
+	doubleByte
+    } { 
+        singleByte 0 lower put
+        singleByte 
+    } ifelse
+    true charpath 
+    {movetoProc} {linetoProc} {curvetoProc} {closepathProc} pathforall
+
+    opIndex numOps pointIndex numPoints nPaths numPaths 
+endps
+
+defineps GetOutline (int numOps, numPoints, numPaths | int opsArray [numOps],
+			pointsPerPathArray [numPaths]; 
+			float pointsArray [numPoints])
+    ops opsArray
+    pathPoints pointsPerPathArray
+    points pointsArray
+endps
+

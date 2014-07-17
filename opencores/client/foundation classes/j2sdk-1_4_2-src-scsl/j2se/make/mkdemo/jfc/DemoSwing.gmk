@@ -1,0 +1,164 @@
+#
+# @(#)DemoSwing.gmk	1.40 03/01/23
+#
+# Copyright 2003 Sun Microsystems, Inc. All rights reserved.
+# SUN PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
+#
+
+#
+# Boiler plate for swing demos.  Be sure to define DEMONAME and
+# BUILDDIR before you include it.
+#
+
+# identify this as a demoswing product - used only to identify a
+# unique name for OBJDIR
+PRODUCT = demo_swing/$(DEMONAME)
+
+
+include $(BUILDDIR)/common/Defs.gmk
+include FILES.gmk
+
+DEMODST		= $(DEMODIR)/jfc/$(DEMONAME)
+DEMOSRC         = $(DEMOSRCDIR)/jfc/$(DEMONAME)
+DEMO_JARFILE    = $(DEMODST)/$(DEMONAME).jar
+DEMODST_SRC	= $(DEMODST)/src/
+DEMODST_CLASS	= $(TMPDIR)/classes
+DEMO_dirs      += $(DEMODST_SRC)
+DEMO_dirs      += $(DEMODST_CLASS)
+DEMO_dirs      += $(DEMODST_CLASS)/resources
+DEMO_dirs      += $(OBJDIR)
+
+DEMO_CP		= "$(DEMODST)$(CLASSPATH_SEPARATOR)$(DEMODST)/src"
+
+#
+# Main targets.
+#
+all optimized debug: $(DEMO_dirs) .build.other .build.src .build.classes .build.jar 
+
+clean clobber: .delete.classlist
+	$(RM) -r $(DEMODST) $(DEMODST_CLASS) $(OBJDIR)
+
+swing-demo::
+	if [ -d "$(BINDIR)" ]; then \
+		bindir=$(BINDIR); \
+		djca=; \
+	else \
+		bindir=/java/re/j2se/1.4.0/archive/beta/binaries/$(PLATFORM)-$(ARCH)/bin; \
+		djca="-bootclasspath $(CLASSBINDIR)$(CLASSPATH_SEPARATOR)/java/re/j2se/1.4.0/archive/beta/binaries/$(PLATFORM)-$(ARCH)/jre/lib/rt.jar"; \
+	fi; \
+	$(MAKE) BINDIR=$$bindir DEMO_JAVAC_ARGS="$$djca"
+
+#
+# $(DEMO_dirs)
+#
+$(DEMO_dirs):
+	$(MKDIR) -p $@
+
+#
+# Build all the auxilary demo files.
+#
+.build.other:  $(DEMO_other) .tweak.scripts
+
+.tweak.scripts:
+	$(CD) $(DEMODST); $(RM)  runnit* runapplet*
+
+
+#
+# $(DEMO_other)
+#
+$(DEMODST)/%: $(DEMOSRC)/%
+	$(install-file)
+
+#
+# Build the demo's source directory
+#
+.build.src:  $(DEMO_java)
+
+$(DEMODST_SRC)%.java: $(DEMOSRC)/%.java
+	$(install-file)
+
+#
+# Compile the installed .java files.
+#
+
+
+.build.classes: $(DEMO_java) .delete.classlist $(DEMO_class) .compile.classlist
+
+.delete.classlist:
+	$(RM) $(TMPDIR)/.classes.list
+
+.compile.classlist:
+	if [ -s $(TMPDIR)/.classes.list ] ; \
+	then $(JAVAC)  $(DEMO_JAVAC_ARGS) -d $(DEMODST_CLASS) -classpath $(DEMO_CP) \
+	    $(shell if [ -s $(TMPDIR)/.classes.list ] ; then $(CAT) $(TMPDIR)/.classes.list; fi ) ; \
+	fi
+
+# This rule is required because the next one fails for unknown reasons....
+# This rule may NOT trigger the generation of MUNGE source, but that is no longer needed.
+# It tries to be more effiecent by only executing once...
+# Perhaps now that Munge is removed this can be made simple again...
+# There could be an error if DEMO_java and DEMO_class do not match....
+$(DEMO_class): $(DEMO_java)
+	if [ ! -s $(TMPDIR)/.classes.list ] ; \
+	then 	$(ECHO) $(DEMO_java) > $(TMPDIR)/.classes.list ; \
+		$(ECHO) $(DEMO_java) copied into $(TMPDIR)/.classes.list ; \
+	fi
+
+# This rule fails for unknown reasons on solaris, requiring the rule above...
+# It worked until DEMODST_CLASS was moved from ./classes to $(TMPDIR)/classes
+# in order to get generated files out of the build dir.
+$(DEMODST_CLASS)/%.class: $(DEMODST_SRC)%.java
+	$(ECHO) Found $? with wilcard search 
+	$(ECHO) "DALE: the '$(DEMODST_CLASS)/%.class' rule in DemoSwing.gmk is now working!..."
+	@$(ECHO) $? >> $(TMPDIR)/.classes.list
+	@$(ECHO) $? copied into $(TMPDIR)/.classes.list
+
+#
+# Create the jar file.
+#
+.build.jar: .copy.resources $(DEMO_JARFILE)
+$(DEMO_JARFILE): $(DEMO_class)
+	@$(ECHO) "Main-Class: $(DEMONAME)" > $(TMPDIR)/manifest
+	$(JAR) -cfm $@ $(TMPDIR)/manifest -C $(DEMODST_CLASS) . 
+	$(RM) $(TMPDIR)/manifest
+ifeq ($(DEMONAME),SwingSet2)
+	$(RM) -r $(DEMODST)/resources
+endif
+
+#
+# Hack for stylepad.
+#
+ifeq ($(DEMONAME),Stylepad)
+$(DEMODST_SRC)Stylepad.java: $(DEMODST_SRC)Notepad.java \
+			      $(DEMODST_SRC)ElementTreePanel.java \
+			      $(DEMODST)/resources/Notepad.properties \
+			      $(DEMODST)/resources/Notepad_fr.properties \
+			      $(DEMODST)/resources/Notepad_sv.properties \
+			      $(DEMODST)/resources/Notepad_zh_CN.properties \
+			      $(DEMODST)/resources/copy.gif \
+			      $(DEMODST)/resources/cut.gif \
+			      $(DEMODST)/resources/new.gif \
+			      $(DEMODST)/resources/open.gif \
+			      $(DEMODST)/resources/paste.gif \
+			      $(DEMODST)/resources/save.gif \
+
+$(DEMODST_SRC)%: $(DEMOSRC)/../Notepad/%
+	$(install-file)
+
+$(DEMODST)/resources/%: $(DEMOSRC)/../Notepad/resources/%
+	$(install-file)
+endif
+
+.copy.resources:
+	-if [ -d $(DEMODST)/resources ]; then $(CP) -rf $(DEMODST)/resources $(DEMODST_CLASS); fi
+	-if [ -d $(DEMODST)/src ]; then $(CP) -rf $(DEMODST)/src $(DEMODST_CLASS); fi
+
+#
+# Avoid accidents.
+#
+.PHONY: all debug optimized clobber swing-demo \
+	.build.classes .delete.classlist .compile.classlist \
+	.build.src .copy.resources .build.jar \
+	.build.other .tweak.scripts
+
+.PRECIOUS: $(DEMO_java)

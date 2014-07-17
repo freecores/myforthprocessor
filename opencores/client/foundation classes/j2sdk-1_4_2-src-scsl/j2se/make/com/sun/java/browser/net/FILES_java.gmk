@@ -1,0 +1,9 @@
+#
+# @(#)FILES_java.gmk	1.2 02/09/19
+#
+NET = \
+	$(TARGDIR)com/sun/java/browser/net/ProxyInfo.java \
+	$(TARGDIR)com/sun/java/browser/net/ProxyService.java \
+	$(TARGDIR)com/sun/java/browser/net/ProxyServiceProvider.java \
+
+FILES_java = $(NET)

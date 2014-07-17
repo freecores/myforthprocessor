@@ -1,0 +1,22 @@
+#
+#  @(#)FILES_java.gmk	1.3  02/09/19
+#
+JAVA_LOGGING_java = \
+	$(TARGDIR)java/util/logging/ConsoleHandler.java \
+	$(TARGDIR)java/util/logging/ErrorManager.java \
+	$(TARGDIR)java/util/logging/FileHandler.java \
+	$(TARGDIR)java/util/logging/Filter.java \
+	$(TARGDIR)java/util/logging/Formatter.java \
+	$(TARGDIR)java/util/logging/Handler.java \
+	$(TARGDIR)java/util/logging/Level.java \
+	$(TARGDIR)java/util/logging/Logger.java \
+	$(TARGDIR)java/util/logging/LoggingPermission.java \
+	$(TARGDIR)java/util/logging/LogManager.java \
+	$(TARGDIR)java/util/logging/LogRecord.java \
+	$(TARGDIR)java/util/logging/MemoryHandler.java \
+	$(TARGDIR)java/util/logging/SimpleFormatter.java \
+	$(TARGDIR)java/util/logging/SocketHandler.java \
+	$(TARGDIR)java/util/logging/StreamHandler.java \
+	$(TARGDIR)java/util/logging/XMLFormatter.java
+
+FILES_java = $(JAVA_LOGGING_java)

@@ -1,0 +1,19 @@
+#properties for communicate
+#Thu Jul 05 11:35:26 CEST 2012
+myProject=C\:\\Xilinx\\FORTHSP3ADSPC
+com=COM3
+translate=translate all newly
+dynmem=1000000
+blocksize=2048
+oscilator=50.0
+parity=none
+control=NONE
+stopbits=1
+option=romable
+sun=C\:\\Dokumente und Einstellungen\\Gerhard Hohner\\Eigene Dateien\\Unzipped\\j2sdk-1_4_2-src-scsl\\j2se\\src\\share\\classes
+dcm=DCM
+home=C\:\\Dokumente und Einstellungen\\Gerhard Hohner\\jbproject\\Equation\\src\\equation
+myEditor=C\:\\WINDOWS\\notepad.exe
+gc=tricolor marking
+template=C\:\\Xilinx\\FORTHSP3ADSPC\\ROMcode.t
+baudrate=9600

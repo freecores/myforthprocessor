@@ -1,0 +1,95 @@
+'\" t
+.\"
+.\" Copyright 2003 Sun Microsystems, Inc. All rights reserved.
+.\" SUN PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
+.\"
+.TH javaws 1 "2003 年 3 月 11 日"
+.SH 名前
+\fBjavaws \fP- Java Web Start 起動ツール
+\fB
+.SH 形式
+.nf
+.fam C
+\fBjavaws\fP 
+.TP
+.B
+\fBjavaws\fP [ \fIoptions\fP ]
+.TP
+.B
+\fBjavaws\fP [ \fIoptions\fP ] \fIURL\fP
+.fam T
+.fi
+.SH パラメータ
+オプションの順序は任意です。個々のオプションについては、後述の「オプション」節を参照してください。
+.TP
+.B
+\fIoptions\fP
+コマンド行オプションです。後述の「オプション」節を参照してください。
+.TP
+.B
+\fIURL\fP
+JNLP (Java Network Launching Protocol) ファイルの URL (Uniform Resource Locator) です。 
+.SH 機能説明
+\fBjavaws\fP コマンドにより JNLP (Java Network Launching Protocol) のリファレンス実装である Java Web Start を起動できます。Java Web Start はネットワーク上に置かれる Java アプリケーションまたはアプレットを起動します。
+.PP
+オプションを何も指定しないと、 \fBjavaws\fP は Java Web Start アプリケーションマネージャを起動します。Java Web Start アプリケーションマネージャを使用すると、ユーザは Java アプリケーションまたはアプレットを起動したり、Java Web Start を構成したりできます。
+.PP
+JNLP (Java Network Launching Protocol) ファイルを指す URL を指定すると、\fBjavaws\fP は JNLP ファイルに指定されている Java アプリケーションまたはアプレットを起動します。
+.SH オプション
+これらの \fBjavaws\fP 起動ツールのオプションは現在のリリースでサポートされています。将来のリリースでは、これらの\fIオプション\fPは削除される可能性があります。
+\fB-X\fP オプションはすべて非標準であるため、変更される可能性があります。
+.SS                          
+.TP
+.B
+\fB-offline\fP
+Java Web Start をオフラインモードで実行します。
+.TP
+.B
+\fB-uninstall\fP <url>
+JNLP ファイルを指す \fIURL\fP で指定したアプリケーションまたはアプレットをユーザのキャッシュから削除します。<url> を指定しないと、キャッシュ全体を削除します。このコマンドが完了すると、Java Web Start は終了します。
+.SS
+.TP
+.B
+\fB-updateVersions\fP
+現在のマシンの設定に基づいて Java Web Start 構成ファイルを更新します。このコマンドが完了すると、Java Web Start は終了します。
+.SS        
+.TP
+.B
+\fB-Xclearcache\fP
+ユーザのキャッシュをクリアします。このコマンドが完了すると、Java Web Start は終了します。
+.SS        
+.TP
+.B
+\fB-Xnosplash\fP
+初期スプラッシュ画面の表示を無効にします。
+.SS
+.SH ファイル
+.SS
+.TP
+.B
+\fB$HOME/.java/.deployment/deployment.properties\fP
+Java 配備製品用のシステム構成ファイル
+.SS        
+.TP
+.B
+\fB$HOME/.mailcap\fP
+Netscape/Mozilla ブラウザのヘルパーアプリケーションを指定するためのユーザ用 mailcap ファイル
+.SS
+.TP
+.B
+\fB$HOME/.mime.types\fP
+Netscape/Mozilla ブラウザでサポートされる mimetype を指定するためのユーザ用 mimetype ファイル
+.SS        
+.TP
+.B
+\fB/etc/mailcap\fP
+Netscape/Mozilla ブラウザのヘルパーアプリケーションを指定するためのシステム用 mailcap ファイル
+.SS        
+.TP
+.B
+\fB/etc/mime.types\fP
+Netscape/Mozilla ブラウザでサポートされる mimetype を指定するためのシステム用 mimetype ファイル
+.SS       
+.SH 注意事項
+Java Web Start 製品ページ @
+http://java.sun.com/products/javawebstart

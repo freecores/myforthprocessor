@@ -1,0 +1,10 @@
+#
+# @(#)FILES_java.gmk	1.2 02/09/19
+#
+FILES_java = \
+	$(TARGDIR)com/sun/jndi/rmi/registry/ReferenceWrapper.java \
+	$(TARGDIR)com/sun/jndi/rmi/registry/RegistryContext.java \
+	$(TARGDIR)com/sun/jndi/rmi/registry/RegistryContextFactory.java \
+	$(TARGDIR)com/sun/jndi/rmi/registry/RemoteReference.java \
+	$(TARGDIR)com/sun/jndi/url/rmi/rmiURLContext.java \
+	$(TARGDIR)com/sun/jndi/url/rmi/rmiURLContextFactory.java

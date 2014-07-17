@@ -1,0 +1,34 @@
+# Warning: this file was automatically generated!  Consult
+# the co-located "create-mkfiles" script to make changes.
+
+DEMO_java = \
+  $(DEMODST_SRC)ElementTreePanel.java \
+  $(DEMODST_SRC)Notepad.java \
+
+
+DEMO_class = \
+  $(DEMODST_CLASS)/ElementTreePanel.class \
+  $(DEMODST_CLASS)/Notepad.class \
+
+
+DEMO_dirs = \
+  $(DEMODST) \
+  $(DEMODST)/resources \
+
+
+DEMO_other = \
+  $(DEMODST)/README.txt \
+  $(DEMODST)/resources/copy.gif \
+  $(DEMODST)/resources/cut.gif \
+  $(DEMODST)/resources/new.gif \
+  $(DEMODST)/resources/Notepad.properties \
+  $(DEMODST)/resources/Notepad_fr.properties \
+  $(DEMODST)/resources/Notepad_sv.properties \
+  $(DEMODST)/resources/Notepad_zh_CN.properties \
+  $(DEMODST)/resources/open.gif \
+  $(DEMODST)/resources/paste.gif \
+  $(DEMODST)/resources/save.gif \
+  $(DEMODST)/runnit \
+  $(DEMODST)/runnit.bat \
+
+

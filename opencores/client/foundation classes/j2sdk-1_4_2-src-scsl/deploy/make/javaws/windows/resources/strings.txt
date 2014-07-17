@@ -1,0 +1,13 @@
+# Placeholder for Nullsoft install script strings - strings to be added soon!
+# @(#)strings.txt	1.12 02/08/08
+LIC_TXT=You must accept the following license before installing.
+# Next line is CHANGED FOR 1.4.2 by sbohne
+COMP_TXT=This will install Java Web Start on your computer.
+DIR_TXT=Setup has determined the optimal location to install. If you would like to change the directory, do so now.
+# Following line is CHANGED FOR 1.2 by sbohne
+UNINST_TXT=This will uninstall Java Web Start from your computer.  Please close all web browsers before continuing.
+NETSCAPE_TXT=You appear to be running Netscape.  For the install to finish, Netscape needs to be restarted.\n\nPlease exit Netscape (including the Netscape mailer and composer), and click Ok.
+DONE_TXT=Installation complete.  Do you wish to view Readme.html?
+UNDONE_TXT=Uninstall completed successfully.
+# Do not translate following line
+README_TXT=Readme.html

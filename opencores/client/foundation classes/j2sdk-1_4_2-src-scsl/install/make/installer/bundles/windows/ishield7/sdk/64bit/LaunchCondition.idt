@@ -1,0 +1,5 @@
+Condition	Description
+s255	l255
+LaunchCondition	Condition
+PhysicalMemory>=32	##ID_STRING_RAM##
+Privileged 	##ID_STRING_PRIV##

@@ -1,0 +1,12 @@
+#!/usr/bin/csh
+
+if (! ($?SA_JAVA) ) then
+  set SA_JAVA = java
+endif
+
+setenv LD_LIBRARY_PATH ../../../os/solaris/agent/proc:$LD_LIBRARY_PATH
+
+# set the environment variable JCORE_PACKAGES to comman separated list of
+# packages whose classes have to be retrieved from the core file.
+
+$SA_JAVA -Dsun.jvm.hotspot.debugger.useProcDebugger -Dsun.jvm.hotspot.tools.jcore.filter=sun.jvm.hotspot.tools.jcore.PackageNameFilter -Dsun.jvm.hotspot.tools.jcore.PackageNameFilter.pkgList=$JCORE_PACKAGES -classpath ./classes sun.jvm.hotspot.tools.jcore.ClassDump $*

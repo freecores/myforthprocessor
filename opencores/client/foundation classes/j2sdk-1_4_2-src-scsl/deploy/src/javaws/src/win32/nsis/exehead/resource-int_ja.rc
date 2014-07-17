@@ -1,0 +1,188 @@
+//Microsoft Developer Studio generated resource script.
+//
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_LICENSE DIALOG DISCARDABLE  0, 0, 246, 125
+STYLE DS_CONTROL | DS_CENTER | WS_CHILD
+BEGIN
+    ICON            IDI_ICON2,-1,0,1,20,20
+    LTEXT           "ライセンステキスト\r\n2 行",IDC_LICTEXT,30,0,216,16
+    EDITTEXT        IDC_EDIT1,0,24,246,100,ES_MULTILINE | ES_READONLY | 
+                    WS_VSCROLL
+END
+
+IDD_DIR DIALOG DISCARDABLE  0, 0, 246, 125
+STYLE DS_CONTROL | DS_CENTER | WS_CHILD
+BEGIN
+    EDITTEXT        IDC_DIR,12,43,180,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "参照...",IDC_BROWSE,193,43,50,14
+    LTEXT           "テキストの説明\r\n2 行\r\n3 行",
+                    IDC_INTROTEXT,23,0,204,26
+    ICON            IDI_ICON2,-1,0,0,20,20
+    LTEXT           "Static",IDC_SELDIRTEXT,0,33,190,8
+    LTEXT           "必要な容量 : 128K",IDC_SPACEREQUIRED,0,97,97,8
+    LTEXT           "ドライブの有効な容量 : 2234000K",IDC_SPACEAVAILABLE,
+                    0,86,131,8
+    // CHANGED FOR 1.2
+    CONTROL         "全ユーザに対しショートカットを作成",IDC_CHECK1,"Button",
+                    BS_AUTOCHECKBOX | NOT WS_VISIBLE | WS_TABSTOP,12,64,231,
+                    10
+END
+
+IDD_INST DIALOG DISCARDABLE  0, 0, 260, 159
+STYLE DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+BEGIN
+    PUSHBUTTON      "次へ >",IDOK,203,139,50,14
+    PUSHBUTTON      "キャンセル",IDCANCEL,7,139,50,14
+    CONTROL         "",-1,"Static",SS_ETCHEDHORZ,7,134,246,1
+    CONTROL         "",IDC_CHILDRECT,"Static",SS_BLACKRECT | NOT WS_VISIBLE,
+                    7,6,246,125
+    PUSHBUTTON      "< 戻る",IDC_BACK,151,139,50,14
+    LTEXT           "Nullsoft Install System v1.0j",IDC_INSTVER,60,143,86,8,
+                    NOT WS_VISIBLE
+END
+
+IDD_INSTFILES DIALOG DISCARDABLE  0, 0, 246, 125
+STYLE DS_CONTROL | DS_CENTER | WS_CHILD
+BEGIN
+    CONTROL         "Progress2",IDC_PROGRESS1,"msctls_progress32",WS_BORDER,
+                    24,10,221,11
+    LTEXT           "インストール中 :",IDC_PROGRESSTEXT,24,0,79,8
+    LISTBOX         IDC_LIST1,0,23,245,101,LBS_NOINTEGRALHEIGHT | LBS_NOSEL | 
+                    WS_VSCROLL | WS_TABSTOP
+    ICON            IDI_ICON2,IDC_STATIC,0,0,20,20
+END
+
+IDD_UNINST DIALOG DISCARDABLE  0, 0, 246, 125
+STYLE DS_CONTROL | DS_CENTER | WS_CHILD
+BEGIN
+    ICON            IDI_ICON2,IDC_STATIC,0,1,20,20
+    LTEXT           "",IDC_UNINSTTEXT,30,0,216,20
+    LTEXT           "アンインストール元 :",IDC_STATIC,0,31,54,8
+    EDITTEXT        IDC_EDIT1,55,29,190,12,ES_AUTOHSCROLL | ES_READONLY
+END
+
+IDD_DIR1 DIALOG DISCARDABLE  0, 0, 246, 127
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+BEGIN
+    EDITTEXT        IDC_DIR,10,55,180,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "参照...",IDC_BROWSE,195,55,50,14
+    LTEXT           "text description\r\ntwo lines",IDC_INTROTEXT,25,2,204,
+                    16
+    ICON            IDI_ICON2,-1,0,0,20,20
+    LTEXT           "Static",IDC_SELDIRTEXT,0,45,245,10
+    DEFPUSHBUTTON   "OK",IDC_OK,140,110,50,14
+    PUSHBUTTON      "キャンセル",IDC_CANCEL,195,110,50,14
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_INST, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 253
+        TOPMARGIN, 6
+        BOTTOMMARGIN, 153
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    JAVAWS_TEST             "これはテストです。"
+    JAVAWS_NS_COPYRIGHT     "NSIS Copyright (C) 2000 Nullsoft, Inc."
+    JAVAWS_ERROR_RESOURCE   "リソースの読み込み中にエラーが発生しました。"
+    JAVAWS_ERROR_RESOURCE_CAPTION "インストールプログラムのエラー"
+    JAVAWS_ERROR_OPENSELF   "自己ファイルを開いているときにエラーが発生しました。"
+    JAVAWS_ERROR_GCAPTION   "Nullsoft Install System エラー"
+    JAVAWS_ERROR_READCRC    "インストールプログラムのファイルから CRC の読み込み中にエラーが発生しました。"
+    JAVAWS_ERROR_READDATA   "インストールプログラムのファイルからデータを読み込み中にエラーが発生しました。"
+    JAVAWS_ERROR_CRC        "インストールプログラムの CRC チェックに失敗しました。再度インストールプログラムのダウンロードを行なってください。"
+    JAVAWS_ERROR_TOOSHORT   "エラー : インストールするデータブロックが短すぎます。"
+    JAVAWS_ERROR_FINDDATA   "インストールデータの検索中にエラーが発生しました。"
+    JAVAWS_STATUS_OUTDIR    "出力ディレクトリ : %1"
+    JAVAWS_STATUS_SKIPPED   "スキップされました : %1"
+    JAVAWS_ERROR_OPENWRITE  "書き込み用のファイルを開いているときにエラーが発生しました: %1\r\n[中止] を押してインストールを中止するか、[再試行] を押してファイルの書き込みをやり直すか、または [無視] を押してこのファイルをスキップしてください。"
+    JAVAWS_ERROR_ABORTWRITE "ファイルの書き込みができなかったので中止しました : %1"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    JAVAWS_STATUS_EXTRACT   "抽出 : %1"
+    JAVAWS_STATUS_EXECUTE   "実行 : %1"
+    JAVAWS_STATUS_CREATESHORTCUT "ショートカットの作成 : %1"
+    JAVAWS_STATUS_DELETEFILE "ファイルの削除 : %1"
+    JAVAWS_STATUS_ABORTED   "ユーザによって中止されました : %1"
+    JAVAWS_STATUS_REMOVEDIR "ディレクトリの削除 : %1"
+    JAVAWS_ERROR_INSTCORRUPT "インストーラが壊れています。"
+    JAVAWS_MESSAGE_UNINSTALL "%1 アンインストール"
+    JAVAWS_MESSAGE_SETUP    "%1 セットアップ"
+    JAVAWS_MESSAGE_SELECTDIR "インストールするディレクトリを選択"
+    JAVAWS_MESSAGE_LICENSE  "使用許諾の承諾"
+    JAVAWS_MESSAGE_INSTOPT  "インストールオプション"
+    JAVAWS_MESSAGE_INSTDIR  "インストールディレクトリ"
+    JAVAWS_MESSAGE_INSTFILES "ファイルのインストール"
+    JAVAWS_MESSAGE_SETUP2   "%1 セットアップ : %2"
+    JAVAWS_MESSAGE_CONFIRM  "確認"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    JAVAWS_MESSAGE_UNINSTFILES "ファイルのアンインストール"
+    JAVAWS_MESSAGE_UNINSTALL2 "%1 アンインストール : %2"
+    JAVAWS_MESSAGE_SELECTDIR2 "%1 のインストール先:"
+    JAVAWS_MESSAGE_SELECTDIR3 "ディレクトリの選択 :"
+    JAVAWS_MESSAGE_SPACEREQ "必要な容量 : %1!d! KB"
+    JAVAWS_MESSAGE_SPACEAVAIL "有効な容量 : %1!d! KB"
+    JAVAWS_MESSAGE_SELECTCOMPS "インストールするコンポーネントを選択 :"
+    JAVAWS_MESSAGE_CUSTOMTYPE "カスタム"
+    JAVAWS_MESSAGE_REQDCOMPS "必要なコンポーネント"
+    JAVAWS_STATUS_CREATEUNINST "アンインストールプログラムの作成"
+    JAVAWS_MESSAGE_UNINSTPROGRESS "アンインストール中 :"
+    JAVAWS_ERROR_STRINGTABLE "警告 : ローカライズされたテキストが見つかりません。"
+    JAVAWS_STATUS_MAKEDIR   "ディレクトリの作成 : %1"
+    JAVAWS_STATUS_REGDLL    "登録済み DLL : %1"
+    JAVAWS_STATUS_UNREGDLL  "未登録 DLL :"
+    JAVAWS_ERROR_REGDLL     "DLL の登録中にエラーが発生しました。\r\nDllRegisterServer が %1 に見つかりません。"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    JAVAWS_ERROR_REGDLLU    "DLL の登録中にエラーが発生しました。\r\n%1 をロードできません。"
+    JAVAWS_ERROR_OLEINIT    "DLL の登録中にエラーが発生しました : %1。\r\nOLE を初期化できません。"
+    JAVAWS_MESSAGE_REBOOT   "Java Web Start を起動する前に、コンピュータをシャットダウンおよび再起動する必要があります。\r\n今すぐ再起動しますか?"
+    JAVAWS_ERROR_PRIVALUE   "権限照合エラーが発生しました。"
+    JAVAWS_ERROR_OPENTOKEN  "プロセストークンを開いているときにエラーが発生しました。"
+    JAVAWS_ERROR_ADJUSTTOKEN "トークン権限の整合中にエラーが発生しました。"
+    JAVAWS_ERROR_EXITWINDOWS 
+                            "再起動中にエラーが発生しました。\r\n[スタート] メニューを使用してコンピュータのシャットダウンおよび再起動を行なってください。"
+    JAVAWS_MESSAGE_INSTPROG "インストール中 :"
+    JAVAWS_DECLINE          "同意しない"
+    JAVAWS_ACCEPT           "同意する"
+    JAVAWS_NEXT             "次へ >"
+    JAVAWS_BACK             "< 戻る"
+    JAVAWS_CANCEL           "キャンセル"
+    JAVAWS_MESSAGE_JRE      "セットアップにより、使用可能な Java 2 Runtime Environment を検出できませんでした。"
+    JAVAWS_MESSAGE_JRE2     "Java 2 Runtime Environment バージョン %1 をインストールしますか?"
+    JAVAWS_MESSAGE_NEWERVERSION 
+                            "セットアップにより、Java Web Start %1 を Java Web Start %2 で置き換えようとしていることを検出しました。本当に置き換えますか?"
+    // Following is NEW FOR 1.2 -sbohne
+    JAVAWS_ERROR_PRIVILEGE  "このユーザは、Administrators グループ、Power Users グループのいずれにも所属していません。これらのグループに所属するメンバだけにこのソフトウェアのインストールを許可することを強くお勧めします。[OK] をクリックして処理を終了するか、[取消し] をクリックして警告を無視してください。"
+END

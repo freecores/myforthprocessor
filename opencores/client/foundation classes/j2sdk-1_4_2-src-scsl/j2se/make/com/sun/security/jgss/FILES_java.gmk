@@ -1,0 +1,5 @@
+#
+# @(#)FILES_java.gmk	1.2 02/09/19
+#
+FILES_java = \
+	$(TARGDIR)com/sun/security/jgss/GSSUtil.java

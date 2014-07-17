@@ -1,0 +1,33 @@
+00000014  56           0 VAL 
+00000015  0d00000000   LinkageError._staticBlocking VAL ( will be modified! ) 
+0000001a  00           NOP ( will be modified! ) 
+0000001b  01           ! 
+0000001c  56           0 VAL 
+0000001d  0d00000000   LinkageError._staticThread VAL ( will be modified! ) 
+00000022  00           NOP ( will be modified! ) 
+00000023  01           ! 
+00000024  3d           EXIT 
+
+instruction usage:
+load/store:		2	(22.22222222222222%)
+32-bit values:		2	(22.22222222222222%)
+16-bit values:		0	(0.0%)
+5-bit values:		2	(22.22222222222222%)
+values total:		4	(44.44444444444444%)
+arithmetic/logical:	0	(0.0%)
+relations:		0	(0.0%)
+flow control:		1	(11.11111111111111%)
+other:			2	(22.22222222222222%)
+total:			9
+
+average bytes per instruction: 4.111111111111111
+
+string storage in byte:	0
+unresolved references:	2
+
+Size of static code: 20
+Size of initial code: 17
+
+references:
+ffffffff	1	LinkageError._staticBlocking
+ffffffff	1	LinkageError._staticThread

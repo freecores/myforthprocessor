@@ -1,0 +1,202 @@
+#
+# @(#)SwingBeans.gmk	1.52 03/01/23
+#
+# Copyright 2003 Sun Microsystems, Inc. All rights reserved.
+# SUN PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
+#
+
+#
+# Makefile to build the BeanInfo generation tool (ie, a doclet), and
+# then the beaninfo itself.  Swing versions prior to 1.2 is no longer
+# built.
+#
+# This makefile could be a lot simpler if we made it more regular.
+#
+
+# identify this as a swingbeans product - used only to identify a
+# unique name for OBJDIR
+PRODUCT = swing-beans
+
+#
+# Main targets provided by this makefile.
+# 
+swing-1.2-beans:
+	$(MAKE) NOCORE=$(NOCORE) DEBUG_FLAG=false make-swing-beans
+swing-1.2-beans-debug:
+	$(MAKE) NOCORE=$(NOCORE) DEBUG_FLAG=true make-swing-beans
+
+
+LOCAL_JAVADOC   = $(JAVADOC) $(JAVADOCFLAGS)
+# get the absolute path to the jar command.
+LOCAL_CLASSPATH = "$(CLASSBINDIR)$(CLASSPATH_SEPARATOR)."
+PREFIX          = 1.2
+JAVADOCFLAGS    = -J-ms64m -J-mx128m
+SWINGPKG        = javax/swing
+LOCAL_JAVAC_FLAGS = $(OTHER_JAVACFLAGS)
+ABS_TMPDIR = $(shell $(CD) $(TMPDIR); $(PWD))
+
+# this is not portable code, and should be removed.
+ifeq ($(NOCORE),true)
+    #
+    # Works like ALT_BOOTDIR and JAVAC_BOOT_CMD from make/common/Defs.gmk.
+    #
+    ifeq ($(ARCH_FAMILY), sparc)
+      LATEST_JDK12 = /java/re/j2se/1.4.0/archive/beta/binaries/$(PLATFORM)-$(ARCH)
+      JAVAC_BOOTCLASSPATH_NAME = -bootclasspath
+    endif
+    ifeq ($(ARCH), i586)
+      ifneq ($(PLATFORM), linux)
+        LATEST_JDK12 = /java/re/j2se/1.4.0/archive/beta/binaries/$(PLATFORM)-$(ARCH)
+        JAVAC_BOOTCLASSPATH_NAME = -sysclasspath
+      endif
+    endif
+    ifeq ($(PLATFORM), linux)
+      LATEST_JDK12 = $(BUILDDIR)
+      JAVAC_BOOTCLASSPATH_NAME = -bootclasspath
+    endif
+
+    BEANINFO_PATH   = $(CLASSBINDIR)
+    LOCAL_CLASSPATH = "$(CLASSBINDIR)$(CLASSPATH_SEPARATOR)$(LATEST_JDK12)/jre/lib/rt.jar$(CLASSPATH_SEPARATOR)$(LATEST_JDK12)/lib/tools.jar$(CLASSPATH_SEPARATOR)$(BEANINFO_PATH)"
+    LOCAL_JAVADOC   = $(JAVADOC) \
+		      -Xbootclasspath:"$(BEANINFO_PATH)$(CLASSPATH_SEPARATOR)$(LOCAL_CLASSPATH)" \
+		      $(JAVADOCFLAGS) \
+		      com.sun.tools.javadoc.Main
+    JAVADOCFLAGS    = -ms32m -mx32m
+    CLASSPATH 	    = $(VPATH.java)
+    PREFIX          =  1.2
+    SWINGPKG        = javax/swing
+    LOCAL_JAVAC_FLAGS = $(JAVAC_BOOTCLASSPATH_NAME) "$(CLASSBINDIR)$(CLASSPATH_SEPARATOR)$(LATEST_JDK12)/jre/lib/rt.jar$(CLASSPATH_SEPARATOR)$(LATEST_JDK12)/lib/tools.jar"
+endif
+
+include FILES.gmk
+include $(BUILDDIR)/common/Release.gmk
+
+DOCLETSRC    = $(BUILDDIR)/tools/swing-beans
+DOCLETDST    = $(TMPDIR)
+
+FILES_java   = GenSwingBeanInfo.java GenDocletBeanInfo.java DocBeanInfo.java
+FILES_class  = $(FILES_java:%.java=$(DOCLETDST)/%.class)
+FAKESRC	     = $(TOPDIR)/src/share/classes
+BEANSRCDIR  =  $(TMPDIR)/$(PREFIX)src
+BEANCLASSDIR = $(TMPDIR)/$(PREFIX)classes
+FILES_beans =  $(BEANS:%=$(BEANSRCDIR)/%BeanInfo.java) \
+	       $(BEANS_TEXT:%=$(BEANSRCDIR)/text/%BeanInfo.java)  \
+	       $(BEANSRCDIR)/SwingBeanInfo.java
+FILES_bclass = $(FILES_beans:$(BEANSRCDIR)/%.java=$(BEANCLASSDIR)/$(SWINGPKG)/%.class)
+DOCLETFLAGS  = -doclet GenDocletBeanInfo
+
+#
+# Main target.
+#
+make-swing-beans: mkdoclet mkbeaninfo mkclasses mkpackaging
+
+#
+# Make the doclet.
+#
+mkdoclet: $(DOCLETDST) $(FILES_class) .SwingBeanInfo
+
+$(OBJDIR) $(BEANCLASSDIR) $(BEANSRCDIR) $(DOCLETDST)::
+	@$(ECHO) "Making directory..." $@
+	@$(MKDIR) -p $@
+
+$(DOCLETDST)/%.class: $(DOCLETSRC)/%.java
+	$(JAVAC) $(LOCAL_JAVAC_FLAGS) -classpath "$(CLASSPATH)$(CLASSPATH_SEPARATOR)$(DOCLETSRC)" -d $(DOCLETDST) $?
+
+# To run, the doclet needs SwingBeanInfo class.  Also Notice the lie
+# here, SwingBeanInfo.class goes elswhere.
+.SwingBeanInfo: $(OBJDIR) $(BEANCLASSDIR) $(BEANSRCDIR) $(SWINGPKG)/SwingBeanInfo.class
+
+$(SWINGPKG)/SwingBeanInfo.class: $(BEANSRCDIR)/SwingBeanInfo.java
+	$(JAVAC) $(LOCAL_JAVAC_FLAGS) -d $(BEANCLASSDIR) $<
+
+#
+# Stage 1: Generate *BeanInfo.java files.
+#
+mkbeaninfo: $(BEANSRCDIR) .delete.beanlist $(FILES_beans) .javadoc.beanlist
+
+.delete.beanlist: 
+	@$(RM) $(TMPDIR)/.beans.list
+
+.javadoc.beanlist:
+	if [ -s $(TMPDIR)/.beans.list ]; \
+	then $(LOCAL_JAVADOC) $(DOCLETFLAGS) -x $(DEBUG_FLAG) -d $(BEANSRCDIR) -t $(DOCLETSRC)/SwingBeanInfo.template -docletpath $(DOCLETDST) \
+	    $(shell if [ -s $(TMPDIR)/.beans.list ]; then $(CAT) $(TMPDIR)/.beans.list; fi); \
+	fi
+
+$(BEANSRCDIR)/text/%BeanInfo.java: $(FAKESRC)/$(SWINGPKG)/text/%.java
+	@$(ECHO) $< >> $(TMPDIR)/.beans.list
+
+$(BEANSRCDIR)/%BeanInfo.java: $(FAKESRC)/$(SWINGPKG)/%.java
+	@$(ECHO) $< >> $(TMPDIR)/.beans.list
+
+$(BEANSRCDIR)/SwingBeanInfo.java: $(DOCLETSRC)/beaninfo/SwingBeanInfo.java
+	$(CP) $< $@
+
+#
+# Compile the generated *BeanInfo.java files.
+#
+mkclasses: .delete.classlist $(BEANCLASSDIR)/$(SWINGPKG)/SwingBeanInfo.class \
+	$(BEANCLASSDIR)/$(SWINGPKG)/text/JTextComponentBeanInfo.class \
+	.create.classlist $(FILES_bclass) .compile.classlist
+
+$(BEANCLASSDIR)/$(SWINGPKG)/SwingBeanInfo.class:: \
+	$(BEANSRCDIR)/SwingBeanInfo.java
+
+$(BEANCLASSDIR)/$(SWINGPKG)/text/JTextComponentBeanInfo.class:: \
+	$(BEANSRCDIR)/JTextComponentBeanInfo.java
+
+$(FILES_bclass):: $(FILES_beans)
+
+# all the sources are in one directory, so make sure that the list does
+# not have the /text direcotry in it. Kludgy, this is...
+.create.classlist:
+	@$(ECHO) $(subst /text/,/,$(FILES_beans)) >> $(TMPDIR)/.classes.list
+
+.delete.classlist:
+	@$(ECHO) "Deleting classes.list..."
+	@$(RM) $(TMPDIR)/.classes.list
+
+.compile.classlist:
+	if [ -s $(TMPDIR)/.classes.list ] ; \
+	then $(JAVAC) $(LOCAL_JAVAC_FLAGS) -classpath $(LOCAL_CLASSPATH) -d $(BEANCLASSDIR) \
+	    $(shell if [ -s $(TMPDIR)/.classes.list ] ; then $(CAT) $(TMPDIR)/.classes.list; fi ) ; \
+	fi
+
+#
+# Packaging
+#
+mkpackaging: 
+	$(RM) -r $(BEANCLASSDIR)/$(SWINGPKG)/beaninfo/images
+	$(MKDIR) -p $(BEANCLASSDIR)/$(SWINGPKG)/beaninfo/images
+	$(CP) $(DOCLETSRC)/beaninfo/images/*.gif $(BEANCLASSDIR)/$(SWINGPKG)/beaninfo/images
+	($(CD) $(BEANCLASSDIR); $(ABS_JAR) cf $(ABS_TMPDIR)/tmp.jar javax)||exit 1
+	$(MV) $(ABS_TMPDIR)/tmp.jar $(JDK_IMAGE_DIR)/lib/dt.jar
+
+#
+# Cleanliness.
+#
+swingbeans.clean swingbeans.clobber::
+	$(RM) -r 1.2src 1.2classes
+	$(RM) -r java javax
+	$(RM) *.class
+	$(RM) $(TMPDIR)/.beans.list $(TMPDIR)/.classes.list beaninfo.jar
+
+#
+# Utility.
+#
+
+
+#
+# Debugging targets for looking at variables.
+#
+show-vars:
+	@$(ECHO) FILES_beans = $(FILES_beans)
+	@$(ECHO) FILES_bclass = $(FILES_bclass)
+
+.PRECIOUS: $(FILES_beans) 
+
+.PHONY: swing-1.2-beans swing-1.2-beans-debug \
+	make-swing-beans mkdoclet .SwingBeanInfo mkbeaninfo .delete.beanlist \
+	.javadoc.beanlist mkclasses .create.classlist .delete.classlist \
+	.compile.classlist mkpackaging mkpackaging swingbeans.clean \
+	swingbeans.clobber show-vars  

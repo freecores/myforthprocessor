@@ -1,0 +1,112 @@
+#
+# @(#)FILES_java.gmk	1.18 02/03/08
+#
+FILES_shared = \
+           $(TARGDIR)javax/imageio/IIOException.java \
+           $(TARGDIR)javax/imageio/IIOImage.java \
+           $(TARGDIR)javax/imageio/IIOParam.java \
+           $(TARGDIR)javax/imageio/IIOParamController.java \
+           $(TARGDIR)javax/imageio/ImageIO.java \
+           $(TARGDIR)javax/imageio/ImageReadParam.java \
+           $(TARGDIR)javax/imageio/ImageReader.java \
+           $(TARGDIR)javax/imageio/ImageTranscoder.java \
+           $(TARGDIR)javax/imageio/ImageTypeSpecifier.java \
+           $(TARGDIR)javax/imageio/ImageWriteParam.java \
+           $(TARGDIR)javax/imageio/ImageWriter.java \
+           $(TARGDIR)javax/imageio/event/IIOReadWarningListener.java \
+           $(TARGDIR)javax/imageio/event/IIOReadProgressListener.java \
+           $(TARGDIR)javax/imageio/event/IIOReadUpdateListener.java \
+           $(TARGDIR)javax/imageio/event/IIOWriteWarningListener.java \
+           $(TARGDIR)javax/imageio/event/IIOWriteProgressListener.java \
+           $(TARGDIR)javax/imageio/metadata/IIOInvalidTreeException.java \
+           $(TARGDIR)javax/imageio/metadata/IIOMetadata.java \
+           $(TARGDIR)javax/imageio/metadata/IIOMetadataController.java \
+           $(TARGDIR)javax/imageio/metadata/IIOMetadataFormat.java \
+           $(TARGDIR)javax/imageio/metadata/IIOMetadataFormatImpl.java \
+           $(TARGDIR)javax/imageio/metadata/IIOMetadataNode.java \
+           $(TARGDIR)javax/imageio/plugins/jpeg/JPEGHuffmanTable.java \
+           $(TARGDIR)javax/imageio/plugins/jpeg/JPEGImageReadParam.java \
+           $(TARGDIR)javax/imageio/plugins/jpeg/JPEGImageWriteParam.java \
+           $(TARGDIR)javax/imageio/plugins/jpeg/JPEGQTable.java \
+           $(TARGDIR)javax/imageio/spi/DigraphNode.java \
+           $(TARGDIR)javax/imageio/spi/IIORegistry.java \
+           $(TARGDIR)javax/imageio/spi/IIOServiceProvider.java \
+           $(TARGDIR)javax/imageio/spi/ImageInputStreamSpi.java \
+           $(TARGDIR)javax/imageio/spi/ImageOutputStreamSpi.java \
+           $(TARGDIR)javax/imageio/spi/ImageReaderSpi.java \
+           $(TARGDIR)javax/imageio/spi/ImageReaderWriterSpi.java \
+           $(TARGDIR)javax/imageio/spi/ImageTranscoderSpi.java \
+           $(TARGDIR)javax/imageio/spi/ImageWriterSpi.java \
+           $(TARGDIR)javax/imageio/spi/PartiallyOrderedSet.java \
+           $(TARGDIR)javax/imageio/spi/RegisterableService.java \
+           $(TARGDIR)javax/imageio/spi/ServiceRegistry.java \
+           $(TARGDIR)javax/imageio/stream/FileCacheImageInputStream.java \
+           $(TARGDIR)javax/imageio/stream/FileCacheImageOutputStream.java \
+           $(TARGDIR)javax/imageio/stream/FileImageInputStream.java \
+           $(TARGDIR)javax/imageio/stream/FileImageOutputStream.java \
+           $(TARGDIR)javax/imageio/stream/IIOByteBuffer.java \
+           $(TARGDIR)javax/imageio/stream/ImageInputStream.java \
+           $(TARGDIR)javax/imageio/stream/ImageInputStreamImpl.java \
+           $(TARGDIR)javax/imageio/stream/ImageOutputStream.java \
+           $(TARGDIR)javax/imageio/stream/ImageOutputStreamImpl.java \
+           $(TARGDIR)javax/imageio/stream/MemoryCache.java \
+           $(TARGDIR)javax/imageio/stream/MemoryCacheImageInputStream.java \
+           $(TARGDIR)javax/imageio/stream/MemoryCacheImageOutputStream.java \
+           $(TARGDIR)com/sun/imageio/spi/FileImageInputStreamSpi.java \
+           $(TARGDIR)com/sun/imageio/spi/FileImageOutputStreamSpi.java \
+           $(TARGDIR)com/sun/imageio/spi/InputStreamImageInputStreamSpi.java \
+           $(TARGDIR)com/sun/imageio/spi/OutputStreamImageOutputStreamSpi.java \
+           $(TARGDIR)com/sun/imageio/spi/RAFImageInputStreamSpi.java \
+           $(TARGDIR)com/sun/imageio/spi/RAFImageOutputStreamSpi.java \
+           $(TARGDIR)com/sun/imageio/plugins/gif/GIFImageMetadata.java \
+           $(TARGDIR)com/sun/imageio/plugins/gif/GIFImageMetadataFormat.java \
+           $(TARGDIR)com/sun/imageio/plugins/gif/GIFImageMetadataFormatResources.java \
+           $(TARGDIR)com/sun/imageio/plugins/gif/GIFImageReader.java \
+           $(TARGDIR)com/sun/imageio/plugins/gif/GIFImageReaderSpi.java \
+           $(TARGDIR)com/sun/imageio/plugins/gif/GIFStreamMetadata.java \
+           $(TARGDIR)com/sun/imageio/plugins/gif/GIFStreamMetadataFormat.java \
+           $(TARGDIR)com/sun/imageio/plugins/gif/GIFStreamMetadataFormatResources.java \
+           $(TARGDIR)com/sun/imageio/plugins/common/InputStreamAdapter.java \
+           $(TARGDIR)com/sun/imageio/plugins/common/StandardMetadataFormat.java \
+           $(TARGDIR)com/sun/imageio/plugins/common/StandardMetadataFormatResources.java \
+           $(TARGDIR)com/sun/imageio/plugins/common/SubImageInputStream.java \
+           $(TARGDIR)com/sun/imageio/plugins/jpeg/AdobeMarkerSegment.java \
+           $(TARGDIR)com/sun/imageio/plugins/jpeg/COMMarkerSegment.java \
+           $(TARGDIR)com/sun/imageio/plugins/jpeg/DHTMarkerSegment.java \
+           $(TARGDIR)com/sun/imageio/plugins/jpeg/DQTMarkerSegment.java \
+           $(TARGDIR)com/sun/imageio/plugins/jpeg/DRIMarkerSegment.java \
+           $(TARGDIR)com/sun/imageio/plugins/jpeg/JFIFMarkerSegment.java \
+           $(TARGDIR)com/sun/imageio/plugins/jpeg/JPEG.java \
+           $(TARGDIR)com/sun/imageio/plugins/jpeg/JPEGBuffer.java \
+           $(TARGDIR)com/sun/imageio/plugins/jpeg/JPEGImageReader.java \
+           $(TARGDIR)com/sun/imageio/plugins/jpeg/JPEGImageReaderResources.java \
+           $(TARGDIR)com/sun/imageio/plugins/jpeg/JPEGImageReaderSpi.java \
+           $(TARGDIR)com/sun/imageio/plugins/jpeg/JPEGImageWriter.java \
+           $(TARGDIR)com/sun/imageio/plugins/jpeg/JPEGImageWriterResources.java \
+           $(TARGDIR)com/sun/imageio/plugins/jpeg/JPEGImageWriterSpi.java \
+           $(TARGDIR)com/sun/imageio/plugins/jpeg/JPEGMetadata.java \
+           $(TARGDIR)com/sun/imageio/plugins/jpeg/JPEGMetadataFormat.java \
+           $(TARGDIR)com/sun/imageio/plugins/jpeg/JPEGImageMetadataFormat.java \
+           $(TARGDIR)com/sun/imageio/plugins/jpeg/JPEGStreamMetadataFormat.java \
+           $(TARGDIR)com/sun/imageio/plugins/jpeg/JPEGMetadataFormatResources.java \
+           $(TARGDIR)com/sun/imageio/plugins/jpeg/JPEGImageMetadataFormatResources.java \
+           $(TARGDIR)com/sun/imageio/plugins/jpeg/JPEGStreamMetadataFormatResources.java \
+           $(TARGDIR)com/sun/imageio/plugins/jpeg/MarkerSegment.java \
+           $(TARGDIR)com/sun/imageio/plugins/jpeg/SOFMarkerSegment.java \
+           $(TARGDIR)com/sun/imageio/plugins/jpeg/SOSMarkerSegment.java \
+           $(TARGDIR)com/sun/imageio/plugins/png/PNGImageReader.java \
+           $(TARGDIR)com/sun/imageio/plugins/png/PNGImageReaderSpi.java \
+           $(TARGDIR)com/sun/imageio/plugins/png/PNGImageWriter.java \
+           $(TARGDIR)com/sun/imageio/plugins/png/PNGImageWriterSpi.java \
+           $(TARGDIR)com/sun/imageio/plugins/png/PNGMetadata.java \
+           $(TARGDIR)com/sun/imageio/plugins/png/PNGMetadataFormat.java \
+           $(TARGDIR)com/sun/imageio/plugins/png/PNGMetadataFormatResources.java \
+	   $(TARGDIR)com/sun/imageio/plugins/png/RowFilter.java
+
+ifeq ($(PLATFORM),windows)
+FILES_platform =
+else
+FILES_platform =
+endif
+
+FILES_java = $(FILES_shared) $(FILES_platform)

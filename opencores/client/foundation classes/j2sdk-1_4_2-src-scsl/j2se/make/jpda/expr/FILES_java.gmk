@@ -1,0 +1,12 @@
+#
+# @(#)FILES_java.gmk	1.3 99/05/31
+#
+FILES_java = \
+        $(TARGDIR)com/sun/tools/example/debug/expr/LValue.java \
+	$(TARGDIR)com/sun/tools/example/debug/expr/ExpressionParserConstants.java \
+	$(TARGDIR)com/sun/tools/example/debug/expr/ExpressionParserTokenManager.java \
+	$(TARGDIR)com/sun/tools/example/debug/expr/ExpressionParser.java \
+	$(TARGDIR)com/sun/tools/example/debug/expr/Token.java \
+	$(TARGDIR)com/sun/tools/example/debug/expr/ParseException.java \
+	$(TARGDIR)com/sun/tools/example/debug/expr/TokenMgrError.java \
+	$(TARGDIR)com/sun/tools/example/debug/expr/ASCII_UCodeESC_CharStream.java

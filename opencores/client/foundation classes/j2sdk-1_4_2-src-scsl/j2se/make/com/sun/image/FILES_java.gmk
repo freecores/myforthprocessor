@@ -1,0 +1,13 @@
+#
+# @(#)FILES_java.gmk	1.4 02/09/19
+#
+FILES_java = \
+	$(TARGDIR)com/sun/image/codec/jpeg/ImageFormatException.java \
+	$(TARGDIR)com/sun/image/codec/jpeg/JPEGCodec.java \
+	$(TARGDIR)com/sun/image/codec/jpeg/JPEGDecodeParam.java \
+	$(TARGDIR)com/sun/image/codec/jpeg/JPEGEncodeParam.java \
+	$(TARGDIR)com/sun/image/codec/jpeg/JPEGHuffmanTable.java \
+	$(TARGDIR)com/sun/image/codec/jpeg/JPEGImageDecoder.java \
+	$(TARGDIR)com/sun/image/codec/jpeg/JPEGImageEncoder.java \
+	$(TARGDIR)com/sun/image/codec/jpeg/JPEGQTable.java \
+	$(TARGDIR)com/sun/image/codec/jpeg/TruncatedFileException.java 

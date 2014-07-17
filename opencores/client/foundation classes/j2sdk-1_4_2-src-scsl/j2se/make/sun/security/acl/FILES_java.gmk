@@ -1,0 +1,12 @@
+#
+# @(#)FILES_java.gmk	1.5 02/09/19
+#
+FILES_java = \
+	$(TARGDIR)sun/security/acl/AclEntryImpl.java \
+	$(TARGDIR)sun/security/acl/AclImpl.java \
+	$(TARGDIR)sun/security/acl/AllPermissionsImpl.java \
+	$(TARGDIR)sun/security/acl/GroupImpl.java \
+	$(TARGDIR)sun/security/acl/WorldGroupImpl.java \
+	$(TARGDIR)sun/security/acl/OwnerImpl.java \
+	$(TARGDIR)sun/security/acl/PermissionImpl.java \
+	$(TARGDIR)sun/security/acl/PrincipalImpl.java

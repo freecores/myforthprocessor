@@ -1,0 +1,169 @@
+#
+# @(#)Library.gmk	1.96 03/01/23
+#
+# Copyright 2003 Sun Microsystems, Inc. All rights reserved.
+# SUN PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
+#
+
+#
+# @(#)Library.gmk	1.96 03/01/23
+#
+# Generic makefile for building shared libraries.
+#
+
+.PHONY: all optimized debug clean .exported.classes
+
+all: optimized debug
+
+include $(BUILDDIR)/common/Classes.gmk
+
+#
+# It is important to define these *after* including Classes.gmk
+# in order to override the values defined inthat makefile.
+#
+
+ifeq ($(LIBRARY), fdlibm)
+ifeq ($(PLATFORM),windows)
+DEBUG     = $(DBG_OBJDIR)/$(LIB_PREFIX)$(LIBRARY)$(DBG_SUFFIX).$(FDDLIBM_SUFFIX)
+OPTIMIZED = $(OPT_OBJDIR)/$(LIB_PREFIX)$(LIBRARY)$(OPT_SUFFIX).$(FDDLIBM_SUFFIX)
+else # PLATFORM
+DEBUG     = $(DBG_OBJDIR)/$(LIB_PREFIX)$(LIBRARY)$(DBG_SUFFIX).$(ARCH).$(FDDLIBM_SUFFIX)
+OPTIMIZED = $(OPT_OBJDIR)/$(LIB_PREFIX)$(LIBRARY)$(OPT_SUFFIX).$(ARCH).$(FDDLIBM_SUFFIX)
+endif #PLATFORM
+else # LIBRARY
+
+DEBUG     = $(LIB_LOCATION)/$(LIB_PREFIX)$(LIBRARY)$(DBG_SUFFIX).$(LIBRARY_SUFFIX)
+OPTIMIZED = $(LIB_LOCATION)/$(LIB_PREFIX)$(LIBRARY)$(OPT_SUFFIX).$(LIBRARY_SUFFIX)
+endif
+
+FILES_o   = $(patsubst %.c,   %.$(OBJECT_SUFFIX), $(addprefix $(OBJDIR)/, $(notdir $(FILES_c))))
+FILES_o  += $(patsubst %.s,   %.$(OBJECT_SUFFIX), $(addprefix $(OBJDIR)/, $(notdir $(FILES_s))))
+FILES_o  += $(patsubst %.cpp, %.$(OBJECT_SUFFIX), $(addprefix $(OBJDIR)/, $(notdir $(FILES_cpp))))
+
+$(OPTIMIZED) $(DEBUG):: $(INIT) $(OBJDIR) $(TMPDIR) $(LIBDIR) $(EXTDIR) $(BINDIR) classheaders
+
+ifeq ($(PLATFORM), windows)
+
+#
+# Library building rules.
+#
+
+$(LIBRARY)$(SUFFIX).lib:: $(OBJDIR)
+
+ifeq ($(LIBRARY), fdlibm)
+$(OPTIMIZED) $(DEBUG):: $(OBJDIR)/$(LIBRARY)$(SUFFIX).lib
+
+$(OBJDIR)/$(LIBRARY)$(SUFFIX).lib:: $(OBJDIR)/$(LIBRARY)$(SUFFIX).lcf
+	$(LIBEXE) -NODEFAULTLIB:MSVCRT -out:$@ -nologo \
+		@$(OBJDIR)/$(LIBRARY)$(SUFFIX).lcf $(OTHER_LCF) $(LDLIBS_COMMON)
+else # LIBRARY
+# build it into $(OBJDIR) so that the other generated files get put 
+# there, then copy just the DLL to the requested directory.
+#
+ifeq ($(LIBRARY), hprof)
+# hprof library does not need JAVALIB
+$(OPTIMIZED) $(DEBUG):: $(OBJDIR)/$(LIBRARY)$(SUFFIX).lcf 
+	$(LINK) -dll -out:$(OBJDIR)/$(@F) $(LFLAGS) @$(OBJDIR)/$(LIBRARY)$(SUFFIX).lcf $(OTHER_LCF) $(LDLIBS)
+	$(CP) $(OBJDIR)/$(@F) $@
+
+else # hprof LIBRARY
+$(OPTIMIZED) $(DEBUG):: $(OBJDIR)/$(LIBRARY)$(SUFFIX).lcf 
+	$(LINK) -dll -out:$(OBJDIR)/$(@F) $(LFLAGS) @$(OBJDIR)/$(LIBRARY)$(SUFFIX).lcf $(OTHER_LCF) $(JAVALIB) $(LDLIBS)
+	$(CP) $(OBJDIR)/$(@F) $@
+
+endif # hprof LIBRARY
+endif # LIBRARY
+
+$(OBJDIR)/$(LIBRARY)$(SUFFIX).lcf: $(FILES_o) $(FILES_m)
+	@$(ECHO) $(FILES_o) > $@ 
+	@$(ECHO) Created $@ 
+
+else # PLATFORM
+# create the LIBDIR/LIBARCH directory for non-windows platforms.
+$(OPTIMIZED) $(DEBUG):: $(LIBDIR)/$(LIBARCH)
+endif # PLATFORM
+
+#
+# C++ libraries must be linked with CC.
+#
+ifdef CPLUSPLUSLIBRARY
+LINKER=$(LINK.cc)
+else
+LINKER=$(LINK.c)
+endif
+
+ifeq ($(PLATFORM), windows)
+#
+# Install a .lib file if required.
+#
+ifeq ($(INSTALL_DOT_LIB), true)
+$(OPTIMIZED) $(DEBUG):: $(LIBDIR)/$(LIBRARY)$(SUFFIX).lib
+
+clean:: 
+	-$(RM) $(LIBDIR)/$(LIBRARY)$(SUFFIX).lib
+
+$(LIBDIR)/$(LIBRARY)$(SUFFIX).lib:: $(OBJDIR)/$(LIBRARY)$(SUFFIX).lib
+	$(CP) $< $@
+
+$(LIBDIR)/$(LIBRARY)$(SUFFIX).dll:: $(OBJDIR)/$(LIBRARY)$(SUFFIX).dll
+	$(CP) $< $@
+
+endif # INSTALL_DOT_LIB
+else # PLATFORM
+
+ifeq ($(LINK_WITH_MAPFILE),true)
+LDFLAGS += $(LD_MAPFILE_FLAG) $(OBJDIR)/$(LIBRARY)$(SUFFIX).$(ARCH).mapfile
+$(OPTIMIZED) $(DEBUG):: $(OBJDIR)/$(LIBRARY)$(SUFFIX).$(ARCH).mapfile
+endif
+
+#
+# On Solaris, use mcs to write the version into the comment section of
+# the shared library.  On other platforms set this to false at the
+# make command line.
+#
+
+WRITE_LIB_VERSION=true
+
+$(OPTIMIZED) $(DEBUG):: $(FILES_o) $(FILES_m) $(FILES_reorder)
+	@set -- $?; \
+	$(ECHO) Rebuilding $@ because of $$1 $$2 $$3 $$4 $$5 $$6 $${7:+...};
+ifeq ($(LIBRARY), fdlibm)
+	$(AR) -r $@ $(FILES_o)
+else # LIBRARY
+ifeq ($(CC_VERSION), gcc)
+	$(LINKER) -shared -mimpure-text -o $@ $(FILES_o) $(LDLIBS)
+else # CC_VERSION
+	$(LINKER) -G -o $@ $(FILES_o) $(LDLIBS)
+endif # CC_VERSION
+	$(POST_PROCESS)
+
+
+ifeq ($(WRITE_LIBVERSION),true)
+	$(MCS) -d -a "$(FULL_VERSION)" $@
+endif # WRITE_LIBVERSION
+endif # LIBRARY
+endif # PLATFORM
+
+#
+# Class libraries with JNI native methods get a include to the package.
+#
+ifdef PACKAGE
+vpath %.c $(PLATFORM_SRC)/native/$(PKGDIR)
+vpath %.c $(SHARE_SRC)/native/$(PKGDIR)
+OTHER_INCLUDES += -I$(SHARE_SRC)/native/common -I$(PLATFORM_SRC)/native/common
+OTHER_INCLUDES += -I$(SHARE_SRC)/native/$(PKGDIR) \
+		  -I$(PLATFORM_SRC)/native/$(PKGDIR)
+endif
+
+clean::
+	$(RM) -r $(DEBUG) $(OPTIMIZED)
+
+clobber:: clean
+
+#
+# Include make dependancies
+#
+files := $(foreach file, $(wildcard $(OBJDIR)/*.d), $(file))
+ifneq ($(strip $(files)),)
+    include $(files)
+endif

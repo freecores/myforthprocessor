@@ -1,0 +1,30 @@
+#
+# @(#)FILES_c.gmk	1.7 02/09/19
+#
+FILES_c = \
+        $(CTARGDIR)mlib_ImageAffine_f.c \
+        $(CTARGDIR)mlib_ImageAffine_NN.c \
+        $(CTARGDIR)mlib_ImageAffine_NN_Fp.c \
+        $(CTARGDIR)mlib_ImageConvMxNFunc.c \
+        $(CTARGDIR)mlib_ImageConv_16nw.c \
+        $(CTARGDIR)mlib_ImageConv_32nw.c \
+        $(CTARGDIR)mlib_ImageCreate.c \
+        $(CTARGDIR)mlib_ImageScanPoly.c \
+        $(CTARGDIR)mlib_ImageDivTables.c \
+        $(CTARGDIR)mlib_ImageAffineEdge.c \
+        $(CTARGDIR)mlib_ImageFilters.c \
+        $(CTARGDIR)mlib_ImageLookUp_64.c \
+        $(CTARGDIR)mlib_ImageUtils.c \
+        $(CTARGDIR)mlib_sys.c \
+        $(CTARGDIR)mlib_c_ImageBlendTable.c \
+        $(CTARGDIR)mlib_c_ImageAffine.c \
+        $(CTARGDIR)mlib_c_ImageAffine_BC.c \
+        $(CTARGDIR)mlib_c_ImageAffine_BL.c \
+        $(CTARGDIR)mlib_c_ImageAffine_NN.c \
+        $(CTARGDIR)mlib_c_ImageConvClearEdge.c \
+        $(CTARGDIR)mlib_c_ImageConvCopyEdge.c \
+        $(CTARGDIR)mlib_c_ImageConv2x2_f.c \
+        $(CTARGDIR)mlib_c_ImageConvMxN.c \
+        $(CTARGDIR)mlib_c_ImageConv_8nw.c \
+        $(CTARGDIR)mlib_c_ImageLookUp.c \
+        $(CTARGDIR)mlib_c_ImageConvKernelConvert.c

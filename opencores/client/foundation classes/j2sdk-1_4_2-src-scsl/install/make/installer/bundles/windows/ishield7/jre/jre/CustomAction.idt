@@ -1,0 +1,44 @@
+Action	Type	Source	Target	ISComments
+s72	i2	S64	S0	S255
+CustomAction	Action
+charsets	2	Unpack	-l "[LOGFILE]" "[INSTALLDIR]\lib\charsets.pack" "[INSTALLDIR]\lib\charsets.jar"	
+CheckForRebootUninstall	1	DLLWRAP.DLL	DLL11	
+CreateJavaWSDesktopIcon	65	DLLWRAP.DLL	DLL16	Call RegUtils DLL to create Desktop icon for Java Web Start
+CreateJavaWSStartMenuIcon	65	DLLWRAP.DLL	DLL17	Calls RegUtils DLL to create Start Menu icon for Java Web Start
+DLLWrapCleanup	257	DLLWRAP.DLL	DLLWrapCleanup	
+DLLWrapStartup	1	DLLWRAP.DLL	DLLWrapStartup	
+getlogfile	65	DLLWRAP.DLL	DLL10	
+InstallJavaRegistrySettings	1	DLLWRAP.DLL	DLL1	
+IsControlPanelLocked	1	DLLWRAP.DLL	DLL5	
+IsIEInstalled	1	DLLWRAP.DLL	DLL25	Is Internet Explorer Installed
+IsIntlInstall	1	DLLWRAP.DLL	DLL12	
+IsJAVAJAVAWLocked	1	DLLWRAP.DLL	DLL6	
+IsMozillaInstalled	1	DLLWRAP.DLL	DLL23	Find out if Mozilla is installed on the system
+IsNetscapeInstalled	1	DLLWRAP.DLL	DLL22	Find out if Netscape 6 is installed on the system
+issemicolon	65	DLLWRAP.DLL	DLL8	is there a semi colon in the installdir?
+ISSetupFilesCleanup	257	ISSetupFilesHelper	SFCleanupEx	
+ISSetupFilesExtract	257	ISSetupFilesHelper	SFStartupEx	
+javaws	2	Unpack	-l "[LOGFILE]" "[INSTALLDIR]\javaws\javaws.pack" "[INSTALLDIR]\javaws\javaws.jar"	Unpack javaws jar file
+jaws	2	Unpack	-l "[LOGFILE]" "[INSTALLDIR]\lib\plugin.pack" "[INSTALLDIR]\lib\plugin.jar"	
+jsse	2	Unpack	-l "[LOGFILE]" "[INSTALLDIR]\lib\jsse.pack" "[INSTALLDIR]\lib\jsse.jar"	
+localedata	2	Unpack	-l "[LOGFILE]" "[INSTALLDIR]\lib\ext\localedata.pack" "[INSTALLDIR]\lib\ext\localedata.jar"	
+patchjre	82	patchjre.exe	-s "[INSTALLDIR]"	
+RegisterJavaWS	65	DLLWRAP.DLL	DLL14	Call RegUtils DLL function to register Java Web Start
+RegJava2GeckoDefault	1	DLLWRAP.DLL	DLL4	
+RegJava2IExplorerDefault	1	DLLWRAP.DLL	DLL7	
+RegJava2Netscape4Default	1	DLLWRAP.DLL	DLL9	
+RegJava2Netscape6Default	1	DLLWRAP.DLL	DLL2	
+removepackfiles	1	DLLWRAP.DLL	DLL13	
+rt	2	Unpack	-l "[LOGFILE]" "[INSTALLDIR]\lib\rt.pack" "[INSTALLDIR]\lib\rt.jar"	
+setAllUsersProfile2K	51	ALLUSERSPROFILE	[%ALLUSERSPROFILE]	
+SetAllUsersProfileNT	51	ALLUSERSPROFILE	[%SystemRoot]\Profiles\All Users	
+SetARPReadme	51	Readme.txt	ARPREADME	
+setUserProfileNT	51	USERPROFILE	[%USERPROFILE]	
+UninstallJRE	1	DLLWRAP.DLL	DLL24	
+unzipcore1	2	Zipper	"[CommonFilesFolder]Java\Update\Base Images\j2reBASEIMAGEFULLVERSION\core1.zip" "[INSTALLDIR]\" "[LOGFILE]"	
+unzipcore2	2	Zipper	"[CommonFilesFolder]Java\Update\Base Images\j2reBASEIMAGEFULLVERSION\core2.zip" "[INSTALLDIR]\" "[LOGFILE]"	
+unzipcore3	2	Zipper	"[CommonFilesFolder]Java\Update\Base Images\j2reBASEIMAGEFULLVERSION\core3.zip" "[INSTALLDIR]\" "[LOGFILE]"	
+unzipextra	2	Zipper	"[CommonFilesFolder]Java\Update\Base Images\j2reBASEIMAGEFULLVERSION\extra.zip" "[INSTALLDIR]\" "[LOGFILE]"	
+unzipother	2	Zipper	"[CommonFilesFolder]Java\Update\Base Images\j2reBASEIMAGEFULLVERSION\other.zip" "[INSTALLDIR]\" "[LOGFILE]"	
+needreboot	1	DLLWRAP.DLL	DLL15	do we need a reboot
+SetIExplorer	51	IEXPLORER	1	

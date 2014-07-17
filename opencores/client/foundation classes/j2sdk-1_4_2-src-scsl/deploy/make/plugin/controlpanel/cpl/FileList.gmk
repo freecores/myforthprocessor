@@ -1,0 +1,4 @@
+FILES_cpp = plugincpl.cpp \
+            UserProfile.cpp
+
+FILES_rc = plugincpl.rc

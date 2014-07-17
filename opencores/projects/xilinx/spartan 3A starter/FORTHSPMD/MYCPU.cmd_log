@@ -1,0 +1,92 @@
+xst -intstyle ise -ifn "C:/Xilinx/FORTHSPMD/MYCPU.xst" -ofn "C:/Xilinx/FORTHSPMD/MYCPU.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc MYCPU.ucf -p xc3s700a-fg484-4 MYCPU.ngc MYCPU.ngd  
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc MYCPU.ucf -p xc3s700a-fg484-4 MYCPU.ngc MYCPU.ngd  
+map -intstyle ise -p xc3s700a-fg484-4 -timing -logic_opt off -ol high -xe n -t 1 -register_duplication off -cm area -ir off -pr off -power off -o MYCPU_map.ncd MYCPU.ngd MYCPU.pcf 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc MYCPU.ucf -p xc3s700a-fg484-4 MYCPU.ngc MYCPU.ngd  
+map -intstyle ise -p xc3s700a-fg484-4 -timing -logic_opt off -ol high -xe n -t 1 -register_duplication off -cm area -ir off -pr off -power off -o MYCPU_map.ncd MYCPU.ngd MYCPU.pcf 
+par -w -intstyle ise -ol high -t 1 MYCPU_map.ncd MYCPU.ncd MYCPU.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml MYCPU.twx MYCPU.ncd -o MYCPU.twr MYCPU.pcf -ucf MYCPU.ucf 
+bitgen -intstyle ise -f MYCPU.ut MYCPU.ncd 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc MYCPU.ucf -p xc3s700a-fg484-4 MYCPU.ngc MYCPU.ngd  
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc MYCPU.ucf -p xc3s700a-fg484-4 MYCPU.ngc MYCPU.ngd  
+map -intstyle ise -p xc3s700a-fg484-4 -timing -logic_opt off -ol high -xe n -t 1 -register_duplication off -cm area -ir off -pr off -power off -o MYCPU_map.ncd MYCPU.ngd MYCPU.pcf 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc MYCPU.ucf -p xc3s700a-fg484-4 MYCPU.ngc MYCPU.ngd  
+map -intstyle ise -p xc3s700a-fg484-4 -timing -logic_opt off -ol high -xe n -t 1 -register_duplication off -cm area -ir off -pr off -power off -o MYCPU_map.ncd MYCPU.ngd MYCPU.pcf 
+par -w -intstyle ise -ol high -t 1 MYCPU_map.ncd MYCPU.ncd MYCPU.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml MYCPU.twx MYCPU.ncd -o MYCPU.twr MYCPU.pcf -ucf MYCPU.ucf 
+bitgen -intstyle ise -f MYCPU.ut MYCPU.ncd 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc MYCPU.ucf -p xc3s700a-fg484-4 MYCPU.ngc MYCPU.ngd  
+xst -intstyle ise -ifn "C:/Xilinx/FORTHSPMD/MYCPU.xst" -ofn "C:/Xilinx/FORTHSPMD/MYCPU.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc MYCPU.ucf -p xc3s700a-fg484-4 MYCPU.ngc MYCPU.ngd  
+xst -intstyle ise -ifn "C:/Xilinx/FORTHSPMD/MYCPU.xst" -ofn "C:/Xilinx/FORTHSPMD/MYCPU.syr" 
+ngdbuild -intstyle ise -dd _ngo -aut -nt timestamp -uc MYCPU.ucf -p xc3s700a-fg484-4 MYCPU.ngc MYCPU.ngd  
+xst -intstyle ise -ifn "C:/Xilinx/FORTHSPMD/MYCPU.xst" -ofn "C:/Xilinx/FORTHSPMD/MYCPU.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc MYCPU.ucf -p xc3s700a-fg484-4 MYCPU.ngc MYCPU.ngd  
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc MYCPU.ucf -p xc3s700a-fg484-4 MYCPU.ngc MYCPU.ngd  
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc MYCPU.ucf -p xc3s700a-fg484-4 MYCPU.ngc MYCPU.ngd  
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc MYCPU.ucf -p xc3s700a-fg484-4 MYCPU.ngc MYCPU.ngd  
+xst -intstyle ise -ifn "C:/Xilinx/FORTHSPMD/MYCPU.xst" -ofn "C:/Xilinx/FORTHSPMD/MYCPU.syr" 
+xst -intstyle ise -ifn "C:/Xilinx/FORTHSPMD/MYCPU.xst" -ofn "C:/Xilinx/FORTHSPMD/MYCPU.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc MYCPU.ucf -p xc3s700a-fg484-4 MYCPU.ngc MYCPU.ngd  
+map -intstyle ise -p xc3s700a-fg484-4 -timing -logic_opt off -ol high -xe n -t 1 -register_duplication off -cm area -ir off -pr off -power off -o MYCPU_map.ncd MYCPU.ngd MYCPU.pcf 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc MYCPU.ucf -p xc3s700a-fg484-4 MYCPU.ngc MYCPU.ngd  
+xst -intstyle ise -ifn "C:/Xilinx/FORTHSPMD/MYCPU.xst" -ofn "C:/Xilinx/FORTHSPMD/MYCPU.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc MYCPU.ucf -p xc3s700a-fg484-4 MYCPU.ngc MYCPU.ngd  
+xst -intstyle ise -ifn "C:/Xilinx/FORTHSPMD/MYCPU.xst" -ofn "C:/Xilinx/FORTHSPMD/MYCPU.syr" 
+xst -intstyle ise -ifn "C:/Xilinx/FORTHSPMD/MYCPU.xst" -ofn "C:/Xilinx/FORTHSPMD/MYCPU.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc MYCPU.ucf -p xc3s700a-fg484-4 MYCPU.ngc MYCPU.ngd  
+xst -intstyle ise -ifn "C:/Xilinx/FORTHSPMD/MYCPU.xst" -ofn "C:/Xilinx/FORTHSPMD/MYCPU.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc MYCPU.ucf -p xc3s700a-fg484-4 MYCPU.ngc MYCPU.ngd  
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc MYCPU.ucf -p xc3s700a-fg484-4 MYCPU.ngc MYCPU.ngd  
+map -intstyle ise -p xc3s700a-fg484-4 -timing -logic_opt off -ol high -xe n -t 1 -register_duplication off -cm area -ir off -pr off -power off -o MYCPU_map.ncd MYCPU.ngd MYCPU.pcf 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc MYCPU.ucf -p xc3s700a-fg484-4 MYCPU.ngc MYCPU.ngd  
+map -intstyle ise -p xc3s700a-fg484-4 -timing -logic_opt off -ol high -xe n -t 1 -register_duplication off -cm area -ir off -pr off -power off -o MYCPU_map.ncd MYCPU.ngd MYCPU.pcf 
+par -w -intstyle ise -ol high -t 1 MYCPU_map.ncd MYCPU.ncd MYCPU.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml MYCPU.twx MYCPU.ncd -o MYCPU.twr MYCPU.pcf -ucf MYCPU.ucf 
+bitgen -intstyle ise -f MYCPU.ut MYCPU.ncd 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc MYCPU.ucf -p xc3s700a-fg484-4 MYCPU.ngc MYCPU.ngd  
+xst -intstyle ise -ifn "C:/Xilinx/FORTHSPMD/MYCPU.xst" -ofn "C:/Xilinx/FORTHSPMD/MYCPU.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc MYCPU.ucf -p xc3s700a-fg484-4 MYCPU.ngc MYCPU.ngd  
+xst -intstyle ise -ifn "C:/Xilinx/FORTHSPMD/MYCPU.xst" -ofn "C:/Xilinx/FORTHSPMD/MYCPU.syr" 
+xst -intstyle ise -ifn "C:/Xilinx/FORTHSPMD/MYCPU.xst" -ofn "C:/Xilinx/FORTHSPMD/MYCPU.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc MYCPU.ucf -p xc3s700a-fg484-4 MYCPU.ngc MYCPU.ngd  
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc MYCPU.ucf -p xc3s700a-fg484-4 MYCPU.ngc MYCPU.ngd  
+xst -intstyle ise -ifn "C:/Xilinx/FORTHSPMD/MYCPU.xst" -ofn "C:/Xilinx/FORTHSPMD/MYCPU.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc MYCPU.ucf -p xc3s700a-fg484-4 MYCPU.ngc MYCPU.ngd  
+map -intstyle ise -p xc3s700a-fg484-4 -timing -logic_opt off -ol high -xe n -t 1 -register_duplication off -cm area -ir off -pr off -power off -o MYCPU_map.ncd MYCPU.ngd MYCPU.pcf 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc MYCPU.ucf -p xc3s700a-fg484-4 MYCPU.ngc MYCPU.ngd  
+map -intstyle ise -p xc3s700a-fg484-4 -timing -logic_opt off -ol high -xe n -t 1 -register_duplication off -cm area -ir off -pr off -power off -o MYCPU_map.ncd MYCPU.ngd MYCPU.pcf 
+par -w -intstyle ise -ol high -t 1 MYCPU_map.ncd MYCPU.ncd MYCPU.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml MYCPU.twx MYCPU.ncd -o MYCPU.twr MYCPU.pcf -ucf MYCPU.ucf 
+bitgen -intstyle ise -f MYCPU.ut MYCPU.ncd 
+xst -intstyle ise -ifn "C:/Xilinx/FORTHSPMD/MYCPU.xst" -ofn "C:/Xilinx/FORTHSPMD/MYCPU.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc MYCPU.ucf -p xc3s700a-fg484-4 MYCPU.ngc MYCPU.ngd  
+map -intstyle ise -p xc3s700a-fg484-4 -timing -logic_opt off -ol high -xe n -t 1 -register_duplication off -cm area -ir off -pr off -power off -o MYCPU_map.ncd MYCPU.ngd MYCPU.pcf 
+par -w -intstyle ise -ol high -t 1 MYCPU_map.ncd MYCPU.ncd MYCPU.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml MYCPU.twx MYCPU.ncd -o MYCPU.twr MYCPU.pcf -ucf MYCPU.ucf 
+bitgen -intstyle ise -f MYCPU.ut MYCPU.ncd 
+xst -intstyle ise -ifn "C:/Xilinx/FORTHSPMD/MYCPU.xst" -ofn "C:/Xilinx/FORTHSPMD/MYCPU.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc MYCPU.ucf -p xc3s700a-fg484-4 MYCPU.ngc MYCPU.ngd  
+map -intstyle ise -p xc3s700a-fg484-4 -timing -logic_opt off -ol high -xe n -t 1 -register_duplication off -cm area -ir off -pr off -power off -o MYCPU_map.ncd MYCPU.ngd MYCPU.pcf 
+par -w -intstyle ise -ol high -t 1 MYCPU_map.ncd MYCPU.ncd MYCPU.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml MYCPU.twx MYCPU.ncd -o MYCPU.twr MYCPU.pcf -ucf MYCPU.ucf 
+bitgen -intstyle ise -f MYCPU.ut MYCPU.ncd 
+xst -intstyle ise -ifn "C:/Xilinx/FORTHSPMD/MYCPU.xst" -ofn "C:/Xilinx/FORTHSPMD/MYCPU.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc MYCPU.ucf -p xc3s700a-fg484-4 MYCPU.ngc MYCPU.ngd  
+map -intstyle ise -p xc3s700a-fg484-4 -timing -logic_opt off -ol high -xe n -t 1 -register_duplication off -cm area -ir off -pr off -power off -o MYCPU_map.ncd MYCPU.ngd MYCPU.pcf 
+par -w -intstyle ise -ol high -t 1 MYCPU_map.ncd MYCPU.ncd MYCPU.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml MYCPU.twx MYCPU.ncd -o MYCPU.twr MYCPU.pcf -ucf MYCPU.ucf 
+bitgen -intstyle ise -f MYCPU.ut MYCPU.ncd 
+bitgen -intstyle ise -f MYCPU.ut MYCPU.ncd 
+xst -intstyle ise -ifn "E:/Xilinx/FORTHSPMD/MYCPU.xst" -ofn "E:/Xilinx/FORTHSPMD/MYCPU.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc MYCPU.ucf -p xc3s700a-fg484-4 MYCPU.ngc MYCPU.ngd  
+map -intstyle ise -p xc3s700a-fg484-4 -timing -logic_opt off -ol high -xe n -t 1 -register_duplication off -cm area -ir off -pr off -power off -o MYCPU_map.ncd MYCPU.ngd MYCPU.pcf 
+par -w -intstyle ise -ol high -t 1 MYCPU_map.ncd MYCPU.ncd MYCPU.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml MYCPU.twx MYCPU.ncd -o MYCPU.twr MYCPU.pcf -ucf MYCPU.ucf 
+bitgen -intstyle ise -f MYCPU.ut MYCPU.ncd 
+xst -intstyle ise -ifn "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMD/MYCPU.xst" -ofn "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMD/MYCPU.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc MYCPU.ucf -p xc3s700a-fg484-4 "MYCPU.ngc" MYCPU.ngd  
+map -intstyle ise -p xc3s700a-fg484-4 -timing -logic_opt off -ol high -xe n -t 1 -register_duplication off -cm area -ir off -pr off -power off -o MYCPU_map.ncd MYCPU.ngd MYCPU.pcf 
+par -w -intstyle ise -ol high -t 1 MYCPU_map.ncd MYCPU.ncd MYCPU.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml MYCPU.twx MYCPU.ncd -o MYCPU.twr MYCPU.pcf -ucf MYCPU.ucf 
+bitgen -intstyle ise -f MYCPU.ut MYCPU.ncd 

@@ -1,0 +1,6 @@
+#!/bin/csh -f
+
+set startdir   = `dirname $0`
+set classesdir = `dirname $0`/classes
+
+$JAVA_HOME/bin/java -classpath $classesdir -Djava.library.path=../../../os/solaris/agent/proc -Djava.rmi.server.codebase=file:/$classesdir -Djava.security.policy=$startdir\/grantAll.policy -Dsun.jvm.hotspot.debugger.useProcDebugger sun.jvm.hotspot.DebugServer $*

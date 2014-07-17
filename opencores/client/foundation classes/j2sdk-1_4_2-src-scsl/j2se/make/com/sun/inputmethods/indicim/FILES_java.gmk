@@ -1,0 +1,11 @@
+#
+# @(#)FILES_java.gmk	1.2 03/01/23
+#
+# Copyright 2003 Sun Microsystems, Inc. All rights reserved.
+# SUN PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
+#
+FILES_java = \
+	$(TARGDIR)com/sun/inputmethods/internal/indicim/IndicInputMethod.java \
+	$(TARGDIR)com/sun/inputmethods/internal/indicim/IndicInputMethodImpl.java \
+	$(TARGDIR)com/sun/inputmethods/internal/indicim/DevanagariInputMethodDescriptor.java \
+	$(TARGDIR)com/sun/inputmethods/internal/indicim/DevanagariTables.java

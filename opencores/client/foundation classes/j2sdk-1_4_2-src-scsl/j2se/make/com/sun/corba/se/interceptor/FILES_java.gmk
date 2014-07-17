@@ -1,0 +1,9 @@
+#
+# @(#)FILES_java.gmk	1.2 02/09/19
+# Files for interceptor
+#
+
+FILES_java = \
+	$(TARGDIR)com/sun/corba/se/interceptor/IORInfoExt.java \
+	$(TARGDIR)com/sun/corba/se/interceptor/RequestInfoExt.java \
+	$(TARGDIR)com/sun/corba/se/interceptor/UnknownType.java

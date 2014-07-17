@@ -1,0 +1,1779 @@
+00000014               
+00000014               JavaArray.JavaArray§-2046277120 LABEL 
+00000014  55           1 VAL 
+00000015  0d00000000   VALLOCATE VAL ( will be modified! ) 
+0000001a  00           NOP ( will be modified! ) 
+0000001b  90           A:R@ ( §base0 declared ) 
+0000001c  08           DROP 
+0000001d  56           0 VAL 
+0000001e  90           A:R@ ( §this declared ) 
+0000001f  08           DROP 
+00000020  0d00000000   Object§-1890496768.table VAL ( will be modified! ) 
+00000025  00           NOP ( will be modified! ) 
+00000026  0d004fea6c   1827294976 VAL 
+0000002b  0d00000000   EXECUTE-NEW VAL ( will be modified! ) 
+00000030  00           NOP ( will be modified! ) 
+00000031  462800       40 VAL 
+00000034  0d00000000   MALLOC VAL ( will be modified! ) 
+00000039  00           NOP ( will be modified! ) 
+0000003a  08           DROP 
+0000003b  0e           DUP 
+0000003c  0e           DUP ( §base0 will be fetched! ) 
+0000003d  d5           1 A:VAL 
+0000003e  8b           A:PICK 
+0000003f  10           R@ 
+00000040  88           A:DROP 
+00000041  0d00000000   V! VAL ( will be modified! ) 
+00000046  00           NOP ( will be modified! ) ( §this will be modified! ) 
+00000047  88           A:DROP 
+00000048  90           A:R@ 
+00000049  08           DROP 
+0000004a  0f           OVER 
+0000004b  420900       §1 0BRANCH 
+0000004e  0f           OVER 
+0000004f  1d           CELL+ 
+00000050  02           @ 
+00000051  52           4 VAL 
+00000052  16           + 
+00000053  0f           OVER 
+00000054  0f           OVER 
+00000055  01           ! 
+00000056  08           DROP 
+00000057               §1 LABEL 
+00000057  1d           CELL+ 
+00000058  02           @ 
+00000059  0f           OVER 
+0000005a  0f           OVER 
+0000005b  01           ! 
+0000005c  0a           NIP 
+0000005d  0d00000000   JavaArray§1352878592.table VAL ( will be modified! ) 
+00000062  00           NOP ( will be modified! ) 
+00000063  0f           OVER 
+00000064  4a           12 VAL 
+00000065  16           + 
+00000066  01           ! 
+00000067  0d0000a350   1352859648 VAL 
+0000006c  0f           OVER 
+0000006d  461400       20 VAL 
+00000070  16           + 
+00000071  01           ! 
+00000072  0da0000000   §2 VAL 
+00000077  0f           OVER 
+00000078  461000       16 VAL 
+0000007b  16           + 
+0000007c  01           ! 
+0000007d  56           0 VAL 
+0000007e  0f           OVER 
+0000007f  461800       24 VAL 
+00000082  16           + 
+00000083  01           ! 
+00000084  08           DROP ( §this will be fetched! ) 
+00000085  10           R@ 
+00000086  0e           DUP 
+00000087  56           0 VAL 
+00000088  0d00000000   V! VAL ( will be modified! ) 
+0000008d  00           NOP ( will be modified! ) 
+0000008e  56           0 VAL 
+0000008f               §break28178 LABEL ( §base0 will be fetched! ) 
+0000008f  d5           1 A:VAL 
+00000090  8b           A:PICK 
+00000091  10           R@ 
+00000092  88           A:DROP 
+00000093  0d00000000   SETVTOP VAL ( will be modified! ) 
+00000098  00           NOP ( will be modified! ) remove §this remove §base0 
+00000099  89           A:2DROP 
+0000009a  08           DROP 
+0000009b               §0 LABEL 
+0000009b  3d           EXIT 
+0000009c  0900         §2 LABEL 
+0000009e  4a6176614172726179 " JavaArray " 
+000000a7               
+000000a7               JavaArray.JavaArray§-227194368 LABEL 
+000000a7  55           1 VAL 
+000000a8  0d00000000   VALLOCATE VAL ( will be modified! ) 
+000000ad  00           NOP ( will be modified! ) 
+000000ae  90           A:R@ ( §base0 declared ) 
+000000af  08           DROP 
+000000b0  90           A:R@ ( code declared ) 
+000000b1  08           DROP 
+000000b2  90           A:R@ ( length declared ) 
+000000b3  08           DROP 
+000000b4  56           0 VAL 
+000000b5  0e           DUP 
+000000b6  90           A:R@ ( x declared ) 
+000000b7  08           DROP 
+000000b8  90           A:R@ ( §this declared ) 
+000000b9  08           DROP 
+000000ba  0d00000000   Object§-1890496768.table VAL ( will be modified! ) 
+000000bf  00           NOP ( will be modified! ) 
+000000c0  0d004fea6c   1827294976 VAL 
+000000c5  0d00000000   EXECUTE-NEW VAL ( will be modified! ) 
+000000ca  00           NOP ( will be modified! ) 
+000000cb  462800       40 VAL 
+000000ce  0d00000000   MALLOC VAL ( will be modified! ) 
+000000d3  00           NOP ( will be modified! ) 
+000000d4  08           DROP 
+000000d5  0e           DUP 
+000000d6  0e           DUP ( §base0 will be fetched! ) 
+000000d7  d2           4 A:VAL 
+000000d8  8b           A:PICK 
+000000d9  10           R@ 
+000000da  88           A:DROP 
+000000db  0d00000000   V! VAL ( will be modified! ) 
+000000e0  00           NOP ( will be modified! ) ( §this will be modified! ) 
+000000e1  88           A:DROP 
+000000e2  90           A:R@ 
+000000e3  08           DROP 
+000000e4  0f           OVER 
+000000e5  420900       §4 0BRANCH 
+000000e8  0f           OVER 
+000000e9  1d           CELL+ 
+000000ea  02           @ 
+000000eb  52           4 VAL 
+000000ec  16           + 
+000000ed  0f           OVER 
+000000ee  0f           OVER 
+000000ef  01           ! 
+000000f0  08           DROP 
+000000f1               §4 LABEL 
+000000f1  1d           CELL+ 
+000000f2  02           @ 
+000000f3  0f           OVER 
+000000f4  0f           OVER 
+000000f5  01           ! 
+000000f6  0a           NIP 
+000000f7  0d00000000   JavaArray§1352878592.table VAL ( will be modified! ) 
+000000fc  00           NOP ( will be modified! ) 
+000000fd  0f           OVER 
+000000fe  4a           12 VAL 
+000000ff  16           + 
+00000100  01           ! 
+00000101  0d0000a350   1352859648 VAL 
+00000106  0f           OVER 
+00000107  461400       20 VAL 
+0000010a  16           + 
+0000010b  01           ! 
+0000010c  0da0000000   §2 VAL 
+00000111  0f           OVER 
+00000112  461000       16 VAL 
+00000115  16           + 
+00000116  01           ! 
+00000117  56           0 VAL 
+00000118  0f           OVER 
+00000119  461800       24 VAL 
+0000011c  16           + 
+0000011d  01           ! 
+0000011e  08           DROP ( code will be fetched! ) 
+0000011f  d3           3 A:VAL 
+00000120  8b           A:PICK 
+00000121  10           R@ 
+00000122  88           A:DROP 
+00000123  90           A:R@ 
+00000124  2a           0< 
+00000125  10           R@ 
+00000126  88           A:DROP 
+00000127  461000       16 VAL 
+0000012a  0d00000000   SHIFTR VAL ( will be modified! ) 
+0000012f  00           NOP ( will be modified! ) 
+00000130  0a           NIP ( x will be modified! ) 
+00000131  90           A:R@ 
+00000132  d5           1 A:VAL 
+00000133  8c           A:PUT 
+00000134  08           DROP ( x will be fetched! ) 
+00000135  d5           1 A:VAL 
+00000136  8b           A:PICK 
+00000137  10           R@ 
+00000138  88           A:DROP 
+00000139  55           1 VAL 
+0000013a  0f           OVER 
+0000013b  17           - 
+0000013c  36           0<> 
+0000013d  421900       §§group_28165 0BRANCH 
+00000140  54           2 VAL 
+00000141  0f           OVER 
+00000142  17           - 
+00000143  36           0<> 
+00000144  421200       §§group_28165 0BRANCH 
+00000147  51           5 VAL 
+00000148  0f           OVER 
+00000149  17           - 
+0000014a  36           0<> 
+0000014b  422400       §§group_28166 0BRANCH 
+0000014e  50           6 VAL 
+0000014f  0f           OVER 
+00000150  17           - 
+00000151  36           0<> 
+00000152  421d00       §§group_28166 0BRANCH 
+00000155  402e00       §§group_28167 BRANCH 
+00000158  0e           DUP 
+00000159               §§group_28165 LABEL 
+00000159  08           DROP ( x will be fetched! ) 
+0000015a  d5           1 A:VAL 
+0000015b  8b           A:PICK 
+0000015c  10           R@ 
+0000015d  88           A:DROP 
+0000015e  55           1 VAL 
+0000015f  17           - 
+00000160  0e           DUP ( §this will be fetched! ) 
+00000161  10           R@ 
+00000162  1d           CELL+ 
+00000163  02           @ 
+00000164  462000       32 VAL 
+00000167  16           + 
+00000168  01           ! ( x will be modified! ) 
+00000169  90           A:R@ 
+0000016a  d5           1 A:VAL 
+0000016b  8c           A:PUT 
+0000016c  08           DROP 
+0000016d  56           0 VAL 
+0000016e  402500       §break28164 BRANCH 
+00000171  0e           DUP 
+00000172               §§group_28166 LABEL 
+00000172  08           DROP 
+00000173  53           3 VAL 
+00000174  0e           DUP ( §this will be fetched! ) 
+00000175  10           R@ 
+00000176  1d           CELL+ 
+00000177  02           @ 
+00000178  462000       32 VAL 
+0000017b  16           + 
+0000017c  01           ! ( x will be modified! ) 
+0000017d  90           A:R@ 
+0000017e  d5           1 A:VAL 
+0000017f  8c           A:PUT 
+00000180  08           DROP 
+00000181  56           0 VAL 
+00000182  401100       §break28164 BRANCH 
+00000185  0e           DUP 
+00000186               §§group_28167 LABEL 
+00000186  08           DROP 
+00000187  54           2 VAL 
+00000188  0e           DUP ( §this will be fetched! ) 
+00000189  10           R@ 
+0000018a  1d           CELL+ 
+0000018b  02           @ 
+0000018c  462000       32 VAL 
+0000018f  16           + 
+00000190  01           ! ( x will be modified! ) 
+00000191  90           A:R@ 
+00000192  d5           1 A:VAL 
+00000193  8c           A:PUT 
+00000194  08           DROP 
+00000195  56           0 VAL 
+00000196               §break28164 LABEL 
+00000196  08           DROP ( code will be fetched! ) 
+00000197  d3           3 A:VAL 
+00000198  8b           A:PICK 
+00000199  10           R@ 
+0000019a  88           A:DROP 
+0000019b  0dffff0000   65535 VAL 
+000001a0  1c           AND 
+000001a1  55           1 VAL 
+000001a2  17           - 
+000001a3  38           0> 
+000001a4  420500       §5 0BRANCH 
+000001a7  54           2 VAL ( x will be modified! ) 
+000001a8  90           A:R@ 
+000001a9  d5           1 A:VAL 
+000001aa  8c           A:PUT 
+000001ab  08           DROP 
+000001ac               §5 LABEL ( length will be fetched! ) 
+000001ac  d4           2 A:VAL 
+000001ad  8b           A:PICK 
+000001ae  10           R@ 
+000001af  88           A:DROP ( §this will be fetched! ) 
+000001b0  10           R@ 
+000001b1  1d           CELL+ 
+000001b2  02           @ 
+000001b3  461c00       28 VAL 
+000001b6  16           + 
+000001b7  01           ! ( code will be fetched! ) 
+000001b8  d3           3 A:VAL 
+000001b9  8b           A:PICK 
+000001ba  10           R@ 
+000001bb  88           A:DROP ( §this will be fetched! ) 
+000001bc  10           R@ 
+000001bd  1d           CELL+ 
+000001be  02           @ 
+000001bf  461400       20 VAL 
+000001c2  16           + 
+000001c3  01           ! ( length will be fetched! ) 
+000001c4  d4           2 A:VAL 
+000001c5  8b           A:PICK 
+000001c6  10           R@ 
+000001c7  88           A:DROP ( x will be fetched! ) 
+000001c8  d5           1 A:VAL 
+000001c9  8b           A:PICK 
+000001ca  10           R@ 
+000001cb  88           A:DROP 
+000001cc  20           LSHIFT 
+000001cd  0d00000000   MALLOC VAL ( will be modified! ) 
+000001d2  00           NOP ( will be modified! ) 
+000001d3  08           DROP ( x will be modified! ) 
+000001d4  90           A:R@ 
+000001d5  d5           1 A:VAL 
+000001d6  8c           A:PUT 
+000001d7  08           DROP ( x will be fetched! ) 
+000001d8  d5           1 A:VAL 
+000001d9  8b           A:PICK 
+000001da  10           R@ 
+000001db  88           A:DROP ( §this will be fetched! ) 
+000001dc  10           R@ 
+000001dd  1d           CELL+ 
+000001de  02           @ 
+000001df  462400       36 VAL 
+000001e2  16           + 
+000001e3  01           ! ( §this will be fetched! ) 
+000001e4  10           R@ 
+000001e5  0e           DUP 
+000001e6  56           0 VAL 
+000001e7  0d00000000   V! VAL ( will be modified! ) 
+000001ec  00           NOP ( will be modified! ) 
+000001ed  56           0 VAL 
+000001ee               §break28163 LABEL ( §base0 will be fetched! ) 
+000001ee  d2           4 A:VAL 
+000001ef  8b           A:PICK 
+000001f0  10           R@ 
+000001f1  88           A:DROP 
+000001f2  0d00000000   SETVTOP VAL ( will be modified! ) 
+000001f7  00           NOP ( will be modified! ) remove §this remove x remove length remove code remove §base0 
+000001f8  89           A:2DROP 
+000001f9  89           A:2DROP 
+000001fa  88           A:DROP 
+000001fb  08           DROP 
+000001fc               §3 LABEL 
+000001fc  3d           EXIT 
+000001fd               
+000001fd               JavaArray.clone§1969054464 LABEL 
+000001fd  54           2 VAL 
+000001fe  0d00000000   VALLOCATE VAL ( will be modified! ) 
+00000203  00           NOP ( will be modified! ) 
+00000204  90           A:R@ ( §base0 declared ) 
+00000205  08           DROP 
+00000206  0e           DUP 
+00000207  56           0 VAL ( §base0 will be fetched! ) 
+00000208  10           R@ 
+00000209  16           + 
+0000020a  0d00000000   V! VAL ( will be modified! ) 
+0000020f  00           NOP ( will be modified! ) 
+00000210  90           A:R@ ( §this declared ) 
+00000211  08           DROP 
+00000212  56           0 VAL 
+00000213  0e           DUP 
+00000214  0e           DUP 
+00000215  90           A:R@ ( b declared ) 
+00000216  08           DROP 
+00000217  90           A:R@ ( code declared ) 
+00000218  08           DROP 
+00000219  90           A:R@ ( x declared ) 
+0000021a  08           DROP ( §this will be fetched! ) 
+0000021b  d3           3 A:VAL 
+0000021c  8b           A:PICK 
+0000021d  10           R@ 
+0000021e  88           A:DROP 
+0000021f  1d           CELL+ 
+00000220  02           @ 
+00000221  461400       20 VAL 
+00000224  16           + 
+00000225  02           @ ( code will be modified! ) 
+00000226  90           A:R@ 
+00000227  d5           1 A:VAL 
+00000228  8c           A:PUT 
+00000229  08           DROP ( §this will be fetched! ) 
+0000022a  d3           3 A:VAL 
+0000022b  8b           A:PICK 
+0000022c  10           R@ 
+0000022d  88           A:DROP 
+0000022e  1d           CELL+ 
+0000022f  02           @ 
+00000230  461c00       28 VAL 
+00000233  16           + 
+00000234  02           @ ( code will be fetched! ) 
+00000235  d5           1 A:VAL 
+00000236  8b           A:PICK 
+00000237  10           R@ 
+00000238  88           A:DROP 
+00000239  0d00000000   JavaArray§1352878592.table VAL ( will be modified! ) 
+0000023e  00           NOP ( will be modified! ) 
+0000023f  0d004a75f2   -227194368 VAL 
+00000244  0d00000000   EXECUTE-NEW VAL ( will be modified! ) 
+00000249  00           NOP ( will be modified! ) 
+0000024a  0e           DUP 
+0000024b  52           4 VAL ( §base0 will be fetched! ) 
+0000024c  d2           4 A:VAL 
+0000024d  8b           A:PICK 
+0000024e  10           R@ 
+0000024f  88           A:DROP 
+00000250  16           + 
+00000251  0d00000000   V! VAL ( will be modified! ) 
+00000256  00           NOP ( will be modified! ) ( b will be modified! ) 
+00000257  90           A:R@ 
+00000258  d4           2 A:VAL 
+00000259  8c           A:PUT 
+0000025a  08           DROP ( b will be fetched! ) 
+0000025b  d4           2 A:VAL 
+0000025c  8b           A:PICK 
+0000025d  10           R@ 
+0000025e  88           A:DROP 
+0000025f  1d           CELL+ 
+00000260  02           @ 
+00000261  462400       36 VAL 
+00000264  16           + 
+00000265  02           @ ( x will be modified! ) 
+00000266  88           A:DROP 
+00000267  90           A:R@ 
+00000268  08           DROP 
+00000269  0d00000000   SWEEP VAL ( will be modified! ) 
+0000026e  00           NOP ( will be modified! ) 
+0000026f  02           @ 
+00000270  2c           0= 
+00000271  420700       §7 0BRANCH ( x will be fetched! ) 
+00000274  10           R@ 
+00000275  0d00000000   DECREFERENCE VAL ( will be modified! ) 
+0000027a  00           NOP ( will be modified! ) 
+0000027b               §7 LABEL ( §this will be fetched! ) 
+0000027b  d3           3 A:VAL 
+0000027c  8b           A:PICK 
+0000027d  10           R@ 
+0000027e  88           A:DROP 
+0000027f  1d           CELL+ 
+00000280  02           @ 
+00000281  462400       36 VAL 
+00000284  16           + 
+00000285  02           @ ( x will be modified! ) 
+00000286  88           A:DROP 
+00000287  90           A:R@ 
+00000288  08           DROP 
+00000289  0d00000000   SWEEP VAL ( will be modified! ) 
+0000028e  00           NOP ( will be modified! ) 
+0000028f  02           @ 
+00000290  2c           0= 
+00000291  420700       §8 0BRANCH ( x will be fetched! ) 
+00000294  10           R@ 
+00000295  0d00000000   INCREFERENCE VAL ( will be modified! ) 
+0000029a  00           NOP ( will be modified! ) 
+0000029b               §8 LABEL ( x will be fetched! ) 
+0000029b  10           R@ ( b will be fetched! ) 
+0000029c  d4           2 A:VAL 
+0000029d  8b           A:PICK 
+0000029e  10           R@ 
+0000029f  88           A:DROP 
+000002a0  1d           CELL+ 
+000002a1  02           @ 
+000002a2  462400       36 VAL 
+000002a5  16           + 
+000002a6  01           ! ( b will be fetched! ) 
+000002a7  d4           2 A:VAL 
+000002a8  8b           A:PICK 
+000002a9  10           R@ 
+000002aa  88           A:DROP 
+000002ab  0e           DUP 
+000002ac  56           0 VAL 
+000002ad  0d00000000   V! VAL ( will be modified! ) 
+000002b2  00           NOP ( will be modified! ) 
+000002b3  56           0 VAL 
+000002b4  400100       §break28168 BRANCH 
+000002b7  56           0 VAL 
+000002b8               §break28168 LABEL ( §base0 will be fetched! ) 
+000002b8  d2           4 A:VAL 
+000002b9  8b           A:PICK 
+000002ba  10           R@ 
+000002bb  88           A:DROP 
+000002bc  0d00000000   SETVTOP VAL ( will be modified! ) 
+000002c1  00           NOP ( will be modified! ) remove x remove code remove b remove §this remove §base0 
+000002c2  89           A:2DROP 
+000002c3  89           A:2DROP 
+000002c4  88           A:DROP 
+000002c5  08           DROP 
+000002c6               §6 LABEL 
+000002c6  3d           EXIT 
+000002c7               
+000002c7               JavaArray.createString§-105880832 LABEL 
+000002c7  55           1 VAL 
+000002c8  0d00000000   VALLOCATE VAL ( will be modified! ) 
+000002cd  00           NOP ( will be modified! ) 
+000002ce  90           A:R@ ( §base0 declared ) 
+000002cf  08           DROP 
+000002d0  90           A:R@ ( length declared ) 
+000002d1  08           DROP 
+000002d2  90           A:R@ ( bytestring declared ) 
+000002d3  08           DROP 
+000002d4  56           0 VAL 
+000002d5  0e           DUP 
+000002d6  90           A:R@ ( body declared ) 
+000002d7  08           DROP 
+000002d8  90           A:R@ ( target declared ) 
+000002d9  08           DROP 
+000002da  55           1 VAL 
+000002db  0d00000000   VALLOCATE VAL ( will be modified! ) 
+000002e0  00           NOP ( will be modified! ) 
+000002e1  90           A:R@ ( §tempvar declared ) 
+000002e2  08           DROP ( length will be fetched! ) 
+000002e3  d2           4 A:VAL 
+000002e4  8b           A:PICK 
+000002e5  10           R@ 
+000002e6  88           A:DROP 
+000002e7  0d01000100   65537 VAL 
+000002ec  0d00000000   JavaArray§1352878592.table VAL ( will be modified! ) 
+000002f1  00           NOP ( will be modified! ) 
+000002f2  0d004a75f2   -227194368 VAL 
+000002f7  0d00000000   EXECUTE-NEW VAL ( will be modified! ) 
+000002fc  00           NOP ( will be modified! ) 
+000002fd  0e           DUP ( §base0 will be fetched! ) 
+000002fe  d1           5 A:VAL 
+000002ff  8b           A:PICK 
+00000300  10           R@ 
+00000301  88           A:DROP 
+00000302  0d00000000   V! VAL ( will be modified! ) 
+00000307  00           NOP ( will be modified! ) ( body will be modified! ) 
+00000308  90           A:R@ 
+00000309  d4           2 A:VAL 
+0000030a  8c           A:PUT 
+0000030b  08           DROP ( §tempvar will be fetched! ) 
+0000030c  10           R@ 
+0000030d  0d00000000   SETVTOP VAL ( will be modified! ) 
+00000312  00           NOP ( will be modified! ) remove §tempvar 
+00000313  88           A:DROP ( body will be fetched! ) 
+00000314  d5           1 A:VAL 
+00000315  8b           A:PICK 
+00000316  10           R@ 
+00000317  88           A:DROP 
+00000318  90           A:R@ 
+00000319  08           DROP 
+0000031a  56           0 VAL 
+0000031b  10           R@ 
+0000031c  88           A:DROP 
+0000031d  0d0067cbc7   -942971136 VAL 
+00000322  57           -1 VAL 
+00000323  0d00000000   EXECUTE-METHOD VAL ( will be modified! ) 
+00000328  00           NOP ( will be modified! ) ( target will be modified! ) 
+00000329  88           A:DROP 
+0000032a  90           A:R@ 
+0000032b  08           DROP ( bytestring will be fetched! ) 
+0000032c  d4           2 A:VAL 
+0000032d  8b           A:PICK 
+0000032e  10           R@ 
+0000032f  88           A:DROP ( target will be fetched! ) 
+00000330  10           R@ ( length will be fetched! ) 
+00000331  d3           3 A:VAL 
+00000332  8b           A:PICK 
+00000333  10           R@ 
+00000334  88           A:DROP 
+00000335  56           0 VAL 
+00000336  91           A:R1@ 
+00000337  90           A:R@ 
+00000338  09           2DROP 
+00000339  400900       §12 BRANCH 
+0000033c               §10 LABEL 
+0000033c  0f           OVER 
+0000033d  10           R@ 
+0000033e  16           + 
+0000033f  04           C@ 
+00000340  0f           OVER 
+00000341  10           R@ 
+00000342  16           + 
+00000343  03           C! 
+00000344  98           A:1+ 
+00000345               §12 LABEL 
+00000345  ad           A:CMP 
+00000346  b8           A:0> 
+00000347  9f           A:INVERT 
+00000348  c2f1ff       §10 A:0BRANCH 
+0000034b  89           A:2DROP 
+0000034c               §11 LABEL 
+0000034c  09           2DROP ( body will be fetched! ) 
+0000034d  d5           1 A:VAL 
+0000034e  8b           A:PICK 
+0000034f  10           R@ 
+00000350  88           A:DROP 
+00000351  0d00000000   String§1651856128.table VAL ( will be modified! ) 
+00000356  00           NOP ( will be modified! ) 
+00000357  0d0053d087   -2016390400 VAL 
+0000035c  0d00000000   EXECUTE-NEW VAL ( will be modified! ) 
+00000361  00           NOP ( will be modified! ) 
+00000362  0e           DUP 
+00000363  56           0 VAL 
+00000364  0d00000000   V! VAL ( will be modified! ) 
+00000369  00           NOP ( will be modified! ) 
+0000036a  56           0 VAL 
+0000036b  400100       §break28173 BRANCH 
+0000036e  56           0 VAL 
+0000036f               §break28173 LABEL ( §base0 will be fetched! ) 
+0000036f  d2           4 A:VAL 
+00000370  8b           A:PICK 
+00000371  10           R@ 
+00000372  88           A:DROP 
+00000373  0d00000000   SETVTOP VAL ( will be modified! ) 
+00000378  00           NOP ( will be modified! ) remove target remove body remove bytestring remove length remove §base0 
+00000379  89           A:2DROP 
+0000037a  89           A:2DROP 
+0000037b  88           A:DROP 
+0000037c  08           DROP 
+0000037d               §9 LABEL 
+0000037d  3d           EXIT 
+0000037e               
+0000037e               JavaArray.createUnicode§-675323136 LABEL 
+0000037e  55           1 VAL 
+0000037f  0d00000000   VALLOCATE VAL ( will be modified! ) 
+00000384  00           NOP ( will be modified! ) 
+00000385  90           A:R@ ( §base0 declared ) 
+00000386  08           DROP 
+00000387  90           A:R@ ( length declared ) 
+00000388  08           DROP 
+00000389  90           A:R@ ( forthstring declared ) 
+0000038a  08           DROP 
+0000038b  56           0 VAL 
+0000038c  0e           DUP 
+0000038d  90           A:R@ ( body declared ) 
+0000038e  08           DROP 
+0000038f  90           A:R@ ( target declared ) 
+00000390  08           DROP 
+00000391  55           1 VAL 
+00000392  0d00000000   VALLOCATE VAL ( will be modified! ) 
+00000397  00           NOP ( will be modified! ) 
+00000398  90           A:R@ ( §tempvar declared ) 
+00000399  08           DROP ( length will be fetched! ) 
+0000039a  d2           4 A:VAL 
+0000039b  8b           A:PICK 
+0000039c  10           R@ 
+0000039d  88           A:DROP 
+0000039e  1b           2/ 
+0000039f  0e           DUP ( length will be modified! ) 
+000003a0  90           A:R@ 
+000003a1  d2           4 A:VAL 
+000003a2  8c           A:PUT 
+000003a3  08           DROP 
+000003a4  0d01000200   131073 VAL 
+000003a9  0d00000000   JavaArray§1352878592.table VAL ( will be modified! ) 
+000003ae  00           NOP ( will be modified! ) 
+000003af  0d004a75f2   -227194368 VAL 
+000003b4  0d00000000   EXECUTE-NEW VAL ( will be modified! ) 
+000003b9  00           NOP ( will be modified! ) 
+000003ba  0e           DUP ( §base0 will be fetched! ) 
+000003bb  d1           5 A:VAL 
+000003bc  8b           A:PICK 
+000003bd  10           R@ 
+000003be  88           A:DROP 
+000003bf  0d00000000   V! VAL ( will be modified! ) 
+000003c4  00           NOP ( will be modified! ) ( body will be modified! ) 
+000003c5  90           A:R@ 
+000003c6  d4           2 A:VAL 
+000003c7  8c           A:PUT 
+000003c8  08           DROP ( §tempvar will be fetched! ) 
+000003c9  10           R@ 
+000003ca  0d00000000   SETVTOP VAL ( will be modified! ) 
+000003cf  00           NOP ( will be modified! ) remove §tempvar 
+000003d0  88           A:DROP ( body will be fetched! ) 
+000003d1  d5           1 A:VAL 
+000003d2  8b           A:PICK 
+000003d3  10           R@ 
+000003d4  88           A:DROP 
+000003d5  90           A:R@ 
+000003d6  08           DROP 
+000003d7  56           0 VAL 
+000003d8  10           R@ 
+000003d9  88           A:DROP 
+000003da  0d0067cbc7   -942971136 VAL 
+000003df  57           -1 VAL 
+000003e0  0d00000000   EXECUTE-METHOD VAL ( will be modified! ) 
+000003e5  00           NOP ( will be modified! ) ( target will be modified! ) 
+000003e6  88           A:DROP 
+000003e7  90           A:R@ 
+000003e8  08           DROP ( forthstring will be fetched! ) 
+000003e9  d4           2 A:VAL 
+000003ea  8b           A:PICK 
+000003eb  10           R@ 
+000003ec  88           A:DROP ( target will be fetched! ) 
+000003ed  10           R@ ( length will be fetched! ) 
+000003ee  d3           3 A:VAL 
+000003ef  8b           A:PICK 
+000003f0  10           R@ 
+000003f1  88           A:DROP 
+000003f2  1a           2* 
+000003f3  56           0 VAL 
+000003f4  91           A:R1@ 
+000003f5  90           A:R@ 
+000003f6  09           2DROP 
+000003f7  400900       §17 BRANCH 
+000003fa               §15 LABEL 
+000003fa  0f           OVER 
+000003fb  10           R@ 
+000003fc  16           + 
+000003fd  04           C@ 
+000003fe  0f           OVER 
+000003ff  10           R@ 
+00000400  16           + 
+00000401  03           C! 
+00000402  98           A:1+ 
+00000403               §17 LABEL 
+00000403  ad           A:CMP 
+00000404  b8           A:0> 
+00000405  9f           A:INVERT 
+00000406  c2f1ff       §15 A:0BRANCH 
+00000409  89           A:2DROP 
+0000040a               §16 LABEL 
+0000040a  09           2DROP ( body will be fetched! ) 
+0000040b  d5           1 A:VAL 
+0000040c  8b           A:PICK 
+0000040d  10           R@ 
+0000040e  88           A:DROP 
+0000040f  0d00000000   String§1651856128.table VAL ( will be modified! ) 
+00000414  00           NOP ( will be modified! ) 
+00000415  0d005319fa   -99003648 VAL 
+0000041a  0d00000000   EXECUTE-NEW VAL ( will be modified! ) 
+0000041f  00           NOP ( will be modified! ) 
+00000420  0e           DUP 
+00000421  56           0 VAL 
+00000422  0d00000000   V! VAL ( will be modified! ) 
+00000427  00           NOP ( will be modified! ) 
+00000428  56           0 VAL 
+00000429  400100       §break28174 BRANCH 
+0000042c  56           0 VAL 
+0000042d               §break28174 LABEL ( §base0 will be fetched! ) 
+0000042d  d2           4 A:VAL 
+0000042e  8b           A:PICK 
+0000042f  10           R@ 
+00000430  88           A:DROP 
+00000431  0d00000000   SETVTOP VAL ( will be modified! ) 
+00000436  00           NOP ( will be modified! ) remove target remove body remove forthstring remove length remove §base0 
+00000437  89           A:2DROP 
+00000438  89           A:2DROP 
+00000439  88           A:DROP 
+0000043a  08           DROP 
+0000043b               §14 LABEL 
+0000043b  3d           EXIT 
+0000043c  2100         §13 LABEL 
+0000043e  4a61766141727261792e637265617465537472696e67a72d313035383830383332 " JavaArray.createString§-105880832 " 
+0000045f               
+0000045f               JavaArray.getElem§-942971136 LABEL 
+0000045f  55           1 VAL 
+00000460  0d00000000   VALLOCATE VAL ( will be modified! ) 
+00000465  00           NOP ( will be modified! ) 
+00000466  90           A:R@ ( §base0 declared ) 
+00000467  08           DROP 
+00000468  0e           DUP 
+00000469  56           0 VAL ( §base0 will be fetched! ) 
+0000046a  10           R@ 
+0000046b  16           + 
+0000046c  0d00000000   V! VAL ( will be modified! ) 
+00000471  00           NOP ( will be modified! ) 
+00000472  90           A:R@ ( §this declared ) 
+00000473  08           DROP 
+00000474  90           A:R@ ( pos declared ) 
+00000475  08           DROP 
+00000476  56           0 VAL 
+00000477  0e           DUP 
+00000478  0e           DUP 
+00000479  90           A:R@ ( code declared ) 
+0000047a  08           DROP 
+0000047b  90           A:R@ ( shift declared ) 
+0000047c  08           DROP 
+0000047d  90           A:R@ ( x declared ) 
+0000047e  08           DROP ( §this will be fetched! ) 
+0000047f  d2           4 A:VAL 
+00000480  8b           A:PICK 
+00000481  10           R@ 
+00000482  88           A:DROP 
+00000483  1d           CELL+ 
+00000484  02           @ 
+00000485  462400       36 VAL 
+00000488  16           + 
+00000489  02           @ ( x will be modified! ) 
+0000048a  88           A:DROP 
+0000048b  90           A:R@ 
+0000048c  08           DROP ( x will be fetched! ) 
+0000048d  10           R@ 
+0000048e  1d           CELL+ 
+0000048f  02           @ ( x will be modified! ) 
+00000490  88           A:DROP 
+00000491  90           A:R@ 
+00000492  08           DROP ( §this will be fetched! ) 
+00000493  d2           4 A:VAL 
+00000494  8b           A:PICK 
+00000495  10           R@ 
+00000496  88           A:DROP 
+00000497  1d           CELL+ 
+00000498  02           @ 
+00000499  461400       20 VAL 
+0000049c  16           + 
+0000049d  02           @ ( code will be modified! ) 
+0000049e  90           A:R@ 
+0000049f  d4           2 A:VAL 
+000004a0  8c           A:PUT 
+000004a1  08           DROP ( code will be fetched! ) 
+000004a2  d4           2 A:VAL 
+000004a3  8b           A:PICK 
+000004a4  10           R@ 
+000004a5  88           A:DROP 
+000004a6  0dffff0000   65535 VAL 
+000004ab  1c           AND 
+000004ac  55           1 VAL 
+000004ad  17           - 
+000004ae  38           0> 
+000004af  420400       §20 0BRANCH 
+000004b2  54           2 VAL 
+000004b3  400b00       §21 BRANCH 
+000004b6               §20 LABEL ( §this will be fetched! ) 
+000004b6  d2           4 A:VAL 
+000004b7  8b           A:PICK 
+000004b8  10           R@ 
+000004b9  88           A:DROP 
+000004ba  1d           CELL+ 
+000004bb  02           @ 
+000004bc  462000       32 VAL 
+000004bf  16           + 
+000004c0  02           @ 
+000004c1               §21 LABEL ( shift will be modified! ) 
+000004c1  90           A:R@ 
+000004c2  d5           1 A:VAL 
+000004c3  8c           A:PUT 
+000004c4  08           DROP ( pos will be fetched! ) 
+000004c5  d3           3 A:VAL 
+000004c6  8b           A:PICK 
+000004c7  10           R@ 
+000004c8  88           A:DROP ( §this will be fetched! ) 
+000004c9  d2           4 A:VAL 
+000004ca  8b           A:PICK 
+000004cb  10           R@ 
+000004cc  88           A:DROP 
+000004cd  1d           CELL+ 
+000004ce  02           @ 
+000004cf  461c00       28 VAL 
+000004d2  16           + 
+000004d3  02           @ 
+000004d4  17           - 
+000004d5  2a           0< 
+000004d6  410700       and_32750 0BRANCH! 
+000004d9  08           DROP ( pos will be fetched! ) 
+000004da  d3           3 A:VAL 
+000004db  8b           A:PICK 
+000004dc  10           R@ 
+000004dd  88           A:DROP 
+000004de  2a           0< 
+000004df  1f           INVERT 
+000004e0               and_32750 LABEL 
+000004e0  421100       §22 0BRANCH ( x will be fetched! ) 
+000004e3  10           R@ ( pos will be fetched! ) 
+000004e4  d3           3 A:VAL 
+000004e5  8b           A:PICK 
+000004e6  10           R@ 
+000004e7  88           A:DROP ( shift will be fetched! ) 
+000004e8  d5           1 A:VAL 
+000004e9  8b           A:PICK 
+000004ea  10           R@ 
+000004eb  88           A:DROP 
+000004ec  20           LSHIFT 
+000004ed  16           + ( x will be modified! ) 
+000004ee  88           A:DROP 
+000004ef  90           A:R@ 
+000004f0  08           DROP 
+000004f1  402e00       §23 BRANCH 
+000004f4               §22 LABEL ( pos will be fetched! ) 
+000004f4  d3           3 A:VAL 
+000004f5  8b           A:PICK 
+000004f6  10           R@ 
+000004f7  88           A:DROP 
+000004f8  36           0<> 
+000004f9  422600       §24 0BRANCH 
+000004fc  0d3b050000   §25 VAL 
+00000501  1e           HALF+ 
+00000502  0e           DUP 
+00000503  19           1- 
+00000504  04           C@ 
+00000505  4e           8 VAL 
+00000506  20           LSHIFT 
+00000507  0f           OVER 
+00000508  19           1- 
+00000509  19           1- 
+0000050a  04           C@ 
+0000050b  22           OR 
+0000050c  0d00000000   TYPE VAL ( will be modified! ) 
+00000511  00           NOP ( will be modified! ) ( pos will be fetched! ) 
+00000512  d3           3 A:VAL 
+00000513  8b           A:PICK 
+00000514  10           R@ 
+00000515  88           A:DROP 
+00000516  0d00000000   . VAL ( will be modified! ) 
+0000051b  00           NOP ( will be modified! ) 
+0000051c  0d00000000   CR VAL ( will be modified! ) 
+00000521  00           NOP ( will be modified! ) 
+00000522               §24 LABEL 
+00000522               §23 LABEL ( x will be fetched! ) 
+00000522  10           R@ 
+00000523  56           0 VAL 
+00000524  400100       §break28170 BRANCH 
+00000527  56           0 VAL 
+00000528               §break28170 LABEL ( §base0 will be fetched! ) 
+00000528  d1           5 A:VAL 
+00000529  8b           A:PICK 
+0000052a  10           R@ 
+0000052b  88           A:DROP 
+0000052c  0d00000000   SETVTOP VAL ( will be modified! ) 
+00000531  00           NOP ( will be modified! ) remove x remove shift remove code remove pos remove §this remove §base0 
+00000532  89           A:2DROP 
+00000533  89           A:2DROP 
+00000534  89           A:2DROP 
+00000535  08           DROP 
+00000536               §19 LABEL 
+00000536  3d           EXIT 
+00000537  1400         §25 LABEL 
+00000539  696e646578206f7574206f662072616e67653a20 " index out of range:  " 
+0000054d  2200         §18 LABEL 
+0000054f  4a61766141727261792e637265617465556e69636f6465a72d363735333233313336 " JavaArray.createUnicode§-675323136 " 
+00000571               
+00000571               JavaArray.handler§-1096259584 LABEL 
+00000571  55           1 VAL 
+00000572  0d00000000   VALLOCATE VAL ( will be modified! ) 
+00000577  00           NOP ( will be modified! ) 
+00000578  90           A:R@ ( §base0 declared ) 
+00000579  08           DROP 
+0000057a  0e           DUP 
+0000057b  56           0 VAL ( §base0 will be fetched! ) 
+0000057c  10           R@ 
+0000057d  16           + 
+0000057e  0d00000000   V! VAL ( will be modified! ) 
+00000583  00           NOP ( will be modified! ) 
+00000584  90           A:R@ ( e declared ) 
+00000585  08           DROP 
+00000586  55           1 VAL 
+00000587  0d00000000   VALLOCATE VAL ( will be modified! ) 
+0000058c  00           NOP ( will be modified! ) 
+0000058d  90           A:R@ ( §tempvar declared ) 
+0000058e  08           DROP ( e will be fetched! ) 
+0000058f  d5           1 A:VAL 
+00000590  8b           A:PICK 
+00000591  10           R@ 
+00000592  88           A:DROP 
+00000593  90           A:R@ 
+00000594  08           DROP 
+00000595  0d03060000   §27 VAL 
+0000059a  0d00000000   CASTTO VAL ( will be modified! ) 
+0000059f  00           NOP ( will be modified! ) 
+000005a0  10           R@ 
+000005a1  88           A:DROP 
+000005a2  0d00670865   1695049472 VAL 
+000005a7  57           -1 VAL 
+000005a8  0d00000000   EXECUTE-METHOD VAL ( will be modified! ) 
+000005ad  00           NOP ( will be modified! ) 
+000005ae  0e           DUP ( §tempvar will be fetched! ) 
+000005af  10           R@ 
+000005b0  0d00000000   V! VAL ( will be modified! ) 
+000005b5  00           NOP ( will be modified! ) 
+000005b6  3eb3000000   JavaArray.print§562786304 VAL ( will be modified! ) 
+000005bb  00           NOP ( will be modified! ) ( §tempvar will be fetched! ) 
+000005bc  10           R@ 
+000005bd  0d00000000   SETVTOP VAL ( will be modified! ) 
+000005c2  00           NOP ( will be modified! ) remove §tempvar 
+000005c3  88           A:DROP 
+000005c4  0df2050000   §28 VAL 
+000005c9  1e           HALF+ 
+000005ca  0e           DUP 
+000005cb  19           1- 
+000005cc  04           C@ 
+000005cd  4e           8 VAL 
+000005ce  20           LSHIFT 
+000005cf  0f           OVER 
+000005d0  19           1- 
+000005d1  19           1- 
+000005d2  04           C@ 
+000005d3  22           OR 
+000005d4  0d00000000   TYPE VAL ( will be modified! ) 
+000005d9  00           NOP ( will be modified! ) 
+000005da  0d00000000   ABORT VAL ( will be modified! ) 
+000005df  00           NOP ( will be modified! ) 
+000005e0  56           0 VAL 
+000005e1               §break28177 LABEL ( §base0 will be fetched! ) 
+000005e1  d5           1 A:VAL 
+000005e2  8b           A:PICK 
+000005e3  10           R@ 
+000005e4  88           A:DROP 
+000005e5  0d00000000   SETVTOP VAL ( will be modified! ) 
+000005ea  00           NOP ( will be modified! ) remove e remove §base0 
+000005eb  89           A:2DROP 
+000005ec  08           DROP 
+000005ed               §26 LABEL 
+000005ed  3d           EXIT 
+000005ee  0f00         §28 LABEL 
+000005f0  70726f6772616d2061626f72746564 " program aborted " 
+000005ff  0900         §27 LABEL 
+00000601  5468726f7761626c65 " Throwable " 
+0000060a               
+0000060a               JavaArray.kill§1620077312 LABEL 
+0000060a  55           1 VAL 
+0000060b  0d00000000   VALLOCATE VAL ( will be modified! ) 
+00000610  00           NOP ( will be modified! ) 
+00000611  90           A:R@ ( §base0 declared ) 
+00000612  08           DROP 
+00000613  90           A:R@ ( polymorph declared ) 
+00000614  08           DROP 
+00000615  0e           DUP 
+00000616  56           0 VAL ( §base0 will be fetched! ) 
+00000617  d5           1 A:VAL 
+00000618  8b           A:PICK 
+00000619  10           R@ 
+0000061a  88           A:DROP 
+0000061b  16           + 
+0000061c  0d00000000   V! VAL ( will be modified! ) 
+00000621  00           NOP ( will be modified! ) 
+00000622  90           A:R@ ( obj declared ) 
+00000623  08           DROP ( obj will be fetched! ) 
+00000624  10           R@ 
+00000625  0d00000000   HANDLEVALID VAL ( will be modified! ) 
+0000062a  00           NOP ( will be modified! ) 
+0000062b  421000       §31 0BRANCH ( obj will be fetched! ) 
+0000062e  10           R@ 
+0000062f  0d007e37bf   -1086882304 VAL ( polymorph will be fetched! ) 
+00000634  d5           1 A:VAL 
+00000635  8b           A:PICK 
+00000636  10           R@ 
+00000637  88           A:DROP 
+00000638  0d00000000   EXECUTE-METHOD VAL ( will be modified! ) 
+0000063d  00           NOP ( will be modified! ) 
+0000063e               §31 LABEL 
+0000063e  56           0 VAL 
+0000063f               §break28175 LABEL ( §base0 will be fetched! ) 
+0000063f  d4           2 A:VAL 
+00000640  8b           A:PICK 
+00000641  10           R@ 
+00000642  88           A:DROP 
+00000643  0d00000000   SETVTOP VAL ( will be modified! ) 
+00000648  00           NOP ( will be modified! ) remove obj remove polymorph remove §base0 
+00000649  89           A:2DROP 
+0000064a  88           A:DROP 
+0000064b  08           DROP 
+0000064c               §30 LABEL 
+0000064c  3d           EXIT 
+0000064d  1d00         §29 LABEL 
+0000064f  4a61766141727261792e68616e646c6572a72d31303936323539353834 " JavaArray.handler§-1096259584 " 
+0000066c               
+0000066c               JavaArray.print§562786304 LABEL 
+0000066c  55           1 VAL 
+0000066d  0d00000000   VALLOCATE VAL ( will be modified! ) 
+00000672  00           NOP ( will be modified! ) 
+00000673  90           A:R@ ( §base0 declared ) 
+00000674  08           DROP 
+00000675  0e           DUP 
+00000676  56           0 VAL ( §base0 will be fetched! ) 
+00000677  10           R@ 
+00000678  16           + 
+00000679  0d00000000   V! VAL ( will be modified! ) 
+0000067e  00           NOP ( will be modified! ) 
+0000067f  90           A:R@ ( s declared ) 
+00000680  08           DROP 
+00000681  56           0 VAL 
+00000682  0e           DUP 
+00000683  90           A:R@ ( a declared ) 
+00000684  08           DROP 
+00000685  90           A:R@ ( length declared ) 
+00000686  08           DROP ( s will be fetched! ) 
+00000687  d4           2 A:VAL 
+00000688  8b           A:PICK 
+00000689  10           R@ 
+0000068a  88           A:DROP 
+0000068b  90           A:R@ 
+0000068c  08           DROP 
+0000068d  10           R@ 
+0000068e  88           A:DROP 
+0000068f  0d006c350b   188050432 VAL 
+00000694  57           -1 VAL 
+00000695  0d00000000   EXECUTE-METHOD VAL ( will be modified! ) 
+0000069a  00           NOP ( will be modified! ) ( length will be modified! ) 
+0000069b  88           A:DROP 
+0000069c  90           A:R@ 
+0000069d  08           DROP ( s will be fetched! ) 
+0000069e  d4           2 A:VAL 
+0000069f  8b           A:PICK 
+000006a0  10           R@ 
+000006a1  88           A:DROP 
+000006a2  1d           CELL+ 
+000006a3  02           @ 
+000006a4  461c00       28 VAL 
+000006a7  16           + 
+000006a8  90           A:R@ 
+000006a9  02           @ 
+000006aa  88           A:DROP 
+000006ab  90           A:R@ 
+000006ac  08           DROP 
+000006ad  56           0 VAL 
+000006ae  10           R@ 
+000006af  88           A:DROP 
+000006b0  0d0067cbc7   -942971136 VAL 
+000006b5  57           -1 VAL 
+000006b6  0d00000000   EXECUTE-METHOD VAL ( will be modified! ) 
+000006bb  00           NOP ( will be modified! ) ( a will be modified! ) 
+000006bc  90           A:R@ 
+000006bd  d5           1 A:VAL 
+000006be  8c           A:PUT 
+000006bf  08           DROP ( a will be fetched! ) 
+000006c0  d5           1 A:VAL 
+000006c1  8b           A:PICK 
+000006c2  10           R@ 
+000006c3  88           A:DROP ( length will be fetched! ) 
+000006c4  10           R@ 
+000006c5  1a           2* 
+000006c6  0d00000000   PRINT VAL ( will be modified! ) 
+000006cb  00           NOP ( will be modified! ) 
+000006cc  56           0 VAL 
+000006cd               §break28176 LABEL ( §base0 will be fetched! ) 
+000006cd  d3           3 A:VAL 
+000006ce  8b           A:PICK 
+000006cf  10           R@ 
+000006d0  88           A:DROP 
+000006d1  0d00000000   SETVTOP VAL ( will be modified! ) 
+000006d6  00           NOP ( will be modified! ) remove length remove a remove s remove §base0 
+000006d7  89           A:2DROP 
+000006d8  89           A:2DROP 
+000006d9  08           DROP 
+000006da               §33 LABEL 
+000006da  3d           EXIT 
+000006db  1900         §32 LABEL 
+000006dd  4a61766141727261792e6b696c6ca731363230303737333132 " JavaArray.kill§1620077312 " 
+000006f6               
+000006f6               JavaArray.resize§917664256 LABEL 
+000006f6  55           1 VAL 
+000006f7  0d00000000   VALLOCATE VAL ( will be modified! ) 
+000006fc  00           NOP ( will be modified! ) 
+000006fd  90           A:R@ ( §base0 declared ) 
+000006fe  08           DROP 
+000006ff  0e           DUP 
+00000700  56           0 VAL ( §base0 will be fetched! ) 
+00000701  10           R@ 
+00000702  16           + 
+00000703  0d00000000   V! VAL ( will be modified! ) 
+00000708  00           NOP ( will be modified! ) 
+00000709  90           A:R@ ( §this declared ) 
+0000070a  08           DROP 
+0000070b  90           A:R@ ( size declared ) 
+0000070c  08           DROP 
+0000070d  56           0 VAL 
+0000070e  0e           DUP 
+0000070f  0e           DUP 
+00000710  90           A:R@ ( code declared ) 
+00000711  08           DROP 
+00000712  90           A:R@ ( x declared ) 
+00000713  08           DROP 
+00000714  90           A:R@ ( y declared ) 
+00000715  08           DROP ( §this will be fetched! ) 
+00000716  d2           4 A:VAL 
+00000717  8b           A:PICK 
+00000718  10           R@ 
+00000719  88           A:DROP 
+0000071a  1d           CELL+ 
+0000071b  02           @ 
+0000071c  462400       36 VAL 
+0000071f  16           + 
+00000720  02           @ ( x will be modified! ) 
+00000721  90           A:R@ 
+00000722  d5           1 A:VAL 
+00000723  8c           A:PUT 
+00000724  08           DROP ( §this will be fetched! ) 
+00000725  d2           4 A:VAL 
+00000726  8b           A:PICK 
+00000727  10           R@ 
+00000728  88           A:DROP 
+00000729  1d           CELL+ 
+0000072a  02           @ 
+0000072b  461400       20 VAL 
+0000072e  16           + 
+0000072f  02           @ ( code will be modified! ) 
+00000730  90           A:R@ 
+00000731  d4           2 A:VAL 
+00000732  8c           A:PUT 
+00000733  08           DROP ( code will be fetched! ) 
+00000734  d4           2 A:VAL 
+00000735  8b           A:PICK 
+00000736  10           R@ 
+00000737  88           A:DROP 
+00000738  0dffff0000   65535 VAL 
+0000073d  1c           AND 
+0000073e  55           1 VAL 
+0000073f  17           - 
+00000740  38           0> 
+00000741  420700       §36 0BRANCH 
+00000744  54           2 VAL ( y will be modified! ) 
+00000745  88           A:DROP 
+00000746  90           A:R@ 
+00000747  08           DROP 
+00000748  400e00       §37 BRANCH 
+0000074b               §36 LABEL ( §this will be fetched! ) 
+0000074b  d2           4 A:VAL 
+0000074c  8b           A:PICK 
+0000074d  10           R@ 
+0000074e  88           A:DROP 
+0000074f  1d           CELL+ 
+00000750  02           @ 
+00000751  462000       32 VAL 
+00000754  16           + 
+00000755  02           @ ( y will be modified! ) 
+00000756  88           A:DROP 
+00000757  90           A:R@ 
+00000758  08           DROP 
+00000759               §37 LABEL ( x will be fetched! ) 
+00000759  d5           1 A:VAL 
+0000075a  8b           A:PICK 
+0000075b  10           R@ 
+0000075c  88           A:DROP ( size will be fetched! ) 
+0000075d  d3           3 A:VAL 
+0000075e  8b           A:PICK 
+0000075f  10           R@ 
+00000760  88           A:DROP ( y will be fetched! ) 
+00000761  10           R@ 
+00000762  20           LSHIFT 
+00000763  0d00000000   RESIZE VAL ( will be modified! ) 
+00000768  00           NOP ( will be modified! ) 
+00000769  08           DROP ( x will be modified! ) 
+0000076a  90           A:R@ 
+0000076b  d5           1 A:VAL 
+0000076c  8c           A:PUT 
+0000076d  08           DROP ( x will be fetched! ) 
+0000076e  d5           1 A:VAL 
+0000076f  8b           A:PICK 
+00000770  10           R@ 
+00000771  88           A:DROP ( §this will be fetched! ) 
+00000772  d2           4 A:VAL 
+00000773  8b           A:PICK 
+00000774  10           R@ 
+00000775  88           A:DROP 
+00000776  1d           CELL+ 
+00000777  02           @ 
+00000778  462400       36 VAL 
+0000077b  16           + 
+0000077c  01           ! 
+0000077d  56           0 VAL 
+0000077e               §break28169 LABEL ( §base0 will be fetched! ) 
+0000077e  d1           5 A:VAL 
+0000077f  8b           A:PICK 
+00000780  10           R@ 
+00000781  88           A:DROP 
+00000782  0d00000000   SETVTOP VAL ( will be modified! ) 
+00000787  00           NOP ( will be modified! ) remove y remove x remove code remove size remove §this remove §base0 
+00000788  89           A:2DROP 
+00000789  89           A:2DROP 
+0000078a  89           A:2DROP 
+0000078b  08           DROP 
+0000078c               §35 LABEL 
+0000078c  3d           EXIT 
+0000078d  1900         §34 LABEL 
+0000078f  4a61766141727261792e7072696e74a7353632373836333034 " JavaArray.print§562786304 " 
+000007a8               
+000007a8               JavaArray.~destructor§-1086882304 LABEL 
+000007a8  54           2 VAL 
+000007a9  0d00000000   VALLOCATE VAL ( will be modified! ) 
+000007ae  00           NOP ( will be modified! ) 
+000007af  90           A:R@ ( §base0 declared ) 
+000007b0  08           DROP 
+000007b1  0e           DUP 
+000007b2  56           0 VAL ( §base0 will be fetched! ) 
+000007b3  10           R@ 
+000007b4  16           + 
+000007b5  0d00000000   V! VAL ( will be modified! ) 
+000007ba  00           NOP ( will be modified! ) 
+000007bb  90           A:R@ ( §this declared ) 
+000007bc  08           DROP 
+000007bd  56           0 VAL 
+000007be  0e           DUP 
+000007bf  0e           DUP 
+000007c0  0e           DUP 
+000007c1  0e           DUP 
+000007c2  0e           DUP 
+000007c3  0e           DUP 
+000007c4  0e           DUP 
+000007c5  90           A:R@ ( c declared ) 
+000007c6  08           DROP 
+000007c7  90           A:R@ ( code declared ) 
+000007c8  08           DROP 
+000007c9  90           A:R@ ( depth declared ) 
+000007ca  08           DROP 
+000007cb  90           A:R@ ( hash declared ) 
+000007cc  08           DROP 
+000007cd  90           A:R@ ( l declared ) 
+000007ce  08           DROP 
+000007cf  90           A:R@ ( obj declared ) 
+000007d0  08           DROP 
+000007d1  90           A:R@ ( x declared ) 
+000007d2  08           DROP 
+000007d3  90           A:R@ ( y declared ) 
+000007d4  08           DROP ( §this will be fetched! ) 
+000007d5  ce           8 A:VAL 
+000007d6  8b           A:PICK 
+000007d7  10           R@ 
+000007d8  88           A:DROP 
+000007d9  1d           CELL+ 
+000007da  02           @ 
+000007db  462000       32 VAL 
+000007de  16           + 
+000007df  02           @ ( y will be modified! ) 
+000007e0  88           A:DROP 
+000007e1  90           A:R@ 
+000007e2  08           DROP ( §this will be fetched! ) 
+000007e3  ce           8 A:VAL 
+000007e4  8b           A:PICK 
+000007e5  10           R@ 
+000007e6  88           A:DROP 
+000007e7  1d           CELL+ 
+000007e8  02           @ 
+000007e9  462400       36 VAL 
+000007ec  16           + 
+000007ed  02           @ ( x will be modified! ) 
+000007ee  90           A:R@ 
+000007ef  d5           1 A:VAL 
+000007f0  8c           A:PUT 
+000007f1  08           DROP ( §this will be fetched! ) 
+000007f2  ce           8 A:VAL 
+000007f3  8b           A:PICK 
+000007f4  10           R@ 
+000007f5  88           A:DROP 
+000007f6  1d           CELL+ 
+000007f7  02           @ 
+000007f8  461c00       28 VAL 
+000007fb  16           + 
+000007fc  02           @ ( l will be modified! ) 
+000007fd  90           A:R@ 
+000007fe  d3           3 A:VAL 
+000007ff  8c           A:PUT 
+00000800  08           DROP ( §this will be fetched! ) 
+00000801  ce           8 A:VAL 
+00000802  8b           A:PICK 
+00000803  10           R@ 
+00000804  88           A:DROP 
+00000805  1d           CELL+ 
+00000806  02           @ 
+00000807  461400       20 VAL 
+0000080a  16           + 
+0000080b  02           @ ( code will be modified! ) 
+0000080c  90           A:R@ 
+0000080d  d0           6 A:VAL 
+0000080e  8c           A:PUT 
+0000080f  08           DROP ( code will be fetched! ) 
+00000810  d0           6 A:VAL 
+00000811  8b           A:PICK 
+00000812  10           R@ 
+00000813  88           A:DROP 
+00000814  0dffff0000   65535 VAL 
+00000819  1c           AND ( depth will be modified! ) 
+0000081a  90           A:R@ 
+0000081b  d1           5 A:VAL 
+0000081c  8c           A:PUT 
+0000081d  08           DROP ( code will be fetched! ) 
+0000081e  d0           6 A:VAL 
+0000081f  8b           A:PICK 
+00000820  10           R@ 
+00000821  88           A:DROP 
+00000822  90           A:R@ 
+00000823  2a           0< 
+00000824  10           R@ 
+00000825  88           A:DROP 
+00000826  461000       16 VAL 
+00000829  0d00000000   SHIFTR VAL ( will be modified! ) 
+0000082e  00           NOP ( will be modified! ) 
+0000082f  0a           NIP ( hash will be modified! ) 
+00000830  90           A:R@ 
+00000831  d2           4 A:VAL 
+00000832  8c           A:PUT 
+00000833  08           DROP ( §this will be fetched! ) 
+00000834  ce           8 A:VAL 
+00000835  8b           A:PICK 
+00000836  10           R@ 
+00000837  88           A:DROP 
+00000838  02           @ 
+00000839  19           1- 
+0000083a  2c           0= 
+0000083b  42ae00       §39 0BRANCH ( §this will be fetched! ) 
+0000083e  ce           8 A:VAL 
+0000083f  8b           A:PICK 
+00000840  10           R@ 
+00000841  88           A:DROP 
+00000842  1d           CELL+ 
+00000843  02           @ 
+00000844  02           @ ( obj will be modified! ) 
+00000845  90           A:R@ 
+00000846  d4           2 A:VAL 
+00000847  8c           A:PUT 
+00000848  08           DROP ( obj will be fetched! ) 
+00000849  d4           2 A:VAL 
+0000084a  8b           A:PICK 
+0000084b  10           R@ 
+0000084c  88           A:DROP 
+0000084d  56           0 VAL 
+0000084e  3eb9fd       JavaArray.kill§1620077312 CALL ( §this will be fetched! ) 
+00000851  ce           8 A:VAL 
+00000852  8b           A:PICK 
+00000853  10           R@ 
+00000854  88           A:DROP 
+00000855  1d           CELL+ 
+00000856  02           @ 
+00000857  4e           8 VAL 
+00000858  16           + 
+00000859  02           @ ( obj will be modified! ) 
+0000085a  90           A:R@ 
+0000085b  d4           2 A:VAL 
+0000085c  8c           A:PUT 
+0000085d  08           DROP ( obj will be fetched! ) 
+0000085e  d4           2 A:VAL 
+0000085f  8b           A:PICK 
+00000860  10           R@ 
+00000861  88           A:DROP 
+00000862  56           0 VAL 
+00000863  3ea4fd       JavaArray.kill§1620077312 CALL ( x will be fetched! ) 
+00000866  d5           1 A:VAL 
+00000867  8b           A:PICK 
+00000868  10           R@ 
+00000869  88           A:DROP 
+0000086a  02           @ ( c will be modified! ) 
+0000086b  90           A:R@ 
+0000086c  cf           7 A:VAL 
+0000086d  8c           A:PUT 
+0000086e  08           DROP ( c will be fetched! ) 
+0000086f  cf           7 A:VAL 
+00000870  8b           A:PICK 
+00000871  10           R@ 
+00000872  88           A:DROP 
+00000873  55           1 VAL 
+00000874  17           - 
+00000875  2c           0= 
+00000876  411400       and_32810 0BRANCH! 
+00000879  08           DROP ( depth will be fetched! ) 
+0000087a  d1           5 A:VAL 
+0000087b  8b           A:PICK 
+0000087c  10           R@ 
+0000087d  88           A:DROP 
+0000087e  55           1 VAL 
+0000087f  17           - 
+00000880  38           0> 
+00000881  2b           0=! 
+00000882  420800       or_32811 0BRANCH 
+00000885  08           DROP ( hash will be fetched! ) 
+00000886  d2           4 A:VAL 
+00000887  8b           A:PICK 
+00000888  10           R@ 
+00000889  88           A:DROP 
+0000088a  50           6 VAL 
+0000088b  17           - 
+0000088c  38           0> 
+0000088d               or_32811 LABEL 
+0000088d               and_32810 LABEL 
+0000088d  424200       §40 0BRANCH ( §this will be fetched! ) 
+00000890  ce           8 A:VAL 
+00000891  8b           A:PICK 
+00000892  10           R@ 
+00000893  88           A:DROP 
+00000894  90           A:R@ 
+00000895  08           DROP 
+00000896  56           0 VAL 
+00000897  10           R@ 
+00000898  88           A:DROP 
+00000899  0d0067cbc7   -942971136 VAL 
+0000089e  57           -1 VAL 
+0000089f  0d00000000   EXECUTE-METHOD VAL ( will be modified! ) 
+000008a4  00           NOP ( will be modified! ) ( x will be modified! ) 
+000008a5  90           A:R@ 
+000008a6  d5           1 A:VAL 
+000008a7  8c           A:PUT 
+000008a8  08           DROP ( x will be fetched! ) 
+000008a9  d5           1 A:VAL 
+000008aa  8b           A:PICK 
+000008ab  10           R@ 
+000008ac  88           A:DROP ( l will be fetched! ) 
+000008ad  d3           3 A:VAL 
+000008ae  8b           A:PICK 
+000008af  10           R@ 
+000008b0  88           A:DROP 
+000008b1  56           0 VAL 
+000008b2  91           A:R1@ 
+000008b3  90           A:R@ 
+000008b4  09           2DROP 
+000008b5  401000       §43 BRANCH 
+000008b8               §41 LABEL 
+000008b8  0e           DUP 
+000008b9  02           @ ( obj will be modified! ) 
+000008ba  90           A:R@ 
+000008bb  d2           4 A:VAL 
+000008bc  8c           A:PUT 
+000008bd  08           DROP ( obj will be fetched! ) 
+000008be  d2           4 A:VAL 
+000008bf  8b           A:PICK 
+000008c0  10           R@ 
+000008c1  88           A:DROP 
+000008c2  57           -1 VAL 
+000008c3  3e44fd       JavaArray.kill§1620077312 CALL 
+000008c6  1d           CELL+ 
+000008c7  98           A:1+ 
+000008c8               §43 LABEL 
+000008c8  ad           A:CMP 
+000008c9  b8           A:0> 
+000008ca  9f           A:INVERT 
+000008cb  c2eaff       §41 A:0BRANCH 
+000008ce  89           A:2DROP 
+000008cf               §42 LABEL 
+000008cf  08           DROP 
+000008d0  56           0 VAL 
+000008d1               §break28172 LABEL 
+000008d1  08           DROP 
+000008d2               §40 LABEL ( §this will be fetched! ) 
+000008d2  ce           8 A:VAL 
+000008d3  8b           A:PICK 
+000008d4  10           R@ 
+000008d5  88           A:DROP 
+000008d6  1d           CELL+ 
+000008d7  02           @ 
+000008d8  462400       36 VAL 
+000008db  16           + 
+000008dc  02           @ ( x will be modified! ) 
+000008dd  90           A:R@ 
+000008de  d5           1 A:VAL 
+000008df  8c           A:PUT 
+000008e0  08           DROP ( x will be fetched! ) 
+000008e1  d5           1 A:VAL 
+000008e2  8b           A:PICK 
+000008e3  10           R@ 
+000008e4  88           A:DROP 
+000008e5  0d00000000   FREE VAL ( will be modified! ) 
+000008ea  00           NOP ( will be modified! ) 
+000008eb  08           DROP 
+000008ec               §39 LABEL ( §this will be fetched! ) 
+000008ec  ce           8 A:VAL 
+000008ed  8b           A:PICK 
+000008ee  10           R@ 
+000008ef  88           A:DROP 
+000008f0  0d00000000   DECREFERENCE VAL ( will be modified! ) 
+000008f5  00           NOP ( will be modified! ) 
+000008f6  56           0 VAL 
+000008f7               §break28171 LABEL ( §base0 will be fetched! ) 
+000008f7  cd           9 A:VAL 
+000008f8  8b           A:PICK 
+000008f9  10           R@ 
+000008fa  88           A:DROP 
+000008fb  0d00000000   SETVTOP VAL ( will be modified! ) 
+00000900  00           NOP ( will be modified! ) remove y remove x remove obj remove l remove hash remove depth remove code remove c remove §this remove §base0 
+00000901  89           A:2DROP 
+00000902  89           A:2DROP 
+00000903  89           A:2DROP 
+00000904  89           A:2DROP 
+00000905  89           A:2DROP 
+00000906  08           DROP 
+00000907               §38 LABEL 
+00000907  3d           EXIT 
+00000908  1a00         §46 LABEL 
+0000090a  4a6176614172726179a7313335323837383539322e7461626c65 " JavaArray§1352878592.table " 
+00000924  1700         §45 LABEL 
+00000926  4a61766141727261792e5f737461746963546872656164 " JavaArray._staticThread " 
+0000093d  1900         §44 LABEL 
+0000093f  4a61766141727261792e5f737461746963426c6f636b696e67 " JavaArray._staticBlocking " 
+00000958  0dcb020000   JavaArray.createString§-105880832 VAL 
+0000095d  53           3 VAL 
+0000095e  0d40040000   §13 VAL 
+00000963  0d00000000   create VAL ( will be modified! ) 
+00000968  00           NOP ( will be modified! ) 
+00000969  0d82030000   JavaArray.createUnicode§-675323136 VAL 
+0000096e  53           3 VAL 
+0000096f  0d51050000   §18 VAL 
+00000974  0d00000000   create VAL ( will be modified! ) 
+00000979  00           NOP ( will be modified! ) 
+0000097a  0d75050000   JavaArray.handler§-1096259584 VAL 
+0000097f  53           3 VAL 
+00000980  0d51060000   §29 VAL 
+00000985  0d00000000   create VAL ( will be modified! ) 
+0000098a  00           NOP ( will be modified! ) 
+0000098b  0d0e060000   JavaArray.kill§1620077312 VAL 
+00000990  53           3 VAL 
+00000991  0ddf060000   §32 VAL 
+00000996  0d00000000   create VAL ( will be modified! ) 
+0000099b  00           NOP ( will be modified! ) 
+0000099c  0d70060000   JavaArray.print§562786304 VAL 
+000009a1  53           3 VAL 
+000009a2  0d91070000   §34 VAL 
+000009a7  0d00000000   create VAL ( will be modified! ) 
+000009ac  00           NOP ( will be modified! ) 
+000009ad  0d00000000   ALIGN VAL ( will be modified! ) 
+000009b2  00           NOP ( will be modified! ) 
+000009b3  0d00000000   HERE VAL ( will be modified! ) 
+000009b8  00           NOP ( will be modified! ) 
+000009b9  54           2 VAL 
+000009ba  0d41090000   §44 VAL 
+000009bf  0d00000000   create VAL ( will be modified! ) 
+000009c4  00           NOP ( will be modified! ) 
+000009c5  55           1 VAL 
+000009c6  1a           2* 
+000009c7  1a           2* 
+000009c8  0d00000000   ALLOT VAL ( will be modified! ) 
+000009cd  00           NOP ( will be modified! ) 
+000009ce  0d00000000   ALIGN VAL ( will be modified! ) 
+000009d3  00           NOP ( will be modified! ) 
+000009d4  0d00000000   HERE VAL ( will be modified! ) 
+000009d9  00           NOP ( will be modified! ) 
+000009da  54           2 VAL 
+000009db  0d28090000   §45 VAL 
+000009e0  0d00000000   create VAL ( will be modified! ) 
+000009e5  00           NOP ( will be modified! ) 
+000009e6  55           1 VAL 
+000009e7  1a           2* 
+000009e8  1a           2* 
+000009e9  0d00000000   ALLOT VAL ( will be modified! ) 
+000009ee  00           NOP ( will be modified! ) 
+000009ef  0d00000000   HERE VAL ( will be modified! ) 
+000009f4  00           NOP ( will be modified! ) 
+000009f5  52           4 VAL 
+000009f6  17           - 
+000009f7  0d00000000   SALLOCATE VAL ( will be modified! ) 
+000009fc  00           NOP ( will be modified! ) 
+000009fd  8d00000000   HERE A:VAL ( will be modified! ) 
+00000a02  80           A:NOP ( will be modified! ) 
+00000a03  0d00000000   ALIGN VAL ( will be modified! ) 
+00000a08  00           NOP ( will be modified! ) 
+00000a09  0d00000000   HERE VAL ( will be modified! ) 
+00000a0e  00           NOP ( will be modified! ) 
+00000a0f  54           2 VAL 
+00000a10  0d0c090000   §46 VAL 
+00000a15  0d00000000   create VAL ( will be modified! ) 
+00000a1a  00           NOP ( will be modified! ) 
+00000a1b  55           1 VAL 
+00000a1c  1a           2* 
+00000a1d  1a           2* 
+00000a1e  0d00000000   ALLOT VAL ( will be modified! ) 
+00000a23  00           NOP ( will be modified! ) 
+00000a24  50           6 VAL 
+00000a25  0e           DUP 
+00000a26  1a           2* 
+00000a27  1a           2* 
+00000a28  1a           2* 
+00000a29  0d00000000   ALLOT VAL ( will be modified! ) 
+00000a2e  00           NOP ( will be modified! ) 
+00000a2f  10           R@ 
+00000a30  01           ! 
+00000a31  9d           A:CELL+ 
+00000a32  0d004a0886   -2046277120 VAL 
+00000a37  10           R@ 
+00000a38  01           ! 
+00000a39  9d           A:CELL+ 
+00000a3a  0d18000000   JavaArray.JavaArray§-2046277120 VAL 
+00000a3f  10           R@ 
+00000a40  01           ! 
+00000a41  9d           A:CELL+ 
+00000a42  0d004a75f2   -227194368 VAL 
+00000a47  10           R@ 
+00000a48  01           ! 
+00000a49  9d           A:CELL+ 
+00000a4a  0dab000000   JavaArray.JavaArray§-227194368 VAL 
+00000a4f  10           R@ 
+00000a50  01           ! 
+00000a51  9d           A:CELL+ 
+00000a52  0d00635d75   1969054464 VAL 
+00000a57  10           R@ 
+00000a58  01           ! 
+00000a59  9d           A:CELL+ 
+00000a5a  0d01020000   JavaArray.clone§1969054464 VAL 
+00000a5f  10           R@ 
+00000a60  01           ! 
+00000a61  9d           A:CELL+ 
+00000a62  0d0067cbc7   -942971136 VAL 
+00000a67  10           R@ 
+00000a68  01           ! 
+00000a69  9d           A:CELL+ 
+00000a6a  0d63040000   JavaArray.getElem§-942971136 VAL 
+00000a6f  10           R@ 
+00000a70  01           ! 
+00000a71  9d           A:CELL+ 
+00000a72  0d0072b236   917664256 VAL 
+00000a77  10           R@ 
+00000a78  01           ! 
+00000a79  9d           A:CELL+ 
+00000a7a  0dfa060000   JavaArray.resize§917664256 VAL 
+00000a7f  10           R@ 
+00000a80  01           ! 
+00000a81  9d           A:CELL+ 
+00000a82  0d007e37bf   -1086882304 VAL 
+00000a87  10           R@ 
+00000a88  01           ! 
+00000a89  9d           A:CELL+ 
+00000a8a  0dac070000   JavaArray.~destructor§-1086882304 VAL 
+00000a8f  10           R@ 
+00000a90  01           ! 
+00000a91  9d           A:CELL+ 
+00000a92  88           A:DROP 
+00000a93  3d           EXIT 
+
+instruction usage:
+load/store:		97	(6.089139987445072%)
+32-bit values:		163	(10.232266164469554%)
+16-bit values:		35	(2.197112366603892%)
+5-bit values:		226	(14.18706842435656%)
+values total:		424	(26.616446955430007%)
+arithmetic/logical:	150	(9.416195856873824%)
+relations:		22	(1.3810420590081607%)
+flow control:		50	(3.1387319522912747%)
+other:			850	(53.35844318895167%)
+total:			1593
+
+average bytes per instruction: 1.5134965473948525
+
+string storage in byte:	297
+unresolved references:	134
+
+Size of static code: 2392
+Size of initial code: 316
+
+references:
+ffffffff	1	.
+ffffffff	1	ABORT
+ffffffff	3	ALIGN
+ffffffff	4	ALLOT
+ffffffff	1	CASTTO
+ffffffff	1	CR
+ffffffff	2	DECREFERENCE
+ffffffff	7	EXECUTE-METHOD
+ffffffff	7	EXECUTE-NEW
+ffffffff	1	FREE
+ffffffff	1	HANDLEVALID
+ffffffff	5	HERE
+ffffffff	1	INCREFERENCE
+18	1	JavaArray.JavaArray§-2046277120
+18	1	JavaArray.JavaArray§-2046277120
+ab	1	JavaArray.JavaArray§-227194368
+ab	1	JavaArray.JavaArray§-227194368
+201	1	JavaArray.clone§1969054464
+201	1	JavaArray.clone§1969054464
+2cb	1	JavaArray.createString§-105880832
+2cb	1	JavaArray.createString§-105880832
+382	1	JavaArray.createUnicode§-675323136
+382	1	JavaArray.createUnicode§-675323136
+463	1	JavaArray.getElem§-942971136
+463	1	JavaArray.getElem§-942971136
+575	1	JavaArray.handler§-1096259584
+575	1	JavaArray.handler§-1096259584
+60e	4	JavaArray.kill§1620077312
+60e	4	JavaArray.kill§1620077312
+670	2	JavaArray.print§562786304
+670	2	JavaArray.print§562786304
+6fa	1	JavaArray.resize§917664256
+6fa	1	JavaArray.resize§917664256
+7ac	1	JavaArray.~destructor§-1086882304
+7ac	1	JavaArray.~destructor§-1086882304
+ffffffff	5	JavaArray§1352878592.table
+ffffffff	3	MALLOC
+ffffffff	2	Object§-1890496768.table
+ffffffff	1	PRINT
+ffffffff	1	RESIZE
+ffffffff	1	SALLOCATE
+ffffffff	14	SETVTOP
+ffffffff	2	SHIFTR
+ffffffff	2	SWEEP
+ffffffff	2	String§1651856128.table
+ffffffff	2	TYPE
+ffffffff	18	V!
+ffffffff	14	VALLOCATE
+4e4	1	and_32750
+891	1	and_32810
+ffffffff	8	create
+891	1	or_32811
+440	1	§13
+551	1	§18
+a0	2	§2
+53b	1	§25
+603	1	§27
+5f2	1	§28
+651	1	§29
+6df	1	§32
+791	1	§34
+941	1	§44
+928	1	§45
+90c	1	§46

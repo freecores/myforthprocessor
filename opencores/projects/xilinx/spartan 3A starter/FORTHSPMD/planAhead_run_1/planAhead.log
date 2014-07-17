@@ -1,0 +1,71 @@
+#-----------------------------------------------------------
+# PlanAhead v12.2
+# Build 65285 by hdbuild on Wed Jun 23 14:55:19 PDT 2010
+# Start of session at: Wed Aug 04 15:06:22 2010
+# Process ID: 5356
+# Log file: C:/Xilinx/FORTHSPMD/planAhead_run_1/planAhead.log
+# Journal file: C:/Xilinx/FORTHSPMD/planAhead_run_1/planAhead.jou
+#-----------------------------------------------------------
+INFO: [HD-Licensing 0] Attempting to get a license: PlanAhead
+INFO: [HD-Licensing 1] Got a license: PlanAhead
+INFO: [HD-Licensing 3] Your PlanAhead license expires in -96 day(s)
+INFO: [HD-ArchReader 0] Loading parts and site information from C:\Xilinx\12.2\ISE_DS\PlanAhead\parts\arch.xml
+INFO: [HD-RTPRIM 0] Parsing RTL primitives file 'C:\Xilinx\12.2\ISE_DS\PlanAhead\parts\xilinx\rtl\prims\rtl_prims.xml'
+INFO: [HD-RTPRIM 1] Finished Parsing RTL primitives file 'C:\Xilinx\12.2\ISE_DS\PlanAhead\parts\xilinx\rtl\prims\rtl_prims.xml'
+source C:/Xilinx/12.2/ISE_DS/PlanAhead/scripts/sdc.tcl
+start_gui -source C:/Xilinx/FORTHSPMD/pa.fromNetlist.tcl
+# create_project -name FORTHSPMD -dir "C:/Xilinx/FORTHSPMD/planAhead_run_1" -part xc3s700afg484-4
+# set_property design_mode GateLvl [get_property srcset [current_run -impl]]
+# set_property edif_top_file "C:/Xilinx/FORTHSPMD/MYCPU.ngc" [ get_property srcset [ current_run ] ]
+# add_files -norecurse { {C:/Xilinx/FORTHSPMD} }
+# set_param project.paUcfFile  "MYCPU.ucf"
+# add_files "MYCPU.ucf" -fileset [get_property constrset [current_run]]
+# open_netlist_design
+INFO: Run is defaulting to constrset part: xc3s700afg484-4
+INFO: [HD-EDIFIN 0] Parsing Edif File '.\.HDI-PlanAhead-5356-MeinSiemensPC\ngc2edif\MYCPU.edif'
+INFO: [HD-EDIFIN 1] Finished Parsing Edif File '.\.HDI-PlanAhead-5356-MeinSiemensPC\ngc2edif\MYCPU.edif'
+INFO: [HD-EDIFIN 4] Reading core file 'C:\Xilinx\FORTHSPMD\fifo_generator_v6_1.ngc' for (cell view 'fifo_generator_v6_1', library 'MYCPU_lib', file 'MYCPU.ngc')
+INFO: [HD-EDIFIN 0] Parsing Edif File '.\.HDI-PlanAhead-5356-MeinSiemensPC\ngc2edif\fifo_generator_v6_1.edif'
+INFO: [HD-EDIFIN 1] Finished Parsing Edif File '.\.HDI-PlanAhead-5356-MeinSiemensPC\ngc2edif\fifo_generator_v6_1.edif'
+INFO: [HD-ArchReader 18] Reading macro library C:/Xilinx/12.2/ISE_DS/PlanAhead/./parts/xilinx/spartan3a/hd_int_macros.edn
+INFO: [HD-EDIFIN 0] Parsing Edif File 'C:/Xilinx/12.2/ISE_DS/PlanAhead/./parts/xilinx/spartan3a/hd_int_macros.edn'
+INFO: [HD-EDIFIN 1] Finished Parsing Edif File 'C:/Xilinx/12.2/ISE_DS/PlanAhead/./parts/xilinx/spartan3a/hd_int_macros.edn'
+WARN: [HD-NETLIST 3] Netlist 'MYCPU' is not ideal for floorplanning, since the cellview 'MYCPU' defined in file 'MYCPU.ngc' contains large number of primitives. Please consider enabling hierarchy in synthesis before floorplan. You can enable hierarchy in XST by setting '-keep_hierarchy=yes' or '-netlist_hierarchy=rebuilt' flags.
+INFO: [HD-ArchReader 7] Loading clock regions from C:/Xilinx/12.2/ISE_DS/PlanAhead/parts/xilinx/spartan3a/spartan3a/xc3s700a/ClockRegion.xml
+INFO: [HD-ArchReader 8] Loading clock buffers from C:/Xilinx/12.2/ISE_DS/PlanAhead/parts/xilinx/spartan3a/spartan3a/xc3s700a/ClockBuffers.xml
+INFO: [HD-ArchReader 3] Loading package from C:/Xilinx/12.2/ISE_DS/PlanAhead/parts/xilinx/spartan3a/spartan3a/xc3s700a/fg484/Package.xml
+INFO: [HD-ArchReader 4] Loading io standards from C:/Xilinx/12.2/ISE_DS/PlanAhead/./parts/xilinx/spartan3a/IOStandards.xml
+INFO: [HD-ArchReader 5] Loading pkg sso from C:/Xilinx/12.2/ISE_DS/PlanAhead/parts/xilinx/spartan3a/spartan3a/xc3s700a/fg484/SSORules.xml
+INFO: [HD-GDRC 0] Loading list of drcs for the architecture : C:/Xilinx/12.2/ISE_DS/PlanAhead/./parts/xilinx/spartan3a/drc.xml
+INFO: [HD-UCFReader 0] Parsing UCF File : .\MYCPU.ucf
+ERROR: [HD-Constr 0] Could not find instance or net 'mycpu/myRAM/infrastructure_top0/cal_top0/cal_ctl0' (file = MYCPU.ucf, line = 417)
+ERROR: [HD-UCFReader 2] Could not create constraint 'KEEP_HIERARCHY' (file = MYCPU.ucf, line = 417)
+ERROR: [HD-UCFReader 1] Unrecognized symbol AREA_GROUP found (file = MYCPU.ucf, line = 417)
+ERROR: [HD-Constr 0] Could not find instance or net 'mycpu/myRAM/infrastructure_top0/cal_top0/tap_dly0' (file = MYCPU.ucf, line = 418)
+ERROR: [HD-UCFReader 2] Could not create constraint 'KEEP_HIERARCHY' (file = MYCPU.ucf, line = 418)
+ERROR: [HD-UCFReader 1] Unrecognized symbol AREA_GROUP found (file = MYCPU.ucf, line = 418)
+INFO: [HD-UCFReader 1] Finished Parsing UCF File : .\MYCPU.ucf
+
+DESIGN RULE CHECK VIOLATION REPORT
+   Build: PlanAhead v12.2 by hdbuild
+          on  Wed Jun 23 14:55:19 PDT 2010
+  Report: by Gerhard Hohner on host MeinSiemensPC, pid 5356
+          on Wed Aug 04 15:07:22 2010
+
+REPORT SUMMARY
+            Netlist: synth_results
+          Floorplan: <none>
+      Design limits: <entire design considered>
+             Checks: Unknown block name
+                     Unknown Unisim pin name
+                     Mismatching Attribute
+           Max vios: <unlimited>
+         Vios found: 0
+
+REPORT DETAILS
+INFO: [HD-LIB 0] Reading timing library C:/Xilinx/12.2/ISE_DS/PlanAhead/parts/xilinx/spartan3a/spartan3a/spartan3a-4.lib .
+INFO: [HD-LIB 1] Done reading timing library C:/Xilinx/12.2/ISE_DS/PlanAhead/parts/xilinx/spartan3a/spartan3a/spartan3a-4.lib .
+WARN: [HD-STA 9] No lib cell DCM_SP found, creating a dummy one
+exit
+INFO: [HD-Application 0] Exiting PlanAhead...
+INFO: [HD-Licensing 2] Releasing license: PlanAhead

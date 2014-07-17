@@ -1,0 +1,931 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; CHARSET=ISO-2022-JP">
+   <title>Java(TM) Web Start 開発者ガイド</title>
+</head>
+<body bgcolor="#FFFFFF">
+&nbsp;
+<table BORDER=0 WIDTH="100%" >
+<tr>
+<td WIDTH="40"><img SRC="javalogo52x88.gif" ALT="Java" BORDER=0 height=88 width=52></td>
+
+<td ALIGN=CENTER>
+<h1>
+開発者ガイド</h1>
+
+<h2>
+Java<sup><font size=-2> TM</font></sup> Web Start</h2>
+
+<h3>
+バージョン 1.0.1</h3>
+</td>
+
+<td ALIGN=RIGHT VALIGN=TOP WIDTH="40"><font size=+2>&nbsp;</font></td>
+</tr>
+</table>
+<blockquote>
+この『開発者ガイド』は、Java<sup><font size=-2>TM</font></sup> Web Start および JNLP テクノロジを使用してアプリケーションを実装する方法を説明します。
+<p>&nbsp;コメントおよびフィードバックの送付先 : <a href="mailto:javawebstart-feedback@sun.com">javawebstart-feedback@sun.com</a>
+</blockquote>
+<h2>
+目次</h2>
+
+<blockquote><b><a href="#tech">Java Web Start テクノロジ</a></b>
+<br><b><a href="#where">Java Web Start のダウンロード</a></b>
+<br><b><a href="#req">要件 (デスクトップおよびサーバ)</a></b>
+<br><b><a href="#website">Web サイトの設定</a></b>
+<br><b><a href="#dev">アプリケーション開発上の考慮点</a></b>
+<br><b><a href="#servlet">パッケージ化による効率的なアプリケーション配備</a></b>
+<br><b><a href="#conv">このリリースでの使用に合わせた JNLP ファイルの変換</a></b>
+<br><b><a href="#jnlp">JNLP ファイルの構文</a></b>
+<br><b><a href="#api">JNLP API の例</a></b>
+<br><b><a href="javadoc/index.html">JNLP API (JavaDoc)</a></b></blockquote>
+<a NAME="tech"></a>
+<h2>
+Java Web Start テクノロジ</h2>
+
+<blockquote>Java Web Start は、Web ブラウザに関連付けて使用するヘルパーアプリケーションです。ユーザが特別な起動ファイル (JNLP ファイル) を指すリンクをクリックすると、ブラウザが Java Web Start を起動します。Java Web Start は、指定された Java テクノロジベースのアプリケーションを自動的にダウンロード、キャッシュ、および実行します。通常、すべての処理は、最初の 1 回のクリックを除き、ユーザが介入することなく完了します。
+<p>技術的な観点から、Java Web Start には、アプリケーションを配置するために使用するプラットフォームを魅力的にする多くの利点があります。
+<ul>
+<li>
+Java Web Start は、Java 2 SE プラットフォームに記述されたアプリケーションの起動に特化して構築されています。このため、単一のアプリケーションを Web サーバで利用可能にして、Windows 95/98/Me/NT/2000、Linux、および Solaris を含む、さまざまなプラットフォームに配置できます。Java プラットフォームは、非常に堅牢で、生産性が高く、表現力豊かな開発プラットフォームであることが証明されてきました。また、開発およびテストに要するコストを最小限に抑えることができるため、大幅なコスト削減が可能になります。</li>
+
+<br>&nbsp;
+<li>
+Java Web Start は、Java 2 Platform, Standard Edition の複数のバージョンをサポートしています。このため、アプリケーションは、Java 2 SE 1.3.0 のように、必要とする特定バージョンのプラットフォームを要求できます。複数のアプリケーションを、異なるバージョンのプラットフォームで、競合を引き起こすことなく、同時に実行できます。また、アプリケーションが、クライアントシステムにインストールされていないバージョンのプラットフォームを要求すると、Java Web Start は自動的にそのバージョンをダウンロードおよびインストールします。</li>
+
+<br>&nbsp;
+<li>
+Java Web Start を使用すると、Web ブラウザとは別にアプリケーションを起動できます。これは、ブラウザからアプリケーションを起動するのが不便または不可能なオフライン操作で使用されます。デスクトップのショートカットを使用することにより、Web 展開されたアプリケーションを、ネイティブアプリケーションと同じ方法で起動できます。</li>
+
+<br>&nbsp;
+<li>
+Java Web Start は、Java プラットフォーム固有のセキュリティ機構を利用します。アプリケーションは、デフォルトで、ローカルディスクおよびネットワークリソースへのアクセスが制限された保護環境 ( "sandbox" ) で実行されます。このため、ユーザは信頼できないソースから取得したアプリケーションでも安全に実行できます。</li>
+
+<br>&nbsp;
+<li>
+Java Web Start は、ブラウザに依存しません。また、たいていの場合プラットフォームにも依存しません。このため、ほぼすべてのブラウザで動作します。また、Java 2 SE をサポートするすべてのプラットフォームに比較的短期間で移植されることが期待されています。</li>
+
+<br>&nbsp;
+<li>
+Java Web Start から起動されたアプリケーションは、ローカルにキャッシュされます。このため、ダウンロード済みのアプリケーションの起動方法は、従来のインストール済みのアプリケーションの起動方法と同じです。</li>
+</ul>
+Java Web Start の基本となるテクノロジは、Java Community Process (JCP) により開発が行われている、Java<sup><font size=-2>TM</font></sup> Network Launching Protocol &amp; API (JNLP) テクノロジです。Java Web Start は、JNLP 仕様のリファレンス実装 (RI) です。JNLP テクノロジでは、他の定義に加えて、JNLP ファイルと呼ばれる標準ファイル形式が定義されています。JNLP ファイルには、アプリケーションの起動方法が記述されます。</blockquote>
+<a NAME="where"></a>
+<h2>
+Java Web Start のダウンロード</h2>
+
+<blockquote>Java Web Start は、<a href="http://java.sun.com/products/javawebstart/ja/index_ja.html">http://java.sun.com/products/javawebstart/ja/index_ja.html</a> からダウンロードできます。
+JNLP 仕様は、<a href="http://java.sun.com/aboutJava/communityprocess/jsr/jsr_056_jnlp.html">http://java.sun.com/aboutJava/communityprocess/jsr/jsr_056_jnlp.html</a> で参照できます。</blockquote>
+<a NAME="req" </a></a>
+<h2>
+要件</h2>
+
+<blockquote>
+<h3>
+デスクトップ/クライアント要件</h3>
+クライアントマシンは、Java Runtime Environment (JRE), version 1.2.2 以降をサポートしている必要があります。Java Web Start は、Windows 95/98/Me/NT/2000、Solaris (SPARC &amp; Intel 版)、および Linux (RH6.2/x86) で使用可能です。
+<p>詳細は、<a href="Readme_ja.html">README</a> ドキュメントを参照してください。<o>
+<h3>
+サーバ要件</h3>
+標準的な任意の Web サーバを使用して、アプリケーションを配置できます。Java Web Start を使用するには、次に説明する方法で、新規 <a href="#mime">MIME タイプ</a>をサポートするように、Web サーバを構成する必要があります。</blockquote>
+<a NAME="website" </a></a>
+<h2>
+Web サイトの設定</h2>
+
+<blockquote>Java Web Start は、HTTP プロトコルや  Web サーバなど、既存のインターネットテクノロジを利用します。このため、既存の HTML ベースのコンテンツを配置するためのインフラストラクチャを、Java Web Start を使用して Java テクノロジベースのアプリケーションを配置することで再利用できます。
+<p>アプリケーションをクライアントマシンに配置するためには、アプリケーションを含むすべてのファイルが Web サーバ経由でアクセス可能でなければなりません。通常、これは、1 つ以上の JAR ファイルを JNLP ファイルと共に Web サーバのディレクトリにコピーすることを意味します。Java Web Start をサポートするための Web サイトの設定要件は、HTML ベースのコンテンツを配置する場合と非常に類似しています。1 つだけ注意するのは、Web サーバで新規 MIME タイプを設定する必要があることです。
+<p><a NAME="mime"></a><b>1. Java Web Start の MIME タイプを使用するよう、Web サーバを構成する</b>
+<p>拡張子が <tt>.jnlp</tt> のファイルすべてが <tt>application/x-java-jnlp-file</tt> MIME タイプに設定されるように、Web サーバを構成します。
+<p>大半の Web ブラウザは、Web サーバからコンテンツと共に返される MIME タイプを使って、特定のコンテンツの処理方法を決定します。Java Web Start の呼び出しを有効にするには、サーバが JNLP ファイルに対して <tt>application/x-java-jnlp-file</tt> MIME タイプを返す必要があります。
+<p>Web サーバごとに、MIME タイプを追加する特定の方法が存在します。たとえば、Apache Web サーバでは、<tt>.mime.types</tt> 構成ファイルに次の行を追加する必要があります。
+<p><tt>application/x-java-jnlp-file JNLP</tt>
+<p>使用する Web サーバの仕様については、マニュアルを参照してください。
+<p><b>2. アプリケーション用の JNLP ファイルを作成する</b>
+<p>このファイルを作成するもっとも簡単な方法は、既存の JNLP ファイルを要件に合わせて変更することです。
+<p>JNLP ファイルの構文および書式については、後の<a href="#jnlp">節</a>で説明します。
+<p><b>3. アプリケーションを Web サーバからアクセス可能にする</b>
+<p>アプリケーションの JAR ファイルおよび JNLP ファイルが、JNLP ファイルに記述された URL でアクセス可能であることを確認してください。
+<p><b>4. Web ページから JNLP ファイルへのリンクを作成する</b>
+<p>JNLP ファイルへのリンクは、標準の HTML リンクです。次に例を示します。
+<p><tt>&nbsp;&nbsp; &lt;a href="MyApp.jnlp">Launch My Application&lt;/a></tt>
+<p>ステップ 1 の設定に基づき、Web サーバは、<tt>.jnlp</tt> 拡張子を持つすべてのファイルと共に、自動的に <tt>application/x-java-jnlp-file</tt> MIME タイプを返します。このファイルのダウンロード時に、Web ブラウザにより Java Web Start が起動することを確認することが重要です。
+<p>Java Web Start インストールプログラムへのリンクも、Web ページに設定しておく必要があります。これにより、Java Web Start をまだインストールしていないユーザは、このソフトウェアをダウンロードおよびインストールできます。
+<p><b>Java Web Start がインストールされているかどうかを確認する</b>
+<p>数行の JavaScript/VBScript を HTML ページに追加することにより、Java Web Start がインストールされているかどうかを確認できます。次に示すサンプルスクリプトを使用して、アプリケーションへのリンクを挿入します。
+<p><tt>&nbsp;&nbsp;&nbsp; &lt;<b>SCRIPT</b> <b>LANGUAGE</b>="Javascript"></tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;!--</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; insertLink("http://www.mycompany.com/my-app.jnlp",</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"My Application");</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // --></tt>
+<br><tt>&nbsp;&nbsp;&nbsp; &lt;/<b>SCRIPT</b>></tt>
+<p>このサンプル JavaScript は、Internet Explorer および Netscape 4.x で動作するよう設計されています。Netscape 6/6.01 では動作しません。
+<p><tt>insertLink</tt> メソッドは、Java Web Start がインストールされているかどうかを検出します。インストール済みの場合、HTML は、次のようになります。
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <tt>&lt;a href="http://www.mycompany.com/my-app.jnlp">My
+Application&lt;/a></tt>
+<p>Java Web Start がインストールされていない場合、次の HTML が発行されます。
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <tt>Need to install Java Web Start</tt>
+<p>実稼働環境では、通常この HTML をダウンロードページにリンクさせる必要があります。
+<p>サンプルの JavaScript/VBScript を次に示します。
+<p>&nbsp;<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;<b>SCRIPT</b> <b>LANGUAGE</b>="Javascript"></tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>var</b>
+javawsInstalled = 0;</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; isIE = "false";</tt>
+<p><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>if</b>
+(navigator.mimeTypes &amp;&amp; navigator.mimeTypes.length) {</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x = navigator.mimeTypes['application/x-java-jnlp-file'];</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>if</b> (x) javawsInstalled = 1;</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } <b>else</b>
+{</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;isIE = "true";</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</tt>
+<p><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>function</b>
+insertLink(url, name) {</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<b>if</b>
+(javawsInstalled) {</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+document.write("&lt;a href=" + url + ">"&nbsp; + name + "&lt;/a>");</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+} <b>else</b> {</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+document.write("Need to install Java Web Start");</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/<b>SCRIPT</b>></tt>
+<p><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;<b>SCRIPT</b> <b>LANGUAGE</b>="VBScript"></tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; on error
+resume next</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>If</b>
+isIE = "true" <b>Then</b></tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<b>If</b> Not(IsObject(CreateObject("JavaWebStart.IsInstalled"))) <b>Then</b></tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+javawsInstalled = 0</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<b>Else</b></tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+javawsInstalled = 1</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>End If</b></tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>End If</b></tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/<b>SCRIPT</b>></tt></blockquote>
+<a NAME="dev"></a>
+<h2>
+アプリケーション開発上の考慮点</h2>
+
+<blockquote>一般に、Java Web Start を使って配置可能なアプリケーションを開発することは、Java 2 プラットフォームでスタンドアロンアプリケーションを開発することと同じです。このため、アプリケーションのエントリポイントは、標準的な <tt>public static void main(String[] argv)</tt> です。
+<p>ただし、Web 配置機能 (アプリケーションの自動ダウンロードおよび自動起動) をサポートし、確実にセキュリティ保護された "sandbox" 内でアプリケーションを実行するために、考慮すべき点がいくつかあります。
+<ul>
+<li>
+アプリケーションを、JAR ファイルのセットとして配信する必要があります。</li>
+
+<br>&nbsp;
+<li>
+すべてのアプリケーションリソース (ファイルやイメージなど) を JAR ファイル内に格納し、Java 2 プラットフォームの <tt>getResource</tt> 機構を使用して参照する必要があります (以下を参照)。</li>
+
+<br>&nbsp;
+<li>
+アプリケーションが、セキュリティ保護された "sandbox" 内で実行されるように記述されている場合、次の制限に従う必要があります。</li>
+
+<ul>
+<li>
+ローカルディスクへのアクセスを行わない。</li>
+
+<li>
+すべての JAR ファイルを同じホストからダウンロードする。</li>
+
+<li>
+JAR ファイルのダウンロード元ホストへのネットワーク接続だけが許可される。</li>
+
+<li>
+セキュリティマネージャはインストールできない。</li>
+
+<li>
+ネイティブライブラリは使用しない。</li>
+
+<li>システムプロパティへのアクセスは制限される。アプリケーションは、JNLP ファイルで定義されたすべてのシステムプロパティに、読み取りおよび書き込みのアクセス権を持つ。また、アプレットがアクセス可能なプロパティセットには、読み取り専用のアクセス権を持つ。
+</ul>
+<p>
+アプリケーションは、<tt>System.exit</tt> 呼び出しを使用できます。
+<br>&nbsp;
+<li>
+システムへの無制限のアクセスを必要とするアプリケーションは、署名付きの JAR ファイルセットで配信する必要があります。各 JAR ファイル内のすべてのエントリで署名が必要です。</li>
+</ul>
+
+<h3>
+JAR ファイルからのリソースの取得</h3>
+Java Web Start は、Web サーバからクライアントマシンへ JAR ファイルの転送のみを行います。Java Web Start は、JAR ファイルをローカルマシン内のどこに格納するかを決定します。このため、アプリケーションは、イメージや構成ファイルなどのリソースへのディスク相対参照を使用することはできません。
+<p>すべてのアプリケーションリソースは、JNLP ファイルの <tt>resources</tt> セクションで指定された JAR ファイルから取得するか、Web サーバへの HTTP 要求を使用して明示的に取得する必要があります。JAR ファイルは Java Web Start によりローカルマシンにキャッシュされるため、リソースを JAR ファイルに含めることをお勧めします。
+<p>次のコード例は、JAR ファイルからイメージを抽出する方法を示します。
+<p><b><tt><font color="#FF0000">&nbsp;&nbsp; // Get current classloader</font></tt></b>
+<br><tt>&nbsp;&nbsp; ClassLoader cl = <b>this</b>.getClass().getClassLoader();</tt>
+<br><b><tt><font color="#FF0000">&nbsp;&nbsp; // Create icons</font></tt></b>
+<br><tt>&nbsp;&nbsp; Icon saveIcon&nbsp; = <b>new </b>ImageIcon(cl.getResource("images/save.gif"));</tt>
+<br><tt>&nbsp;&nbsp; Icon cutIcon&nbsp;&nbsp; = <b>new </b>ImageIcon(cl.getResource("images/cut.gif"));</tt>
+<br><tt>&nbsp;&nbsp; ...</tt>
+<p>この例では、アプリケーション用の JAR ファイルのいずれかに、次のエントリが存在することを前提にしています。
+<p><tt>images/save.gif</tt>
+<br><tt>images/cut.gif</tt>
+<h3>
+セキュリティおよびコード署名</h3>
+Java Web Start は、次のようなセキュリティ上の問題に対応しています。
+<ul>
+<li>
+ローカルファイルに影響を与える可能性のある悪意のあるコード (意図的であっても、意図的でなくても) からユーザを保護する</li>
+
+<br>&nbsp;
+<li>
+ネットワーク上のデータへのアクセスまたは破壊の可能性があるコードから企業を保護する</li>
+</ul>
+Java Web Start で起動されるアプリケーションは、デフォルトで、ローカルなコンピュータリソース (記憶装置やローカルネットワークなど) へのアクセスが制限された環境内で実行されます。この "sandbox" 環境により、Java Web Start は、ダウンロードされた、信頼できないアプリケーションがローカルのファイルまたはネットワークのセキュリティを低下させないことを保証できます。
+<p>Java Web Start がサポートするもう 1 つのセキュリティ機能は、デジタルコード署名です。呼び出し中のアプリケーションが 1 つ以上の署名付き JAR ファイルで配信される場合、Java Web Start は JAR ファイルの内容が署名された後で変更されていないことを確認します。Java Web Start によるデジタル署名の検証で問題があった場合、第三者によりセキュリティが侵害された可能性があるため、アプリケーションは実行されません。
+<p>コード署名のサポートは、ユーザとアプリケーションサービスプロバイダの両方にとって重要です。このサービスにより、ユーザはアプリケーションの提供元が信頼できることを確認できます。コードに署名を行うのはアプリケーションサービスプロバイダであるため、ユーザもアプリケーションサービスプロバイダも、第三者が Web 上でそのアプリケーションを装うことができないことは確かです。ユーザにより信頼された署名付きのアプリケーションは、ローカルディスクへのアクセスなど、システム権限の追加を要求することもできます。
+<p>Java Web Start は、アプリケーションを起動する前に、署名者の証明書に基づいて、アプリケーションの出所を示すダイアログを表示します。これにより、ユーザは情報を取得した上で、ダウンロードしたコードに追加権限を許可するかどうかを決定できます。
+<p>すべての JAR ファイルが署名されている場合、JNLP ファイル内に次の設定を含めることにより、アプリケーションからクライアントシステムへのフルアクセスを要求できます。
+<p><tt>&lt;<b>security</b>></tt>
+<br><tt>&nbsp;&nbsp; &lt;<b>all-permissions</b>/></tt>
+<br><tt>&lt;/<b>security</b>></tt>
+<p>Java Web Start でのコード署名の実装は、コア Java 2 プラットフォームのセキュリティ API に基づいています。J2RE 1.2.x は、SHAwithSDA アルゴリズムを使用したコード署名をサポートします。J2RE 1.3 は、MD2withRSA および MD5withRSA もサポートします。MD5withRSA は、現在もっとも頻繁に使用されるアルゴリズムです。
+<p>開発者は、Java Web Start での使用を可能にするために、Java アプレットの場合と同様に、Java 2 SE SDK の標準 <tt>jarsigner</tt> ツールを使用してコードに署名します。<tt>jarsigner</tt> ツールの<a href="http://java.sun.com/j2se/1.3/ja/docs/ja/tooldocs/win32/jarsigner.html">マニュアル</a>には、コードの署名方法、テスト証明書の作成方法、および署名に関連する他の問題の解決方法が、実例付きで説明されています。
+<p>Java Web Start は、J2RE 1.3.0 と共に使用する場合、Netscape <tt>signtool</tt> の使用もサポートします。詳細は、Netscape の Web サイト <a href="http://developer.netscape.com/software/signedobj/">http://developer.netscape.com/software/signedobj/</a> を参照してください。
+
+<h3>
+テスト証明書を使用した JAR ファイルの署名</h3>
+
+<p>
+ここでは、テスト証明書を使用して、JAR ファイルの署名を行う方法について説明します。
+<ol>
+<li>
+    JDK 1.2 または JDK 1.3 の keytool および jarsigner へのパス (J2SE SDK の bin ディレクトリ) が設定されていることを確認します。
+    
+<p>
+</li>
+<li>
+    次の方法で、キーストアに新規キーを作成します。
+    <blockquote>
+        <tt>keytool -genkey -keystore myKeystore -alias myself</tt>
+    </blockquote>
+    新規キーの情報 (パスワード、名前など) の入力が求められます。入力した情報に基づいて、ディスク上に myKeystore ファイルが作成されます。
+<p>
+</li>
+<li>
+    次に、自己署名テスト証明書を作成します。
+    <blockquote>
+        <tt>keytool -selfcert -alias myself -keystore myKeystore</tt>
+    </blockquote>
+    パスワードの入力が求められます。証明書の生成に数分間かかります。
+<p>
+</li>
+<li>
+    設定が適切であることを確認します。キーストアの内容を一覧表示するには、次のコマンドを使用します。
+    <blockquote>
+        <tt>keytool -list -keystore myKeystore</tt>
+    </blockquote>
+    コマンドの実行結果は、次のようになります。
+    <blockquote>
+    <tt>
+        Keystore type: jks<br>
+        Keystore provider: SUN<br>
+        <br>
+        Your keystore contains 1 entry:<br>
+        <br>
+         myself, Tue Jan 23 19:29:32 PST 2001, keyEntry,<br>
+        Certificate fingerprint (MD5):<br>
+        C2:E9:BF:F9:D3:DF:4C:8F:3C:5F:22:9E:AF:0B:42:9D<br>
+    </tt>
+    </blockquote>
+</li>
+<li>
+最後に、テスト証明書を使って JAR ファイルへの署名を行います。
+
+    <blockquote>
+        <tt>jarsigner -keystore myKeystore test.jar myself</tt>
+    </blockquote>
+    すべての JAR ファイルに対して、この手順を繰り返します。
+   <p>
+</li>
+</ol>
+<p>
+自己署名テスト証明書は、ユーザの識別情報に関する保証を一切提供するものではないため、信頼することはできません。このため、自己署名テスト証明書は、内部でのテスト目的にのみ使用してください。アプリケーションを生産する際には、信頼できる証明書を使用する必要があります。信頼できる証明書は、VeriSign などの証明書発行機関から取得できます。
+
+<h3>
+JNLP ファイルを UTF-8 に符号化する方法</h3>
+
+<p>
+JNLP ファイルは現在 UTF-8 文字エンコーディングに符号化する必要があります。その他のエンコーディングでファイルを編集する場合は、<b>native2ascii</b> ツールを使って UTF-8 に変換します。例を示します。
+<blockquote>
+    <tt><b>native2ascii</b> -encoding &lt;your encoding&gt; &lt;your file&gt; | <b>native2ascii</b> -reverse -encoding UTF8</tt>
+</blockquote>
+
+<p>
+<b>native2ascii</b> ツールは、SDK に含まれています。詳細は以下のページを参照してください。
+<ul>
+  <li><a href="http://java.sun.com/products/jdk/1.1/docs/tooldocs/solaris/native2ascii.html">Solaris 版 native2ascii</a></li>
+  <li><a href="http://java.sun.com/products/jdk/1.1/docs/tooldocs/win32/native2ascii.html">Windows 版 native2ascii</a></li>
+</ul>
+
+</blockquote>
+
+
+
+<a NAME="servlet"></a>
+<h2>
+パッケージ化による効率的なアプリケーション配備</h2>
+<blockquote>
+   開発者向けパックには、JNLP アプリケーションを Web Archive (WAR) ファイルにバンドルする際に使用可能なサーブレットが含まれます。詳細は、「<a href="downloadservletguide_ja.html">Web Archive での JNLP アプリケーションのパッケージング</a>」を参照してください。
+</blockquote>
+
+<a NAME="conv"></a>
+<h2>
+このリリースでの使用に合わせた JNLP ファイルの変換</h2>
+
+<blockquote>1.0 および このリリースとの間には、JNLP ファイル形式の変更はありません。
+
+<p>1.0 より前のバージョンの Java Web Start と互換性がある JNLP ファイルを使用している場合、JNLP ファイル形式が大幅に変更されたことに留意してください。以下に、0.4 JNLP ファイルを Java Web Start 1.0 以上と互換性を持たせるために、適用する必要のある最も一般的な変更点を示します。
+<ul>
+<li>
+<tt>spec</tt> 属性 を 1.0 に設定する。</li>
+
+<li>
+<tt>unrestricted</tt> 要素の名前を <tt>all-permissions</tt> に変更する。</li>
+
+<li>
+<tt>jre</tt> 要素の名前を <tt>j2se</tt> に変更し、この要素を <tt>resources</tt> 要素の内部に移動する (つまり、<tt>j2se</tt> を <tt>resources</tt> のサブ要素にする)。</li>
+</ul>
+<p>
+1.0 ベータリリースまたは 1.0-rc リリースで使用された JNLP ファイルを変換する場合に必要なのは <tt>spec</tt> 属性を「1.0」に更新することだけです。
+</blockquote>
+<h2>
+<a NAME="jnlp"></a></h2>
+
+<h2>
+JNLP ファイルの構文</h2>
+
+<blockquote>このリリースで使用される書式は、Java Network Launching Protocol and API (JNLP) Specification, v1.0 で指定された書式に基づいています。この『開発者ガイド』では、JNLP ファイルでもっとも一般的に使用される要素について説明します。書式の詳細は、「<a href="http://java.sun.com/aboutJava/communityprocess/jsr/jsr_056_jnlp.html">Specification</a>」を参照してください。
+<p>JNLP ファイルは、XML ドキュメントです。JNLP ファイルの完全な例を次に示します。
+<p><tt><b>&lt;?xml version</b>="1.0" <b>encoding</b>="utf-8"?></tt>
+<br><b><tt><font color="#FF0000">&lt;!-- JNLP File for SwingSet2 Demo Application
+--></font></tt></b>
+<br><tt>&lt;<b>jnlp</b></tt>
+<br><tt>&nbsp; <b>spec=</b>"1.0+"</tt>
+<br><tt>&nbsp; <b>codebase=</b>"http://javaweb.eng.com/jaws/apps"</tt>
+<br><tt>&nbsp; <b>href=</b>"swingset2.jnlp"></tt>
+<br><tt>&nbsp; &lt;<b>information</b>></tt>
+<br><tt>&nbsp;&nbsp;&nbsp; &lt;<b>title</b>>SwingSet2 Demo Application&lt;/<b>title</b>></tt>
+<br><tt>&nbsp;&nbsp;&nbsp; &lt;<b>vendor</b>>Sun Microsystems, Inc.&lt;/<b>vendor</b>></tt>
+<br><tt>&nbsp;&nbsp;&nbsp; &lt;<b>homepage href</b>="docs/help.html"/></tt>
+<br><tt>&nbsp;&nbsp;&nbsp; &lt;<b>description</b>>SwingSet2 Demo Application<b>&lt;/description></b></tt>
+<br><tt>&nbsp;&nbsp;&nbsp; &lt;<b>description kind</b>="short">A demo of
+the capabilities of the Swing Graphical User Interface.&lt;/<b>description</b>></tt>
+<br><tt>&nbsp;&nbsp;&nbsp; &lt;<b>icon href</b>="images/swingset2.jpg"/></tt>
+<br><tt>&nbsp;&nbsp;&nbsp; &lt;<b>offline-allowed</b>/></tt>
+<br><tt>&nbsp; &lt;/<b>information</b>></tt>
+<br><tt>&nbsp; &lt;<b>security</b>></tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;<b>all-permissions</b>/></tt>
+<br><tt>&nbsp; &lt;/<b>security</b>></tt>
+<br><tt>&nbsp; &lt;<b>resources</b>></tt>
+<br><tt>&nbsp;&nbsp;&nbsp; &lt;<b>j2se version</b>="1.3"/></tt>
+<br><tt>&nbsp;&nbsp;&nbsp; &lt;<b>jar href</b>="lib/SwingSet2.jar"/></tt>
+<br><tt>&nbsp; &lt;/<b>resources</b>></tt>
+<br><tt>&nbsp; &lt;<b>application-desc main-class</b>="SwingSet2"/></tt>
+<br><tt>&lt;/<b>jnlp</b>></tt>
+<p>以下は、この例に沿って説明します。ルート要素は <tt>jnlp</tt> で、4 つのサブ要素 <tt>information</tt>、<tt>security</tt>、<tt>resources</tt>、および <tt>application-desc</tt> を保持します。さらに Java Web Start は、<tt>applet-desc</tt> 要素を使用したアプレットの起動もサポートします。要素の詳細は、以下で説明します。
+<h3>
+JNLP 要素</h3>
+<p><b>spec 属性 :</b> このリリースで機能するには、この属性は 1.0 以上である必要があります。デフォルト値は「1.0+」であるため、通常、この属性は省略可能です。
+<p><b>codebase 属性 :</b> JNLP ファイルの <tt>href</tt> 属性で指定される相対 URL はすべて、この URL を基本に作成されます。
+<p><b>href 属性 :</b> JNLP ファイル自体の位置を指す URL です。アプリケーションをアプリケーションマネージャに含めるために、Java Web Start でこの属性を設定する必要があります。
+<h3>
+information 要素</h3>
+<b>title 要素 :</b> アプリケーションの名前。
+<p><b>vendor 要素 :</b> アプリケーションベンダーの名前。
+<p><b>homepage 要素 :</b> アプリケーションのホームページを示す URL である、単一の <tt>href</tt> 属性を含みます。これは、アプリケーションマネージャが、アプリケーションの詳細情報を得ることのできる Web ページをユーザに示す際に使用されます。
+<p><b>description 要素 :</b> アプリケーションに関する短い説明文。description 要素はオプションです。<tt>kind</tt> 属性は、この要素の使用方法を定義する属性で、次の値のいずれかを設定できます。
+<ul>
+<li>
+<i>one-line</i>: アプリケーションへの参照がリストまたはテーブルの 1 行に表示される場合、この説明が使用されます。</li>
+
+<li>
+<i>short</i>: アプリケーションへの参照が段落で表示される場合、この説明が使用されます。</li>
+
+<li>
+<i>tooltip</i>: ツールヒントとして表示される、アプリケーションの説明です。</li>
+</ul>
+指定できるのは、各種類ごとに 1 つの description 要素だけです。kind 属性のない description 要素は、デフォルト値として使用されます。このため、Java Web Start で、kind 属性が short の description 要素を必要とするが、これが JNLP ファイルで指定されていない場合、属性指定のない description のテキストが使用されます。
+<p>すべての description 要素には、プレーンテキストが使用されます。HTML タグなどの書式はサポートされません。
+<p><b>icon 要素 :</b> GIF または JPEG 形式のイメージファイルへの HTTP URL が含まれます。Java Web Start が起動すると、アイコンは、アプリケーションマネージャ内、およびデスクトップのショートカットとしてユーザに表示されます。アイコンは、ダウンロード時には 64x64 で表示され、デスクトップアイコンおよびアプリケーションマネージャ内では 32x32 で表示されます。Java Web Start は、アイコンを自動的に適切なサイズに変更します。
+<p>オプションの <tt>width</tt> および <tt>height</tt> 属性は、イメージのサイズ指定に使用できます。
+<p><b>offline-allowed 要素 :</b> オプションの <tt>offline-allowed</tt> 要素は、アプリケーションをオフラインで起動可能かどうかを示します。
+<p>アプリケーションマネージャでオフラインチェックボックスがチェックされている場合、JNLP ファイル内でオフラインのマークが付けられていないアプリケーションを、アプリケーションマネージャから起動することはできません。デフォルトでは、クライアントシステムがオンラインの場合にのみ、アプリケーションが動作します。
+    <p>
+    <tt>offline-allowed</tt> 要素は、Java Web Start がアプリケーションの更新をチェックする方法も制御します。要素が指定されていない (つまり、アプリケーションをオンラインで実行する必要がある) 場合、Java Web Start は常に更新されたバージョンの存在をチェックしてから、アプリケーションを起動します。更新されたバージョンが見つかると、新しいアプリケーションがダウンロードおよび実行されます。このため、最新バージョンのアプリケーションの実行が常に保証されます。ただし、オフラインの場合、アプリケーションを実行することはできません。
+    <p>
+    <tt>offline-allowed</tt> が指定されると、Java Web Start は更新されたバージョンが存在するかどうかをチェックします。ただし、ダウンロード済みのアプリケーションが存在する場合、チェックは数秒後にタイムアウトし、キャッシュされたアプリケーションの起動が実行されます。このため、サーバへの接続が高速な場合には、大抵最新バージョンのアプリケーションが実行されますが、常にそれが保証されるわけではありません。ただし、オフラインでの起動はサポートされます。
+<h3>
+security 要素</h3>
+デフォルトでは、各アプリケーションは、アプレットの "sandbox" と同様の制限された実行環境で動作します。security 要素は、無制限のアクセスを要求する場合に使用できます。
+<p><tt>all-permissions</tt> 要素が指定された場合、アプリケーションから、クライアントマシンおよびローカルネットワークへのあらゆるアクセスが可能になります。アプリケーションがフルアクセスを要求する場合、すべての JAR ファイルに署名が必要です。<i></i>アプリケーションの初回起動時に、ユーザは証明書に同意するよう求められます。
+<br>&nbsp;
+<h3>
+resources 要素</h3>
+<tt>resources</tt> 要素は、アプリケーションを構成するすべてのリソース (Java クラスファイル、ネイティブライブラリ、システムプロパティなど) の指定に使用されます。<tt>os</tt>、<tt>arch</tt>、および <tt>locale</tt> 属性を使うことにより、リソース定義を特定のオペレーティングシステム、アーキテクチャ、またはロケールに限定できます。
+<p>resources 要素には、指定可能な 6 つのサブ要素 (<tt>jar</tt>、<tt>nativelib</tt>、<tt>j2se</tt>、<tt>property</tt>、<tt>package</tt>、および <tt>extension</tt>) が含まれます。この『開発者ガイド』では、<tt>package</tt> 要素および <tt>extension</tt> 要素については説明しません。詳細は、「<a href="http://java.sun.com/aboutJava/communityprocess/jsr/jsr_056_jnlp.html">specification</a>」を参照してください。
+<p><tt>jar</tt> 要素には、アプリケーションのクラスパスの一部である JAR ファイルを指定します。次に例を示します。
+<p><tt>&nbsp; &lt;<b>jar href</b>="myjar.jar"/></tt>
+<p><tt>jar</tt> ファイルは、<tt>ClassLoader</tt> オブジェクトを使って JVM にロードされます。一般に、<tt>jar</tt> ファイルには特定のアプリケーションのコードを含む Java クラスが含まれますが、アイコンや構成ファイルなど、<tt>getResource</tt> 機構を介して利用可能な他のリソースを含めることもできます。
+<p><tt>nativelib</tt> 要素には、ネイティブライブラリを含む JAR ファイルを指定します。次に例を示します。
+<p>&nbsp;&nbsp;&nbsp; <tt>&lt;<b>nativelib href</b>="lib/windows/corelib.jar"/></tt>
+<p>JNLP クライアントは、JAR ファイルのルートディレクトリ (/) 内の各ファイルエントリを、<tt>System.loadLibrary</tt> メソッドを使って実行中のプロセスにロード可能であることを確認する必要があります。各エントリには、適正な命名規約 (Windows の場合は *.dll、Solaris/Linux の場合は lib*.so) に準拠した、プラットフォーム依存の共有ライブラリを含める必要があります。アプリケーションは、<tt>System.loadLibrary</tt> への実際の呼び出しを担当します。
+<p>通常、ネイティブライブラリは <tt>resources</tt> 要素に含められ、特定のオペレーティングシステムおよびアーキテクチャから保護されます。次に例を示します。
+<p><tt>&nbsp;&nbsp;&nbsp; &lt;<b>resources os</b>="SunOS" <b>arch=</b>"sparc"></tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;<b>nativelib href</b>="lib/solaris/corelibs.jar"/></tt>
+<br><tt>&nbsp;&nbsp;&nbsp; &lt;/<b>resource</b>></tt>
+<p>デフォルトでは、<tt>jar</tt> および <tt>nativelib</tt> リソースは、事前にダウンロードされます (つまり、アプリケーションを起動する前に、アプリケーションを実行する JVM へローカルにダウンロードされ、使用可能になります) 。<tt>jar</tt> および <tt>nativelib</tt> 要素では、リソースを <tt>lazy</tt> に指定することも可能です。これは、必ずしもアプリケーションを起動する前に、リソースをクライアントシステムにダウンロードする必要がないことを意味します。
+<p><tt>download</tt> 属性を使用して、リソースのダウンロード方法を eager (事前)、または lazy (遅延) に設定できます。次に例を示します。
+<p><tt>&nbsp;&nbsp;&nbsp; &lt;<b>jar</b> <b>href</b>="sound.jar"
+<b>download</b>="lazy"/></tt>
+<br><tt>&nbsp;&nbsp;&nbsp; &lt;<b>nativelib</b> <b>href</b>="native-sound.jar"
+<b>download</b>="eager"/></tt>
+<p><tt>j2se</tt> 要素には、アプリケーションがサポートする Java 2 SE Runtime Environment (JRE) のバージョン、および Java 仮想マシンへの標準パラメータを指定します。複数の JRE を優先順位を付けて指定できます。その場合、もっとも優先度の高いバージョンをリストの最初に指定します。次に例を示します。
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <tt>&lt;<b>j2se version</b>="1.3"
+<b>initial-heap-size</b>="64m"/></tt>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <tt>&lt;<b>j2se version</b>="1.2"/></tt>
+<p>特に指定しない限り、<tt>version</tt> 属性は、Java 2 プラットフォームの特定のバージョンを参照します。現在定義されているバージョンは、「1.2」および「1.3」です。JNLP 仕様でも、特定の製品バージョンの指定が可能です (例、Java 2 JRE 1.2.2-001 by Sun Microsystems, Inc)。
+
+<p>Java Web Start では、特定の「プラットフォーム」バージョンに対する要求と一致させるため、FCS 版以外の JRE を考慮しません。たとえば、<tt>&lt;j2se version="1.4+"&gt;</tt> という形式の要求は、JRE の"1.4.0-beta" を要求に一致するものとしてみなしません。慣例により、Sun Microsystems 社が提供する JRE の製品バージョンの文字列にダッシュ文字 (-) が含まれている場合は、FCS 版以外のバージョンであることを意味します。J2RE の Beta 版で稼働させたいアプリケーションには、<tt>j2se</tt> 要素の <tt>href</tt> 属性を使用して「製品」バージョンを明示的に指定する必要があります。J2RE の Beta 版を選択する場合の正しい要求の例を示します。<br><br>
+ &lt;<tt><b>j2se version</b>="1.4-beta"
+ <b>href</b>="http://java.sun.com/products/autodl/j2se"/></tt>
+
+<p><tt>property</tt> 要素には、<tt>System.getProperty</tt> および <tt>System.getProperties</tt> メソッドを介して使用可能なシステムプロパティを定義します。この要素には、2 つの必須属性 (<tt>name</tt> および <tt>value</tt>) があります。次に例を示します。
+<p><tt>&lt;<b>property name</b>="key" <b>value</b>="overwritten"/></tt>
+<h3>
+application-desc 要素</h3>
+<tt>application</tt> 要素は、JNLP ファイルが起動しているのが、(アプレットではなく) アプリケーションであることを示します。application 要素には、オプション属性 <tt>main-class</tt> があります。<tt>main-class</tt> 属性は、アプリケーションのメインクラス (<tt>public static void main(String argv[])</tt> メソッドを含む、最初に実行されるクラス) の名前指定に使用されます。
+<p>JNLP ファイルで指定された最初の JAR ファイルに、メインクラスを含むマニフェストファイルが含まれる場合、main-class 属性は省略可能です。
+<p>application 要素には、1 つ以上のネストした <tt>argument</tt> 要素を含めることができます。次に例を示します。
+<p><tt>&nbsp; &lt;<b>application-desc main-class</b>="Main"></tt>
+<br><tt>&nbsp;&nbsp;&nbsp; &lt;<b>argument</b>>arg1&lt;/<b>argument</b>></tt>
+<br><tt>&nbsp;&nbsp;&nbsp; &lt;<b>argument</b>>arg2&lt;/<b>argument</b>></tt>
+<br><tt>&nbsp; &lt;/<b>application-desc</b>></tt>
+<h3>
+applet-desc 要素</h3>
+Java Web Start は、Java アプレットの起動もサポートします。このため、既存のコードを Java Web Start に簡単に移行できます。
+<p>アプレットの起動には、<tt>application-desc</tt> 要素ではなく <tt>applet-desc</tt> 要素を使用します。次に例を示します。
+<p><tt>&nbsp; &lt;<b>applet-desc</b></tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>documentBase</b>="http://..."</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>name</b>="TimePilot"</tt>
+<br><tt><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; main-class</b>="TimePilot.TimePilotApp"</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>width</b>="527"</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>height</b>="428"></tt>
+<br><tt>&nbsp;&nbsp;&nbsp; &lt;<b>param name=</b>"key1" <b>value=</b>"value1"/></tt>
+<br><tt>&nbsp;&nbsp;&nbsp; &lt;<b>param name=</b>"key2" <b>value=</b>"value2"/></tt>
+<br><tt>&nbsp; &lt;<b>/applet-desc</b>></tt>
+<p>アプレットを構成する JAR ファイルは、アプリケーションの場合と同様、<tt>resources</tt> 要素を使って記述されます。JNLP ファイルが HTML ページに組み込まれていないため、<tt>documentBase</tt> を明示的に指定する必要があります。その他の属性は、個々の HTML アプレットタグ要素に対応します。
+<p><tt>code</tt> 属性の代わりに <tt>main-class</tt> 属性が使用されます。<tt>main-class</tt> 属性には、<tt>Applet</tt> クラスの名前が (<tt>.class</tt> 拡張子なしで) 割り当てられます。メインの JAR ファイルの <tt>Main-Class</tt> マニフェストエントリに <tt>Applet</tt> クラスが存在する場合、この属性は省略できます。
+<p>注意 : Java Web Start でアプレットを動作させるには、アプレットを JAR ファイルにパッケージ化する必要があります。</blockquote>
+
+<h2>
+<a NAME="api"></a></h2>
+
+<h2>
+JNLP API の例</h2>
+
+<blockquote>JNLP API は、標準 Java 2 SE API を使用しても入手できない補足情報をアプリケーションに提供するために設計されています。以下のコード例は、<tt>BasicService</tt>、<tt>ClipboardService</tt>、<tt>DownloadService</tt>、<tt>FileOpenService</tt>、<tt>FileSaveService</tt>、<tt>PrintService</tt>、および <tt>PersistenceService</tt> サービスの使用方法を示します。
+<p>JNLP API の public クラスおよびインタフェースは、<tt>jnlp.jar</tt> ファイルに含まれます。JNLP API を使用するソースファイルをコンパイルする際、この JAR ファイルを classpath に含める必要があります。Windows での例を次に示します。
+<p><tt>javac -classpath .;jnlp.jar *.java</tt>
+<p><tt>jnlp.jar</tt> ファイルは、JNLP Developers Pack に含まれています。
+<br>&nbsp;
+<h3>
+BasicService サービスの使用</h3>
+<a href="javadoc/index.html">javax.jnlp.BasicService</a> サービスは、環境に対して問い合わせおよび対話処理を行うためのメソッドのセットを提供します。これは、<tt>AppletContext</tt> が Java アプレットに対して提供するメソッドセットに類似しています。
+<p><tt>showURL</tt> メソッドは、JNLP API を使って、プラットフォームのデフォルトブラウザに対し、指定された URL を表示するよう指示します。要求が成功すると true が、失敗すると false が返されます。
+<p><tt><b>import </b>javax.jnlp.*;</tt>
+<br><tt>&nbsp;&nbsp; ...</tt>
+<p><b><tt><font color="#FF0000">&nbsp;&nbsp; // Method to show a URL</font></tt></b>
+<br><tt>&nbsp;&nbsp; boolean showURL(URL url) {</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>try</b> {</tt>
+<br><b><tt><font color="#FF0000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// Lookup the javax.jnlp.BasicService object</font></tt></b>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; BasicService
+bs = (BasicService)ServiceManager.lookup("javax.jnlp.BasicService");</tt>
+<br><b><tt><font color="#FF0000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// Invoke the showDocument method</font></tt></b>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>return
+</b>bs.showDocument(url);</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } <b>catch</b>(UnavailableServiceException
+ue) {</tt>
+<br><b><tt><font color="#FF0000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// Service is not supported</font></tt></b>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>return
+</b>false;</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; }</tt>
+<h3>
+ClipboardService サービスの使用</h3>
+<tt><a href="javadoc/index.html">javax.jnlp.ClipboardService</a></tt> サービスは、システム全体で共有されるクリップボードへのアクセス手段を、制限された実行環境内で実行されるアプリケーションに対しても提供します。
+<p>Java Web Start は、セキュリティ面の潜在的な危険 (信頼できないアプリケーションがクリップボード内の機密情報にアクセスしたり、クリップボードに格納されている内容を書き換えてしまう可能性があること) についてユーザに警告します。
+<p><tt><b>import</b> javax.jnlp;</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; ...</tt>
+<p><tt>&nbsp;&nbsp;&nbsp; <b>private</b> ClipboardService cs;</tt>
+<p><tt>&nbsp;&nbsp;&nbsp; <b>try</b> {</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cs = (ClipboardService)ServiceManager.lookup</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+("javax.jnlp.ClipboardService");</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; } <b>catch</b> (UnavailableServiceException
+e) {</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cs = null;</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; }</tt>
+<p><tt>&nbsp;&nbsp;&nbsp; <b>if</b> (cs != null) {</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b><font color="#FF0000">//
+set the system clipboard contents to a string selection</font></b></tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; StringSelection ss =
+new StringSelection("Java Web Start!");</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cs.setContents(ss);</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b><font color="#FF0000">//
+get the contents of the system clipboard and print them</font></b></tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Transferable tr = cs.getContents();</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>if</b> (tr.isDataFlavorSupported(DataFlavor.stringFlavor))
+{</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>try</b>
+{</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+String s = (String)tr.getTransferData(DataFlavor.stringFlavor);</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+System.out.println("Clipboard contents: " + s);</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+} <b>catch</b> (Exception e) {</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+e.printStackTrace();</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; }</tt>
+<h3>
+DownloadService サービスの使用</h3>
+<a href="javadoc/index.html">javax.jnlp.DownloadService</a> サービスは、アプリケーションが内部リソースのキャッシュ方法を制御することを可能にします。
+<p>アプリケーションは、このサービスを利用して、キャッシュするリソースの決定、リソースの強制的なキャッシュ、およびキャッシュからのリソースの削除を行うことができます。
+<p><tt><b>import</b> javax.jnlp.*;</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; ...</tt>
+<p><tt>&nbsp;&nbsp;&nbsp; DownloadService ds;</tt>
+<p><tt>&nbsp;&nbsp;&nbsp; <b>try</b> {</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ds = (DownloadService)ServiceManager.lookup("javax.jnlp.DownloadService");</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; } <b>catch</b> (UnavailableServiceException
+e) {</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ds = null;</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; }</tt>
+<p><tt>&nbsp;&nbsp;&nbsp; <b>if</b> (ds != null) {</tt>
+<p><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>try</b> {</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<b><font color="#FF0000">//
+determine if a particular resource is cached</font></b></tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+URL url =</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+new URL("http://java.sun.com/products/javawebstart/lib/draw.jar");</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+boolean cached = ds.isResourceCached(url, "1.0");</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<b><font color="#FF0000">//
+remove the resource from the cache</font></b></tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<b>if</b>
+(cached) {</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ds.removeResource(url, "1.0");</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<b><font color="#FF0000">//
+reload the resource into the cache</font></b></tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+DownloadServiceListener dsl = ds.getDefaultProgressWindow();</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ds.loadResource(url, "1.0", dsl);</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } <b>catch</b> (Exception
+e) {</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+e.printStackTrace();</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; }</tt>
+<h3>
+<a NAME="fos"></a>FileOpenService サービスの使用</h3>
+<a href="javadoc/index.html">javax.jnlp.FileOpenService</a> サービスは、ローカルディスクからファイルをインポートする手段を、制限された実行環境内で実行されるアプリケーションに対しても提供します。
+<p>このインタフェースは、Web 展開された信頼できないアプリケーションに対して、Web 開発者が HTML を使用する場合と同種のディスクアクセスを提供する目的で設計されました。HTML 形式では、[ファイルを開く] ダイアログを表示することにより、ファイルを含めることができます。
+<p><tt><b>import</b> javax.jnlp.*;</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; ...</tt>
+<p><tt>&nbsp;&nbsp;&nbsp; FileOpenService fos;</tt>
+<p><tt>&nbsp;&nbsp;&nbsp; <b>try</b> {</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; fos = (FileOpenService)ServiceManager.lookup("javax.jnlp.FileOpenService");</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; } <b>catch</b> (UnavailableServiceException
+e) {</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; fos = null;</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; }</tt>
+<p><tt>&nbsp;&nbsp;&nbsp; <b>if</b> (fos != null) {</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>try</b> {</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<b><font color="#FF0000">//
+ask user to select a file through this service</font></b></tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+FileContents fc = fos.openFileDialog(null, null);</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<b><font color="#FF0000">//
+as user to select multiple files through this service</font></b></tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+FileContents [] fcs = fos.openMultiFileDialog(null, null);</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } <b>catch</b> (Exception
+e) {</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+e.printStackTrace();</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; }
+</tt>
+</pre>
+<h3>
+FileSaveService サービスの使用</h3>
+<a href="javadoc/index.html">javax.jnlp.FileSaveService</a> サービスは、ファイルをローカルディスクにエクスポートするための手段を、制限された実行環境内で実行されるアプリケーションに対しても提供します。
+<p>このインタフェースは、Web 展開された信頼できないアプリケーションに対して、Web ブラウザが表示しているコンテンツを提供するのと同レベルのディスクアクセスを提供する目的で設計されました。たいていのブラウザは、ユーザインタフェースの 1 つとして、[別名保存] ダイアログを提供します。
+<pre>
+<tt>
+<b>import</b> javax.jnlp.*; 
+    ... 
+
+    FileSaveService fss; 
+    FileOpenService fos; 
+
+    <b>try</b> { 
+        fos = (FileOpenService)ServiceManager.lookup("javax.jnlp.FileOpenService"); 
+        fss = (FileSaveService)ServiceManager.lookup 
+                                   ("javax.jnlp.FileSaveService"); 
+    } <b>catch</b> (UnavailableServiceException e) { 
+        fss = null; 
+        fos = null; 
+    } 
+
+    <b>if</b> (fss != null && fos != null) { 
+        <b>try</b> { 
+            <font color="#FF0000"><b>// get a file with FileOpenService </b></font>
+            FileContents fc = fos.openFileDialog(null, null); 
+            <font color="#FF0000"><b>// one way to save a file </b></font>
+            FileContents newfc = fss.saveFileDialog(null, null, 
+            fc.getInputStream(), "newFileName.txt"); 
+            <font color="#FF0000"><b>// another way to save a file </b></font>
+            FileContents newfc2 = fss.saveAsFileDialog(null, null, fc); 
+
+        } <b>catch</b> (Exception e) { 
+            e.printStackTrace(); 
+        } 
+    } 
+</tt>
+</pre>
+<p>「<a href="#filecontents">FileContents の使用</a>」も参照してください。
+<h3>
+PrintService サービスの使用</h3>
+<a href="javadoc/index.html">javax.jnlp.PrintService</a> サービスは、印刷機能にアクセスするための手段を、制限された実行環境内で実行されるアプリケーションに対しても提供します。
+<p>アプリケーションは、このサービスを使用して印刷ジョブを渡します。Java Web Start は、この要求をユーザに表示し、受け入れられた場合は要求をプリンタに送信します。</p>
+<pre>
+<tt>
+<b>import</b> javax.jnlp.*; 
+    ... 
+
+    PrintService ps; 
+
+    <b>try</b> { 
+        ps = (PrintService)ServiceManager.lookup("javax.jnlp.PrintService"); 
+    } <b>catch</b> (UnavailableServiceException e) { 
+        ps = null; 
+    } 
+
+    <b>if</b> (ps != null) { 
+        <b>try</b> { 
+             
+            <font color="#FF0000"><b>// get the default PageFormat</b></font>
+            PageFormat pf = ps.getDefaultPage(); 
+
+            <font color="#FF0000"><b>// ask the user to customize the PageFormat</b></font>
+            PageFormat newPf = ps.showPageFormatDialog(pf); 
+
+            <font color="#FF0000"><b>// print the document with the PageFormat above</b></font>
+            ps.print(new DocToPrint()); 
+           
+        } <b>catch</b> (Exception e) { 
+            e.printStackTrace(); 
+        } 
+    } 
+
+    <font color="#FF0000"><b>// Code to construct the Printable Document</b></font>
+    <b>class</b> DocToPrint <b>implements</b> Printable {
+        <b>public</b> int print(Graphics g, PageFormat pageformat, int PageIndex){
+            <font color="#FF0000"><b>// code to generate what you want to print</b></font>   
+        }
+    }
+</tt>
+</pre>
+<h3>
+PersistenceService サービスの使用</h3>
+<a href="javadoc/index.html">javax.jnlp.PersistenceService</a> サービスは、データをローカルのクライアントシステムに格納する手段を、制限された実行環境内で実行されるアプリケーションに対しても提供します。 
+<p>このサービスは、cookie 機構が HTML ベースのアプリケーションに提供するのと (いくぶん) 類似したサービスを提供する目的で設計されました。cookie を使用すると、少量のデータをローカルのクライアントシステムに格納できます。格納されたデータは、ブラウザによりセキュリティ保護された状態で管理されます。このデータを取得できるのは、データを格納したページと同じ URL を元とする HTML ページだけです。
+
+<pre>
+<tt>
+<b>import</b> javax.jnlp.*; 
+    ... 
+
+    PersistenceService ps; 
+    BasicService bs; 
+
+    <b>try</b> { 
+        ps = (PersistenceService)ServiceManager.lookup("javax.jnlp.PersistenceService"); 
+        bs = (BasicService)ServiceManager.lookup("javax.jnlp.BasicService"); 
+    } <b>catch</b> (UnavailableServiceException e) { 
+        ps = null; 
+        bs = null; 
+    } 
+
+    <b>if</b> (ps != null && bs != null) { 
+
+        <b>try</b> { 
+            <font color="#FF0000"><b>// find all the muffins for our URL</b></font>
+            URL codebase = bs.getCodeBase(); 
+            String [] muffins = ps.getNames(url); 
+
+            <font color="#FF0000"><b>// get the attributes (tags) for each of these muffins. 
+            // update the server's copy of the data if any muffins 
+            // are dirty </b></font>
+            int [] tags = new int[muffins.length]; 
+            URL [] muffinURLs = new URL[muffins.length]; 
+            <b>for</b> (int i = 0; i < muffins.length; i++) { 
+                muffinURLs[i] = new URL(codebase.toString() + muffins[i]); 
+                tags[i] = ps.getTag(muffinURLs[i]); 
+                <font color="#FF0000"><b>// update the server if anything is tagged DIRTY </b></font>
+                <b>if</b> (tags[i] == PersistenceService.DIRTY) { 
+                    doUpdateServer(muffinURLs[i]); 
+                } 
+            } 
+
+            <font color="#FF0000"><b>// read in the contents of a muffin and then delete it </b></font>
+            FileContents fc = ps.get(muffinURLs[0]); 
+            long maxsize = fc.getMaxLength(); 
+            byte [] buf = new byte[fc.getLength()]; 
+            InputStream is = fc.getInputStream(); 
+            long pos = 0; 
+            <b>while</b>((pos = is.read(buf, pos, buf.length - pos)) > 0) { 
+                <font color="#FF0000"><b>// just loop </b></font>
+            } 
+            is.close(); 
+
+            ps.delete(muffinURLs[0]); 
+
+            <font color="#FF0000"><b>// re-create the muffin and repopulate its data </b></font>
+            ps.create(muffinURLs[0], maxsize); 
+            fc = ps.get(muffinURLs[0]); 
+            <font color="#FF0000"><b>// don't append </b></font>
+            OutputStream os = fc.getOutputStream(false); 
+            os.write(buf); 
+            os.close(); 
+
+        } <b>catch</b> (Exception e) { 
+            e.printStackTrace(); 
+        } 
+    } 
+
+   <b>void</b> doUpdateServer(URL url) { 
+        <font color="#FF0000"><b>// update the server's copy of the persistent data 
+        // represented by the given URL </b></font>
+        ... 
+        ps.setTag(url, PersistenceService.CACHED); 
+   } 
+</tt>
+</pre>
+
+<h3>
+<a NAME="filecontents"></a>FileContents の使用</h3>
+<tt>FileContents</tt> オブジェクトは、ファイルの名前および内容をカプセル化します。このクラスのオブジェクトは、<tt>FileOpenService</tt>、<tt>FileSaveService</tt>、および <tt>PersistenceService</tt> によって使用されます。以下に、<tt>FileContents</tt> のインスタンスをファイルからの読み取りおよびファイルへの書き込みに使用する方法を、例で示します。
+<pre>
+<tt>
+<b>import</b> javax.jnlp.*; 
+    ... 
+
+    FileOpenService fos; 
+
+    <font color="#FF0000"><b>//Initialize fos (see Using a FileOpenService Service example) </b></font>
+    ... 
+
+    <b>if</b> (fos != null) { 
+
+        <b>try</b> { 
+
+            <font color="#FF0000"><b>// get a FileContents object to work with from the 
+            // FileOpenService </b></font>
+            FileContents fc = fos.openFileDialog(null, null); 
+
+            <font color="#FF0000"><b>// get the InputStream from the file and read a few bytes </b></font>
+            byte [] buf = new byte[fc.getLength()]; 
+            InputStream is = fc.getInputStream(); 
+            int pos = 0; 
+            <b>while</b> ((pos = is.read(buf, pos, buf.length - pos)) > 0) { 
+                <font color="#FF0000"><b>// just loop </b></font>
+            } 
+            is.close(); 
+
+            <font color="#FF0000"><b>// get the OutputStream and write the file back out </b></font>
+            <b>if</b> (fc.canWrite()) { 
+               <font color="#FF0000"><b>// don't append </b></font>
+               OutputStream os = fc.getOutputStream(false); 
+               os.write(buf); 
+            } 
+
+        } <b>catch</b> (Exception e) { 
+            e.printStackTrace(); 
+        } 
+    } 
+</tt>
+</pre>
+<h3>
+JNLPRandomAccessFile の使用</h3>
+<tt>JNLPRandomAccessFile</tt> のインスタンスは、ランダムアクセスファイルに対する読み取りと書き込みの両方をサポートします。ランダムアクセスファイルは、ファイルシステムに格納された大規模なバイト配列のように機能します。以下に、JNLPRandomAccessFile のインスタンスをランダムアクセスファイルへの書き込みに使用する方法を、例で示します。
+
+<pre>
+<tt>
+<b>import</b> javax.jnlp.*; 
+    ... 
+
+    FileOpenService fos; 
+
+    <font color="#FF0000"><b>//Initialize fos (see Using a FileOpenService Service example) </b></font>
+    ... 
+
+    <b>if</b> (fos != null) { 
+        <b>try</b> { 
+           <font color="#FF0000"><b>// ask the user to choose a file to open </b></font>
+           FileContents fc = fos.openFileDialog(null, null); 
+
+           <font color="#FF0000"><b>// attempt to increase the maximum file length </b></font>
+           long grantedLength = fc.getLength(); 
+           <b>if</b> (grantedLength + 1024 > fc.getMaxLength()) { 
+               <font color="#FF0000"><b>// attempt to increase the maximum file size defined by 
+               // the client </b></font>
+               grantedLength = fc.setMaxLength(grantedLength + 1024); 
+           } 
+
+           <font color="#FF0000"><b>// if we were able to increase the maximum allowable file size, 
+           // get a JNLPRandomAccessFile representation of the file, and 
+           // write to it </b></font>
+           <b>if</b> (fc.getMaxSize() > fc.getLength() && fc.canWrite()) { 
+               JNLPRandomAccessFile raf = fc.getRandomAccessFile("rw"); 
+               raf.seek(raf.length() - 1); 
+               raf.writeUTF("Java Web Start!"); 
+               raf.close(); 
+           } 
+        } <b>catch</b> (Exception e) { 
+            e.printStackTrace(); 
+        } 
+    } 
+</tt>
+</pre>
+</blockquote>
+
+<!--Copyright Info-->
+
+<TABLE WIDTH="100%" CELLPADDING="0" BORDER="0" CELLSPACING="5">   
+<TR>
+	<TD BGCOLOR="#CCCCCC">
+	<IMG SRC="/images/pixel.gif" WIDTH="1" HEIGHT="1" ALT=""></TD>
+</TR>
+<TR>
+	<TD>
+		<TABLE WIDTH="100%" CELLPADDING="0" BORDER="0" CELLSPACING="0">
+		<TR>
+		<TD WIDTH="50%">
+		<FONT SIZE="-2">
+		For more information on Java technology<BR>
+                and other software from Sun Microsystems, call:<BR>
+		</FONT>
+		<FONT SIZE="-1">
+		(800) 786-7638<BR></FONT>
+		<FONT SIZE="-2">
+		Outside the U.S. and Canada, dial your country's <A
+HREF="http://www.att.com/tollfree/international/dialguide/">AT&amp;T&nbsp;Direct&nbsp;Access&nbsp;Number</A> first.<BR>
+		</FONT>
+		</TD>
+		<TD ALIGN="RIGHT" WIDTH="50%">
+		<A HREF="http://www.sun.com">
+		<IMG SRC="sunlogo64x30.gif" width="64"
+		height="30" border="0" ALT="Sun Microsystems, Inc."></A><BR>
+		<FONT SIZE="-2">
+		Copyright &copy; 2000-2001
+		<A HREF="http://www.sun.com">Sun Microsystems, Inc.</A><BR>
+		All Rights Reserved. <a
+		href="http://www.sun.com/share/text/termsofuse.html">Terms
+		of Use</a>. <A HREF="http://www.sun.com/privacy">Privacy&nbsp;Policy</A>.
+		</FONT>
+		</TD></TR>
+		</TABLE>
+	</TD>
+</TR> 
+</TABLE>
+</body>
+</html>

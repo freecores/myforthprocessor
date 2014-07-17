@@ -1,0 +1,493 @@
+'\" t
+.\" @(#)appletviewer.1 1.9 00/06/13 SMI;
+.\" Copyright 2003 Sun Microsystems, Inc. All rights reserved.
+.\" Copyright 2003 Sun Microsystems, Inc. Tous droits réservés.
+.\" 
+.TH appletviewer 1 "23 Apr 2001"
+.SH NAME
+appletviewer \- Java applet viewer
+.\"
+.\" This comment retained for historical purposes only:
+.\"  This document was created by saving an HTML file as text
+.\"  from the JavaSoft web site:
+.\" 
+.\" http://java.sun.com/j2se/1.4/docs/tooldocs/tools.html
+.\" 
+.\"  and adding appropriate troff macros.
+.\" 
+.SH SYNOPSIS
+.BR appletviewer " ["
+.BR \-debug " ]"
+[
+.BI \-encoding " encoding_name"
+] 
+.if n .ti +5n
+[
+.BI \-J " javaoption"
+]
+.IR "urls " \|.\|.\|.
+.SH DESCRIPTION 
+.IX "appletviewer" "" "\fLappletviewer\fP \(em run applets"
+.IX "appletviewer" "" "\fLappletviewer\fP \(em Web browser"
+The
+.B appletviewer
+command runs Java applets outside
+of the context of a World Wide Web browser.
+.LP
+The
+.B appletviewer
+command connects to the document(s) or
+resource(s) designated by
+.I urls
+and displays each applet
+referenced by that document in its own window. 
+Please note that if the documents referred to by
+.I urls
+do not reference any
+applets with the
+\s-1\f3OBJECT\f1\s0, \s-1\f3EMBED\f1\s0, or
+.SB APPLET
+tag,
+.B appletviewer
+does nothing.
+.SS appletviewer Tags
+The 
+.B appletviewer 
+makes it possible to run a Java applet without using a browser. 
+.B appletviewer 
+ignores any
+.SM HTML
+that is not 
+immediately relevant to
+launching an applet.
+However, it recognizes a wide variety of 
+applet-launching syntax.
+The
+.SM HTML
+code that appletviewer recognizes is shown below.
+All other
+.SM HTML
+code is ignored.
+.TP 10
+.B object
+The 
+.B object 
+tag is the
+.SM HTML
+4.0 tag for embedding applets and
+mult-media objects into an
+.SM HTML
+page.
+It is also an Internet
+Explorer 4.x extension to
+.SM HTML
+3.2 which allows IE to run a Java
+applet using the latest Java plugin from Sun.
+.LP
+.RS 10
+.ft 3
+.nf
+ <object
+   width="pixelWidth"
+   height="pixelHeight"
+ >
+   <param name="code" value="yourClass.class">
+   <param name="object" value="serializedObjectOrJavaBean">
+   <param name="codebase" value="classFileDirectory">
+   ...
+   alternate-text
+</object>
+.fi
+.ft 1
+.LP
+Please note:
+.TP 2
+\(bu
+.B appletviewer 
+ignores the "classID" attribute, on the
+assumption that it is pointing to the Java plugin, with the
+value:
+.LP
+.RS 2
+.ft 3
+.nf
+classid="clsid:8AD9C840-044E-11D1-B3E9-00805F499D93"
+.fi
+.ft 1
+.RE
+.TP 2
+\(bu
+.B appletviewer 
+also ignores the "codebase" attribute that is
+usually included as part of the 
+.B object 
+tag, assuming that it
+points to a Java plugin in a network cab file with a value
+like:
+.LP
+.RS 2
+.ft 3
+.nf
+.if n codebase="http://java.sun.com/products/plugin/1.1/jinstall-11.cab#Version=1,1,0,0"
+.if t codebase="http://java.sun.com/products/plugin/1.1/\\
+.if t 		jinstall-11.cab#Version=1,1,0,0"
+.fi
+.ft 1
+.RE
+.TP 2
+\(bu
+The optional codebase 
+.B param 
+tag supplies a relative URL that
+specifies the location of the applet class.
+.TP 2
+\(bu
+Either 
+.B code 
+or 
+.B object 
+is specified, not both.
+.TP 2
+\(bu
+The type 
+.B param 
+tag is not used by 
+.BR appletviewer , 
+but should be
+present so that browsers load the plugin properly.
+For an applet, the value should be something like:
+.LP
+.RS 2
+.ft 3
+.nf
+  <param name="type"
+  value="application/x-java-applet;version=1.1">
+.fi
+.ft 1
+.LP
+or
+.LP
+.ft 3
+.nf
+  <param name="type" value="application/x-java-applet">
+.fi
+.ft 1
+.LP
+For a serialized object or JavaBean, the type 
+.B param 
+value
+should be something like:
+.LP
+.ft 3
+.nf
+  <param name="type"
+   value="application/x-java-bean;version=1.1">
+.fi
+.ft 1
+.LP
+or
+.LP
+.ft 3
+.nf
+  <param name="type" value="application/x-java-bean">
+.fi
+.ft 1
+.RE
+.TP 2
+\(bu
+Other 
+.B param 
+tags are argument values supplied to the applet.
+.TP 2
+\(bu
+The
+.B object 
+tag recognized by IE4.x and the embed tag
+recognized by Netscape 4.x can be combined so that an applet
+can use the latest Java plugin from Sun, regardless of the
+browser that downloads the applet.
+.TP 2
+\(bu
+.B appletviewer 
+does not recognize the 
+.BR java_code , 
+.BR java_codebase ,
+.BR java_object , 
+or
+.B java_type 
+.B param 
+tags. These tags are only
+needed when the applet defines parameters with the names
+.BR code , 
+.BR codebase ,
+.BR object ,
+or 
+.BR type , 
+respectively. (In that
+situation, the plugin recognizes and uses the 
+.B java_ 
+version in preference to the version that will be used by the
+applet.)  If the applet requires a parameter with one of these
+4 names, it may not run in 
+.BR appletviewer .
+.RE
+.TP 10
+.B embed
+The 
+.B embed 
+tag is the Netscape extension to
+.SM HTML
+3.2 that allows embedding an applet or a multimedia object in an
+.SM HTML
+page.
+It allows a Netscape 4.x browser (which supports
+.SM HTML
+3.2) to run a
+Java applet using the latest Java plugin from Sun.
+.LP
+.RS 10
+.ft 3
+.nf
+  <embed
+    code="yourClass.class"
+    object="serializedObjectOrJavaBean"
+    codebase="classFileDirectory"
+    width="pixelWidth"
+    height="pixelHeight"
+  >
+  ...
+  </embed>
+
+.fi
+.ft 1
+Please note that:
+.TP 2
+\(bu
+The 
+.B object 
+and 
+.B embed 
+tags can be combined so that an applet
+can use the latest Java plugin from Sun, regardless of the
+browser that downloads the applet.
+For more information, see the Java PlugIn
+.SM HTML
+Specification
+.TP 2
+\(bu
+Unlike the
+.B object 
+tag, all values specified in an
+.B embed 
+tag
+are attributes (part of the tag) rather than parameters
+(between the 
+.B start 
+tag and 
+.B end 
+tag, specified with a
+.B param
+tag.
+.TP 2
+\(bu
+To supply argument values for applet parameters, you add
+additional attributes to the
+.B <embed> 
+tag.
+.TP 2
+\(bu
+.B appletviewer 
+ignores the "src" attribute that is usually part
+of an 
+.B <embed> 
+tag.
+.TP 2
+\(bu
+Either
+.B code 
+or 
+.B object 
+is specified, not both.
+.TP 2
+\(bu
+The optional
+.B codebase 
+attribute supplies a relative URL that
+specifies the location of the applet class.
+.TP 2
+\(bu
+The 
+.B type 
+attribute is not used by 
+.BR appletviewer , 
+but should be
+present so that browsers load the plugin properly.
+For an applet, the value should be something like:
+.ft 3
+.nf
+  <type="application/x-java-applet;version=1.1">...
+.fi
+.ft 1
+.LP
+.RS 2
+or
+.LP
+.ft 3
+.nf
+  <type="application/x-java-applet">...
+.LP
+.fi
+.ft 1
+For a serialized object or JavaBean, the type param value
+should be something like:
+.LP
+.ft 3
+.nf
+  <type="application/x-java-bean;version=1.1">...
+.fi
+.ft 1
+.LP
+or
+.LP
+.ft 3
+.nf
+  <type="application/x-java-bean">...
+.fi
+.ft 1
+.RE
+.TP 2
+\(bu
+The 
+.B pluginspage 
+attribute is not used by
+.BR appletviewer , 
+but
+should be present so that browsers load the plugin properly.
+It should point to a Java plugin in a network cab file with a
+value like:
+.LP
+.ft 3
+.nf
+.if n pluginspage="http://java.sun.com/products/plugin/1.1/jinstall-11.cab#Version=1,1,0,0"
+.if t pluginspage="http://java.sun.com/products/plugin/1.1/\\
+.if t		jinstall-11.cab#Version=1,1,0,0"
+.fi
+.ft 1
+.RE
+.TP 10
+.B applet
+The 
+.B applet 
+tag is the original
+.SM HTML
+3.2 tag for embedding an
+applet in an
+.SM HTML
+page.
+Applets loaded using the 
+.B applet 
+tag are
+run by the browser, which may not be using the latest version of
+the Java platform.
+To ensure that the applet runs with the latest
+version, use the 
+.B object 
+tag to load the Java plugin into the
+browser. The plugin will then run the applet.
+.LP
+.RS 10
+.ft 3
+.nf
+  <applet
+    code="yourClass.class"
+    object="serializedObjectOrJavaBean"
+    codebase="classFileDirectory"
+    width="pixelWidth"
+    height="pixelHeight"
+  >
+    <param name="..." value="...">
+    ...
+    alternate-text
+  </applet>
+
+.fi
+.ft 1
+Please note that:
+.TP 2
+\(bu
+Either 
+.B code 
+or 
+.B object 
+is specified, not both.
+.TP 2
+\(bu
+The optional 
+.B codebase 
+attribute supplies a relative URL that
+specifies the location of the applet class.
+.TP 2
+\(bu
+.B param 
+tags supply argument values for applet parameters.
+.RE
+.TP 10
+.B app
+The 
+.B app 
+tag was a short-lived abbreviation for applet that is no
+longer supported. 
+.B appletviewer 
+translates the tag and prints out
+an equivalent tag that is supported.
+.LP
+.RS 10
+.ft 3
+.nf
+  <app
+    class="classFileName" (without a .class suffix)
+    src="classFileDirectory"
+    width="pixelWidth"
+    height="pixelHeight"
+  >
+    <param name="..." value="...">
+    ...
+  </app>
+.fi
+.ft 1
+.RE
+.SH OPTIONS
+The following options are supported:
+.TP 10
+.B  \-debug
+Starts the applet viewer in the Java debugger,
+which debugs applets in the document.
+(See
+.BR  jdb (1).)
+.TP 10
+.BI \-encoding " encoding_name"
+Specifies the input
+.SM HTML
+file encoding name.
+.TP 10
+.BI \-J " javaoption"
+Passes the string
+.I javaoption
+through as a single argument to 
+.BR  java (1)
+which runs
+the compiler.
+The argument should not contain spaces.
+Multiple argument words must all begin with the prefix
+.BR \-J ,
+which is stripped.
+This is useful for adjusting the execution
+environment or compiler memory usage.
+.SH SEE ALSO
+For more information, see 
+.LP
+http://java.sun.com/j2se/1.4/docs/guide/plugin/developer_guide/
+.LP
+or search
+.B www.java.sun.com
+for "Java PlugIn HTML Specification"

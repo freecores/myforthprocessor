@@ -1,0 +1,25 @@
+#
+# @(#)FILES_java.gmk	1.14 02/09/19
+#
+FILES_java = \
+	$(TARGDIR)javax/accessibility/Accessible.java \
+	$(TARGDIR)javax/accessibility/AccessibleBundle.java \
+	$(TARGDIR)javax/accessibility/AccessibleIcon.java \
+	$(TARGDIR)javax/accessibility/AccessibleRelation.java \
+	$(TARGDIR)javax/accessibility/AccessibleRelationSet.java \
+	$(TARGDIR)javax/accessibility/AccessibleResourceBundle.java \
+	$(TARGDIR)javax/accessibility/AccessibleRole.java \
+	$(TARGDIR)javax/accessibility/AccessibleState.java \
+	$(TARGDIR)javax/accessibility/AccessibleStateSet.java \
+	$(TARGDIR)javax/accessibility/AccessibleText.java \
+	$(TARGDIR)javax/accessibility/AccessibleHyperlink.java \
+	$(TARGDIR)javax/accessibility/AccessibleHypertext.java \
+	$(TARGDIR)javax/accessibility/AccessibleAction.java \
+	$(TARGDIR)javax/accessibility/AccessibleContext.java \
+	$(TARGDIR)javax/accessibility/AccessibleSelection.java \
+	$(TARGDIR)javax/accessibility/AccessibleValue.java \
+	$(TARGDIR)javax/accessibility/AccessibleComponent.java
+
+#	$(TARGDIR)javax/accessibility/AccessibleTable.java 
+#	$(TARGDIR)javax/accessibility/AccessibleLayout.java \
+#	$(TARGDIR)javax/accessibility/AbstractAccessible.java 

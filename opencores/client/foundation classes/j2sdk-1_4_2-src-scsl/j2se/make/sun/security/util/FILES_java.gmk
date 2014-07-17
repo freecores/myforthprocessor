@@ -1,0 +1,25 @@
+#
+# @(#)FILES_java.gmk	1.19 03/01/09
+#
+FILES_java = \
+	$(TARGDIR)sun/security/util/BigInt.java \
+	$(TARGDIR)sun/security/util/BitArray.java \
+	$(TARGDIR)sun/security/util/ByteArrayLexOrder.java \
+	$(TARGDIR)sun/security/util/ByteArrayTagOrder.java \
+	$(TARGDIR)sun/security/util/Cache.java \
+	$(TARGDIR)sun/security/util/Debug.java \
+	$(TARGDIR)sun/security/util/DerEncoder.java \
+	$(TARGDIR)sun/security/util/DerIndefLenConverter.java \
+	$(TARGDIR)sun/security/util/DerInputBuffer.java \
+	$(TARGDIR)sun/security/util/DerInputStream.java \
+	$(TARGDIR)sun/security/util/DerOutputStream.java \
+	$(TARGDIR)sun/security/util/DerValue.java \
+	$(TARGDIR)sun/security/util/HostnameChecker.java \
+	$(TARGDIR)sun/security/util/ObjectIdentifier.java \
+	$(TARGDIR)sun/security/util/PropertyExpander.java \
+	$(TARGDIR)sun/security/util/ManifestDigester.java \
+	$(TARGDIR)sun/security/util/ManifestEntryVerifier.java \
+        $(TARGDIR)sun/security/util/ResourcesMgr.java \
+	$(TARGDIR)sun/security/util/SecurityConstants.java \
+	$(TARGDIR)sun/security/util/SignatureFile.java \
+	$(TARGDIR)sun/security/util/SignatureFileVerifier.java

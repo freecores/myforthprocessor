@@ -1,0 +1,101 @@
+#
+# @(#)FILES_c.gmk	1.17 02/11/07
+#
+
+FILES_c = \
+	$(CTARGDIR)Utilities.c \
+	$(CTARGDIR)MixerThread.c \
+	$(CTARGDIR)HeadspaceMixer.c \
+	$(CTARGDIR)MixerClip.c \
+	$(CTARGDIR)MixerSourceLine.c \
+	$(CTARGDIR)SimpleInputDevice.c \
+	$(CTARGDIR)SimpleInputDeviceProvider.c \
+	$(CTARGDIR)HeadspaceSoundbank.c \
+	$(CTARGDIR)MixerMidiChannel.c \
+	$(CTARGDIR)AbstractPlayer.c \
+	$(CTARGDIR)MixerSequencer.c \
+	$(CTARGDIR)MixerSynth.c \
+	$(CTARGDIR)MidiInDevice.c \
+	$(CTARGDIR)MidiInDeviceProvider.c \
+	$(CTARGDIR)MidiOutDevice.c \
+	$(CTARGDIR)MidiOutDeviceProvider.c \
+	$(CTARGDIR)PlatformMidi.c \
+	$(CTARGDIR)PortMixerProvider.c \
+	$(CTARGDIR)PortMixer.c \
+	$(CTARGDIR)Platform.c
+
+#	$(CTARGDIR)Ports.c
+#	$(CTARGDIR)SimpleOutputDevice.c \
+#	$(CTARGDIR)SimpleOutputDeviceProvider.c \
+
+#	$(CTARGDIR)MixerGroupLine.c
+
+FILES_engine = \
+	$(CTARGDIR)DriverTools.c \
+	$(CTARGDIR)GenAudioCaptureStreams.c \
+	$(CTARGDIR)GenAudioStreams.c \
+	$(CTARGDIR)GenOutput.c \
+	$(CTARGDIR)GenPatch.c \
+	$(CTARGDIR)GenReverb.c \
+	$(CTARGDIR)GenSample.c \
+	$(CTARGDIR)GenSeq.c \
+	$(CTARGDIR)GenSetup.c \
+	$(CTARGDIR)GenSong.c \
+	$(CTARGDIR)GenSynth.c \
+	$(CTARGDIR)GenSynthFilters.c \
+	$(CTARGDIR)GenSynthInterp2.c \
+	$(CTARGDIR)GenSynthResample.c \
+	$(CTARGDIR)NewNewLZSS.c \
+	$(CTARGDIR)SampleTools.c \
+	$(CTARGDIR)SMOD_Volume_Scaler.c \
+	$(CTARGDIR)X_API.c \
+	$(CTARGDIR)X_Decompress.c \
+	$(CTARGDIR)X_IMA.c \
+	$(CTARGDIR)GenFiltersReverb.c \
+	$(CTARGDIR)GenInterp2Reverb.c \
+	$(CTARGDIR)GenSoundFiles.c \
+	$(CTARGDIR)SincResample.c
+
+FILES_solaris = \
+	$(CTARGDIR)HAE_API_SolarisOS.c \
+	$(CTARGDIR)HAE_API_SolarisOS_Capture.c \
+	$(CTARGDIR)PLATFORM_API_SolarisOS_Utils.c \
+	$(CTARGDIR)PLATFORM_API_SolarisOS_Ports.c
+
+FILES_linux = \
+	$(CTARGDIR)HAE_API_LinuxOS.c \
+	$(CTARGDIR)HAE_API_LinuxOS_Capture.c
+
+FILES_windows = \
+	$(CTARGDIR)HAE_API_WinOS.c \
+	$(CTARGDIR)HAE_API_WinOS_Capture.c \
+	$(CTARGDIR)PLATFORM_API_WinOS_MidiIn.c \
+	$(CTARGDIR)PLATFORM_API_WinOS_MidiOut.c \
+	$(CTARGDIR)PLATFORM_API_WinOS_Util.c \
+	$(CTARGDIR)HAE_API_WinOS_Synth.c \
+	$(CTARGDIR)PLATFORM_API_WinOS_Ports.c
+
+
+# Syntax for Solaris builds...
+
+FILES_export = \
+	com/sun/media/sound/MixerThread.java \
+	com/sun/media/sound/HeadspaceMixer.java \
+	com/sun/media/sound/MidiInDevice.java \
+	com/sun/media/sound/MidiInDeviceProvider.java \
+	com/sun/media/sound/MidiOutDevice.java \
+	com/sun/media/sound/MidiOutDeviceProvider.java \
+	com/sun/media/sound/MixerSourceLine.java \
+	com/sun/media/sound/MixerClip.java \
+	com/sun/media/sound/SimpleInputDevice.java \
+	com/sun/media/sound/SimpleInputDeviceProvider.java \
+	com/sun/media/sound/HeadspaceSoundbank.java \
+	com/sun/media/sound/MixerMidiChannel.java \
+	com/sun/media/sound/AbstractPlayer.java \
+	com/sun/media/sound/MixerSequencer.java \
+	com/sun/media/sound/MixerSynth.java \
+	com/sun/media/sound/Platform.java \
+	com/sun/media/sound/PortMixer.java \
+	com/sun/media/sound/PortMixerProvider.java
+#	com/sun/media/sound/SimpleOutputDevice.java \
+#	com/sun/media/sound/SimpleOutputDeviceProvider.java \

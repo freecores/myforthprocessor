@@ -1,0 +1,72 @@
+//Microsoft Developer Studio generated resource script.
+//
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_ICON1               ICON    DISCARDABLE     "icon.ico"
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    JAVAWS_TEST             "Dies ist ein Test."
+    JAVAWS_ERROR_RESOURCE   "Fehler beim Laden der Ressource."
+    JAVAWS_ERROR_RESOURCE_CAPTION "Installationsprogrammfehler"
+    JAVAWS_ERROR_DEFLATEINIT "add_data_compress: Fehler deflateInit()! ABBRUCH!"
+    JAVAWS_ERROR_COMPRESS   "add_data_compress: Oh! Fehler in compress! ABBRUCH!"
+    JAVAWS_UNINST_SECTION   "add_section: Übergang zu Deinstallationsabschnitt"
+    JAVAWS_ERROR_UNINST     "add_section: FEHLER: Es wurde ein Deinstallationsabschnitt angegeben, doch der Compiler wurde nicht mit NSIS_CONFIG_UNINSTALL_SUPPORT erstellt!"
+    JAVAWS_DONE_UNINST      "add_section: Übergang von Deinstallationsabschnitt"
+    JAVAWS_PROCESSING_SCRIPT "Skriptverarbeitung"
+    JAVAWS_ERROR_TOKEN      "Fehler: Befehl ""%1"" erwartet %2!d! Parameter in Zeile %3!d!"
+    JAVAWS_ERROR_INVALIDCOMMAND 
+                            "Fehler: ungültiger Befehl (""%1"") in Zeile %2!d!"
+    JAVAWS_PARSE_NAME       "Name: ""%1"""
+    JAVAWS_PARSE_ICON       "Symbol: ""%1"""
+    JAVAWS_ERROR_NOUNINSTALLSUPPORT 
+                            "Deinstallationssymbol: Installationsprogramm wurde nicht mit NSIS_CONFIG_UNINSTALL_SUPPORT erstellt."
+    JAVAWS_PARSE_UNINSTALLICON "UninstallIcon: ""%1"""
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    JAVAWS_PARSE_ENABLEDBITMAP "EnabledBitmap: ""%1"""
+    JAVAWS_PARSE_DISABLEDBITMAP "DisabledBitmap: ""%1"""
+    JAVAWS_PARSE_DIRTEXT    "DirText: ""%1"""
+    JAVAWS_PARSE_COMPONENTTEXT "ComponentText: ""%1"""
+END
+

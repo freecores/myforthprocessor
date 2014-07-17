@@ -1,0 +1,71 @@
+#
+# @(#)DemoApplets.gmk	1.20 02/01/29
+#
+# Boiler plate for demo applets. The following variables should have
+# sensible values before you include this makefile:
+#   		DEMO_dirs DEMO_other DEMO_java DEMONAME
+#
+
+# identify this as a applets product - used only to identify a
+# unique name for OBJDIR
+PRODUCT = applets
+
+DEMODST         = $(DEMODIR)/applets/$(DEMONAME)
+DEMOSRC         = $(DEMOSRCDIR)/applets/$(DEMONAME)
+DEMO_JAVAC_FLAGS =
+
+DEMO_class      = $(DEMO_java:%.java=%.class)
+
+#
+# 64-bit builds require a larger thread stack size.
+#
+ifneq ($(ARCH_DATA_MODEL), 32)
+  STACKSIZE		 = 1024
+  DEMO_JAVAC_FLAGS	+= -J-XX:ThreadStackSize=$(STACKSIZE)
+endif
+
+
+all optimized debug: $(OBJDIR) $(DEMO_dirs) $(DEMO_other) $(DEMO_java) .demo.classes
+
+clean clobber: .delete.classlist
+	$(RM) -r $(DEMODST) $(OBJDIR)
+
+#
+# A union of different kinds of directories found in different
+# demos. Hopefully none of the demos has a file named like the
+# directory in another demo.
+#
+$(OBJDIR)				\
+$(DEMODST) $(DEMODST)/images		\
+$(DEMODST)/images/SimpleAnimation 	\
+$(DEMODST)/images/Beans			\
+$(DEMODST)/audio $(DEMODST)/sounds	\
+$(DEMODST)/models			:
+	$(MKDIR) -p $@
+
+#
+# How to install files?
+#
+$(DEMODST)/%: $(DEMOSRC)/%
+	$(install-file)
+
+#
+# Compile the installed .java files.
+#
+.demo.classes: .delete.classlist $(DEMO_class) .compile.classlist
+
+.delete.classlist:
+	@$(RM) $(TMPDIR)/.classes.list
+
+.compile.classlist: $(OBJDIR)
+	if [ -s $(TMPDIR)/.classes.list ] ; \
+	then $(JAVAC) $(DEMO_JAVAC_FLAGS) -classpath "$(CLASSBINDIR)$(CLASSPATH_SEPARATOR)$(DEMOSRC)$(CLASSPATH_SEPARATOR)$(DEMODST)" -d $(DEMODST) \
+	    $(shell if [ -s $(TMPDIR)/.classes.list ] ; then $(CAT) $(TMPDIR)/.classes.list; fi ) ; \
+	fi
+
+$(DEMODST)/%.class: $(DEMOSRC)/%.java
+	@$(ECHO) $? >> $(TMPDIR)/.classes.list
+
+.PHONY: all debug optimized clobber .demo.classes \
+	.delete.classlist .compile.classlist 
+

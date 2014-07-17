@@ -1,0 +1,16 @@
+#
+# @(#)FILES_java.gmk	1.10 02/09/19
+#
+FILES_java = \
+	$(TARGDIR)sun/security/pkcs/ContentInfo.java \
+	$(TARGDIR)sun/security/pkcs/PKCS7.java \
+	$(TARGDIR)sun/security/pkcs/PKCS8Key.java \
+	$(TARGDIR)sun/security/pkcs/EncryptedPrivateKeyInfo.java \
+	$(TARGDIR)sun/security/pkcs/PKCS9Attribute.java \
+	$(TARGDIR)sun/security/pkcs/PKCS9Attributes.java \
+	$(TARGDIR)sun/security/pkcs/PKCS10.java \
+	$(TARGDIR)sun/security/pkcs/PKCS10Attribute.java \
+	$(TARGDIR)sun/security/pkcs/PKCS10Attributes.java \
+	$(TARGDIR)sun/security/pkcs/SignerInfo.java \
+	$(TARGDIR)sun/security/pkcs/EncodingException.java \
+	$(TARGDIR)sun/security/pkcs/ParsingException.java

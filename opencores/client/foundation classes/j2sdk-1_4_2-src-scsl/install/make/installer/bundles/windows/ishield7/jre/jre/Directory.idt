@@ -1,0 +1,73 @@
+Directory	Directory_Parent	DefaultDir	ISDescription	ISAttributes
+s72	S72	l255	S255	I4
+Directory	Directory
+AdminToolsFolder	TARGETDIR	.:Admint~1|AdminTools		0
+ALLUSERSPROFILE	TARGETDIR	.:ALLUSE~1|All Users		0
+AppDataFolder	TARGETDIR	.:APPLIC~1|Application Data		0
+BASE_IMAGES	UPDATEDIR	BASEIM~1|Base Images		0
+CommonAppDataFolder	TARGETDIR	.:Common~1|CommonAppData		0
+CommonFiles64Folder	TARGETDIR	.:Common64		0
+CommonFilesFolder	TARGETDIR	.:Common		0
+DesktopFolder	TARGETDIR	.:Desktop		3
+FavoritesFolder	TARGETDIR	.:FAVORI~1|Favorites		0
+FontsFolder	TARGETDIR	.:Fonts		0
+GlobalAssemblyCache	TARGETDIR	.:Global~1|GlobalAssemblyCache		0
+INSTALLDIR	JAVA	J2RE1_~1|j2reTHEFULLVERSION		0
+ISYourProductDir	JAVA	J2RE1_~1|j2reTHEFULLVERSION		0
+J2RE_MAJOR_	JAVA	J2RE_M~1|j2re[MAJOR]		0
+J2RE_MAJOR_._MINOR_._MICRO_	JAVA	J2RE_M~1|j2re[MAJOR].[MINOR].[MICRO]		0
+J2RE_PRODUCTVERSION_	JAVA	J2RE_P~1|j2re[ProductVersion]		0
+J2REBASEIMAGEFULLVERSION	BASE_IMAGES	J2RE1_~1|j2reBASEIMAGEFULLVERSION		0
+J2REPATCHFULLVERSION	J2REBASEIMAGEFULLVERSION	PATCH-~1|patch-j2reNEWIMAGEFULLVERSION		0
+JAVA	ProgramFilesFolder	Java		0
+JAVADIR	CommonFilesFolder	Java		0
+LocalAppDataFolder	TARGETDIR	.:LocalA~1|LocalAppData		0
+MyPicturesFolder	TARGETDIR	.:MyPict~1|MyPictures		0
+PersonalFolder	TARGETDIR	.:Personal		0
+PrimaryVolumePath	TARGETDIR	.:Primar~1|PrimaryVolumePath		0
+ProgramFiles64Folder	TARGETDIR	.:Prog64~1|Program Files 64		0
+ProgramFilesFolder	TARGETDIR	.:PROGRA~1|program files		0
+ProgramMenuFolder	TARGETDIR	.:Programs		3
+SendToFolder	TARGETDIR	.:SendTo		3
+StartMenuFolder	TARGETDIR	.:STARTM~1|Start Menu		3
+StartupFolder	TARGETDIR	.:StartUp		3
+System16Folder	TARGETDIR	.:System		0
+System64Folder	TARGETDIR	.:System64		0
+SystemFolder	TARGETDIR	.:System32		0
+TARGETDIR		SourceDir		0
+TempFolder	TARGETDIR	.:Temp		0
+TemplateFolder	TARGETDIR	.:ShellNew		0
+UPDATEDIR	JAVADIR	Update		0
+USERPROFILE	TARGETDIR	.:USERPR~1|UserProfile		0
+WindowsFolder	TARGETDIR	.:Windows		0
+WindowsVolume	TARGETDIR	.:WinRoot		0
+bin	INSTALLDIR	bin		0
+client	bin	client		0
+javaws	INSTALLDIR	javaws		0
+resources	javaws	RESOUR~1|resources		0
+lib	INSTALLDIR	lib		0
+applet	lib	applet		0
+audio	lib	audio		0
+cmm	lib	cmm		0
+ext	lib	ext		0
+im	lib	im		0
+fonts	lib	fonts		0
+i386	lib	i386		0
+images	lib	images		0
+cursors	images	cursors		0
+zi	lib	zi		0
+Africa	zi	Africa		0
+America	zi	America		0
+Asia	zi	Asia		0
+Atlantic	zi	Atlantic		0
+Australia	zi	AUSTRA~1|Australia		0
+Indian	zi	Indian		0
+Indiana	America	Indiana		0
+Kentucky	America	Kentucky		0
+North_Dakota	America	NORTH_~1|North_Dakota		0
+Antarctica	zi	ANTARC~1|Antarctica		0
+Etc	zi	Etc		0
+Europe	zi	Europe		0
+India	zi	India		0
+Pacific	zi	Pacific		0
+security	lib	security		0

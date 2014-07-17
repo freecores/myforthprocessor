@@ -1,0 +1,606 @@
+xst -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -ifn MYCPU.xst -ofn MYCPU.syr
+ngdbuild -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -dd _ngo -nt timestamp -uc "MYCPU.ucf" -p xc3s700a-fg484-4 "MYCPU.ngc" MYCPU.ngd
+map -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -p xc3s700a-fg484-4 -cm area -pr b -k 4 -c 100 -o MYCPU_map.ncd MYCPU.ngd MYCPU.pcf
+par -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -w -intstyle ise -ol std -t 1 MYCPU_map.ncd MYCPU.ncd MYCPU.pcf
+xst -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -ifn MYCPU.xst -ofn MYCPU.syr
+ngdbuild -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -dd _ngo -nt timestamp -uc "MYCPU.ucf" -p xc3s700a-fg484-4 "MYCPU.ngc" MYCPU.ngd
+map -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -p xc3s700a-fg484-4 -cm area -pr b -k 4 -c 100 -o MYCPU_map.ncd MYCPU.ngd MYCPU.pcf
+par -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -w -intstyle ise -ol std -t 1 MYCPU_map.ncd MYCPU.ncd MYCPU.pcf
+trce -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -e 3 -s 4 -xml MYCPU MYCPU.ncd -o MYCPU.twr MYCPU.pcf -ucf MYCPU.ucf
+bitgen -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -f MYCPU.ut MYCPU.ncd
+xst -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -ifn MYCPU.xst -ofn MYCPU.syr
+ngdbuild -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -dd _ngo -nt timestamp -uc "MYCPU.ucf" -p xc3s700a-fg484-4 "MYCPU.ngc" MYCPU.ngd
+map -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -p xc3s700a-fg484-4 -cm area -pr b -k 4 -c 100 -o MYCPU_map.ncd MYCPU.ngd MYCPU.pcf
+par -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -w -intstyle ise -ol std -t 1 MYCPU_map.ncd MYCPU.ncd MYCPU.pcf
+trce -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -e 3 -s 4 -xml MYCPU MYCPU.ncd -o MYCPU.twr MYCPU.pcf -ucf MYCPU.ucf
+bitgen -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -f MYCPU.ut MYCPU.ncd
+xst -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -ifn MYCPU.xst -ofn MYCPU.syr
+ngdbuild -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -dd _ngo -nt timestamp -uc "MYCPU.ucf" -p xc3s700a-fg484-4 "MYCPU.ngc" MYCPU.ngd
+map -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -p xc3s700a-fg484-4 -cm area -pr b -k 4 -c 100 -o MYCPU_map.ncd MYCPU.ngd MYCPU.pcf
+par -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -w -intstyle ise -ol std -t 1 MYCPU_map.ncd MYCPU.ncd MYCPU.pcf
+trce -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -e 3 -s 4 -xml MYCPU MYCPU.ncd -o MYCPU.twr MYCPU.pcf -ucf MYCPU.ucf
+bitgen -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -f MYCPU.ut MYCPU.ncd
+xst -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -ifn MYCPU.xst -ofn MYCPU.syr
+ngdbuild -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -dd _ngo -nt timestamp -uc "MYCPU.ucf" -p xc3s700a-fg484-4 "MYCPU.ngc" MYCPU.ngd
+map -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -p xc3s700a-fg484-4 -cm area -pr b -k 4 -c 100 -o MYCPU_map.ncd MYCPU.ngd MYCPU.pcf
+par -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -w -intstyle ise -ol std -t 1 MYCPU_map.ncd MYCPU.ncd MYCPU.pcf
+trce -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -e 3 -s 4 -xml MYCPU MYCPU.ncd -o MYCPU.twr MYCPU.pcf -ucf MYCPU.ucf
+bitgen -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -f MYCPU.ut MYCPU.ncd
+xst -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -ifn MYCPU.xst -ofn MYCPU.syr
+xst -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -ifn MYCPU.xst -ofn MYCPU.syr
+xst -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -ifn MYCPU.xst -ofn MYCPU.syr
+ngdbuild -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -dd _ngo -nt timestamp -uc "MYCPU.ucf" -p xc3s700a-fg484-4 "MYCPU.ngc" MYCPU.ngd
+map -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -p xc3s700a-fg484-4 -cm area -pr b -k 4 -c 100 -o MYCPU_map.ncd MYCPU.ngd MYCPU.pcf
+par -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -w -intstyle ise -ol std -t 1 MYCPU_map.ncd MYCPU.ncd MYCPU.pcf
+trce -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -e 3 -s 4 -xml MYCPU MYCPU.ncd -o MYCPU.twr MYCPU.pcf -ucf MYCPU.ucf
+bitgen -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -f MYCPU.ut MYCPU.ncd
+xst -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -ifn MYCPU.xst -ofn MYCPU.syr
+ngdbuild -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -dd _ngo -nt timestamp -uc "MYCPU.ucf" -p xc3s700a-fg484-4 "MYCPU.ngc" MYCPU.ngd
+map -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -p xc3s700a-fg484-4 -cm area -pr b -k 4 -c 100 -o MYCPU_map.ncd MYCPU.ngd MYCPU.pcf
+par -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -w -intstyle ise -ol std -t 1 MYCPU_map.ncd MYCPU.ncd MYCPU.pcf
+trce -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -e 3 -s 4 -xml MYCPU MYCPU.ncd -o MYCPU.twr MYCPU.pcf -ucf MYCPU.ucf
+bitgen -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -f MYCPU.ut MYCPU.ncd
+xst -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -ifn MYCPU.xst -ofn MYCPU.syr
+ngdbuild -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -dd _ngo -nt timestamp -uc "MYCPU.ucf" -p xc3s700a-fg484-4 "MYCPU.ngc" MYCPU.ngd
+map -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -p xc3s700a-fg484-4 -cm area -pr b -k 4 -c 100 -o MYCPU_map.ncd MYCPU.ngd MYCPU.pcf
+par -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -w -intstyle ise -ol std -t 1 MYCPU_map.ncd MYCPU.ncd MYCPU.pcf
+trce -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -e 3 -s 4 -xml MYCPU MYCPU.ncd -o MYCPU.twr MYCPU.pcf -ucf MYCPU.ucf
+bitgen -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -f MYCPU.ut MYCPU.ncd
+xst -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -ifn MYCPU.xst -ofn MYCPU.syr
+ngdbuild -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -dd _ngo -nt timestamp -uc "MYCPU.ucf" -p xc3s700a-fg484-4 "MYCPU.ngc" MYCPU.ngd
+map -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -p xc3s700a-fg484-4 -cm area -pr b -k 4 -c 100 -o MYCPU_map.ncd MYCPU.ngd MYCPU.pcf
+par -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -w -intstyle ise -ol std -t 1 MYCPU_map.ncd MYCPU.ncd MYCPU.pcf
+trce -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -e 3 -s 4 -xml MYCPU MYCPU.ncd -o MYCPU.twr MYCPU.pcf -ucf MYCPU.ucf
+bitgen -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -f MYCPU.ut MYCPU.ncd
+xst -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -ifn MYCPU.xst -ofn MYCPU.syr
+ngdbuild -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -dd _ngo -nt timestamp -uc "MYCPU.ucf" -p xc3s700a-fg484-4 "MYCPU.ngc" MYCPU.ngd
+map -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -p xc3s700a-fg484-4 -cm area -pr b -k 4 -c 100 -o MYCPU_map.ncd MYCPU.ngd MYCPU.pcf
+par -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -w -intstyle ise -ol std -t 1 MYCPU_map.ncd MYCPU.ncd MYCPU.pcf
+trce -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -e 3 -s 4 -xml MYCPU MYCPU.ncd -o MYCPU.twr MYCPU.pcf -ucf MYCPU.ucf
+bitgen -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -f MYCPU.ut MYCPU.ncd
+xst -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -ifn MYCPU.xst -ofn MYCPU.syr
+ngdbuild -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -dd _ngo -nt timestamp -uc "MYCPU.ucf" -p xc3s700a-fg484-4 "MYCPU.ngc" MYCPU.ngd
+map -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -p xc3s700a-fg484-4 -cm area -pr b -k 4 -c 100 -o MYCPU_map.ncd MYCPU.ngd MYCPU.pcf
+par -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -w -intstyle ise -ol std -t 1 MYCPU_map.ncd MYCPU.ncd MYCPU.pcf
+trce -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -e 3 -s 4 -xml MYCPU MYCPU.ncd -o MYCPU.twr MYCPU.pcf -ucf MYCPU.ucf
+bitgen -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -f MYCPU.ut MYCPU.ncd
+xst -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -ifn MYCPU.xst -ofn MYCPU.syr
+ngdbuild -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -dd _ngo -nt timestamp -uc "MYCPU.ucf" -p xc3s700a-fg484-4 "MYCPU.ngc" MYCPU.ngd
+map -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -p xc3s700a-fg484-4 -cm area -pr b -k 4 -c 100 -o MYCPU_map.ncd MYCPU.ngd MYCPU.pcf
+par -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -w -intstyle ise -ol std -t 1 MYCPU_map.ncd MYCPU.ncd MYCPU.pcf
+trce -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -e 3 -s 4 -xml MYCPU MYCPU.ncd -o MYCPU.twr MYCPU.pcf -ucf MYCPU.ucf
+bitgen -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -f MYCPU.ut MYCPU.ncd
+xst -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -ifn MYCPU.xst -ofn MYCPU.syr
+ngdbuild -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -dd _ngo -nt timestamp -uc "MYCPU.ucf" -p xc3s700a-fg484-4 "MYCPU.ngc" MYCPU.ngd
+map -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -p xc3s700a-fg484-4 -cm area -pr b -k 4 -c 100 -o MYCPU_map.ncd MYCPU.ngd MYCPU.pcf
+par -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -w -intstyle ise -ol std -t 1 MYCPU_map.ncd MYCPU.ncd MYCPU.pcf
+trce -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -e 3 -s 4 -xml MYCPU MYCPU.ncd -o MYCPU.twr MYCPU.pcf -ucf MYCPU.ucf
+bitgen -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -f MYCPU.ut MYCPU.ncd
+xst -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -ifn MYCPU.xst -ofn MYCPU.syr
+ngdbuild -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -dd _ngo -nt timestamp -uc "MYCPU.ucf" -p xc3s700a-fg484-4 "MYCPU.ngc" MYCPU.ngd
+map -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -p xc3s700a-fg484-4 -cm area -pr b -k 4 -c 100 -o MYCPU_map.ncd MYCPU.ngd MYCPU.pcf
+par -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -w -intstyle ise -ol std -t 1 MYCPU_map.ncd MYCPU.ncd MYCPU.pcf
+trce -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -e 3 -s 4 -xml MYCPU MYCPU.ncd -o MYCPU.twr MYCPU.pcf -ucf MYCPU.ucf
+bitgen -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -f MYCPU.ut MYCPU.ncd
+xst -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -ifn MYCPU.xst -ofn MYCPU.syr
+ngdbuild -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -dd _ngo -nt timestamp -uc "MYCPU.ucf" -p xc3s700a-fg484-4 "MYCPU.ngc" MYCPU.ngd
+map -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -p xc3s700a-fg484-4 -cm area -pr b -k 4 -c 100 -o MYCPU_map.ncd MYCPU.ngd MYCPU.pcf
+par -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -w -intstyle ise -ol std -t 1 MYCPU_map.ncd MYCPU.ncd MYCPU.pcf
+trce -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -e 3 -s 4 -xml MYCPU MYCPU.ncd -o MYCPU.twr MYCPU.pcf -ucf MYCPU.ucf
+bitgen -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -f MYCPU.ut MYCPU.ncd
+xst -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -ifn MYCPU.xst -ofn MYCPU.syr
+ngdbuild -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -dd _ngo -nt timestamp -uc "MYCPU.ucf" -p xc3s700a-fg484-4 "MYCPU.ngc" MYCPU.ngd
+map -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -p xc3s700a-fg484-4 -cm area -pr b -k 4 -c 100 -o MYCPU_map.ncd MYCPU.ngd MYCPU.pcf
+par -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -w -intstyle ise -ol std -t 1 MYCPU_map.ncd MYCPU.ncd MYCPU.pcf
+trce -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -e 3 -s 4 -xml MYCPU MYCPU.ncd -o MYCPU.twr MYCPU.pcf -ucf MYCPU.ucf
+bitgen -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -f MYCPU.ut MYCPU.ncd
+xst -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -ifn MYCPU.xst -ofn MYCPU.syr
+ngdbuild -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -dd _ngo -nt timestamp -uc "MYCPU.ucf" -p xc3s700a-fg484-4 "MYCPU.ngc" MYCPU.ngd
+map -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -p xc3s700a-fg484-4 -cm area -pr b -k 4 -c 100 -o MYCPU_map.ncd MYCPU.ngd MYCPU.pcf
+par -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -w -intstyle ise -ol std -t 1 MYCPU_map.ncd MYCPU.ncd MYCPU.pcf
+trce -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -e 3 -s 4 -xml MYCPU MYCPU.ncd -o MYCPU.twr MYCPU.pcf -ucf MYCPU.ucf
+bitgen -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -f MYCPU.ut MYCPU.ncd
+xst -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -ifn MYCPU.xst -ofn MYCPU.syr
+ngdbuild -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -dd _ngo -nt timestamp -uc "MYCPU.ucf" -p xc3s700a-fg484-4 "MYCPU.ngc" MYCPU.ngd
+map -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -p xc3s700a-fg484-4 -cm area -pr b -k 4 -c 100 -o MYCPU_map.ncd MYCPU.ngd MYCPU.pcf
+par -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -w -intstyle ise -ol std -t 1 MYCPU_map.ncd MYCPU.ncd MYCPU.pcf
+trce -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -e 3 -s 4 -xml MYCPU MYCPU.ncd -o MYCPU.twr MYCPU.pcf -ucf MYCPU.ucf
+bitgen -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -f MYCPU.ut MYCPU.ncd
+xst -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -ifn MYCPU.xst -ofn MYCPU.syr
+ngdbuild -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -dd _ngo -nt timestamp -uc "MYCPU.ucf" -p xc3s700a-fg484-4 "MYCPU.ngc" MYCPU.ngd
+map -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -p xc3s700a-fg484-4 -cm area -pr b -k 4 -c 100 -o MYCPU_map.ncd MYCPU.ngd MYCPU.pcf
+par -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -w -intstyle ise -ol std -t 1 MYCPU_map.ncd MYCPU.ncd MYCPU.pcf
+trce -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -e 3 -s 4 -xml MYCPU MYCPU.ncd -o MYCPU.twr MYCPU.pcf -ucf MYCPU.ucf
+bitgen -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -f MYCPU.ut MYCPU.ncd
+xst -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -ifn MYCPU.xst -ofn MYCPU.syr
+ngdbuild -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -dd _ngo -nt timestamp -uc "MYCPU.ucf" -p xc3s700a-fg484-4 "MYCPU.ngc" MYCPU.ngd
+map -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -p xc3s700a-fg484-4 -cm area -pr b -k 4 -c 100 -o MYCPU_map.ncd MYCPU.ngd MYCPU.pcf
+par -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -w -intstyle ise -ol std -t 1 MYCPU_map.ncd MYCPU.ncd MYCPU.pcf
+trce -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -e 3 -s 4 -xml MYCPU MYCPU.ncd -o MYCPU.twr MYCPU.pcf -ucf MYCPU.ucf
+bitgen -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -f MYCPU.ut MYCPU.ncd
+xst -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -ifn MYCPU.xst -ofn MYCPU.syr
+ngdbuild -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -dd _ngo -nt timestamp -uc "MYCPU.ucf" -p xc3s700a-fg484-4 "MYCPU.ngc" MYCPU.ngd
+map -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -p xc3s700a-fg484-4 -cm area -pr b -k 4 -c 100 -o MYCPU_map.ncd MYCPU.ngd MYCPU.pcf
+par -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -w -intstyle ise -ol std -t 1 MYCPU_map.ncd MYCPU.ncd MYCPU.pcf
+trce -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -e 3 -s 4 -xml MYCPU MYCPU.ncd -o MYCPU.twr MYCPU.pcf -ucf MYCPU.ucf
+bitgen -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -f MYCPU.ut MYCPU.ncd
+xst -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -ifn MYCPU.xst -ofn MYCPU.syr
+ngdbuild -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -dd _ngo -nt timestamp -uc "MYCPU.ucf" -p xc3s700a-fg484-4 "MYCPU.ngc" MYCPU.ngd
+map -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -p xc3s700a-fg484-4 -cm area -pr b -k 4 -c 100 -o MYCPU_map.ncd MYCPU.ngd MYCPU.pcf
+par -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -w -intstyle ise -ol std -t 1 MYCPU_map.ncd MYCPU.ncd MYCPU.pcf
+trce -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -e 3 -s 4 -xml MYCPU MYCPU.ncd -o MYCPU.twr MYCPU.pcf -ucf MYCPU.ucf
+bitgen -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -f MYCPU.ut MYCPU.ncd
+xst -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -ifn MYCPU.xst -ofn MYCPU.syr
+ngdbuild -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -dd _ngo -nt timestamp -uc "MYCPU.ucf" -p xc3s700a-fg484-4 "MYCPU.ngc" MYCPU.ngd
+map -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -p xc3s700a-fg484-4 -cm area -pr b -k 4 -c 100 -o MYCPU_map.ncd MYCPU.ngd MYCPU.pcf
+par -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -w -intstyle ise -ol std -t 1 MYCPU_map.ncd MYCPU.ncd MYCPU.pcf
+trce -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -e 3 -s 4 -xml MYCPU MYCPU.ncd -o MYCPU.twr MYCPU.pcf -ucf MYCPU.ucf
+bitgen -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -f MYCPU.ut MYCPU.ncd
+xst -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -ifn MYCPU.xst -ofn MYCPU.syr
+ngdbuild -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -dd _ngo -nt timestamp -uc "MYCPU.ucf" -p xc3s700a-fg484-4 "MYCPU.ngc" MYCPU.ngd
+map -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -p xc3s700a-fg484-4 -cm area -pr b -k 4 -c 100 -o MYCPU_map.ncd MYCPU.ngd MYCPU.pcf
+par -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -w -intstyle ise -ol std -t 1 MYCPU_map.ncd MYCPU.ncd MYCPU.pcf
+trce -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -e 3 -s 4 -xml MYCPU MYCPU.ncd -o MYCPU.twr MYCPU.pcf -ucf MYCPU.ucf
+bitgen -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -f MYCPU.ut MYCPU.ncd
+xst -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -ifn MYCPU.xst -ofn MYCPU.syr
+ngdbuild -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -dd _ngo -nt timestamp -uc "MYCPU.ucf" -p xc3s700a-fg484-4 "MYCPU.ngc" MYCPU.ngd
+map -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -p xc3s700a-fg484-4 -cm area -pr b -k 4 -c 100 -o MYCPU_map.ncd MYCPU.ngd MYCPU.pcf
+par -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -w -intstyle ise -ol std -t 1 MYCPU_map.ncd MYCPU.ncd MYCPU.pcf
+trce -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -e 3 -s 4 -xml MYCPU MYCPU.ncd -o MYCPU.twr MYCPU.pcf -ucf MYCPU.ucf
+bitgen -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -f MYCPU.ut MYCPU.ncd
+xst -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -ifn MYCPU.xst -ofn MYCPU.syr
+ngdbuild -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -dd _ngo -nt timestamp -uc "MYCPU.ucf" -p xc3s700a-fg484-4 "MYCPU.ngc" MYCPU.ngd
+map -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -p xc3s700a-fg484-4 -cm area -pr b -k 4 -c 100 -o MYCPU_map.ncd MYCPU.ngd MYCPU.pcf
+par -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -w -intstyle ise -ol std -t 1 MYCPU_map.ncd MYCPU.ncd MYCPU.pcf
+trce -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -e 3 -s 4 -xml MYCPU MYCPU.ncd -o MYCPU.twr MYCPU.pcf -ucf MYCPU.ucf
+bitgen -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -f MYCPU.ut MYCPU.ncd
+xst -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -ifn MYCPU.xst -ofn MYCPU.syr
+ngdbuild -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -dd _ngo -nt timestamp -uc "MYCPU.ucf" -p xc3s700a-fg484-4 "MYCPU.ngc" MYCPU.ngd
+map -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -p xc3s700a-fg484-4 -cm area -pr b -k 4 -c 100 -o MYCPU_map.ncd MYCPU.ngd MYCPU.pcf
+par -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -w -intstyle ise -ol std -t 1 MYCPU_map.ncd MYCPU.ncd MYCPU.pcf
+trce -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -e 3 -s 4 -xml MYCPU MYCPU.ncd -o MYCPU.twr MYCPU.pcf -ucf MYCPU.ucf
+bitgen -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -f MYCPU.ut MYCPU.ncd
+xst -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -ifn MYCPU.xst -ofn MYCPU.syr
+ngdbuild -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -dd _ngo -nt timestamp -uc "MYCPU.ucf" -p xc3s700a-fg484-4 "MYCPU.ngc" MYCPU.ngd
+map -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -p xc3s700a-fg484-4 -cm area -pr b -k 4 -c 100 -o MYCPU_map.ncd MYCPU.ngd MYCPU.pcf
+par -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -w -intstyle ise -ol std -t 1 MYCPU_map.ncd MYCPU.ncd MYCPU.pcf
+trce -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -e 3 -s 4 -xml MYCPU MYCPU.ncd -o MYCPU.twr MYCPU.pcf -ucf MYCPU.ucf
+bitgen -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -f MYCPU.ut MYCPU.ncd
+xst -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -ifn MYCPU.xst -ofn MYCPU.syr
+ngdbuild -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -dd _ngo -nt timestamp -uc "MYCPU.ucf" -p xc3s700a-fg484-4 "MYCPU.ngc" MYCPU.ngd
+map -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -p xc3s700a-fg484-4 -cm area -pr b -k 4 -c 100 -o MYCPU_map.ncd MYCPU.ngd MYCPU.pcf
+par -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -w -intstyle ise -ol std -t 1 MYCPU_map.ncd MYCPU.ncd MYCPU.pcf
+trce -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -e 3 -s 4 -xml MYCPU MYCPU.ncd -o MYCPU.twr MYCPU.pcf -ucf MYCPU.ucf
+bitgen -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -f MYCPU.ut MYCPU.ncd
+xst -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -ifn MYCPU.xst -ofn MYCPU.syr
+ngdbuild -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -dd _ngo -nt timestamp -uc "MYCPU.ucf" -p xc3s700a-fg484-4 "MYCPU.ngc" MYCPU.ngd
+map -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -p xc3s700a-fg484-4 -cm area -pr b -k 4 -c 100 -o MYCPU_map.ncd MYCPU.ngd MYCPU.pcf
+par -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -w -intstyle ise -ol std -t 1 MYCPU_map.ncd MYCPU.ncd MYCPU.pcf
+trce -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -e 3 -s 4 -xml MYCPU MYCPU.ncd -o MYCPU.twr MYCPU.pcf -ucf MYCPU.ucf
+bitgen -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -f MYCPU.ut MYCPU.ncd
+xst -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -ifn MYCPU.xst -ofn MYCPU.syr
+ngdbuild -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -dd _ngo -nt timestamp -uc "MYCPU.ucf" -p xc3s700a-fg484-4 "MYCPU.ngc" MYCPU.ngd
+map -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -p xc3s700a-fg484-4 -cm area -pr b -k 4 -c 100 -o MYCPU_map.ncd MYCPU.ngd MYCPU.pcf
+par -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -w -intstyle ise -ol std -t 1 MYCPU_map.ncd MYCPU.ncd MYCPU.pcf
+trce -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -e 3 -s 4 -xml MYCPU MYCPU.ncd -o MYCPU.twr MYCPU.pcf -ucf MYCPU.ucf
+bitgen -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -f MYCPU.ut MYCPU.ncd
+xst -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -ifn MYCPU.xst -ofn MYCPU.syr
+ngdbuild -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -dd _ngo -nt timestamp -uc "MYCPU.ucf" -p xc3s700a-fg484-4 "MYCPU.ngc" MYCPU.ngd
+map -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -p xc3s700a-fg484-4 -cm area -pr b -k 4 -c 100 -o MYCPU_map.ncd MYCPU.ngd MYCPU.pcf
+par -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -w -intstyle ise -ol std -t 1 MYCPU_map.ncd MYCPU.ncd MYCPU.pcf
+trce -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -e 3 -s 4 -xml MYCPU MYCPU.ncd -o MYCPU.twr MYCPU.pcf -ucf MYCPU.ucf
+bitgen -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -f MYCPU.ut MYCPU.ncd
+xst -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -ifn MYCPU.xst -ofn MYCPU.syr
+ngdbuild -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -dd _ngo -nt timestamp -uc "MYCPU.ucf" -p xc3s700a-fg484-4 "MYCPU.ngc" MYCPU.ngd
+map -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -p xc3s700a-fg484-4 -cm area -pr b -k 4 -c 100 -o MYCPU_map.ncd MYCPU.ngd MYCPU.pcf
+par -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -w -intstyle ise -ol std -t 1 MYCPU_map.ncd MYCPU.ncd MYCPU.pcf
+trce -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -e 3 -s 4 -xml MYCPU MYCPU.ncd -o MYCPU.twr MYCPU.pcf -ucf MYCPU.ucf
+bitgen -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -f MYCPU.ut MYCPU.ncd
+xst -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -ifn MYCPU.xst -ofn MYCPU.syr
+ngdbuild -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -dd _ngo -nt timestamp -uc "MYCPU.ucf" -p xc3s700a-fg484-4 "MYCPU.ngc" MYCPU.ngd
+map -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -p xc3s700a-fg484-4 -cm area -pr b -k 4 -c 100 -o MYCPU_map.ncd MYCPU.ngd MYCPU.pcf
+par -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -w -intstyle ise -ol std -t 1 MYCPU_map.ncd MYCPU.ncd MYCPU.pcf
+trce -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -e 3 -s 4 -xml MYCPU MYCPU.ncd -o MYCPU.twr MYCPU.pcf -ucf MYCPU.ucf
+bitgen -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -f MYCPU.ut MYCPU.ncd
+xst -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -ifn MYCPU.xst -ofn MYCPU.syr
+ngdbuild -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -dd _ngo -nt timestamp -uc "MYCPU.ucf" -p xc3s700a-fg484-4 "MYCPU.ngc" MYCPU.ngd
+map -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -p xc3s700a-fg484-4 -cm area -pr b -k 4 -c 100 -o MYCPU_map.ncd MYCPU.ngd MYCPU.pcf
+par -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -w -intstyle ise -ol std -t 1 MYCPU_map.ncd MYCPU.ncd MYCPU.pcf
+trce -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -e 3 -s 4 -xml MYCPU MYCPU.ncd -o MYCPU.twr MYCPU.pcf -ucf MYCPU.ucf
+bitgen -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -f MYCPU.ut MYCPU.ncd
+xst -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -ifn MYCPU.xst -ofn MYCPU.syr
+ngdbuild -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -dd _ngo -nt timestamp -uc "MYCPU.ucf" -p xc3s700a-fg484-4 "MYCPU.ngc" MYCPU.ngd
+map -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -p xc3s700a-fg484-4 -cm area -pr b -k 4 -c 100 -o MYCPU_map.ncd MYCPU.ngd MYCPU.pcf
+par -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -w -intstyle ise -ol std -t 1 MYCPU_map.ncd MYCPU.ncd MYCPU.pcf
+trce -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -e 3 -s 4 -xml MYCPU MYCPU.ncd -o MYCPU.twr MYCPU.pcf -ucf MYCPU.ucf
+bitgen -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -f MYCPU.ut MYCPU.ncd
+xst -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -ifn MYCPU.xst -ofn MYCPU.syr
+ngdbuild -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -dd _ngo -nt timestamp -uc "MYCPU.ucf" -p xc3s700a-fg484-4 "MYCPU.ngc" MYCPU.ngd
+map -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -p xc3s700a-fg484-4 -cm area -pr b -k 4 -c 100 -o MYCPU_map.ncd MYCPU.ngd MYCPU.pcf
+par -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -w -intstyle ise -ol std -t 1 MYCPU_map.ncd MYCPU.ncd MYCPU.pcf
+trce -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -e 3 -s 4 -xml MYCPU MYCPU.ncd -o MYCPU.twr MYCPU.pcf -ucf MYCPU.ucf
+bitgen -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -f MYCPU.ut MYCPU.ncd
+xst -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -ifn MYCPU.xst -ofn MYCPU.syr
+ngdbuild -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -dd _ngo -nt timestamp -uc "MYCPU.ucf" -p xc3s700a-fg484-4 "MYCPU.ngc" MYCPU.ngd
+map -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -p xc3s700a-fg484-4 -cm area -pr b -k 4 -c 100 -o MYCPU_map.ncd MYCPU.ngd MYCPU.pcf
+par -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -w -intstyle ise -ol std -t 1 MYCPU_map.ncd MYCPU.ncd MYCPU.pcf
+trce -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -e 3 -s 4 -xml MYCPU MYCPU.ncd -o MYCPU.twr MYCPU.pcf -ucf MYCPU.ucf
+bitgen -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -f MYCPU.ut MYCPU.ncd
+xst -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -ifn MYCPU.xst -ofn MYCPU.syr
+ngdbuild -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -dd _ngo -nt timestamp -uc "MYCPU.ucf" -p xc3s700a-fg484-4 "MYCPU.ngc" MYCPU.ngd
+map -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -p xc3s700a-fg484-4 -cm area -pr b -k 4 -c 100 -o MYCPU_map.ncd MYCPU.ngd MYCPU.pcf
+par -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -w -intstyle ise -ol std -t 1 MYCPU_map.ncd MYCPU.ncd MYCPU.pcf
+trce -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -e 3 -s 4 -xml MYCPU MYCPU.ncd -o MYCPU.twr MYCPU.pcf -ucf MYCPU.ucf
+bitgen -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -f MYCPU.ut MYCPU.ncd
+xst -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -ifn MYCPU.xst -ofn MYCPU.syr
+ngdbuild -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -dd _ngo -nt timestamp -uc "MYCPU.ucf" -p xc3s700a-fg484-4 "MYCPU.ngc" MYCPU.ngd
+map -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -p xc3s700a-fg484-4 -cm area -pr b -k 4 -c 100 -o MYCPU_map.ncd MYCPU.ngd MYCPU.pcf
+par -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -w -intstyle ise -ol std -t 1 MYCPU_map.ncd MYCPU.ncd MYCPU.pcf
+trce -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -e 3 -s 4 -xml MYCPU MYCPU.ncd -o MYCPU.twr MYCPU.pcf -ucf MYCPU.ucf
+bitgen -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -f MYCPU.ut MYCPU.ncd
+xst -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -ifn MYCPU.xst -ofn MYCPU.syr
+ngdbuild -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -dd _ngo -nt timestamp -uc "MYCPU.ucf" -p xc3s700a-fg484-4 "MYCPU.ngc" MYCPU.ngd
+map -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -p xc3s700a-fg484-4 -cm area -pr b -k 4 -c 100 -o MYCPU_map.ncd MYCPU.ngd MYCPU.pcf
+par -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -w -intstyle ise -ol std -t 1 MYCPU_map.ncd MYCPU.ncd MYCPU.pcf
+trce -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -e 3 -s 4 -xml MYCPU MYCPU.ncd -o MYCPU.twr MYCPU.pcf -ucf MYCPU.ucf
+bitgen -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -f MYCPU.ut MYCPU.ncd
+xst -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -ifn MYCPU.xst -ofn MYCPU.syr
+ngdbuild -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -dd _ngo -nt timestamp -uc "MYCPU.ucf" -p xc3s700a-fg484-4 "MYCPU.ngc" MYCPU.ngd
+map -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -p xc3s700a-fg484-4 -cm area -pr b -k 4 -c 100 -o MYCPU_map.ncd MYCPU.ngd MYCPU.pcf
+par -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -w -intstyle ise -ol std -t 1 MYCPU_map.ncd MYCPU.ncd MYCPU.pcf
+trce -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -e 3 -s 4 -xml MYCPU MYCPU.ncd -o MYCPU.twr MYCPU.pcf -ucf MYCPU.ucf
+bitgen -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -f MYCPU.ut MYCPU.ncd
+xst -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -ifn MYCPU.xst -ofn MYCPU.syr
+ngdbuild -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -dd _ngo -nt timestamp -uc "MYCPU.ucf" -p xc3s700a-fg484-4 "MYCPU.ngc" MYCPU.ngd
+map -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -p xc3s700a-fg484-4 -cm area -pr b -k 4 -c 100 -o MYCPU_map.ncd MYCPU.ngd MYCPU.pcf
+par -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -w -intstyle ise -ol std -t 1 MYCPU_map.ncd MYCPU.ncd MYCPU.pcf
+trce -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -e 3 -s 4 -xml MYCPU MYCPU.ncd -o MYCPU.twr MYCPU.pcf -ucf MYCPU.ucf
+bitgen -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -f MYCPU.ut MYCPU.ncd
+xst -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -ifn MYCPU.xst -ofn MYCPU.syr
+ngdbuild -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -dd _ngo -nt timestamp -uc "MYCPU.ucf" -p xc3s700a-fg484-4 "MYCPU.ngc" MYCPU.ngd
+map -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -p xc3s700a-fg484-4 -cm area -pr b -k 4 -c 100 -o MYCPU_map.ncd MYCPU.ngd MYCPU.pcf
+par -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -w -intstyle ise -ol std -t 1 MYCPU_map.ncd MYCPU.ncd MYCPU.pcf
+trce -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -e 3 -s 4 -xml MYCPU MYCPU.ncd -o MYCPU.twr MYCPU.pcf -ucf MYCPU.ucf
+bitgen -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -f MYCPU.ut MYCPU.ncd
+xst -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -ifn MYCPU.xst -ofn MYCPU.syr
+ngdbuild -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -dd _ngo -nt timestamp -uc "MYCPU.ucf" -p xc3s700a-fg484-4 "MYCPU.ngc" MYCPU.ngd
+map -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -p xc3s700a-fg484-4 -cm area -pr b -k 4 -c 100 -o MYCPU_map.ncd MYCPU.ngd MYCPU.pcf
+par -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -w -intstyle ise -ol std -t 1 MYCPU_map.ncd MYCPU.ncd MYCPU.pcf
+trce -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -e 3 -s 4 -xml MYCPU MYCPU.ncd -o MYCPU.twr MYCPU.pcf -ucf MYCPU.ucf
+bitgen -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -f MYCPU.ut MYCPU.ncd
+xst -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -ifn MYCPU.xst -ofn MYCPU.syr
+ngdbuild -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -dd _ngo -nt timestamp -uc "MYCPU.ucf" -p xc3s700a-fg484-4 "MYCPU.ngc" MYCPU.ngd
+map -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -p xc3s700a-fg484-4 -cm area -pr b -k 4 -c 100 -o MYCPU_map.ncd MYCPU.ngd MYCPU.pcf
+par -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -w -intstyle ise -ol std -t 1 MYCPU_map.ncd MYCPU.ncd MYCPU.pcf
+trce -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -e 3 -s 4 -xml MYCPU MYCPU.ncd -o MYCPU.twr MYCPU.pcf -ucf MYCPU.ucf
+bitgen -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -f MYCPU.ut MYCPU.ncd
+xst -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -ifn MYCPU.xst -ofn MYCPU.syr
+ngdbuild -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -dd _ngo -nt timestamp -uc "MYCPU.ucf" -p xc3s700a-fg484-4 "MYCPU.ngc" MYCPU.ngd
+map -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -p xc3s700a-fg484-4 -cm area -pr b -k 4 -c 100 -o MYCPU_map.ncd MYCPU.ngd MYCPU.pcf
+par -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -w -intstyle ise -ol std -t 1 MYCPU_map.ncd MYCPU.ncd MYCPU.pcf
+trce -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -e 3 -s 4 -xml MYCPU MYCPU.ncd -o MYCPU.twr MYCPU.pcf -ucf MYCPU.ucf
+bitgen -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -f MYCPU.ut MYCPU.ncd
+xst -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -ifn MYCPU.xst -ofn MYCPU.syr
+ngdbuild -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -dd _ngo -nt timestamp -uc "MYCPU.ucf" -p xc3s700a-fg484-4 "MYCPU.ngc" MYCPU.ngd
+map -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -p xc3s700a-fg484-4 -cm area -pr b -k 4 -c 100 -o MYCPU_map.ncd MYCPU.ngd MYCPU.pcf
+par -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -w -intstyle ise -ol std -t 1 MYCPU_map.ncd MYCPU.ncd MYCPU.pcf
+trce -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -e 3 -s 4 -xml MYCPU MYCPU.ncd -o MYCPU.twr MYCPU.pcf -ucf MYCPU.ucf
+bitgen -ise "C:/Xilinx9.2i/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -f MYCPU.ut MYCPU.ncd
+xst -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -ifn "C:/Xilinx/FORTHSPMC/MYCPU.xst" -ofn "C:/Xilinx/FORTHSPMC/MYCPU.syr"
+ngdbuild -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -dd _ngo  -nt timestamp -i -p xc3s700a-fg484-4 "MYCPU.ngc" MYCPU.ngd
+map -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -p xc3s700a-fg484-4 -cm area -pr b -k 4 -c 100 -o MYCPU_map.ncd MYCPU.ngd MYCPU.pcf
+par -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -w -intstyle ise -ol std -t 1 MYCPU_map.ncd MYCPU.ncd MYCPU.pcf
+trce -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -e 3 -s 4 -xml MYCPU MYCPU.ncd -o MYCPU.twr MYCPU.pcf -ucf MYCPU.ucf
+bitgen -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -f MYCPU.ut MYCPU.ncd
+xst -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -ifn "C:/Xilinx/FORTHSPMC/MYCPU.xst" -ofn "C:/Xilinx/FORTHSPMC/MYCPU.syr"
+ngdbuild -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -dd _ngo  -nt timestamp -i -p xc3s700a-fg484-4 "MYCPU.ngc" MYCPU.ngd
+map -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -p xc3s700a-fg484-4 -cm area -pr b -k 4 -c 100 -o MYCPU_map.ncd MYCPU.ngd MYCPU.pcf
+par -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -w -intstyle ise -ol std -t 1 MYCPU_map.ncd MYCPU.ncd MYCPU.pcf
+trce -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -e 3 -s 4 -xml MYCPU MYCPU.ncd -o MYCPU.twr MYCPU.pcf -ucf MYCPU.ucf
+bitgen -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -f MYCPU.ut MYCPU.ncd
+xst -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -ifn "C:/Xilinx/FORTHSPMC/MYCPU.xst" -ofn "C:/Xilinx/FORTHSPMC/MYCPU.syr"
+ngdbuild -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -dd _ngo  -nt timestamp -i -p xc3s700a-fg484-4 "MYCPU.ngc" MYCPU.ngd
+map -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -p xc3s700a-fg484-4 -cm area -pr b -k 4 -c 100 -o MYCPU_map.ncd MYCPU.ngd MYCPU.pcf
+par -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -w -intstyle ise -ol std -t 1 MYCPU_map.ncd MYCPU.ncd MYCPU.pcf
+trce -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -e 3 -s 4 -xml MYCPU MYCPU.ncd -o MYCPU.twr MYCPU.pcf -ucf MYCPU.ucf
+bitgen -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -f MYCPU.ut MYCPU.ncd
+xst -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -ifn "C:/Xilinx/FORTHSPMC/MYCPU.xst" -ofn "C:/Xilinx/FORTHSPMC/MYCPU.syr"
+ngdbuild -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -dd _ngo  -nt timestamp -i -p xc3s700a-fg484-4 "MYCPU.ngc" MYCPU.ngd
+map -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -p xc3s700a-fg484-4 -cm area -pr b -k 4 -c 100 -o MYCPU_map.ncd MYCPU.ngd MYCPU.pcf
+par -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -w -intstyle ise -ol std -t 1 MYCPU_map.ncd MYCPU.ncd MYCPU.pcf
+trce -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -e 3 -s 4 -xml MYCPU MYCPU.ncd -o MYCPU.twr MYCPU.pcf -ucf MYCPU.ucf
+bitgen -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -f MYCPU.ut MYCPU.ncd
+xst -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -ifn "C:/Xilinx/FORTHSPMC/MYCPU.xst" -ofn "C:/Xilinx/FORTHSPMC/MYCPU.syr"
+ngdbuild -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -dd _ngo  -nt timestamp -i -p xc3s700a-fg484-4 "MYCPU.ngc" MYCPU.ngd
+map -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -p xc3s700a-fg484-4 -cm area -pr b -k 4 -c 100 -o MYCPU_map.ncd MYCPU.ngd MYCPU.pcf
+par -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -w -intstyle ise -ol std -t 1 MYCPU_map.ncd MYCPU.ncd MYCPU.pcf
+trce -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -e 3 -s 4 -xml MYCPU MYCPU.ncd -o MYCPU.twr MYCPU.pcf -ucf MYCPU.ucf
+bitgen -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -f MYCPU.ut MYCPU.ncd
+xst -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -ifn "C:/Xilinx/FORTHSPMC/MYCPU.xst" -ofn "C:/Xilinx/FORTHSPMC/MYCPU.syr"
+ngdbuild -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -dd _ngo  -nt timestamp -i -p xc3s700a-fg484-4 "MYCPU.ngc" MYCPU.ngd
+map -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -p xc3s700a-fg484-4 -cm area -pr b -k 4 -c 100 -o MYCPU_map.ncd MYCPU.ngd MYCPU.pcf
+par -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -w -intstyle ise -ol std -t 1 MYCPU_map.ncd MYCPU.ncd MYCPU.pcf
+trce -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -e 3 -s 4 -xml MYCPU MYCPU.ncd -o MYCPU.twr MYCPU.pcf -ucf MYCPU.ucf
+bitgen -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -f MYCPU.ut MYCPU.ncd
+xst -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -ifn "C:/Xilinx/FORTHSPMC/MYCPU.xst" -ofn "C:/Xilinx/FORTHSPMC/MYCPU.syr"
+ngdbuild -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -dd _ngo  -nt timestamp -i -p xc3s700a-fg484-4 "MYCPU.ngc" MYCPU.ngd
+map -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -p xc3s700a-fg484-4 -cm area -pr b -k 4 -c 100 -o MYCPU_map.ncd MYCPU.ngd MYCPU.pcf
+par -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -w -intstyle ise -ol std -t 1 MYCPU_map.ncd MYCPU.ncd MYCPU.pcf
+trce -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -e 3 -s 4 -xml MYCPU MYCPU.ncd -o MYCPU.twr MYCPU.pcf -ucf MYCPU.ucf
+bitgen -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -f MYCPU.ut MYCPU.ncd
+xst -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -ifn "C:/Xilinx/FORTHSPMC/MYCPU.xst" -ofn "C:/Xilinx/FORTHSPMC/MYCPU.syr"
+ngdbuild -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -dd _ngo  -nt timestamp -i -p xc3s700a-fg484-4 "MYCPU.ngc" MYCPU.ngd
+map -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -p xc3s700a-fg484-4 -cm area -pr b -k 4 -c 100 -o MYCPU_map.ncd MYCPU.ngd MYCPU.pcf
+par -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -w -intstyle ise -ol std -t 1 MYCPU_map.ncd MYCPU.ncd MYCPU.pcf
+trce -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -e 3 -s 4 -xml MYCPU MYCPU.ncd -o MYCPU.twr MYCPU.pcf -ucf MYCPU.ucf
+bitgen -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -f MYCPU.ut MYCPU.ncd
+xst -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -ifn "C:/Xilinx/FORTHSPMC/MYCPU.xst" -ofn "C:/Xilinx/FORTHSPMC/MYCPU.syr"
+ngdbuild -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -dd _ngo  -nt timestamp -i -p xc3s700a-fg484-4 "MYCPU.ngc" MYCPU.ngd
+map -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -p xc3s700a-fg484-4 -cm area -pr b -k 4 -c 100 -o MYCPU_map.ncd MYCPU.ngd MYCPU.pcf
+par -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -w -intstyle ise -ol std -t 1 MYCPU_map.ncd MYCPU.ncd MYCPU.pcf
+trce -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -e 3 -s 4 -xml MYCPU MYCPU.ncd -o MYCPU.twr MYCPU.pcf -ucf MYCPU.ucf
+bitgen -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -f MYCPU.ut MYCPU.ncd
+xst -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -ifn "C:/Xilinx/FORTHSPMC/MYCPU.xst" -ofn "C:/Xilinx/FORTHSPMC/MYCPU.syr"
+ngdbuild -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -dd _ngo  -nt timestamp -i -p xc3s700a-fg484-4 "MYCPU.ngc" MYCPU.ngd
+map -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -p xc3s700a-fg484-4 -cm area -pr b -k 4 -c 100 -o MYCPU_map.ncd MYCPU.ngd MYCPU.pcf
+par -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -w -intstyle ise -ol std -t 1 MYCPU_map.ncd MYCPU.ncd MYCPU.pcf
+trce -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -e 3 -s 4 -xml MYCPU MYCPU.ncd -o MYCPU.twr MYCPU.pcf -ucf MYCPU.ucf
+bitgen -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -f MYCPU.ut MYCPU.ncd
+xst -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -ifn "C:/Xilinx/FORTHSPMC/MYCPU.xst" -ofn "C:/Xilinx/FORTHSPMC/MYCPU.syr" 
+ngdbuild -ise "FORTHSPMC.ise" -intstyle ise -dd _ngo -nt timestamp -i -p xc3s700a-fg484-4 MYCPU.ngc MYCPU.ngd  
+map -ise "FORTHSPMC.ise" -intstyle ise -p xc3s700a-fg484-4 -cm area -ir off -pr b -c 100 -o MYCPU_map.ncd MYCPU.ngd MYCPU.pcf 
+par -ise "FORTHSPMC.ise" -w -intstyle ise -ol std -t 1 MYCPU_map.ncd MYCPU.ncd MYCPU.pcf 
+trce -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -e 3 -s 4 -xml MYCPU.twx MYCPU.ncd -o MYCPU.twr MYCPU.pcf -ucf MYCPU.ucf 
+bitgen -ise "FORTHSPMC.ise" -intstyle ise -f MYCPU.ut MYCPU.ncd 
+xst -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -ifn "C:/Xilinx/FORTHSPMC/MYCPU.xst" -ofn "C:/Xilinx/FORTHSPMC/MYCPU.syr" 
+ngdbuild -ise "FORTHSPMC.ise" -intstyle ise -dd _ngo -nt timestamp -i -p xc3s700a-fg484-4 MYCPU.ngc MYCPU.ngd  
+map -ise "FORTHSPMC.ise" -intstyle ise -p xc3s700a-fg484-4 -cm area -ir off -pr b -c 100 -o MYCPU_map.ncd MYCPU.ngd MYCPU.pcf 
+par -ise "FORTHSPMC.ise" -w -intstyle ise -ol std -t 1 MYCPU_map.ncd MYCPU.ncd MYCPU.pcf 
+trce -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -e 3 -s 4 -xml MYCPU.twx MYCPU.ncd -o MYCPU.twr MYCPU.pcf -ucf MYCPU.ucf 
+bitgen -ise "FORTHSPMC.ise" -intstyle ise -f MYCPU.ut MYCPU.ncd 
+xst -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -ifn "C:/Xilinx/FORTHSPMC/MYCPU.xst" -ofn "C:/Xilinx/FORTHSPMC/MYCPU.syr" 
+ngdbuild -ise "FORTHSPMC.ise" -intstyle ise -dd _ngo -nt timestamp -i -p xc3s700a-fg484-4 MYCPU.ngc MYCPU.ngd  
+map -ise "FORTHSPMC.ise" -intstyle ise -p xc3s700a-fg484-4 -cm area -ir off -pr b -c 100 -o MYCPU_map.ncd MYCPU.ngd MYCPU.pcf 
+par -ise "FORTHSPMC.ise" -w -intstyle ise -ol std -t 1 MYCPU_map.ncd MYCPU.ncd MYCPU.pcf 
+trce -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -e 3 -s 4 -xml MYCPU.twx MYCPU.ncd -o MYCPU.twr MYCPU.pcf -ucf MYCPU.ucf 
+bitgen -ise "FORTHSPMC.ise" -intstyle ise -f MYCPU.ut MYCPU.ncd 
+xst -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -ifn "C:/Xilinx/FORTHSPMC/MYCPU.xst" -ofn "C:/Xilinx/FORTHSPMC/MYCPU.syr" 
+ngdbuild -ise "FORTHSPMC.ise" -intstyle ise -dd _ngo -nt timestamp -i -p xc3s700a-fg484-4 MYCPU.ngc MYCPU.ngd  
+map -ise "FORTHSPMC.ise" -intstyle ise -p xc3s700a-fg484-4 -cm area -ir off -pr b -c 100 -o MYCPU_map.ncd MYCPU.ngd MYCPU.pcf 
+par -ise "FORTHSPMC.ise" -w -intstyle ise -ol std -t 1 MYCPU_map.ncd MYCPU.ncd MYCPU.pcf 
+trce -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -e 3 -s 4 -xml MYCPU.twx MYCPU.ncd -o MYCPU.twr MYCPU.pcf -ucf MYCPU.ucf 
+bitgen -ise "FORTHSPMC.ise" -intstyle ise -f MYCPU.ut MYCPU.ncd 
+xst -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -ifn "C:/Xilinx/FORTHSPMC/MYCPU.xst" -ofn "C:/Xilinx/FORTHSPMC/MYCPU.syr" 
+ngdbuild -ise "FORTHSPMC.ise" -intstyle ise -dd _ngo -nt timestamp -i -p xc3s700a-fg484-4 MYCPU.ngc MYCPU.ngd  
+map -ise "FORTHSPMC.ise" -intstyle ise -p xc3s700a-fg484-4 -cm area -ir off -pr b -c 100 -o MYCPU_map.ncd MYCPU.ngd MYCPU.pcf 
+par -ise "FORTHSPMC.ise" -w -intstyle ise -ol std -t 1 MYCPU_map.ncd MYCPU.ncd MYCPU.pcf 
+trce -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -e 3 -s 4 -xml MYCPU.twx MYCPU.ncd -o MYCPU.twr MYCPU.pcf -ucf MYCPU.ucf 
+bitgen -ise "FORTHSPMC.ise" -intstyle ise -f MYCPU.ut MYCPU.ncd 
+xst -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -ifn "C:/Xilinx/FORTHSPMC/MYCPU.xst" -ofn "C:/Xilinx/FORTHSPMC/MYCPU.syr" 
+ngdbuild -ise "FORTHSPMC.ise" -intstyle ise -dd _ngo -nt timestamp -i -p xc3s700a-fg484-4 MYCPU.ngc MYCPU.ngd  
+map -ise "FORTHSPMC.ise" -intstyle ise -p xc3s700a-fg484-4 -cm area -ir off -pr b -c 100 -o MYCPU_map.ncd MYCPU.ngd MYCPU.pcf 
+par -ise "FORTHSPMC.ise" -w -intstyle ise -ol std -t 1 MYCPU_map.ncd MYCPU.ncd MYCPU.pcf 
+trce -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -e 3 -s 4 -xml MYCPU.twx MYCPU.ncd -o MYCPU.twr MYCPU.pcf -ucf MYCPU.ucf 
+bitgen -ise "FORTHSPMC.ise" -intstyle ise -f MYCPU.ut MYCPU.ncd 
+xst -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -ifn "C:/Xilinx/FORTHSPMC/MYCPU.xst" -ofn "C:/Xilinx/FORTHSPMC/MYCPU.syr" 
+ngdbuild -ise "FORTHSPMC.ise" -intstyle ise -dd _ngo -nt timestamp -i -p xc3s700a-fg484-4 MYCPU.ngc MYCPU.ngd  
+xst -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -ifn "C:/Xilinx/FORTHSPMC/MYCPU.xst" -ofn "C:/Xilinx/FORTHSPMC/MYCPU.syr" 
+ngdbuild -ise "FORTHSPMC.ise" -intstyle ise -dd _ngo -nt timestamp -i -p xc3s700a-fg484-4 MYCPU.ngc MYCPU.ngd  
+map -ise "FORTHSPMC.ise" -intstyle ise -p xc3s700a-fg484-4 -cm area -ir off -pr b -c 100 -o MYCPU_map.ncd MYCPU.ngd MYCPU.pcf 
+par -ise "FORTHSPMC.ise" -w -intstyle ise -ol std -t 1 MYCPU_map.ncd MYCPU.ncd MYCPU.pcf 
+trce -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -e 3 -s 4 -xml MYCPU.twx MYCPU.ncd -o MYCPU.twr MYCPU.pcf -ucf MYCPU.ucf 
+bitgen -ise "FORTHSPMC.ise" -intstyle ise -f MYCPU.ut MYCPU.ncd 
+xst -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -ifn "C:/Xilinx/FORTHSPMC/MYCPU.xst" -ofn "C:/Xilinx/FORTHSPMC/MYCPU.syr" 
+ngdbuild -ise "FORTHSPMC.ise" -intstyle ise -dd _ngo -nt timestamp -i -p xc3s700a-fg484-4 MYCPU.ngc MYCPU.ngd  
+map -ise "FORTHSPMC.ise" -intstyle ise -p xc3s700a-fg484-4 -cm area -ir off -pr b -c 100 -o MYCPU_map.ncd MYCPU.ngd MYCPU.pcf 
+par -ise "FORTHSPMC.ise" -w -intstyle ise -ol std -t 1 MYCPU_map.ncd MYCPU.ncd MYCPU.pcf 
+trce -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -e 3 -s 4 -xml MYCPU.twx MYCPU.ncd -o MYCPU.twr MYCPU.pcf -ucf MYCPU.ucf 
+bitgen -ise "FORTHSPMC.ise" -intstyle ise -f MYCPU.ut MYCPU.ncd 
+xst -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -ifn "C:/Xilinx/FORTHSPMC/MYCPU.xst" -ofn "C:/Xilinx/FORTHSPMC/MYCPU.syr" 
+ngdbuild -ise "FORTHSPMC.ise" -intstyle ise -dd _ngo -nt timestamp -i -p xc3s700a-fg484-4 MYCPU.ngc MYCPU.ngd  
+map -ise "FORTHSPMC.ise" -intstyle ise -p xc3s700a-fg484-4 -cm area -ir off -pr b -c 100 -o MYCPU_map.ncd MYCPU.ngd MYCPU.pcf 
+par -ise "FORTHSPMC.ise" -w -intstyle ise -ol std -t 1 MYCPU_map.ncd MYCPU.ncd MYCPU.pcf 
+trce -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -e 3 -s 4 -xml MYCPU.twx MYCPU.ncd -o MYCPU.twr MYCPU.pcf -ucf MYCPU.ucf 
+bitgen -ise "FORTHSPMC.ise" -intstyle ise -f MYCPU.ut MYCPU.ncd 
+xst -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -ifn "C:/Xilinx/FORTHSPMC/MYCPU.xst" -ofn "C:/Xilinx/FORTHSPMC/MYCPU.syr" 
+xst -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -ifn "C:/Xilinx/FORTHSPMC/MYCPU.xst" -ofn "C:/Xilinx/FORTHSPMC/MYCPU.syr" 
+ngdbuild -ise "FORTHSPMC.ise" -intstyle ise -dd _ngo -nt timestamp -i -p xc3s700a-fg484-4 MYCPU.ngc MYCPU.ngd  
+map -ise "FORTHSPMC.ise" -intstyle ise -p xc3s700a-fg484-4 -cm area -ir off -pr b -c 100 -o MYCPU_map.ncd MYCPU.ngd MYCPU.pcf 
+par -ise "FORTHSPMC.ise" -w -intstyle ise -ol std -t 1 MYCPU_map.ncd MYCPU.ncd MYCPU.pcf 
+trce -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -e 3 -s 4 -xml MYCPU.twx MYCPU.ncd -o MYCPU.twr MYCPU.pcf -ucf MYCPU.ucf 
+bitgen -ise "FORTHSPMC.ise" -intstyle ise -f MYCPU.ut MYCPU.ncd 
+xst -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -ifn "C:/Xilinx/FORTHSPMC/MYCPU.xst" -ofn "C:/Xilinx/FORTHSPMC/MYCPU.syr" 
+ngdbuild -ise "FORTHSPMC.ise" -intstyle ise -dd _ngo -nt timestamp -i -p xc3s700a-fg484-4 MYCPU.ngc MYCPU.ngd  
+map -ise "FORTHSPMC.ise" -intstyle ise -p xc3s700a-fg484-4 -cm area -ir off -pr b -c 100 -o MYCPU_map.ncd MYCPU.ngd MYCPU.pcf 
+par -ise "FORTHSPMC.ise" -w -intstyle ise -ol std -t 1 MYCPU_map.ncd MYCPU.ncd MYCPU.pcf 
+trce -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -e 3 -s 4 -xml MYCPU.twx MYCPU.ncd -o MYCPU.twr MYCPU.pcf -ucf MYCPU.ucf 
+bitgen -ise "FORTHSPMC.ise" -intstyle ise -f MYCPU.ut MYCPU.ncd 
+xst -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -ifn "C:/Xilinx/FORTHSPMC/MYCPU.xst" -ofn "C:/Xilinx/FORTHSPMC/MYCPU.syr" 
+ngdbuild -ise "FORTHSPMC.ise" -intstyle ise -dd _ngo -nt timestamp -i -p xc3s700a-fg484-4 MYCPU.ngc MYCPU.ngd  
+map -ise "FORTHSPMC.ise" -intstyle ise -p xc3s700a-fg484-4 -cm area -ir off -pr b -c 100 -o MYCPU_map.ncd MYCPU.ngd MYCPU.pcf 
+par -ise "FORTHSPMC.ise" -w -intstyle ise -ol std -t 1 MYCPU_map.ncd MYCPU.ncd MYCPU.pcf 
+trce -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -e 3 -s 4 -xml MYCPU.twx MYCPU.ncd -o MYCPU.twr MYCPU.pcf -ucf MYCPU.ucf 
+bitgen -ise "FORTHSPMC.ise" -intstyle ise -f MYCPU.ut MYCPU.ncd 
+xst -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -ifn "C:/Xilinx/FORTHSPMC/MYCPU.xst" -ofn "C:/Xilinx/FORTHSPMC/MYCPU.syr" 
+ngdbuild -ise "FORTHSPMC.ise" -intstyle ise -dd _ngo -nt timestamp -i -p xc3s700a-fg484-4 MYCPU.ngc MYCPU.ngd  
+map -ise "FORTHSPMC.ise" -intstyle ise -p xc3s700a-fg484-4 -cm area -ir off -pr b -c 100 -o MYCPU_map.ncd MYCPU.ngd MYCPU.pcf 
+par -ise "FORTHSPMC.ise" -w -intstyle ise -ol std -t 1 MYCPU_map.ncd MYCPU.ncd MYCPU.pcf 
+trce -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -e 3 -s 4 -xml MYCPU.twx MYCPU.ncd -o MYCPU.twr MYCPU.pcf -ucf MYCPU.ucf 
+bitgen -ise "FORTHSPMC.ise" -intstyle ise -f MYCPU.ut MYCPU.ncd 
+xst -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -ifn "C:/Xilinx/FORTHSPMC/MYCPU.xst" -ofn "C:/Xilinx/FORTHSPMC/MYCPU.syr" 
+ngdbuild -ise "FORTHSPMC.ise" -intstyle ise -dd _ngo -nt timestamp -i -p xc3s700a-fg484-4 MYCPU.ngc MYCPU.ngd  
+map -ise "FORTHSPMC.ise" -intstyle ise -p xc3s700a-fg484-4 -cm area -ir off -pr b -c 100 -o MYCPU_map.ncd MYCPU.ngd MYCPU.pcf 
+par -ise "FORTHSPMC.ise" -w -intstyle ise -ol std -t 1 MYCPU_map.ncd MYCPU.ncd MYCPU.pcf 
+trce -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -e 3 -s 4 -xml MYCPU.twx MYCPU.ncd -o MYCPU.twr MYCPU.pcf -ucf MYCPU.ucf 
+bitgen -ise "FORTHSPMC.ise" -intstyle ise -f MYCPU.ut MYCPU.ncd 
+xst -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -ifn "C:/Xilinx/FORTHSPMC/MYCPU.xst" -ofn "C:/Xilinx/FORTHSPMC/MYCPU.syr" 
+xst -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -ifn "C:/Xilinx/FORTHSPMC/MYCPU.xst" -ofn "C:/Xilinx/FORTHSPMC/MYCPU.syr" 
+ngdbuild -ise "FORTHSPMC.ise" -intstyle ise -dd _ngo -nt timestamp -i -p xc3s700a-fg484-4 MYCPU.ngc MYCPU.ngd  
+map -ise "FORTHSPMC.ise" -intstyle ise -p xc3s700a-fg484-4 -cm area -ir off -pr b -c 100 -o MYCPU_map.ncd MYCPU.ngd MYCPU.pcf 
+par -ise "FORTHSPMC.ise" -w -intstyle ise -ol std -t 1 MYCPU_map.ncd MYCPU.ncd MYCPU.pcf 
+trce -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -e 3 -s 4 -xml MYCPU.twx MYCPU.ncd -o MYCPU.twr MYCPU.pcf -ucf MYCPU.ucf 
+bitgen -ise "FORTHSPMC.ise" -intstyle ise -f MYCPU.ut MYCPU.ncd 
+xst -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -ifn "C:/Xilinx/FORTHSPMC/MYCPU.xst" -ofn "C:/Xilinx/FORTHSPMC/MYCPU.syr" 
+xst -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -ifn "C:/Xilinx/FORTHSPMC/MYCPU.xst" -ofn "C:/Xilinx/FORTHSPMC/MYCPU.syr" 
+ngdbuild -ise "FORTHSPMC.ise" -intstyle ise -dd _ngo -nt timestamp -i -p xc3s700a-fg484-4 MYCPU.ngc MYCPU.ngd  
+map -ise "FORTHSPMC.ise" -intstyle ise -p xc3s700a-fg484-4 -cm area -ir off -pr b -c 100 -o MYCPU_map.ncd MYCPU.ngd MYCPU.pcf 
+par -ise "FORTHSPMC.ise" -w -intstyle ise -ol std -t 1 MYCPU_map.ncd MYCPU.ncd MYCPU.pcf 
+trce -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -e 3 -s 4 -xml MYCPU.twx MYCPU.ncd -o MYCPU.twr MYCPU.pcf -ucf MYCPU.ucf 
+bitgen -ise "FORTHSPMC.ise" -intstyle ise -f MYCPU.ut MYCPU.ncd 
+xst -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -ifn "C:/Xilinx/FORTHSPMC/MYCPU.xst" -ofn "C:/Xilinx/FORTHSPMC/MYCPU.syr" 
+ngdbuild -ise "FORTHSPMC.ise" -intstyle ise -dd _ngo -nt timestamp -i -p xc3s700a-fg484-4 MYCPU.ngc MYCPU.ngd  
+map -ise "FORTHSPMC.ise" -intstyle ise -p xc3s700a-fg484-4 -cm area -ir off -pr b -c 100 -o MYCPU_map.ncd MYCPU.ngd MYCPU.pcf 
+par -ise "FORTHSPMC.ise" -w -intstyle ise -ol std -t 1 MYCPU_map.ncd MYCPU.ncd MYCPU.pcf 
+trce -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -e 3 -s 4 -xml MYCPU.twx MYCPU.ncd -o MYCPU.twr MYCPU.pcf -ucf MYCPU.ucf 
+bitgen -ise "FORTHSPMC.ise" -intstyle ise -f MYCPU.ut MYCPU.ncd 
+xst -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -ifn "C:/Xilinx/FORTHSPMC/MYCPU.xst" -ofn "C:/Xilinx/FORTHSPMC/MYCPU.syr" 
+ngdbuild -ise "FORTHSPMC.ise" -intstyle ise -dd _ngo -nt timestamp -i -p xc3s700a-fg484-4 MYCPU.ngc MYCPU.ngd  
+map -ise "FORTHSPMC.ise" -intstyle ise -p xc3s700a-fg484-4 -cm area -ir off -pr b -c 100 -o MYCPU_map.ncd MYCPU.ngd MYCPU.pcf 
+par -ise "FORTHSPMC.ise" -w -intstyle ise -ol high -t 1 MYCPU_map.ncd MYCPU.ncd MYCPU.pcf 
+trce -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -e 3 -s 4 -xml MYCPU.twx MYCPU.ncd -o MYCPU.twr MYCPU.pcf -ucf MYCPU.ucf 
+bitgen -ise "FORTHSPMC.ise" -intstyle ise -f MYCPU.ut MYCPU.ncd 
+xst -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -ifn "C:/Xilinx/FORTHSPMC/MYCPU.xst" -ofn "C:/Xilinx/FORTHSPMC/MYCPU.syr" 
+ngdbuild -ise "FORTHSPMC.ise" -intstyle ise -dd _ngo -nt timestamp -i -p xc3s700a-fg484-4 MYCPU.ngc MYCPU.ngd  
+map -ise "FORTHSPMC.ise" -intstyle ise -p xc3s700a-fg484-4 -cm area -ir off -pr b -c 100 -o MYCPU_map.ncd MYCPU.ngd MYCPU.pcf 
+par -ise "FORTHSPMC.ise" -w -intstyle ise -ol high -t 1 MYCPU_map.ncd MYCPU.ncd MYCPU.pcf 
+trce -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -e 3 -s 4 -xml MYCPU.twx MYCPU.ncd -o MYCPU.twr MYCPU.pcf -ucf MYCPU.ucf 
+bitgen -ise "FORTHSPMC.ise" -intstyle ise -f MYCPU.ut MYCPU.ncd 
+xst -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -ifn "C:/Xilinx/FORTHSPMC/MYCPU.xst" -ofn "C:/Xilinx/FORTHSPMC/MYCPU.syr" 
+ngdbuild -ise "FORTHSPMC.ise" -intstyle ise -dd _ngo -nt timestamp -i -p xc3s700a-fg484-4 MYCPU.ngc MYCPU.ngd  
+map -ise "FORTHSPMC.ise" -intstyle ise -p xc3s700a-fg484-4 -cm area -ir off -pr b -c 100 -o MYCPU_map.ncd MYCPU.ngd MYCPU.pcf 
+par -ise "FORTHSPMC.ise" -w -intstyle ise -ol high -t 1 MYCPU_map.ncd MYCPU.ncd MYCPU.pcf 
+trce -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -e 3 -s 4 -xml MYCPU.twx MYCPU.ncd -o MYCPU.twr MYCPU.pcf -ucf MYCPU.ucf 
+bitgen -ise "FORTHSPMC.ise" -intstyle ise -f MYCPU.ut MYCPU.ncd 
+xst -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -ifn "C:/Xilinx/FORTHSPMC/MYCPU.xst" -ofn "C:/Xilinx/FORTHSPMC/MYCPU.syr" 
+ngdbuild -ise "FORTHSPMC.ise" -intstyle ise -dd _ngo -nt timestamp -i -p xc3s700a-fg484-4 MYCPU.ngc MYCPU.ngd  
+map -ise "FORTHSPMC.ise" -intstyle ise -p xc3s700a-fg484-4 -cm area -ir off -pr b -c 100 -o MYCPU_map.ncd MYCPU.ngd MYCPU.pcf 
+par -ise "FORTHSPMC.ise" -w -intstyle ise -ol high -t 1 MYCPU_map.ncd MYCPU.ncd MYCPU.pcf 
+trce -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -e 3 -s 4 -xml MYCPU.twx MYCPU.ncd -o MYCPU.twr MYCPU.pcf -ucf MYCPU.ucf 
+bitgen -ise "FORTHSPMC.ise" -intstyle ise -f MYCPU.ut MYCPU.ncd 
+xst -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -ifn "C:/Xilinx/FORTHSPMC/MYCPU.xst" -ofn "C:/Xilinx/FORTHSPMC/MYCPU.syr" 
+ngdbuild -ise "FORTHSPMC.ise" -intstyle ise -dd _ngo -nt timestamp -i -p xc3s700a-fg484-4 MYCPU.ngc MYCPU.ngd  
+map -ise "FORTHSPMC.ise" -intstyle ise -p xc3s700a-fg484-4 -cm area -ir off -pr b -c 100 -o MYCPU_map.ncd MYCPU.ngd MYCPU.pcf 
+par -ise "FORTHSPMC.ise" -w -intstyle ise -ol high -t 1 MYCPU_map.ncd MYCPU.ncd MYCPU.pcf 
+trce -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -e 3 -s 4 -xml MYCPU.twx MYCPU.ncd -o MYCPU.twr MYCPU.pcf -ucf MYCPU.ucf 
+bitgen -ise "FORTHSPMC.ise" -intstyle ise -f MYCPU.ut MYCPU.ncd 
+xst -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -ifn "C:/Xilinx/FORTHSPMC/MYCPU.xst" -ofn "C:/Xilinx/FORTHSPMC/MYCPU.syr" 
+ngdbuild -ise "FORTHSPMC.ise" -intstyle ise -dd _ngo -nt timestamp -i -p xc3s700a-fg484-4 MYCPU.ngc MYCPU.ngd  
+map -ise "FORTHSPMC.ise" -intstyle ise -p xc3s700a-fg484-4 -cm area -ir off -pr b -c 100 -o MYCPU_map.ncd MYCPU.ngd MYCPU.pcf 
+par -ise "FORTHSPMC.ise" -w -intstyle ise -ol high -t 1 MYCPU_map.ncd MYCPU.ncd MYCPU.pcf 
+trce -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -e 3 -s 4 -xml MYCPU.twx MYCPU.ncd -o MYCPU.twr MYCPU.pcf -ucf MYCPU.ucf 
+bitgen -ise "FORTHSPMC.ise" -intstyle ise -f MYCPU.ut MYCPU.ncd 
+xst -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -ifn "C:/Xilinx/FORTHSPMC/MYCPU.xst" -ofn "C:/Xilinx/FORTHSPMC/MYCPU.syr" 
+ngdbuild -ise "FORTHSPMC.ise" -intstyle ise -dd _ngo -nt timestamp -i -p xc3s700a-fg484-4 MYCPU.ngc MYCPU.ngd  
+map -ise "FORTHSPMC.ise" -intstyle ise -p xc3s700a-fg484-4 -cm area -ir off -pr b -c 100 -o MYCPU_map.ncd MYCPU.ngd MYCPU.pcf 
+par -ise "FORTHSPMC.ise" -w -intstyle ise -ol high -t 1 MYCPU_map.ncd MYCPU.ncd MYCPU.pcf 
+trce -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -e 3 -s 4 -xml MYCPU.twx MYCPU.ncd -o MYCPU.twr MYCPU.pcf -ucf MYCPU.ucf 
+bitgen -ise "FORTHSPMC.ise" -intstyle ise -f MYCPU.ut MYCPU.ncd 
+xst -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -ifn "C:/Xilinx/FORTHSPMC/MYCPU.xst" -ofn "C:/Xilinx/FORTHSPMC/MYCPU.syr" 
+ngdbuild -ise "FORTHSPMC.ise" -intstyle ise -dd _ngo -nt timestamp -i -p xc3s700a-fg484-4 MYCPU.ngc MYCPU.ngd  
+map -ise "FORTHSPMC.ise" -intstyle ise -p xc3s700a-fg484-4 -cm area -ir off -pr b -c 100 -o MYCPU_map.ncd MYCPU.ngd MYCPU.pcf 
+par -ise "FORTHSPMC.ise" -w -intstyle ise -ol high -t 1 MYCPU_map.ncd MYCPU.ncd MYCPU.pcf 
+trce -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -e 3 -s 4 -xml MYCPU.twx MYCPU.ncd -o MYCPU.twr MYCPU.pcf -ucf MYCPU.ucf 
+bitgen -ise "FORTHSPMC.ise" -intstyle ise -f MYCPU.ut MYCPU.ncd 
+xst -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -ifn "C:/Xilinx/FORTHSPMC/MYCPU.xst" -ofn "C:/Xilinx/FORTHSPMC/MYCPU.syr" 
+ngdbuild -ise "FORTHSPMC.ise" -intstyle ise -dd _ngo -nt timestamp -i -p xc3s700a-fg484-4 MYCPU.ngc MYCPU.ngd  
+map -ise "FORTHSPMC.ise" -intstyle ise -p xc3s700a-fg484-4 -cm area -ir off -pr b -c 100 -o MYCPU_map.ncd MYCPU.ngd MYCPU.pcf 
+par -ise "FORTHSPMC.ise" -w -intstyle ise -ol high -t 1 MYCPU_map.ncd MYCPU.ncd MYCPU.pcf 
+trce -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -e 3 -s 4 -xml MYCPU.twx MYCPU.ncd -o MYCPU.twr MYCPU.pcf -ucf MYCPU.ucf 
+bitgen -ise "FORTHSPMC.ise" -intstyle ise -f MYCPU.ut MYCPU.ncd 
+xst -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -ifn "C:/Xilinx/FORTHSPMC/MYCPU.xst" -ofn "C:/Xilinx/FORTHSPMC/MYCPU.syr" 
+ngdbuild -ise "FORTHSPMC.ise" -intstyle ise -dd _ngo -nt timestamp -i -p xc3s700a-fg484-4 MYCPU.ngc MYCPU.ngd  
+map -ise "FORTHSPMC.ise" -intstyle ise -p xc3s700a-fg484-4 -cm area -ir off -pr b -c 100 -o MYCPU_map.ncd MYCPU.ngd MYCPU.pcf 
+par -ise "FORTHSPMC.ise" -w -intstyle ise -ol high -t 1 MYCPU_map.ncd MYCPU.ncd MYCPU.pcf 
+trce -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -e 3 -s 4 -xml MYCPU.twx MYCPU.ncd -o MYCPU.twr MYCPU.pcf -ucf MYCPU.ucf 
+bitgen -ise "FORTHSPMC.ise" -intstyle ise -f MYCPU.ut MYCPU.ncd 
+xst -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -ifn "C:/Xilinx/FORTHSPMC/MYCPU.xst" -ofn "C:/Xilinx/FORTHSPMC/MYCPU.syr" 
+ngdbuild -ise "FORTHSPMC.ise" -intstyle ise -dd _ngo -nt timestamp -i -p xc3s700a-fg484-4 MYCPU.ngc MYCPU.ngd  
+map -ise "FORTHSPMC.ise" -intstyle ise -p xc3s700a-fg484-4 -cm area -ir off -pr b -c 100 -o MYCPU_map.ncd MYCPU.ngd MYCPU.pcf 
+par -ise "FORTHSPMC.ise" -w -intstyle ise -ol high -t 1 MYCPU_map.ncd MYCPU.ncd MYCPU.pcf 
+trce -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -e 3 -s 4 -xml MYCPU.twx MYCPU.ncd -o MYCPU.twr MYCPU.pcf -ucf MYCPU.ucf 
+bitgen -ise "FORTHSPMC.ise" -intstyle ise -f MYCPU.ut MYCPU.ncd 
+xst -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -ifn "C:/Xilinx/FORTHSPMC/MYCPU.xst" -ofn "C:/Xilinx/FORTHSPMC/MYCPU.syr" 
+ngdbuild -ise "FORTHSPMC.ise" -intstyle ise -dd _ngo -nt timestamp -i -p xc3s700a-fg484-4 MYCPU.ngc MYCPU.ngd  
+map -ise "FORTHSPMC.ise" -intstyle ise -p xc3s700a-fg484-4 -cm area -ir off -pr b -c 100 -o MYCPU_map.ncd MYCPU.ngd MYCPU.pcf 
+par -ise "FORTHSPMC.ise" -w -intstyle ise -ol high -t 1 MYCPU_map.ncd MYCPU.ncd MYCPU.pcf 
+trce -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -e 3 -s 4 -xml MYCPU.twx MYCPU.ncd -o MYCPU.twr MYCPU.pcf -ucf MYCPU.ucf 
+bitgen -ise "FORTHSPMC.ise" -intstyle ise -f MYCPU.ut MYCPU.ncd 
+xst -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -ifn "C:/Xilinx/FORTHSPMC/MYCPU.xst" -ofn "C:/Xilinx/FORTHSPMC/MYCPU.syr" 
+ngdbuild -ise "FORTHSPMC.ise" -intstyle ise -dd _ngo -nt timestamp -i -p xc3s700a-fg484-4 MYCPU.ngc MYCPU.ngd  
+map -ise "FORTHSPMC.ise" -intstyle ise -p xc3s700a-fg484-4 -cm area -ir off -pr b -c 100 -o MYCPU_map.ncd MYCPU.ngd MYCPU.pcf 
+par -ise "FORTHSPMC.ise" -w -intstyle ise -ol high -t 1 MYCPU_map.ncd MYCPU.ncd MYCPU.pcf 
+trce -ise "C:/Xilinx/FORTHSPMC/FORTHSPMC.ise" -intstyle ise -e 3 -s 4 -xml MYCPU.twx MYCPU.ncd -o MYCPU.twr MYCPU.pcf -ucf MYCPU.ucf 
+bitgen -ise "FORTHSPMC.ise" -intstyle ise -f MYCPU.ut MYCPU.ncd 
+xst -intstyle ise -ifn "C:/Xilinx/FORTHSPMC/MYCPU.xst" -ofn "C:/Xilinx/FORTHSPMC/MYCPU.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc MYCPU.ucf -p xc3s700a-fg484-4 MYCPU.ngc MYCPU.ngd  
+map -intstyle ise -p xc3s700a-fg484-4 -cm area -ir off -pr b -timing -c 100 -o MYCPU_map.ncd MYCPU.ngd MYCPU.pcf 
+par -w -intstyle ise -ol high -t 1 MYCPU_map.ncd MYCPU.ncd MYCPU.pcf 
+trce -intstyle ise -e 3 -s 4 -n 3 -xml MYCPU.twx MYCPU.ncd -o MYCPU.twr MYCPU.pcf -ucf MYCPU.ucf 
+bitgen -intstyle ise -f MYCPU.ut MYCPU.ncd 
+xst -intstyle ise -ifn "C:/Xilinx/FORTHSPMC/MYCPU.xst" -ofn "C:/Xilinx/FORTHSPMC/MYCPU.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc MYCPU.ucf -p xc3s700a-fg484-4 MYCPU.ngc MYCPU.ngd  
+map -intstyle ise -p xc3s700a-fg484-4 -timing -logic_opt off -ol high -t 1 -register_duplication off -cm area -ir off -pr b -power off -o MYCPU_map.ncd MYCPU.ngd MYCPU.pcf 
+par -w -intstyle ise -ol high -t 1 MYCPU_map.ncd MYCPU.ncd MYCPU.pcf 
+trce -intstyle ise -e 3 -s 4 -n 3 -xml MYCPU.twx MYCPU.ncd -o MYCPU.twr MYCPU.pcf -ucf MYCPU.ucf 
+bitgen -intstyle ise -f MYCPU.ut MYCPU.ncd 
+xst -intstyle ise -ifn "C:/Xilinx/FORTHSPMC/MYCPU.xst" -ofn "C:/Xilinx/FORTHSPMC/MYCPU.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc MYCPU.ucf -p xc3s700a-fg484-4 MYCPU.ngc MYCPU.ngd  
+map -intstyle ise -p xc3s700a-fg484-4 -timing -logic_opt off -ol high -t 1 -register_duplication off -cm area -ir off -pr b -power off -o MYCPU_map.ncd MYCPU.ngd MYCPU.pcf 
+par -w -intstyle ise -ol high -t 1 MYCPU_map.ncd MYCPU.ncd MYCPU.pcf 
+trce -intstyle ise -e 3 -s 4 -n 3 -xml MYCPU.twx MYCPU.ncd -o MYCPU.twr MYCPU.pcf -ucf MYCPU.ucf 
+bitgen -intstyle ise -f MYCPU.ut MYCPU.ncd 
+xst -intstyle ise -ifn "C:/Xilinx/FORTHSPMC/MYCPU.xst" -ofn "C:/Xilinx/FORTHSPMC/MYCPU.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc MYCPU.ucf -p xc3s700a-fg484-4 MYCPU.ngc MYCPU.ngd  
+map -intstyle ise -p xc3s700a-fg484-4 -timing -logic_opt off -ol high -t 1 -register_duplication off -cm area -ir off -pr b -power off -o MYCPU_map.ncd MYCPU.ngd MYCPU.pcf 
+par -w -intstyle ise -ol high -t 1 MYCPU_map.ncd MYCPU.ncd MYCPU.pcf 
+trce -intstyle ise -e 3 -s 4 -n 3 -xml MYCPU.twx MYCPU.ncd -o MYCPU.twr MYCPU.pcf -ucf MYCPU.ucf 
+bitgen -intstyle ise -f MYCPU.ut MYCPU.ncd 
+xst -intstyle ise -ifn "C:/Xilinx/FORTHSPMC/MYCPU.xst" -ofn "C:/Xilinx/FORTHSPMC/MYCPU.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc MYCPU.ucf -p xc3s700a-fg484-4 MYCPU.ngc MYCPU.ngd  
+map -intstyle ise -p xc3s700a-fg484-4 -timing -logic_opt off -ol high -t 1 -register_duplication off -cm area -ir off -pr b -power off -o MYCPU_map.ncd MYCPU.ngd MYCPU.pcf 
+par -w -intstyle ise -ol high -t 1 MYCPU_map.ncd MYCPU.ncd MYCPU.pcf 
+trce -intstyle ise -e 3 -s 4 -n 3 -xml MYCPU.twx MYCPU.ncd -o MYCPU.twr MYCPU.pcf -ucf MYCPU.ucf 
+bitgen -intstyle ise -f MYCPU.ut MYCPU.ncd 
+xst -intstyle ise -ifn "C:/Xilinx/FORTHSPMC/MYCPU.xst" -ofn "C:/Xilinx/FORTHSPMC/MYCPU.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc MYCPU.ucf -p xc3s700a-fg484-4 MYCPU.ngc MYCPU.ngd  
+map -intstyle ise -p xc3s700a-fg484-4 -timing -logic_opt off -ol high -t 1 -register_duplication off -cm area -ir off -pr b -power off -o MYCPU_map.ncd MYCPU.ngd MYCPU.pcf 
+par -w -intstyle ise -ol high -t 1 MYCPU_map.ncd MYCPU.ncd MYCPU.pcf 
+trce -intstyle ise -e 3 -s 4 -n 3 -xml MYCPU.twx MYCPU.ncd -o MYCPU.twr MYCPU.pcf -ucf MYCPU.ucf 
+bitgen -intstyle ise -f MYCPU.ut MYCPU.ncd 
+xst -intstyle ise -ifn "C:/Xilinx/FORTHSPMC/MYCPU.xst" -ofn "C:/Xilinx/FORTHSPMC/MYCPU.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc MYCPU.ucf -p xc3s700a-fg484-4 MYCPU.ngc MYCPU.ngd  
+map -intstyle ise -p xc3s700a-fg484-4 -timing -logic_opt off -ol high -t 1 -register_duplication off -cm area -ir off -pr b -power off -o MYCPU_map.ncd MYCPU.ngd MYCPU.pcf 
+par -w -intstyle ise -ol high -t 1 MYCPU_map.ncd MYCPU.ncd MYCPU.pcf 
+trce -intstyle ise -e 3 -s 4 -n 3 -xml MYCPU.twx MYCPU.ncd -o MYCPU.twr MYCPU.pcf -ucf MYCPU.ucf 
+bitgen -intstyle ise -f MYCPU.ut MYCPU.ncd 
+xst -intstyle ise -ifn "C:/Xilinx/FORTHSPMC/MYCPU.xst" -ofn "C:/Xilinx/FORTHSPMC/MYCPU.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc MYCPU.ucf -p xc3s700a-fg484-4 MYCPU.ngc MYCPU.ngd  
+map -intstyle ise -p xc3s700a-fg484-4 -timing -logic_opt off -ol high -t 1 -register_duplication off -cm area -ir off -pr b -power off -o MYCPU_map.ncd MYCPU.ngd MYCPU.pcf 
+par -w -intstyle ise -ol high -t 1 MYCPU_map.ncd MYCPU.ncd MYCPU.pcf 
+trce -intstyle ise -e 3 -s 4 -n 3 -xml MYCPU.twx MYCPU.ncd -o MYCPU.twr MYCPU.pcf -ucf MYCPU.ucf 
+bitgen -intstyle ise -f MYCPU.ut MYCPU.ncd 
+xst -intstyle ise -ifn "C:/Xilinx/FORTHSPMC/MYCPU.xst" -ofn "C:/Xilinx/FORTHSPMC/MYCPU.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc MYCPU.ucf -p xc3s700a-fg484-4 MYCPU.ngc MYCPU.ngd  
+map -intstyle ise -p xc3s700a-fg484-4 -timing -logic_opt off -ol high -t 1 -register_duplication off -cm area -ir off -pr b -power off -o MYCPU_map.ncd MYCPU.ngd MYCPU.pcf 
+par -w -intstyle ise -ol high -t 1 MYCPU_map.ncd MYCPU.ncd MYCPU.pcf 
+trce -intstyle ise -e 3 -s 4 -n 3 -xml MYCPU.twx MYCPU.ncd -o MYCPU.twr MYCPU.pcf -ucf MYCPU.ucf 
+bitgen -intstyle ise -f MYCPU.ut MYCPU.ncd 
+map -intstyle ise -p xc3s700a-fg484-4 -timing -logic_opt off -ol high -t 1 -register_duplication off -cm area -ir off -ignore_keep_hierarchy -pr b -power off -o MYCPU_map.ncd MYCPU.ngd MYCPU.pcf 
+par -w -intstyle ise -ol high -t 1 MYCPU_map.ncd MYCPU.ncd MYCPU.pcf 
+trce -intstyle ise -e 3 -s 4 -n 3 -xml MYCPU.twx MYCPU.ncd -o MYCPU.twr MYCPU.pcf -ucf MYCPU.ucf 
+bitgen -intstyle ise -f MYCPU.ut MYCPU.ncd 
+xst -intstyle ise -ifn "E:/Xilinx/FORTHSPMC/MYCPU.xst" -ofn "E:/Xilinx/FORTHSPMC/MYCPU.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc MYCPU.ucf -p xc3s700a-fg484-4 MYCPU.ngc MYCPU.ngd  
+map -intstyle ise -p xc3s700a-fg484-4 -timing -logic_opt off -ol high -t 1 -register_duplication off -cm area -ir off -ignore_keep_hierarchy -pr b -power off -o MYCPU_map.ncd MYCPU.ngd MYCPU.pcf 
+xst -intstyle ise -ifn "E:/Xilinx/FORTHSPMC/MYCPU.xst" -ofn "E:/Xilinx/FORTHSPMC/MYCPU.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc MYCPU.ucf -p xc3s700a-fg484-4 MYCPU.ngc MYCPU.ngd  
+map -intstyle ise -p xc3s700a-fg484-4 -timing -logic_opt off -ol high -t 1 -register_duplication off -cm area -ir off -ignore_keep_hierarchy -pr b -power off -o MYCPU_map.ncd MYCPU.ngd MYCPU.pcf 
+par -w -intstyle ise -ol high -t 1 MYCPU_map.ncd MYCPU.ncd MYCPU.pcf 
+trce -intstyle ise -e 3 -s 4 -n 3 -xml MYCPU.twx MYCPU.ncd -o MYCPU.twr MYCPU.pcf -ucf MYCPU.ucf 
+bitgen -intstyle ise -f MYCPU.ut MYCPU.ncd 
+xst -intstyle ise -ifn "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/MYCPU.xst" -ofn "E:/opencores/projects/xilinx/spartan 3A starter/FORTHSPMC/MYCPU.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc MYCPU.ucf -p xc3s700a-fg484-4 "MYCPU.ngc" MYCPU.ngd  
+map -intstyle ise -p xc3s700a-fg484-4 -timing -logic_opt off -ol high -t 1 -register_duplication off -cm area -ir off -ignore_keep_hierarchy -pr b -power off -o MYCPU_map.ncd MYCPU.ngd MYCPU.pcf 
+par -w -intstyle ise -ol high -t 1 MYCPU_map.ncd MYCPU.ncd MYCPU.pcf 
+trce -intstyle ise -e 3 -s 4 -n 3 -xml MYCPU.twx MYCPU.ncd -o MYCPU.twr MYCPU.pcf -ucf MYCPU.ucf 
+bitgen -intstyle ise -f MYCPU.ut MYCPU.ncd 

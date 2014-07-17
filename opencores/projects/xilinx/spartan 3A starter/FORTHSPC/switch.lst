@@ -1,0 +1,104 @@
+00000008  0400         §5 LABEL 
+0000000a  646f6e65     " done " 
+0000000e  0600         §4 LABEL 
+00000010  636f72652030 " core 0 " 
+00000016  0600         §2 LABEL 
+00000018  636f72652031 " core 1 " 
+0000001e  0500         §0 LABEL 
+00000020  68656c6c6f   " hello " 
+00000028  0d22000000   §0 VAL 
+0000002d  1e           HALF+ 
+0000002e  0e           DUP 
+0000002f  19           1- 
+00000030  04           C@ 
+00000031  4e           8 VAL 
+00000032  20           LSHIFT 
+00000033  0f           OVER 
+00000034  19           1- 
+00000035  19           1- 
+00000036  04           C@ 
+00000037  22           OR 
+00000038  0d00000000   TYPE VAL will be modified! 
+0000003d  00           NOP will be modified! 
+0000003e  56           0 VAL 
+0000003f  421c00       §1 0BRANCH 
+00000042               M1 LABEL 
+00000042  0d1a000000   §2 VAL 
+00000047  1e           HALF+ 
+00000048  0e           DUP 
+00000049  19           1- 
+0000004a  04           C@ 
+0000004b  4e           8 VAL 
+0000004c  20           LSHIFT 
+0000004d  0f           OVER 
+0000004e  19           1- 
+0000004f  19           1- 
+00000050  04           C@ 
+00000051  22           OR 
+00000052  0d00000000   TYPE VAL will be modified! 
+00000057  00           NOP will be modified! 
+00000058  5f0000       0 SWITCH 
+0000005b  401600       §3 BRANCH 
+0000005e               §1 LABEL 
+0000005e  0d12000000   §4 VAL 
+00000063  1e           HALF+ 
+00000064  0e           DUP 
+00000065  19           1- 
+00000066  04           C@ 
+00000067  4e           8 VAL 
+00000068  20           LSHIFT 
+00000069  0f           OVER 
+0000006a  19           1- 
+0000006b  19           1- 
+0000006c  04           C@ 
+0000006d  22           OR 
+0000006e  0d00000000   TYPE VAL will be modified! 
+00000073  00           NOP will be modified! 
+00000074               §3 LABEL 
+00000074  0d4a000000   M1 VAL 
+00000079  5e0100       1 SETPC 
+0000007c  5f0100       1 SWITCH 
+0000007f  0d0c000000   §5 VAL 
+00000084  1e           HALF+ 
+00000085  0e           DUP 
+00000086  19           1- 
+00000087  04           C@ 
+00000088  4e           8 VAL 
+00000089  20           LSHIFT 
+0000008a  0f           OVER 
+0000008b  19           1- 
+0000008c  19           1- 
+0000008d  04           C@ 
+0000008e  22           OR 
+0000008f  0d00000000   TYPE VAL will be modified! 
+00000094  00           NOP will be modified! 
+00000095  3d           EXIT 
+
+instruction usage:
+load/store:		8	(12.5%)
+32-bit values:		9	(14.0625%)
+16-bit values:		0	(0.0%)
+5-bit values:		5	(7.8125%)
+values total:		14	(21.875%)
+arithmetic/logical:	24	(37.5%)
+relations:		0	(0.0%)
+flow control:		3	(4.6875%)
+other:			15	(23.4375%)
+total:			64
+
+average bytes per instruction: 1.84375
+
+string storage in byte:	29
+unresolved references:	9
+
+Size of static code: 37
+Size of initial code: 110
+
+references:
+4a	1	M1
+4a	1	M1
+ffffffff	4	TYPE
+22	1	§0
+1a	1	§2
+12	1	§4
+c	1	§5

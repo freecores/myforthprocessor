@@ -1,0 +1,75 @@
+#
+# @(#)SoundDefs.gmk	1.2 03/01/23
+#
+# Copyright 2003 Sun Microsystems, Inc. All rights reserved.
+# SUN PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
+#
+
+# defines common for all Java Sound native code
+
+SUBDIRS=
+EXTRA_SOUND_JNI_LIBS=
+
+#
+# Use JNI for generating header files
+#
+JAVAHFLAGS += -jni
+
+#
+# Extra cc/linker flags.
+#
+# flags needed for all platforms
+CPPFLAGS += -DJAVA_SOUND -DJAVA_THREAD $(AUDIO_DEBUG_FLAGS) \
+		-I$(SHARE_SRC)/native/com/sun/media/sound \
+		-I$(SHARE_SRC)/native/com/sun/media/sound/engine
+
+# the following extra defines are needed by the native code.
+#
+ifeq ($(ARCH), i586)
+  CPPFLAGS += -Di386
+endif
+ifeq ($(ARCH), ia64)
+  CPPFLAGS += -Dia64
+endif
+
+#
+# system dependent flags
+#
+ifeq ($(PLATFORM), windows)
+  CPPFLAGS += -DX_PLATFORM=X_WINDOWS
+  LDLIBS += winmm.lib user32.lib 
+endif # PLATFORM win32
+
+ifeq ($(PLATFORM), linux)
+  CPPFLAGS += -DX_PLATFORM=X_LINUX \
+		-I$(OPENWIN_HOME)/include
+endif # PLATFORM linux
+
+ifeq ($(PLATFORM), solaris)
+  CPPFLAGS += -DSVR4 -DX_PLATFORM=X_SOLARIS \
+		-I$(OPENWIN_HOME)/include
+
+  LDFLAGS += -L$(JAVAHOME)/lib/sparc -lc
+
+  #
+  # Turn off C++ exception handling.
+  #
+  ifneq ($(CC_VERSION),gcc)
+    CXXFLAGS += -noex
+  endif # CC_VERSION
+
+  #
+  # Handle C++ style comments in the .c and .h files from Headspace
+  #
+  ifneq ($(CC_VERSION),gcc)
+    CFLAGS += -xCC
+  endif
+
+endif # PLATFORM solaris
+
+#
+# Add to the ambient VPATH.
+#
+vpath %.c $(SHARE_SRC)/native/com/sun/media/sound/engine
+vpath %.c $(PLATFORM_SRC)/native/com/sun/media/sound/engine
+vpath %.c $(SHARE_SRC)/native/com/sun/media/sound

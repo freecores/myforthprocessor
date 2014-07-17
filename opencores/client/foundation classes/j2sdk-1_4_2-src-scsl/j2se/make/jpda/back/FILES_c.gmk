@@ -1,0 +1,45 @@
+#
+# @(#)FILES_c.gmk	1.32 01/07/25
+#
+FILES_c = \
+        $(CTARGDIR)ArrayReferenceImpl.c \
+        $(CTARGDIR)ArrayTypeImpl.c \
+        $(CTARGDIR)ClassTypeImpl.c \
+        $(CTARGDIR)ClassLoaderReferenceImpl.c \
+        $(CTARGDIR)ClassObjectReferenceImpl.c \
+        $(CTARGDIR)EventRequestImpl.c \
+        $(CTARGDIR)FieldImpl.c \
+        $(CTARGDIR)MethodImpl.c \
+        $(CTARGDIR)ObjectReferenceImpl.c \
+        $(CTARGDIR)ReferenceTypeImpl.c \
+        $(CTARGDIR)SDE.c \
+        $(CTARGDIR)StackFrameImpl.c \
+        $(CTARGDIR)StringReferenceImpl.c \
+        $(CTARGDIR)ThreadGroupReferenceImpl.c \
+        $(CTARGDIR)ThreadReferenceImpl.c \
+        $(CTARGDIR)VirtualMachineImpl.c \
+        $(CTARGDIR)bag.c \
+        $(CTARGDIR)commonRef.c \
+        $(CTARGDIR)classTrack.c \
+        $(CTARGDIR)debugDispatch.c \
+        $(CTARGDIR)debugInit.c \
+        $(CTARGDIR)debugLoop.c \
+        $(CTARGDIR)dlAlloc.c \
+        $(CTARGDIR)eventFilter.c \
+        $(CTARGDIR)eventHandler.c \
+        $(CTARGDIR)eventHelper.c \
+        $(CTARGDIR)inStream.c \
+        $(CTARGDIR)invoker.c \
+        $(CTARGDIR)outStream.c \
+        $(CTARGDIR)popFrames.c \
+        $(CTARGDIR)standardHandlers.c \
+        $(CTARGDIR)stepControl.c \
+        $(CTARGDIR)stream.c \
+        $(CTARGDIR)threadControl.c \
+        $(CTARGDIR)transport.c \
+        $(CTARGDIR)util.c \
+        $(CTARGDIR)version.c \
+	$(CTARGDIR)linker_md.c \
+	$(CTARGDIR)exec_md.c
+
+

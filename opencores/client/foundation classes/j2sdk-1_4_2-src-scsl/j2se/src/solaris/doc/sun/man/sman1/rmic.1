@@ -1,0 +1,128 @@
+<!DOCTYPE REFENTRY PUBLIC "-//Sun Microsystems//DTD DocBook V3.0-Based SolBook Subset V2.0//EN" [
+<!--ArborText, Inc., 1988-1999, v.4002-->
+<!ENTITY % javaents SYSTEM "javaman.ent">
+%javaents;
+]>
+<?Pub UDT _bookmark _target>
+<?Pub Inc>
+<refentry id="rmic-1">
+<!--@(#)rmic.1 1.13 01/03/14 SMI;-->
+<refmeta><refentrytitle>rmic</refentrytitle><manvolnum>1</manvolnum>
+<refmiscinfo class="date">23 Apr 2001</refmiscinfo>
+<refmiscinfo class="sectdesc">&man1;</refmiscinfo>
+<refmiscinfo class="software">&java-release;</refmiscinfo>
+<refmiscinfo class="arch">generic</refmiscinfo>
+<refmiscinfo class="copyright"> Copyright 2001 Sun Microsystems, Inc. All rights reserved.  Copyright 2001 Sun Microsystems, Inc. Tous droits r&eacute;serv&eacute;s.  </refmiscinfo>
+</refmeta>
+<refnamediv><refname>rmic</refname><refpurpose>Java RMI stub compiler</refpurpose></refnamediv>
+<refsynopsisdiv><title>&synp-tt;</title>
+<cmdsynopsis><command>rmic</command><arg choice="opt"><option>bootclasspath</option>&nbsp;<replaceable>path</replaceable></arg><arg choice="opt"><option>classpath</option>&nbsp;<replaceable>path</replaceable></arg><arg choice="opt"><option>d</option>&nbsp;<replaceable>directory</replaceable></arg><arg choice="opt"><option>depend</option></arg><arg choice="opt"><option>extdirs</option>&nbsp;<replaceable>
+path</replaceable></arg><arg choice="opt"><option>g</option></arg><arg choice="opt"><option>idl</option></arg><arg choice="opt"><option>iiop</option></arg><arg choice="opt"><option>keepgenerated</option></arg><arg choice="opt"><option>J</option></arg><arg choice="opt"><option>nowarn</option></arg><arg choice="opt"><option>sourcepath</option>&nbsp;<replaceable>path</replaceable></arg><arg choice="opt"><option>
+vcompat</option></arg><arg choice="opt"><option>verbose</option></arg><arg choice="opt"><option>v1.1</option></arg><arg choice="opt"><option>v1.2</option></arg><arg choice="plain"><replaceable>package-qualified-class-names</replaceable></arg>
+</cmdsynopsis></refsynopsisdiv>
+<refsect1><title>&desc-tt;</title>
+<indexterm id="rmic-1-indx-1"><primary sortas="Java RMI stub compiler">Java RMI stub compiler &mdash; rmic</primary></indexterm><indexterm id="rmic-1-indx-2"><primary sortas="rmic">rmic &mdash; Java RMI stub compiler</primary></indexterm><para>The <command>rmic</command> compiler generates stub and skeleton class files for remote objects from the names of compiled Java&trade; classes that contain remote
+object implementations. A remote object is one that implements the interface <literal>java.rmi.Remote</literal>. The classes named in the <command>rmic</command> command must have compiled successfully with the <citerefentry><refentrytitle>javac</refentrytitle><manvolnum>1</manvolnum></citerefentry> command and be fully package-qualified. For example, running <command>rmic</command> on the class file
+name <literal>HelloImpl</literal> as shown here:<informalexample><para><screen>example% <userinput>rmic hello.HelloImpl</userinput></screen> </para>
+</informalexample></para>
+<para>creates the <literal>HelloImpl_Skel.class</literal> and <literal>HelloImpl_Stub.class</literal> files.</para>
+<para>A skeleton for a remote object is a server-side entity  containing a method that dispatches calls to the remote object implementation.</para>
+<para>A stub is a proxy for a remote object that is responsible for forwarding method invocations on remote objects to the server where the actual remote object implementation resides. Therefore, a client's reference to a remote object is actually a reference to a local stub.</para>
+<para>The stub implements only the remote interfaces, not local interfaces also implemented by the remote object. Because the stub implements exactly the same set of remote interfaces as the remote object, a client can use the Java language's built-in operators for casting and type-checking.</para>
+</refsect1>
+<refsect1><title>&opts-tt;</title>
+<para>The following options are supported:</para>
+<variablelist termlength="wholeline"><varlistentry><term remap="20"><option>bootclasspath</option> <replaceable>path</replaceable></term><listitem><para>Overrides location of bootstrap class files.</para>
+</listitem></varlistentry>
+<varlistentry><term remap="20"><option>classpath</option> <replaceable>path</replaceable></term><listitem><para>Specifies the path <command>rmic</command> uses to look up classes. Setting this option overrides the default or the <envar>CLASSPATH</envar> environment variable. Directories are separated by colons. Thus, the general format for <replaceable>path</replaceable> is:<informalexample><para><literal>
+.:&lt;</literal><replaceable>your_path</replaceable><literal>></literal></para>
+</informalexample></para>
+<para>For example:<informalexample><para><literal>.:/usr/local/java/classes</literal></para>
+</informalexample></para>
+</listitem></varlistentry>
+<varlistentry><term remap="20"><option>d</option> <replaceable>directory</replaceable></term><listitem><para>Specifies the root directory of the class hierarchy. If omitted, the root defaults to the current directory.</para>
+</listitem></varlistentry>
+<varlistentry><term remap="20"><option>depend</option></term><listitem><para>Causes the compiler to recompile classes  referenced by other classes. Normally, the compiler only recompiles missing or out-of-date classes referred to from source code.</para>
+</listitem></varlistentry>
+<varlistentry><term><option>extdirs</option> <replaceable>path</replaceable> </term><listitem><para>Overrides location of installed extensions.</para>
+</listitem></varlistentry>
+<varlistentry><term remap="20"><option>g</option></term><listitem><para>Enables debugging table generation. Debugging tables contain information about line numbers and local  variables. This information is used by Java debugging tools. By default, only line numbers are generated.</para>
+</listitem></varlistentry>
+<varlistentry><term remap="20"><option>idl</option></term><listitem><para>Causes <command>rmic</command> to generate <acronym remap="small">OMG IDL</acronym> for the classes specified and any classes referenced. <acronym remap="small">IDL</acronym> provides a purely declarative, programming language-independent way of specifying an object's <acronym remap="small">API</acronym>. The <acronym remap="small">
+IDL</acronym> is used as a specification for methods and data that can be written in and invoked from any language that provides <acronym remap="small">CORBA</acronym> bindings. This includes Java and C++ among others. When the <option>idl</option> option is used, other options also include: <variablelist termlength="wholeline"><varlistentry><term remap="5"><option>always</option></term><term><option>
+alwaysgenerate</option></term><listitem><para>Forces re-generation even when existing stubs/ties/<acronym>IDL</acronym> are newer than the input class.</para>
+</listitem></varlistentry>
+<varlistentry><term><option>factory</option> </term><listitem><para>Uses factory keyword in generated <acronym remap="small">IDL</acronym>.</para>
+</listitem></varlistentry>
+<varlistentry><term><option>idlModule</option> <literal>fromJavaPackage[.class]</literal> <literal>toIDLModule</literal> </term><listitem><para>Specifies <literal>IDLEntity</literal> package mapping. For example:<informalexample><screen><userinput>&ndash;idlModule foo.bar my::real::idlmod.</userinput></screen>
+</informalexample></para>
+</listitem></varlistentry>
+<varlistentry><term><option>idlFile</option> <literal>fromJavaPackage[.class]</literal> <literal>toIDLFile</literal> </term><listitem><para>Specifies <literal>IDLEntity</literal> file mapping. For example:<informalexample><screen><userinput>&ndash;idlFile test.pkg.X TEST16.idl</userinput></screen>
+</informalexample></para>
+</listitem></varlistentry>
+</variablelist></para>
+</listitem></varlistentry>
+<varlistentry><term remap="20"><option>iiop</option></term><listitem><para>Causes <command>rmic</command> to generate <acronym remap="small">IIOP</acronym> stub and tie classes, rather than <acronym remap="small">JRMP</acronym> stub and skeleton classes. A stub class is a local proxy for a remote object and is used by clients to send calls to a server. Each remote interface requires a stub class, which
+implements that remote interface. A client's reference to a remote object is actually a reference to a stub. Tie classes are used on the server side to process incoming calls and dispatch the calls to the proper implementation class. Each implementation class requires a tie class. Invoking <command>rmic</command> with <option>iiop</option> generates stubs and ties that conform to this naming convention:<informalexample>
+<screen>_&lt;implementationName>_stub.class
+_&lt;interfaceName>_tie.class</screen>
+</informalexample>When the <option>iiop</option> option is used, other options also include: <variablelist termlength="wholeline"><varlistentry><term remap="5"><option>always</option></term><term><option>alwaysgenerate</option></term><listitem><para>Forces re-generation even when existing stubs/ties/<acronym>IDL</acronym> are newer than the input class.</para>
+</listitem></varlistentry>
+<varlistentry><term><option>nolocalstubs</option></term><listitem><para>Does not create stubs optimized for same-process clients and servers.</para>
+</listitem></varlistentry>
+<varlistentry><term><option>noValueMethods</option></term><listitem><para>Must be used with the <option>idl</option> option. Prevents addition of valuetype methods and initializers to emitted <acronym remap="small">IDL</acronym>. These methods and initializers are optional for valuetypes and are generated unless the <option>noValueMethods</option> option is specified when using the <option>idl</option>
+option.</para>
+</listitem></varlistentry>
+<varlistentry><term><option>poa</option></term><listitem><para>Changes the inheritance from <literal>org.omg.CORBA_2_3.portable.ObjectImpl</literal> to <literal>org.omg.PortableServer.Servant.</literal></para>
+<para>The <literal>PortableServer</literal> module for the Portable Object Adapter (<acronym>POA</acronym>) defines the native Servant type. In the Java programming language, the <literal>Servant</literal> type is mapped to the Java <literal>org.omg.PortableServer.Servant</literal> class. It serves as the base class for all <acronym>POA</acronym> servant implementations and provides a number of methods
+that may be invoked by the application programmer, as well as methods which are invoked by the <acronym>POA</acronym> itself and may be overridden by the user to control aspects of servant behavior. Based on the OMG IDL to Java Language Mapping Specification, CORBA V 2.3.1 ptc/00-01-08.pdf.</para>
+</listitem></varlistentry>
+</variablelist></para>
+</listitem></varlistentry>
+<varlistentry><term remap="20"><option>J</option></term><listitem><para>Used in conjunction with the <option>D</option> option, the <option>J</option> option passes the option following it (no spaces between <option>J</option> and <option>D</option>) on to the java interpreter.</para>
+</listitem></varlistentry>
+<varlistentry><term remap="20"><option>keepgenerated</option></term><listitem><para>Retains the generated <literal>.java</literal> source files for the stubs and skeletons. If the <option>d</option> option if specified, <option>keepgenerated</option> writes them to the same directory as the <literal>.class</literal> files.</para>
+</listitem></varlistentry>
+<varlistentry><term remap="20"><option>nowarn</option></term><listitem><para>Turns off warnings. If used, the compiler does not print  warnings.</para>
+</listitem></varlistentry>
+<varlistentry><term remap="20"><option>sourcepath</option> <replaceable>path</replaceable></term><listitem><para>Specifies where to find user source files.</para>
+</listitem></varlistentry>
+<varlistentry><term remap="20"><option>vcompat</option></term><listitem><para>Creates stubs and skeletons compatible with both JDK 1.1 and 1.2 stub protocoal versions (default).</para>
+</listitem></varlistentry>
+<varlistentry><term remap="20"><option>verbose</option></term><listitem><para>Causes the compiler and linker to display messages about the classes being compiled and what class files  being loaded.</para>
+</listitem></varlistentry>
+<varlistentry><term remap="20"><option>v1.1</option></term><listitem><para>Creates stubs and skeletons for JDK 1.1 stub protocol version.</para>
+</listitem></varlistentry>
+<varlistentry><term remap="20"><option>v1.2</option></term><listitem><para>Creates stubs for JDK 1.2 stub protocol version only.</para>
+</listitem></varlistentry>
+</variablelist></refsect1>
+<refsect1><title>&envr-tt;</title>
+<variablelist termlength="medium"><varlistentry><term remap="20"><envar>CLASSPATH</envar></term><listitem><para>Used to provide the system with a path to user-defined classes. Directories are separated by colons. For example, <literal>.:/usr/local/java/classes</literal></para>
+</listitem></varlistentry>
+</variablelist></refsect1>
+<refsect1><title>&attr-tt;</title><?Pub Caret>
+<para>See <citerefentry><refentrytitle>attributes</refentrytitle><manvolnum>5</manvolnum></citerefentry> for a description of the following attributes:</para>
+<informaltable frame="all" orient="port">
+<tgroup cols="2" colsep="1" rowsep="1"><colspec colnum="1" colname="col1" colwidth="1*" colsep="1" align="left"><colspec colnum="2" colname="col2" colwidth="1*" align="left">
+<thead>
+<row><entry colname="col1" align="center" valign="top">ATTRIBUTE TYPE</entry><entry colname="col2" align="center" valign="top">ATTRIBUTE VALUE</entry></row>
+</thead>
+<tbody>
+<row><entry>Availability</entry><entry>SUNWj3dev</entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1><title>&also-tt;</title>
+<para><citerefentry><refentrytitle>javac</refentrytitle><manvolnum>1</manvolnum></citerefentry>, <citerefentry><refentrytitle>attributes</refentrytitle><manvolnum>5</manvolnum></citerefentry></para>
+<para>See (or search <literal>java.sun.com</literal>) for the following:</para>
+<variablelist termlength="wholeline"><varlistentry><term remap="10"><citetitle>Setting the Classpath</citetitle> @</term><listitem><para><ulink url="http://java.sun.com/j2se/1.4/docs/tooldocs/solaris/classpath.html">http://java.sun.com/j2se/1.4/docs/tooldocs/solaris/classpath.html</ulink></para>
+</listitem></varlistentry>
+</variablelist></refsect1>
+<!--+ 07/27/00 08:35:39
+    | tagMorph:  $Id: tagMorph-engine 1.54 1998/01/19 05:44:48 $
+    | tagMorph library:  $Id: libtagMorph.a 1.50 1998/01/19 22:02:51 $
+    | sunman-to-solbook 1.17
+    +-->
+</refentry>
+<?Pub *0000014625 0>

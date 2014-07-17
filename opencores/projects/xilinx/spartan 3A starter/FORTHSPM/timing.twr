@@ -1,0 +1,46 @@
+Number of Timing Constraints that were not applied: 4
+
+Asterisk (*) preceding a constraint indicates it was not met.
+   This may be due to a setup or hold violation.
+
+------------------------------------------------------------------------------------------------------
+  Constraint                                |  Check  | Worst Case |  Best Case | Timing |   Timing   
+                                            |         |    Slack   | Achievable | Errors |    Score   
+------------------------------------------------------------------------------------------------------
+* PERIOD analysis for net "mydcm/CLKFX_BUF" | SETUP   |    -0.965ns|    17.631ns|      28|        6821
+   derived from  NET "mydcm/CLKIN_IBUFG_OUT | HOLD    |     0.844ns|            |       0|           0
+  " PERIOD = 20 ns HIGH 40%                 |         |            |            |        |            
+------------------------------------------------------------------------------------------------------
+  PERIOD analysis for net "myRAM/infrastruc | SETUP   |     0.619ns|    14.189ns|       0|           0
+  ture_top0/clk_dcm0/clk90dcm" derived from | HOLD    |     0.651ns|            |       0|           0
+    NET "mydcm/CLKIN_IBUFG_OUT" PERIOD = 20 |         |            |            |        |            
+   ns HIGH 40%                              |         |            |            |        |            
+------------------------------------------------------------------------------------------------------
+  PERIOD analysis for net "myRAM/infrastruc | SETUP   |     0.755ns|    13.646ns|       0|           0
+  ture_top0/clk_dcm0/clk0dcm" derived from  | HOLD    |     0.658ns|            |       0|           0
+   NET "mydcm/CLKIN_IBUFG_OUT" PERIOD = 20  |         |            |            |        |            
+  ns HIGH 40%                               |         |            |            |        |            
+------------------------------------------------------------------------------------------------------
+  NET "mydcm/CLKIN_IBUFG_OUT" PERIOD = 20 n | N/A     |         N/A|         N/A|     N/A|         N/A
+  s HIGH 40%                                |         |            |            |        |            
+------------------------------------------------------------------------------------------------------
+  TS_Clock = PERIOD TIMEGRP "Clock" 16 ns H | N/A     |         N/A|         N/A|     N/A|         N/A
+  IGH 50%                                   |         |            |            |        |            
+------------------------------------------------------------------------------------------------------
+  TS_myRAM_infrastructure_top0_clk_dcm0_clk | N/A     |         N/A|         N/A|     N/A|         N/A
+  0dcm = PERIOD TIMEGRP         "myRAM_infr |         |            |            |        |            
+  astructure_top0_clk_dcm0_clk0dcm" TS_Cloc |         |            |            |        |            
+  k HIGH 50%                                |         |            |            |        |            
+------------------------------------------------------------------------------------------------------
+  TS_myRAM_infrastructure_top0_clk_dcm0_clk | N/A     |         N/A|         N/A|     N/A|         N/A
+  90dcm = PERIOD TIMEGRP         "myRAM_inf |         |            |            |        |            
+  rastructure_top0_clk_dcm0_clk90dcm" TS_Cl |         |            |            |        |            
+  ock PHASE 4 ns HIGH         50%           |         |            |            |        |            
+------------------------------------------------------------------------------------------------------
+
+
+1 constraint not met.
+INFO:Timing:2761 - N/A entries in the Constraints list may indicate that the 
+   constraint does not cover any paths or that it has no requested value.
+
+

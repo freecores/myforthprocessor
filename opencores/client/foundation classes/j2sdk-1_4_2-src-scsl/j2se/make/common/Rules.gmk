@@ -1,0 +1,190 @@
+#
+# Copyright 2003 Sun Microsystems, Inc. All rights reserved.
+# SUN PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
+#
+
+#
+# @(#)Rules.gmk	1.87 03/01/23
+#
+# Rules shared by all Java makefiles.
+#
+
+#
+# Directory set up.
+#
+$(CLASSDESTDIR) $(CLASSHDRDIR) $(OBJDIR) $(OUTPUTDIR) $(BINDIR) $(LIBDIR) $(LIBDIR)/$(LIBARCH) $(TMPDIR) $(EXTDIR):
+	$(MKDIR) -p $@
+
+#
+# Compiling .java files.
+#
+
+ifdef DEMOS
+$(CLASSDESTDIR)/%.class: $(SOURCEPATH)/%.java
+	@$(ECHO) $? >>$(TMPDIR)/.classes.list
+else
+$(CLASSDESTDIR)/%.class: $(GENSRCDIR)/%.java
+	@$(ECHO) $? >>$(TMPDIR)/.classes.list
+$(CLASSDESTDIR)/%.class: $(PLATFORM_SRC)/classes/%.java
+	@$(ECHO) $? >>$(TMPDIR)/.classes.list
+$(CLASSDESTDIR)/%.class: $(SHARE_SRC)/classes/%.java
+	@$(ECHO) $? >>$(TMPDIR)/.classes.list
+endif
+
+FILES_class = $(FILES_java:%.java=$(CLASSDESTDIR)/%.class)
+
+# Got to include exported files.
+FILES_class += $(FILES_export:%.java=$(CLASSDESTDIR)/%.class)
+
+.delete.classlist:
+	$(RM) $(TMPDIR)/.classes.list
+
+.compile.classlist:
+	if [ -s $(TMPDIR)/.classes.list ] ; \
+	then $(JAVAC_CMD) \
+	    $(shell if [ -s $(TMPDIR)/.classes.list ] ; then $(CAT) $(TMPDIR)/.classes.list; fi ) ; \
+	fi
+
+classes: $(OBJDIR) $(CLASSES_INIT) \
+	 $(CLASSDESTDIR) .delete.classlist $(FILES_class) .compile.classlist
+
+ifndef PACKAGE
+DONT_CLOBBER_CLASSES = true
+endif
+
+ifdef DEMOS
+classes.clean:
+	$(RM) -r $(DEMODST) $(CLASSDESTDIR)
+else
+classes.clean:
+    ifeq ($(DONT_CLOBBER_CLASSES),true)
+	@$(TRUE)
+    else
+	$(RM) -r $(CLASSDESTDIR)/$(PKGDIR) $(TMPDIR)/.classes.*
+    endif
+endif
+
+#
+# C, C++, asm files.
+#
+
+$(OBJDIR)/%.$(OBJECT_SUFFIX): %.c
+    ifdef VARIANT
+	$(COMPILE.c) $(CC_OBJECT_OUTPUT_FLAG)$@ $(CFLAGS_GPROF) $<
+ifneq ($(PLATFORM), windows)
+	$(CC) $(CC_DEPEND) $(CPPFLAGS) $< 2> $(DEV_NULL) | \
+	    $(CC_DEPEND_FILTER) > $(@:.$(OBJECT_SUFFIX)=.d)
+endif # PLATFORM
+    else
+	$(MAKE) $@ VARIANT=OPT
+    endif
+
+$(OBJDIR)/%.$(OBJECT_SUFFIX): %.cpp
+    ifdef VARIANT
+	$(COMPILE.cc) $(CC_OBJECT_OUTPUT_FLAG)$@ $(CFLAGS_GPROF) $<
+ifneq ($(PLATFORM), windows)
+	$(CXX) $(CC_DEPEND) $(CPPFLAGS) $(CXXFLAGS) $< 2> $(DEV_NULL) | \
+	    $(CC_DEPEND_FILTER) > $(@:.$(OBJECT_SUFFIX)=.d)
+endif # PLATFORM
+    else
+	$(MAKE) $@ VARIANT=OPT
+    endif
+
+# newer as does not handle c++ style comments
+$(OBJDIR)/%.$(OBJECT_SUFFIX): %.s
+    ifneq ($(CC_VERSION), gcc)
+	$(COMPILE.s) $(CC_OBJECT_OUTPUT_FLAG)$@ $<
+    else
+	$(CPP) -x assembler-with-cpp $< | $(COMPILE.s) -o $@
+    endif
+
+#
+# Quick hack for making the compiler generate just the assembly file.
+#	$ gnumake obj/sparc/myfile.s
+# or 
+#	$ gnumake VARIANT=DBG obj_g/sparc/myfile.s
+#
+$(OBJDIR)/%.s: %.c
+     ifdef VARIANT
+	$(COMPILE.c) $(CC_OBJECT_OUTPUT_FLAG)$@ -S $<
+     else
+	$(MAKE) $@ VARIANT=OPT
+     endif
+
+#
+# Running Javah to generate stuff into CClassHeaders.
+#
+ifdef FILES_export
+CLASSES.export  = $(subst /,.,$(FILES_export:%.java=%))
+CLASSES.export += $(subst /,.,$(FILES_export2:%.java=%))
+CLASSES.export += $(subst /,.,$(FILES_export3:%.java=%))
+CLASSES_export  = $(FILES_export:%.java=$(CLASSDESTDIR)/%.class)
+
+classheaders: classes $(CLASSHDRDIR) $(OBJDIR)/.class.headers.$(ARCH)
+
+$(OBJDIR)/.class.headers.$(ARCH): $(CLASSES_export)
+	$(JAVAH_CMD) $(JAVAHFLAGS) -bootclasspath $(CLASSDESTDIR) -d $(CLASSHDRDIR)/ \
+		$(CLASSES.export) $(subst $$,\$$,$(EXPORTED_inner))
+	-$(TOUCH) $@
+classheaders.clean:
+	$(RM) -r $(CLASSHDRDIR) $(OPT_OBJDIR)/.class.headers.$(ARCH) $(DBG_OBJDIR)/.class.headers.$(ARCH)
+else # FILES_export
+classheaders classheaders.clean: 
+	@$(TRUE)
+endif # FILES_export
+
+objects.clean:
+# remove the intermediate files from the optimized (obj) and debug (obj_g) directories.
+ifeq ($(PLATFORM), windows)
+ifdef PROGRAM
+	$(RM) $(OPT_OBJDIR)/$(PROGRAM).lcf   $(DBG_OBJDIR)/$(PROGRAM)$(DBG_SUFFIX).lcf 
+	$(RM) $(OPT_OBJDIR)/$(PROGRAM).map   $(DBG_OBJDIR)/$(PROGRAM)$(DBG_SUFFIX).map
+	$(RM) $(OPT_OBJDIR)/$(PROGRAM).exp   $(DBG_OBJDIR)/$(PROGRAM)$(DBG_SUFFIX).exp 
+	$(RM) $(OPT_OBJDIR)/$(PROGRAM).lib   $(DBG_OBJDIR)/$(PROGRAM)$(DBG_SUFFIX).lib
+	$(RM) $(OPT_OBJDIR)/$(PROGRAM).exe   $(DBG_OBJDIR)/$(PROGRAM)$(DBG_SUFFIX).exe
+	$(RM) $(OPT_OBJDIR)/$(PROGRAM).dll   $(DBG_OBJDIR)/$(PROGRAM)$(DBG_SUFFIX).dll
+endif # PROGRAM
+ifdef LIBRARY
+	$(RM) $(OPT_OBJDIR)/$(LIBRARY).lcf   $(DBG_OBJDIR)/$(LIBRARY)$(DBG_SUFFIX).lcf 
+	$(RM) $(OPT_OBJDIR)/$(LIBRARY).map   $(DBG_OBJDIR)/$(LIBRARY)$(DBG_SUFFIX).map
+	$(RM) $(OPT_OBJDIR)/$(LIBRARY).exp   $(DBG_OBJDIR)/$(LIBRARY)$(DBG_SUFFIX).exp 
+	$(RM) $(OPT_OBJDIR)/$(LIBRARY).lib   $(DBG_OBJDIR)/$(LIBRARY)$(DBG_SUFFIX).lib
+	$(RM) $(OPT_OBJDIR)/$(LIBRARY).exe   $(DBG_OBJDIR)/$(LIBRARY)$(DBG_SUFFIX).exe
+	$(RM) $(OPT_OBJDIR)/$(LIBRARY).dll   $(DBG_OBJDIR)/$(LIBRARY)$(DBG_SUFFIX).dll
+endif # LIBRARY
+	$(RM) $(OPT_OBJDIR)/*.pdb   $(DBG_OBJDIR)/*.pdb
+	$(RM) $(OPT_OBJDIR)/*.exp   $(DBG_OBJDIR)/*.exp
+	$(RM) $(OPT_OBJDIR)/*.lib   $(DBG_OBJDIR)/*.lib
+	$(RM) $(OPT_OBJDIR)/*.map   $(DBG_OBJDIR)/*.map
+else # PLATFORM
+	$(RM) $(OPT_OBJDIR)/*.d   $(DBG_OBJDIR)/*.d
+endif # PLATFORM
+	$(RM) $(OPT_OBJDIR)/*.$(OBJECT_SUFFIX)   $(DBG_OBJDIR)/*.$(OBJECT_SUFFIX)
+
+#
+# Lint support.
+#
+lint: $(FILES_c)
+    ifdef VARIANT
+        ifneq ($(FILES_c),)
+	  $(LINT.c) $(LDLIBS) $? > lint.$(ARCH).$(VARIANT) 2>&1
+        endif
+    else
+	$(MAKE) $@ VARIANT=OPT
+	$(MAKE) $@ VARIANT=DBG
+    endif
+
+clobber:: clean
+
+clean:: classheaders.clean classes.clean objects.clean
+
+.PHONY : .delete.classlist classes .compile.classlist classes.clean \
+	 classheaders classheaders.clean objects.clean \
+	 all optimized debug clean clobber
+
+debug: 
+	$(MAKE) $(DEBUG) VARIANT=DBG
+
+optimized: 
+	$(MAKE) $(OPTIMIZED) VARIANT=OPT
+

@@ -1,0 +1,12 @@
+#
+# @(#)FILES_java.gmk	1.1 02/10/07
+#
+
+FILES_java = \
+	$(TARGDIR)sun/security/validator/EndEntityChecker.java \
+	$(TARGDIR)sun/security/validator/KeyStores.java \
+	$(TARGDIR)sun/security/validator/SimpleValidator.java \
+	$(TARGDIR)sun/security/validator/PKIXValidator.java \
+	$(TARGDIR)sun/security/validator/Validator.java \
+	$(TARGDIR)sun/security/validator/ValidatorException.java
+

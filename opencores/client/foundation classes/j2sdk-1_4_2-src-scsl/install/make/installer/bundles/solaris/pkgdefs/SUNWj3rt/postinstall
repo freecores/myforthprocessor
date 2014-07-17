@@ -1,0 +1,327 @@
+#!/bin/sh
+#
+# Copyright 2001 Sun Microsystems, Inc. All rights reserved.
+# Copyright 2001 Sun Microsystems, Inc. Tous droits réservés.
+#
+# This software is the proprietary information of Sun Microsystems, Inc.
+# Use is subject to license terms.
+#
+# pragma ident "@(#)postinstall	1.43 03/05/12 Sun Microsystems"
+
+#=================================================
+# Used variables
+#-------------------------------------------------
+ARCH=`uname -p`
+SHARED_LINK=$BASEDIR/java
+SHARED_LOCATION=$BASEDIR/bin
+DEV_TEST_BIT_FILE=bin/${ARCH}/native_threads/javac
+INSTALL_DIR="j2se"
+JAVAWS_BIN=../j2se/jre/javaws/javaws
+if [ x$PKG_INSTALL_ROOT = "x" ]; then
+    JAVAWS_LINK=$BASEDIR/bin/javaws
+  else
+    JAVAWS_LINK=$PKG_INSTALL_ROOT/usr/bin/javaws #used by SUNWj3cfg	
+fi
+
+#=================================================
+# Check if slave or master
+#-------------------------------------------------
+CheckForSlave() {
+  PKG_VERSION=`echo $VERSION | awk '{print substr($1, 0, 3);}'`
+  if [ "X$PKG_VERSION" = "X1.1" ]; then
+    INSTALL_DIR="java1.1"
+  fi
+  if [ "X$PKG_VERSION" = "X1.2" ]; then
+    INSTALL_DIR="java1.2"
+  fi
+  if [ "X$PKG_VERSION" = "X1.3" -o "X$PKG_VERSION" = "X1.4" ]; then
+    INSTALL_DIR="j2se"
+  fi
+  OS=`uname -r`
+  if [ -n "$DEFAULT" ]; then
+    return 0
+  fi
+  if [ -f "$PKG_INSTALL_ROOT/var/sadm/system/admin/INST_RELEASE" ]; then
+    VERSION_STR=`grep '^VERSION=' $PKG_INSTALL_ROOT/var/sadm/system/admin/INST_RELEASE`                 
+    SOLARIS_VER=`echo $VERSION_STR | awk '{print substr($1, 9);}'`
+    case $SOLARIS_VER in
+      2.5.1 | 2.6 | 2.7 )
+                        if [ "$PKG_VERSION" = "1.1" ]; then
+                          DEFAULT=TRUE;
+                        else
+                          CheckIfDefault  
+                          if [ $? -ne 0   ]; then
+                            DEFAULT=FALSE
+                          else
+                            DEFAULT=TRUE
+                          fi
+                        fi
+                        ;;
+                      8 )
+                        if [ "$PKG_VERSION" = "1.2" ]; then
+                          DEFAULT=TRUE;
+                        else
+                          CheckIfDefault
+                          if [ $? -ne 0   ]; then
+                            DEFAULT=FALSE 
+                          else
+                            DEFAULT=TRUE
+                          fi
+                        fi
+                        ;;
+                        
+                      * )
+                        if [ "$PKG_VERSION" = "1.3" -o "$PKG_VERSION" = "1.4" ];
+ then
+                          DEFAULT=TRUE;
+                        else
+                          CheckIfDefault
+                          if [ $? -ne 0   ]; then
+                            DEFAULT=FALSE
+                          else
+                            DEFAULT=TRUE
+                          fi
+                        fi
+                        ;;
+    esac
+  else
+    case $OS in
+      5.5.1 | 5.6 | 5.7 )
+			if [ "$PKG_VERSION" = "1.1" ]; then
+			  DEFAULT=TRUE;
+			else
+			  CheckIfDefault
+			  if [ $? -ne 0   ]; then
+			    DEFAULT=FALSE
+			  else
+			    DEFAULT=TRUE
+			  fi
+			fi			
+			;;
+                    5.8 )
+                        if [ "$PKG_VERSION" = "1.2" ]; then
+                          DEFAULT=TRUE;
+                        else
+                          CheckIfDefault
+                          if [ $? -ne 0   ]; then
+                            DEFAULT=FALSE
+                          else
+                            DEFAULT=TRUE
+                          fi
+                        fi  
+                        ;;
+
+                    * )
+			if [ "$PKG_VERSION" = "1.3" -o "$PKG_VERSION" = "1.4" ]; then
+			  DEFAULT=TRUE;
+			else
+			  CheckIfDefault
+			  if [ $? -ne 0   ]; then
+			    DEFAULT=FALSE
+			  else
+			    DEFAULT=TRUE
+			  fi
+			fi			 
+			;;
+    esac
+  fi
+}
+#=======================================================================
+# Using the /usr/java= symlink in the /var/sadm/install/contents file,
+# check to see which JDK is the default and install the other
+# packages accordingly.  I.E, if 1.1 is installed as default, the
+# other 1.1 packages should also be installed accordingly.
+# $version version currently installed as default
+# $PKG_VERSION version being installed
+#-----------------------------------------------------------------------
+CheckIfDefault() {
+  sharLinkLastRec=`pkgchk -lp $BASEDIR/java | awk '/^Referenced/ {getline ; print $NF}'`
+  if [ "X$sharLinkLastRec" != "X" ]; then
+    if [ "X$PKG_INSTALL_ROOT" != "X" ]; then
+      pInfoCommand="pkginfo -R $PKG_INSTALL_ROOT -l $sharLinkLastRec"
+    else
+      pInfoCommand="pkginfo -l $sharLinkLastRec"
+    fi
+    version=`$pInfoCommand | awk \
+          '{ \
+             if ($1 ~ /^VERSION:/) { print substr($2, 0, 3); exit;}\
+           }'`
+    if [ "X$version" = "X$PKG_VERSION" ]; then
+      return 0;
+    fi
+    return 1;
+  else
+    if [ -h $PKG_INSTALL_ROOT/usr/java ]; then
+      return 1;
+    fi
+    return 0;
+  fi
+}
+
+#================================================
+# Install /usr/bin link for Java Web Start
+# by retrieving the latest version on the system.
+# Java Web Start exists in 1.4.2 and later only
+# Note: /etc/mailcap refers to this.	
+#================================================
+InstallJavaWSLink() {
+  LATEST_JAVAWS_PATH=""
+  if [ x$PKG_INSTALL_ROOT = "x" ]; then
+	pInfoCmd="pkginfo"
+        pParamCmd="pkgparam"
+  else
+	pInfoCmd="pkginfo -R $PKG_INSTALL_ROOT"
+        pParamCmd="pkgparam -R $PKG_INSTALL_ROOT"
+  fi
+  jres=`$pInfoCmd SUNWj3rt.\* 2>/dev/null | awk '{print $2}'`
+  tfile="/tmp/jawsfind$$.tmp"
+  rm -f $tfile
+  touch $tfile
+  #get a list of pkgs and their versions.
+  for i in $jres; do
+    version=`$pParamCmd -v $i VERSION | awk -F\' '{printf $2}' | \
+	awk -F, '{printf $1}'`
+    printf "%s\t%s\t%s\n" $version $i >> $tfile
+  done
+
+  #reverse order to find the latest, takes care of CTE releases.
+  list=`sort -r $tfile | awk '{print $2}'`
+  rm -f $tfile
+
+  for i in $list; do
+    # Set the LATEST_JAVAWS_PATH to test the relative path.
+    LATEST_JAVAWS_PATH=$PKG_INSTALL_ROOT`$pParamCmd $i BASEDIR`/$INSTALL_DIR/$JAVAWS_BIN
+    
+    if [ \( -n "${LATEST_JAVAWS_PATH}" -a -x "${LATEST_JAVAWS_PATH}" \) ]; then
+      dir_name=`dirname $JAVAWS_LINK`
+      if [ ! -d "$dir_name" ]; then
+	installf -c none $PKGINST ${dir_name} d 0755 root bin
+      fi
+      installf -c none $PKGINST "$JAVAWS_LINK=$JAVAWS_BIN" s
+      installf -f $PKGINST
+      return
+    fi
+  done
+}
+
+#=================================================
+# If we install 1.1, then install 1.1 links to /usr/bin
+#-------------------------------------------------
+InstallLinks() {
+  if [ ! -d "$SHARED_LOCATION" ]; then
+    installf -c none $PKGINST $SHARED_LOCATION d 0755 root bin
+  fi
+  if [ "$PKG_VERSION" = "1.1" ]; then
+    if [ "$PKG" = "SUNWjvrt" ]; then
+      links_strs="jar java javald jre rmiregistry appletviewer"
+    else
+      links_strs="javac javadoc javah java_g javap javaverify jdb \
+                   native2ascii rmic serialver javakey"
+    fi
+  else
+    if [ "$PKG" = "SUNWj2rt" ] || [ "$PKG" = "SUNWj3rt" ]; then
+      links_strs="java keytool policytool rmid rmiregistry tnameserv \
+                  orbd servertool jre/ControlPanel"
+    else
+      links_strs="javac javah jarsigner jar javap appletviewer \
+                  native2ascii rmic serialver jdb javadoc extcheck \
+                  idlj HtmlConverter"
+    fi
+  fi
+  for ln_str in $links_strs; do
+    file=`basename $ln_str`
+    dir=`dirname $ln_str`/
+    if [ "${dir}" = "./" ]; then
+        dir=
+    fi
+    installf -c none $PKGINST "$SHARED_LOCATION/${file}=../java/${dir}bin/${file}" s
+    if [ ! -h $SHARED_LOCATION/${file} ] && /usr/bin/test -e ../java/${dir}bin/${file} ; then
+      ln -s ../java/${dir}bin/${file} $SHARED_LOCATION/${file}
+    fi
+  done
+  installf -f  $PKGINST
+}
+#=================================================
+# Get links from dir which are pointing to /usr/java/bin/...
+# Var 'BITS' will bi changed
+#-------------------------------------------------
+GetBits() {
+PACKAGES=`pkgchk -lp $BASEDIR/java | awk '/^Referenced/ {getline ; print}'`
+  BITS=`pkgchk -l $PACKAGES | grep /java/bin | \
+           awk -F\/ '{ print $NF}'`
+  
+}
+#=================================================
+# Check if string $2 is in the list $1
+#-------------------------------------------------
+InTheList() {
+  for name in $2; do
+    if [ "$1" = "$name" ]; then
+      return 0
+    fi
+  done
+  return 1
+}
+
+#=================================================
+# Get installed 1.2 bits and create message file
+#-------------------------------------------------
+GetInstalledBits() {
+  instBits=`pkgchk -l $PKGINST |  awk '/Pathname/{ pathname = $2 }/.java_wrapper/{ print pathname }' | egrep "$INSTALL_DIR/bin" | awk -F\/ '{ print $NF}' `
+  GetBits $CLIENT_BASEDIR/bin
+  if [ ! -d $FLINKED_DIR/bin ]; then
+    installf -c none $PKGINST $FLINKED_DIR/bin d 0755 root bin
+  fi
+  for bit in $BITS; do
+    InTheList $bit "$instBits"
+    if [ $? -ne 0 ]; then
+      file=$FLINKED_DIR/bin/$bit
+      if [ -s $file ]; then
+	continue
+      fi
+      rm -f $BASEDIR/bin/$bit
+    fi
+  done
+}
+
+#=================================================
+# Move /usr/java link
+#-------------------------------------------------
+MoveLink() {
+  LINKED_DIR=./$INSTALL_DIR
+  FLINKED_DIR=$BASEDIR/$INSTALL_DIR
+  GetInstalledBits
+  InstallLinks
+  if [ ! -d "$PKG_INSTALL_ROOT$CLIENT_BASEDIR" ]; then
+    installf -c none $PKGINST $BASEDIR d 0755 root bin
+  fi  
+  installf -c none $PKGINST "$SHARED_LINK=$LINKED_DIR" s
+  installf -f $PKGINST
+  if [ $? -ne 0 ]; then
+    echo "$PKG:  unable to add $SHARED_LINK to package" \
+     "database." 1>&2
+    return 2
+  fi
+}
+
+#=================================================
+# Roll it
+#-------------------------------------------------
+installf -f $PKGINST
+# No need to run if package is not SUNWj3rt
+if [ "$PKG" = "SUNWj3rt" ]; then
+  InstallJavaWSLink
+fi
+CheckForSlave
+if [ "$DEFAULT" = "FALSE" ]; then
+  if [ ! -d "$PKG_INSTALL_ROOT$CLIENT_BASEDIR" ]; then
+    installf -c none $PKGINST $BASEDIR d 0755 root bin
+  fi
+  installf -f $PKGINST
+  exit 0;
+fi
+MoveLink
+if [ $? -ne 0 ]; then
+  installf -f $PKGINST
+  exit 2
+fi

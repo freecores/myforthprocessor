@@ -1,0 +1,68 @@
+#
+# @(#)FILES_java.gmk	1.32 03/01/08
+#
+FILES_java = \
+	$(TARGDIR)sun/misc/Ref.java \
+	$(TARGDIR)sun/misc/Cache.java \
+	$(TARGDIR)sun/misc/CEFormatException.java \
+	$(TARGDIR)sun/misc/CEStreamExhausted.java \
+	$(TARGDIR)sun/misc/CRC16.java \
+	$(TARGDIR)sun/misc/CharacterDecoder.java \
+	$(TARGDIR)sun/misc/BASE64Decoder.java \
+	$(TARGDIR)sun/misc/UCDecoder.java \
+	$(TARGDIR)sun/misc/UUDecoder.java \
+	$(TARGDIR)sun/misc/CharacterEncoder.java \
+	$(TARGDIR)sun/misc/BASE64Encoder.java \
+	$(TARGDIR)sun/misc/HexDumpEncoder.java \
+	$(TARGDIR)sun/misc/UCEncoder.java \
+	$(TARGDIR)sun/misc/UUEncoder.java \
+	$(TARGDIR)sun/misc/ClassFileTransformer.java \
+	$(TARGDIR)sun/misc/Compare.java \
+	$(TARGDIR)sun/misc/Timeable.java \
+	$(TARGDIR)sun/misc/Timer.java \
+	$(TARGDIR)sun/misc/ConditionLock.java \
+	$(TARGDIR)sun/misc/Lock.java \
+	$(TARGDIR)sun/misc/MessageUtils.java \
+	$(TARGDIR)sun/misc/PerformanceLogger.java \
+	$(TARGDIR)sun/misc/Regexp.java \
+	$(TARGDIR)sun/misc/RegexpPool.java \
+	$(TARGDIR)sun/misc/REException.java \
+	$(TARGDIR)sun/misc/RegexpTarget.java \
+	$(TARGDIR)sun/misc/Request.java \
+	$(TARGDIR)sun/misc/RequestProcessor.java \
+	$(TARGDIR)sun/misc/Queue.java \
+	$(TARGDIR)sun/misc/SoftCache.java \
+	$(TARGDIR)sun/misc/Sort.java \
+	$(TARGDIR)sun/misc/ExtensionInstallationException.java \
+	$(TARGDIR)sun/misc/ExtensionInfo.java \
+	$(TARGDIR)sun/misc/ExtensionInstallationProvider.java \
+	$(TARGDIR)sun/misc/ExtensionDependency.java \
+	$(TARGDIR)sun/misc/VM.java \
+	$(TARGDIR)sun/misc/VMNotification.java \
+	$(TARGDIR)sun/misc/Resource.java \
+	$(TARGDIR)sun/misc/Launcher.java \
+	$(TARGDIR)sun/misc/CompoundEnumeration.java \
+	$(TARGDIR)sun/misc/Signal.java \
+	$(TARGDIR)sun/misc/SignalHandler.java \
+	$(TARGDIR)sun/misc/NativeSignalHandler.java\
+	$(TARGDIR)sun/misc/JarIndex.java\
+	$(TARGDIR)sun/misc/Unsafe.java\
+	$(TARGDIR)sun/misc/InvalidJarIndexException.java \
+	$(TARGDIR)sun/misc/ProxyGenerator.java \
+	$(TARGDIR)sun/misc/Unsafe.java \
+	$(TARGDIR)sun/misc/AtomicLong.java \
+	$(TARGDIR)sun/misc/AtomicLongLockImpl.java \
+	$(TARGDIR)sun/misc/AtomicLongCSImpl.java \
+	$(TARGDIR)sun/misc/JavaUtilJarAccess.java \
+	$(TARGDIR)sun/misc/SharedSecrets.java \
+	$(TARGDIR)sun/misc/Perf.java
+
+RESOURCE_BUNDLE_java= \
+	$(TARGDIR)sun/misc/resources/Messages.java
+
+FILES_java += $(RESOURCE_BUNDLE_java)
+
+LOCALE_SUFFIXES = $(J2RE_LOCALES)
+
+FILES_java += $(foreach file,$(RESOURCE_BUNDLE_java),$(foreach locale,$(LOCALE_SUFFIXES),$(basename $(file))_$(locale).java))
+

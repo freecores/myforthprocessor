@@ -1,0 +1,1018 @@
+Release 14.2 Map P.28xd (nt64)
+Xilinx Mapping Report File for Design 'MYCPU'
+
+Design Information
+------------------
+Command Line   : map -intstyle ise -p xc3s700a-fg484-4 -timing -logic_opt off
+-ol high -xe n -t 1 -register_duplication off -cm area -ir off -pr off -power
+off -o MYCPU_map.ncd MYCPU.ngd MYCPU.pcf 
+Target Device  : xc3s700a
+Target Package : fg484
+Target Speed   : -4
+Mapper Version : spartan3a -- $Revision: 1.55 $
+Mapped Date    : Mon Oct 29 11:36:35 2012
+
+Design Summary
+--------------
+Number of errors:      0
+Number of warnings:  298
+Logic Utilization:
+  Number of Slice Flip Flops:         3,331 out of  11,776   28%
+  Number of 4 input LUTs:             9,265 out of  11,776   78%
+Logic Distribution:
+  Number of occupied Slices:          5,327 out of   5,888   90%
+    Number of Slices containing only related logic:   5,327 out of   5,327 100%
+    Number of Slices containing unrelated logic:          0 out of   5,327   0%
+      *See NOTES below for an explanation of the effects of unrelated logic.
+  Total Number of 4 input LUTs:       9,528 out of  11,776   80%
+    Number used as logic:             9,118
+    Number used as a route-thru:        263
+    Number used for Dual Port RAMs:      64
+      (Two LUTs used per Dual Port RAM)
+    Number used as Shift registers:      83
+
+  The Slice Logic Distribution report is not meaningful if the design is
+  over-mapped for a non-slice resource or if Placement fails.
+
+  Number of bonded IOBs:                 73 out of     372   19%
+    IOB Flip Flops:                      19
+    IOB Master Pads:                      3
+    IOB Slave Pads:                       3
+  Number of ODDR2s used:                 24
+    Number of DDR_ALIGNMENT = NONE       24
+    Number of DDR_ALIGNMENT = C0          0
+    Number of DDR_ALIGNMENT = C1          0
+  Number of BUFGMUXs:                     5 out of      24   20%
+  Number of DCMs:                         2 out of       8   25%
+  Number of MULT18X18SIOs:               16 out of      20   80%
+  Number of RAMB16BWEs:                  14 out of      20   70%
+
+  Number of RPM macros:            1
+Average Fanout of Non-Clock Nets:                3.49
+
+Peak Memory Usage:  484 MB
+Total REAL time to MAP completion:  2 mins 12 secs 
+Total CPU time to MAP completion:   2 mins 12 secs 
+
+Table of Contents
+-----------------
+Section 1 - Errors
+Section 2 - Warnings
+Section 3 - Informational
+Section 4 - Removed Logic Summary
+Section 5 - Removed Logic
+Section 6 - IOB Properties
+Section 7 - RPMs
+Section 8 - Guide Report
+Section 9 - Area Group and Partition Summary
+Section 10 - Timing Report
+Section 11 - Configuration String Information
+Section 12 - Control Set Information
+Section 13 - Utilization by Hierarchy
+
+Section 1 - Errors
+------------------
+
+Section 2 - Warnings
+--------------------
+WARNING:LIT:176 - Clock buffer is designated to drive clock loads. BUFGMUX
+   symbol "myRAM/infrastructure_top0/clk_dcm0/BUFG_CLK0" (output
+   signal=myRAM/clk_0) has a mix of clock and non-clock loads. The non-clock
+   loads are:
+   Pin I0 of myRAM/infrastructure_top0/cal_top0/tap_dly0/l0
+WARNING:Pack:266 - The function generator
+   myRAM/top0/controller0/Mcount_RFC_COUNT_xor<5>111 failed to merge with F5
+   multiplexer myRAM/top0/controller0/Mcount_RFC_COUNT_xor<4>11_f5.  There is a
+   conflict for the FXMUX.  The design will exhibit suboptimal timing.
+WARNING:Pack:266 - The function generator
+   myRAM/top0/controller0/Mcount_INIT_PRE_COUNT_xor<5>111 failed to merge with
+   F5 multiplexer myRAM/top0/controller0/Mcount_INIT_PRE_COUNT_xor<4>11_f5. 
+   There is a conflict for the FXMUX.  The design will exhibit suboptimal
+   timing.
+WARNING:Pack:266 - The function generator
+   myCore/myStacks/BufferedInput_mux0001<0>81 failed to merge with F5
+   multiplexer myCore/myStacks/BufferedInput_mux0001<27>10_SW1.  There is a
+   conflict for the FXMUX.  The design will exhibit suboptimal timing.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net
+   myRAM/top0/data_path0/dqs0_delayed_col0 is sourced by a combinatorial pin.
+   This is not good design practice. Use the CE pin to control the loading of
+   data into the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net
+   myRAM/top0/data_path0/dqs0_delayed_col1 is sourced by a combinatorial pin.
+   This is not good design practice. Use the CE pin to control the loading of
+   data into the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net
+   myRAM/top0/data_path0/dqs1_delayed_col0 is sourced by a combinatorial pin.
+   This is not good design practice. Use the CE pin to control the loading of
+   data into the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net
+   myRAM/top0/data_path0/dqs1_delayed_col1 is sourced by a combinatorial pin.
+   This is not good design practice. Use the CE pin to control the loading of
+   data into the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net
+   myRAM/top0/data_path0/data_read_controller0/dqs0_delayed_col1_n is sourced by
+   a combinatorial pin. This is not good design practice. Use the CE pin to
+   control the loading of data into the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net
+   myRAM/top0/data_path0/data_read_controller0/dqs1_delayed_col1_n is sourced by
+   a combinatorial pin. This is not good design practice. Use the CE pin to
+   control the loading of data into the flip-flop.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA0> on
+   block:<myROMcode/Mrom_bdata_0_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA1> on
+   block:<myROMcode/Mrom_bdata_0_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA2> on
+   block:<myROMcode/Mrom_bdata_0_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA3> on
+   block:<myROMcode/Mrom_bdata_0_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA4> on
+   block:<myROMcode/Mrom_bdata_0_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA5> on
+   block:<myROMcode/Mrom_bdata_0_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA6> on
+   block:<myROMcode/Mrom_bdata_0_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA7> on
+   block:<myROMcode/Mrom_bdata_0_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA8> on
+   block:<myROMcode/Mrom_bdata_0_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA9> on
+   block:<myROMcode/Mrom_bdata_0_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA10> on
+   block:<myROMcode/Mrom_bdata_0_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA11> on
+   block:<myROMcode/Mrom_bdata_0_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA12> on
+   block:<myROMcode/Mrom_bdata_0_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA13> on
+   block:<myROMcode/Mrom_bdata_0_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA14> on
+   block:<myROMcode/Mrom_bdata_0_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA15> on
+   block:<myROMcode/Mrom_bdata_0_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA16> on
+   block:<myROMcode/Mrom_bdata_0_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA17> on
+   block:<myROMcode/Mrom_bdata_0_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA18> on
+   block:<myROMcode/Mrom_bdata_0_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA19> on
+   block:<myROMcode/Mrom_bdata_0_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA20> on
+   block:<myROMcode/Mrom_bdata_0_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA21> on
+   block:<myROMcode/Mrom_bdata_0_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA22> on
+   block:<myROMcode/Mrom_bdata_0_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA23> on
+   block:<myROMcode/Mrom_bdata_0_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA24> on
+   block:<myROMcode/Mrom_bdata_0_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA25> on
+   block:<myROMcode/Mrom_bdata_0_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA26> on
+   block:<myROMcode/Mrom_bdata_0_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA27> on
+   block:<myROMcode/Mrom_bdata_0_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA28> on
+   block:<myROMcode/Mrom_bdata_0_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA29> on
+   block:<myROMcode/Mrom_bdata_0_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA30> on
+   block:<myROMcode/Mrom_bdata_0_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA31> on
+   block:<myROMcode/Mrom_bdata_0_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA0> on
+   block:<myROMcode/Mrom_bdata_1_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA1> on
+   block:<myROMcode/Mrom_bdata_1_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA2> on
+   block:<myROMcode/Mrom_bdata_1_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA3> on
+   block:<myROMcode/Mrom_bdata_1_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA4> on
+   block:<myROMcode/Mrom_bdata_1_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA5> on
+   block:<myROMcode/Mrom_bdata_1_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA6> on
+   block:<myROMcode/Mrom_bdata_1_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA7> on
+   block:<myROMcode/Mrom_bdata_1_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA8> on
+   block:<myROMcode/Mrom_bdata_1_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA9> on
+   block:<myROMcode/Mrom_bdata_1_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA10> on
+   block:<myROMcode/Mrom_bdata_1_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA11> on
+   block:<myROMcode/Mrom_bdata_1_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA12> on
+   block:<myROMcode/Mrom_bdata_1_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA13> on
+   block:<myROMcode/Mrom_bdata_1_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA14> on
+   block:<myROMcode/Mrom_bdata_1_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA15> on
+   block:<myROMcode/Mrom_bdata_1_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA16> on
+   block:<myROMcode/Mrom_bdata_1_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA17> on
+   block:<myROMcode/Mrom_bdata_1_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA18> on
+   block:<myROMcode/Mrom_bdata_1_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA19> on
+   block:<myROMcode/Mrom_bdata_1_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA20> on
+   block:<myROMcode/Mrom_bdata_1_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA21> on
+   block:<myROMcode/Mrom_bdata_1_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA22> on
+   block:<myROMcode/Mrom_bdata_1_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA23> on
+   block:<myROMcode/Mrom_bdata_1_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA24> on
+   block:<myROMcode/Mrom_bdata_1_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA25> on
+   block:<myROMcode/Mrom_bdata_1_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA26> on
+   block:<myROMcode/Mrom_bdata_1_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA27> on
+   block:<myROMcode/Mrom_bdata_1_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA28> on
+   block:<myROMcode/Mrom_bdata_1_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA29> on
+   block:<myROMcode/Mrom_bdata_1_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA30> on
+   block:<myROMcode/Mrom_bdata_1_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA31> on
+   block:<myROMcode/Mrom_bdata_1_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA0> on
+   block:<myROMcode/Mrom_bdata_2_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA1> on
+   block:<myROMcode/Mrom_bdata_2_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA2> on
+   block:<myROMcode/Mrom_bdata_2_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA3> on
+   block:<myROMcode/Mrom_bdata_2_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA4> on
+   block:<myROMcode/Mrom_bdata_2_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA5> on
+   block:<myROMcode/Mrom_bdata_2_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA6> on
+   block:<myROMcode/Mrom_bdata_2_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA7> on
+   block:<myROMcode/Mrom_bdata_2_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA8> on
+   block:<myROMcode/Mrom_bdata_2_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA9> on
+   block:<myROMcode/Mrom_bdata_2_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA10> on
+   block:<myROMcode/Mrom_bdata_2_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA11> on
+   block:<myROMcode/Mrom_bdata_2_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA12> on
+   block:<myROMcode/Mrom_bdata_2_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA13> on
+   block:<myROMcode/Mrom_bdata_2_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA14> on
+   block:<myROMcode/Mrom_bdata_2_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA15> on
+   block:<myROMcode/Mrom_bdata_2_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA16> on
+   block:<myROMcode/Mrom_bdata_2_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA17> on
+   block:<myROMcode/Mrom_bdata_2_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA18> on
+   block:<myROMcode/Mrom_bdata_2_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA19> on
+   block:<myROMcode/Mrom_bdata_2_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA20> on
+   block:<myROMcode/Mrom_bdata_2_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA21> on
+   block:<myROMcode/Mrom_bdata_2_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA22> on
+   block:<myROMcode/Mrom_bdata_2_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA23> on
+   block:<myROMcode/Mrom_bdata_2_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA24> on
+   block:<myROMcode/Mrom_bdata_2_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA25> on
+   block:<myROMcode/Mrom_bdata_2_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA26> on
+   block:<myROMcode/Mrom_bdata_2_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA27> on
+   block:<myROMcode/Mrom_bdata_2_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA28> on
+   block:<myROMcode/Mrom_bdata_2_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA29> on
+   block:<myROMcode/Mrom_bdata_2_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA30> on
+   block:<myROMcode/Mrom_bdata_2_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA31> on
+   block:<myROMcode/Mrom_bdata_2_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA0> on
+   block:<myROMcode/Mrom_bdata_3_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA1> on
+   block:<myROMcode/Mrom_bdata_3_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA2> on
+   block:<myROMcode/Mrom_bdata_3_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA3> on
+   block:<myROMcode/Mrom_bdata_3_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA4> on
+   block:<myROMcode/Mrom_bdata_3_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA5> on
+   block:<myROMcode/Mrom_bdata_3_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA6> on
+   block:<myROMcode/Mrom_bdata_3_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA7> on
+   block:<myROMcode/Mrom_bdata_3_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA8> on
+   block:<myROMcode/Mrom_bdata_3_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA9> on
+   block:<myROMcode/Mrom_bdata_3_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA10> on
+   block:<myROMcode/Mrom_bdata_3_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA11> on
+   block:<myROMcode/Mrom_bdata_3_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA12> on
+   block:<myROMcode/Mrom_bdata_3_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA13> on
+   block:<myROMcode/Mrom_bdata_3_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA14> on
+   block:<myROMcode/Mrom_bdata_3_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA15> on
+   block:<myROMcode/Mrom_bdata_3_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA16> on
+   block:<myROMcode/Mrom_bdata_3_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA17> on
+   block:<myROMcode/Mrom_bdata_3_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA18> on
+   block:<myROMcode/Mrom_bdata_3_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA19> on
+   block:<myROMcode/Mrom_bdata_3_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA20> on
+   block:<myROMcode/Mrom_bdata_3_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA21> on
+   block:<myROMcode/Mrom_bdata_3_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA22> on
+   block:<myROMcode/Mrom_bdata_3_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA23> on
+   block:<myROMcode/Mrom_bdata_3_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA24> on
+   block:<myROMcode/Mrom_bdata_3_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA25> on
+   block:<myROMcode/Mrom_bdata_3_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA26> on
+   block:<myROMcode/Mrom_bdata_3_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA27> on
+   block:<myROMcode/Mrom_bdata_3_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA28> on
+   block:<myROMcode/Mrom_bdata_3_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA29> on
+   block:<myROMcode/Mrom_bdata_3_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA30> on
+   block:<myROMcode/Mrom_bdata_3_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA31> on
+   block:<myROMcode/Mrom_bdata_3_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA0> on
+   block:<myROMcode/Mrom_bdata_4_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA1> on
+   block:<myROMcode/Mrom_bdata_4_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA2> on
+   block:<myROMcode/Mrom_bdata_4_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA3> on
+   block:<myROMcode/Mrom_bdata_4_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA4> on
+   block:<myROMcode/Mrom_bdata_4_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA5> on
+   block:<myROMcode/Mrom_bdata_4_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA6> on
+   block:<myROMcode/Mrom_bdata_4_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA7> on
+   block:<myROMcode/Mrom_bdata_4_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA8> on
+   block:<myROMcode/Mrom_bdata_4_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA9> on
+   block:<myROMcode/Mrom_bdata_4_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA10> on
+   block:<myROMcode/Mrom_bdata_4_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA11> on
+   block:<myROMcode/Mrom_bdata_4_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA12> on
+   block:<myROMcode/Mrom_bdata_4_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA13> on
+   block:<myROMcode/Mrom_bdata_4_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA14> on
+   block:<myROMcode/Mrom_bdata_4_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA15> on
+   block:<myROMcode/Mrom_bdata_4_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA16> on
+   block:<myROMcode/Mrom_bdata_4_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA17> on
+   block:<myROMcode/Mrom_bdata_4_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA18> on
+   block:<myROMcode/Mrom_bdata_4_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA19> on
+   block:<myROMcode/Mrom_bdata_4_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA20> on
+   block:<myROMcode/Mrom_bdata_4_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA21> on
+   block:<myROMcode/Mrom_bdata_4_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA22> on
+   block:<myROMcode/Mrom_bdata_4_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA23> on
+   block:<myROMcode/Mrom_bdata_4_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA24> on
+   block:<myROMcode/Mrom_bdata_4_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA25> on
+   block:<myROMcode/Mrom_bdata_4_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA26> on
+   block:<myROMcode/Mrom_bdata_4_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA27> on
+   block:<myROMcode/Mrom_bdata_4_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA28> on
+   block:<myROMcode/Mrom_bdata_4_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA29> on
+   block:<myROMcode/Mrom_bdata_4_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA30> on
+   block:<myROMcode/Mrom_bdata_4_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA31> on
+   block:<myROMcode/Mrom_bdata_4_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA0> on
+   block:<myROMcode/Mrom_bdata_5_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA1> on
+   block:<myROMcode/Mrom_bdata_5_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA2> on
+   block:<myROMcode/Mrom_bdata_5_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA3> on
+   block:<myROMcode/Mrom_bdata_5_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA4> on
+   block:<myROMcode/Mrom_bdata_5_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA5> on
+   block:<myROMcode/Mrom_bdata_5_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA6> on
+   block:<myROMcode/Mrom_bdata_5_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA7> on
+   block:<myROMcode/Mrom_bdata_5_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA8> on
+   block:<myROMcode/Mrom_bdata_5_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA9> on
+   block:<myROMcode/Mrom_bdata_5_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA10> on
+   block:<myROMcode/Mrom_bdata_5_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA11> on
+   block:<myROMcode/Mrom_bdata_5_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA12> on
+   block:<myROMcode/Mrom_bdata_5_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA13> on
+   block:<myROMcode/Mrom_bdata_5_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA14> on
+   block:<myROMcode/Mrom_bdata_5_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA15> on
+   block:<myROMcode/Mrom_bdata_5_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA16> on
+   block:<myROMcode/Mrom_bdata_5_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA17> on
+   block:<myROMcode/Mrom_bdata_5_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA18> on
+   block:<myROMcode/Mrom_bdata_5_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA19> on
+   block:<myROMcode/Mrom_bdata_5_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA20> on
+   block:<myROMcode/Mrom_bdata_5_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA21> on
+   block:<myROMcode/Mrom_bdata_5_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA22> on
+   block:<myROMcode/Mrom_bdata_5_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA23> on
+   block:<myROMcode/Mrom_bdata_5_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA24> on
+   block:<myROMcode/Mrom_bdata_5_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA25> on
+   block:<myROMcode/Mrom_bdata_5_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA26> on
+   block:<myROMcode/Mrom_bdata_5_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA27> on
+   block:<myROMcode/Mrom_bdata_5_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA28> on
+   block:<myROMcode/Mrom_bdata_5_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA29> on
+   block:<myROMcode/Mrom_bdata_5_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA30> on
+   block:<myROMcode/Mrom_bdata_5_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA31> on
+   block:<myROMcode/Mrom_bdata_5_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA0> on
+   block:<myROMcode/Mrom_bdata_6_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA1> on
+   block:<myROMcode/Mrom_bdata_6_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA2> on
+   block:<myROMcode/Mrom_bdata_6_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA3> on
+   block:<myROMcode/Mrom_bdata_6_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA4> on
+   block:<myROMcode/Mrom_bdata_6_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA5> on
+   block:<myROMcode/Mrom_bdata_6_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA6> on
+   block:<myROMcode/Mrom_bdata_6_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA7> on
+   block:<myROMcode/Mrom_bdata_6_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA8> on
+   block:<myROMcode/Mrom_bdata_6_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA9> on
+   block:<myROMcode/Mrom_bdata_6_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA10> on
+   block:<myROMcode/Mrom_bdata_6_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA11> on
+   block:<myROMcode/Mrom_bdata_6_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA12> on
+   block:<myROMcode/Mrom_bdata_6_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA13> on
+   block:<myROMcode/Mrom_bdata_6_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA14> on
+   block:<myROMcode/Mrom_bdata_6_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA15> on
+   block:<myROMcode/Mrom_bdata_6_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA16> on
+   block:<myROMcode/Mrom_bdata_6_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA17> on
+   block:<myROMcode/Mrom_bdata_6_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA18> on
+   block:<myROMcode/Mrom_bdata_6_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA19> on
+   block:<myROMcode/Mrom_bdata_6_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA20> on
+   block:<myROMcode/Mrom_bdata_6_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA21> on
+   block:<myROMcode/Mrom_bdata_6_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA22> on
+   block:<myROMcode/Mrom_bdata_6_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA23> on
+   block:<myROMcode/Mrom_bdata_6_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA24> on
+   block:<myROMcode/Mrom_bdata_6_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA25> on
+   block:<myROMcode/Mrom_bdata_6_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA26> on
+   block:<myROMcode/Mrom_bdata_6_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA27> on
+   block:<myROMcode/Mrom_bdata_6_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA28> on
+   block:<myROMcode/Mrom_bdata_6_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA29> on
+   block:<myROMcode/Mrom_bdata_6_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA30> on
+   block:<myROMcode/Mrom_bdata_6_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA31> on
+   block:<myROMcode/Mrom_bdata_6_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA0> on
+   block:<myROMcode/Mrom_bdata_7_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA1> on
+   block:<myROMcode/Mrom_bdata_7_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA2> on
+   block:<myROMcode/Mrom_bdata_7_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA3> on
+   block:<myROMcode/Mrom_bdata_7_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA4> on
+   block:<myROMcode/Mrom_bdata_7_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA5> on
+   block:<myROMcode/Mrom_bdata_7_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA6> on
+   block:<myROMcode/Mrom_bdata_7_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA7> on
+   block:<myROMcode/Mrom_bdata_7_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA8> on
+   block:<myROMcode/Mrom_bdata_7_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA9> on
+   block:<myROMcode/Mrom_bdata_7_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA10> on
+   block:<myROMcode/Mrom_bdata_7_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA11> on
+   block:<myROMcode/Mrom_bdata_7_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA12> on
+   block:<myROMcode/Mrom_bdata_7_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA13> on
+   block:<myROMcode/Mrom_bdata_7_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA14> on
+   block:<myROMcode/Mrom_bdata_7_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA15> on
+   block:<myROMcode/Mrom_bdata_7_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA16> on
+   block:<myROMcode/Mrom_bdata_7_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA17> on
+   block:<myROMcode/Mrom_bdata_7_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA18> on
+   block:<myROMcode/Mrom_bdata_7_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA19> on
+   block:<myROMcode/Mrom_bdata_7_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA20> on
+   block:<myROMcode/Mrom_bdata_7_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA21> on
+   block:<myROMcode/Mrom_bdata_7_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA22> on
+   block:<myROMcode/Mrom_bdata_7_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA23> on
+   block:<myROMcode/Mrom_bdata_7_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA24> on
+   block:<myROMcode/Mrom_bdata_7_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA25> on
+   block:<myROMcode/Mrom_bdata_7_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA26> on
+   block:<myROMcode/Mrom_bdata_7_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA27> on
+   block:<myROMcode/Mrom_bdata_7_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA28> on
+   block:<myROMcode/Mrom_bdata_7_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA29> on
+   block:<myROMcode/Mrom_bdata_7_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA30> on
+   block:<myROMcode/Mrom_bdata_7_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA31> on
+   block:<myROMcode/Mrom_bdata_7_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA0> on
+   block:<myROMcode/Mrom_bdata_8_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA1> on
+   block:<myROMcode/Mrom_bdata_8_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA2> on
+   block:<myROMcode/Mrom_bdata_8_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA3> on
+   block:<myROMcode/Mrom_bdata_8_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA4> on
+   block:<myROMcode/Mrom_bdata_8_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA5> on
+   block:<myROMcode/Mrom_bdata_8_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA6> on
+   block:<myROMcode/Mrom_bdata_8_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA7> on
+   block:<myROMcode/Mrom_bdata_8_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA8> on
+   block:<myROMcode/Mrom_bdata_8_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA9> on
+   block:<myROMcode/Mrom_bdata_8_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA10> on
+   block:<myROMcode/Mrom_bdata_8_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA11> on
+   block:<myROMcode/Mrom_bdata_8_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA12> on
+   block:<myROMcode/Mrom_bdata_8_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA13> on
+   block:<myROMcode/Mrom_bdata_8_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA14> on
+   block:<myROMcode/Mrom_bdata_8_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA15> on
+   block:<myROMcode/Mrom_bdata_8_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA16> on
+   block:<myROMcode/Mrom_bdata_8_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA17> on
+   block:<myROMcode/Mrom_bdata_8_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA18> on
+   block:<myROMcode/Mrom_bdata_8_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA19> on
+   block:<myROMcode/Mrom_bdata_8_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA20> on
+   block:<myROMcode/Mrom_bdata_8_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA21> on
+   block:<myROMcode/Mrom_bdata_8_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA22> on
+   block:<myROMcode/Mrom_bdata_8_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA23> on
+   block:<myROMcode/Mrom_bdata_8_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA24> on
+   block:<myROMcode/Mrom_bdata_8_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA25> on
+   block:<myROMcode/Mrom_bdata_8_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA26> on
+   block:<myROMcode/Mrom_bdata_8_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA27> on
+   block:<myROMcode/Mrom_bdata_8_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA28> on
+   block:<myROMcode/Mrom_bdata_8_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA29> on
+   block:<myROMcode/Mrom_bdata_8_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA30> on
+   block:<myROMcode/Mrom_bdata_8_rom0000>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA31> on
+   block:<myROMcode/Mrom_bdata_8_rom0000>:<RAMB16BWE_RAMB16BWE>.
+
+Section 3 - Informational
+-------------------------
+INFO:LIT:243 - Logical network
+   myRAM/top0/data_path0/data_read0/strobe0_n/fifo_bit7/SPO has no load.
+INFO:LIT:395 - The above info message is repeated 32 more times for the
+   following (max. 5 shown):
+   myRAM/top0/data_path0/data_read0/strobe0_n/fifo_bit6/SPO,
+   myRAM/top0/data_path0/data_read0/strobe0_n/fifo_bit5/SPO,
+   myRAM/top0/data_path0/data_read0/strobe0_n/fifo_bit4/SPO,
+   myRAM/top0/data_path0/data_read0/strobe0_n/fifo_bit3/SPO,
+   myRAM/top0/data_path0/data_read0/strobe0_n/fifo_bit2/SPO
+   To see the details of these info messages, please use the -detail switch.
+INFO:MapLib:562 - No environment variables are currently set.
+INFO:MapLib:159 - Net Timing constraints on signal rst_dqs_div_in are pushed
+   forward through input buffer.
+INFO:MapLib:159 - Net Timing constraints on signal SysClock are pushed forward
+   through input buffer.
+INFO:LIT:244 - All of the single ended outputs in this design are using slew
+   rate limited output drivers. The delay on speed critical single ended outputs
+   can be dramatically reduced by designating them as fast outputs.
+INFO:Pack:1716 - Initializing temperature to 85.000 Celsius. (default - Range:
+   0.000 to 85.000 Celsius)
+INFO:Pack:1720 - Initializing voltage to 1.140 Volts. (default - Range: 1.140 to
+   1.260 Volts)
+INFO:Pack:1650 - Map created a placed design.
+INFO:PhysDesignRules:772 - To achieve optimal frequency synthesis performance
+   with the CLKFX and CLKFX180 outputs of the DCM comp mydcm/DCM_SP_INST,
+   consult the device Interactive Data Sheet.
+
+Section 4 - Removed Logic Summary
+---------------------------------
+  19 block(s) removed
+ 104 block(s) optimized away
+  19 signal(s) removed
+
+Section 5 - Removed Logic
+-------------------------
+
+The trimmed logic report below shows the logic removed from your design due to
+sourceless or loadless signals, and VCC or ground connections.  If the removal
+of a signal or symbol results in the subsequent removal of an additional signal
+or symbol, the message explaining that second removal will be indented.  This
+indentation will be repeated as a chain of related logic is removed.
+
+To quickly locate the original cause for the removal of a chain of logic, look
+above the place where that logic is listed in the trimming report, then locate
+the lines that are least indented (begin at the leftmost edge).
+
+The signal "oneUART/rfifo/full" is loadless and has been removed.
+ Loadless block "oneUART/rfifo/BU2/U0/grf.rf/gl0.wr/gwss.wsts/ram_full_i" (FF)
+removed.
+The signal
+"myRAM/top0/data_path0/data_read_controller0/fifo_01_wr_en_inst/TIE_HIGH" is
+sourceless and has been removed.
+The signal
+"myRAM/top0/data_path0/data_read_controller0/fifo_11_wr_en_inst/TIE_HIGH" is
+sourceless and has been removed.
+The signal
+"myRAM/top0/data_path0/data_read_controller0/fifo_00_wr_en_inst/TIE_HIGH" is
+sourceless and has been removed.
+The signal
+"myRAM/top0/data_path0/data_read_controller0/fifo_10_wr_en_inst/TIE_HIGH" is
+sourceless and has been removed.
+
+The trimmed logic reported below is either:
+   1. part of a cycle
+   2. part of disabled logic
+   3. a side-effect of other trimmed logic
+
+The signal "oneUART/sfifo/almost_full" is unused and has been removed.
+ Unused block "oneUART/sfifo/BU2/U0/grf.rf/gl0.wr/gwss.wsts/ram_afull_i" (FF)
+removed.
+  The signal "oneUART/sfifo/BU2/U0/grf.rf/gl0.wr/gwss.wsts/ram_afull_i_mux0001" is
+unused and has been removed.
+   Unused block "oneUART/sfifo/BU2/U0/grf.rf/gl0.wr/gwss.wsts/ram_afull_i_mux0001"
+(MUX) removed.
+    The signal "oneUART/sfifo/BU2/N10" is unused and has been removed.
+     Unused block
+"oneUART/sfifo/BU2/U0/grf.rf/gl0.wr/gwss.wsts/ram_afull_i_mux0001_F" (ROM)
+removed.
+      The signal "oneUART/sfifo/BU2/U0/grf.rf/gl0.wr/gwss.wsts/comp2" is unused and
+has been removed.
+       Unused block
+"oneUART/sfifo/BU2/U0/grf.rf/gl0.wr/gwss.wsts/gaf.c2/gmux.gm[4].gms.ms" (MUX)
+removed.
+        The signal "oneUART/sfifo/BU2/U0/grf.rf/gl0.wr/gwss.wsts/gaf.c2/carrynet<3>" is
+unused and has been removed.
+         Unused block
+"oneUART/sfifo/BU2/U0/grf.rf/gl0.wr/gwss.wsts/gaf.c2/gmux.gm[3].gms.ms" (MUX)
+removed.
+          The signal "oneUART/sfifo/BU2/U0/grf.rf/gl0.wr/gwss.wsts/gaf.c2/carrynet<2>" is
+unused and has been removed.
+           Unused block
+"oneUART/sfifo/BU2/U0/grf.rf/gl0.wr/gwss.wsts/gaf.c2/gmux.gm[2].gms.ms" (MUX)
+removed.
+            The signal "oneUART/sfifo/BU2/U0/grf.rf/gl0.wr/gwss.wsts/gaf.c2/carrynet<1>" is
+unused and has been removed.
+             Unused block
+"oneUART/sfifo/BU2/U0/grf.rf/gl0.wr/gwss.wsts/gaf.c2/gmux.gm[1].gms.ms" (MUX)
+removed.
+              The signal "oneUART/sfifo/BU2/U0/grf.rf/gl0.wr/gwss.wsts/gaf.c2/carrynet<0>" is
+unused and has been removed.
+               Unused block
+"oneUART/sfifo/BU2/U0/grf.rf/gl0.wr/gwss.wsts/gaf.c2/gmux.gm[0].gm1.m1" (MUX)
+removed.
+                The signal "oneUART/sfifo/BU2/U0/grf.rf/gl0.wr/gwss.wsts/gaf.c2/v1<0>" is unused
+and has been removed.
+                 Unused block "oneUART/sfifo/BU2/U0/grf.rf/gl0.wr/gwss.wsts/gaf.c2/v1_0_and00001"
+(ROM) removed.
+              The signal "oneUART/sfifo/BU2/U0/grf.rf/gl0.wr/gwss.wsts/gaf.c2/v1<1>" is unused
+and has been removed.
+               Unused block "oneUART/sfifo/BU2/U0/grf.rf/gl0.wr/gwss.wsts/gaf.c2/v1_1_and00001"
+(ROM) removed.
+            The signal "oneUART/sfifo/BU2/U0/grf.rf/gl0.wr/gwss.wsts/gaf.c2/v1<2>" is unused
+and has been removed.
+             Unused block "oneUART/sfifo/BU2/U0/grf.rf/gl0.wr/gwss.wsts/gaf.c2/v1_2_and00001"
+(ROM) removed.
+          The signal "oneUART/sfifo/BU2/U0/grf.rf/gl0.wr/gwss.wsts/gaf.c2/v1<3>" is unused
+and has been removed.
+           Unused block "oneUART/sfifo/BU2/U0/grf.rf/gl0.wr/gwss.wsts/gaf.c2/v1_3_and00001"
+(ROM) removed.
+        The signal "oneUART/sfifo/BU2/U0/grf.rf/gl0.wr/gwss.wsts/gaf.c2/v1<4>" is unused
+and has been removed.
+         Unused block "oneUART/sfifo/BU2/U0/grf.rf/gl0.wr/gwss.wsts/gaf.c2/v1_4_and00001"
+(ROM) removed.
+    The signal "oneUART/sfifo/BU2/N11" is unused and has been removed.
+     Unused block
+"oneUART/sfifo/BU2/U0/grf.rf/gl0.wr/gwss.wsts/ram_afull_i_mux0001_G" (ROM)
+removed.
+Unused block "oneUART/rfifo/GND" (ZERO) removed.
+Unused block "oneUART/rfifo/VCC" (ONE) removed.
+Unused block "oneUART/sfifo/GND" (ZERO) removed.
+Unused block "oneUART/sfifo/VCC" (ONE) removed.
+
+Optimized Block(s):
+TYPE 		BLOCK
+GND 		XST_GND
+VCC 		XST_VCC
+GND 		oneUART/rfifo/BU2/XST_GND
+VCC 		oneUART/rfifo/BU2/XST_VCC
+GND 		oneUART/sfifo/BU2/XST_GND
+VCC 		oneUART/sfifo/BU2/XST_VCC
+GND 		myRAM/infrastructure_top0/cal_top0/cal_ctl0/XST_GND
+VCC 		myRAM/infrastructure_top0/cal_top0/cal_ctl0/XST_VCC
+FDSE 		myRAM/infrastructure_top0/cal_top0/cal_ctl0/tapForDqs_val_0
+   optimized to 1
+GND 		myRAM/infrastructure_top0/cal_top0/tap_dly0/XST_GND
+VCC 		myRAM/infrastructure_top0/cal_top0/tap_dly0/XST_VCC
+GND 		myRAM/top0/data_path0/XST_GND
+VCC 		myRAM/top0/data_path0/XST_VCC
+VCC 		myRAM/top0/data_path0/data_read_controller0/dqs_delay0_col0/XST_VCC
+VCC 		myRAM/top0/data_path0/data_read_controller0/dqs_delay0_col1/XST_VCC
+VCC 		myRAM/top0/data_path0/data_read_controller0/dqs_delay1_col0/XST_VCC
+VCC 		myRAM/top0/data_path0/data_read_controller0/dqs_delay1_col1/XST_VCC
+VCC 		myRAM/top0/data_path0/data_read_controller0/fifo_00_wr_en_inst/XST_VCC
+VCC 		myRAM/top0/data_path0/data_read_controller0/fifo_01_wr_en_inst/XST_VCC
+VCC 		myRAM/top0/data_path0/data_read_controller0/fifo_10_wr_en_inst/XST_VCC
+VCC 		myRAM/top0/data_path0/data_read_controller0/fifo_11_wr_en_inst/XST_VCC
+FD 		myRAM/top0/iobs0/controller_iobs0/iob_odt
+   optimized to 0
+
+To enable printing of redundant blocks removed and signals merged, set the
+detailed map report option and rerun map.
+
+Section 6 - IOB Properties
+--------------------------
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| IOB Name                           | Type             | Direction | IO Standard          | Diff  | Drive    | Slew    | Reg (s)      | Resistor | IBUF/IFD | SUSPEND          |
+|                                    |                  |           |                      | Term  | Strength | Rate    |              |          | Delay    |                  |
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Interrupt<0>                       | IBUF             | INPUT     | LVCMOS33             |       |          |         |              | PULLDOWN | 0 / 0    |                  |
+| Interrupt<1>                       | IBUF             | INPUT     | LVCMOS33             |       |          |         |              | PULLDOWN | 0 / 0    |                  |
+| Interrupt<2>                       | IBUF             | INPUT     | LVCMOS33             |       |          |         |              | PULLDOWN | 0 / 0    |                  |
+| Interrupt<3>                       | IBUF             | INPUT     | LVCMOS33             |       |          |         |              | PULLDOWN | 0 / 0    |                  |
+| Interrupt<4>                       | IBUF             | INPUT     | LVCMOS33             |       |          |         |              | PULLDOWN | 0 / 0    |                  |
+| Interrupt<5>                       | IBUF             | INPUT     | LVCMOS33             |       |          |         |              | PULLDOWN | 0 / 0    |                  |
+| Interrupt<6>                       | IBUF             | INPUT     | LVCMOS33             |       |          |         |              | PULLDOWN | 0 / 0    |                  |
+| Interrupt<7>                       | IBUF             | INPUT     | LVCMOS33             |       |          |         |              | PULLDOWN | 0 / 0    |                  |
+| LED<0>                             | IOB              | OUTPUT    | LVCMOS33             |       | 8        | SLOW    |              |          | 0 / 0    | 3STATE           |
+| LED<1>                             | IOB              | OUTPUT    | LVCMOS33             |       | 8        | SLOW    |              |          | 0 / 0    | 3STATE           |
+| LED<2>                             | IOB              | OUTPUT    | LVCMOS33             |       | 8        | SLOW    |              |          | 0 / 0    | 3STATE           |
+| LED<3>                             | IOB              | OUTPUT    | LVCMOS33             |       | 8        | SLOW    |              |          | 0 / 0    | 3STATE           |
+| LED<4>                             | IOB              | OUTPUT    | LVCMOS33             |       | 8        | SLOW    |              |          | 0 / 0    | 3STATE           |
+| LED<5>                             | IOB              | OUTPUT    | LVCMOS33             |       | 8        | SLOW    |              |          | 0 / 0    | 3STATE           |
+| LED<6>                             | IOB              | OUTPUT    | LVCMOS33             |       | 8        | SLOW    |              |          | 0 / 0    | 3STATE           |
+| LED<7>                             | IOB              | OUTPUT    | LVCMOS33             |       | 8        | SLOW    |              |          | 0 / 0    | 3STATE           |
+| Reset                              | IBUF             | INPUT     | LVCMOS33             |       |          |         |              | PULLDOWN | 0 / 0    |                  |
+| RxD1                               | IBUF             | INPUT     | LVCMOS33             |       |          |         |              |          | 0 / 0    |                  |
+| RxD2                               | IBUF             | INPUT     | LVCMOS33             |       |          |         |              |          | 0 / 0    |                  |
+| SD_A<0>                            | IOB              | OUTPUT    | SSTL18_I             |       |          |         | OFF1         |          | 0 / 0    | 3STATE           |
+| SD_A<1>                            | IOB              | OUTPUT    | SSTL18_I             |       |          |         | OFF1         |          | 0 / 0    | 3STATE           |
+| SD_A<2>                            | IOB              | OUTPUT    | SSTL18_I             |       |          |         | OFF1         |          | 0 / 0    | 3STATE           |
+| SD_A<3>                            | IOB              | OUTPUT    | SSTL18_I             |       |          |         | OFF1         |          | 0 / 0    | 3STATE           |
+| SD_A<4>                            | IOB              | OUTPUT    | SSTL18_I             |       |          |         | OFF1         |          | 0 / 0    | 3STATE           |
+| SD_A<5>                            | IOB              | OUTPUT    | SSTL18_I             |       |          |         | OFF1         |          | 0 / 0    | 3STATE           |
+| SD_A<6>                            | IOB              | OUTPUT    | SSTL18_I             |       |          |         | OFF1         |          | 0 / 0    | 3STATE           |
+| SD_A<7>                            | IOB              | OUTPUT    | SSTL18_I             |       |          |         | OFF1         |          | 0 / 0    | 3STATE           |
+| SD_A<8>                            | IOB              | OUTPUT    | SSTL18_I             |       |          |         | OFF1         |          | 0 / 0    | 3STATE           |
+| SD_A<9>                            | IOB              | OUTPUT    | SSTL18_I             |       |          |         | OFF1         |          | 0 / 0    | 3STATE           |
+| SD_A<10>                           | IOB              | OUTPUT    | SSTL18_I             |       |          |         | OFF1         |          | 0 / 0    | 3STATE           |
+| SD_A<11>                           | IOB              | OUTPUT    | SSTL18_I             |       |          |         | OFF1         |          | 0 / 0    | 3STATE           |
+| SD_A<12>                           | IOB              | OUTPUT    | SSTL18_I             |       |          |         | OFF1         |          | 0 / 0    | 3STATE           |
+| SD_BA<0>                           | IOB              | OUTPUT    | SSTL18_I             |       |          |         | OFF1         |          | 0 / 0    | 3STATE           |
+| SD_BA<1>                           | IOB              | OUTPUT    | SSTL18_I             |       |          |         | OFF1         |          | 0 / 0    | 3STATE           |
+| SD_CAS                             | IOB              | OUTPUT    | SSTL18_I             |       |          |         | OFF1         |          | 0 / 0    | 3STATE           |
+| SD_CKE                             | IOB              | OUTPUT    | SSTL18_I             |       |          |         | OFF1         |          | 0 / 0    | 3STATE           |
+| SD_CK_N                            | DIFFS            | OUTPUT    | DIFF_SSTL18_I        |       |          |         | ODDR2        |          | 0 / 0    | 3STATE           |
+| SD_CK_P                            | DIFFM            | OUTPUT    | DIFF_SSTL18_I        |       |          |         | ODDR2        |          | 0 / 0    | 3STATE           |
+| SD_CS                              | IOB              | OUTPUT    | SSTL18_I             |       |          |         |              |          | 0 / 0    | 3STATE           |
+| SD_DQ<0>                           | IOB              | BIDIR     | SSTL18_I             |       |          |         | ODDR2        |          | 0 / 0    | 3STATE           |
+|                                    |                  |           |                      |       |          |         | TFF1         |          |          |                  |
+| SD_DQ<1>                           | IOB              | BIDIR     | SSTL18_I             |       |          |         | ODDR2        |          | 0 / 0    | 3STATE           |
+|                                    |                  |           |                      |       |          |         | TFF1         |          |          |                  |
+| SD_DQ<2>                           | IOB              | BIDIR     | SSTL18_I             |       |          |         | ODDR2        |          | 0 / 0    | 3STATE           |
+|                                    |                  |           |                      |       |          |         | TFF1         |          |          |                  |
+| SD_DQ<3>                           | IOB              | BIDIR     | SSTL18_I             |       |          |         | ODDR2        |          | 0 / 0    | 3STATE           |
+|                                    |                  |           |                      |       |          |         | TFF1         |          |          |                  |
+| SD_DQ<4>                           | IOB              | BIDIR     | SSTL18_I             |       |          |         | ODDR2        |          | 0 / 0    | 3STATE           |
+|                                    |                  |           |                      |       |          |         | TFF1         |          |          |                  |
+| SD_DQ<5>                           | IOB              | BIDIR     | SSTL18_I             |       |          |         | ODDR2        |          | 0 / 0    | 3STATE           |
+|                                    |                  |           |                      |       |          |         | TFF1         |          |          |                  |
+| SD_DQ<6>                           | IOB              | BIDIR     | SSTL18_I             |       |          |         | ODDR2        |          | 0 / 0    | 3STATE           |
+|                                    |                  |           |                      |       |          |         | TFF1         |          |          |                  |
+| SD_DQ<7>                           | IOB              | BIDIR     | SSTL18_I             |       |          |         | ODDR2        |          | 0 / 0    | 3STATE           |
+|                                    |                  |           |                      |       |          |         | TFF1         |          |          |                  |
+| SD_DQ<8>                           | IOB              | BIDIR     | SSTL18_I             |       |          |         | ODDR2        |          | 0 / 0    | 3STATE           |
+|                                    |                  |           |                      |       |          |         | TFF1         |          |          |                  |
+| SD_DQ<9>                           | IOB              | BIDIR     | SSTL18_I             |       |          |         | ODDR2        |          | 0 / 0    | 3STATE           |
+|                                    |                  |           |                      |       |          |         | TFF1         |          |          |                  |
+| SD_DQ<10>                          | IOB              | BIDIR     | SSTL18_I             |       |          |         | ODDR2        |          | 0 / 0    | 3STATE           |
+|                                    |                  |           |                      |       |          |         | TFF1         |          |          |                  |
+| SD_DQ<11>                          | IOB              | BIDIR     | SSTL18_I             |       |          |         | ODDR2        |          | 0 / 0    | 3STATE           |
+|                                    |                  |           |                      |       |          |         | TFF1         |          |          |                  |
+| SD_DQ<12>                          | IOB              | BIDIR     | SSTL18_I             |       |          |         | ODDR2        |          | 0 / 0    | 3STATE           |
+|                                    |                  |           |                      |       |          |         | TFF1         |          |          |                  |
+| SD_DQ<13>                          | IOB              | BIDIR     | SSTL18_I             |       |          |         | ODDR2        |          | 0 / 0    | 3STATE           |
+|                                    |                  |           |                      |       |          |         | TFF1         |          |          |                  |
+| SD_DQ<14>                          | IOB              | BIDIR     | SSTL18_I             |       |          |         | ODDR2        |          | 0 / 0    | 3STATE           |
+|                                    |                  |           |                      |       |          |         | TFF1         |          |          |                  |
+| SD_DQ<15>                          | IOB              | BIDIR     | SSTL18_I             |       |          |         | ODDR2        |          | 0 / 0    | 3STATE           |
+|                                    |                  |           |                      |       |          |         | TFF1         |          |          |                  |
+| SD_LDM                             | IOB              | OUTPUT    | SSTL18_I             |       |          |         | ODDR2        |          | 0 / 0    | 3STATE           |
+| SD_LDQS_N                          | DIFFS            | BIDIR     | DIFF_SSTL18_I        |       |          |         | ODDR2        |          | 0 / 0    | 3STATE           |
+|                                    |                  |           |                      |       |          |         | TFF1         |          |          |                  |
+| SD_LDQS_P                          | DIFFM            | BIDIR     | DIFF_SSTL18_I        |       |          |         | ODDR2        |          | 0 / 0    | 3STATE           |
+|                                    |                  |           |                      |       |          |         | TFF1         |          |          |                  |
+| SD_LOOP_IN                         | IBUF             | INPUT     | SSTL18_I             |       |          |         |              |          | 0 / 0    |                  |
+| SD_LOOP_OUT                        | IOB              | OUTPUT    | SSTL18_I             |       |          |         |              |          | 0 / 0    | 3STATE           |
+| SD_ODT                             | IOB              | OUTPUT    | SSTL18_I             |       |          |         |              |          | 0 / 0    | 3STATE           |
+| SD_RAS                             | IOB              | OUTPUT    | SSTL18_I             |       |          |         | OFF1         |          | 0 / 0    | 3STATE           |
+| SD_UDM                             | IOB              | OUTPUT    | SSTL18_I             |       |          |         | ODDR2        |          | 0 / 0    | 3STATE           |
+| SD_UDQS_N                          | DIFFS            | BIDIR     | DIFF_SSTL18_I        |       |          |         | ODDR2        |          | 0 / 0    | 3STATE           |
+|                                    |                  |           |                      |       |          |         | TFF1         |          |          |                  |
+| SD_UDQS_P                          | DIFFM            | BIDIR     | DIFF_SSTL18_I        |       |          |         | ODDR2        |          | 0 / 0    | 3STATE           |
+|                                    |                  |           |                      |       |          |         | TFF1         |          |          |                  |
+| SD_WE                              | IOB              | OUTPUT    | SSTL18_I             |       |          |         | OFF1         |          | 0 / 0    | 3STATE           |
+| SysClock                           | IBUF             | INPUT     | LVCMOS33             |       |          |         |              |          | 0 / 0    |                  |
+| TxD1                               | IOB              | OUTPUT    | LVCMOS33             |       | 8        | SLOW    |              |          | 0 / 0    | 3STATE           |
+| TxD2                               | IOB              | OUTPUT    | LVCMOS33             |       | 8        | SLOW    |              |          | 0 / 0    | 3STATE           |
+| source<0>                          | IBUF             | INPUT     | LVCMOS33             |       |          |         |              |          | 0 / 0    |                  |
+| source<1>                          | IBUF             | INPUT     | LVCMOS33             |       |          |         |              |          | 0 / 0    |                  |
+| source<2>                          | IBUF             | INPUT     | LVCMOS33             |       |          |         |              |          | 0 / 0    |                  |
+| source<3>                          | IBUF             | INPUT     | LVCMOS33             |       |          |         |              |          | 0 / 0    |                  |
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+Section 7 - RPMs
+----------------
+myRAM/infrastructure_top0/cal_top0/tap_dly0/l0
+
+Section 8 - Guide Report
+------------------------
+Guide not run on this design.
+
+Section 9 - Area Group and Partition Summary
+--------------------------------------------
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+Area Group Information
+----------------------
+
+Area Group "cal_ctl"
+  No COMPRESSION specified for Area Group "cal_ctl"
+  RANGE: SLICE_X8Y40:SLICE_X19Y53
+  Area Group Logic Utilization:
+  Number of Slice Flip Flops:              125 out of    336   37%
+  Logic Distribution:
+    Number of occupied Slices:              90 out of    168   53%
+      Number of Slices containing only related logic:     90 out of     90 100%
+  Total Number of 4 input LUTs:            115 out of    336   34%
+    Number used as logic:                  115
+
+
+Section 10 - Timing Report
+--------------------------
+A logic-level (pre-route) timing report can be generated by using Xilinx static
+timing analysis tools, Timing Analyzer (GUI) or TRCE (command line), with the
+mapped NCD and PCF files. Please note that this timing report will be generated
+using estimated delay information. For accurate numbers, please generate a
+timing report with the post Place and Route NCD file.
+
+For more information about the Timing Analyzer, consult the Xilinx Timing
+Analyzer Reference Manual; for more information about TRCE, consult the Xilinx
+Command Line Tools User Guide "TRACE" chapter.
+
+Section 11 - Configuration String Details
+-----------------------------------------
+Use the "-detail" map option to print out Configuration Strings
+
+Section 12 - Control Set Information
+------------------------------------
+No control set information for this architecture.
+
+Section 13 - Utilization by Hierarchy
+-------------------------------------
+Use the "-detail" map option to print out the Utilization by Hierarchy section.

@@ -1,0 +1,5 @@
+#!/bin/csh -f
+
+set startdir = `dirname $0`/classes
+
+rmiregistry -J-Xbootclasspath/p:$startdir

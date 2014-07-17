@@ -1,0 +1,14 @@
+#
+# @(#)FILES_c.gmk	1.3 02/09/19
+#
+FILES_c = \
+	$(CTARGDIR)jcov.c \
+	$(CTARGDIR)jcov_crt.c \
+	$(CTARGDIR)jcov_error.c \
+	$(CTARGDIR)jcov_events.c \
+	$(CTARGDIR)jcov_file.c \
+	$(CTARGDIR)jcov_hash.c \
+	$(CTARGDIR)jcov_htables.c \
+	$(CTARGDIR)jcov_java.c \
+	$(CTARGDIR)jcov_setup.c \
+	$(CTARGDIR)jcov_util.c

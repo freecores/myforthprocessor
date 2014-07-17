@@ -1,0 +1,35 @@
+#
+# @(#)FILES_java.gmk	1.7 99/05/17
+#
+FILES_java = \
+	$(TARGDIR)com/sun/tools/example/debug/gui/ApplicationTool.java \
+	$(TARGDIR)com/sun/tools/example/debug/gui/ClassManager.java \
+	$(TARGDIR)com/sun/tools/example/debug/gui/ClassTreeTool.java \
+	$(TARGDIR)com/sun/tools/example/debug/gui/CommandInterpreter.java \
+	$(TARGDIR)com/sun/tools/example/debug/gui/CommandTool.java \
+	$(TARGDIR)com/sun/tools/example/debug/gui/ContextListener.java \
+	$(TARGDIR)com/sun/tools/example/debug/gui/ContextManager.java \
+	$(TARGDIR)com/sun/tools/example/debug/gui/CurrentFrameChangedEvent.java \
+	$(TARGDIR)com/sun/tools/example/debug/gui/Environment.java \
+	$(TARGDIR)com/sun/tools/example/debug/gui/GUI.java \
+	$(TARGDIR)com/sun/tools/example/debug/gui/Icons.java \
+	$(TARGDIR)com/sun/tools/example/debug/gui/JDBFileFilter.java \
+	$(TARGDIR)com/sun/tools/example/debug/gui/JDBMenuBar.java \
+	$(TARGDIR)com/sun/tools/example/debug/gui/JDBToolBar.java \
+	$(TARGDIR)com/sun/tools/example/debug/gui/LaunchTool.java \
+	$(TARGDIR)com/sun/tools/example/debug/gui/MonitorListModel.java \
+	$(TARGDIR)com/sun/tools/example/debug/gui/MonitorTool.java \
+	$(TARGDIR)com/sun/tools/example/debug/gui/OutputSink.java \
+	$(TARGDIR)com/sun/tools/example/debug/gui/SearchPath.java \
+	$(TARGDIR)com/sun/tools/example/debug/gui/SingleLeafTreeSelectionModel.java \
+	$(TARGDIR)com/sun/tools/example/debug/gui/SourceListener.java \
+	$(TARGDIR)com/sun/tools/example/debug/gui/SourceManager.java \
+	$(TARGDIR)com/sun/tools/example/debug/gui/SourceModel.java \
+	$(TARGDIR)com/sun/tools/example/debug/gui/SourceTool.java \
+	$(TARGDIR)com/sun/tools/example/debug/gui/SourceTreeTool.java \
+	$(TARGDIR)com/sun/tools/example/debug/gui/SourcepathChangedEvent.java \
+	$(TARGDIR)com/sun/tools/example/debug/gui/StackTraceTool.java \
+	$(TARGDIR)com/sun/tools/example/debug/gui/ThreadTreeTool.java \
+	$(TARGDIR)com/sun/tools/example/debug/gui/TypeScript.java \
+	$(TARGDIR)com/sun/tools/example/debug/gui/TypeScriptOutputListener.java \
+	$(TARGDIR)com/sun/tools/example/debug/gui/TypeScriptWriter.java

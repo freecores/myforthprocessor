@@ -1,0 +1,327 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; CHARSET=ISO-2022-JP">
+   <title>Java(TM) Web Start 1.0.1 README</title>
+</head>
+<body bgcolor="#FFFFFF">
+&nbsp;
+<table BORDER=0 WIDTH="100%" >
+<tr>
+<td WIDTH="40"><img SRC="javalogo52x88.gif" ALT="Java" BORDER=0 height=88 width=52></td>
+
+<td ALIGN=CENTER>
+<h1>
+README</h1>
+
+<h2>
+Java<sup><font size=-2> TM</font></sup> Web Start</h2>
+
+<h3>
+バージョン 1.0.1</h3>
+</td>
+
+<td ALIGN=RIGHT VALIGN=TOP WIDTH="40"><font size=+2>&nbsp;</font></td>
+</tr>
+</table>
+
+<p>&nbsp;コメントおよびフィードバックの送付先 : <a href="mailto:javawebstart-feedback@eng.sun.com">javawebstart-feedback@eng.sun.com</a>.
+<h2>
+目次</h2>
+
+<blockquote><b><a href="#intro">はじめに</a></b>
+<br><b><a href="#use">Java Web Start の使用</a></b>
+<br><b><a href="#req">システム要件</a></b>
+<br><b><a href="#install">インストール方法</a></b>
+<br><b><a href="#newjre">新規 JRE の追加</a></b>
+<br><b><a href="#imp">JNLP 仕様への適合性</a></b>
+<br><b><a href="#cha">変更点</a></b></blockquote>
+<a NAME="intro"></a>
+<h2>
+はじめに</h2>
+
+<blockquote>Java Web Start は、Java<sup><font size=-2>
+TM</font></sup> テクノロジベースの新しいアプリケーションの実装技術です。これは、コンピュータとインターネットを直結することにより、ユーザが Web アプリケーションを直接起動および管理することを可能にします。Java Web Start を使用すると、アプリケーションを 1 回のクリックで起動したり、複雑なインストールやアップグレード処理を行うことなく常に最新バージョンを使用できます。
+<p>従来の方法では、Web でソフトウェアを配布する場合、ユーザはインストールプログラムを Web で検索してダウンロードし、適切な場所に保存して、インストールプログラムを実行する必要があります。インストールプログラムが起動すると、インストール先のディレクトリ、およびインストールのオプション (「すべて」、「標準構成」、「最小構成」など) の指定がユーザに求められます。通常、これは時間のかかる複雑な作業であり、ソフトウェアのバージョンが新しくなるたびに繰り返す必要があります。
+<p>一方、Web に配備されたアプリケーション (好みの HTML ベースの電子メールクライアントやカレンダ、オークションサイトなど) は、インストールおよび使用が非常に簡単です。Web ブラウザがこれらの処理をすべて自動的に行うので、手の込んだダウンロード、セットアップ、および設定作業は必要ありません。また、常に最新のバージョンを実行できます。
+<p>Java Web Start は、完全装備のアプリケーションに、先に述べた HTML ベースのアプリケーションと同じ利点を提供します。Java Web Start は、Web でのアプリケーション配備を可能にするソリューションです。HTML ベースのクライアントの代わりに完全装備のアプリケーションを使用することには、次のようなメリットがあります。
+<ul>
+<li>
+ワードプロセッサやスプレッドシートなどの従来型アプリケーションに匹敵する、きわめて対話的なユーザインタフェースを利用できます。</li>
+
+<li>
+低い帯域幅要件で使用できます。アプリケーションは、クリックのたびに Web サーバに接続する必要はなく、ダウンロード済みの情報をキャッシュすることができます。このため、回線が低速であってもスムーズに対話処理を行うことができます。</li>
+
+<li>
+オフラインでの使用がサポートされます。</li>
+</ul>
+Web 配備のアプリケーションによるデメリットとしては、アプリケーションを最初にダウンロードする必要があることが挙げられます。
+HTML ベースのアプリケーションは、初回起動時のコストが非常に低く済みます。<i></i>
+一般に、Web ページは数秒で表示されます。Java<sup><font size=-2>
+TM</font></sup> テクノロジベースのアプリケーションは、通常のモデム接続の場合、ダウンロードに数分を要します。Java Web Start では、ダウンロードしたファイルがすべて、ローカルのコンピュータにキャッシュされます。このため、アプリケーションは、初回起動コストが HTML ページよりも高いとしても、次回以降、必要なリソースはすべてローカルで利用できるために、ほとんど瞬時に起動します。
+<p>起動のたびに、Java Web Start は Web サーバを検査して、アプリケーションの新バージョンを入手可能かどうかを確認します。入手可能な場合には、新バージョンを自動的にダウンロードして起動します。このため、アプリケーションは自動的に最新版に更新されます。複雑なアップグレード処理は必要ありません。
+<h3>
+セキュリティ</h3>
+Java Web Start は、Java 2 プラットフォームの上層に構築され、総合的なセキュリティアーキテクチャを提供します。Java Web Start で起動されたアプリケーションは、デフォルトで、ファイルおよびネットワークへのアクセスが制限された環境 ("sandbox") で実行されます。このため、Java Web Start を使ってアプリケーションを起動することにより、システムのセキュリティおよび完全性を維持できます。
+<p>アプリケーションは、システムに対して無制限のアクセスを要求することができます。この場合、アプリケーションの初回起動時に、Java Web Start は [セキュリティ警告] ダイアログを表示します。<i></i>このダイアログには、アプリケーションの提供元に関する情報 (アプリケーションを開発したベンダー) が表示されます。ベンダーを信頼することを選択すると、アプリケーションが起動します。アプリケーションの提供元に関する情報は、デジタルコード署名に基づいています。</blockquote>
+<a NAME="use"></a>
+<h2>
+Java Web Start の使用</h2>
+
+<blockquote>Java Web Start を使用すると、Java テクノロジベースのアプリケーションを Web から直接起動できます。アプリケーションの起動方法には、次の 3 つがあります。
+<ul>
+<li>
+Web ブラウザのリンクをクリックすることによる起動</li>
+
+<li>
+Java Web Start に組み込まれたアプリケーションマネージャからの起動。アプリケーションマネージャは、最近使用されたアプリケーションを記憶して、使用頻度の高いアプリケーションにすばやくアクセスできるようにします</li>
+
+<li>
+デスクトップアイコンまたは [スタート] メニューからの起動 (Windows のみ)</li>
+</ul>
+上記のどの方法で起動しても、アプリケーションは同様に実行されます。起動方法に関係なく、Java Web Start は常に Web サーバに接続して、特定のアプリケーションの更新されたバージョンが存在するかどうかを検査します。
+<h3>
+Web ブラウザからの起動</h3>
+Java Web Start 製品ページ (<a href="http://java.sun.com/products/javawebstart">http://java.sun.com/products/javawebstart</a>) には、マウスを 1 回クリックするだけで起動可能な多数のアプリケーションへのリンクが存在します。[launch] ボタンをクリックして、さまざまなアプリケーションを起動してみてください。<i></i>Web ブラウザが Java Web Start を起動し、Java Web Start が指定されたアプリケーションをダウンロード、キャッシュ、および実行します。アプリケーションを次に実行すると、アプリケーションはローカルに格納されていて、再度ダウンロードする必要がないために、起動がずっと速くなったことを体感できます。
+<p>このページに紹介されているデモの大半は、ユーザが何も操作しなくてもダウンロードされ、実行されます。これらのアプリケーションは、ローカルディスクおよびネットワークへのアクセスが制限された環境内で実行され、コンピュータにウイルスをインストールすることはないことが保証されています。
+<p>デモの中には、ローカルハードディスクへのアクセスなどの、特別な権限を必要とするものもあります。これらのアプリケーションの場合、セキュリティダイアログがポップアップして、コードへのデジタル署名者に基づくアプリケーション提供元の情報が表示されます。
+アプリケーションは、ベンダーを信頼することを選択した場合にのみ実行されます。
+<p>ここまでで、Java Web Start の使用方法のすべてを説明しました。では、Java Web Start はどのように動作するのでしょうか? アプリケーションを起動する HTML リンクは、実際のところ、標準的な HTML リンクです。ただし、リンク先が別の Web ページではなく、JNLP ファイルと呼ばれる特別な構成ファイルである点が異なります。Web ブラウザは、ファイル拡張子やファイルの MIME タイプを調べて、それが Java Web Start に関連付けられていることを認識します。次に、ダウンロードした JNLP ファイルを引数として Java Web Start を起動します。Java Web Start はスプラッシュ画面を表示して、JNLP ファイルに指定されたアプリケーションのダウンロード、キャッシュ、および実行を行います。&nbsp;<a NAME="appman"></a>
+<h3>
+組み込み済みのアプリケーションマネージャからの起動</h3>
+アプリケーションマネージャは、Java Web Start に組み込まれています。アプリケーションマネージャを使用すると、以前に起動したアプリケーションを Java Web Start からすばやくかつ簡単に起動できます。アプリケーションマネージャを使用して、アプリケーションに関する補足情報や、特定のアプリケーションのホームページを表示することもできます。
+<p>アプリケーションマネージャからアプリケーションを起動するには、アプリケーションアイコンをダブルクリックするか、または [起動] ボタンをクリックします。
+<p>アプリケーションマネージャのもう 1 つの重要な機能は [設定] ダイアログボックスです。これにより、Java Web Start の設定を確認および変更できます。たとえば、このダイアログボックスに含まれるタブを使って、次のことが実行可能です。
+<ul>
+<li>
+HTTP プロキシを指定する  (またはデフォルトのブラウザ設定を使用するように  Java Web Start を構成する)</li>
+
+<li>
+ダウンロードしたアプリケーションのキャッシュを消去する</li>
+
+<li>
+バージョンの異なる複数の Java Runtime Environment (JRE) の位置を指定する</li>
+
+<li>
+Java コンソールを表示するかどうかを選択する</li>
+
+<li>
+ルート証明書のセットを表示する</li>
+</ul>
+アプリケーションマネージャは、デスクトップの [Java Web Start] アイコンをクリックするか、Windows の [スタート] メニューから起動します。<i></i>Solaris または Linux では、Java Web Start インストールディレクトリの <tt>javaws</tt> コマンドを呼び出して起動します。Web ブラウザからアプリケーションマネージャを起動することもできます。この方法を示す例が、製品ページ (<a href="http://java.sun.com/products/javawebstart">http://java.sun.com/products/javawebstart</a>) に掲載されています。
+<h3>
+デスクトップアイコンおよび [スタート] メニュー (Windows のみ) からの起動</h3>
+Java Web Start は、Web 配備された Java テクノロジベースのアプリケーションへのショートカットを、Windows のデスクトップおよび [スタート] メニューに自動的に作成できます。デフォルトでは、Java Web Start は、アプリケーションの 2 度目の起動時に、ショートカットを作成するかどうかをユーザに問い合わせます。これは [設定] パネルを使って変更できます。
+<p>アプリケーションマネージャの [アプリケーション]→[ショートカットの作成] および [アプリケーション]→[ショートカットの削除] メニュー項目を使って、ショートカットを追加または削除することもできます。
+<h3>
+プロキシサーバやファイアウォールの外部での Java Web Start の使用</h3>
+
+ファイアウォールの外部からアプリケーションを起動するには、適正なプロキシ設定を使って Java Web Start を構成する必要があります。Java Web Start は、システムのデフォルトブラウザ (Windows の場合は IE または Netscape、Solaris または Linux の場合は Netscape) から自動的にプロキシ設定を検出しようとします。Java Web Start は、大半の Web プロキシ自動構成スクリプトをサポートします。ほぼすべての環境で、プロキシ設定の検出が可能です。
+
+<p>
+プロキシ設定を自動的に検出できない場合、Java Web Start を最初に使用する際、プロキシ設定を指定するよう求められます。Java Web Start はまた、認証を行うプロキシサーバへのアクセスに必要なユーザ名およびパスワードの入力も求めます。
+このユーザ名およびパスワードは、現行の Java Web Start の呼び出し用に格納されます。ただし、新たに Java 仮想マシンを呼び出して、セキュリティ保護された Web サイトにアクセスする場合、ユーザ名およびパスワードの入力が求められます。これは、保存されたユーザ名およびパスワードの情報が、Java 仮想マシンのインスタンス内に保存されるためです。
+<p>Java Web Start の [設定] パネルを使って、プロキシ設定を表示または編集することもできます。デスクトップのアイコンをクリックするか (Windows)、Java Web Start インストールディレクトリで <tt>./javaws</tt> と入力し (Solaris/Linux)、[ファイル]→[設定] を選択します。プロキシサーバを経由して Web にアクセスする環境の場合、Java Web Start の [設定] パネルを使って、適切に設定されているか確認することをお勧めします。
+<br>&nbsp;</blockquote>
+
+<h2>
+<a NAME="req"></a></h2>
+
+<h2>
+システム要件</h2>
+
+<blockquote>このリリースの Java Web Start は、次のシステムでテストされています。
+<ul>
+<li>
+Windows 95/98/NT/2000 (JRE 1.2.2 および JRE 1.3.0 を使用)</li>
+
+<li>
+Solaris (JRE 1.2.2 および JRE 1.3.0 を使用)</li>
+
+<li>
+Linux (RH 6.1/x86) (JRE 1.2.2 および JRE 1.3.0 を使用)</li>
+</ul>
+Java Web Start を使用するためのプラットフォーム要件は、JRE 実装で推奨されているものと同じです。</blockquote>
+<a NAME="install"></a>
+<h2>
+インストール方法</h2>
+<blockquote>
+<h3>
+1.0 リリースからのアップグレード</h3>
+1.0.1 をインストールする前に、1.0 リリースをアンインストールする必要はありません。ただし、1.0.1 のインストールにより 1.0 リリースが上書きされ、新規 1.0.1 リリースを使用するようにブラウザが更新されます。<b>1.0 リリースを再度アクティブにするには、1.0 リリースを再インストールする必要があります。</b>
+  <p>
+1.0 および 1.0.1 は、同一の構成ファイルおよびプログラムファイルフォルダを使用します。このため、アップグレード後も、設定はすべて維持されます。
+  <p>
+Windows の場合、Java Runtime Environment を含まない特別のアップグレードバンドルが提供されています。Java Web Start 1.0 がインストール済みの場合には、このアップグレードバンドルをダウンロードしてインストールすることをお勧めします。
+<h3>1.0 Beta リリースからのアップグレード</h3>
+1.0 Beta とこのリリースとでは、<tt>javaws.cfg</tt> のキャッシュレイアウトおよび位置が変更されています。このため、まれに Java Web Start 1.0.1 が動作しない場合があります。この場合、ユーザのローカル構成ディレクトリを消去して、問題を解決する必要があります。ユーザのローカル構成ディレクトリは、Solaris/Linux の場合 <tt>~/.javaws/ </tt> に、Windows の場合、通常 <tt>C:\Windows\Profiles\.javaws</tt> または <tt>C:\Windows\Profiles\&lt;username&gt;\.javaws</tt> に存在します。
+<h3>
+Windows 95/98/NT/2000 へのインストール</h3>
+java.sun.com の Web サイトで、<i>[DOWNLOAD NOW]</i> アイコンをクリックして、<tt>javaws-1_0_1-win-int-rt.exe</tt> ファイルをダウンロードします。次に、ダウンロードしたファイルを実行します。これにより、標準的な Windows 形式のインストールプログラムが起動して、インストール手順を示します。インストールプログラムにより、インストールディレクトリの指定が求められます (デフォルトは <tt>c:\Program Files\Java Web Start</tt>)。
+たいていの場合、デフォルトの設定でかまいません。[次] ボタンをクリックすると、インストールプログラムにより Java Web Start に必要なすべてのファイルおよび設定がインストールされます。Netscape Navigator ブラウザが実行中の場合は、ブラウザの再起動を促すメッセージが表示されます。
+<p>インストールプログラムは、Windows レジストリで、インストール済みの Java Runtime Environment (JRE) バージョン 1.2 以降を検索し、Java Web Start がそれを使用するよう自動的に構成します。これが存在しない場合には、インストールプログラムは Java 2 Runtime Environment 1.3.0 をインストールします。
+<p>インストールプログラムにより、ファイル拡張子 <tt>.jnlp</tt> と MIME タイプ <tt>application/x-java-jnlp-file</tt> が Windows に登録されるため、JNLP ファイルへのリンクがアクティブになると、Netscape Navigator と Internet Explorer (および他の大半のブラウザ) から Java Web Start を起動できます。さらに、インストールプログラムは、アプリケーションマネージャへのショートカットをデスクトップおよび Windows の [スタート] メニューにインストールします。
+<h3>
+Solaris/Linux へのインストール</h3>
+Solaris および Linux 用の Java Web Start は、ZIP ファイルで提供されます。この ZIP ファイルには、インストールスクリプト <tt>install.sh</tt>、および <tt>readme.html</tt> (このファイル) が含まれます。インストールスクリプトは、Solaris の場合 <tt>sh</tt> シェルスクリプト、Linux の場合 <tt>bash</tt> シェルスクリプトです。インストールプログラムは、JRE には含まれません。このため、インストールプログラムをあらかじめシステムにインストールしておく必要があります。
+<p>Solaris/SPARC の場合は <tt>javaws-1_0_1-solsparc-int.zip</tt> を、Solaris/x86 の場合は <tt>javaws-1_0_1-solx86-int.zip</tt> を、Linux/x86 の場合は <tt>javaws-1_0_1-linux-int.zip</tt>をダウンロードします。
+<p>Java Web Start インストールプログラムを保存する場所を指定するよう求められたら、自分のホームディレクトリなど、Java Web Start の継続的なホームディレクトリとして使用可能なディレクトリを指定してください。
+<p>ダウンロードが完了したら、Java Web Start インストールスクリプトを解凍および実行します。
+スクリプトにより、Java 2 互換の JRE の場所を指定するよう求められます。次に例を示します (<font color="#FF0000">赤</font>の文字は、ユーザが入力する文字列です)。
+<p><tt>mushmouth% <font color="red">unzip javaws-1_0_1-solsparc-int.zip</font></tt>
+<br><tt>mushmouth% <font color="red">./install.sh</font></tt>
+<br><tt>...
+<br><tt>Do you agree to the above license terms? [yes or no]</tt>
+<br><tt><font color="red">yes</font></tt>
+<br><tt>In order to use Java Web Start you must have a version of Java
+2 standard edition installed. If you do not, you can download one from http://java.sun.com.</tt>
+<br><tt>Please enter the path of your installation (e.g. /usr/local/java/jdk1.2):</tt>
+<font color="#FF0000">/usr/local/java/jdk1.2.2</font></tt>
+<br><tt>Creating javaws.cfg...</tt>
+<br><tt>Extracting...</tt>
+<br><tt>Updating action...</tt>
+<br><tt>Updating ~/.mailcap...</tt>
+<br><tt>Updating ~/.mime.types...</tt>
+<p>インストールプログラムにより、<tt>javaws</tt> サブディレクトリが作成され、その中に Java Web Start ファイルすべてがインストールされます。
+<p>インストールプログラムにより、<tt>.mailcap</tt> および <tt>.mime.types</tt> ファイルも更新されるため、Netscape Navigator が JNLP へのリンクに遭遇すると、Java Web Start が呼び出されます。Solaris では、CDE 内にフックがインストールされるため、ファイルマネージャで <tt>.jnlp</tt> ファイルをダブルクリックしても、Java Web Start を起動できます。
+<p>新規 MIME タイプの認識を確実にするため、<b>Netscape を再起動</b>してください。
+<h3>
+Netscape 6/6.01 での Java Web Start の使用</h3>
+Netscape 6/6.01 ユーザの場合、[編集]→[設定]→[Navigator] の順に選択し、[アプリケーション] セクションで、Java Web Start MIME タイプ (JNLP) を設定してください。ファイル拡張子は「jnlp」、MIME タイプは「application/x-java-jnlp-file」です。また、Java Web Start ディレクトリ内の javaws 実行可能ファイルで、これを処理する必要があります。
+<p>
+さらに、Netscape 6/6.01 では JavaScript の実行に問題があるため、JavaScript を使用しないデモページを実行する必要があります。詳細は、「<a href="http://www.java.sun.com/products/javawebstart/docs/developersguide.html">開発者ガイド</a>」を参照してください。
+<h3>
+インストールのトラブルシューティング</h3>
+インストール時に、Java Web Start が不正なエラーメッセージを出力する場合、Java Web Start が JRE の適正な位置情報を使って構成されていないことが原因です。
+<tt>javaws.cfg</tt> ファイルの内容を検査してください。このファイルは、Java Web Start のインストールディレクトリ (Windows の場合、通常は <tt>C:\Program Files\Java Web Start\javaws.cfg</tt>) に存在します。
+<p>ファイル内の構成エントリは、システムにインストールされた Java 2 SE JRE の位置を反映する必要があります。次に例を示します。
+<p><tt>javaws.cfg.jre.0.path=/usr/local/java/jdk1.3/solaris/bin/java</tt>
+<br><tt>javaws.cfg.jre.0.platform=1.3</tt>
+<br><tt>javaws.cfg.jre.0.product=1.3.0</tt>
+<br><tt>javaws.cfg.jre.1.path=/usr/local/java/jdk1.2.2/solaris/bin/java</tt>
+<br><tt>javaws.cfg.jre.1.product=1.2.2-W</tt>
+<br><tt>javaws.cfg.jre.1.platform=1.2</tt>
+<br><tt>javaws.cfg.jre.default=0</tt>
+<p><tt>javaws.cfg.jre.&lt;n>.location、javaws.cfg.jre.&lt;n>.path、javaws.cfg.jre.&lt;n>.platform</tt>、および <tt>javaws.cfg.jre.&lt;n>.product</tt> エントリを追加または削除して、システム構成を反映するようにこのファイルを変更します。
+<tt>javaws.cfg.jre.default=&lt;n></tt> が既存のエントリを参照していることを確認してください。エントリには、0 から始まる連番が付けられます。
+<p>Java Web Start は、JRE 1.1.x 以前のバージョンでは動作しません。
+<p>
+</blockquote>
+
+<h2>
+<a NAME="newjre"></a></h2>
+
+<h2>
+新規 JRE の追加</h2>
+
+<blockquote>Windows の場合、Java Web Start は Java 2 Runtime Environment 1.3.0 を含んでいます。このため、この JRE は、Java Web Start を使って起動したアプリケーションから自動的に利用可能になります。Solaris および Linux の場合、インストールプログラムにより Java 2 Runtime Environment の場所の指定が求められます。指定する Java 2 Runtime Environment のリリースは、1.2.2 でも 1.3.0 でもかまいません。
+<p>組み込み済みのアプリケーションマネージャの [設定] パネルを使って、新たに指定した JRE を Java Web Start に関連付けることができます。アプリケーションマネージャの起動方法については、「<a href="#appman">組み込み済みのアプリケーションマネージャからの起動</a>」を参照してください。
+<p>[設定] パネルでの [Java] タブを選択します。<i></i>このタブには、アプリケーションの起動が可能な、関連付けの行われている JRE すべてが一覧表示されます。新規 JRE を追加するもっとも簡単な方法は、[検索...] ボタンをクリックすることです。<i></i>これにより、ウィザードが表示されて、ハードディスクにインストール済みの JRE を検索できます。
+<p>2 番目のパネルでは、次のいずれかを実行します。
+<ul>
+<li>
+[次へ] ボタンをクリックせずに、[ファイルチューザ] ダイアログに検索パスを入力して Enter キーを押します。<i></i></li>
+
+<li>
+ディレクトリを選択してから [次へ] ボタンをクリックします。<i></i></li>
+</ul>
+これにより、指定されたディレクトリで検索が開始されます。
+
+<h2>
+<a NAME="imp"></a></h2>
+</blockquote>
+
+<h2>
+JNLP 仕様への適合性</h2>
+
+<blockquote>このリリースは、Java<sup><font size=-2> TM</font></sup> Network Launching Protocol &amp; API (JNLP) 仕様 v1.0.1 の製品品質リファレンス実装 (RI) です。
+</blockquote>
+
+<h2>
+<a NAME="lim"></a></h2>
+
+<h2>
+<a NAME="cha"></a></h2>
+
+<h2>
+変更点</h2>
+<blockquote>
+
+<b>1.0.1-ea リリースからの変更点:</b>
+<ul>
+<li>
+      Java Web Start は、大半の Web プロキシ自動構成スクリプトをサポートするようになりました。ほぼすべての環境で、プロキシ設定の検出が可能です。
+</li>
+</ul>
+
+<b>1.0 リリースからの変更点:</b>
+<ul>
+<li>
+      更新チェックおよびオフラインサポートが改善されました。不要な 2 番目の更新ダイアログが削除されました。詳細は、「開発者ガイド」の「<tt>&lt;offline-allowed/&gt;</tt> 要素」の説明を参照してください。</li>
+
+<li>
+      <tt>current-version-id</tt> がサーバに送信されないために、追加ダウンロードの動作不良の原因となっていたバグが修正されました。</li>
+
+<li>
+      ある状況下で Swing アプリケーションの大幅なパフォーマンス低下、および再描画の問題を引き起こす、アクセス権のバグが修正されました。</li>
+
+<li>
+      ファイルサイズの小さい Windows 用インストーラが新たにパッケージ化されたため、ダウンロードサイズが小さくなりました。Java Runtime Environment を含まない Windows 用のアップグレードバンドルが含まれます。</li>
+
+<li>
+      /silent フラグを使用して、サイレントインストールを実行できるようになりました。</li>
+
+<li>
+      ユーザインタフェースが若干改善され、アプリケーションマネージャが Java Look & Feel ガイドラインにより準拠したものになりました。</li>
+
+<li>
+      開発者向けパックには、Web Archive (WAR) ファイル内での JNLP アプリケーションのバンドル、およびすべての JNLP ダウンロードプロトコルや JARDiff ファイルの自動生成をサポートするサーブレットが含まれます。詳細は、「開発者ガイド」を参照してください。</li>
+
+<li>
+      その他のマイナーなバグの修正が行われました。</li>
+
+<li>
+      この最終 1.0.1 リリースは、9 か国語 (フランス語、ドイツ度、イタリア語、日本語、韓国語、簡体字中国語、スペイン語、スウェーデン語、繁体字中国語) に対応します。</li>
+
+</ul>
+</blockquote>
+
+<TABLE WIDTH="100%" CELLPADDING="0" BORDER="0" CELLSPACING="5">
+<TR>
+        <TD BGCOLOR="#CCCCCC">
+        <IMG SRC="/images/pixel.gif" WIDTH="1" HEIGHT="1" ALT=""></TD>
+</TR>
+<TR>
+        <TD>
+                <TABLE WIDTH="100%" CELLPADDING="0" BORDER="0" CELLSPACING="0">
+                <TR>
+                <TD WIDTH="50%">
+                <FONT SIZE="-2">
+                For more information on Java technology<BR>
+                and other software from Sun Microsystems, call:<BR>
+                </FONT>
+                <FONT SIZE="-1">
+                (800) 786-7638<BR></FONT>
+                <FONT SIZE="-2">
+                Outside the U.S. and Canada, dial your country's <A
+HREF="http://www.att.com/tollfree/international/dialguide/">AT&amp;T&nbsp;Direct&nbsp;Access&nbsp;Number</A> first.<BR>
+                </FONT>
+                </TD>
+                <TD ALIGN="RIGHT" WIDTH="50%">
+                <A HREF="http://www.sun.com">
+                <IMG SRC="sunlogo64x30.gif" width="64"
+                height="30" border="0" ALT="Sun Microsystems, Inc."></A><BR>
+                <FONT SIZE="-2">
+                Copyright &copy; 2000-2002
+                <A HREF="http://www.sun.com">Sun Microsystems, Inc.</A><BR>
+                All Rights Reserved. <a
+                href="http://www.sun.com/share/text/termsofuse.html">Terms
+                of Use</a>. <A HREF="http://www.sun.com/privacy">Privacy&nbsp;Policy</A>.
+                </FONT>
+                </TD></TR>
+                </TABLE>
+        </TD>
+</TR>
+</TABLE>
+</body>
+</html>

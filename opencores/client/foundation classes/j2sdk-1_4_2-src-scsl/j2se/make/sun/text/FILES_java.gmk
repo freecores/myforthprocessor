@@ -1,0 +1,51 @@
+#
+# @(#)FILES_java.gmk	1.20 02/12/11
+#
+# Locale data files for lib/ext/localedata.jar
+#
+# Locale data for en_US locale is built from make/java/text.
+#
+
+FILES_java = \
+		$(TARGDIR)sun/text/resources/BreakIteratorRules_th.java \
+		$(TARGDIR)sun/text/resources/DateFormatZoneData_ar.java \
+                $(TARGDIR)sun/text/resources/DateFormatZoneData_hi_IN.java \
+		$(TARGDIR)sun/text/resources/DateFormatZoneData_iw.java \
+		$(TARGDIR)sun/text/resources/DateFormatZoneData_ja.java \
+		$(TARGDIR)sun/text/resources/DateFormatZoneData_ko.java \
+		$(TARGDIR)sun/text/resources/DateFormatZoneData_th.java \
+		$(TARGDIR)sun/text/resources/DateFormatZoneData_zh_CN.java \
+		$(TARGDIR)sun/text/resources/DateFormatZoneData_zh_TW.java \
+		$(TARGDIR)sun/text/resources/DateFormatZoneData_zh_HK.java \
+		$(TARGDIR)sun/text/resources/LocaleElements_ar.java \
+		$(TARGDIR)sun/text/resources/LocaleElements_ar_AE.java \
+		$(TARGDIR)sun/text/resources/LocaleElements_ar_BH.java \
+		$(TARGDIR)sun/text/resources/LocaleElements_ar_DZ.java \
+		$(TARGDIR)sun/text/resources/LocaleElements_ar_EG.java \
+		$(TARGDIR)sun/text/resources/LocaleElements_ar_IQ.java \
+		$(TARGDIR)sun/text/resources/LocaleElements_ar_JO.java \
+		$(TARGDIR)sun/text/resources/LocaleElements_ar_KW.java \
+		$(TARGDIR)sun/text/resources/LocaleElements_ar_LB.java \
+		$(TARGDIR)sun/text/resources/LocaleElements_ar_LY.java \
+		$(TARGDIR)sun/text/resources/LocaleElements_ar_MA.java \
+		$(TARGDIR)sun/text/resources/LocaleElements_ar_OM.java \
+		$(TARGDIR)sun/text/resources/LocaleElements_ar_QA.java \
+		$(TARGDIR)sun/text/resources/LocaleElements_ar_SA.java \
+		$(TARGDIR)sun/text/resources/LocaleElements_ar_SD.java \
+		$(TARGDIR)sun/text/resources/LocaleElements_ar_SY.java \
+		$(TARGDIR)sun/text/resources/LocaleElements_ar_TN.java \
+		$(TARGDIR)sun/text/resources/LocaleElements_ar_YE.java \
+                $(TARGDIR)sun/text/resources/LocaleElements_hi_IN.java \
+		$(TARGDIR)sun/text/resources/LocaleElements_iw.java \
+		$(TARGDIR)sun/text/resources/LocaleElements_iw_IL.java \
+		$(TARGDIR)sun/text/resources/LocaleElements_ja.java \
+		$(TARGDIR)sun/text/resources/LocaleElements_ja_JP.java \
+		$(TARGDIR)sun/text/resources/LocaleElements_ko.java \
+		$(TARGDIR)sun/text/resources/LocaleElements_ko_KR.java \
+		$(TARGDIR)sun/text/resources/LocaleElements_th.java \
+		$(TARGDIR)sun/text/resources/LocaleElements_th_TH.java \
+		$(TARGDIR)sun/text/resources/LocaleElements_th_TH_TH.java \
+		$(TARGDIR)sun/text/resources/LocaleElements_zh.java \
+		$(TARGDIR)sun/text/resources/LocaleElements_zh_CN.java \
+		$(TARGDIR)sun/text/resources/LocaleElements_zh_HK.java \
+		$(TARGDIR)sun/text/resources/LocaleElements_zh_TW.java

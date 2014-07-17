@@ -1,0 +1,56 @@
+package dhbcomplex;
+
+/**
+ * <p>Überschrift: Complex aritmetik</p>
+ *
+ * <p>Beschreibung: </p>
+ *
+ * <p>Copyright: Copyright (c) 2005</p>
+ *
+ * <p>Organisation: </p>
+ *
+ * @author Gerhard Hohner
+ * @version 1.0
+ */
+public class Complex
+{
+    public double x, y;
+
+    public Complex() { x = y = 0.; }
+
+    public Complex(Complex a) { x = a.x; y = a.y; }
+
+    public Complex(double a, double b) { x = a; y = b; }
+
+    public Complex(double a) { x = a; y = 0.; }
+
+    public void add(Complex b)
+    {
+        x += b.x;
+        y += b.y;
+    }
+
+    public void sub(Complex b)
+    {
+        x -= b.x;
+        y -= b.y;
+    }
+
+    public void mul(Complex b)
+    {
+        double d = x * b.x - y * b.y;
+
+        y = x * b.y + y * b.x;
+        x = d;
+    }
+
+    public void div(Complex b)
+    {
+        double d = b.x * b.x + b.y * b.y;
+        this.mul(new Complex(b.x, -b.y));
+
+        x /= d;
+        y /= d;
+    }
+
+}

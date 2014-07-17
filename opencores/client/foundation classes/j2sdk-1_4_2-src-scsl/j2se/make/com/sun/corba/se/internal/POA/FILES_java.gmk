@@ -1,0 +1,35 @@
+#
+# @(#)FILES_java.gmk	1.16 02/09/19
+# Files for POA implementation 
+#
+
+FILES_java = \
+	$(TARGDIR)com/sun/corba/se/internal/POA/ActiveObjectMap.java \
+	$(TARGDIR)com/sun/corba/se/internal/POA/SubcontractResponseHandler.java \
+	$(TARGDIR)com/sun/corba/se/internal/POA/ClientSC.java \
+	$(TARGDIR)com/sun/corba/se/internal/POA/ForwardException.java \
+	$(TARGDIR)com/sun/corba/se/internal/POA/POACurrent.java \
+	$(TARGDIR)com/sun/corba/se/internal/POA/InvocationInfo.java \
+	$(TARGDIR)com/sun/corba/se/internal/POA/POAImpl.java \
+	$(TARGDIR)com/sun/corba/se/internal/POA/ShutdownUtilDelegate.java \
+	$(TARGDIR)com/sun/corba/se/internal/POA/DelegateImpl.java \
+	$(TARGDIR)com/sun/corba/se/internal/POA/Policies.java \
+	$(TARGDIR)com/sun/corba/se/internal/POA/POAPolicyCombinationValidator.java \
+	$(TARGDIR)com/sun/corba/se/internal/POA/POAManagerImpl.java \
+	$(TARGDIR)com/sun/corba/se/internal/POA/POAORB.java \
+	$(TARGDIR)com/sun/corba/se/internal/POA/POADestroyed.java \
+	$(TARGDIR)com/sun/corba/se/internal/POA/GenericPOAClientSC.java \
+	$(TARGDIR)com/sun/corba/se/internal/POA/ServantCachePOAClientSC.java \
+	$(TARGDIR)com/sun/corba/se/internal/POA/GenericPOAServerSC.java \
+	$(TARGDIR)com/sun/corba/se/internal/POA/IdAssignmentPolicyImpl.java \
+	$(TARGDIR)com/sun/corba/se/internal/POA/IdUniquenessPolicyImpl.java \
+	$(TARGDIR)com/sun/corba/se/internal/POA/ImplicitActivationPolicyImpl.java \
+	$(TARGDIR)com/sun/corba/se/internal/POA/LifespanPolicyImpl.java \
+	$(TARGDIR)com/sun/corba/se/internal/POA/MinorCodes.java \
+	$(TARGDIR)com/sun/corba/se/internal/POA/RequestProcessingPolicyImpl.java \
+	$(TARGDIR)com/sun/corba/se/internal/POA/ServantRetentionPolicyImpl.java \
+	$(TARGDIR)com/sun/corba/se/internal/POA/SpecialMethod.java \
+	$(TARGDIR)com/sun/corba/se/internal/POA/ThreadPolicyImpl.java \
+	$(TARGDIR)com/sun/corba/se/internal/POA/BadServerIdHandler.java
+
+#	$(TARGDIR)com/sun/corba/se/internal/POA/LocalClientSC.java \

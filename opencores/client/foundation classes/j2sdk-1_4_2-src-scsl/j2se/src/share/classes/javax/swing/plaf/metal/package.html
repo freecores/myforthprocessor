@@ -1,0 +1,55 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+<!--
+
+  @(#)package.html	1.11 01/06/28
+
+  Copyright 1998 by Sun Microsystems, Inc.,
+  901 San Antonio Road, Palo Alto, California, 94303, U.S.A.
+  All rights reserved.
+
+  This software is the confidential and proprietary information
+  of Sun Microsystems, Inc. ("Confidential Information").  You
+  shall not disclose such Confidential Information and shall use
+  it only in accordance with the terms of the license agreement
+  you entered into with Sun.
+
+-->
+
+</head>
+<body bgcolor="white">
+
+Provides user interface objects built according to
+the Java look and feel (once codenamed <em>Metal</em>),
+which is the default look and feel.
+
+<p>These classes are designed to be used while the
+corresponding <code>LookAndFeel</code> class has been
+installed
+(<code>UIManager.setLookAndFeel(new <i>XXX</i>LookAndFeel())</code>).
+Using them while a different <code>LookAndFeel</code> is installed
+may produce unexpected results, including exceptions.
+Additionally, changing the <code>LookAndFeel</code>
+maintained by the <code>UIManager</code> without updating the
+corresponding <code>ComponentUI</code> of any
+<code>JComponent</code>s may also produce unexpected results,
+such as the wrong colors showing up, and is generally not
+encouraged.
+
+<p>
+<strong>Note:</strong>
+Most of the Swing API is <em>not</em> thread safe.
+For details, see
+<a
+href="http://java.sun.com/docs/books/tutorial/uiswing/overview/threads.html"
+target="_top">Threads and Swing</a>,
+a section in
+<em><a href="http://java.sun.com/docs/books/tutorial/"
+target="_top">The Java Tutorial</a></em>.
+
+@since 1.2
+@serial exclude
+
+</body>
+</html>

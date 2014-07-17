@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+     @(#)build.xml	1.6 03/01/23 11:13:37
+     
+     Copyright 2003 Sun Microsystems, Inc.  All rights reserved.
+     SUN PROPRIETARY/CONFIDENTIAL.  Use is subject to license terms.
+-->
+
+<!-- This is an Ant project file. Ant is a build tool like make or gnumake which is not
+     dependent on the underlying OS shell. For more information on Ant, please see
+     http://jakarta.apache.org/ant -->
+
+<!-- A "project" describes a set of targets that may be requested
+     when Ant is executed.  The "default" attribute defines the
+     target which is executed if no specific target is requested,
+     and the "basedir" attribute defines the current working directory
+     from which Ant executes the requested task.  This is normally
+     set to the current working directory.
+-->
+
+
+<project name="HotSpot Servicability Agent" default="compile" basedir=".">
+
+  <!-- Property Definitions -->
+
+  <property name="app.name" value="sa-1.4.0"/>
+  <property name="dist.jar" value="${app.name}.jar"/>
+
+<!-- The "prepare" target is used to construct the deployment home
+     directory structure (if necessary), and to copy in static files
+     as required.  In the example below, Ant is instructed to create
+     the deployment directory, copy the contents of the "web/" source
+     hierarchy, and set up the WEB-INF subdirectory appropriately.
+-->
+
+  <target name="prepare">
+    <mkdir dir="classes"/>
+    <mkdir dir="deploy"/>
+  </target>
+
+
+<!-- The "clean" target removes the deployment home directory structure,
+     so that the next time the "compile" target is requested, it will need
+     to compile everything from scratch.
+-->
+
+  <target name="clean">
+     <delete dir="classes"/>
+     <delete dir="deploy"/>
+  </target>
+
+
+<!-- The "compile" target is used to compile (or recompile) the Java classes
+     that make up this web application.  The recommended source code directory
+     structure makes this very easy because the <javac> task automatically
+     works its way down a source code hierarchy and compiles any class that
+     has not yet been compiled, or where the source file is newer than the
+     class file.
+
+     Feel free to adjust the compilation option parameters (debug,
+     optimize, and deprecation) to suit your requirements.  It is also
+     possible to base them on properties, so that you can adjust this
+     behavior at runtime.
+
+     The "compile" task depends on the "prepare" task, so the deployment
+     home directory structure will be created if needed the first time.
+-->
+
+  <target name="compile" depends="prepare" description="Compiles the sources">
+    <javac srcdir="." 
+           classpath="lib/maf-1_0.jar"
+           destdir="classes"
+           debug="on" deprecation="on"/>
+
+    <rmic classname="sun.jvm.hotspot.debugger.dbx.DbxDebuggerRemoteIntfImpl"
+	  base="classes"/>
+  </target>
+
+  <target name="deploy" depends="clean" description="Creates a deployment bundle">
+    <jar jarfile="deploy/${dist.jar}"
+         basedir="classes"/>
+  </target>
+
+<!-- The "all" target rebuilds everything by executing the "clean"
+     target first, which forces the "compile" target to compile all
+     source code instead of just the files that have been changed.
+-->
+
+  <target name="all" depends="clean,prepare,compile" description="Clean and builds sources"/>
+
+</project>
+
+

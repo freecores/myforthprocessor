@@ -1,0 +1,212 @@
+// @(#)includeDB_gc_parallelScavenge	1.24 03/03/06 21:38:27
+// 
+// Copyright 1993-2002 Sun Microsystems, Inc.  All rights reserved.
+// SUN PROPRIETARY/CONFIDENTIAL.  Use is subject to license terms.
+// 
+
+// NOTE: DO NOT CHANGE THIS COPYRIGHT TO NEW STYLE - IT WILL BREAK makeDeps!
+
+cardTableExtension.cpp                  cardTableExtension.hpp
+cardTableExtension.cpp                  gcTaskManager.hpp
+cardTableExtension.cpp                  oop.inline.hpp
+cardTableExtension.cpp                  oop.psgc.inline.hpp
+cardTableExtension.cpp                  parallelScavengeHeap.hpp
+cardTableExtension.cpp                  psTasks.hpp
+cardTableExtension.cpp                  psYoungGen.hpp
+
+cardTableExtension.hpp                  cardTableModRefBS.hpp
+
+gcTaskManager.hpp                       mutex.hpp
+gcTaskManager.hpp                       growableArray.hpp
+
+gcTaskManager.cpp                       allocation.hpp
+gcTaskManager.cpp                       allocation_inline.hpp
+gcTaskManager.cpp                       gcTaskManager.hpp
+gcTaskManager.cpp                       gcTaskThread.hpp
+gcTaskManager.cpp                       mutex.hpp
+gcTaskManager.cpp                       mutexLocker.hpp
+
+gcTaskThread.hpp                        thread.hpp
+
+gcTaskThread.cpp                        allocation.hpp
+gcTaskThread.cpp                        allocation_inline.hpp
+gcTaskThread.cpp                        gcTaskManager.hpp
+gcTaskThread.cpp                        gcTaskThread.hpp
+gcTaskThread.cpp                        handles.hpp
+gcTaskThread.cpp                        handles_inline.hpp
+gcTaskThread.cpp                        os.hpp
+gcTaskThread.cpp                        resourceArea.hpp
+gcTaskThread.cpp                        thread.hpp
+
+generationSizer.hpp                     collectorPolicy.hpp
+
+objectStartArray.cpp                    allocation_inline.hpp
+objectStartArray.cpp                    cardTableModRefBS.hpp
+objectStartArray.cpp                    java.hpp
+objectStartArray.cpp                    objectStartArray.hpp
+objectStartArray.cpp                    virtualspace.hpp
+
+objectStartArray.hpp                    allocation.hpp
+objectStartArray.hpp                    memRegion.hpp
+objectStartArray.hpp                    oop.hpp
+
+parallelScavengeHeap.cpp                adaptiveSizePolicy.hpp
+parallelScavengeHeap.cpp                cardTableExtension.hpp
+parallelScavengeHeap.cpp                generationSizer.hpp
+parallelScavengeHeap.cpp                java.hpp
+parallelScavengeHeap.cpp                oop.inline.hpp
+parallelScavengeHeap.cpp                parallelScavengeHeap.hpp
+parallelScavengeHeap.cpp                psMarkSweep.hpp
+parallelScavengeHeap.cpp                psPromotionManager.hpp
+parallelScavengeHeap.cpp                psScavenge.hpp
+parallelScavengeHeap.cpp                vmThread.hpp
+parallelScavengeHeap.cpp                vm_operations.hpp
+
+parallelScavengeHeap.hpp                collectedHeap.inline.hpp
+parallelScavengeHeap.hpp                objectStartArray.hpp
+parallelScavengeHeap.hpp                gcPolicyCounters.hpp
+parallelScavengeHeap.hpp                psOldGen.hpp
+parallelScavengeHeap.hpp                psPermGen.hpp
+parallelScavengeHeap.hpp                psYoungGen.hpp
+parallelScavengeHeap.hpp                ostream.hpp
+
+psMarkSweep.cpp                         adaptiveSizePolicy.hpp
+psMarkSweep.cpp                         events.hpp
+psMarkSweep.cpp                         fprofiler.hpp
+psMarkSweep.cpp                         gcLocker.hpp
+psMarkSweep.cpp                         isGCActiveMark.hpp
+psMarkSweep.cpp                         oop.inline.hpp
+psMarkSweep.cpp                         parallelScavengeHeap.hpp
+psMarkSweep.cpp                         psMarkSweep.hpp
+psMarkSweep.cpp                         psMarkSweepDecorator.hpp
+psMarkSweep.cpp                         psOldGen.hpp
+psMarkSweep.cpp                         psPermGen.hpp
+psMarkSweep.cpp                         psScavenge.hpp
+psMarkSweep.cpp                         psYoungGen.hpp
+psMarkSweep.cpp                         referencePolicy.hpp
+psMarkSweep.cpp                         referenceProcessor.hpp
+psMarkSweep.cpp                         safepoint.hpp
+psMarkSweep.cpp                         symbolTable.hpp
+psMarkSweep.cpp                         systemDictionary.hpp
+psMarkSweep.cpp                         vmThread.hpp
+
+psMarkSweep.hpp                         markSweep.inline.hpp
+psMarkSweep.hpp                         collectorCounters.hpp
+
+psMarkSweepDecorator.cpp                liveRange.hpp
+psMarkSweepDecorator.cpp                markSweep.inline.hpp
+psMarkSweepDecorator.cpp                objectStartArray.hpp
+psMarkSweepDecorator.cpp                oop.inline.hpp
+psMarkSweepDecorator.cpp                parallelScavengeHeap.hpp
+psMarkSweepDecorator.cpp                psMarkSweep.hpp
+psMarkSweepDecorator.cpp                psMarkSweepDecorator.hpp
+psMarkSweepDecorator.cpp                systemDictionary.hpp
+
+psMarkSweepDecorator.hpp                mutableSpace.hpp
+
+psOldGen.cpp                            adaptiveSizePolicy.hpp
+psOldGen.cpp                            cardTableModRefBS.hpp
+psOldGen.cpp                            gcLocker.hpp
+psOldGen.cpp                            java.hpp
+psOldGen.cpp                            oop.inline.hpp
+psOldGen.cpp                            parallelScavengeHeap.hpp
+psOldGen.cpp                            psMarkSweepDecorator.hpp
+psOldGen.cpp                            psOldGen.hpp
+
+psOldGen.hpp                            generationCounters.hpp
+psOldGen.hpp                            mutableSpace.hpp
+psOldGen.hpp                            objectStartArray.hpp
+psOldGen.hpp                            spaceCounters.hpp
+
+psPermGen.cpp                           gcUtil.hpp
+psPermGen.cpp                           parallelScavengeHeap.hpp
+psPermGen.cpp                           psMarkSweepDecorator.hpp
+psPermGen.cpp                           psPermGen.hpp
+
+psPermGen.hpp                           psOldGen.hpp
+
+psPromotionManager.cpp                  memRegion.hpp
+psPromotionManager.cpp                  mutableSpace.hpp
+psPromotionManager.cpp                  oop.inline.hpp
+psPromotionManager.cpp                  oop.psgc.inline.hpp
+psPromotionManager.cpp                  parallelScavengeHeap.hpp
+psPromotionManager.cpp                  psOldGen.hpp
+psPromotionManager.cpp                  psPromotionManager.inline.hpp
+psPromotionManager.cpp                  psScavenge.inline.hpp
+
+psPromotionManager.hpp                  allocation.hpp
+psPromotionManager.hpp                  prefetchQueue.hpp
+psPromotionManager.hpp                  psPromotionLAB.hpp
+psPromotionManager.hpp                  taskqueue.hpp
+
+psPromotionManager.inline.hpp           psPromotionManager.hpp
+psPromotionManager.inline.hpp           psScavenge.hpp
+
+psPromotionLAB.cpp                      mutableSpace.hpp
+psPromotionLAB.cpp                      oop.inline.hpp
+psPromotionLAB.cpp                      parallelScavengeHeap.hpp
+psPromotionLAB.cpp                      psPromotionLAB.hpp
+
+psPromotionLAB.hpp                      allocation.hpp
+psPromotionLAB.hpp                      objectStartArray.hpp
+
+psScavenge.cpp                          adaptiveSizePolicy.hpp
+psScavenge.cpp                          cardTableExtension.hpp
+psScavenge.cpp                          fprofiler.hpp
+psScavenge.cpp                          gcLocker.hpp
+psScavenge.cpp                          gcTaskManager.hpp
+psScavenge.cpp                          handles_inline.hpp
+psScavenge.cpp                          isGCActiveMark.hpp
+psScavenge.cpp                          oop.inline.hpp
+psScavenge.cpp                          oop.psgc.inline.hpp
+psScavenge.cpp                          parallelScavengeHeap.hpp
+psScavenge.cpp                          psMarkSweep.hpp
+psScavenge.cpp                          psScavenge.inline.hpp
+psScavenge.cpp                          psTasks.hpp
+psScavenge.cpp                          referencePolicy.hpp
+psScavenge.cpp                          referenceProcessor.hpp
+psScavenge.cpp                          resourceArea.hpp
+psScavenge.cpp                          threadCritical.hpp
+psScavenge.cpp                          vmThread.hpp
+psScavenge.cpp                          vm_operations.hpp
+
+psScavenge.hpp                          allocation.hpp
+psScavenge.hpp                          cardTableExtension.hpp
+psScavenge.hpp                          collectorCounters.hpp
+psScavenge.hpp                          oop.hpp
+
+psScavenge.inline.hpp                   cardTableExtension.hpp
+psScavenge.inline.hpp                   parallelScavengeHeap.hpp
+psScavenge.inline.hpp                   psPromotionManager.hpp
+psScavenge.inline.hpp                   psScavenge.hpp
+
+psTasks.cpp                             cardTableExtension.hpp
+psTasks.cpp                             fprofiler.hpp
+psTasks.cpp                             gcTaskManager.hpp
+psTasks.cpp                             iterator.hpp
+psTasks.cpp                             oop.inline.hpp
+psTasks.cpp                             oop.psgc.inline.hpp
+psTasks.cpp                             psMarkSweep.hpp
+psTasks.cpp                             psPromotionManager.hpp
+psTasks.cpp                             psScavenge.hpp
+psTasks.cpp                             psTasks.hpp
+psTasks.cpp                             systemDictionary.hpp
+psTasks.cpp                             thread.hpp
+psTasks.cpp                             universe.hpp
+psTasks.cpp                             vmThread.hpp
+
+psTasks.hpp                             allocation.hpp
+psTasks.hpp                             growableArray.hpp
+
+psYoungGen.cpp                          gcUtil.hpp
+psYoungGen.cpp                          java.hpp
+psYoungGen.cpp                          oop.inline.hpp
+psYoungGen.cpp                          parallelScavengeHeap.hpp
+psYoungGen.cpp                          psMarkSweepDecorator.hpp
+psYoungGen.cpp                          psYoungGen.hpp
+
+psYoungGen.hpp                          generationCounters.hpp
+psYoungGen.hpp                          mutableSpace.hpp
+psYoungGen.hpp                          objectStartArray.hpp
+psYoungGen.hpp                          spaceCounters.hpp
+

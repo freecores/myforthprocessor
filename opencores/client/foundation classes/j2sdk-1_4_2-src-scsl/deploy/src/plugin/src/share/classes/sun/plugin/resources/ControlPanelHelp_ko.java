@@ -1,0 +1,273 @@
+/*
+ * @(#)ControlPanelHelp_ko.java	1.2 03/03/18
+ *
+ * Copyright 2002 Sun Microsystems, Inc. All rights reserved.
+ * SUN PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
+ */
+
+package sun.plugin.resources;
+
+import java.util.ListResourceBundle;
+import java.awt.event.KeyEvent;
+
+/**
+ * US English verison of ControlPanel strings.
+ *
+ * @author Bruce Murphy
+ */
+
+public class ControlPanelHelp_ko extends ListResourceBundle {
+
+    private static String newline = "\n";
+
+    public Object[][] getContents() {
+        return contents;
+    }
+
+    static final Object[][] contents = {
+    { "help.file", newline +
+                   "Java Plug-in \uc81c\uc5b4\ud310 \ub3c4\uc6c0\ub9d0" + newline + newline + newline +
+                   "\ubcf8 \ub3c4\uc6c0\ub9d0\uc758 \ub0b4\uc6a9\uc740 \uc544\ub798\uc640 \uac19\uc2b5\ub2c8\ub2e4." + newline +
+                   "      \uac1c\uc694" + newline + 
+                   "      \uc635\uc158 \uc800\uc7a5" + newline + 
+                   "      \uc81c\uc5b4\ud310 \uc635\uc158 \uc124\uc815" + newline + 
+                   "      \uae30\ubcf8 \ud328\ub110" + newline + 
+                   "      \uace0\uae09 \ud328\ub110" + newline +
+                   "      \ube0c\ub77c\uc6b0\uc800 \ud328\ub110" + newline + 
+                   "      \ud504\ub85d\uc2dc \ud328\ub110" + newline + 
+                   "      \uce90\uc2dc \ud328\ub110" + newline + 
+                   "      \uc778\uc99d\uc11c \ud328\ub110" + newline + 
+                   "      \uc5c5\ub370\uc774\ud2b8  \ud328\ub110" + newline + newline + 
+                   "\uac1c\uc694" + newline + newline +
+                   "Java Plug-in \uc81c\uc5b4\ud310\uc744 \uc0ac\uc6a9\ud558\uba74 \uc2dc\uc791 \ub2e8\uacc4\uc5d0\uc11c Java Plug-in\uc5d0\uc11c \uc0ac\uc6a9\ud558\ub294 \uae30\ubcf8 \uc124\uc815\uac12\uc744 \ubcc0\uacbd\ud560 \uc218 \uc788\uc2b5\ub2c8\ub2e4." + newline +
+                   "Java Plug-in \uc791\ub3d9 \uc911\uc5d0 \uc2e4\ud589\ub418\ub294 \ubaa8\ub4e0 \uc560\ud50c\ub9bf\uc740 \uc774 \uc124\uc815\uac12\uc744 \uc0ac\uc6a9\ud558\uac8c \ub429\ub2c8\ub2e4." + newline +
+                   "\uc5ec\uae30\uc11c \ub9d0\ud558\ub294 Java Plug-in Developer Guide\ub294 \ub2e4\uc74c \uc0ac\uc774\ud2b8\uc5d0\uc11c \ubc1b\uc744 \uc218 \uc788\uc2b5\ub2c8\ub2e4 (URL\uc740 \ubcc0\uacbd\ub420 \uc218 \uc788\uc2b5\ub2c8\ub2e4)." + newline +
+                   "http://java.sun.com/j2se/1.4/docs/guide/plugin/developer_guide/contents.html" + newline + newline +
+                   "\uc635\uc158 \uc800\uc7a5" + newline + newline +
+                   "\uc81c\uc5b4\ud310 \uc635\uc158\uc744 \ubcc0\uacbd\ud55c \ud6c4 \uc801\uc6a9\uc744 \ub20c\ub7ec \ubcc0\uacbd\uc744 \uc800\uc7a5\ud558\uc2ed\uc2dc\uc624." + newline +
+                   "\uc7ac\uc124\uc815\uc744 \ud074\ub9ad\ud558\uba74 \ubcc0\uacbd \ub0b4\uc6a9\uc774 \ucde8\uc18c\ub418\uace0 \ub9c8\uc9c0\ub9c9\uc73c\ub85c \uc124\uc815\ub41c \uac12\uc73c\ub85c \ub418\ub3cc\uc544\uac11\ub2c8\ub2e4." + newline +
+                   "\ud558\uc9c0\ub9cc \uc774 \uacbd\uc6b0 Java Plug-in \uc124\uce58\uc2dc \uc6d0\ub798 \uc124\uc815\ud55c \uae30\ubcf8\uac12\uacfc\ub294 \ub2e4\ub974\ub2e4\ub294 \uc810\uc744 \uc720\uc758\ud558\uc2ed\uc2dc\uc624." + newline + newline +
+                   "\uc81c\uc5b4\ud310 \uc635\uc158 \uc124\uc815" + newline + newline +
+                   "Java Plug-in \uc81c\uc5b4\ud310 \ub0b4\uc5d0\ub294 \ub2e4\uc591\ud55c \uc635\uc158\uc744 \uc124\uc815\ud560 \uc218 \uc788\ub294 6\uac1c \ud328\ub110\uc774 \uc788\uc2b5\ub2c8\ub2e4." + newline +
+                   "\ud328\ub110\uc758 \uc774\ub984\uc740 \ub2e4\uc74c\uacfc \uac19\uc2b5\ub2c8\ub2e4. " + newline +
+                   "      \uae30\ubcf8" + newline + 
+                   "      \uace0\uae09" + newline + 
+                   "      \ube0c\ub77c\uc6b0\uc800" + newline + 
+                   "      \ud504\ub85d\uc2dc" + newline + 
+                   "      \uce90\uc2dc" + newline + 
+                   "      \uc778\uc99d\uc11c" + newline + 
+                   "      \uc5c5\ub370\uc774\ud2b8" + newline + newline +
+                   "\uc544\ub798\ub294 \uac01 \ud328\ub110\uc5d0 \ub300\ud55c \uc124\uba85\uc785\ub2c8\ub2e4." + newline + newline + newline +
+                   " \uae30\ubcf8" + newline +
+                   "Java \ucf58\uc194 \ud45c\uc2dc" + newline + newline + 
+                   "      \uc560\ud50c\ub9bf \uc2e4\ud589 \uc911\uc5d0 Java \ucf58\uc194\uc744 \ud45c\uc2dc\ud569\ub2c8\ub2e4. \uc774 \ucf58\uc194\uc740 System.out \ubc0f System.err\uc5d0 \uc758\ud574 \uc778\uc1c4\ub418\ub294 \ubaa8\ub4e0 \uba54\uc2dc\uc9c0\ub97c \ud45c\uc2dc\ud569\ub2c8\ub2e4." + newline +
+                   "      \uc774 \uae30\ub2a5\uc740 \ubb38\uc81c\uc810\uc744 \ub514\ubc84\uae45\ud558\ub294\ub370 \uc720\uc6a9\ud569\ub2c8\ub2e4." + newline + newline +
+                   "\ucf58\uc194 \uc228\uae30\uae30" + newline + newline + 
+                   "      Java \ucf58\uc194\uc774 \uc2e4\ud589\ub418\uc9c0\ub9cc \uc228\uaca8\uc9d1\ub2c8\ub2e4. \uae30\ubcf8 \uc124\uc815\uc740 Java \ucf58\uc194 \uc228\uae30\uae30(\uccb4\ud06c\ub428)\uc785\ub2c8\ub2e4." + newline + newline +
+                   "\ucf58\uc194\uc744 \uc2dc\uc791\ud558\uc9c0 \ub9c8\uc2ed\uc2dc\uc624" + newline + newline + 
+                   "      Java \ucf58\uc194\uc774 \uc2dc\uc791\ub418\uc9c0 \uc54a\uc2b5\ub2c8\ub2e4." + newline + newline + 
+                   "\uc608\uc678 \ub300\ud654 \uc0c1\uc790 \ud45c\uc2dc" + newline + newline + 
+                   "      \uc608\uc678 \ubc1c\uc0dd\uc2dc \uc608\uc678 \ub300\ud654 \uc0c1\uc790\uac00 \ub098\ud0c0\ub0a9\ub2c8\ub2e4. \uae30\ubcf8 \uc124\uc815\uc740 \uc608\uc678 \ub300\ud654 \uc0c1\uc790\ub97c \ud45c\uc2dc\ud558\uc9c0 \uc54a\ub294 \uac83(\uccb4\ud06c\ub418\uc9c0 \uc54a\uc74c)\uc785\ub2c8\ub2e4." + newline + newline +
+                   "\uc2dc\uc2a4\ud15c \ud2b8\ub808\uc774\uc5d0 Java \ud45c\uc2dc(Windows\uc5d0\ub9cc \ud574\ub2f9)" + newline + newline + 
+                   "      \uc774 \uc635\uc158\uc744 \uc0ac\uc6a9\ud558\uba74 Java Plug-in\uc774 \uc2dc\uc791\ub420 \ub54c \uc2dc\uc2a4\ud15c \ud2b8\ub808\uc774\uc5d0 \ucee4\ud53c\uc794 \ubaa8\uc591\uc758 Java \ub85c\uace0\uac00 \ud45c\uc2dc\ub418\uace0" + newline +
+                   "      Java Plug-in\uc744 \ub05d\ub0b4\uba74 \uc2dc\uc2a4\ud15c \ud2b8\ub808\uc774\uc5d0\uc11c \ub85c\uace0\uac00 \uc81c\uac70\ub429\ub2c8\ub2e4." + newline +
+                   "      Java \ucee4\ud53c\uc794 \ub85c\uace0\ub294 Java VM\uc774 \uc2e4\ud589 \uc911\uc784\uc744 \uc0ac\uc6a9\uc790\uc5d0\uac8c \uc54c\ub824 \uc8fc\uace0 Java \ub9b4\ub9ac\uc2a4\uc5d0 \ub300\ud55c \uc815\ubcf4\ub97c \uc81c\uacf5\ud558\uba70" + newline +
+                   "      Java \ucf58\uc194\uc744 \uc81c\uc5b4\ud569\ub2c8\ub2e4." + newline +
+                   "      \uc774 \uc635\uc158\uc740 \uae30\ubcf8\uc801\uc73c\ub85c \uc124\uc815(\uccb4\ud06c\ub428)\ub418\uc5b4 \uc788\uc2b5\ub2c8\ub2e4." + newline + newline +
+                   "      Java \uc2dc\uc2a4\ud15c \ud2b8\ub808\uc774 \uae30\ub2a5:" + newline + newline + 
+                   "      Java \ucee4\ud53c\uc794 \ub85c\uace0 \uc704\uc5d0 \ub9c8\uc6b0\uc2a4\ub97c \ub193\uc73c\uba74 \"Java\" \ud14d\uc2a4\ud2b8\uac00 \ud45c\uc2dc\ub429\ub2c8\ub2e4." + newline + newline +
+
+                   "      Java \uc2dc\uc2a4\ud15c \ud2b8\ub808\uc774 \uc544\uc774\ucf58\uc744 \ub9c8\uc6b0\uc2a4 \uc67c\ucabd \ubc84\ud2bc\uc73c\ub85c \ub450 \ubc88 \ud074\ub9ad\ud558\uba74 Java \ucf58\uc194 \ucc3d\uc774 \ub098\ud0c0\ub0a9\ub2c8\ub2e4." + newline + newline + 
+                   "      Java \uc2dc\uc2a4\ud15c \ud2b8\ub808\uc774 \uc544\uc774\ucf58\uc744 \ub9c8\uc6b0\uc2a4 \uc624\ub978\ucabd \ubc84\ud2bc\uc73c\ub85c \ud074\ub9ad\ud558\uba74 \ub2e4\uc74c \ud31d\uc5c5 \uba54\ub274\uac00 \ub098\ud0c0\ub0a9\ub2c8\ub2e4." + newline + newline +
+                   "            \ucf58\uc194 \uc5f4\uae30/\ub2eb\uae30" + newline + 
+                   "            Java \uc815\ubcf4" + newline + 
+                   "            \uc0ac\uc6a9 \ubd88\uac00\ub2a5" + newline + 
+                   "            \uc885\ub8cc" + newline + newline + 
+                   "      \ucf58\uc194 \uc5f4\uae30/\ub2eb\uae30\ub294 Java \ucf58\uc194 \ucc3d\uc744 \uc5f4\uac70\ub098 \ub2eb\uc2b5\ub2c8\ub2e4. Java \ucf58\uc194\uc774 \uc228\uaca8\uc838 \uc788\uc73c\uba74" + newline +
+                   "      \uba54\ub274 \ud56d\ubaa9\uc5d0 \ucf58\uc194 \uc5f4\uae30\uac00 \ud45c\uc2dc\ub418\uace0 Java \ucf58\uc194\uc774 \ud45c\uc2dc\ub418\uc5b4 \uc788\uc73c\uba74 \ucf58\uc194 \ub2eb\uae30\uac00 \ub098\ud0c0\ub0a9\ub2c8\ub2e4." + newline + newline +
+                   "      Java \uc815\ubcf4\ub97c \ub204\ub974\uba74 Java 2 Standard Edition\uc758 \uc815\ubcf4 \uc0c1\uc790\uac00 \ub098\ud0c0\ub0a9\ub2c8\ub2e4." + newline + newline +
+                   "      \uc0ac\uc6a9 \ubd88\uac00\ub2a5\uc744 \ub204\ub974\uba74 \uc774 \uc138\uc158\uacfc \uc774\ud6c4 \uc138\uc158\ub3d9\uc548 \uc2dc\uc2a4\ud15c \ud2b8\ub808\uc774\uc5d0\uc11c Java \uc544\uc774\ucf58\uc744 \uc81c\uac70\ud558\uc5ec \uc0ac\uc6a9\ud560 \uc218 \uc5c6\uc2b5\ub2c8\ub2e4. Java Plug-in\uc744 \ub2e4\uc2dc" + newline +
+                   "      \uc2dc\uc791\ud558\uba74 \uc2dc\uc2a4\ud15c \ud2b8\ub808\uc774\uc5d0 Java \uc544\uc774\ucf58\uc774 \ub098\ud0c0\ub098\uc9c0 \uc54a\uc2b5\ub2c8\ub2e4." + newline +
+                   "      \uc0ac\uc6a9 \ubd88\uac00\ub2a5\uc73c\ub85c \uc124\uc815\ud55c \ud6c4\uc5d0 \uc2dc\uc2a4\ud15c \ud2b8\ub808\uc774\uc5d0 Java \uc544\uc774\ucf58\uc744 \ud45c\uc2dc\ud558\ub294 \ubc29\ubc95\uc5d0 \ub300\ud574\uc11c\ub294 \uc544\ub798 \uc8fc\uc758\ub97c \ucc38\uc870\ud558\uc2ed\uc2dc\uc624." + newline + newline +
+                   "      \uc885\ub8cc\ub294 \ud604\uc7ac \uc138\uc158 \ub3d9\uc548\ub9cc \uc2dc\uc2a4\ud15c \ud2b8\ub808\uc774\uc5d0\uc11c Java \uc544\uc774\ucf58\uc744 \uc81c\uac70\ud569\ub2c8\ub2e4. Java Plug-in\uc774 \ub2e4\uc2dc \uc2dc\uc791\ub418\uba74" + newline +
+                   "      \uc2dc\uc2a4\ud15c \ud2b8\ub808\uc774\uc5d0 Java \uc544\uc774\ucf58\uc774 \ub2e4\uc2dc \ub098\ud0c0\ub0a9\ub2c8\ub2e4." + newline + newline + newline + 
+                   "                \uc8fc\uc758" + newline + newline +
+                   "                1. \"\uc2dc\uc2a4\ud15c \ud2b8\ub808\uc774\uc5d0 Java \ud45c\uc2dc\"\ub97c \uc120\ud0dd\ud558\uba74 \"\ucf58\uc194\uc744 \ub2e4\uc2dc \uc2dc\uc791 \uc548 \ud568\"\uc774 \uc120\ud0dd\ub418\uc5b4 \uc788\uc5b4\ub3c4" + newline +
+                   "                Java \uc544\uc774\ucf58\uc774 \uc2dc\uc2a4\ud15c \ud2b8\ub808\uc774\uc5d0 \ub098\ud0c0\ub0a9\ub2c8\ub2e4." + newline + newline +
+                   "                2. \uc0ac\uc6a9 \ubd88\uac00\ub2a5\uc73c\ub85c \uc124\uc815\ud55c \ub2e4\uc74c Java \uc544\uc774\ucf58\uc744 \uc0ac\uc6a9 \uac00\ub2a5\ud558\uac8c \ud558\ub824\uba74 Java Plug-in \uc81c\uc5b4\ud310\uc744 \uc2dc\uc791\ud558\uace0 \"\uc2dc\uc2a4\ud15c \ud2b8\ub808\uc774\uc5d0 Java" + newline +
+                   "                \ud45c\uc2dc\"\ub97c \uc120\ud0dd\ud55c \ub2e4\uc74c \"\uc801\uc6a9\"\uc744 \ub204\ub985\ub2c8\ub2e4." + newline + newline +
+                   "                3. \ub2e4\ub978 Java VM\uc774 \uc774\ubbf8 \uc2e4\ud589 \uc911\uc774\uace0 \uc2dc\uc2a4\ud15c \ud2b8\ub808\uc774\uc5d0 \ub2e4\ub978 Java \uc544\uc774\ucf58\uc774 \uc774\ubbf8 \ucd94\uac00\ub418\uc5b4 \uc788\ub294 \uacbd\uc6b0\uc5d0" + newline +
+                   "                Java Plug-in \uc81c\uc5b4\ud310\uc5d0\uc11c \uc124\uc815\uc744 \ubcc0\uacbd\ud558\uba74 \ubcc0\uacbd\ud55c \uc124\uc815\uc740 \uc774\ubbf8 \ucd94\uac00\ub41c \uc544\uc774\ucf58\uc5d0\ub294 \uc801\uc6a9\ub418\uc9c0 \uc54a\uc2b5\ub2c8\ub2e4." + newline +
+                   "                \ub098\uc911\uc5d0 Java VM\uc774 \uc2dc\uc791\ub420 \ub54c Java \uc544\uc774\ucf58 \ub3d9\uc791\uc5d0\ub9cc \uc801\uc6a9\ub429\ub2c8\ub2e4." + newline + newline + newline +
+                   " \uace0\uae09" + newline + newline + newline +
+                   "Java Run Time Environment" + newline + newline +
+                   "      Java Plug-in\uc774 \ucef4\ud4e8\ud130\uc5d0 \uc124\uce58\ub41c Java 2 JRE \ub610\ub294 SDK, Standard Edition v 1.3 \ub610\ub294 1.4\uc640 \ud568\uaed8 \uc2e4\ud589\ub420 \uc218 \uc788\ub3c4\ub85d \ud558\ub294 \uc635\uc158\uc785\ub2c8\ub2e4." + newline +
+                   "      Java Plug-in 1.3/1.4\uc740 \uae30\ubcf8 JRE\uacfc \ud568\uaed8 \uc81c\uacf5\ub429\ub2c8\ub2e4." + newline +
+                   "      \uadf8\ub7ec\ub098 \uc774 \uae30\ubcf8 JRE\ub97c \ubb34\ud6a8\ud654\ud55c \ud6c4 \uc774\uc804 \ubc84\uc804\uc774\ub098 \uc0c8 \ubc84\uc804\uc744 \uc0ac\uc6a9\ud560 \uc218 \uc788\uc2b5\ub2c8\ub2e4. \uc81c\uc5b4\ud310\uc740 \uc790\ub3d9\uc73c\ub85c" + newline +
+                   "      \ucef4\ud4e8\ud130\uc5d0 \uc124\uce58\ub41c \ubaa8\ub4e0 Java 2 SDK \ub610\ub294 JRE \ubc84\uc804\uc744 \uac80\uc0c9\ud558\uc5ec \uc0ac\uc6a9\ud560 \uc218 \uc788\ub294" + newline +
+                   "      \ubaa8\ub4e0 \ubc84\uc804\uc744 \ubaa9\ub85d \uc0c1\uc790\uc5d0 \ud45c\uc2dc\ud569\ub2c8\ub2e4." + newline +
+                   "      \ubaa9\ub85d\uc758 \uccab \ubc88\uc9f8 \ud56d\ubaa9\uc740 \uae30\ubcf8 JRE\uc774\uba70 \ub9c8\uc9c0\ub9c9 \ud56d\ubaa9\uc740 \ud56d\uc0c1 \uae30\ud0c0\uc785\ub2c8\ub2e4. \uae30\ud0c0\ub97c \uc120\ud0dd\ud558\uba74" + newline +
+                   "      Java 2 JRE \ub610\ub294 SDK, Standard Edition v 1.3/1.4\uc758 \uacbd\ub85c\ub97c \uc9c0\uc815\ud574\uc57c \ud569\ub2c8\ub2e4." + newline + newline + 
+                   "                \uc8fc\uc758" + newline + newline +
+                   "                \uc774 \uc635\uc158 \ubcc0\uacbd\uc740 \uace0\uae09 \uc0ac\uc6a9\uc790\uc5d0\uac8c\ub9cc \uad8c\uc7a5\ub429\ub2c8\ub2e4. \uae30\ubcf8 JRE\ub294 \ubcc0\uacbd\ud558\uc9c0 \uc54a\ub294 \uac83\uc774 \uc88b\uc2b5\ub2c8\ub2e4." + newline + newline + newline +
+                   "Java \ub7f0\ud0c0\uc784 \ub9e4\uac1c\ubcc0\uc218" + newline + newline + 
+                   "      \uc0ac\uc6a9\uc790 \uc815\uc758 \uc635\uc158\uc744 \uc9c0\uc815\ud558\uc5ec Java Plug-in \uae30\ubcf8 \uc2dc\uc791 \ub9e4\uac1c\ubcc0\uc218\ub97c \ubb34\ud6a8\ud654\ud569\ub2c8\ub2e4. \uad6c\ubb38\uc740 Java" + newline +
+                   "      \uba85\ub839\ud589 \ud638\ucd9c \ub9e4\uac1c\ubcc0\uc218\uc640 \uac19\uc2b5\ub2c8\ub2e4. \uba85\ub839\ud589 \uc635\uc158 \uc804\uccb4 \ubaa9\ub85d\uc740 Java 2 Standard Edition(J2SE)" + newline +
+                   "      \ubb38\uc11c\ub97c \ucc38\uc870\ud558\uc2ed\uc2dc\uc624." + newline +
+                   "      \uc544\ub798 URL\uc740 \ubcc0\uacbd\ub420 \uc218 \uc788\uc2b5\ub2c8\ub2e4" + newline + newline +
+                   "            http://java.sun.com/j2se/1.4/docs/tooldocs/<platform>/java.html" + newline + newline + 
+                   "            \uc5ec\uae30\uc11c <platform>\uc740 Solaris, Linux \ubc0f Win32 \uc6b4\uc601\uccb4\uc81c \uc911 \ud558\ub098\uc785\ub2c8\ub2e4." + newline + newline + 
+                   "      Java \ub7f0\ud0c0\uc784 \ub9e4\uac1c\ubcc0\uc218 \uc911 \uc77c\ubd80\ub97c \uc608\ub85c \ub4e4\uba74 \ub2e4\uc74c\uacfc \uac19\uc2b5\ub2c8\ub2e4." + newline + newline +
+                   "      \ud45c\uba85(assertion) \uc9c0\uc6d0 \uc0ac\uc6a9 \uac00\ub2a5 \ubc0f \uc0ac\uc6a9 \ubd88\uac00\ub2a5" + newline + newline +
+                   "            \ud45c\uba85 \uc9c0\uc6d0\uc744 \uc0ac\uc6a9\ud558\uac8c \ud558\ub824\uba74 Java \ub7f0\ud0c0\uc784 \ub9e4\uac1c\ubcc0\uc218\uc5d0 \uc2dc\uc2a4\ud15c \uc18d\uc131\uc744 \uc544\ub798\uc640 \uac19\uc774 \uc9c0\uc815\ud574\uc57c \ud569\ub2c8\ub2e4." + newline + newline +
+                   "                  -D[ enableassertions | ea ][:<package name>\"...\" | : <class name> ]" + newline + newline +
+                   "            Java Plug-in\uc5d0\uc11c \ud45c\uba85\uc744 \uc0ac\uc6a9\ud558\uc9c0 \ubabb\ud558\uac8c \ud558\ub824\uba74 Java \ub7f0\ud0c0\uc784 \ub9e4\uac1c\ubcc0\uc218\uc5d0 \uc544\ub798\uc640 \uac19\uc774 \uc9c0\uc815\ud574\uc57c \ud569\ub2c8\ub2e4." + newline + newline + 
+                   "                  -D[ disableassertions | da ][:<package name>\"...\" | : <class name> ]" + newline + newline + 
+                   "            \ud45c\uba85 \uc0ac\uc6a9 \uac00\ub2a5 \ubc0f \uc0ac\uc6a9 \ubd88\uac00\ub2a5\uc5d0 \ub300\ud55c \uc0c1\uc138 \uc815\ubcf4\ub294 \uc544\ub798 \uc8fc\uc18c\uc758 \ud45c\uba85 \uae30\ub2a5(Assertion Facility)\uc744 \ucc38\uc870\ud558\uc2ed\uc2dc\uc624." + newline +
+                   "            http://java.sun.com/j2se/1.4/docs/guide/lang/assert.html(URL\uc740 \ubcc0\uacbd\ub420 \uc218 \uc788\uc2b5\ub2c8\ub2e4)." + newline + newline +
+                   "            \uae30\ubcf8 \uc124\uc815\uc740 Java Plug-in \ucf54\ub4dc\uc5d0\uc11c\ub294 \ud45c\uba85\uc744 \uc0ac\uc6a9\ud558\uc9c0 \ubabb\ud558\ub3c4\ub85d \ub418\uc5b4 \uc788\uc2b5\ub2c8\ub2e4. \ud45c\uba85 \uc0ac\uc6a9 \uc5ec\ubd80\ub294 Java Plug-in\uc744 \uc2dc\uc791\ud560 \ub54c \uacb0\uc815\ub418\uae30 \ub54c\ubb38\uc5d0" + newline +
+                   "            Java Plug-in \uc81c\uc5b4\ud310\uc5d0\uc11c \ud45c\uba85 \uc124\uc815\uc744 \ubcc0\uacbd\ud558\ub294 \uacbd\uc6b0 \ube0c\ub77c\uc6b0\uc800\ub97c \ub2e4\uc2dc \uc2dc\uc791\ud574\uc57c" + newline +
+                   "            \uc0c8\ub85c\uc6b4 \uc124\uc815\uc774 \uc801\uc6a9\ub429\ub2c8\ub2e4." + newline + newline + 
+                   "            Java Plug-in\uc758 Java \ucf54\ub4dc\ub294 \ub0b4\uc7a5\ud615 \ud45c\uba85 \uae30\ub2a5\uc774 \uc788\uc73c\ubbc0\ub85c \uc544\ub798\uc640 \uac19\uc740 \ubc29\ubc95\uc73c\ub85c Java Plug-in \ucf54\ub4dc\uc758 \ud45c\uba85\uc744" + newline +
+                   "            \uc0ac\uc6a9 \uac00\ub2a5\uc73c\ub85c \uc124\uc815\ud560 \uc218 \uc788\uc2b5\ub2c8\ub2e4." + newline + newline +
+                   "                  -D[ enableassertions | ea ]:sun.plugin" + newline + newline + 
+                   "      \ucd94\uc801 \ubc0f \ub85c\uae45 \uc9c0\uc6d0" + newline + newline +
+                   "            \ucd94\uc801\uc740 Java \ucf58\uc194\uc758 \ucd9c\ub825 \uc815\ubcf4\ub97c \ucd94\uc801 \ud30c\uc77c(.plugin<version>.trace)\ub85c \ub2e4\uc2dc \ubcf4\ub0b4\ub294 \uae30\ub2a5\uc785\ub2c8\ub2e4." + newline + newline +
+                   "                  -Djavaplugin.trace=true" + newline +
+                   "                  -Djavaplugin.trace.option=basic|net|security|ext|liveconnect" + newline + newline +
+                   "            \uae30\ubcf8 \ucd94\uc801 \ud30c\uc77c\uba85 \ub300\uc2e0 \ub2e4\ub978 \ud30c\uc77c\uba85\uc744 \uc0ac\uc6a9\ud558\ub824\uba74 \uc544\ub798\uc640 \uac19\uc774 \uc785\ub825\ud558\uc2ed\uc2dc\uc624." + newline + newline +
+                   "                  -Djavaplugin.trace.filename=<tracefilename>" + newline + newline + 
+                   "            \ucd94\uc801\uacfc \ub9c8\ucc2c\uac00\uc9c0\ub85c \ub85c\uae45\uc740 Java Logging API\ub97c \uc0ac\uc6a9\ud574 Java \ucf58\uc194\uc758 \ucd9c\ub825 \uc815\ubcf4\ub97c \ub85c\uadf8 \ud30c\uc77c(.plugin<version>.log)\ub85c" + newline +
+                   "            \ub2e4\uc2dc \ubcf4\ub0b4\ub294 \uae30\ub2a5\uc785\ub2c8\ub2e4." + newline +
+                   "            javaplugin.logging \uc18d\uc131\uc744 \uc0ac\uc6a9\ud558\uc5ec \ub85c\uae45 \uae30\ub2a5\uc744 \ucf24 \uc218 \uc788\uc2b5\ub2c8\ub2e4." + newline + newline +
+                   "                  -Djavaplugin.logging=true" + newline + newline +
+                   "            \uae30\ubcf8 \ub85c\uadf8 \ud30c\uc77c\uba85 \ub300\uc2e0 \ub2e4\ub978 \ud30c\uc77c\uba85\uc744 \uc0ac\uc6a9\ud558\ub824\uba74 \uc544\ub798\uc640 \uac19\uc774 \uc785\ub825\ud558\uc2ed\uc2dc\uc624." + newline + newline +
+                   "                  -Djavaplugin.log.filename=<logfilename>" + newline + newline + 
+                   "            \ub610\ud55c \uc138\uc158\ubcc4\ub85c \ucd94\uc801 \ud30c\uc77c\uacfc \ub85c\uadf8 \ud30c\uc77c\uc744 \ub36e\uc5b4\uc4f0\uc9c0 \uc54a\uc73c\ub824\uba74 \uc18d\uc131\uc744 \ub2e4\uc74c\uacfc \uac19\uc774 \uc124\uc815\ud558\uc2ed\uc2dc\uc624." + newline + newline + 
+                   "                  -Djavaplugin.outputfiles.overwrite=false." + newline + newline + 
+                   "            \uc18d\uc131\uc744 false\ub85c \uc124\uc815\ud558\uba74 \ucd94\uc801 \ubc0f \ub85c\uadf8 \ud30c\uc77c\uc740 \uc138\uc158\ub9c8\ub2e4 \ub2e4\ub978 \ud30c\uc77c\uba85\uc744 \uac16\uac8c \ub429\ub2c8\ub2e4. \uae30\ubcf8 \ucd94\uc801 \ubc0f" + newline +
+                   "            \ub85c\uadf8 \ud30c\uc77c\uba85\uc744 \uc0ac\uc6a9\ud558\ub294 \uacbd\uc6b0 \ub2e4\uc74c\uacfc \uac19\uc740 \ud30c\uc77c\uba85\uc774 \ubd80\uc5ec\ub429\ub2c8\ub2e4." + newline + newline +
+                   "                  .plugin<username><date hash code>.trace" + newline +
+                   "                  .plugin<username><date hash code>.log" + newline + newline +
+                   "            \uc81c\uc5b4\ud310\uc744 \ud1b5\ud574 \ucd94\uc801 \ubc0f \ub85c\uae45 \uc124\uc815\uc744 \ubcc0\uacbd\ud55c \uacbd\uc6b0 Plug-in\uc774 \uc2dc\uc791\ub420 \ub54c \ubcc0\uacbd\uc774 \uc801\uc6a9\ub429\ub2c8\ub2e4. \ud558\uc9c0\ub9cc" + newline +
+                   "            Plug-in \uc2e4\ud589 \uc911 \uc81c\uc5b4\ud310\uc744 \ud1b5\ud574 \ubcc0\uacbd\ud55c \uacbd\uc6b0\uc5d0\ub294 \ucef4\ud4e8\ud130\ub97c \ub2e4\uc2dc \uc2dc\uc791\ud574\uc57c \ubcc0\uacbd\uc774 \uc801\uc6a9\ub429\ub2c8\ub2e4." + newline + newline + 
+                   "            \ucd94\uc801 \ubc0f \ub85c\uae45\uc5d0 \ub300\ud55c \uc0c1\uc138 \uc815\ubcf4\ub294 Java Plug-in Developer Guide\uc758 Tracing and Logging\uc744 \ucc38\uc870\ud558\uc2ed\uc2dc\uc624." + newline + newline +
+                   "      Java Plug-in\uc5d0\uc11c \uc560\ud50c\ub9bf \ub514\ubc84\uae45" + newline + newline +
+                   "            Java Plug-in\uc5d0\uc11c \uc560\ud50c\ub9bf\uc744 \ub514\ubc84\uae45\ud560 \ub54c \uc544\ub798 \uc635\uc158\uc744 \uc0ac\uc6a9\ud569\ub2c8\ub2e4." + newline +
+                   "            \ub514\ubc84\uae45\uc5d0 \ub300\ud55c \uc0c1\uc138 \uc815\ubcf4\ub294 Java Plug-in Developer Guide\uc758 Debugging Support\ub97c \ucc38\uc870\ud558\uc2ed\uc2dc\uc624." + newline + newline +
+                   "                  -Djava.compiler=NONE" + newline +
+                   "                  -Xnoagent" + newline +
+                   "                  -Xdebug" + newline + 
+                   "                  -Xrunjdwp:transport=dt_shmem,address=<connect-address>,server=y,suspend=n" + newline + newline +
+                   "            <connect-address>\ub294 \ubb38\uc790\uc5f4\uc774\uba74 \ub429\ub2c8\ub2e4(\uc608: 2502). \uc774 \ubb38\uc790\uc5f4\uc740 Java Debugger (jdb)\uac00" + newline +
+                   "            \ub098\uc911\uc5d0 JVM\uc5d0 \uc811\uc18d\ud560 \ub54c \uc0ac\uc6a9\ud569\ub2c8\ub2e4." + newline + newline + 
+                   "      \uae30\ubcf8 \uc811\uc18d \ud0c0\uc784\uc544\uc6c3" + newline + newline +
+                   "            \uc560\ud50c\ub9bf\uc744 \ud1b5\ud574 \uc11c\ubc84\uc5d0 \uc811\uc18d\ud588\ub294\ub370 \uc11c\ubc84\uac00 \uc81c\ub300\ub85c \uc751\ub2f5\ud558\uc9c0 \uc54a\ub294 \uacbd\uc6b0, \uc560\ud50c\ub9bf\uc774" + newline +
+                   "            \uc815\uc9c0\ub418\uac70\ub098 \ube0c\ub77c\uc6b0\uc800\uac00 \uc815\uc9c0\ub420 \uc218\ub3c4 \uc788\uc2b5\ub2c8\ub2e4. \ub124\ud2b8\uc6cc\ud06c \uc811\uc18d \ud0c0\uc784\uc544\uc6c3\uc774 \uc5c6\uae30 \ub54c\ubb38\uc785\ub2c8\ub2e4" + newline +
+                   "            (\uae30\ubcf8\uac12\uc740 -1\ub85c \uc124\uc815\ub418\uc5b4 \uc788\ub294\ub370 \ud0c0\uc784\uc544\uc6c3 \uc124\uc815\uc774 \uc5c6\ub2e4\ub294 \ub73b\uc785\ub2c8\ub2e4)." + newline + newline +
+                   "            \uc774\ub7f0 \ubb38\uc81c\ub97c \ubc29\uc9c0\ud558\uae30 \uc704\ud574 Java Plug-in\uc740 \ubaa8\ub4e0 HTTP \uc811\uc18d\uc5d0 \ub300\ud574 \uae30\ubcf8 \ub124\ud2b8\uc6cc\ud06c \ud0c0\uc784\uc544\uc6c3 \uac12(2\ubd84)\uc744 \ucd94\uac00\ud588\uc2b5\ub2c8\ub2e4." + newline +
+                   "            \uc774 \uc124\uc815\uc740 Java \ub7f0\ud0c0\uc784 \ub9e4\uac1c\ubcc0\uc218\uc5d0\uc11c \ubb34\ud6a8\ud654\ud560 \uc218 \uc788\uc2b5\ub2c8\ub2e4." + newline + newline +
+                   "                  -Dsun.net.client.defaultConnectTimeout=value in milliseconds" + newline + newline +
+                   "            \uadf8\uc678 \uc124\uc815\uc774 \uac00\ub2a5\ud55c \ub124\ud2b8\uc6cc\ud06c \uc18d\uc131\uc740 sun.net.client.defaultReadTimeout\uc785\ub2c8\ub2e4." + newline + newline +
+                   "                  -Dsun.net.client.defaultReadTimeout=value in milliseconds" + newline + newline +
+                   "                  \uc8fc\uc758" + newline + newline +
+                   "                  Java Plug-in\uc740 \uae30\ubcf8\uac12\uc73c\ub85c sun.net.client.defaultReadTimeout\uc744 \uc124\uc815\ud558\uc9c0 \uc54a\uc2b5\ub2c8\ub2e4. \uc774 \uc124\uc815\uc744 \uc6d0\ud560 \uacbd\uc6b0 \uc55e\uc5d0\uc11c \uc124\uba85\ud55c \ub300\ub85c" + newline +
+                   "                   Java \ub7f0\ud0c0\uc784 \ub9e4\uac1c\ubcc0\uc218\uc5d0\uc11c \uc124\uc815\ud558\uc2ed\uc2dc\uc624." + newline + newline + newline +
+                   "            \ub124\ud2b8\uc6cc\ud06c \uc18d\uc131 \uc124\uba85:" + newline + newline +
+                   "            sun.net.client.defaultConnectTimeout" + newline +
+                   "            sun.net.client.defaultReadTimeout" + newline + newline +
+                   "                  \uc774 \ub450 \uc18d\uc131\uc740 java.net.URLConnection\uc5d0\uc11c \uc0ac\uc6a9\ud558\ub294 \ud504\ub85c\ud1a0\ucf5c \ud578\ub4e4\ub7ec\uc5d0 \ub300\ud55c \uae30\ubcf8 \uc811\uc18d\uac12\uacfc" + newline +
+                   "                  \uc77d\uae30 \ud0c0\uc784\uc544\uc6c3\uac12\uc744 \uac01\uac01 \uc9c0\uc815\ud569\ub2c8\ub2e4. \ud504\ub85c\ud1a0\ucf5c \ud578\ub4e4\ub7ec\uac00 \uc124\uc815\ud558\ub294 \uae30\ubcf8\uac12\uc740 -1\uc774\uace0" + newline +
+                   "                  \ud0c0\uc784\uc544\uc6c3 \uc124\uc815\uc774 \uc5c6\ub2e4\ub294 \ub73b\uc785\ub2c8\ub2e4." + newline + newline +
+                   "                  sun.net.client.defaultConnectTimeout\uc740 \ud638\uc2a4\ud2b8\uc5d0 \uc811\uc18d\ud558\ub294 \ud0c0\uc784\uc544\uc6c3(\ubc00\ub9ac\ucd08 \ub2e8\uc704)\uc744 \uc9c0\uc815\ud569\ub2c8\ub2e4." + newline +
+                   "                  \uc608\ub97c \ub4e4\uc5b4 http \uc811\uc18d\uc758 \uacbd\uc6b0 http \uc11c\ubc84\uc5d0 \uc811\uc18d\ub418\uba74 \ud0c0\uc784\uc544\uc6c3\uc785\ub2c8\ub2e4." + newline +
+                   "                  ftp \uc811\uc18d\uc758 \uacbd\uc6b0 ftp \uc11c\ubc84\uc5d0 \uc811\uc18d\ub418\uba74 \ud0c0\uc784\uc544\uc6c3\uc785\ub2c8\ub2e4." + newline + newline +
+                   "                  sun.net.client.defaultReadTimeout\uc740 \uc790\uc6d0\uc5d0 \uc811\uc18d\ub418\uc5b4 \uc785\ub825 \uc2a4\ud2b8\ub9bc\uc5d0\uc11c \uc77d\uc5b4 \uc62c \ub54c" + newline +
+                   "                  \ud0c0\uc784\uc544\uc6c3(\ubc00\ub9ac\ucd08 \ub2e8\uc704)\uc744 \uc9c0\uc815\ud569\ub2c8\ub2e4." + newline + newline + 
+                   "            \uc774 \ub124\ud2b8\uc6cc\ud06c \uc18d\uc131\uc5d0 \ub300\ud55c \uacf5\uc2dd \uc124\uba85\uc740" + newline +
+                   "            http://java.sun.com/j2se/1.4/docs/guide/net/properties.html\uc744 \ucc38\uc870\ud558\uc2ed\uc2dc\uc624." + newline + newline + newline +
+                   " \ube0c\ub77c\uc6b0\uc800" + newline + newline + newline +
+                   "\uc774 \ud328\ub110\uc740 Microsoft Windows \uc124\uce58\uc5d0\uc11c\ub9cc \uc9c0\uc6d0\ub418\uba70 \ub2e4\ub978 \uc124\uce58\uc5d0\uc11c\ub294 \ub098\ud0c0\ub098\uc9c0 \uc54a\uc2b5\ub2c8\ub2e4. \ube0c\ub77c\uc6b0\uc800\uc758 \ub0b4\ubd80 JVM \ub300\uc2e0" + newline +
+"Java Plug-in\uc744 \uae30\ubcf8 Java \ub7f0\ud0c0\uc784\uc73c\ub85c \uc0ac\uc6a9\ud560 \ube0c\ub77c\uc6b0\uc800\ub97c \uccb4\ud06c\ud558\uc2ed\uc2dc\uc624." + newline +
+"Java Plug-in\uc744 \ud1b5\ud574 Internet Explorer \ubc0f Netscape 6\uc5d0\uc11c APPLET \ud0dc\uadf8 \uc9c0\uc6d0\uc744 \uc0ac\uc6a9\ud560 \uc218 \uc788\uc2b5\ub2c8\ub2e4." + newline + newline + newline +
+                   " \ud504\ub85d\uc2dc" + newline + newline +newline +
+                   "\ud504\ub85d\uc2dc \ud328\ub110\uc740 \ube0c\ub77c\uc6b0\uc800 \uae30\ubcf8 \uc124\uc815\uc744 \uc0ac\uc6a9\ud558\uac70\ub098 \ub2e4\ub978 \ud504\ub85c\ud1a0\ucf5c\uc5d0 \ub300\ud55c \ud504\ub85d\uc2dc \uc8fc\uc18c \ubc0f \ud3ec\ud2b8\ub97c \ubb34\ud6a8\ud654\ud558\ub294\ub370 \uc0ac\uc6a9\ub429\ub2c8\ub2e4." + newline + newline + 
+                   "\ube0c\ub77c\uc6b0\uc800 \uc124\uc815 \uc0ac\uc6a9" + newline + newline + 
+                   "      \ube0c\ub77c\uc6b0\uc800 \uae30\ubcf8 \ud504\ub85d\uc2dc \uc124\uc815\uc744 \uc0ac\uc6a9\ud558\ub824\uba74 \uc774 \ud56d\ubaa9\uc5d0 \uccb4\ud06c\ud558\uc2ed\uc2dc\uc624. \uae30\ubcf8 \uc124\uc815\uc740 \ube0c\ub77c\uc6b0\uc800 \uae30\ubcf8 \ud504\ub85d\uc2dc \uc124\uc815 \uc0ac\uc6a9(\uccb4\ud06c\ub428)\uc785\ub2c8\ub2e4." + newline + newline +
+                   "\ud504\ub85d\uc2dc \uc815\ubcf4 \ud14c\uc774\ube14" + newline + newline + 
+                   "      \"\ube0c\ub77c\uc6b0\uc800 \uc124\uc815 \uc0ac\uc6a9\"\uc744 \uc120\ud0dd \ud574\uc81c\ud55c \ub2e4\uc74c \uc120\ud0dd\ub780 \uc544\ub798" + newline +
+                   "      \ud504\ub85d\uc2dc \uc815\ubcf4\ub97c \uc785\ub825\ud558\uc5ec \uae30\ubcf8 \uc124\uc815\uc744 \ubb34\ud6a8\ud654\ud560 \uc218 \uc788\uc2b5\ub2c8\ub2e4. \uc9c0\uc6d0\ub418\ub294 \ud504\ub85c\ud1a0\ucf5c: HTTP, Secure (HTTPS), FTP, Gopher, \ubc0f Socks\uc5d0 \ub300\ud55c " + newline +
+                   "      \uac01\uac01\uc758 \ud504\ub85d\uc2dc \uc8fc\uc18c \ubc0f \ud3ec\ud2b8\ub97c \uc785\ub825\ud560 \uc218 \uc788\uc2b5\ub2c8\ub2e4." + newline + newline + 
+                   "\ud504\ub85d\uc2dc \ud638\uc2a4\ud2b8 \uc5c6\uc74c" + newline + newline + 
+                   "      \ud504\ub85d\uc2dc\uac00 \uc0ac\uc6a9\ub418\uc9c0 \uc54a\uc744 \ud638\uc2a4\ud2b8(\ub4e4) \ubaa9\ub85d\uc785\ub2c8\ub2e4. \uc8fc\ub85c \uc778\ud2b8\ub77c\ub137 \ud658\uacbd\uc758 \ub0b4\ubd80 \uc11c\ubc84\uc5d0" + newline +
+                   "       \ud504\ub85d\uc2dc \ud638\uc2a4\ud2b8 \uc5c6\uc74c\uc774 \uc0ac\uc6a9\ub429\ub2c8\ub2e4." + newline + newline + 
+                   "\uc790\ub3d9 \ud504\ub85d\uc2dc \uad6c\uc131 URL" + newline + 
+                   "      FindProxyForURL \ud568\uc218\uac00 \uc788\ub294 JavaScript \ud30c\uc77c(.js \ub610\ub294 .pac \ud655\uc7a5\uc790)\uc758 URL\uc785\ub2c8\ub2e4." + newline +
+                   "      FindProxyForURL\uc740 \uc5f0\uacb0 \uc694\uccad\uc2dc \uc0ac\uc6a9\ud560 \ud504\ub85d\uc2dc \uc11c\ubc84\ub97c \uacb0\uc815\ud558\ub294 \ub17c\ub9ac\ub97c \uac16\uc2b5\ub2c8\ub2e4." + newline + newline + 
+                   "\ud504\ub85d\uc2dc \uad6c\uc131\uc5d0 \ub300\ud55c \ucd94\uac00 \uc815\ubcf4\ub294 Java Plug-in Developer Guide\uc758 Proxy Configuration" + newline +
+                   "\uc7a5\uc744 \ucc38\uc870\ud558\uc2ed\uc2dc\uc624." + newline + newline + newline +
+                   " \uce90\uc2dc" + newline + newline + newline +
+                   "           \uc8fc\uc758" + newline + newline +
+                   "           \uc5ec\uae30\uc11c \ub9d0\ud558\ub294 \uce90\uc2dc\ub780 \uc2a4\ud2f0\ud0a4(sticky) \uce90\uc2dc\ub97c \ub9d0\ud569\ub2c8\ub2e4. \uc989 Java Plug-in\uc774 \uc0dd\uc131, \uc81c\uc5b4\ud574 \ube0c\ub77c\uc6b0\uc800\uac00 \ub36e\uc5b4\uc4f8 \uc218 \uc5c6\ub294" + newline +
+                   "           \ub514\uc2a4\ud06c \uce90\uc2dc\uc785\ub2c8\ub2e4. \uc0c1\uc138 \uc815\ubcf4\ub294 Java Plug-in Developer Guide\uc758 Applet Caching\uc744 \ucc38\uc870\ud558\uc2ed\uc2dc\uc624." + newline + newline + newline +
+                   "\uce90\uc2f1 \uc0ac\uc6a9" + newline + newline + 
+                   "      \uce90\uc2f1\uc744 \uc0ac\uc6a9\ud558\ub824\uba74 \uc774 \uc120\ud0dd\ub780\uc744 \uccb4\ud06c\ud558\uc2ed\uc2dc\uc624. \uae30\ubcf8 \uc124\uc815\uc740 \uce90\uc2f1 \uc0ac\uc6a9(\uccb4\ud06c\ub428)\uc785\ub2c8\ub2e4. \uc560\ud50c\ub9bf \uce90\uc2f1 \uc0ac\uc6a9\uc774 \uac00\ub2a5\ud558\uba74 \uc131\ub2a5\uc774" + newline +
+                   "       \ud5a5\uc0c1\ub429\ub2c8\ub2e4. \uc560\ud50c\ub9bf\uc774 \uce90\uc2dc\ub418\uc5b4 \ub2e4\uc2dc \ucc38\uc870\ud560 \ub54c \ub2e4\uc6b4\ub85c\ub4dc\ud560 \ud544\uc694\uac00 \uc5c6\uc5b4\uc9c0\uae30 \ub54c\ubb38\uc785\ub2c8\ub2e4." + newline + newline +
+                   "      \ub2e4\uc74c \uc885\ub958\uc758 Java Plug-in \uce90\uc2dc \ud30c\uc77c\uc774 HTTP/HTTPS\ub97c \ud1b5\ud574 \ub2e4\uc6b4\ub85c\ub4dc\ub418\uc5c8\uc2b5\ub2c8\ub2e4." + newline + newline +
+                   "            .jar (jar \ud30c\uc77c)" + newline +
+                   "            .zip (zip \ud30c\uc77c)" + newline +
+                   "            .class (java \ud074\ub798\uc2a4 \ud30c\uc77c)" + newline +
+                   "            .au (\uc624\ub514\uc624 \ud30c\uc77c)" + newline +
+                   "            .wav (\uc624\ub514\uc624 \ud30c\uc77c)" + newline +
+                   "            .jpg (\uc774\ubbf8\uc9c0 \ud30c\uc77c)" + newline +
+                   "            .gif (\uc774\ubbf8\uc9c0 \ud30c\uc77c)" + newline + newline +
+                   "\uce90\uc2dc\uc5d0\uc11c \ud30c\uc77c \ubcf4\uae30" + newline + newline + 
+                   "      \uc774 \uc0c1\uc790\ub97c \ub204\ub974\uba74 \uce90\uc2dc\ub41c \ud30c\uc77c\uc744 \ubcfc \uc218 \uc788\uc2b5\ub2c8\ub2e4. \ub2e4\ub978 \ub300\ud654 \uc0c1\uc790(Java Plug-in \uce90\uc2dc \ubdf0\uc5b4)\uac00 \ub728\uba74\uc11c \uce90\uc2dc \ud30c\uc77c\uc774 \ud45c\uc2dc\ub429\ub2c8\ub2e4." + newline +
+                   "      \uce90\uc2dc \ubdf0\uc5b4\ub294 \uce90\uc2dc\uc5d0 \uc788\ub294 \ud30c\uc77c\uc758 \uc774\ub984, \uc885\ub958, \ud06c\uae30, \ub9cc\uae30\uc77c, \ucd5c\uc885 \uc218\uc815\uc77c," + newline +
+                   "       \ubc84\uc804 \ubc0f URL \uc815\ubcf4\ub97c \ud45c\uc2dc\ud569\ub2c8\ub2e4. \uce90\uc2dc \ubdf0\uc5b4\uc5d0\uc11c \uce90\uc2dc\uc5d0 \uc788\ub294 \ud30c\uc77c\uc744 \uc120\ud0dd\uc801\uc73c\ub85c \uc0ad\uc81c\ud560 \uc218\ub3c4 \uc788\uc2b5\ub2c8\ub2e4." + newline +
+                   "      \uc544\ub798\uc5d0\uc11c \uc124\uba85\ud560 \uce90\uc2dc \uc9c0\uc6b0\uae30 \uc635\uc158 \ub300\uc2e0 \uc0ac\uc6a9\ud560 \uc218 \uc788\ub294 \uc635\uc158\uc785\ub2c8\ub2e4. \uce90\uc2dc \uc9c0\uc6b0\uae30 \uc635\uc158\uc740 \uce90\uc2dc\uc5d0 \uc788\ub294 \ubaa8\ub4e0 \ud30c\uc77c\uc744 \uc0ad\uc81c\ud569\ub2c8\ub2e4." + newline + newline +
+                   "\uce90\uc2dc \uc9c0\uc6b0\uae30" + newline + newline + 
+                   "      \uc774 \uc0c1\uc790\ub97c \ub204\ub974\uba74 \uce90\uc2dc\uc5d0 \uc788\ub294 \ubaa8\ub4e0 \ud30c\uc77c\uc774 \uc0ad\uc81c\ub429\ub2c8\ub2e4. \ud30c\uc77c\uc744 \uc0ad\uc81c\ud558\uae30 \uc804\uc5d0 ..._cache\uc5d0 \uc788\ub294 \ubaa8\ub4e0 \ud30c\uc77c\uc744 \uc0ad\uc81c\ud558\uc2dc\uaca0\uc2b5\ub2c8\uae4c?\ub77c\ub294 \ud655\uc778 \ub300\ud654 \uc0c1\uc790\uac00 \ub098\ud0c0\ub098 \uc0ad\uc81c \uc5ec\ubd80\ub97c \ubb3b\uc2b5\ub2c8\ub2e4." + newline + newline + 
+                   "\uc704\uce58" + newline + newline + 
+                   "      \uce90\uc2dc\uc758 \uc704\uce58\ub97c \uc9c0\uc815\ud560 \uc218 \uc788\uc2b5\ub2c8\ub2e4. \uce90\uc2dc\uc758 \uae30\ubcf8 \uc704\uce58\ub294 <user home>/.jpi_cache\uc785\ub2c8\ub2e4. \uc5ec\uae30\uc11c" + newline +
+                   "      <user home>\uc740 user.home \uc2dc\uc2a4\ud15c \uc18d\uc131\uac12\uc785\ub2c8\ub2e4. \uc774 \uac12\uc740 \uc6b4\uc601\uccb4\uc81c\uc5d0 \ub530\ub77c \ub2e4\ub985\ub2c8\ub2e4." + newline + newline +
+                   "\ud06c\uae30" + newline + newline + 
+                   "      \uc81c\ud55c \uc5c6\uc74c\uc744 \uccb4\ud06c\ud574 \uce90\uc2dc \ud06c\uae30\uc5d0 \uc81c\ud55c\uc744 \ub450\uc9c0 \uc54a\uc744 \uc218\ub3c4 \uc788\uace0 \uce90\uc2dc\uc758 \ucd5c\ub300 \ud06c\uae30\ub97c \uc124\uc815\ud560 \uc218\ub3c4 \uc788\uc2b5\ub2c8\ub2e4." + newline +
+                   "      \uce90\uc2dc \ud06c\uae30\uac00 \uc9c0\uc815\ub41c \uc81c\ud55c\uc120\uc744 \ub118\ub294 \uacbd\uc6b0 \uce90\uc2dc \ud06c\uae30\uac00 \uc81c\ud55c\uc120\uc5d0 \ub4e4\uc5b4\uc62c \ub54c\uae4c\uc9c0 \uce90\uc2dc\ub41c \ud30c\uc77c \uc911 \uac00\uc7a5 \uc624\ub798\ub41c \ud30c\uc77c\ubd80\ud130" + newline +
+                   "      \uc0ad\uc81c\ud569\ub2c8\ub2e4." + newline + newline + 
+                   "\uc555\ucd95" + newline + newline + 
+                   "      \uc5c6\uc74c\uacfc \ub192\uc74c \uc0ac\uc774\uc5d0\uc11c JAR \uce90\uc2dc \ud30c\uc77c \uc555\ucd95\uc744 \uc124\uc815\ud560 \uc218 \uc788\uc2b5\ub2c8\ub2e4. \uc555\ucd95\ub3c4\ub97c \ub192\uc77c \uc218\ub85d" + newline +
+                   "      \uba54\ubaa8\ub9ac\ub294 \uc808\uc57d\ub418\uc9c0\ub9cc \uc131\ub2a5\uc740 \ub5a8\uc5b4\uc9d1\ub2c8\ub2e4. \uc555\ucd95\uc774 \uc5c6\ub294 \uacbd\uc6b0" + newline +
+                   "      \ucd5c\uc0c1\uc758 \uc131\ub2a5\uc744 \uc5bb\uc744 \uc218 \uc788\uc2b5\ub2c8\ub2e4." + newline + newline + newline + 
+                   " \uc778\uc99d\uc11c" + newline + newline + newline +
+                   "\uc778\uc99d\uc11c\uc5d0\ub294 \ub124 \uc885\ub958\uac00 \uc788\uc2b5\ub2c8\ub2e4." + newline + newline +
+                   "      \uc11c\uba85\ub41c \uc560\ud50c\ub9bf" + newline + 
+                   "      \ubcf4\uc548 \uc0ac\uc774\ud2b8" + newline + 
+                   "      \uc11c\uba85\uc790 CA" + newline +
+                   "      \ubcf4\uc548 \uc0ac\uc774\ud2b8 CA" + newline + newline + 
+                   "\uc11c\uba85\ub41c \uc560\ud50c\ub9bf" + newline + newline +
+                   "      \uc0ac\uc6a9\uc790\uc758 \uc704\ud0c1\uc744 \ubc1b\uc544 \uc11c\uba85\ub41c \uc778\uc99d\uc11c\uc785\ub2c8\ub2e4. \uc11c\uba85\ub41c \uc560\ud50c\ub9bf\uc5d0 \ub098\ud0c0\ub098\ub294 \uc778\uc99d\uc11c\ub294" + newline +
+                   "      <user home>/.java \ub514\ub809\ud1a0\ub9ac\uc5d0 \uc704\uce58\ud55c \uc778\uc99d\uc11c \ud30c\uc77c jpicerts<version>\uc5d0\uc11c \uc77d\uc5b4\uc635\ub2c8\ub2e4." + newline + newline +
+                   "\ubcf4\uc548 \uc0ac\uc774\ud2b8" + newline + newline +
+                   "      \ubcf4\uc548 \uc0ac\uc774\ud2b8\uc6a9 \uc778\uc99d\uc11c\uc785\ub2c8\ub2e4. \ubcf4\uc548 \uc0ac\uc774\ud2b8\uc5d0 \ub098\ud0c0\ub098\ub294 \uc778\uc99d\uc11c\ub294 <user home>/.java \ub514\ub809\ud1a0\ub9ac\uc5d0 \uc704\uce58\ud55c \uc778\uc99d\uc11c \ud30c\uc77c" + newline +
+                   "      jpihttpscerts<version>\uc5d0\uc11c \uc77d\uc5b4\uc635\ub2c8\ub2e4." + newline + newline + 
+                   "\uc11c\uba85\uc790 CA" + newline + newline +
+                   "      \uc11c\uba85\ub41c \uc560\ud50c\ub9bf\uc744 \uc704\ud55c CA(\uc778\uc99d\uae30\uad00)\uc758 \uc778\uc99d\uc11c\uc785\ub2c8\ub2e4. CA\ub294 \uc11c\uba85\ub41c \uc560\ud50c\ub9bf\uc758 \uc11c\uba85\uc790\uc5d0\uac8c \uc778\uc99d\uc11c\ub97c" + newline +
+                   "       \ubc1c\uae09\ud558\ub294 \uae30\uad00\uc785\ub2c8\ub2e4. \uc11c\uba85\uc790 CA \ubaa9\ub85d\uc5d0 \ub098\ud0c0\ub098\ub294 \uc778\uc99d\uc11c\ub294 <jre>/lib/security \ub514\ub809\ud1a0\ub9ac\uc5d0 \uc704\uce58\ud55c \uc778\uc99d\uc11c \ud30c\uc77c" + newline +
+                   "       cacerts\uc5d0\uc11c \uc77d\uc5b4\uc635\ub2c8\ub2e4." + newline + newline +
+                   "\ubcf4\uc548 \uc0ac\uc774\ud2b8 CA" + newline + newline +
+                   "      \ubcf4\uc548 \uc0ac\uc774\ud2b8\ub97c \uc704\ud55c CA(\uc778\uc99d\uae30\uad00)\uc758 \uc778\uc99d\uc11c\uc785\ub2c8\ub2e4. CA\ub294 \ubcf4\uc548 \uc0ac\uc774\ud2b8\uc5d0 \uc778\uc99d\uc11c\ub97c \ubc1c\uae09\ud558\ub294" + newline +
+                   "      \uae30\uad00\uc785\ub2c8\ub2e4. \ubcf4\uc548 \uc0ac\uc774\ud2b8 CA \ubaa9\ub85d\uc5d0 \ub098\ud0c0\ub098\ub294 \uc778\uc99d\uc11c\ub294 <jre>/lib/security \ub514\ub809\ud1a0\ub9ac\uc5d0 \uc704\uce58\ud55c \uc778\uc99d\uc11c \ud30c\uc77c" + newline +
+                   "      jssecacerts\uc5d0\uc11c \uc77d\uc5b4\uc635\ub2c8\ub2e4." + newline + newline +
+                   "\uc11c\uba85\ub41c \uc560\ud50c\ub9bf \ubc0f \ubcf4\uc548 \uc0ac\uc774\ud2b8 \uc778\uc99d\uc11c\uc758 \uacbd\uc6b0 \ub124 \uac00\uc9c0 \uc635\uc158(\uac00\uc838\uc624\uae30, \ub0b4\ubcf4\ub0b4\uae30, \uc81c\uac70 \ubc0f \uc790\uc138\ud788)\uc774 \uc788\uc5b4" + newline +
+                   "\uc0ac\uc6a9\uc790\uac00 \uc778\uc99d\uc11c\ub97c \uac00\uc838\uc624\uace0, \ub0b4\ubcf4\ub0b4\uace0, \uc81c\uac70\ud558\uace0, \uc790\uc138\ud55c \ub0b4\uc6a9\uc744 \ubcfc \uc218 \uc788\uc2b5\ub2c8\ub2e4." + newline + newline + 
+                   "\uc11c\uba85\uc790 CA \ubc0f \ubcf4\uc548 \uc0ac\uc774\ud2b8 CA\uc758 \uacbd\uc6b0 \uc635\uc158\uc774 \ud55c \uac00\uc9c0(\uc790\uc138\ud788) \ubc16\uc5d0 \uc5c6\uc5b4 \uc0ac\uc6a9\uc790\ub294 \uc778\uc99d\uc11c\ub97c \uc790\uc138\ud788 \ubcfc \uc218\ub9cc \uc788\uc2b5\ub2c8\ub2e4." + newline + newline + newline +
+                   " \uc5c5\ub370\uc774\ud2b8" + newline + newline + newline +
+                   "\uc774 \ud328\ub110\uc5d0\ub294 \"Java \uc5c5\ub370\uc774\ud2b8 \uc815\ubcf4 \uc5bb\uae30\" \ubc84\ud2bc\uc774 \uc788\uc5b4 Java \uc5c5\ub370\uc774\ud2b8 \uc6f9 \uc0ac\uc774\ud2b8\uc5d0\uc11c" + newline +
+"Java Runtime Environment\uc758 \ucd5c\uc2e0 \uc5c5\ub370\uc774\ud2b8 \ubc84\uc804\uc744 \ubc1b\uc744 \uc218 \uc788\uc2b5\ub2c8\ub2e4. \uc774 \ud328\ub110\uc740 Microsoft Windows \ud50c\ub7ab\ud3fc\uc5d0\uc11c\ub9cc \uc9c0\uc6d0\ub418\uba70 \ub2e4\ub978" + newline +
+"\ud50c\ub7ab\ud3fc(\uc608: Solaris/Linux)\uc5d0\uc11c\ub294 \ub098\ud0c0\ub098\uc9c0 \uc54a\uc2b5\ub2c8\ub2e4."}
+};
+} 
+
+ 
+

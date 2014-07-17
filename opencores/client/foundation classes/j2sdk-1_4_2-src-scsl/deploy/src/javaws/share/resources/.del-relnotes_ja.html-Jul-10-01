@@ -1,0 +1,165 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; CHARSET=ISO-2022-JP">
+   <title>Java(TM) Web Start $B%j%j!<%9%N!<%H(J</title>
+</head>
+<body bgcolor="#FFFFFF">
+&nbsp;
+<table BORDER=0 WIDTH="100%" >
+<tr>
+<td WIDTH="40"><img SRC="javalogo52x88.gif" ALT="Java" BORDER=0 height=88 width=52></td>
+
+<td ALIGN=CENTER>
+<h1>
+$B%j%j!<%9%N!<%H(J</h1>
+
+<h2>
+Java<sup><font size=-2> TM</font></sup> Web Start</h2>
+
+<h3>
+$B%P!<%8%g%s(J 1.0.1_01</h3>
+</td>
+
+<td ALIGN=RIGHT VALIGN=TOP WIDTH="40"><font size=+2>&nbsp;</font></td>
+</tr>
+</table>
+
+<blockquote>
+$B$3$N%j%j!<%9%N!<%H$K$O!"(JJava Web Start $B$N$3$N%j%j!<%9MQ$K9T$o$l$?/usr/re/jdk5/jdk1.4.2/ws/deploy/src/javaws/share/resources/SCCS/s..del-relnotes_ja.html-Jul-10-010=$@5!"$*$h$SDI2C$5$l$??75,5!G=$H3HD%5!G=$K$D$$$F5-=R$7$F$$$^$9!#(J<br><br>
+&nbsp;$B%3%a%s%H$*$h$S14:59:23#!<1.1P30/$NAwIU@h(J : <a href="mailto:javawebstart-feedback@sun.com">javawebstart-feedback@sun.com</a>
+</blockquote>
+
+<h2>
+JNLP $B;EMM$X$NE,9g@-(J</h2>
+
+<blockquote>$B$3$N%j%j!<%9$O!"(JJava<sup><font size=-2> TM</font></sup> Network Launching Protocol &amp; API (JNLP) $B;EMM(J v1.0.1 $B$N@=IJIJ<A%j14:59:23!%l%s%9<BAu(J (RI) $B$G$9!#(J
+</blockquote>
+
+
+<h2>$B?75,5!G=$H3HD%5!G=(J</h2>
+
+<blockquote>
+<h3>1.0.1 $B%j%j!<%9$+$iDI2C$5$l$??75,5!G=$H3HD%5!G=(J</h3>
+<ul>
+<li>
+      Java Web Start $B$N(J Windows $BHG$K4^$^$l$F$$$k(J JRE $B$O(J 
+      JRE 1.3.0_02 $B$+$i(J JRE 1.3.0_03 $B$KJQ99$5$l$^$7$?!#(J</li>
+
+</ul>
+
+<h3>1.0 $B%j%j!<%9$+$iDI2C$5$l$??75,5!G=$H3HD%5!G=(J</h3>
+<ul>
+
+<li>
+      $B<BAu(J RFE
+      <a href="http://developer.java.sun.com/developer/bugParade/bugs/4403663.html">44103663</a>:
+      $B3+H/<T8~$1C%/$K$O!"(JWeb Archive (WAR) $B14:59:23!%$%kFb$G$N(J JNLP $B%"@(#).del-relnotes_ja.html-Jul-10-01	1.1j%1!<%7%g%s$N/usr/re/jdk5/jdk1.4.2/ws/deploy/src/javaws/share/resources/SCCS/s..del-relnotes_ja.html-Jul-10-01s1.1k!"$*$h$S$9$Y$F$N(J JNLP $B%@%&%s%m!<1.1W%m09/10/033%k$d(J JARDiff $B14:59:23!%$%k$N<+F0@8@.$r%5%]!<%H$9$k%5!<%V%l57H$,4^$^$l$^$9!#>\:Y$O!"!V3+H/<T%,%$%I!W$r;2>H$7$F$/$@$5$$!#(J</li>
+
+<li>
+      $B<BAu(J RFE
+      <a href="http://developer.java.sun.com/developer/bugParade/bugs/4403985.html">4403985</a>,
+      <a href="http://developer.java.sun.com/developer/bugParade/bugs/4403988.html">4403988</a>,
+      <a href="http://developer.java.sun.com/developer/bugParade/bugs/4403991.html">4403991</a>,
+      <a href="http://developer.java.sun.com/developer/bugParade/bugs/4403993.html">4403993</a>,
+      <a href="http://developer.java.sun.com/developer/bugParade/bugs/4403994.html">4403994</a>,
+      <a href="http://developer.java.sun.com/developer/bugParade/bugs/4403995.html">4403995</a>, 
+      <a href="http://developer.java.sun.com/developer/bugParade/bugs/4404394.html">4404394</a>:
+      $B$3$N:G=*%j%j!<%9$O!"(J9 $B$+9q8l(J ($B14:59:23i%s%98l!"1.1$%DEY!"%$%?%j%"8l!"F|K\8l!"4Z9q8l!"4JBN;zCf9q8l!"%9@(#)$%s8l!"%9%&%'!<07/10/01s8l!"HKBN;zCf9q8l(J) $B$KBP1~$7$^$9!#(J</li>
+</ul>
+</blockquote>
+<h2>$B=$@5$5$l$?/usr/re/jdk5/jdk1.4.2/ws/deploy/src/javaws/share/resources/SCCS/s..del-relnotes_ja.html-Jul-10-010(J</h2>
+
+<blockquote>
+<h3>1.0.1 $B%j%j!<%9$+$i=$@5$5$l$?/usr/re/jdk5/jdk1.4.2/ws/deploy/src/javaws/share/resources/SCCS/s..del-relnotes_ja.html-Jul-10-010(J</h3>
+<ul>
+<li>
+     $B=$@5$5$l$?/usr/re/jdk5/jdk1.4.2/ws/deploy/src/javaws/share/resources/SCCS/s..del-relnotes_ja.html-Jul-10-010(J 
+      <a href="http://developer.java.sun.com/developer/bugParade/bugs/4465033.html">4465033</a>:
+      $B1.1$%D8l!"%$%?%j%"8l!"14:59:23i%s%98l!"%9%&%'!<07/10/01s8l!"F|K\8l$N%m%1!<%k$G$O!"=pL>$N$"$k%"@(#).del-relnotes_ja.html-Jul-10-01	1.1j%1!<%7%g%s$^$?$O%"@(#).del-relnotes_ja.html-Jul-10-01	1.1l79HMQ$K%;%-%e%jsrc/javaws/share/resources/SCCS/s..del-relnotes_ja.html-Jul-10-01#%@%$%"%m%0$rI=<($7$h$&$H$9$k$H!"(J Java Web Start 1.0.1 $B$ODd;_$7$^$9!#$3$N/usr/re/jdk5/jdk1.4.2/ws/deploy/src/javaws/share/resources/SCCS/s..del-relnotes_ja.html-Jul-10-010$O!"(JJava Web Start 1.0.1_01 $B$G=$@5$5$l$^$7$?!#(J
+</li>
+</ul>
+
+<h3>1.0 $B%j%j!<%9$+$i=$@5$5$l$?/usr/re/jdk5/jdk1.4.2/ws/deploy/src/javaws/share/resources/SCCS/s..del-relnotes_ja.html-Jul-10-010(J</h3>
+<ul>
+<li>
+     $B=$@5$5$l$?/usr/re/jdk5/jdk1.4.2/ws/deploy/src/javaws/share/resources/SCCS/s..del-relnotes_ja.html-Jul-10-010(J 
+      <a href="http://developer.java.sun.com/developer/bugParade/bugs/4430482.html">4430482</a>:
+      Java Web Start $B$O!"BgH>$N(J Web $B@(#).del-relnotes_ja.html-Jul-10-01	1.1m%-%7<+F09=@.%9%/%j@(#).del-relnotes_ja.html-Jul-10-01	1.1H$r%5%]!<%H$9$k$h$&$K$J$j$^$7$?!#$[$\$9$Y$F$N4D6-$G!"@(#).del-relnotes_ja.html-Jul-10-01	1.1m%-%7@_Dj$N8!=P$,2DG=$G$9!#(J
+</li>
+
+<li>
+     $B=$@5$5$l$?/usr/re/jdk5/jdk1.4.2/ws/deploy/src/javaws/share/resources/SCCS/s..del-relnotes_ja.html-Jul-10-010(J 
+      <a href="http://developer.java.sun.com/developer/bugParade/bugs/4402826.html">4402826</a>:
+      $B99?7@(#) .del-relnotes_ja.html-Jul-10-01 1.1@(#)'94/$*$h$S%*14:59:23i%$%s%5%]!<%H$,2~A1$5$l$^$7$?!#ITMW$J(J 2 $BHVL\$N99?7%@%$%"%m%0$,:o=|$5$l$^$7$?!#>\:Y$O!"!V3+H/<T%,%$%I!W$N!V(J<tt>&lt;offline-allowed/&gt;</tt> $BMWAG!W$N@bL@$r;2>H$7$F$/$@$5$$!#(J</li>
+
+<li>
+     $B=$@5$5$l$?/usr/re/jdk5/jdk1.4.2/ws/deploy/src/javaws/share/resources/SCCS/s..del-relnotes_ja.html-Jul-10-010(J 
+      <a href="http://developer.java.sun.com/developer/bugParade/bugs/4403113.html">4403113</a>:
+      <tt>current-version-id</tt> $B$,%5!<%P$KAw?.$5$l$J$$$?$a$K!"DI2C%@%&%s%m!<%I$NF0:nITNI$N860x$H$J$C$F$$$?/usr/re/jdk5/jdk1.4.2/ws/deploy/src/javaws/share/resources/SCCS/s..del-relnotes_ja.html-Jul-10-010$,=$@5$5$l$^$7$?!#(J</li>
+
+<li>
+     $B=$@5$5$l$?/usr/re/jdk5/jdk1.4.2/ws/deploy/src/javaws/share/resources/SCCS/s..del-relnotes_ja.html-Jul-10-010(J 
+      <a href="http://developer.java.sun.com/developer/bugParade/bugs/4416927.html">4416927</a>:
+      $B$"$k>u672<$G(J Swing $B%"@(#).del-relnotes_ja.html-Jul-10-01	1.1j%1!<%7%g%s$NBgI}$JU%)!<%^%s%9Dc2<!"$*$h$S:FIA2h$NLdBj$r0z$-5/$3$9!"%"%/%;%98"$N/usr/re/jdk5/jdk1.4.2/ws/deploy/src/javaws/share/resources/SCCS/s..del-relnotes_ja.html-Jul-10-010$,=$@5$5$l$^$7$?!#(J</li>
+
+<li>
+      $B<BAu(J RFE
+      <a href="http://developer.java.sun.com/developer/bugParade/bugs/4353300.html">4353300</a>:
+      $B14:59:23!%$%k%5%$%:$N>.$5$$(J Windows $BMQ%$%s%9%H!<%i$,?7$?$KC%1!<%82=$5$l$?$?$a!"%@%&%s%m!<1.15%$%:$,>.$5$/$J$j$^$7$?!#(JJava Runtime Environment $B$r4^$^$J$$(J Windows $BMQ$N%"109W%0%l!<1.1P%s1.1k$,4^$^$l$^$9!#(J</li>
+
+<li>
+     $B=$@5$5$l$?/usr/re/jdk5/jdk1.4.2/ws/deploy/src/javaws/share/resources/SCCS/s..del-relnotes_ja.html-Jul-10-010(J 
+      <a href="http://developer.java.sun.com/developer/bugParade/bugs/4415380.html">4415380</a>:
+      /silent $B14:59:23i%0$r;HMQ$7$F!"%5%$%l%s09/10/03$%s%9%H!<%k$r<B9T$G$-$k$h$&$K$J$j$^$7$?(J (Windows $BHG$N$_(J)$B!#(J</li>
+
+<li>
+     $B=$@5$5$l$?/usr/re/jdk5/jdk1.4.2/ws/deploy/src/javaws/share/resources/SCCS/s..del-relnotes_ja.html-Jul-10-010(J 
+      <a href="http://developer.java.sun.com/developer/bugParade/bugs/4410529.html">4410529</a>:
+      $B%f!<%6%$%s%?14:59:23'!<%9$,<c432~A1$5$l!"%"@(#).del-relnotes_ja.html-Jul-10-01	1.1j%1!<%7%g%s%^%M!<%8%c$,(J Java Look & Feel $B%,%$1.1i%$%s$K$h$j=`5r$7$?$b$N$K$J$j$^$7$?!#(J</li>
+
+<li>
+      $B$=$NB>$N%^%$%J!<$J/usr/re/jdk5/jdk1.4.2/ws/deploy/src/javaws/share/resources/SCCS/s..del-relnotes_ja.html-Jul-10-010$N=$@5$,9T$o$l$^$7$?!#(J</li>
+
+</ul>
+</blockquote>
+
+<TABLE WIDTH="100%" CELLPADDING="0" BORDER="0" CELLSPACING="5">
+<TR>
+        <TD BGCOLOR="#CCCCCC">
+        <IMG SRC="/images/pixel.gif" WIDTH="1" HEIGHT="1" ALT=""></TD>
+</TR>
+<TR>
+        <TD>
+                <TABLE WIDTH="100%" CELLPADDING="0" BORDER="0" CELLSPACING="0">
+                <TR>
+                <TD WIDTH="50%">
+                <FONT SIZE="-2">
+                For more information on Java technology<BR>
+                and other software from Sun Microsystems, call:<BR>
+                </FONT>
+                <FONT SIZE="-1">
+                (800) 786-7638<BR></FONT>
+                <FONT SIZE="-2">
+                Outside the U.S. and Canada, dial your country's <A
+HREF="http://www.att.com/tollfree/international/dialguide/">AT&amp;T&nbsp;Direct&nbsp;Access&nbsp;Number</A> first.<BR>
+                </FONT>
+                </TD>
+                <TD ALIGN="RIGHT" WIDTH="50%">
+                <A HREF="http://www.sun.com">
+                <IMG SRC="sunlogo64x30.gif" width="64"
+                height="30" border="0" ALT="Sun Microsystems, Inc."></A><BR>
+                <FONT SIZE="-2">
+                Copyright &copy; 2000-2001
+                <A HREF="http://www.sun.com">Sun Microsystems, Inc.</A><BR>
+                All Rights Reserved. <a
+                href="http://www.sun.com/share/text/termsofuse.html">Terms
+                of Use</a>. <A HREF="http://www.sun.com/privacy">Privacy&nbsp;Policy</A>.
+                </FONT>
+                </TD></TR>
+                </TABLE>
+        </TD>
+</TR>
+</TABLE>
+</body>
+</html>

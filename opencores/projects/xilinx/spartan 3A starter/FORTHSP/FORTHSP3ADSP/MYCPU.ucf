@@ -1,0 +1,150 @@
+# On this board, VCCAUX is 3.3 volts.
+CONFIG VCCAUX = "3.3" ;
+
+# Configure SUSPEND mode options.
+CONFIG ENABLE_SUSPEND = "FILTERED" ;
+
+# FILTERED is appropriate for use with the switch on this board. Other allowed
+# settings are NO or UNFILTERED.  If set NO, the AWAKE pin becomes general I/O.
+# Please read the FPGA User Guide for more information.
+# Configure POST_CRC options.
+CONFIG POST_CRC = "DISABLE" ;
+
+# DISABLE the post-configuration CRC checking so INIT_B is available for
+# general I/O after configuration is done.  On this board, INIT_B is used
+# after configuration to control the Platform Flash device.  Other allowed
+# settings are ENABLE.  Please read the FPGA User Guide for more information.
+
+NET "Clock" TNM_NET = "Clock";
+TIMESPEC "TS_Clock" = PERIOD "Clock" 16.0 ns HIGH 50 %;
+
+#NET "CLKFX" TNM_NET = "CLKFX";
+#TIMESPEC "TS_CLKFX" = PERIOD "CLKFX" 30 ns HIGH 50 %;
+
+##############################################################################
+# Clock oscilator
+##############################################################################
+NET "SysClock" LOC = "F13" | IOSTANDARD = "LVCMOS33" | PERIOD = 8 ns HIGH 40 %;
+
+##############################################################################
+# 
+##############################################################################
+NET "Interrupt<0>"      LOC = "A7"  | IOSTANDARD = LVCMOS33 | PULLDOWN ;
+NET "Interrupt<1>"     LOC = "G16"  | IOSTANDARD = LVCMOS33 | PULLDOWN ;
+NET "Interrupt<2>"     LOC = "E9"  | IOSTANDARD = LVCMOS33 | PULLDOWN ;
+NET "Interrupt<3>"      LOC = "D15"  | IOSTANDARD = LVCMOS33 | PULLDOWN ;
+NET "Interrupt<4>"         LOC = "D19"  | IOSTANDARD = LVCMOS33 | PULLDOWN ;
+NET "Interrupt<5>"         LOC = "B24"  | IOSTANDARD = LVCMOS33 | PULLDOWN ;
+NET "Interrupt<6>"         LOC = "A5"  | IOSTANDARD = LVCMOS33 | PULLDOWN ;
+NET "Interrupt<7>"         LOC = "A23"  | IOSTANDARD = LVCMOS33 | PULLDOWN ;
+
+##############################################################################
+# SW2
+##############################################################################
+NET "nReset" LOC = "Y16" | IOSTANDARD = "LVCMOS33" | PULLUP;
+
+##############################################################################
+# Discrete Indicators (LED)
+##############################################################################
+NET "LED<0>" LOC = "P18" | IOSTANDARD = "LVCMOS33" | DRIVE = 8 | SLEW = SLOW;
+NET "LED<1>" LOC = "P25" | IOSTANDARD = "LVCMOS33" | DRIVE = 8 | SLEW = SLOW;
+NET "LED<2>" LOC = "N19" | IOSTANDARD = "LVCMOS33" | DRIVE = 8 | SLEW = SLOW;
+NET "LED<3>" LOC = "K22" | IOSTANDARD = "LVCMOS33" | DRIVE = 8 | SLEW = SLOW;
+NET "LED<4>" LOC = "H20" | IOSTANDARD = "LVCMOS33" | DRIVE = 8 | SLEW = SLOW;
+NET "LED<5>" LOC = "G21" | IOSTANDARD = "LVCMOS33" | DRIVE = 8 | SLEW = SLOW;
+NET "LED<6>" LOC = "D24" | IOSTANDARD = "LVCMOS33" | DRIVE = 8 | SLEW = SLOW;
+NET "LED<7>" LOC = "D25" | IOSTANDARD = "LVCMOS33" | DRIVE = 8 | SLEW = SLOW;
+
+##############################################################################
+# Mechanical Switches (SW) (counter events)
+##############################################################################
+NET "source<0>" LOC = "J17" | IOSTANDARD = "LVCMOS33";
+NET "source<1>" LOC = "J15" | IOSTANDARD = "LVCMOS33";
+NET "source<2>" LOC = "J13" | IOSTANDARD = "LVCMOS33";
+NET "source<3>" LOC = "J10" | IOSTANDARD = "LVCMOS33";
+
+##############################################################################
+# Serial Ports (RS232 crossed out)
+##############################################################################
+NET "RxD" LOC = "N21"  | IOSTANDARD = LVCMOS33 ;
+NET "TxD" LOC = "P22"  | IOSTANDARD = LVCMOS33 ; # | DRIVE = 8 | SLEW = SLOW ;
+
+
+##############################################################################
+# DDR2 SDRAM Device (SD)
+##############################################################################
+NET "SD_A<0>" LOC = "J5" | IOSTANDARD = "SSTL18_I";
+NET "SD_A<1>" LOC = "M9" | IOSTANDARD = "SSTL18_I";
+NET "SD_A<2>" LOC = "M10" | IOSTANDARD = "SSTL18_I";
+NET "SD_A<3>" LOC = "K4" | IOSTANDARD = "SSTL18_I";
+NET "SD_A<4>" LOC = "K5" | IOSTANDARD = "SSTL18_I";
+NET "SD_A<5>" LOC = "K2" | IOSTANDARD = "SSTL18_I";
+NET "SD_A<6>" LOC = "K3" | IOSTANDARD = "SSTL18_I";
+NET "SD_A<7>" LOC = "L3" | IOSTANDARD = "SSTL18_I";
+NET "SD_A<8>" LOC = "L4" | IOSTANDARD = "SSTL18_I";
+NET "SD_A<9>" LOC = "M7" | IOSTANDARD = "SSTL18_I";
+NET "SD_A<10>" LOC = "M8" | IOSTANDARD = "SSTL18_I";
+NET "SD_A<11>" LOC = "M3" | IOSTANDARD = "SSTL18_I";
+NET "SD_A<12>" LOC = "M4" | IOSTANDARD = "SSTL18_I";
+NET "SD_BA<0>" LOC = "K6" | IOSTANDARD = "SSTL18_I";
+NET "SD_BA<1>" LOC = "J4" | IOSTANDARD = "SSTL18_I";
+NET "SD_RAS" LOC = "H1" | IOSTANDARD = "SSTL18_I";
+NET "SD_CAS" LOC = "L10" | IOSTANDARD = "SSTL18_I";
+NET "SD_CK_N<0>" LOC = "N2" | IOSTANDARD = "DIFF_SSTL18_I";
+NET "SD_CK_N<1>" LOC = "N4" | IOSTANDARD = "DIFF_SSTL18_I";
+NET "SD_CK_P<0>" LOC = "N1" | IOSTANDARD = "DIFF_SSTL18_I";
+NET "SD_CK_P<1>" LOC = "N5" | IOSTANDARD = "DIFF_SSTL18_I";
+NET "SD_CKE" LOC = "L7" | IOSTANDARD = "SSTL18_I";
+NET "SD_ODT" LOC = "G3" | IOSTANDARD = "SSTL18_I";
+NET "SD_CS" LOC = "H2" | IOSTANDARD = "SSTL18_I";
+NET "SD_WE" LOC = "L9" | IOSTANDARD = "SSTL18_I";
+NET "SD_DM<0>" LOC = "V2" | IOSTANDARD = "SSTL18_I";
+NET "SD_DM<1>" LOC = "V1" | IOSTANDARD = "SSTL18_I";
+NET "SD_DM<2>" LOC = "R2" | IOSTANDARD = "SSTL18_I";
+NET "SD_DM<3>" LOC = "M6" | IOSTANDARD = "SSTL18_I";
+NET "SD_LOOP_IN" LOC = "T9" | IOSTANDARD = "SSTL18_I";
+NET "SD_LOOP_OUT" LOC = "T10" | IOSTANDARD = "SSTL18_I";
+NET "MB_FB_CLK_IN" LOC = "N7" | IOSTANDARD = "SSTL18_I";
+NET "MB_FB_CLK_OUT" LOC = "M2" | IOSTANDARD = "SSTL18_I";
+NET "SD_DQS_N<0>" LOC = "V6" | IOSTANDARD = "DIFF_SSTL18_I";
+NET "SD_DQS_N<2>" LOC = "W4" | IOSTANDARD = "DIFF_SSTL18_I";
+NET "SD_DQS_N<1>" LOC = "U4" | IOSTANDARD = "DIFF_SSTL18_I";
+NET "SD_DQS_N<3>" LOC = "R4" | IOSTANDARD = "DIFF_SSTL18_I";
+NET "SD_DQS<0>" LOC = "V7" | IOSTANDARD = "DIFF_SSTL18_I";
+NET "SD_DQS<2>" LOC = "W3" | IOSTANDARD = "DIFF_SSTL18_I";
+NET "SD_DQS<1>" LOC = "T5" | IOSTANDARD = "DIFF_SSTL18_I";
+NET "SD_DQS<3>" LOC = "R3" | IOSTANDARD = "DIFF_SSTL18_I";
+
+NET "SD_DQ<0>" LOC = "U9" | IOSTANDARD = "SSTL18_I";
+NET "SD_DQ<1>" LOC = "V8" | IOSTANDARD = "SSTL18_I";
+NET "SD_DQ<2>" LOC = "AB1" | IOSTANDARD = "SSTL18_I";
+NET "SD_DQ<3>" LOC = "AC1" | IOSTANDARD = "SSTL18_I";
+NET "SD_DQ<4>" LOC = "Y5" | IOSTANDARD = "SSTL18_I";
+NET "SD_DQ<5>" LOC = "Y6" | IOSTANDARD = "SSTL18_I";
+NET "SD_DQ<6>" LOC = "U7" | IOSTANDARD = "SSTL18_I";
+NET "SD_DQ<7>" LOC = "U8" | IOSTANDARD = "SSTL18_I";
+NET "SD_DQ<8>" LOC = "AA2" | IOSTANDARD = "SSTL18_I";
+NET "SD_DQ<9>" LOC = "AA3" | IOSTANDARD = "SSTL18_I";
+NET "SD_DQ<10>" LOC = "Y1" | IOSTANDARD = "SSTL18_I";
+NET "SD_DQ<11>" LOC = "Y2" | IOSTANDARD = "SSTL18_I";
+NET "SD_DQ<12>" LOC = "T7" | IOSTANDARD = "SSTL18_I";
+NET "SD_DQ<13>" LOC = "U6" | IOSTANDARD = "SSTL18_I";
+NET "SD_DQ<14>" LOC = "U5" | IOSTANDARD = "SSTL18_I";
+NET "SD_DQ<15>" LOC = "V5" | IOSTANDARD = "SSTL18_I";
+NET "SD_DQ<16>" LOC = "R8" | IOSTANDARD = "SSTL18_I";
+NET "SD_DQ<17>" LOC = "R7" | IOSTANDARD = "SSTL18_I";
+NET "SD_DQ<18>" LOC = "U1" | IOSTANDARD = "SSTL18_I";
+NET "SD_DQ<19>" LOC = "U2" | IOSTANDARD = "SSTL18_I";
+NET "SD_DQ<20>" LOC = "P8" | IOSTANDARD = "SSTL18_I";
+NET "SD_DQ<21>" LOC = "P9" | IOSTANDARD = "SSTL18_I";
+NET "SD_DQ<22>" LOC = "R5" | IOSTANDARD = "SSTL18_I";
+NET "SD_DQ<23>" LOC = "R6" | IOSTANDARD = "SSTL18_I";
+NET "SD_DQ<24>" LOC = "P7" | IOSTANDARD = "SSTL18_I";
+NET "SD_DQ<25>" LOC = "P6" | IOSTANDARD = "SSTL18_I";
+NET "SD_DQ<26>" LOC = "T3" | IOSTANDARD = "SSTL18_I";
+NET "SD_DQ<27>" LOC = "T4" | IOSTANDARD = "SSTL18_I";
+NET "SD_DQ<28>" LOC = "N9" | IOSTANDARD = "SSTL18_I";
+NET "SD_DQ<29>" LOC = "P10" | IOSTANDARD = "SSTL18_I";
+NET "SD_DQ<30>" LOC = "P4" | IOSTANDARD = "SSTL18_I";
+NET "SD_DQ<31>" LOC = "P3" | IOSTANDARD = "SSTL18_I";
+

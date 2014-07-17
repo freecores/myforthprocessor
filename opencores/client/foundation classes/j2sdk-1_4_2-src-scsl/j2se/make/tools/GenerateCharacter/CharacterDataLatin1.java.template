@@ -1,0 +1,240 @@
+
+/* @(#)CharacterDataLatin1.java.template	1.2 02/11/11
+ *
+ * Copyright 1994-2002 Sun Microsystems, Inc. All Rights Reserved.
+ *
+ * This software is the proprietary information of Sun Microsystems, Inc.
+ * Use is subject to license terms.
+ *
+ */
+
+package java.lang;
+
+/** The CharacterData class encapsulates the large tables found in
+    Java.lang.Character. */
+
+class CharacterDataLatin1 {
+
+    /* The character properties are currently encoded into 32 bits in the following manner:
+        1 bit   mirrored property
+        4 bits  directionality property
+        9 bits  signed offset used for converting case
+        1 bit   if 1, adding the signed offset converts the character to lowercase
+        1 bit   if 1, subtracting the signed offset converts the character to uppercase
+        1 bit   if 1, this character has a titlecase equivalent (possibly itself)
+        3 bits  0  may not be part of an identifier
+                1  ignorable control; may continue a Unicode identifier or Java identifier
+                2  may continue a Java identifier but not a Unicode identifier (unused)
+                3  may continue a Unicode identifier or Java identifier
+                4  is a Java whitespace character
+                5  may start or continue a Java identifier;
+                   may continue but not start a Unicode identifier (underscores)
+                6  may start or continue a Java identifier but not a Unicode identifier ($)
+                7  may start or continue a Unicode identifier or Java identifier
+                Thus:
+                   5, 6, 7 may start a Java identifier
+                   1, 2, 3, 5, 6, 7 may continue a Java identifier
+                   7 may start a Unicode identifier
+                   1, 3, 5, 7 may continue a Unicode identifier
+                   1 is ignorable within an identifier
+                   4 is Java whitespace
+        2 bits  0  this character has no numeric property
+                1  adding the digit offset to the character code and then
+                   masking with 0x1F will produce the desired numeric value
+                2  this character has a "strange" numeric value
+                3  a Java supradecimal digit: adding the digit offset to the
+                   character code, then masking with 0x1F, then adding 10
+                   will produce the desired numeric value
+        5 bits  digit offset
+        5 bits  character type
+
+        The encoding of character properties is subject to change at any time.
+     */
+
+    static int getProperties(char ch) {
+        return $$Lookup(ch);
+    }
+
+    static int getType(char ch) {
+        return getProperties(ch) & $$maskType;
+    }
+
+    static boolean isLowerCase(char ch) {
+        return getType(ch) == Character.LOWERCASE_LETTER;
+    }
+
+    static boolean isUpperCase(char ch) {
+        return getType(ch) == Character.UPPERCASE_LETTER;
+    }
+
+    static boolean isTitleCase(char ch) {
+        return false;
+    }
+
+    static boolean isDigit(char ch) {
+        return getType(ch) == Character.DECIMAL_DIGIT_NUMBER;
+    }
+
+    static boolean isDefined(char ch) {
+        return getType(ch) != Character.UNASSIGNED;
+    }
+
+    static boolean isLetter(char ch) {
+        return (((((1 << Character.UPPERCASE_LETTER) |
+            (1 << Character.LOWERCASE_LETTER) |
+            (1 << Character.TITLECASE_LETTER) |
+            (1 << Character.MODIFIER_LETTER) |
+            (1 << Character.OTHER_LETTER)) >> getType(ch)) & 1) != 0);
+    }
+
+    static boolean isLetterOrDigit(char ch) {
+        return (((((1 << Character.UPPERCASE_LETTER) |
+            (1 << Character.LOWERCASE_LETTER) |
+            (1 << Character.TITLECASE_LETTER) |
+            (1 << Character.MODIFIER_LETTER) |
+            (1 << Character.OTHER_LETTER) |
+            (1 << Character.DECIMAL_DIGIT_NUMBER)) >> getType(ch)) & 1) != 0);
+    }
+
+    static boolean isSpaceChar(char ch) {
+        return (((((1 << Character.SPACE_SEPARATOR) |
+                   (1 << Character.LINE_SEPARATOR) |
+                   (1 << Character.PARAGRAPH_SEPARATOR))
+                >> getType(ch)) & 1) != 0);
+    }
+
+
+    static boolean isJavaIdentifierStart(char ch) {
+        return (getProperties(ch) & $$maskIdentifierInfo) >= $$lowJavaStart;
+    }
+
+    static boolean isJavaIdentifierPart(char ch) {
+        return (getProperties(ch) & $$nonzeroJavaPart) != 0;
+    }
+
+    static boolean isUnicodeIdentifierStart(char ch) {
+        return (getProperties(ch) & $$maskIdentifierInfo) == $$valueUnicodeStart;
+    }
+
+    static boolean isUnicodeIdentifierPart(char ch) {
+        return (getProperties(ch)& $$maskUnicodePart) != 0;
+    }
+
+    static boolean isIdentifierIgnorable(char ch) {
+        return (getProperties(ch) & $$maskIdentifierInfo) == $$valueIgnorable;
+    }
+
+    static char toLowerCase(char ch) {
+        char mapChar = ch;
+        int val = getProperties(ch);
+
+        if (((val & $$maskLowerCase) != 0) && 
+                ((val & $$maskCaseOffset) != $$maskCaseOffset)) { 
+            int offset = val << $$shiftCaseOffsetSign >> ($$shiftCaseOffsetSign+$$shiftCaseOffset);
+            mapChar = (char)(ch + offset);
+        }
+        return mapChar;
+    }
+
+    static char toUpperCase(char ch) {
+        char mapChar = ch;
+        int val = getProperties(ch);
+
+        if ((val & $$maskUpperCase) != 0) {
+            if ((val & $$maskCaseOffset) != $$maskCaseOffset) {
+                int offset = val  << $$shiftCaseOffsetSign >> ($$shiftCaseOffsetSign+$$shiftCaseOffset);
+                mapChar =  (char)(ch - offset);
+            } else if (ch == '\u00B5') {
+                mapChar = '\u039C';
+            }
+        }
+        return mapChar;
+    }
+
+    static char toTitleCase(char ch) {
+        return toUpperCase(ch);
+    }
+
+    static int digit(char ch, int radix) {
+        int value = -1;
+        if (radix >= Character.MIN_RADIX && radix <= Character.MAX_RADIX) {
+            int val = getProperties(ch);
+            int kind = val & $$maskType;
+            if (kind == Character.DECIMAL_DIGIT_NUMBER) {
+                value = ch + ((val & $$maskDigitOffset) >> $$shiftDigitOffset) & $$maskDigit;
+            }
+            else if ((val & $$maskNumericType) == $$valueJavaSupradecimal) {
+                // Java supradecimal digit
+                value = (ch + ((val & $$maskDigitOffset) >> $$shiftDigitOffset) & $$maskDigit) + 10;
+            }
+        }
+        return (value < radix) ? value : -1;
+    }
+
+    static int getNumericValue(char ch) {
+        int val = getProperties(ch);
+        int retval = -1;
+
+        switch (val & $$maskNumericType) {
+            default: // cannot occur
+            case ($$valueNotNumeric):         // not numeric
+                retval = -1;
+                break;
+            case ($$valueDigit):              // simple numeric
+                retval = ch + ((val & $$maskDigitOffset) >> $$shiftDigitOffset) & $$maskDigit;
+                break;
+            case ($$valueStrangeNumeric)      :       // "strange" numeric
+                 retval = -2; 
+                 break;
+            case ($$valueJavaSupradecimal):           // Java supradecimal
+                retval = (ch + ((val & $$maskDigitOffset) >> $$shiftDigitOffset) & $$maskDigit) + 10;
+                break;
+        }
+        return retval;
+    }
+
+    static boolean isWhitespace(char ch) {
+        return (getProperties(ch) & $$maskIdentifierInfo) == $$valueJavaWhitespace;
+    }
+
+    static byte getDirectionality(char ch) {
+        int val = getProperties(ch);
+        byte directionality = (byte)((val & $$maskBidi) >> $$shiftBidi);
+
+        if (directionality == 0xF ) {
+            directionality = -1;
+        }
+        return directionality;
+    }
+
+    static boolean isMirrored(char ch) {
+        return (getProperties(ch) & $$maskMirrored) != 0;
+    }
+
+    static char toUpperCaseEx(char ch) {
+        char mapChar = ch;
+        int val = getProperties(ch);
+
+        if ((val & $$maskUpperCase) != 0) {
+            if ((val & $$maskCaseOffset) != $$maskCaseOffset) {
+                int offset = val  << $$shiftCaseOffsetSign >> ($$shiftCaseOffsetSign+$$shiftCaseOffset);
+                mapChar =  (char)(ch - offset);
+            }
+            else {
+                switch(ch) {
+                    // map overflow characters
+                    case '\u00B5' : mapChar = '\u039C'; break;
+                    default       : mapChar = Character.CHAR_ERROR; break;
+                }
+            }
+        }
+        return mapChar;
+    }
+
+    $$Tables
+
+    static {
+        $$Initializers
+    }        
+}
+

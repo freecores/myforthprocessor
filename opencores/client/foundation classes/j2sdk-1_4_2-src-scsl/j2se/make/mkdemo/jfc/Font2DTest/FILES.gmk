@@ -1,0 +1,15 @@
+#
+# @(#)FILES.gmk	1.3 02/09/19
+#
+# Font2DTest.
+#
+
+FILES_java = \
+	$(TARGDIR)Font2DTest.java \
+	$(TARGDIR)Font2DTestApplet.java \
+	$(TARGDIR)FontPanel.java \
+	$(TARGDIR)RangeMenu.java \
+
+FILES_dirs = \
+        $(DEMODST) \
+        $(SRCDST) \

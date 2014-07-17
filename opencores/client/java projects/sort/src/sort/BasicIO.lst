@@ -1,0 +1,460 @@
+0000000e               
+0000000e               sort.BasicIO.BasicIO§-1035320832 LABEL 
+0000000e  56           0 VAL 
+0000000f  90           A:R@ ( §this declared ) 
+00000010  08           DROP 
+00000011  0d00000000   sort.Object§-1890496768.table VAL ( will be modified! ) 
+00000016  00           NOP ( will be modified! ) 
+00000017  0d004fea6c   1827294976 VAL 
+0000001c  0d00000000   EXECUTE-NEW VAL ( will be modified! ) 
+00000021  00           NOP ( will be modified! ) 
+00000022  461c00       28 VAL 
+00000025  0d00000000   MALLOC VAL ( will be modified! ) 
+0000002a  00           NOP ( will be modified! ) 
+0000002b  08           DROP 
+0000002c  0e           DUP ( §this will be modified! ) 
+0000002d  88           A:DROP 
+0000002e  90           A:R@ 
+0000002f  08           DROP 
+00000030  0f           OVER 
+00000031  420900       §1 0BRANCH 
+00000034  0f           OVER 
+00000035  1d           CELL+ 
+00000036  02           @ 
+00000037  52           4 VAL 
+00000038  16           + 
+00000039  0f           OVER 
+0000003a  0f           OVER 
+0000003b  01           ! 
+0000003c  08           DROP 
+0000003d               §1 LABEL 
+0000003d  1d           CELL+ 
+0000003e  02           @ 
+0000003f  0f           OVER 
+00000040  0f           OVER 
+00000041  01           ! 
+00000042  0a           NIP 
+00000043  0d00000000   sort.BasicIO§1351107072.table VAL ( will be modified! ) 
+00000048  00           NOP ( will be modified! ) 
+00000049  0f           OVER 
+0000004a  4a           12 VAL 
+0000004b  16           + 
+0000004c  01           ! 
+0000004d  0d00008850   1351090176 VAL 
+00000052  0f           OVER 
+00000053  461400       20 VAL 
+00000056  16           + 
+00000057  01           ! 
+00000058  0d76000000   §2 VAL 
+0000005d  0f           OVER 
+0000005e  461000       16 VAL 
+00000061  16           + 
+00000062  01           ! 
+00000063  08           DROP 
+00000064  56           0 VAL ( §this will be fetched! ) 
+00000065  10           R@ 
+00000066  1d           CELL+ 
+00000067  02           @ 
+00000068  461800       24 VAL 
+0000006b  16           + 
+0000006c  01           ! ( §this will be fetched! ) 
+0000006d  10           R@ 
+0000006e  56           0 VAL 
+0000006f               §break2002 LABEL 
+0000006f  88           A:DROP 
+00000070  08           DROP 
+00000071               §0 LABEL 
+00000071  3d           EXIT 
+00000072  0700         §2 LABEL 
+00000074  4261736963494f " BasicIO " 
+0000007b               
+0000007b               sort.BasicIO.newLine§-283087360 LABEL 
+0000007b  0d00000000   CR VAL ( will be modified! ) 
+00000080  00           NOP ( will be modified! ) 
+00000081  56           0 VAL 
+00000082               §break2001 LABEL 
+00000082  08           DROP 
+00000083               §3 LABEL 
+00000083  3d           EXIT 
+00000084               
+00000084               sort.BasicIO.print§-1271697408 LABEL 
+00000084  90           A:R@ ( a declared ) 
+00000085  08           DROP 
+00000086  56           0 VAL 
+00000087  0e           DUP 
+00000088  90           A:R@ ( 1§ declared ) 
+00000089  08           DROP 
+0000008a  90           A:R@ ( 0§ declared ) 
+0000008b  08           DROP ( a will be fetched! ) 
+0000008c  d4           2 A:VAL 
+0000008d  8b           A:PICK 
+0000008e  10           R@ 
+0000008f  88           A:DROP 
+00000090  0d00000000   <# VAL ( will be modified! ) 
+00000095  00           NOP ( will be modified! ) 
+00000096  56           0 VAL 
+00000097  0d00000000   ..R VAL ( will be modified! ) 
+0000009c  00           NOP ( will be modified! ) 
+0000009d  0d00000000   equation.JavaArray.createString§-105880832 VAL ( will be modified! ) 
+000000a2  00           NOP ( will be modified! ) 
+000000a3  0e           DUP ( 1§ will be modified! ) 
+000000a4  90           A:R@ 
+000000a5  d5           1 A:VAL 
+000000a6  8c           A:PUT 
+000000a7  08           DROP 
+000000a8  0df8000000   §6 VAL 
+000000ad  1e           HALF+ 
+000000ae  0e           DUP 
+000000af  19           1- 
+000000b0  04           C@ 
+000000b1  4e           8 VAL 
+000000b2  20           LSHIFT 
+000000b3  0f           OVER 
+000000b4  19           1- 
+000000b5  19           1- 
+000000b6  04           C@ 
+000000b7  22           OR 
+000000b8  0d00000000   equation.JavaArray.createUnicode§-675323136 VAL ( will be modified! ) 
+000000bd  00           NOP ( will be modified! ) 
+000000be  0e           DUP ( 0§ will be modified! ) 
+000000bf  88           A:DROP 
+000000c0  90           A:R@ 
+000000c1  08           DROP 
+000000c2  0e           DUP 
+000000c3  0d00000000   INCREFERENCE VAL ( will be modified! ) 
+000000c8  00           NOP ( will be modified! ) 
+000000c9  0f           OVER 
+000000ca  0d0063e4a8   -1461427456 VAL 
+000000cf  57           -1 VAL 
+000000d0  0d00000000   EXECUTE-METHOD VAL ( will be modified! ) 
+000000d5  00           NOP ( will be modified! ) 
+000000d6  3ede000000   sort.BasicIO.print§562786304 VAL ( will be modified! ) 
+000000db  00           NOP ( will be modified! ) ( 1§ will be fetched! ) 
+000000dc  d5           1 A:VAL 
+000000dd  8b           A:PICK 
+000000de  10           R@ 
+000000df  88           A:DROP 
+000000e0  57           -1 VAL 
+000000e1  0d00000000   equation.JavaArray.kill§1620077312 VAL ( will be modified! ) 
+000000e6  00           NOP ( will be modified! ) ( 0§ will be fetched! ) 
+000000e7  10           R@ 
+000000e8  57           -1 VAL 
+000000e9  0d00000000   equation.JavaArray.kill§1620077312 VAL ( will be modified! ) 
+000000ee  00           NOP ( will be modified! ) 
+000000ef  89           A:2DROP 
+000000f0  56           0 VAL 
+000000f1               §break2000 LABEL 
+000000f1  88           A:DROP 
+000000f2  08           DROP 
+000000f3               §5 LABEL 
+000000f3  3d           EXIT 
+000000f4  0000         §6 LABEL 
+000000f6               "  " 
+000000f6  1f00         §4 LABEL 
+000000f8  736f72742e4261736963494f2e6e65774c696e65a72d323833303837333630 " sort.BasicIO.newLine§-283087360 " 
+00000117               
+00000117               sort.BasicIO.print§532901888 LABEL 
+00000117  90           A:R@ ( y declared ) 
+00000118  08           DROP 
+00000119  56           0 VAL 
+0000011a  0e           DUP 
+0000011b  90           A:R@ ( 1§ declared ) 
+0000011c  08           DROP 
+0000011d  90           A:R@ ( 0§ declared ) 
+0000011e  08           DROP 
+0000011f  0df8000000   §6 VAL 
+00000124  1e           HALF+ 
+00000125  0e           DUP 
+00000126  19           1- 
+00000127  04           C@ 
+00000128  4e           8 VAL 
+00000129  20           LSHIFT 
+0000012a  0f           OVER 
+0000012b  19           1- 
+0000012c  19           1- 
+0000012d  04           C@ 
+0000012e  22           OR 
+0000012f  0d00000000   equation.JavaArray.createUnicode§-675323136 VAL ( will be modified! ) 
+00000134  00           NOP ( will be modified! ) 
+00000135  0e           DUP ( 0§ will be modified! ) 
+00000136  88           A:DROP 
+00000137  90           A:R@ 
+00000138  08           DROP ( y will be fetched! ) 
+00000139  d4           2 A:VAL 
+0000013a  8b           A:PICK 
+0000013b  10           R@ 
+0000013c  88           A:DROP 
+0000013d  0d00000000   <# VAL ( will be modified! ) 
+00000142  00           NOP ( will be modified! ) 
+00000143  0e           DUP 
+00000144  4e           8 VAL 
+00000145  23           RSHIFT 
+00000146  0d00000000   HOLD VAL ( will be modified! ) 
+0000014b  00           NOP ( will be modified! ) 
+0000014c  0d00000000   HOLD VAL ( will be modified! ) 
+00000151  00           NOP ( will be modified! ) 
+00000152  0e           DUP 
+00000153  0e           DUP 
+00000154  0d00000000   #> VAL ( will be modified! ) 
+00000159  00           NOP ( will be modified! ) 
+0000015a  0d00000000   equation.JavaArray.createUnicode§-675323136 VAL ( will be modified! ) 
+0000015f  00           NOP ( will be modified! ) 
+00000160  0e           DUP ( 1§ will be modified! ) 
+00000161  90           A:R@ 
+00000162  d5           1 A:VAL 
+00000163  8c           A:PUT 
+00000164  08           DROP 
+00000165  0e           DUP 
+00000166  0d00000000   INCREFERENCE VAL ( will be modified! ) 
+0000016b  00           NOP ( will be modified! ) 
+0000016c  0f           OVER 
+0000016d  0d0063e4a8   -1461427456 VAL 
+00000172  57           -1 VAL 
+00000173  0d00000000   EXECUTE-METHOD VAL ( will be modified! ) 
+00000178  00           NOP ( will be modified! ) 
+00000179  0d00000000   equation.JavaArray.print§562786304 VAL ( will be modified! ) 
+0000017e  00           NOP ( will be modified! ) ( 1§ will be fetched! ) 
+0000017f  d5           1 A:VAL 
+00000180  8b           A:PICK 
+00000181  10           R@ 
+00000182  88           A:DROP 
+00000183  57           -1 VAL 
+00000184  0d00000000   equation.JavaArray.kill§1620077312 VAL ( will be modified! ) 
+00000189  00           NOP ( will be modified! ) ( 0§ will be fetched! ) 
+0000018a  10           R@ 
+0000018b  57           -1 VAL 
+0000018c  0d00000000   equation.JavaArray.kill§1620077312 VAL ( will be modified! ) 
+00000191  00           NOP ( will be modified! ) 
+00000192  89           A:2DROP 
+00000193  56           0 VAL 
+00000194               §break1998 LABEL 
+00000194  88           A:DROP 
+00000195  08           DROP 
+00000196               §8 LABEL 
+00000196  3d           EXIT 
+00000197  1e00         §7 LABEL 
+00000199  736f72742e4261736963494f2e7072696e74a72d31323731363937343038 " sort.BasicIO.print§-1271697408 " 
+000001b7               
+000001b7               sort.BasicIO.print§562786304 LABEL 
+000001b7  90           A:R@ ( s declared ) 
+000001b8  08           DROP ( s will be fetched! ) 
+000001b9  10           R@ 
+000001ba  0e           DUP 
+000001bb  0d00000000   INCREFERENCE VAL ( will be modified! ) 
+000001c0  00           NOP ( will be modified! ) 
+000001c1  0d00000000   equation.JavaArray.print§562786304 VAL ( will be modified! ) 
+000001c6  00           NOP ( will be modified! ) 
+000001c7  56           0 VAL 
+000001c8               §break1999 LABEL ( s will be fetched! ) 
+000001c8  10           R@ 
+000001c9  57           -1 VAL 
+000001ca  0d00000000   equation.JavaArray.kill§1620077312 VAL ( will be modified! ) 
+000001cf  00           NOP ( will be modified! ) 
+000001d0  88           A:DROP 
+000001d1  08           DROP 
+000001d2               §10 LABEL 
+000001d2  3d           EXIT 
+000001d3  1c00         §9 LABEL 
+000001d5  736f72742e4261736963494f2e7072696e74a7353332393031383838 " sort.BasicIO.print§532901888 " 
+000001f1               
+000001f1               sort.BasicIO.~destructor§-1086882304 LABEL 
+000001f1  90           A:R@ ( §this declared ) 
+000001f2  08           DROP 
+000001f3  56           0 VAL 
+000001f4  90           A:R@ ( obj declared ) 
+000001f5  08           DROP ( §this will be fetched! ) 
+000001f6  d5           1 A:VAL 
+000001f7  8b           A:PICK 
+000001f8  10           R@ 
+000001f9  88           A:DROP 
+000001fa  02           @ 
+000001fb  19           1- 
+000001fc  2c           0= 
+000001fd  422600       §13 0BRANCH ( §this will be fetched! ) 
+00000200  d5           1 A:VAL 
+00000201  8b           A:PICK 
+00000202  10           R@ 
+00000203  88           A:DROP 
+00000204  1d           CELL+ 
+00000205  02           @ 
+00000206  02           @ ( obj will be modified! ) 
+00000207  88           A:DROP 
+00000208  90           A:R@ 
+00000209  08           DROP ( obj will be fetched! ) 
+0000020a  10           R@ 
+0000020b  56           0 VAL 
+0000020c  0d00000000   equation.JavaArray.kill§1620077312 VAL ( will be modified! ) 
+00000211  00           NOP ( will be modified! ) ( §this will be fetched! ) 
+00000212  d5           1 A:VAL 
+00000213  8b           A:PICK 
+00000214  10           R@ 
+00000215  88           A:DROP 
+00000216  1d           CELL+ 
+00000217  02           @ 
+00000218  4e           8 VAL 
+00000219  16           + 
+0000021a  02           @ ( obj will be modified! ) 
+0000021b  88           A:DROP 
+0000021c  90           A:R@ 
+0000021d  08           DROP ( obj will be fetched! ) 
+0000021e  10           R@ 
+0000021f  56           0 VAL 
+00000220  0d00000000   equation.JavaArray.kill§1620077312 VAL ( will be modified! ) 
+00000225  00           NOP ( will be modified! ) 
+00000226               §13 LABEL ( §this will be fetched! ) 
+00000226  d5           1 A:VAL 
+00000227  8b           A:PICK 
+00000228  10           R@ 
+00000229  88           A:DROP 
+0000022a  0d00000000   DECREFERENCE VAL ( will be modified! ) 
+0000022f  00           NOP ( will be modified! ) 
+00000230  56           0 VAL 
+00000231               §break2003 LABEL 
+00000231  89           A:2DROP 
+00000232  08           DROP 
+00000233               §12 LABEL 
+00000233  3d           EXIT 
+00000234  1c00         §11 LABEL 
+00000236  736f72742e4261736963494f2e7072696e74a7353632373836333034 " sort.BasicIO.print§562786304 " 
+00000252  1d00         §15 LABEL 
+00000254  736f72742e4261736963494fa7313335313130373037322e7461626c65 " sort.BasicIO§1351107072.table " 
+00000271  1c00         §14 LABEL 
+00000273  736f72742e4261736963494f2e5f737461746963426c6f636b696e67 " sort.BasicIO._staticBlocking " 
+00000290  0d7f000000   sort.BasicIO.newLine§-283087360 VAL 
+00000295  53           3 VAL 
+00000296  0dfa000000   §4 VAL 
+0000029b  0d00000000   create VAL ( will be modified! ) 
+000002a0  00           NOP ( will be modified! ) 
+000002a1  0d88000000   sort.BasicIO.print§-1271697408 VAL 
+000002a6  53           3 VAL 
+000002a7  0d9b010000   §7 VAL 
+000002ac  0d00000000   create VAL ( will be modified! ) 
+000002b1  00           NOP ( will be modified! ) 
+000002b2  0d1b010000   sort.BasicIO.print§532901888 VAL 
+000002b7  53           3 VAL 
+000002b8  0dd7010000   §9 VAL 
+000002bd  0d00000000   create VAL ( will be modified! ) 
+000002c2  00           NOP ( will be modified! ) 
+000002c3  0dbb010000   sort.BasicIO.print§562786304 VAL 
+000002c8  53           3 VAL 
+000002c9  0d38020000   §11 VAL 
+000002ce  0d00000000   create VAL ( will be modified! ) 
+000002d3  00           NOP ( will be modified! ) 
+000002d4  0d00000000   ALIGN VAL ( will be modified! ) 
+000002d9  00           NOP ( will be modified! ) 
+000002da  0d00000000   HERE VAL ( will be modified! ) 
+000002df  00           NOP ( will be modified! ) 
+000002e0  54           2 VAL 
+000002e1  0d75020000   §14 VAL 
+000002e6  0d00000000   create VAL ( will be modified! ) 
+000002eb  00           NOP ( will be modified! ) 
+000002ec  55           1 VAL 
+000002ed  1a           2* 
+000002ee  1a           2* 
+000002ef  0d00000000   ALLOT VAL ( will be modified! ) 
+000002f4  00           NOP ( will be modified! ) 
+000002f5  8d00000000   HERE A:VAL ( will be modified! ) 
+000002fa  80           A:NOP ( will be modified! ) 
+000002fb  0d00000000   ALIGN VAL ( will be modified! ) 
+00000300  00           NOP ( will be modified! ) 
+00000301  0d00000000   HERE VAL ( will be modified! ) 
+00000306  00           NOP ( will be modified! ) 
+00000307  54           2 VAL 
+00000308  0d56020000   §15 VAL 
+0000030d  0d00000000   create VAL ( will be modified! ) 
+00000312  00           NOP ( will be modified! ) 
+00000313  55           1 VAL 
+00000314  1a           2* 
+00000315  1a           2* 
+00000316  0d00000000   ALLOT VAL ( will be modified! ) 
+0000031b  00           NOP ( will be modified! ) 
+0000031c  54           2 VAL 
+0000031d  0e           DUP 
+0000031e  1a           2* 
+0000031f  1a           2* 
+00000320  1a           2* 
+00000321  0d00000000   ALLOT VAL ( will be modified! ) 
+00000326  00           NOP ( will be modified! ) 
+00000327  10           R@ 
+00000328  01           ! 
+00000329  9d           A:CELL+ 
+0000032a  0d00424ac2   -1035320832 VAL 
+0000032f  10           R@ 
+00000330  01           ! 
+00000331  9d           A:CELL+ 
+00000332  0d12000000   sort.BasicIO.BasicIO§-1035320832 VAL 
+00000337  10           R@ 
+00000338  01           ! 
+00000339  9d           A:CELL+ 
+0000033a  0d007e37bf   -1086882304 VAL 
+0000033f  10           R@ 
+00000340  01           ! 
+00000341  9d           A:CELL+ 
+00000342  0df5010000   sort.BasicIO.~destructor§-1086882304 VAL 
+00000347  10           R@ 
+00000348  01           ! 
+00000349  9d           A:CELL+ 
+0000034a  88           A:DROP 
+0000034b  3d           EXIT 
+
+instruction usage:
+load/store:		23	(6.460674157303371%)
+32-bit values:		66	(18.53932584269663%)
+16-bit values:		4	(1.1235955056179776%)
+5-bit values:		46	(12.921348314606742%)
+values total:		116	(32.58426966292135%)
+arithmetic/logical:	37	(10.393258426966293%)
+relations:		1	(0.2808988764044944%)
+flow control:		9	(2.528089887640449%)
+other:			170	(47.752808988764045%)
+total:			356
+
+average bytes per instruction: 1.8146067415730338
+
+string storage in byte:	197
+unresolved references:	59
+
+Size of static code: 655
+Size of initial code: 188
+
+references:
+ffffffff	1	#>
+ffffffff	1	..R
+ffffffff	2	<#
+ffffffff	2	ALIGN
+ffffffff	3	ALLOT
+ffffffff	1	CR
+ffffffff	1	DECREFERENCE
+ffffffff	2	EXECUTE-METHOD
+ffffffff	1	EXECUTE-NEW
+ffffffff	3	HERE
+ffffffff	2	HOLD
+ffffffff	3	INCREFERENCE
+ffffffff	1	MALLOC
+ffffffff	6	create
+ffffffff	1	equation.JavaArray.createString§-105880832
+ffffffff	3	equation.JavaArray.createUnicode§-675323136
+ffffffff	7	equation.JavaArray.kill§1620077312
+ffffffff	2	equation.JavaArray.print§562786304
+12	1	sort.BasicIO.BasicIO§-1035320832
+12	1	sort.BasicIO.BasicIO§-1035320832
+7f	1	sort.BasicIO.newLine§-283087360
+7f	1	sort.BasicIO.newLine§-283087360
+88	1	sort.BasicIO.print§-1271697408
+88	1	sort.BasicIO.print§-1271697408
+11b	1	sort.BasicIO.print§532901888
+11b	1	sort.BasicIO.print§532901888
+1bb	2	sort.BasicIO.print§562786304
+1bb	2	sort.BasicIO.print§562786304
+1f5	1	sort.BasicIO.~destructor§-1086882304
+1f5	1	sort.BasicIO.~destructor§-1086882304
+ffffffff	1	sort.BasicIO§1351107072.table
+ffffffff	1	sort.Object§-1890496768.table
+238	1	§11
+275	1	§14
+256	1	§15
+76	1	§2
+fa	1	§4
+f8	2	§6
+19b	1	§7
+1d7	1	§9

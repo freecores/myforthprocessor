@@ -1,0 +1,1 @@
+# No charsets classes are loaded during the Win32 tests - nothing to reorder.

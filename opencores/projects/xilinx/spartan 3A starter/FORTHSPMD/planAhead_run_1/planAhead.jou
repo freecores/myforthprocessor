@@ -1,0 +1,18 @@
+#-----------------------------------------------------------
+# PlanAhead v12.2
+# Build 65285 by hdbuild on Wed Jun 23 14:55:19 PDT 2010
+# Start of session at: Wed Aug 04 15:06:22 2010
+# Process ID: 5356
+# Log file: C:/Xilinx/FORTHSPMD/planAhead_run_1/planAhead.log
+# Journal file: C:/Xilinx/FORTHSPMD/planAhead_run_1/planAhead.jou
+#-----------------------------------------------------------
+source C:/Xilinx/12.2/ISE_DS/PlanAhead/scripts/sdc.tcl
+start_gui -source C:/Xilinx/FORTHSPMD/pa.fromNetlist.tcl
+# create_project -name FORTHSPMD -dir "C:/Xilinx/FORTHSPMD/planAhead_run_1" -part xc3s700afg484-4
+# set_property design_mode GateLvl [get_property srcset [current_run -impl]]
+# set_property edif_top_file "C:/Xilinx/FORTHSPMD/MYCPU.ngc" [ get_property srcset [ current_run ] ]
+# add_files -norecurse { {C:/Xilinx/FORTHSPMD} }
+# set_param project.paUcfFile  "MYCPU.ucf"
+# add_files "MYCPU.ucf" -fileset [get_property constrset [current_run]]
+# open_netlist_design
+exit

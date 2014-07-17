@@ -1,0 +1,16 @@
+#
+# @(#)FILES_java.gmk	1.7 02/09/19
+#
+FILES_java = \
+        $(TARGDIR)sun/beans/editors/BoolEditor.java \
+        $(TARGDIR)sun/beans/editors/ColorEditor.java \
+        $(TARGDIR)sun/beans/editors/FontEditor.java \
+        $(TARGDIR)sun/beans/editors/StringEditor.java \
+        $(TARGDIR)sun/beans/editors/NumberEditor.java \
+        $(TARGDIR)sun/beans/editors/IntEditor.java \
+        $(TARGDIR)sun/beans/editors/LongEditor.java \
+        $(TARGDIR)sun/beans/editors/ShortEditor.java \
+        $(TARGDIR)sun/beans/editors/FloatEditor.java \
+        $(TARGDIR)sun/beans/editors/ByteEditor.java \
+        $(TARGDIR)sun/beans/editors/DoubleEditor.java \
+        $(TARGDIR)sun/beans/infos/ComponentBeanInfo.java

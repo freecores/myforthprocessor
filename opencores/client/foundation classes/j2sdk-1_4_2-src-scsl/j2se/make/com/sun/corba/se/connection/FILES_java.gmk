@@ -1,0 +1,10 @@
+#
+# @(#)FILES_java.gmk	1.4 02/09/19
+# Files for connection
+#
+
+FILES_java = \
+	$(TARGDIR)com/sun/corba/se/connection/Connection.java \
+	$(TARGDIR)com/sun/corba/se/connection/EndPointInfo.java \
+	$(TARGDIR)com/sun/corba/se/connection/GetEndPointInfoAgainException.java \
+	$(TARGDIR)com/sun/corba/se/connection/ORBSocketFactory.java

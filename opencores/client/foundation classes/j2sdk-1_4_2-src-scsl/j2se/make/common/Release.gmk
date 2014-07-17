@@ -1,0 +1,881 @@
+#
+# Copyright 2003 Sun Microsystems, Inc. All rights reserved.
+# SUN PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
+#
+
+#
+# @(#)Release.gmk	1.222 02/10/11
+#
+# 
+# Peform release engineering tasks.
+#
+# images    An image is what the product looks like when it is
+#           installed.
+#
+
+# 64-bit solaris has a few special cases. We define the variable
+# SOLARIS64 for use in this Makefile to easily test those cases
+ifeq ($(PLATFORM), solaris)
+  ifeq ($(ARCH_DATA_MODEL), 64)
+    SOLARIS64 = true
+  endif
+endif
+
+JTG_DOCS            = $(BUILDDIR)/../../src/solaris/doc
+
+# Text documents on windows use this suffix
+ifeq ($(PLATFORM), windows)
+  TEXT_SUFFIX = .txt
+endif
+
+# Select the pre-release or FCS license version based on the build milestone. 
+LICENSE_VERSION=.pre
+ifeq ($(MILESTONE), fcs)
+  LICENSE_VERSION=.fcs
+endif
+
+# The base names of the license files 
+# Now LICENSE_DOCLIST_JRE/LICENSE_DOCLIST_JDK will have a list
+# of all *LICENSE*LICENSE_VERSION available.
+LICENSE_DOCLIST_JDK = $(subst $(LICENSE_VERSION),,$(shell $(CD) $(SHARE_SRC)/doc/jdk; \
+		       $(LS) *LICENSE*$(LICENSE_VERSION) | $(GREP) -v rtf))
+LICENSE_DOCLIST_JRE = $(subst $(LICENSE_VERSION),,$(shell $(CD) $(SHARE_SRC)/doc/jre; \
+		       $(LS) *LICENSE*$(LICENSE_VERSION) | $(GREP) -v rtf))
+ifeq ($(PLATFORM), windows)
+  LICENSE_DOCLIST_JDK = $(subst $(LICENSE_VERSION),,$(shell $(CD) $(SHARE_SRC)/doc/jdk; \
+		       $(LS) *LICENSE*$(LICENSE_VERSION)))
+  LICENSE_DOCLIST_JRE = $(subst $(LICENSE_VERSION),,$(shell $(CD) $(SHARE_SRC)/doc/jre; \
+		       $(LS) *LICENSE*$(LICENSE_VERSION)))
+endif
+
+STAGED_JDK_LICENSES = $(addprefix $(TMPDIR)/jdk/,$(LICENSE_DOCLIST_JDK))
+STAGED_JRE_LICENSES = $(addprefix $(TMPDIR)/jre/,$(LICENSE_DOCLIST_JRE))
+
+# The names of the JDK text files to be copied to the image dirs
+# These will be modified to have the platform specific EOL chars.
+JDK_SOURCE_DOCLIST = COPYRIGHT README.html
+
+# The names of the JDK text files to be copied to the image dirs
+# These will be modified to have the platform specific EOL chars,
+# and will be renamed to have their platform specific text extensions.
+JDK_NAMECHANGE_DOCLIST = README
+
+# The names of the JRE text files to be copied to the image dirs
+# These will be modified to have the platform specific EOL chars.
+JRE_SOURCE_DOCLIST = CHANGES COPYRIGHT Welcome.html
+
+# The names of the JDK text files to be copied to the image dirs
+# These will be modified to have the platform specific EOL chars,
+# and will be renamed to have their platform specific text extensions.
+JRE_NAMECHANGE_DOCLIST = README
+
+# absolute directory names: note, these must exist prior to build 
+# time - they are created in the main Makefile.
+ifndef USING_CYGWIN
+   ABS_BUILDDIR := $(shell $(CD) $(BUILDDIR); $(PWD))
+   ABS_BINDIR   := $(shell $(CD) $(BINDIR); $(PWD))
+   ABS_LIBDIR   := $(shell $(CD) $(LIBDIR); $(PWD))
+   ABS_TMPDIR   := $(shell $(CD) $(TMPDIR); $(PWD))
+   ABS_NATIVE2ASCII   := $(shell $(CD) $(BINDIR); $(PWD))/native2ascii$(EXE_SUFFIX)
+   ABS_HTMLCONVERTER   := $(shell $(CD) $(BINDIR); $(PWD))/HtmlConverter$(EXE_SUFFIX)
+   JRE_IMAGE_BINDIR   = $(JRE_IMAGE_DIR)/bin
+   JRE_IMAGE_THREADIR = $(JRE_IMAGE_DIR)/bin/*/native_threads
+else
+   ABS_BUILDDIR := $(shell $(CYGPATH) -w -a $(BUILDDIR))
+   ABS_BINDIR   := $(shell $(CYGPATH) -w -a $(BINDIR))
+   ABS_TMPDIR   := $(shell $(CYGPATH) -w -a $(TMPDIR))
+   ABS_LIBDIR   := $(shell $(CYGPATH) -w -a $(LIBDIR))
+   ABS_NATIVE2ASCII   := $(shell $(CYGPATH) -w -a $(BINDIR)/native2ascii$(EXE_SUFFIX))
+   ABS_HTMLCONVERTER   := $(shell $(CYGPATH) -w -a $(BIDDIR)/HtmlConverter$(EXE_SUFFIX))
+   JRE_IMAGE_BINDIR   := $(shell $(CYGPATH) -w -p $(JRE_IMAGE_DIR)/bin )
+   JRE_IMAGE_THREADIR := $(shell $(CYGPATH) -w -p $(JRE_IMAGE_DIR)/bin/*/native_threads )
+endif
+MAINMANIFEST  = $(ABS_BUILDDIR)/tools/manifest.mf
+BEANMANIFEST  = $(ABS_BUILDDIR)/javax/swing/beaninfo/manifest
+# This is the cached Temporary image which would be used for the JDK images.
+TMP_JRE_IMAGE_DIR := $(ABS_TMPDIR)/j2re-image
+
+#
+# Man pages
+#
+JRE_MAN_PAGES = \
+	java.1		\
+	keytool.1	\
+	rmid.1		\
+	rmiregistry.1	\
+	tnameserv.1     \
+	servertool.1    \
+	orbd.1          \
+	policytool.1
+
+ifeq ($(ARCH_DATA_MODEL),32)
+  JRE_MAN_PAGES += javaws.1
+endif
+
+ifeq ($(PLATFORM), linux)
+  JRE_MAN_PAGES += \
+        kinit.1         \
+        klist.1         \
+        ktab.1 
+endif
+
+JDK_MAN_PAGES = \
+	$(JRE_MAN_PAGES) \
+	appletviewer.1 \
+	extcheck.1 \
+	jar.1 \
+	jarsigner.1 \
+	javac.1 \
+	javadoc.1 \
+	javah.1 \
+	javap.1 \
+	jdb.1 \
+	native2ascii.1 \
+	rmic.1 \
+	serialver.1 \
+	idlj.1
+
+ifeq ($(PLATFORM), solaris) 
+  LIBTHREAD_PKG_LOC=pkgdefs/SUNWjvthr
+  MANDIR=$(TOPDIR)/src/solaris/doc/sun/man/sman1
+  JA_MANDIR=$(TOPDIR)/src/solaris/doc/sun/man/sman1
+  DEST_MAN_PATH = man/sman1
+endif # PLATFORM
+
+ifeq ($(PLATFORM), linux)
+  MANDIR=$(TOPDIR)/src/linux/doc/man
+  JA_MANDIR=$(TOPDIR)/src/linux/doc/man
+  DEST_MAN_PATH = man/man1
+endif
+
+
+#
+# Targets.
+#
+images images-clobber \
+image-jre image-jdk image-jdk-debug \
+compare-image-jre compare-image-jdk ::
+	@$(ECHO) ">>>Making "$@" @ `$(DATE)` ..."; 
+
+images:: sanity-images post-sanity-images image-jre image-jdk image-jdk-debug
+
+#
+# Sources we ship in the SDK.
+#
+SOURCES = \
+	java/applet			\
+	java/awt			\
+	java/beans			\
+	java/io				\
+	java/lang			\
+	java/math			\
+	java/net			\
+	java/nio			\
+	java/rmi			\
+	java/security			\
+	java/sql			\
+	java/text			\
+	java/util			\
+	com/sun/corba			\
+	com/sun/image/codec/jpeg	\
+	com/sun/imageio                 \
+	com/sun/java/swing		\
+	com/sun/naming			\
+	com/sun/security/auth		\
+	com/sun/security/jgss		\
+	javax/accessibility		\
+	javax/imageio			\
+	javax/naming			\
+	javax/print			\
+	javax/rmi			\
+	javax/security			\
+	javax/sound			\
+	javax/sql			\
+	javax/swing			\
+	javax/xml			\
+	org/apache			\
+	org/ietf			\
+	org/omg				\
+	org/w3c/dom			\
+	org/xml/sax			\
+	sunw
+#
+# Directories where sources may be found.  If a file with the same path
+# name exists in more than one of these places, the one found last on this
+# list wins.
+#
+SOURCE_DIRS = $(SHARE_SRC)/classes $(PLATFORM_SRC)/classes $(GENSRCDIR)
+
+#
+# Bug 4249883 - excluding some unnecessary packages from com.sun.tools
+#
+TOOLS = \
+	sun/tools		\
+	sun/security/tools	\
+	sun/rmi/rmic		\
+	sun/applet		\
+	com/sun/javadoc		\
+	com/sun/jdi		\
+	com/sun/tools/doclets   \
+	com/sun/tools/example/debug/expr \
+	com/sun/tools/example/debug/tty  \
+	com/sun/tools/extcheck  \
+	com/sun/tools/javac     \
+	com/sun/tools/javadoc   \
+	com/sun/tools/javah     \
+	com/sun/tools/corba     \
+	com/sun/tools/jdi
+
+JPDA_SHARE_SRC=$(TOPDIR)/src/share
+JPDA_DEMO_PKGS= \
+	com/sun/tools/example/README \
+	com/sun/tools/example/doc \
+	com/sun/tools/example/trace \
+	com/sun/tools/example/debug/expr \
+	com/sun/tools/example/debug/tty \
+	com/sun/tools/example/debug/bdi \
+	com/sun/tools/example/debug/event \
+	com/sun/tools/example/debug/gui
+
+# The following get removed from the SDK image.
+NOTJDKTOOLS = \
+	oldjavac \
+	java_vm 
+
+# The following get removed from the JRE after the bulk-copy of BINDIR...
+NOTJRETOOLS = \
+	appletviewer$(EXE_SUFFIX) \
+	extcheck$(EXE_SUFFIX) \
+	idlj$(EXE_SUFFIX) \
+	jar$(EXE_SUFFIX) \
+	jarsigner$(EXE_SUFFIX) \
+	java-rmi.cgi \
+	javac$(EXE_SUFFIX) \
+	javadoc$(EXE_SUFFIX) \
+	javah$(EXE_SUFFIX) \
+	javap$(EXE_SUFFIX) \
+	jdb$(EXE_SUFFIX) \
+	native2ascii$(EXE_SUFFIX) \
+	packagebean$(SCRIPT_SUFFIX) \
+	rmic$(EXE_SUFFIX) \
+	serialver$(EXE_SUFFIX) \
+	unregbean$(EXE_SUFFIX)
+
+# The following get removed from the JRE after the bulk-copy of LIBDIR...
+NOTJRELIBS = tools.jar
+
+UTIL = sun/tools/util
+
+#
+###### RULES 
+
+$(STAGED_JDK_LICENSES): $(TMPDIR)/jdk
+	$(CP) $(SHARE_SRC)/doc/jdk/$(@F)$(LICENSE_VERSION) $@
+
+$(STAGED_JRE_LICENSES): $(TMPDIR)/jre
+	$(CP) $(SHARE_SRC)/doc/jre/$(@F)$(LICENSE_VERSION) $@
+
+$(TMPDIR)/jdk $(TMPDIR)/jre:
+	$(MKDIR) -p $@
+
+$(TMPDIR)/previous_jre $(TMPDIR)/previous_jdk:
+	$(MKDIR) -p $@
+
+$(TMPDIR)/DirDiff:
+	$(RM) -r $@
+	$(MKDIR) -p $@
+	$(JAVAC) -d $@ $(BUILDDIR)/tools/DirDiff/DirDiff.java
+
+######################################################
+# nojre
+######################################################
+
+NOTJRE_FILE = $(ABS_TMPDIR)/NotJRE
+
+nojre::
+	$(RM) $(NOTJRE_FILE)
+	$(ECHO) "#\n" > $(NOTJRE_FILE)
+	$(ECHO) "# List of subdirectories not in include in rt.jar" > $(NOTJRE_FILE)
+	$(ECHO) "# Directories must contain trailing '/'." >> $(NOTJRE_FILE)
+	$(ECHO) "com/sun/javadoc/" >> $(NOTJRE_FILE)
+	$(ECHO) "com/sun/jdi/" >> $(NOTJRE_FILE)
+	$(ECHO) "com/sun/tools/" >> $(NOTJRE_FILE)
+	$(ECHO) "sun/rmi/rmic/" >> $(NOTJRE_FILE)
+	$(ECHO) "sun/tools/asm/" >> $(NOTJRE_FILE)
+	$(ECHO) "sun/tools/java/" >> $(NOTJRE_FILE)
+	$(ECHO) "sun/tools/javac/" >> $(NOTJRE_FILE)
+	$(ECHO) "sun/tools/javap/" >> $(NOTJRE_FILE)
+	$(ECHO) "sun/tools/native2ascii/" >> $(NOTJRE_FILE)
+	$(ECHO) "sun/tools/serialver/" >> $(NOTJRE_FILE)
+	$(ECHO) "sun/tools/tree/" >> $(NOTJRE_FILE)
+	$(ECHO) "sun/tools/util/" >> $(NOTJRE_FILE)
+	$(ECHO) "sun/security/tools/JarSigner.class" >> $(NOTJRE_FILE)
+	$(ECHO) "sun/security/tools/JarSignerResources.class" >> $(NOTJRE_FILE)
+ifeq ($(PLATFORM), windows)
+	$(ECHO) "com/sun/java/swing/plaf/gtk/" >> $(NOTJRE_FILE)
+	$(ECHO) "com/sun/swing/internal/plaf/gtk/" >> $(NOTJRE_FILE)
+endif
+
+######################################################
+# JRE Image
+######################################################
+image-jre::  nojre $(STAGED_JRE_LICENSES)
+	@#$(CD) java/swing/beaninfo; $(MAKE) swing-beans
+	$(RM) -r $(JRE_IMAGE_DIR)
+	$(MKDIR) -p $(JRE_IMAGE_DIR)
+ifdef SOLARIS64
+	@# vvvvvvvvvvvvvvvvv 64-bit solaris images only vvvvvvvvvvvvvvvvvvvvv
+	@#
+	@# 64-bit solaris JDK image contains only the 64-bit add-on files.
+	@#
+	@# use tar instead of cp to preserve the symbolic links
+	for dir in bin lib ; do \
+	  $(CD) $(ABS_OUTPUTDIR); \
+		$(TAR) cf - `$(FIND) $$dir -name '$(ARCH)' -print` | \
+		($(CD) $(JRE_IMAGE_DIR); $(TAR) xf -); \
+	done ; \
+	for d in $(LICENSE_DOCLIST_JRE); do \
+		$(SED) 's/$$//g' tmp/jre/$$d > tmp/jre/$${d}64 ; \
+		$(CHMOD) 444 tmp/jre/$${d}64 ; \
+        done ;
+	@# ^^^^^^^^^^^^^^^^^ 64-bit solaris images only ^^^^^^^^^^^^^^^^^^^^^
+else # SOLARIS64
+	@# vvvvvvvvvvvvvvvvv non-64bit-solaris images only vvvvvvvvvvvvvvvvvvvvv
+	@#
+	@# BINDIR
+	@#
+	$(CD) $(OUTPUTDIR); $(FIND) bin -depth | $(GREP) -v "_g" | $(CPIO) -pdum $(JRE_IMAGE_DIR)
+	@#
+	@# LIBDIR
+	@#
+	@# CTE plugin security change require new empty directory lib/applet
+	$(MKDIR) -p $(JRE_IMAGE_DIR)/lib/applet
+	$(CD) $(OUTPUTDIR); $(FIND) lib | $(CPIO) -pdum $(JRE_IMAGE_DIR)
+	@#
+	@# rt.jar.
+	@#     - sun.applet is included, till hotjava stops relying on it.
+	@#     - sun.tools.jar is included, needs cleanup.
+	@#     - CommandLine.class is include for jar as well.
+	@#
+	$(RM) -r $(TMPDIR)/reorder
+	$(MKDIR) -p $(TMPDIR)/reorder
+	$(JAVAC) -d $(TMPDIR)/reorder $(BUILDDIR)/tools/reorder/JarReorder.java
+	$(CD) $(CLASSBINDIR) ; \
+		$(ABS_JAVA) -classpath $(ABS_TMPDIR)/reorder JarReorder \
+		$(ABS_BUILDDIR)/tools/reorder/reorder_rt_jar-$(PLATFORM) \
+                $(ABS_TMPDIR)/NotJRE  . \
+		> $(ABS_TMPDIR)/reorder/file_list
+	@# Create the manifest file.
+	( $(SED) "s/@@RELEASE@@/$(RELEASE)/" $(MAINMANIFEST); $(ECHO); \
+		$(CAT) $(BEANMANIFEST) ) > $(TMPDIR)/manifest.tmp
+	@# Before we create rt.jar remove the old to prevent tripping the jar cmd.
+	$(RM) $(LIBDIR)/rt.jar
+	@# Create the jar file.
+	$(CD) $(CLASSBINDIR) ; \
+		$(ABS_JAR) c0mf $(ABS_TMPDIR)/manifest.tmp \
+		$(ABS_LIBDIR)/rt.jar @$(ABS_TMPDIR)/reorder/file_list
+		$(CP) $(LIBDIR)/rt.jar $(JRE_IMAGE_DIR)/lib/rt.jar
+	$(RM) $(TMPDIR)/manifest.tmp
+	@#
+	@# Doc files.
+	@# add the platform appropriate EOL and extension to the text.
+	$(CD) $(JRE_IMAGE_DIR); \
+	    $(RM) $(JRE_SOURCE_DOCLIST) $(JRE_NAMECHANGE_DOCLIST)$(TEXT_SUFFIX)
+	for d in $(JRE_SOURCE_DOCLIST); do \
+		$(SED) 's/$$//g' $(SHARE_SRC)/doc/jre/$$d > $(JRE_IMAGE_DIR)/$$d ; \
+		$(CHMOD) 444 $(JRE_IMAGE_DIR)/$$d ; \
+	done ;
+	for d in $(JRE_NAMECHANGE_DOCLIST); do \
+		$(SED) 's/$$//g' $(SHARE_SRC)/doc/jre/$$d > \
+		$(JRE_IMAGE_DIR)/$$d$(TEXT_SUFFIX) ; \
+		$(CHMOD) 444 $(JRE_IMAGE_DIR)/$$d$(TEXT_SUFFIX) ; \
+	done ;
+	for d in $(LICENSE_DOCLIST_JRE); do \
+		$(SED) 's/$$//g' $(TMPDIR)/jre/$$d > $(JRE_IMAGE_DIR)/$$d ; \
+		$(CHMOD) 444 $(JRE_IMAGE_DIR)/$$d ; \
+	done ;
+  ifneq ($(PLATFORM), windows)
+	@#
+	@# UNIX man pages....
+	@#
+	$(MKDIR) -p $(JRE_IMAGE_DIR)/$(DEST_MAN_PATH)
+	for i in $(JRE_MAN_PAGES); do \
+		$(CP) $(MANDIR)/$$i $(JRE_IMAGE_DIR)/$(DEST_MAN_PATH); \
+	done
+	@#
+	@# Add Japanese manpages
+	@#
+    ifeq ($(PLATFORM), linux)
+	for manpage in $(JRE_MAN_PAGES); do \
+	    for encoding in $(JA_TARGET_ENCODINGS); do \
+		MAN_DEST_PATH=$(JRE_IMAGE_DIR)/man/ja; \
+		if [ "$${encoding}" != "$(JA_SOURCE_ENCODING)" ]; then \
+		    MAN_DEST_PATH=$${MAN_DEST_PATH}_JP.$${encoding}; \
+		fi; \
+		MAN_DEST_PATH=$${MAN_DEST_PATH}/man1; \
+		$(MKDIR) -p $${MAN_DEST_PATH}; \
+		$(CAT) $(JA_MANDIR)/ja/$${manpage} \
+		    | $(ABS_BINDIR)/native2ascii -encoding $(JA_SOURCE_ENCODING) \
+		    | $(ABS_BINDIR)/native2ascii -reverse -encoding $${encoding} \
+		    > $${MAN_DEST_PATH}/$${manpage}; \
+	    done; \
+	done
+	$(MV) $(JRE_IMAGE_DIR)/man/ja $(JRE_IMAGE_DIR)/man/ja_JP.$(JA_SOURCE_ENCODING)
+	$(CD) $(JRE_IMAGE_DIR)/man; $(LN) -s ja_JP.$(JA_SOURCE_ENCODING) ja
+    else
+	for manpage in $(JRE_MAN_PAGES) javaman.ent; do \
+	    for encoding in $(JA_TARGET_ENCODINGS); do \
+		MAN_DEST_PATH=$(JRE_IMAGE_DIR)/man/ja; \
+		if [ "$${encoding}" != "$(JA_SOURCE_ENCODING)" ]; then \
+		    MAN_DEST_PATH=$${MAN_DEST_PATH}_JP.$${encoding}; \
+		fi; \
+		MAN_DEST_PATH=$${MAN_DEST_PATH}/sman1; \
+		$(MKDIR) -p $${MAN_DEST_PATH}; \
+		$(CAT) $(JA_MANDIR)/ja/$${manpage} \
+		    | $(ABS_BINDIR)/native2ascii -encoding $(JA_SOURCE_ENCODING) \
+		    | $(ABS_BINDIR)/native2ascii -reverse -encoding $${encoding} \
+		    > $${MAN_DEST_PATH}/$${manpage}; \
+	    done; \
+	done
+	@#
+	@# Add the sgml manpage entity file on Solaris
+	@#
+	$(CP) $(MANDIR)/javaman.ent $(JRE_IMAGE_DIR)/$(DEST_MAN_PATH)
+    endif
+  endif
+	@# ^^^^^^^^^^^^^^^^^ non-solaris-64-bit images only ^^^^^^^^^^^^^^^^^^^^^
+endif # SOLARIS64
+	@#
+	@# Remove debug binaries...
+	@#
+	$(FIND) $(JRE_IMAGE_DIR)/bin \( -name '*$(DBG_SUFFIX).$(LIBRARY_SUFFIX)' -o \
+		-name '*$(DBG_SUFFIX)$(EXE_SUFFIX)' -o -name '*$(DBG_SUFFIX).cgi' \) \
+		-exec $(RM) {} \;
+	$(FIND) $(JRE_IMAGE_DIR)/lib \( -name '$(LIB_PREFIX)*$(DBG_SUFFIX).$(LIB_SUFFIX)' \
+		-o -name '*$(DBG_SUFFIX)' \) -exec $(RM) {} \;
+	$(RM) $(JRE_IMAGE_DIR)/lib/*$(DBG_SUFFIX).jar
+	@#
+	@# Remove tools that should not be part of JRE.
+	@#
+	for t in $(NOTJRETOOLS) ; do \
+	    $(RM) $(JRE_IMAGE_DIR)/bin$(ISA_DIR)/$$t ; \
+	done ;
+	@#
+	@# Remove libs that should not be part of JRE.
+	@#
+	for l in $(NOTJRELIBS) ; do \
+	    $(RM) $(JRE_IMAGE_DIR)/lib/$$l ; \
+	done ;
+ifeq ($(PLATFORM), windows)
+	@#
+	@# Windows only: 
+	@#   - remove audio files from jre-image lib directory,
+	@#   - remove the server VM
+	@#   - remove .lib files on windows
+	@#   - remove the client jvm[_g].map and .pdb files
+	@#
+	$(CD) $(JRE_IMAGE_DIR)/lib; \
+	    $(RM) java.$(LIB_SUFFIX) jvm.$(LIB_SUFFIX) \
+		  hpi.$(LIB_SUFFIX) awt.$(LIB_SUFFIX) jawt.$(LIB_SUFFIX)
+  ifeq ($(ARCH_DATA_MODEL), 32)
+	$(RM) -r $(JRE_IMAGE_DIR)/bin/server
+	$(RM) $(JRE_IMAGE_DIR)/bin/client/*.map $(JRE_IMAGE_DIR)/bin/client/*.pdb 
+  else
+	$(RM) $(JRE_IMAGE_DIR)/bin/server/*.map $(JRE_IMAGE_DIR)/bin/server/*.pdb 
+  endif
+endif # PLATFORM
+	@#
+	@# Remove orb.idl and ir.idl from jre
+	@#
+	$(FIND) $(JRE_IMAGE_DIR)/lib -name 'orb.idl' -exec $(RM) \{} \;
+	$(FIND) $(JRE_IMAGE_DIR)/lib -name 'ir.idl' -exec $(RM) \{} \;
+	@#
+	@# We need to make a private untouched version of the jre image
+	@# for the later consumption of the jdk-image building.
+	$(RM) -r $(TMP_JRE_IMAGE_DIR)
+	$(MKDIR) -p $(TMP_JRE_IMAGE_DIR)
+	$(CD) $(JRE_IMAGE_DIR) ; $(FIND) . -depth -print | $(CPIO) -pdum $(TMP_JRE_IMAGE_DIR)
+	@# all done with JRE image
+	@#
+
+
+######################################################
+# JDK Image
+######################################################
+image-jdk:: $(STAGED_JDK_LICENSES)
+	$(RM) -r $(JDK_IMAGE_DIR)
+	@#
+	@# Grab jre.
+	@#
+	$(MKDIR) -p $(JDK_IMAGE_DIR)/jre
+	$(CD) $(TMP_JRE_IMAGE_DIR) ; $(FIND) . -depth -print | $(CPIO) -pdum $(JDK_IMAGE_DIR)/jre
+ifeq ($(PLATFORM), windows)
+	@#
+	@# The SDK should have the hotspot server which was remove from the JRE...
+	@#
+	$(MKDIR) -p $(JDK_IMAGE_DIR)/jre/bin/server
+	$(CP) $(BINDIR)/server/Xusage.txt  $(JDK_IMAGE_DIR)/jre/bin/server/
+	$(CP) $(BINDIR)/server/jvm.dll     $(JDK_IMAGE_DIR)/jre/bin/server/
+	# The rt.jar for the JRE does not include the GTKLookAndFeel in 1.4.2,
+	# but the rt.jar in the JDK does.
+	$(CD) $(CLASSBINDIR); $(ABS_JAR) 0uf $(JDK_IMAGE_DIR)/jre/lib/rt.jar \
+              com/sun/java/swing/plaf/gtk
+else # PLATFORM
+	@#
+	@# remove the JRE's man pages: JDK gets a full set elsewhere...
+	@#
+	$(RM) -rf $(JDK_IMAGE_DIR)/jre/man
+endif # PLATFORM
+	@# vvvvvvvvvvvvvvvvv 64-bit images only vvvvvvvvvvvvvvvvvvvvv
+	@#
+	@# 64-bit solaris JDK image contains only the 64-bit add-on files.
+	@#
+ifdef SOLARIS64
+	for dir in bin demo ; do \
+	  $(MKDIR) $(JDK_IMAGE_DIR)/$$dir ; \
+	  $(CD) $(ABS_OUTPUTDIR); $(FIND) $$dir -name '$(LIBARCH)' -exec \
+		$(CP) -r {} $(JDK_IMAGE_DIR)/$$dir \; ; \
+        done ; \
+        for d in $(LICENSE_DOCLIST_JDK); do \
+                $(SED) 's/$$//g' tmp/jdk/$$d > tmp/jdk/$${d}64 ; \
+                $(CHMOD) 444 tmp/jdk/$${d}64 ; \
+        done ;
+	@# ^^^^^^^^^^^^^^^^^ 64-bit solaris images only ^^^^^^^^^^^^^^^^^^^^^
+else # SOLARIS64
+	@# vvvvvvvvvvvvvvvvv non-64-bit solaris images only vvvvvvvvvvvvvvvvvvvvv
+	@#
+	$(MKDIR) $(JDK_IMAGE_DIR)/lib
+	@#
+	@# Copy in the libs that only belong in the JDK
+	@#
+	for l in $(NOTJRELIBS); do \
+	    if [ -r $(LIBDIR)/$$l ]; then \
+	        $(CP) $(LIBDIR)/$$l $(JDK_IMAGE_DIR)/lib; \
+	    fi; \
+	done ;
+  ifeq ($(PLATFORM), windows)
+	@#
+	@# Audio soundbank - Bug# 4236400
+	@# Windows only: adding audio files to JDK's jre/lib directory.
+	@#
+	($(CD) $(LIBDIR); $(TAR) cf - \
+	    `$(FIND) audio -depth -print`) | \
+	    ($(CD) $(JDK_IMAGE_DIR)/jre/lib; $(TAR) xf -)
+	@#
+	@#
+	@# lib/
+	@#
+	$(CP) $(LIBDIR)/$(LIB_PREFIX)jvm$(OPT_SUFFIX).$(LIB_SUFFIX) $(JDK_IMAGE_DIR)/lib
+	$(CP) $(LIBDIR)/$(LIB_PREFIX)jawt$(OPT_SUFFIX).$(LIB_SUFFIX) $(JDK_IMAGE_DIR)/lib
+	@#
+	@# bin/
+	@#
+	@# copy all EXE files and only certain DLL files from BINDIR
+	@# ...but remove all _g DLL and EXE 
+	$(MKDIR) -p $(JDK_IMAGE_DIR)/bin
+	$(CP) $(BINDIR)/*$(EXE_SUFFIX) $(JDK_IMAGE_DIR)/bin
+  else # PLATFORM
+	@#
+	@# bin/
+	@#
+	($(CD) $(BINDIR)/..; $(TAR) cf - \
+	    `$(FIND) bin \( -type f -o -type l \) -print | $(GREP) -v $(DBG_SUFFIX)`) | \
+	    ($(CD) $(JDK_IMAGE_DIR); $(TAR) xf -)
+  endif # PLATFORM
+	@#
+	@# lib/tools.jar
+	@#
+	$(JAR) c0f $(LIBDIR)/tools.jar $(addprefix -C $(CLASSBINDIR) , $(TOOLS))
+	$(CP) $(LIBDIR)/tools.jar $(JDK_IMAGE_DIR)/lib/tools.jar
+	@#
+	@# CORBA supported orb.idl and ir.idl should be copied to lib
+	@#
+	$(CP) $(LIBDIR)/orb.idl $(JDK_IMAGE_DIR)/lib/orb.idl
+	$(CP) $(LIBDIR)/ir.idl $(JDK_IMAGE_DIR)/lib/ir.idl
+	@#
+	@# src.zip
+	@#
+	$(MKDIR) -p $(JDK_IMAGE_DIR)/src
+	@#
+	@# The '*-*' pattern in the find command excludes files named with dashes,
+	@# such as the java.nio templates for generated classes
+	@#
+	@# The Linux 'tar' command cannot handle the huge command line argument
+	@# generated by the more efficient solaris/windows method of copying files.
+	@# So for Linux, make use of the -T option (like Solaris' -I option) of
+	@# obtaining the list of files from a file. MKS tar has no such option.
+  ifeq ($(PLATFORM), linux)
+	for d in $(SOURCE_DIRS); do \
+	  ($(CD) $$d;  \
+	    $(FIND) $(SOURCES) -name SCCS -prune \
+		-o -name '*.java' \! -name '*-*' -print > $(ABS_TMPDIR)/src-files.list ; \
+	    $(TAR) cf - -T $(ABS_TMPDIR)/src-files.list | \
+	  	($(CD) $(JDK_IMAGE_DIR)/src; $(TAR) xf -); \
+	  ); \
+	done
+  else
+	for d in $(SOURCE_DIRS); do \
+	  ($(CD) $$d; $(TAR) cf - \
+	    `$(FIND) $(SOURCES) -name SCCS -prune \
+	                        -o -name '*.java' \! -name '*-*' -print`) |\
+	  ($(CD) $(JDK_IMAGE_DIR)/src; $(TAR) xf -); \
+	done
+  endif
+	$(CHMOD) -R +w $(JDK_IMAGE_DIR)/src
+	$(MKDIR) -p $(JDK_IMAGE_DIR)/src/launcher
+	$(CP) $(SHARE_SRC)/bin/java.c $(JDK_IMAGE_DIR)/src/launcher
+	$(CP) $(SHARE_SRC)/bin/java.h $(JDK_IMAGE_DIR)/src/launcher
+	$(CP) $(PLATFORM_SRC)/bin/java_md.c $(JDK_IMAGE_DIR)/src/launcher
+	$(CP) $(PLATFORM_SRC)/bin/java_md.h $(JDK_IMAGE_DIR)/src/launcher
+	$(CD) $(JDK_IMAGE_DIR)/src; $(ZIPEXE) -qr ../src.zip *
+	$(RM) -r $(JDK_IMAGE_DIR)/src
+	@#
+	@# demo, include
+	@#
+	@# since variables contain relative path names, create a
+	@# temporary jar file and then move it.
+	$(MKDIR) -p $(DEMODIR)/jpda
+	$(CD) $(JPDA_SHARE_SRC)/classes; \
+		$(ABS_JAR) cf $(ABS_TMPDIR)/tmp.jar \
+		`$(FIND) $(JPDA_DEMO_PKGS) -name SCCS -prune \
+		-o \( -name '*.java' \
+		   -o -name 'README*' \
+		   -o -name '*.html' \
+		   -o -name '*.jj' \) -print`
+	$(MV) $(TMPDIR)/tmp.jar $(DEMODIR)/jpda/examples.jar
+	$(CP) -r -f $(DEMODIR) $(JDK_IMAGE_DIR)
+	$(CP) -r $(INCLUDEDIR) $(JDK_IMAGE_DIR)
+	@#
+	@# jdk/docs
+	@#
+	@# add the platform appropriate EOL and extension to the text.
+	$(CD) $(JDK_IMAGE_DIR); \
+		$(RM) $(JDK_SOURCE_DOCLIST) $(JDK_NAMECHANGE_DOCLIST)$(TEXT_SUFFIX)
+	for d in $(JDK_SOURCE_DOCLIST); do \
+	    $(SED) 's/$$//g' $(SHARE_SRC)/doc/jdk/$$d > $(JDK_IMAGE_DIR)/$$d ; \
+	    $(CHMOD) 444 $(JDK_IMAGE_DIR)/$$d ; \
+	done ;
+	for d in $(JDK_NAMECHANGE_DOCLIST); do \
+	    $(SED) 's/$$//g' $(SHARE_SRC)/doc/jdk/$$d > \
+		$(JDK_IMAGE_DIR)/$$d$(TEXT_SUFFIX) ; \
+	    $(CHMOD) 444 $(JDK_IMAGE_DIR)/$$d$(TEXT_SUFFIX) ; \
+	done ;
+	for d in $(LICENSE_DOCLIST_JDK); do \
+		$(SED) 's/$$//g' $(TMPDIR)/jdk/$$d > $(JDK_IMAGE_DIR)/$$d ; \
+		$(CHMOD) 444 $(JDK_IMAGE_DIR)/$$d ; \
+	done ;
+	@#
+	@# Swing BeanInfo generation
+	@#
+	$(CD) javax/swing/beaninfo; $(MAKE) swing-1.2-beans
+  ifneq ($(PLATFORM), windows) 
+	$(MKDIR) -p $(JDK_IMAGE_DIR)/$(DEST_MAN_PATH)
+	$(CP) $(MANDIR)/*.1 $(JDK_IMAGE_DIR)/$(DEST_MAN_PATH)
+	@#
+	@# Add Japanese manpages for Solaris
+	@#
+    ifeq ($(PLATFORM), linux)
+	for manpage in $(JDK_MAN_PAGES); do \
+	    for encoding in $(JA_TARGET_ENCODINGS); do \
+		MAN_DEST_PATH=$(JDK_IMAGE_DIR)/man/ja; \
+		if [ "$${encoding}" != "$(JA_SOURCE_ENCODING)" ]; then \
+		    MAN_DEST_PATH=$${MAN_DEST_PATH}_JP.$${encoding}; \
+		fi; \
+		MAN_DEST_PATH=$${MAN_DEST_PATH}/man1; \
+		$(MKDIR) -p $${MAN_DEST_PATH}; \
+		$(CAT) $(JA_MANDIR)/ja/$${manpage} \
+		    | $(ABS_NATIVE2ASCII) -encoding $(JA_SOURCE_ENCODING) \
+		    | $(ABS_NATIVE2ASCII) -reverse -encoding $${encoding} \
+		    > $${MAN_DEST_PATH}/$${manpage}; \
+	    done; \
+	done
+	$(MV) $(JDK_IMAGE_DIR)/man/ja $(JDK_IMAGE_DIR)/man/ja_JP.$(JA_SOURCE_ENCODING)
+	$(CD) $(JDK_IMAGE_DIR)/man; $(LN) -s ja_JP.$(JA_SOURCE_ENCODING) ja
+    else
+	for manpage in $(JDK_MAN_PAGES) javaman.ent; do \
+	    for encoding in $(JA_TARGET_ENCODINGS); do \
+		MAN_DEST_PATH=$(JDK_IMAGE_DIR)/man/ja; \
+		if [ "$${encoding}" != "$(JA_SOURCE_ENCODING)" ]; then \
+		    MAN_DEST_PATH=$${MAN_DEST_PATH}_JP.$${encoding}; \
+		fi; \
+		MAN_DEST_PATH=$${MAN_DEST_PATH}/sman1; \
+		$(MKDIR) -p $${MAN_DEST_PATH}; \
+		$(CAT) $(JA_MANDIR)/ja/$${manpage} \
+		    | $(ABS_NATIVE2ASCII) -encoding $(JA_SOURCE_ENCODING) \
+		    | $(ABS_NATIVE2ASCII) -reverse -encoding $${encoding} \
+		    > $${MAN_DEST_PATH}/$${manpage}; \
+	    done; \
+	done
+	@#
+	@# Add the sgml manpage entity file on Solaris
+	@#
+	$(CP) $(MANDIR)/javaman.ent $(JDK_IMAGE_DIR)/$(DEST_MAN_PATH)
+    endif # PLATFORM
+  endif # PLATFORM
+endif # SOLARIS64
+	@# ^^^^^^^^^^^^^^^^^ non-64-bit solaris images only ^^^^^^^^^^^^^^^^^^^^^
+	@#
+	@# Remove debug binaries...
+	@#
+	$(RM) $(JDK_IMAGE_DIR)/bin/*$(DBG_SUFFIX)$(EXE_SUFFIX) 
+	$(RM) $(JDK_IMAGE_DIR)/bin/*$(DBG_SUFFIX).$(LIBRARY_SUFFIX)
+	$(RM) $(JDK_IMAGE_DIR)/bin/$(LIBARCH)/*$(DBG_SUFFIX)$(EXE_SUFFIX) 
+	$(RM) $(JDK_IMAGE_DIR)/bin/$(LIBARCH)/*$(DBG_SUFFIX).$(LIBRARY_SUFFIX)
+	$(RM) $(JDK_IMAGE_DIR)/jre/bin/*$(DBG_SUFFIX)$(EXE_SUFFIX)
+	$(RM) $(JDK_IMAGE_DIR)/jre/bin/*$(DBG_SUFFIX).$(LIBRARY_SUFFIX)
+	$(RM) $(JDK_IMAGE_DIR)/lib/*$(DBG_SUFFIX).jar
+	$(RM) $(JDK_IMAGE_DIR)/lib/$(LIBARCH)/$(LIB_PREFIX)*$(OPT_SUFFIX).$(LIB_SUFFIX)
+	$(RM) $(JDK_IMAGE_DIR)/lib/$(LIBARCH)/*$(DBG_SUFFIX)$(EXE_SUFFIX)
+	$(RM) $(JDK_IMAGE_DIR)/lib/$(LIBARCH)/native_threads/$(LIB_PREFIX)*$(DBG_SUFFIX).$(LIB_SUFFIX)
+	$(RM) $(JDK_IMAGE_DIR)/lib/$(LIBARCH)/server/$(LIB_PREFIX)*$(DBG_SUFFIX).$(LIB_SUFFIX)
+	$(RM) $(JDK_IMAGE_DIR)/lib/$(LIBARCH)/motif21/$(LIB_PREFIX)*$(DBG_SUFFIX).$(LIB_SUFFIX)
+	$(RM) $(JDK_IMAGE_DIR)/lib/$(LIBARCH)/headless/$(LIB_PREFIX)*$(DBG_SUFFIX).$(LIB_SUFFIX)
+	@#
+	@# Remove tools that should not be part of SDK.
+	@#
+	for t in $(NOTJDKTOOLS); do \
+	    $(RM) $(JDK_IMAGE_DIR)/bin/$${t}$(EXE_SUFFIX) \
+		  $(JDK_IMAGE_DIR)/bin/*/native_threads/$${t}$(EXE_SUFFIX); \
+	done
+	@#Copy demo applets
+ifneq ($(ARCH), sparcv9)
+	$(MKDIR) -p $(JDK_IMAGE_DIR)/demo
+	$(CP) -r -f $(DEMODIR)/applets $(JDK_IMAGE_DIR)/demo
+endif
+	@# Done with the JDK
+
+
+######################################################
+# JDK Debug Image
+######################################################
+image-jdk-debug::
+	$(RM) -r $(JDK_DEBUG_IMAGE_DIR)
+	$(MKDIR) -p $(JDK_DEBUG_IMAGE_DIR)/jre/bin
+ifeq ($(PLATFORM), windows)
+	@# the "find" embedded in a "tar" was at one point causing a problem, 
+	@# so $(CPIO) is used instead. 
+	@#
+	$(CD) $(OUTPUTDIR); \
+	    $(FIND) lib -name 'jvm$(DBG_SUFFIX).lib' -print | \
+	        $(CPIO) -pdum $(JDK_DEBUG_IMAGE_DIR); \
+	    $(FIND) bin -name '*$(DBG_SUFFIX)$(EXE_SUFFIX)' -print | \
+	        $(CPIO) -pdum $(JDK_DEBUG_IMAGE_DIR); \
+	    $(FIND) bin -name '*$(DBG_SUFFIX)$(EXE_SUFFIX)' -print | \
+	        $(CPIO) -pdum $(JDK_DEBUG_IMAGE_DIR)/jre; \
+	    $(FIND) bin -name '*$(DBG_SUFFIX).$(LIBRARY_SUFFIX)' -print | \
+	        $(CPIO) -pdum $(JDK_DEBUG_IMAGE_DIR)/jre; \
+	    $(FIND) bin -name 'Xusage.txt' -print | \
+	        $(CPIO) -pdum $(JDK_DEBUG_IMAGE_DIR)/jre; \
+	    $(FIND) bin -name '*.map' -print | \
+	        $(CPIO) -pdum $(JDK_DEBUG_IMAGE_DIR)/jre; \
+	    $(FIND) bin -name '*.pdb' -print | \
+	        $(CPIO) -pdum $(JDK_DEBUG_IMAGE_DIR)/jre;
+else # PLATFORM
+	($(CD) $(OUTPUTDIR); \
+	    $(TAR) cf - `$(FIND) lib -name '*$(DBG_SUFFIX).$(LIB_SUFFIX)' -print`) | \
+	    ($(CD) $(JDK_DEBUG_IMAGE_DIR)/jre; $(TAR) xf -)
+	@#
+	@# copy the AWT Robot binary
+	@# 
+	$(CP) $(LIBDIR)/$(LIBARCH)/awt_robot$(DBG_SUFFIX)$(EXE_SUFFIX) $(JDK_DEBUG_IMAGE_DIR)/jre/lib/$(LIBARCH)/
+	$(MKDIR) -p $(JDK_DEBUG_IMAGE_DIR)/bin
+	($(CD) $(OUTPUTDIR); \
+	    $(TAR) cf - `$(FIND) bin -name '*$(DBG_SUFFIX)$(EXE_SUFFIX)' -print`) | \
+	    ($(CD) $(JDK_DEBUG_IMAGE_DIR); $(TAR) xf -)
+endif # PLATFORM
+	@#
+	@# For all executables placed in jre/bin, loop through
+	@# and copy in the debug equivalents.
+	@# Grab each executable, strip off $(EXE_SUFFIX), and add
+	@# $(DBG_SUFFIX)$(EXE_SUFFIX).
+	@#
+	for i in `$(LS) $(JRE_IMAGE_DIR)/bin`; do \
+	    for t in $(JDK_DEBUG_IMAGE_DIR)/bin/`$(BASENAME) $${i} $(EXE_SUFFIX)`$(DBG_SUFFIX)$(EXE_SUFFIX); do \
+	        if [ -f $${t} ]; then \
+	            $(CP) $${t} $(JDK_DEBUG_IMAGE_DIR)/jre/bin/; \
+	        fi; \
+	    done; \
+	done
+	@#
+	@# Remove tools that should not be part of SDK.
+	for t in $(NOTJDKTOOLS); do \
+	    $(RM) $(JDK_DEBUG_IMAGE_DIR)/bin/$${t}$(DBG_SUFFIX)$(EXE_SUFFIX) \
+		  $(JDK_DEBUG_IMAGE_DIR)/bin/*/native_threads/$${t}$(DBG_SUFFIX)$(EXE_SUFFIX); \
+	done
+
+###################################################################
+# Compare JRE image filelist with previous release image filelist
+###################################################################
+compare-image-jre:: $(TMPDIR)/previous_jre $(TMPDIR)/DirDiff
+	$(CP) $(PREVIOUS_JRE_BUNDLE) $(TMPDIR)/previous_jre
+ifeq ($(PLATFORM), linux)
+	($(CD) $(TMPDIR)/previous_jre; \
+	   $(GUNZIP) -dc $(PREVIOUS_JRE_FILE) | \
+	   $(TAR) xf - )
+else 
+	($(CD) $(TMPDIR)/previous_jre; \
+	   $(TAR) xf $(PREVIOUS_JRE_FILE))
+endif
+	($(CD) $(TMPDIR)/DirDiff; \
+           $(JAVA) DirDiff \
+	   $(TMPDIR)/previous_jre/j2re$(PREVIOUS_JDK_VERSION) \
+	   $(JRE_IMAGE_DIR) | $(SORT) >> $(WARNING_FILE) )
+	$(ECHO) >> $(WARNING_FILE)
+
+###################################################################
+# Compare JDK image filelist with previous release image filelist
+###################################################################
+compare-image-jdk:: $(TMPDIR)/previous_jdk $(TMPDIR)/DirDiff
+	$(CP) $(PREVIOUS_JDK_BUNDLE) $(TMPDIR)/previous_jdk
+ifeq ($(PLATFORM), linux)
+	($(CD) $(TMPDIR)/previous_jdk; \
+	   $(GUNZIP) -dc $(PREVIOUS_JDK_FILE) | \
+	   $(TAR) xf - )
+else
+	($(CD) $(TMPDIR)/previous_jdk; \
+	   $(TAR) xf $(PREVIOUS_JDK_FILE)) 
+endif
+	($(CD) $(TMPDIR)/DirDiff; \
+	   $(JAVA) DirDiff \
+	   $(TMPDIR)/previous_jdk/j2sdk$(PREVIOUS_JDK_VERSION) \
+	   $(JDK_IMAGE_DIR) | $(SORT) >> $(WARNING_FILE) )
+	$(ECHO) >> $(WARNING_FILE)
+
+######################################################
+# clobber
+######################################################
+images-clobber::
+ifeq ($(ARCH_DATA_MODEL), 32)
+	$(CD) javax/swing/beaninfo; $(MAKE) swingbeans.clobber
+	$(RM) -r $(DEMODIR)/jpda
+	$(RM) -r $(CLASSBINDIR)/META-INF
+	$(RM) $(TMPDIR)/tmp.jar
+	$(RM) -r $(TMPDIR)/jre $(TMPDIR)/jdk
+endif
+ifeq ($(PLATFORM), linux)
+	$(RM) -r $(OUTPUTDIR)/$(ARCH)
+endif
+ifeq ($(PLATFORM), windows)
+	$(RM) $(TMPDIR)/rebase.input
+endif
+	$(RM) -r $(TMP_JRE_IMAGE_DIR)
+	$(RM) -r $(JDK_IMAGE_DIR)
+	$(RM) -r $(JDK_DEBUG_IMAGE_DIR)
+	$(RM) -r $(JRE_IMAGE_DIR)
+	$(RM) -r $(TMPDIR)/jre $(TMPDIR)/jdk
+
+compare-image-clobber:
+	$(RM) -r $(TMPDIR)/DirDiff
+	$(RM) -r $(TMPDIR)/previous_jre
+	$(RM) -r $(TMPDIR)/previous_jdk
+
+images images-clobber::
+	@$(ECHO) ">>>Finished making "$@" @ `$(DATE)` ..."; 
+
+
+.PHONY: images image-jre image-jdk image-jdk-debug \
+	compare-image-jre compare-image-jdk \
+	images-clobber compare-image-clobber
+
+
+

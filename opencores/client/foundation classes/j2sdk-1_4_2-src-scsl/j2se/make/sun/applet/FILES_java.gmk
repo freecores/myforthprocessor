@@ -1,0 +1,28 @@
+#
+# @(#)FILES_java.gmk	1.23 03/01/23
+#
+# Copyright 2003 Sun Microsystems, Inc. All rights reserved.
+# SUN PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
+#
+
+FILES_java = \
+	$(TARGDIR)sun/applet/AppletMessageHandler.java \
+	$(TARGDIR)sun/applet/AppletIOException.java \
+	$(TARGDIR)sun/applet/AppletIllegalArgumentException.java \
+	$(TARGDIR)sun/applet/AppletViewer.java \
+	$(TARGDIR)sun/applet/AppletViewerFactory.java \
+	$(TARGDIR)sun/applet/AppletViewerPanel.java \
+	$(TARGDIR)sun/applet/AppletPanel.java \
+	$(TARGDIR)sun/applet/AppletClassLoader.java \
+	$(TARGDIR)sun/applet/AppletObjectInputStream.java \
+	$(TARGDIR)sun/applet/AppletThreadGroup.java \
+	$(TARGDIR)sun/applet/AppletProps.java \
+	$(TARGDIR)sun/applet/AppletSecurity.java \
+	$(TARGDIR)sun/applet/AppletSecurityException.java \
+	$(TARGDIR)sun/applet/AppletAudioClip.java \
+	$(TARGDIR)sun/applet/AppletEvent.java\
+	$(TARGDIR)sun/applet/AppletListener.java\
+	$(TARGDIR)sun/applet/AppletEventMulticaster.java\
+	$(TARGDIR)sun/applet/AppletImageRef.java \
+	$(TARGDIR)sun/applet/AppletResourceLoader.java \
+	$(TARGDIR)sun/applet/Main.java

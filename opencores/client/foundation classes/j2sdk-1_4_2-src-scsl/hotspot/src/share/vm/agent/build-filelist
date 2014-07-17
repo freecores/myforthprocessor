@@ -1,0 +1,9 @@
+#!/bin/sh -f
+
+SH=`which sh`
+MKS_HOME=`dirname $SH`
+
+FIND=$MKS_HOME/find
+SORT=$MKS_HOME/sort
+
+$FIND sun \( -name SCCS -prune \) -o \( -name "*.java" \) -print | $SORT > filelist.txt

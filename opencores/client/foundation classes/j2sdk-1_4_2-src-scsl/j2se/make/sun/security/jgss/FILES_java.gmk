@@ -1,0 +1,32 @@
+#
+# @(#)FILES_java.gmk	1.8 02/09/19
+#
+FILES_java = \
+	$(TARGDIR)sun/security/jgss/krb5/Krb5MechFactory.java \
+	$(TARGDIR)sun/security/jgss/krb5/InitSecContextToken.java \
+	$(TARGDIR)sun/security/jgss/krb5/Krb5Context.java \
+	$(TARGDIR)sun/security/jgss/krb5/Krb5Token.java \
+	$(TARGDIR)sun/security/jgss/krb5/MicToken.java \
+	$(TARGDIR)sun/security/jgss/krb5/Krb5NameElement.java \
+	$(TARGDIR)sun/security/jgss/krb5/MessageToken.java \
+	$(TARGDIR)sun/security/jgss/krb5/InitialToken.java \
+	$(TARGDIR)sun/security/jgss/krb5/WrapToken.java \
+	$(TARGDIR)sun/security/jgss/krb5/AcceptSecContextToken.java \
+	$(TARGDIR)sun/security/jgss/krb5/Krb5CredElement.java \
+	$(TARGDIR)sun/security/jgss/krb5/Krb5InitCredential.java \
+	$(TARGDIR)sun/security/jgss/krb5/Krb5AcceptCredential.java \
+	$(TARGDIR)sun/security/jgss/krb5/SubjectComber.java \
+	$(TARGDIR)sun/security/jgss/spi/GSSNameSpi.java \
+	$(TARGDIR)sun/security/jgss/spi/MechanismFactory.java \
+	$(TARGDIR)sun/security/jgss/spi/GSSCredentialSpi.java \
+	$(TARGDIR)sun/security/jgss/GSSHeader.java \
+	$(TARGDIR)sun/security/jgss/LoginUtility.java \
+	$(TARGDIR)sun/security/jgss/TokenTracker.java \
+	$(TARGDIR)sun/security/jgss/GSSExceptionImpl.java \
+	$(TARGDIR)sun/security/jgss/GSSManagerImpl.java \
+	$(TARGDIR)sun/security/jgss/GSSContextImpl.java \
+	$(TARGDIR)sun/security/jgss/GSSCredentialImpl.java \
+	$(TARGDIR)sun/security/jgss/GSSNameImpl.java \
+	$(TARGDIR)sun/security/jgss/GSSUtil.java \
+	$(TARGDIR)sun/security/jgss/ProviderList.java \
+	$(TARGDIR)sun/security/jgss/SunProvider.java

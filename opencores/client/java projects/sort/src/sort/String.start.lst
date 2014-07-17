@@ -1,0 +1,72 @@
+00000010  56           0 VAL 
+00000011  0d00000000   equation.String._staticBlocking VAL ( will be modified! ) 
+00000016  00           NOP ( will be modified! ) 
+00000017  01           ! 
+00000018  0d38a4f0a0   -1594842056 VAL 
+0000001d  0d42b33b7a   2050732866 VAL 
+00000022  0d00000000   equation.String.serialVersionUID VAL ( will be modified! ) 
+00000027  00           NOP ( will be modified! ) 
+00000028  90           A:R@ 
+00000029  01           ! 
+0000002a  10           R@ 
+0000002b  88           A:DROP 
+0000002c  1d           CELL+ 
+0000002d  01           ! 
+0000002e  0d00000000   equation.String.CaseInsensitiveComparator§-2000076032.table VAL ( will be modified! ) 
+00000033  00           NOP ( will be modified! ) 
+00000034  0d00437bfd   -42253568 VAL 
+00000039  0d00000000   EXECUTE-NEW VAL ( will be modified! ) 
+0000003e  00           NOP ( will be modified! ) 
+0000003f  0d00000000   equation.String.CASE_INSENSITIVE_ORDER VAL ( will be modified! ) 
+00000044  00           NOP ( will be modified! ) 
+00000045  0e           DUP 
+00000046  02           @ 
+00000047  57           -1 VAL 
+00000048  0d00000000   equation.JavaArray.kill§1620077312 VAL ( will be modified! ) 
+0000004d  00           NOP ( will be modified! ) 
+0000004e  01           ! 
+0000004f  56           0 VAL 
+00000050  0d00000000   equation.String.CaseInsensitiveComparator._staticBlocking VAL ( will be modified! ) 
+00000055  00           NOP ( will be modified! ) 
+00000056  01           ! 
+00000057  0d7d5c0377   1996708989 VAL 
+0000005c  0dcee5505c   1548805582 VAL 
+00000061  0d00000000   equation.String.CaseInsensitiveComparator.serialVersionUID VAL ( will be modified! ) 
+00000066  00           NOP ( will be modified! ) 
+00000067  90           A:R@ 
+00000068  01           ! 
+00000069  10           R@ 
+0000006a  88           A:DROP 
+0000006b  1d           CELL+ 
+0000006c  01           ! 
+0000006d  3d           EXIT 
+
+instruction usage:
+load/store:		8	(19.047619047619047%)
+32-bit values:		13	(30.952380952380953%)
+16-bit values:		0	(0.0%)
+5-bit values:		3	(7.142857142857142%)
+values total:		16	(38.095238095238095%)
+arithmetic/logical:	2	(4.761904761904762%)
+relations:		0	(0.0%)
+flow control:		1	(2.380952380952381%)
+other:			15	(35.714285714285715%)
+total:			42
+
+average bytes per instruction: 2.5714285714285716
+
+string storage in byte:	0
+unresolved references:	8
+
+Size of static code: 14
+Size of initial code: 94
+
+references:
+ffffffff	1	EXECUTE-NEW
+ffffffff	1	equation.JavaArray.kill§1620077312
+ffffffff	1	equation.String.CASE_INSENSITIVE_ORDER
+ffffffff	1	equation.String.CaseInsensitiveComparator._staticBlocking
+ffffffff	1	equation.String.CaseInsensitiveComparator.serialVersionUID
+ffffffff	1	equation.String.CaseInsensitiveComparator§-2000076032.table
+ffffffff	1	equation.String._staticBlocking
+ffffffff	1	equation.String.serialVersionUID

@@ -1,0 +1,82 @@
+/*
+ * Copyright 2003 Sun Microsystems, Inc. All rights reserved.
+ * SUN PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
+ */
+
+/*
+ * @(#)ISO2022_KR.java	1.3 03/01/23
+ */
+
+package sun.nio.cs.ext;
+
+import java.nio.charset.Charset;
+import java.nio.ByteBuffer;
+import java.nio.CharBuffer;
+import java.nio.charset.CharsetDecoder;
+import java.nio.charset.CharsetEncoder;
+import java.nio.charset.CoderResult;
+import sun.nio.cs.HistoricallyNamedCharset;
+import sun.nio.cs.ext.EUC_KR;
+
+public class ISO2022_KR extends ISO2022 
+implements HistoricallyNamedCharset
+{
+    public ISO2022_KR() {
+	super("ISO-2022-KR", ExtendedCharsets.aliasesFor("ISO-2022-KR"));
+    }
+
+    public boolean contains(Charset cs) {
+	// overlapping repertoire of EUC_KR, aka KSC5601 
+	return ((cs instanceof EUC_KR) ||
+	     (cs.name().equals("US-ASCII")) ||
+	     (cs instanceof ISO2022_KR));
+    }
+
+    public String historicalName() {
+	return "ISO2022KR";
+    }
+
+    public CharsetDecoder newDecoder() {
+	return new Decoder(this);
+    }
+
+    public CharsetEncoder newEncoder() {
+	return new Encoder(this);
+    }
+
+    private static class Decoder extends ISO2022.Decoder {
+	public Decoder(Charset cs)
+	{
+	    super(cs);
+	    SODesig = new String[1];
+	    SODesig[0] = "$)C";
+
+	    SODecoder = new CharsetDecoder[1];
+
+	    try {
+		Charset cset = Charset.forName("EUC_KR");
+		SODecoder[0] = cset.newDecoder();
+	    } catch (Exception e) {};
+	}
+    }
+
+    private static class Encoder extends ISO2022.Encoder {
+
+	private static Charset eucKR = Charset.forName("EUC_KR");
+	private static CharsetEncoder KSC5601Enc = eucKR.newEncoder();
+	public Encoder(Charset cs)
+	{
+	    super(cs);
+	    SODesig = "$)C";
+
+	    try {
+		Charset cset = Charset.forName("EUC_KR");
+		ISOEncoder = cset.newEncoder();
+	    } catch (Exception e) { }
+	}
+
+	public boolean canEncode(char c) {
+	    return (KSC5601Enc.canEncode(c));
+	}
+    }
+}

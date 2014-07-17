@@ -1,0 +1,26 @@
+#
+# @(#)com_sun_javah.jmk	1.1 98/07/15
+#
+# Files required for javah.
+#
+
+FILES_java = \
+       	$(TARGDIR)com/sun/tools/javah/Gen.java \
+	$(TARGDIR)com/sun/tools/javah/JNI.java \
+	$(TARGDIR)com/sun/tools/javah/LLNI.java \
+	$(TARGDIR)com/sun/tools/javah/Mangle.java \
+	$(TARGDIR)com/sun/tools/javah/MainDoclet.java \
+	$(TARGDIR)com/sun/tools/javah/Util.java \
+	$(TARGDIR)com/sun/tools/javah/OldHeaders.java \
+	$(TARGDIR)com/sun/tools/javah/OldStubs.java \
+	$(TARGDIR)com/sun/tools/javah/TypeSignature.java \
+	$(TARGDIR)com/sun/tools/javah/Main.java \
+	$(TARGDIR)com/sun/tools/javah/oldjavah/Main.java \
+	$(TARGDIR)com/sun/tools/javah/oldjavah/JavahEnvironment.java \
+	$(TARGDIR)com/sun/tools/javah/oldjavah/Gen.java \
+	$(TARGDIR)com/sun/tools/javah/oldjavah/JNI.java \
+	$(TARGDIR)com/sun/tools/javah/oldjavah/LLNI.java \
+	$(TARGDIR)com/sun/tools/javah/oldjavah/Mangle.java \
+	$(TARGDIR)com/sun/tools/javah/oldjavah/Util.java \
+	$(TARGDIR)com/sun/tools/javah/oldjavah/OldHeaders.java \
+	$(TARGDIR)com/sun/tools/javah/oldjavah/OldStubs.java 

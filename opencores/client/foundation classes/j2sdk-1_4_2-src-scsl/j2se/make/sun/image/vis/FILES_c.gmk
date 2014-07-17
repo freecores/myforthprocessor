@@ -1,0 +1,87 @@
+#
+# @(#)FILES_c.gmk	1.8 02/09/19
+#
+FILES_s=\
+        $(CTARGDIR)mlib_v_ImageCopy_blk.s
+
+FILES_c = \
+	$(CTARGDIR)mlib_ImageAffine_f.c \
+        $(CTARGDIR)mlib_ImageAffineEdge.c \
+        $(CTARGDIR)mlib_ImageAffine_NN.c \
+        $(CTARGDIR)mlib_ImageAffine_NN_Fp.c \
+        $(CTARGDIR)mlib_ImageConv_16nw.c \
+        $(CTARGDIR)mlib_ImageConvMxNFunc.c \
+        $(CTARGDIR)mlib_ImageConv_32nw.c \
+        $(CTARGDIR)mlib_ImageCreate.c \
+        $(CTARGDIR)mlib_ImageDivTables.c \
+        $(CTARGDIR)mlib_ImageFilters.c \
+        $(CTARGDIR)mlib_ImageScanPoly.c \
+        $(CTARGDIR)mlib_ImageLookUp_64.c \
+        $(CTARGDIR)mlib_ImageLookUp_Bit.c \
+        $(CTARGDIR)mlib_ImageUtils.c \
+        $(CTARGDIR)mlib_v_ImageAffine.c \
+        $(CTARGDIR)mlib_v_ImageAffine_BC.c \
+        $(CTARGDIR)mlib_v_ImageAffine_BL.c \
+        $(CTARGDIR)mlib_v_ImageAffine_NN.c \
+        $(CTARGDIR)mlib_v_ImageFilters.c \
+        $(CTARGDIR)mlib_sys.c \
+        $(CTARGDIR)mlib_v_ImageChannelInsert.c \
+        $(CTARGDIR)mlib_v_ImageChannelInsert_1.c \
+        $(CTARGDIR)mlib_v_ImageChannelInsert_34.c \
+        $(CTARGDIR)mlib_v_ImageChannelExtract.c \
+        $(CTARGDIR)mlib_v_ImageChannelExtract_f.c \
+        $(CTARGDIR)mlib_v_ImageChannelExtract_1.c \
+        $(CTARGDIR)mlib_v_ImageChannelExtract_43.c \
+	$(CTARGDIR)mlib_v_ImageColorTrue2Index.c \
+        $(CTARGDIR)mlib_v_ImageConvClearEdge.c \
+        $(CTARGDIR)mlib_v_ImageConvCopyEdge.c \
+        $(CTARGDIR)mlib_v_ImageConvIndex3_8_8nw.c \
+        $(CTARGDIR)mlib_v_ImageConvIndex3_8_16nw.c \
+        $(CTARGDIR)mlib_v_ImageConvKernelConvert.c \
+        $(CTARGDIR)mlib_v_ImageConvMxN.c \
+        $(CTARGDIR)mlib_v_ImageConvMxN_8.c \
+        $(CTARGDIR)mlib_v_ImageConvMxN_8ext.c \
+        $(CTARGDIR)mlib_v_ImageConvMxN_8fill.c \
+        $(CTARGDIR)mlib_v_ImageConvMxN_8grp.c \
+        $(CTARGDIR)mlib_v_ImageConv_8nw.c \
+        $(CTARGDIR)mlib_ImageCopy_Bit.c \
+        $(CTARGDIR)mlib_v_ImageCopy.c \
+        $(CTARGDIR)mlib_v_ImageCopy_f.c \
+        $(CTARGDIR)mlib_v_ImageLookUp.c \
+        $(CTARGDIR)mlib_v_ImageLookUpU8U8Func.c \
+        $(CTARGDIR)mlib_v_ImageLookUpU8S16Func.c \
+        $(CTARGDIR)mlib_v_ImageLookUpU8S32Func.c \
+        $(CTARGDIR)mlib_v_ImageLookUpSIU8U8Func.c \
+        $(CTARGDIR)mlib_v_ImageLookUpS16U8Func.c \
+        $(CTARGDIR)mlib_v_ImageLookUpS16S16Func.c \
+        $(CTARGDIR)mlib_v_ImageLookUpSIS16S16Func.c \
+        $(CTARGDIR)mlib_v_ImageLookUpSIU8S16Func.c \
+        $(CTARGDIR)mlib_v_ImageLookUpSIS16U8Func.c \
+	$(CTARGDIR)mlib_v_ImageLookUpS16S32Func.c \
+	$(CTARGDIR)mlib_v_ImageLookUpSIS32S16Func.c \
+	$(CTARGDIR)mlib_v_ImageLookUpS32S16Func.c \
+	$(CTARGDIR)mlib_v_ImageLookUpSIS32S32Func.c \
+	$(CTARGDIR)mlib_v_ImageLookUpS32S32Func.c \
+	$(CTARGDIR)mlib_v_ImageLookUpSIS32U8Func.c \
+	$(CTARGDIR)mlib_v_ImageLookUpS32U8Func.c \
+	$(CTARGDIR)mlib_v_ImageLookUpSIU8S32Func.c \
+	$(CTARGDIR)mlib_v_ImageLookUpSIS16S32Func.c \
+        $(CTARGDIR)mlib_v_ImageLookUpU8U8Func.c \
+        $(CTARGDIR)mlib_v_ImageLookUpU8S16Func.c \
+        $(CTARGDIR)mlib_v_ImageLookUpU8S32Func.c \
+        $(CTARGDIR)mlib_v_ImageLookUpSIU8U8Func.c \
+        $(CTARGDIR)mlib_v_ImageLookUpS16U8Func.c \
+        $(CTARGDIR)mlib_v_ImageLookUpS16S16Func.c \
+        $(CTARGDIR)mlib_v_ImageLookUpSIS16S16Func.c \
+        $(CTARGDIR)mlib_v_ImageLookUpSIU8S16Func.c \
+        $(CTARGDIR)mlib_v_ImageLookUpSIS16U8Func.c \
+	$(CTARGDIR)mlib_v_ImageLookUpS16S32Func.c \
+	$(CTARGDIR)mlib_v_ImageLookUpSIS32S16Func.c \
+	$(CTARGDIR)mlib_v_ImageLookUpS32S16Func.c \
+	$(CTARGDIR)mlib_v_ImageLookUpSIS32S32Func.c \
+	$(CTARGDIR)mlib_v_ImageLookUpS32S32Func.c \
+	$(CTARGDIR)mlib_v_ImageLookUpSIS32U8Func.c \
+	$(CTARGDIR)mlib_v_ImageLookUpS32U8Func.c \
+	$(CTARGDIR)mlib_v_ImageLookUpSIU8S32Func.c \
+	$(CTARGDIR)mlib_v_ImageLookUpSIS16S32Func.c 
+

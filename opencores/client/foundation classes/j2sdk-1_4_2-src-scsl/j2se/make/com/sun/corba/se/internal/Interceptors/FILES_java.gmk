@@ -1,0 +1,20 @@
+#
+# @(#)FILES_java.gmk	1.9 02/09/19
+# Portable Interceptors Files
+#
+
+FILES_java = \
+	$(TARGDIR)com/sun/corba/se/internal/Interceptors/CDREncapsCodec.java \
+	$(TARGDIR)com/sun/corba/se/internal/Interceptors/ClientRequestInfoImpl.java \
+	$(TARGDIR)com/sun/corba/se/internal/Interceptors/CodecFactoryImpl.java \
+	$(TARGDIR)com/sun/corba/se/internal/Interceptors/ORBInitInfoImpl.java \
+	$(TARGDIR)com/sun/corba/se/internal/Interceptors/InterceptorInvoker.java \
+	$(TARGDIR)com/sun/corba/se/internal/Interceptors/InterceptorList.java \
+	$(TARGDIR)com/sun/corba/se/internal/Interceptors/IORInfoImpl.java \
+	$(TARGDIR)com/sun/corba/se/internal/Interceptors/MinorCodes.java \
+	$(TARGDIR)com/sun/corba/se/internal/Interceptors/PICurrent.java \
+	$(TARGDIR)com/sun/corba/se/internal/Interceptors/RequestInfoImpl.java \
+	$(TARGDIR)com/sun/corba/se/internal/Interceptors/ServerRequestInfoImpl.java \
+	$(TARGDIR)com/sun/corba/se/internal/Interceptors/SlotTable.java \
+	$(TARGDIR)com/sun/corba/se/internal/Interceptors/SlotTableStack.java \
+	$(TARGDIR)com/sun/corba/se/internal/Interceptors/PIORB.java

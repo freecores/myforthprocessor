@@ -1,0 +1,8 @@
+#
+# @(#)FILES_java.gmk	1.1 02/10/01
+#
+FILES_java = \
+        $(TARGDIR)com/sun/java2d/fontchecker/FontChecker.java \
+        $(TARGDIR)com/sun/java2d/fontchecker/FontCheckDummy.java \
+        $(TARGDIR)com/sun/java2d/fontchecker/FontCheckerConstants.java \
+        $(TARGDIR)com/sun/java2d/fontchecker/FontFileFilter.java

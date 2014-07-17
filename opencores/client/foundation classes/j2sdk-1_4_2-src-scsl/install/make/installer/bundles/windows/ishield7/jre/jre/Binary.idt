@@ -1,0 +1,26 @@
+Name	Data	ISBuildSourcePath
+s72	V0	S255
+Binary	Name
+Dll_.ini		<ISProjectDataFolder>\DLLWrap.ini
+DLLWRAP.DLL		<ISProductFolder>\redist\language independent\i386\dllwrap.dll
+ISSetupFilesHelper		<ISProductFolder>\redist\language independent\i386\SFHelper.dll
+NewBinary1		<ISProductFolder>\Redist\Language Independent\OS Independent\IsDialogBanner.ibd
+NewBinary10		<ISProductFolder>\Redist\Language Independent\OS Independent\CompleteSetupIco.ibd
+NewBinary11		<ISProductFolder>\Redist\Language Independent\OS Independent\CustomSetupIco.ibd
+NewBinary12		<ISProductFolder>\Redist\Language Independent\OS Independent\DestIcon.ibd
+NewBinary13		<ISProductFolder>\Redist\Language Independent\OS Independent\NetworkInstall.ico
+NewBinary14		<ISProductFolder>\Redist\Language Independent\OS Independent\DontInstall.ico
+NewBinary15		<ISProductFolder>\Redist\Language Independent\OS Independent\Install.ico
+NewBinary16		<ISProductFolder>\Redist\Language Independent\OS Independent\InstallFirstUse.ico
+NewBinary17		<ISProductFolder>\Redist\Language Independent\OS Independent\InstallPartial.ico
+NewBinary18		<ISProductFolder>\Redist\Language Independent\OS Independent\InstallStateMenu.ico
+NewBinary2		<ISProductFolder>\Redist\Language Independent\OS Independent\New.ibd
+NewBinary3		<ISProductFolder>\Redist\Language Independent\OS Independent\Up.ibd
+NewBinary4		<ISProductFolder>\Redist\Language Independent\OS Independent\WarningIcon.ibd
+NewBinary5		<ISProductFolder>\Redist\Language Independent\OS Independent\IsDialogBitmap.ibd
+NewBinary6		<ISProductFolder>\Redist\Language Independent\OS Independent\CustomSetupIco.ibd
+NewBinary8		<ISProductFolder>\Redist\Language Independent\OS Independent\RemoveIco.ibd
+NewBinary9		<ISProductFolder>\Redist\Language Independent\OS Independent\SetupIcon.ibd
+RegUtils		<ISProjectFolder>\RegUtils.dll
+Unpack		<ISProjectFolder>\unpack.exe
+Zipper		<ISProjectFolder>\zipper.exe

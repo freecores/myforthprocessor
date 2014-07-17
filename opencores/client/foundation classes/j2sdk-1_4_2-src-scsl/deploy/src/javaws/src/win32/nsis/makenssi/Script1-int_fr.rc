@@ -1,0 +1,72 @@
+//Microsoft Developer Studio generated resource script.
+//
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_ICON1               ICON    DISCARDABLE     "icon.ico"
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    JAVAWS_TEST             "Il s'agit d'un test."
+    JAVAWS_ERROR_RESOURCE   "Erreur au cours du chargement d'une ressource."
+    JAVAWS_ERROR_RESOURCE_CAPTION "Erreur de l'installateur"
+    JAVAWS_ERROR_DEFLATEINIT "add_data_compress: Echec de deflateInit() ! ABANDON !"
+    JAVAWS_ERROR_COMPRESS   "add_data_compress: ack ! problème au cours de la compression ! ABANDON !"
+    JAVAWS_UNINST_SECTION   "add_section: passage à la section de désinstallation"
+    JAVAWS_ERROR_UNINST     "add_section: ERREUR : section de désinstallation spécifiée bien que le compilateur soit incompatible avec NSIS_CONFIG_UNINSTALL_SUPPORT !"
+    JAVAWS_DONE_UNINST      "add_section: retour de la section de désinstallation"
+    JAVAWS_PROCESSING_SCRIPT "Traitement du script"
+    JAVAWS_ERROR_TOKEN      "Erreur : la commande ""%1"" s'attend à %2!d! paramètres sur la ligne %3!d!"
+    JAVAWS_ERROR_INVALIDCOMMAND 
+                            "Erreur : commande incorrecte (""%1"") sur la ligne %2!d!"
+    JAVAWS_PARSE_NAME       "Nom : ""%1"""
+    JAVAWS_PARSE_ICON       "Icône : ""%1"""
+    JAVAWS_ERROR_NOUNINSTALLSUPPORT 
+                            "UninstallIcon : l'installateur n'intègre pas NSIS_CONFIG_UNINSTALL_SUPPORT"
+    JAVAWS_PARSE_UNINSTALLICON "UninstallIcon: ""%1"""
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    JAVAWS_PARSE_ENABLEDBITMAP "EnabledBitmap: ""%1"""
+    JAVAWS_PARSE_DISABLEDBITMAP "DisabledBitmap: ""%1"""
+    JAVAWS_PARSE_DIRTEXT    "DirText: ""%1"""
+    JAVAWS_PARSE_COMPONENTTEXT "ComponentText: ""%1"""
+END
+

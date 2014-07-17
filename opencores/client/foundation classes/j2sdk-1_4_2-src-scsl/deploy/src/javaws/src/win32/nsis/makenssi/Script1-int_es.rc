@@ -1,0 +1,72 @@
+//Microsoft Developer Studio generated resource script.
+//
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_ICON1               ICON    DISCARDABLE     "icon.ico"
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    JAVAWS_TEST             "Esto es una prueba."
+    JAVAWS_ERROR_RESOURCE   "Error al cargar el recurso."
+    JAVAWS_ERROR_RESOURCE_CAPTION "Error de instalador"
+    JAVAWS_ERROR_DEFLATEINIT "add_data_compress: deflateInit() no satisfactorio. Cancelar."
+    JAVAWS_ERROR_COMPRESS   "add_data_compress: compress hizo una operación extraña. Cancelar."
+    JAVAWS_UNINST_SECTION   "add_section: cambiando a sección de desinstalación"
+    JAVAWS_ERROR_UNINST     "add_section: ERROR: se ha especificado la sección de desinstalación, pero no se ha creado el compilador con NSIS_CONFIG_UNINSTALL_SUPPORT."
+    JAVAWS_DONE_UNINST      "add_section: cambiando de la sección de desinstalación"
+    JAVAWS_PROCESSING_SCRIPT "Procesando secuencia"
+    JAVAWS_ERROR_TOKEN      "Error: el comando ""%1"" espera %2!d! parámetros en la línea %3!d!"
+    JAVAWS_ERROR_INVALIDCOMMAND 
+                            "Error: comando no válido (""%1"") en la línea %2!d!"
+    JAVAWS_PARSE_NAME       "Nombre: ""%1"""
+    JAVAWS_PARSE_ICON       "Icono: ""%1"""
+    JAVAWS_ERROR_NOUNINSTALLSUPPORT 
+                            "UninstallIcon: el instalador no se creó con NSIS_CONFIG_UNINSTALL_SUPPORT"
+    JAVAWS_PARSE_UNINSTALLICON "UninstallIcon: ""%1"""
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    JAVAWS_PARSE_ENABLEDBITMAP "EnabledBitmap: ""%1"""
+    JAVAWS_PARSE_DISABLEDBITMAP "DisabledBitmap: ""%1"""
+    JAVAWS_PARSE_DIRTEXT    "DirText: ""%1"""
+    JAVAWS_PARSE_COMPONENTTEXT "ComponentText: ""%1"""
+END
+

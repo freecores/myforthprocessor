@@ -1,0 +1,406 @@
+#
+# Copyright 2003 Sun Microsystems, Inc. All rights reserved.
+# SUN PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
+#
+
+# @(#)Defs-windows.gmk	1.100 03/05/14
+#
+# Makefile to specify compiler flags for programs and libraries
+# targeted to Windows builds.  Should not contain any rules.
+#
+#
+
+#
+# Windows builds default to the appropriate for the underlaying
+# architecture.
+#
+# GNU Make or MKS overrides $(PROCESSOR_ARCHITECTURE) to always
+# return "x86". Use the first word of $(PROCESSOR_IDENTIFIER) instead.
+ifndef ARCH_DATA_MODEL
+  ifeq ($(word 1, $(PROCESSOR_IDENTIFIER)),ia64)
+    ARCH_DATA_MODEL=64
+  else
+    ARCH_DATA_MODEL=32
+  endif
+endif
+export ARCH_DATA_MODEL
+
+# UNIXCOMMAND_PATH is the path to where the most common Unix
+# commands are installed.
+ifdef USING_CYGWIN
+  UNIXCOMMAND_PATH = C:/cygwin/bin/
+else
+  UNIXCOMMAND_PATH = C:/mksnt/
+endif
+# Allow the user to override the default value...
+ifdef ALT_UNIXCOMMAND_PATH
+  UNIXCOMMAND_PATH = $(subst //,/,$(subst \,/,$(ALT_UNIXCOMMAND_PATH)/))
+endif
+
+# COMPILER_PATH is the path to where the compiler and tools 
+# are installed.
+ifeq ($(ARCH_DATA_MODEL), 32)
+  ifdef USING_CYGWIN
+    COMPILER_PATH = $(subst \,/,$(MSVCDIR))/Bin/
+  else
+    COMPILER_PATH = $(subst \,/,$(MSVCDir))/Bin/
+  endif
+else
+  ifdef USING_CYGWIN
+    COMPILER_PATH = $(subst \,/,$(MSSDK))/Bin/Win64/
+  else
+    COMPILER_PATH = $(subst \,/,$(MSSdk))/Bin/Win64/
+  endif
+endif
+# Allow the user to override the default value...
+ifdef ALT_COMPILER_PATH
+  COMPILER_PATH = $(subst //,/,$(subst \,/,$(ALT_COMPILER_PATH)/))
+endif
+
+# DEVTOOLS_PATH is for other tools required for building (such as
+# zip, etc.)
+DEVTOOLS_PATH = C:/utils/
+# Allow the user to override the default value...
+ifdef ALT_DEVTOOLS_PATH
+  DEVTOOLS_PATH = $(subst //,/,$(subst \,/,$(ALT_DEVTOOLS_PATH)/))
+endif
+
+# MSDEVTOOLS_PATH is the path to where the additional MS Compiler
+# tools are installed.
+ifeq ($(ARCH_DATA_MODEL), 32)
+  ifdef USING_CYGWIN
+    MSDEVTOOLS_PATH = $(subst \,/,$(MSDEVDIR))/Bin/
+  else
+    MSDEVTOOLS_PATH = $(subst \,/,$(MSDevDir))/Bin/
+  endif
+else
+  ifdef USING_CYGWIN
+    MSDEVTOOLS_PATH = $(subst \,/,$(MSTOOLS))/Bin/
+  else
+    MSDEVTOOLS_PATH = $(subst \,/,$(Mstools))/Bin/
+  endif
+endif
+# Allow the user to override the default value...
+ifdef ALT_MSDEVTOOLS_PATH
+  MSDEVTOOLS_PATH = $(subst //,/,$(subst \,/,$(ALT_MSDEVTOOLS_PATH)/))
+endif
+
+ifdef USING_CYGWIN
+  WINDOWS_NT_VERSION_STRING=CYGWIN_NT-4.0
+else
+  WINDOWS_NT_VERSION_STRING=Windows_NT
+endif
+
+override CC_VERSION = msvc
+
+#
+# define these to avoid picking up ones from aliases or from
+# non-standard locations
+#
+AR             = $(UNIXCOMMAND_PATH)ar.exe
+BASENAME       = $(UNIXCOMMAND_PATH)basename.exe
+CAT            = $(UNIXCOMMAND_PATH)cat.exe
+ifeq ($(CC_VERSION), msvc)
+  CC           = $(COMPILER_PATH)cl.exe
+  CPP          = $(COMPILER_PATH)cl.exe
+  CXX          = $(COMPILER_PATH)cl.exe
+else # CC_VERSION
+  CC           = $(COMPILER_PATH)gcc
+  CPP          = $(COMPILER_PATH)gcc -E
+  CXX          = $(COMPILER_PATH)g++
+endif #CC_VERSION
+ifdef USING_CYGWIN
+   CYGPATH    = $(UNIXCOMMAND_PATH)cygpath.exe
+endif
+CD             = cd # DOS intrinsic command
+CHMOD          = $(UNIXCOMMAND_PATH)chmod.exe
+COMPRESS       = $(UNIXCOMMAND_PATH)compress.exe
+CP             = $(UNIXCOMMAND_PATH)cp.exe
+CPIO           = $(UNIXCOMMAND_PATH)cpio.exe
+CUT            = $(UNIXCOMMAND_PATH)cut.exe
+DATE           = $(UNIXCOMMAND_PATH)date.exe
+DF             = $(UNIXCOMMAND_PATH)df.exe
+DIFF           = $(UNIXCOMMAND_PATH)diff.exe
+ifdef USING_CYGWIN
+   ECHO        = $(UNIXCOMMAND_PATH)echo.exe -e # with backslash-escaped character interpretation
+else
+   ECHO        = $(UNIXCOMMAND_PATH)echo.exe
+endif
+DIRNAME        = $(UNIXCOMMAND_PATH)dirname.exe
+EGREP          = $(UNIXCOMMAND_PATH)egrep.exe
+EXPR           = $(UNIXCOMMAND_PATH)expr.exe
+FIND           = $(UNIXCOMMAND_PATH)find.exe
+GREP           = $(UNIXCOMMAND_PATH)grep.exe
+HEAD           = $(UNIXCOMMAND_PATH)head.exe
+LEX=# override GNU Make intrinsic: no lex on windows           
+LN             = $(UNIXCOMMAND_PATH)ln.exe
+LIBEXE         = $(COMPILER_PATH)lib.exe
+LINK           = $(COMPILER_PATH)link.exe
+LS             = $(UNIXCOMMAND_PATH)ls.exe
+M4             = $(UNIXCOMMAND_PATH)m4.exe
+MKDIR          = $(UNIXCOMMAND_PATH)mkdir.exe
+MV             = $(UNIXCOMMAND_PATH)mv.exe
+NAWK           = $(UNIXCOMMAND_PATH)awk.exe
+PWD            = $(UNIXCOMMAND_PATH)pwd.exe
+RC             = $(MSDEVTOOLS_PATH)rc.exe
+# SDK-64 and MSVC6 put REBASE.EXE in a different places - go figure...
+ifeq ($(ARCH_DATA_MODEL), 32)
+  REBASE         = $(COMPILER_PATH)REBASE.EXE 
+else
+  # This will cause problmes if ALT_COMPILER_PATH is defined to ""
+  # which is a directive to use the PATH.
+  REBASE         = $(COMPILER_PATH)../REBASE.EXE 
+endif
+#RM   is intrinsically defined by GNU Make as 'rm -f'
+RMDIR          = $(UNIXCOMMAND_PATH)rmdir.exe
+SED            = $(UNIXCOMMAND_PATH)sed.exe
+SH             = $(UNIXCOMMAND_PATH)sh.exe
+SORT           = $(UNIXCOMMAND_PATH)sort.exe
+TAR            = $(UNIXCOMMAND_PATH)tar.exe
+TEST           = $(UNIXCOMMAND_PATH)test.exe
+TOUCH          = $(UNIXCOMMAND_PATH)touch.exe
+TR             = $(UNIXCOMMAND_PATH)tr.exe
+TRUE           = $(UNIXCOMMAND_PATH)true.exe
+UNAME          = $(UNIXCOMMAND_PATH)uname.exe
+UNIQ           = $(UNIXCOMMAND_PATH)uniq.exe
+UNZIP          = $(DEVTOOLS_PATH)unzip.exe
+ZIPEXE         = $(DEVTOOLS_PATH)zip.exe
+
+# commands cannot be used in shell invocations before they are defined.
+OS_VERSION = $(shell $(UNAME) -r)
+OS_NAME = nt
+
+# LIBARCH is used to preserve the jre/lib/i386 directory name for 32-bit intel
+ARCH=i586
+LIBARCH=i386
+ifeq ($(ARCH_DATA_MODEL), 64)
+  ARCH=ia64
+  LIBARCH=$(ARCH)
+endif
+
+ARCH_FAMILY = $(ARCH)
+
+# get USER name from the environment
+USER       = $(USERNAME)
+
+# where is unwanted output to be delivered?
+DEV_NULL = NUL
+export DEV_NULL
+
+# CC compiler object code output directive flag value
+CC_OBJECT_OUTPUT_FLAG = -Fo
+
+# The suffix used for object file (.o for unix .obj for windows)
+OBJECT_SUFFIX = obj
+# The suffix applied to the library name for FDLIBM
+FDDLIBM_SUFFIX = lib
+# The suffix applied to executables (.exe for windows, nothing for solaris)
+EXE_SUFFIX = .exe
+# The suffix applied to scripts (.bat for windows, nothing for unix)
+SCRIPT_SUFFIX = .bat
+# The prefix applied to library files (lib for solaris, nothing for windows)
+LIB_PREFIX=
+
+# Currently, we do not have a VM that runs on Itanium. Build in cross
+# compile mode which retains the bootstrap j2sdk throughout the build.
+ifeq ($(ARCH_DATA_MODEL), 64)
+  # GNU Make or MKS overrides $(PROCESSOR_ARCHITECTURE) to always
+  # return "x86". Use the first word of $(PROCESSOR_IDENTIFIER) instead.
+  ifeq ($(word 1, $(PROCESSOR_IDENTIFIER)),ia64)
+    # Only the interpreter is wokring on 64-bit hotspot 
+    USE_HOTSPOT_INTERPRETER_MODE = true
+  else
+    # 32-bit builds cannot migrate off BOOTDIR tools.
+    USE_ONLY_BOOTDIR_TOOLS = true
+  endif
+endif
+
+
+HPIS = windows
+# LIB_LOCATION, which for windows identifies where .exe files go, may be
+# set by each GNUmakefile. The default is BINDIR.
+ifndef LIB_LOCATION
+  LIB_LOCATION = $(BINDIR)
+endif # LIB_LOCATION
+
+# PLATFORM_SRC may be set by .../ext/*/build/.../Defs.gmk
+ifndef PLATFORM_SRC
+  PLATFORM_SRC  = $(TOPDIR)/src/windows
+endif # PLATFORM_SRC
+
+# for backwards compatability, the old "win32" is used here instead of 
+# the more proper "windows"
+PLATFORM_INCLUDE  = $(INCLUDEDIR)/win32
+
+# Platform specific definitions 
+CLASSPATH_SEPARATOR = ;
+_BOOTDIR = C:/j2sdk$(PREVIOUS_JDK_VERSION)
+
+# Set _HOTSPOT_DRIVE from ALT_HOTSPOT_DRIVE if that's set;
+# otherwise default it to the J drive.
+#
+HOTSPOT_DRIVE = J
+ifdef ALT_HOTSPOT_DRIVE
+  HOTSPOT_DRIVE = $(ALT_HOTSPOT_DRIVE)
+endif
+
+#
+# Default Hotspot dirs
+#
+_HOTSPOT_CLIENT_PATH = $(HOTSPOT_DRIVE):/jdk$(JDK_VERSION)/$(PLATFORM)-$(ARCH)/jre/bin/client
+_HOTSPOT_SERVER_PATH = $(HOTSPOT_DRIVE):/jdk$(JDK_VERSION)/$(PLATFORM)-$(ARCH)/jre/bin/server
+_HOTSPOT_LIB_PATH    = $(HOTSPOT_DRIVE):/jdk$(JDK_VERSION)/$(PLATFORM)-$(ARCH)/lib
+
+# Set HOTSPOT_LIB_PATH: Use ALT_HOTSPOT_LIB_PATH if it's set, otherwise use the
+# default from _HOTSPOT_LIB_PATH.  We define this here rather than in Defs.gmk
+# because only windows needs it.
+#
+HOTSPOT_LIB_PATH = $(_HOTSPOT_LIB_PATH)
+ifdef ALT_HOTSPOT_LIB_PATH
+  HOTSPOT_LIB_PATH = $(subst \,/,$(ALT_HOTSPOT_LIB_PATH))
+endif # ALT_HOTSPOT_LIB_PATH
+
+#
+# Default Previous jre and jdk bundle path
+# 
+_PREVIOUS_JDK_FILE = j2sdk-$(PREVIOUS_JDK_UNDERSCORE_VERSION)-$(PLATFORM)-$(ARCH).tar
+_PREVIOUS_JRE_FILE = j2re-$(PREVIOUS_JDK_UNDERSCORE_VERSION)-$(PLATFORM)-$(ARCH).tar
+_PREVIOUS_RELEASE_PATH = J:/jdk$(PREVIOUS_JDK_VERSION)/binaries/bundles/$(PLATFORM)-$(ARCH)
+PREVIOUS_JRE_BUNDLE = $(PREVIOUS_RELEASE_PATH)/$(PREVIOUS_JRE_FILE)
+PREVIOUS_JDK_BUNDLE = $(PREVIOUS_RELEASE_PATH)/$(PREVIOUS_JDK_FILE)
+
+#
+# Set path to msvcrt.dll and msvcrtd.dll
+#
+MSVCRT_DLL_PATH = $(BUILDDIR)/redist/$(ARCH)
+ifdef ALT_MSVCRT_DLL_PATH
+  MSVCRT_DLL_PATH = $(subst //,/,$(subst \,/,$(ALT_MSVCRT_DLL_PATH)/))
+endif
+
+MSVCRTD_DLL_PATH = $(BUILDDIR)/redist/$(ARCH)
+ifdef ALT_MSVCRTD_DLL_PATH
+  MSVCRTD_DLL_PATH = $(subst //,/,$(subst \,/,$(ALT_MSVCRTD_DLL_PATH)/))
+endif
+
+#
+# Set path to Microsoft DirectX SDK Include and Lib directories
+#
+DXSDK_DRIVE = C
+ifdef ALT_DXSDK_DRIVE
+  DXSDK_DRIVE = $(ALT_DXSDK_DRIVE)
+endif
+
+ifdef ALT_DXSDK_PATH
+  DXSDK_PATH = $(subst \,/,$(ALT_DXSDK_PATH))
+else
+  _DXSDK_PATH = $(DXSDK_DRIVE):/dxsdk
+  ifndef ALT_DXSDK_DRIVE
+    DXSDK_PATH = $(shell \
+       if [ ! -d $(_DXSDK_PATH) ]; then \
+  	  $(ECHO) m:/devtools/windows/dxsdk; \
+       else \
+  	  $(ECHO) $(_DXSDK_PATH); \
+       fi)
+  else
+    DXSDK_PATH = $(_DXSDK_PATH)
+  endif
+endif # ALT_DXSDK_PATH
+
+_DXSDK_INCLUDE_PATH = $(DXSDK_PATH)/Include
+DXSDK_INCLUDE_PATH = $(_DXSDK_INCLUDE_PATH)
+ifdef ALT_DXSDK_INCLUDE_PATH
+  DXSDK_INCLUDE_PATH = $(subst \,/,$(ALT_DXSDK_INCLUDE_PATH))
+endif # ALT_DXSDK_INCLUDE_PATH
+
+_DXSDK_LIB_PATH = $(DXSDK_PATH)/Lib
+DXSDK_LIB_PATH = $(_DXSDK_LIB_PATH)
+ifdef ALT_DXSDK_LIB_PATH
+  DXSDK_LIB_PATH = $(subst \,/,$(ALT_DXSDK_LIB_PATH))
+endif # ALT_DXSDK_LIB_PATH
+EXTRA_LFLAGS += /LIBPATH:$(DXSDK_LIB_PATH)
+
+# C Compiler flag definitions
+# Note: gcc not yet supported on windows.
+CFLAGS_COMMON   = 
+ifeq ($(ARCH_DATA_MODEL), 32)
+  CFLAGS_OPT      = -MD -Zi -Ox -GB -Os -Gy
+  CFLAGS_DBG      = -MDd -Zi -Od
+else
+  CFLAGS_OPT      = -MD -Zi -Ox -Gy -Op
+  CFLAGS_DBG      = -MDd -Zi -Od -Op
+endif
+
+LDEBUG = -debug
+
+ifeq ($(VTUNE_SUPPORT), true)
+  OTHER_CFLAGS = -Z7 -Ox 
+  LDEBUG += -pdb:NONE
+endif
+
+BASELFLAGS = -nologo -map:$(OBJDIR)/$(@F).map -opt:REF
+ifeq ($(ARCH_DATA_MODEL), 64)
+  BASEFLAGS += /machine=IA64 
+endif
+LFLAGS = $(BASELFLAGS) $(LDEBUG) $(EXTRA_LFLAGS)
+
+COMPILER_WARNING_LEVEL=3
+CPPFLAGS_COMMON = -nologo -W$(COMPILER_WARNING_LEVEL) -DWIN32 -DIAL -D_X86_ -Dx86 -D_LITTLE_ENDIAN \
+-DWIN32_LEAN_AND_MEAN -Fd$(OBJDIR)/ -Fe$(OBJDIR)/ -Fm$(OBJDIR)/ 
+ifeq ($(ARCH_DATA_MODEL), 64)
+  CPPFLAGS_COMMON += -Wp64 
+endif
+# Treat compiler warnings as errors, unless building in INSANE mode.
+ifndef INSANE
+  CFLAGS_COMMON += -WX
+endif
+CPPFLAGS_OPT    = 
+CPPFLAGS_DBG    = -DDEBUG
+
+CXXFLAGS_COMMON = $(CFLAGS_COMMON)
+CXXFLAGS_OPT    = $(CFLAGS_OPT)
+CXXFLAGS_DBG    = $(CFLAGS_DBG)
+
+ifneq ($(LIBRARY),JdbcOdbc)
+  LDFLAGS_COMMON  = 
+endif
+
+LDFLAGS_OPT     = -debug
+LDFLAGS_DBG     = -debug -pdb:NONE
+
+ifneq ($(LIBRARY),fdlibm)
+  EXTRA_LIBS += advapi32.lib
+endif
+
+#
+# Path and option to link against the VM, if you have to. 
+#
+JVMLIB = $(LIBDIR)/jvm$(SUFFIX).lib
+JAVALIB = $(LIBDIR)/java$(SUFFIX).lib
+
+# Java Compiler flag definitions
+JAVAC_BOOT_FLAGS = -J-Xms32m -J-Xmx128m -J-Xmaxf1
+
+#
+# Different "levels" of optimization.
+#
+ifeq ($(CC_VERSION),msvc)
+   CC_HIGHER_OPT = -xO4
+   CC_LOWER_OPT  = -xO2
+else # CC_VERSION
+# not supported, but left for historical reference...
+   CC_HIGHER_OPT = -O2
+   CC_LOWER_OPT  = -O2
+endif
+
+ifeq ($(CC_VERSION), msvc)
+  CC_DEPEND        = -FD
+  CC_DEPEND_FILTER = 
+else # CC_VERSION
+# not supported, but left for historical reference...
+  CC_DEPEND        = -MM
+  CC_DEPEND_FILTER = $(SED) -e 's!$*\.$(OBJECT_SUFFIX)!$(dir $@)&!g'
+endif # CC_VERSION
+
+LIBRARY_SUFFIX = dll
+LIB_SUFFIX     = lib
+

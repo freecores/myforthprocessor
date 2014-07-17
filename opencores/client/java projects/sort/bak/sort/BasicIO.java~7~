@@ -1,0 +1,44 @@
+package sort;
+
+/**
+ * <p>Überschrift: </p>
+ *
+ * <p>Beschreibung: </p>
+ *
+ * <p>Copyright: Copyright (c) 2005</p>
+ *
+ * <p>Organisation: </p>
+ *
+ * @author unbekannt
+ * @version 1.0
+ */
+
+//import java.io.PrintStream;
+
+public class BasicIO
+{
+ public static void print(char y)
+  {
+   //System.out.print(y);
+   #ass "FALSE CHANGECHARSET y DUP 0ffH AND EMIT 8 RSHIFT EMIT TRUE CHANGECHARSET"
+  }
+
+ public static void print(String s)
+  {
+   //System.out.print(s);
+   int length = s.length();
+   int body = ((JavaArray)s.value).getElem(0);
+   #ass "FALSE CHANGECHARSET body length 2* TYPE TRUE CHANGECHARSET"
+  }
+
+ public static void print(int a)
+  {
+   print(a + "");
+  }
+
+ public static void newLine()
+  {
+   print("\r\n");
+  }
+
+}

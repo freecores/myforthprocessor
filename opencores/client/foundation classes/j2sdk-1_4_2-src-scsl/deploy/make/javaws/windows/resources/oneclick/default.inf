@@ -1,0 +1,10 @@
+[Setup Hooks]
+hook1=hook1
+
+[hook1]
+run=%EXTRACT_DIR%\setup.exe
+
+[Version]
+; This section is required for compatibility on both Windows 95 and Windows NT.
+Signature="$CHICAGO$"
+AdvancedInf=2.0

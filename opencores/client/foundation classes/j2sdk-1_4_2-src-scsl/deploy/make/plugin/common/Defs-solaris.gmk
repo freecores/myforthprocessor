@@ -1,0 +1,25 @@
+#
+# @(#)Defs-solaris.gmk	1.2 03/01/23
+#
+# Copyright 2003 Sun Microsystems, Inc. All rights reserved.
+# SUN PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
+#
+
+# these are specific to Solaris
+
+# Default MOZILLA_PATH and allow override.
+MOZILLA_PATH = /java/devtools
+ifdef ALT_MOZILLA_PATH
+  MOZILLA_PATH = $(subst //,/,$(ALT_MOZILLA_PATH))
+endif
+
+# Default Mozilla Headers and Libs directories
+MOZILLA_HEADERS_PATH=$(MOZILLA_PATH)/share/plugin
+ifdef ALT_MOZILLA_HEADERS_PATH
+  MOZILLA_HEADERS_PATH=$(ALT_MOZILLA_HEADERS_PATH)
+endif
+
+MOZILLA_LIBS_PATH=$(MOZILLA_PATH)/$(ARCH_FAMILY)/plugin
+ifdef ALT_MOZILLA_LIBS_PATH
+  MOZILLA_LIBS_PATH=$(ALT_MOZILLA_LIBS_PATH)
+endif

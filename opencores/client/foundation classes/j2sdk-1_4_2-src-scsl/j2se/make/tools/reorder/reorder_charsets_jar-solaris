@@ -1,0 +1,13 @@
+# Ordered list of files to include in charsets.jar.
+# This is a generated file - do not edit.
+#
+# Test Null
+# Test Exit
+# Test Hello
+# Test Sleep
+# Test IntToString
+# Test LoadToolkit
+# Test LoadFrame
+# Test LoadJFrame
+# Test JHello
+# SwingSet

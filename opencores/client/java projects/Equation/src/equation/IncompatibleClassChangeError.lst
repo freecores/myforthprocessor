@@ -1,0 +1,312 @@
+00000027               
+00000027               IncompatibleClassChangeError.IncompatibleClassChangeError§-1356183296 LABEL 
+00000027  54           2 VAL 
+00000028  0d00000000   VALLOCATE VAL ( will be modified! ) 
+0000002d  00           NOP ( will be modified! ) 
+0000002e  90           A:R@ ( §base0 declared ) 
+0000002f  08           DROP 
+00000030  0e           DUP 
+00000031  52           4 VAL ( §base0 will be fetched! ) 
+00000032  10           R@ 
+00000033  16           + 
+00000034  0d00000000   V! VAL ( will be modified! ) 
+00000039  00           NOP ( will be modified! ) 
+0000003a  90           A:R@ ( s declared ) 
+0000003b  08           DROP 
+0000003c  56           0 VAL 
+0000003d  90           A:R@ ( §this declared ) 
+0000003e  08           DROP ( s will be fetched! ) 
+0000003f  d5           1 A:VAL 
+00000040  8b           A:PICK 
+00000041  10           R@ 
+00000042  88           A:DROP 
+00000043  0d00000000   LinkageError§-2065150976.table VAL ( will be modified! ) 
+00000048  00           NOP ( will be modified! ) 
+00000049  0d004cfe92   -1828828160 VAL 
+0000004e  0d00000000   EXECUTE-NEW VAL ( will be modified! ) 
+00000053  00           NOP ( will be modified! ) 
+00000054  461c00       28 VAL 
+00000057  0d00000000   MALLOC VAL ( will be modified! ) 
+0000005c  00           NOP ( will be modified! ) 
+0000005d  08           DROP 
+0000005e  0e           DUP 
+0000005f  0e           DUP ( §base0 will be fetched! ) 
+00000060  d4           2 A:VAL 
+00000061  8b           A:PICK 
+00000062  10           R@ 
+00000063  88           A:DROP 
+00000064  0d00000000   V! VAL ( will be modified! ) 
+00000069  00           NOP ( will be modified! ) ( §this will be modified! ) 
+0000006a  88           A:DROP 
+0000006b  90           A:R@ 
+0000006c  08           DROP 
+0000006d  0f           OVER 
+0000006e  420900       §1 0BRANCH 
+00000071  0f           OVER 
+00000072  1d           CELL+ 
+00000073  02           @ 
+00000074  52           4 VAL 
+00000075  16           + 
+00000076  0f           OVER 
+00000077  0f           OVER 
+00000078  01           ! 
+00000079  08           DROP 
+0000007a               §1 LABEL 
+0000007a  1d           CELL+ 
+0000007b  02           @ 
+0000007c  0f           OVER 
+0000007d  0f           OVER 
+0000007e  01           ! 
+0000007f  0a           NIP 
+00000080  0d00000000   IncompatibleClassChangeError§97667328.table VAL ( will be modified! ) 
+00000085  00           NOP ( will be modified! ) 
+00000086  0f           OVER 
+00000087  4a           12 VAL 
+00000088  16           + 
+00000089  01           ! 
+0000008a  0d0000d205   97648640 VAL 
+0000008f  0f           OVER 
+00000090  461400       20 VAL 
+00000093  16           + 
+00000094  01           ! 
+00000095  0dc4000000   §2 VAL 
+0000009a  0f           OVER 
+0000009b  461000       16 VAL 
+0000009e  16           + 
+0000009f  01           ! 
+000000a0  56           0 VAL 
+000000a1  0f           OVER 
+000000a2  461800       24 VAL 
+000000a5  16           + 
+000000a6  01           ! 
+000000a7  08           DROP ( §this will be fetched! ) 
+000000a8  10           R@ 
+000000a9  0e           DUP 
+000000aa  56           0 VAL 
+000000ab  0d00000000   V! VAL ( will be modified! ) 
+000000b0  00           NOP ( will be modified! ) 
+000000b1  56           0 VAL 
+000000b2               §break30148 LABEL ( §base0 will be fetched! ) 
+000000b2  d4           2 A:VAL 
+000000b3  8b           A:PICK 
+000000b4  10           R@ 
+000000b5  88           A:DROP 
+000000b6  0d00000000   SETVTOP VAL ( will be modified! ) 
+000000bb  00           NOP ( will be modified! ) remove §this remove s remove §base0 
+000000bc  89           A:2DROP 
+000000bd  88           A:DROP 
+000000be  08           DROP 
+000000bf               §0 LABEL 
+000000bf  3d           EXIT 
+000000c0  1c00         §2 LABEL 
+000000c2  496e636f6d70617469626c65436c6173734368616e67654572726f72 " IncompatibleClassChangeError " 
+000000de               
+000000de               IncompatibleClassChangeError.IncompatibleClassChangeError§290474240 LABEL 
+000000de  55           1 VAL 
+000000df  0d00000000   VALLOCATE VAL ( will be modified! ) 
+000000e4  00           NOP ( will be modified! ) 
+000000e5  90           A:R@ ( §base0 declared ) 
+000000e6  08           DROP 
+000000e7  56           0 VAL 
+000000e8  90           A:R@ ( §this declared ) 
+000000e9  08           DROP 
+000000ea  0d00000000   LinkageError§-2065150976.table VAL ( will be modified! ) 
+000000ef  00           NOP ( will be modified! ) 
+000000f0  0d004ccb6f   1875594240 VAL 
+000000f5  0d00000000   EXECUTE-NEW VAL ( will be modified! ) 
+000000fa  00           NOP ( will be modified! ) 
+000000fb  461c00       28 VAL 
+000000fe  0d00000000   MALLOC VAL ( will be modified! ) 
+00000103  00           NOP ( will be modified! ) 
+00000104  08           DROP 
+00000105  0e           DUP 
+00000106  0e           DUP ( §base0 will be fetched! ) 
+00000107  d5           1 A:VAL 
+00000108  8b           A:PICK 
+00000109  10           R@ 
+0000010a  88           A:DROP 
+0000010b  0d00000000   V! VAL ( will be modified! ) 
+00000110  00           NOP ( will be modified! ) ( §this will be modified! ) 
+00000111  88           A:DROP 
+00000112  90           A:R@ 
+00000113  08           DROP 
+00000114  0f           OVER 
+00000115  420900       §4 0BRANCH 
+00000118  0f           OVER 
+00000119  1d           CELL+ 
+0000011a  02           @ 
+0000011b  52           4 VAL 
+0000011c  16           + 
+0000011d  0f           OVER 
+0000011e  0f           OVER 
+0000011f  01           ! 
+00000120  08           DROP 
+00000121               §4 LABEL 
+00000121  1d           CELL+ 
+00000122  02           @ 
+00000123  0f           OVER 
+00000124  0f           OVER 
+00000125  01           ! 
+00000126  0a           NIP 
+00000127  0d00000000   IncompatibleClassChangeError§97667328.table VAL ( will be modified! ) 
+0000012c  00           NOP ( will be modified! ) 
+0000012d  0f           OVER 
+0000012e  4a           12 VAL 
+0000012f  16           + 
+00000130  01           ! 
+00000131  0d0000d205   97648640 VAL 
+00000136  0f           OVER 
+00000137  461400       20 VAL 
+0000013a  16           + 
+0000013b  01           ! 
+0000013c  0dc4000000   §2 VAL 
+00000141  0f           OVER 
+00000142  461000       16 VAL 
+00000145  16           + 
+00000146  01           ! 
+00000147  56           0 VAL 
+00000148  0f           OVER 
+00000149  461800       24 VAL 
+0000014c  16           + 
+0000014d  01           ! 
+0000014e  08           DROP ( §this will be fetched! ) 
+0000014f  10           R@ 
+00000150  0e           DUP 
+00000151  56           0 VAL 
+00000152  0d00000000   V! VAL ( will be modified! ) 
+00000157  00           NOP ( will be modified! ) 
+00000158  56           0 VAL 
+00000159               §break30147 LABEL ( §base0 will be fetched! ) 
+00000159  d5           1 A:VAL 
+0000015a  8b           A:PICK 
+0000015b  10           R@ 
+0000015c  88           A:DROP 
+0000015d  0d00000000   SETVTOP VAL ( will be modified! ) 
+00000162  00           NOP ( will be modified! ) remove §this remove §base0 
+00000163  89           A:2DROP 
+00000164  08           DROP 
+00000165               §3 LABEL 
+00000165  3d           EXIT 
+00000166  2b00         §7 LABEL 
+00000168  496e636f6d70617469626c65436c6173734368616e67654572726f72a739373636373332382e7461626c65 " IncompatibleClassChangeError§97667328.table " 
+00000193  2a00         §6 LABEL 
+00000195  496e636f6d70617469626c65436c6173734368616e67654572726f722e5f737461746963546872656164 " IncompatibleClassChangeError._staticThread " 
+000001bf  2c00         §5 LABEL 
+000001c1  496e636f6d70617469626c65436c6173734368616e67654572726f722e5f737461746963426c6f636b696e67 " IncompatibleClassChangeError._staticBlocking " 
+000001f0  0d00000000   ALIGN VAL ( will be modified! ) 
+000001f5  00           NOP ( will be modified! ) 
+000001f6  0d00000000   HERE VAL ( will be modified! ) 
+000001fb  00           NOP ( will be modified! ) 
+000001fc  54           2 VAL 
+000001fd  0dc3010000   §5 VAL 
+00000202  0d00000000   create VAL ( will be modified! ) 
+00000207  00           NOP ( will be modified! ) 
+00000208  55           1 VAL 
+00000209  1a           2* 
+0000020a  1a           2* 
+0000020b  0d00000000   ALLOT VAL ( will be modified! ) 
+00000210  00           NOP ( will be modified! ) 
+00000211  0d00000000   ALIGN VAL ( will be modified! ) 
+00000216  00           NOP ( will be modified! ) 
+00000217  0d00000000   HERE VAL ( will be modified! ) 
+0000021c  00           NOP ( will be modified! ) 
+0000021d  54           2 VAL 
+0000021e  0d97010000   §6 VAL 
+00000223  0d00000000   create VAL ( will be modified! ) 
+00000228  00           NOP ( will be modified! ) 
+00000229  55           1 VAL 
+0000022a  1a           2* 
+0000022b  1a           2* 
+0000022c  0d00000000   ALLOT VAL ( will be modified! ) 
+00000231  00           NOP ( will be modified! ) 
+00000232  0d00000000   HERE VAL ( will be modified! ) 
+00000237  00           NOP ( will be modified! ) 
+00000238  52           4 VAL 
+00000239  17           - 
+0000023a  0d00000000   SALLOCATE VAL ( will be modified! ) 
+0000023f  00           NOP ( will be modified! ) 
+00000240  8d00000000   HERE A:VAL ( will be modified! ) 
+00000245  80           A:NOP ( will be modified! ) 
+00000246  0d00000000   ALIGN VAL ( will be modified! ) 
+0000024b  00           NOP ( will be modified! ) 
+0000024c  0d00000000   HERE VAL ( will be modified! ) 
+00000251  00           NOP ( will be modified! ) 
+00000252  54           2 VAL 
+00000253  0d6a010000   §7 VAL 
+00000258  0d00000000   create VAL ( will be modified! ) 
+0000025d  00           NOP ( will be modified! ) 
+0000025e  55           1 VAL 
+0000025f  1a           2* 
+00000260  1a           2* 
+00000261  0d00000000   ALLOT VAL ( will be modified! ) 
+00000266  00           NOP ( will be modified! ) 
+00000267  54           2 VAL 
+00000268  0e           DUP 
+00000269  1a           2* 
+0000026a  1a           2* 
+0000026b  1a           2* 
+0000026c  0d00000000   ALLOT VAL ( will be modified! ) 
+00000271  00           NOP ( will be modified! ) 
+00000272  10           R@ 
+00000273  01           ! 
+00000274  9d           A:CELL+ 
+00000275  0d00492aaf   -1356183296 VAL 
+0000027a  10           R@ 
+0000027b  01           ! 
+0000027c  9d           A:CELL+ 
+0000027d  0d2b000000   IncompatibleClassChangeError.IncompatibleClassChangeError§-1356183296 VAL 
+00000282  10           R@ 
+00000283  01           ! 
+00000284  9d           A:CELL+ 
+00000285  0d00495011   290474240 VAL 
+0000028a  10           R@ 
+0000028b  01           ! 
+0000028c  9d           A:CELL+ 
+0000028d  0de2000000   IncompatibleClassChangeError.IncompatibleClassChangeError§290474240 VAL 
+00000292  10           R@ 
+00000293  01           ! 
+00000294  9d           A:CELL+ 
+00000295  88           A:DROP 
+00000296  3d           EXIT 
+
+instruction usage:
+load/store:		21	(8.333333333333332%)
+32-bit values:		46	(18.253968253968253%)
+16-bit values:		8	(3.1746031746031744%)
+5-bit values:		28	(11.11111111111111%)
+values total:		82	(32.53968253968254%)
+arithmetic/logical:	30	(11.904761904761903%)
+relations:		0	(0.0%)
+flow control:		5	(1.984126984126984%)
+other:			114	(45.23809523809524%)
+total:			252
+
+average bytes per instruction: 1.9642857142857142
+
+string storage in byte:	165
+unresolved references:	40
+
+Size of static code: 493
+Size of initial code: 167
+
+references:
+ffffffff	3	ALIGN
+ffffffff	4	ALLOT
+ffffffff	2	EXECUTE-NEW
+ffffffff	5	HERE
+2b	1	IncompatibleClassChangeError.IncompatibleClassChangeError§-1356183296
+2b	1	IncompatibleClassChangeError.IncompatibleClassChangeError§-1356183296
+e2	1	IncompatibleClassChangeError.IncompatibleClassChangeError§290474240
+e2	1	IncompatibleClassChangeError.IncompatibleClassChangeError§290474240
+ffffffff	2	IncompatibleClassChangeError§97667328.table
+ffffffff	2	LinkageError§-2065150976.table
+ffffffff	2	MALLOC
+ffffffff	1	SALLOCATE
+ffffffff	2	SETVTOP
+ffffffff	5	V!
+ffffffff	2	VALLOCATE
+ffffffff	3	create
+c4	2	§2
+1c3	1	§5
+197	1	§6
+16a	1	§7

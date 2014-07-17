@@ -1,0 +1,33 @@
+00000024  56           0 VAL 
+00000025  0d00000000   IllegalMonitorStateException._staticBlocking VAL ( will be modified! ) 
+0000002a  00           NOP ( will be modified! ) 
+0000002b  01           ! 
+0000002c  56           0 VAL 
+0000002d  0d00000000   IllegalMonitorStateException._staticThread VAL ( will be modified! ) 
+00000032  00           NOP ( will be modified! ) 
+00000033  01           ! 
+00000034  3d           EXIT 
+
+instruction usage:
+load/store:		2	(22.22222222222222%)
+32-bit values:		2	(22.22222222222222%)
+16-bit values:		0	(0.0%)
+5-bit values:		2	(22.22222222222222%)
+values total:		4	(44.44444444444444%)
+arithmetic/logical:	0	(0.0%)
+relations:		0	(0.0%)
+flow control:		1	(11.11111111111111%)
+other:			2	(22.22222222222222%)
+total:			9
+
+average bytes per instruction: 5.888888888888889
+
+string storage in byte:	0
+unresolved references:	2
+
+Size of static code: 36
+Size of initial code: 17
+
+references:
+ffffffff	1	IllegalMonitorStateException._staticBlocking
+ffffffff	1	IllegalMonitorStateException._staticThread

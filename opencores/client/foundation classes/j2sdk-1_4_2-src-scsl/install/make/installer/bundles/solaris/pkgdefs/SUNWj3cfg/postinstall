@@ -1,0 +1,97 @@
+#!/bin/sh
+#
+#
+# Copyright 2003 Sun Microsystems, Inc. All rights reserved.
+# SUN PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
+#
+# @(#)postinstall	1.3 03/02/21
+#=================================================
+# Used variables
+#-------------------------------------------------
+
+PREFS_LOCATION=$PKG_INSTALL_ROOT/etc/.java
+MIME_TYPE=application/x-java-jnlp-file
+JAVAWS_BIN=javaws
+MIME_FILE=$PKG_INSTALL_ROOT/etc/mime.types
+MAILCAP_FILE=$PKG_INSTALL_ROOT/etc/mailcap
+JAVAWS_LINK=$PKG_INSTALL_ROOT/usr/bin/javaws #Set by SUNWj3rt
+MIME_TYPE=application/x-java-jnlp-file
+MC_COMMENT="# Java Web Start"
+
+#=================================================
+# java.util.prefs system prefs directory setup
+#-------------------------------------------------
+CreateUtilPrefs() {
+  if [ ! -d $PREFS_LOCATION ]; then
+    installf -c none $PKGINST $PREFS_LOCATION d 0755 root bin
+  fi
+  if [ ! -d $PREFS_LOCATION/.systemPrefs ]; then
+    installf -c none $PKGINST $PREFS_LOCATION/.systemPrefs d 0755 root bin
+  fi
+  if [ ! -f $PREFS_LOCATION/.systemPrefs/.system.lock ]; then
+    touch $PREFS_LOCATION/.systemPrefs/.system.lock
+    installf -c none $PKGINST $PREFS_LOCATION/.systemPrefs/.system.lock e 0644 root bin
+  fi
+  if [ ! -f $PREFS_LOCATION/.systemPrefs/.systemRootModFile ]; then
+    touch $PREFS_LOCATION/.systemPrefs/.systemRootModFile
+    installf -c none $PKGINST $PREFS_LOCATION/.systemPrefs/.systemRootModFile e 0644 root bin
+  fi
+  installf -f  $PKGINST
+}
+
+#=================================================
+# Add Java Web Start entry to /etc/mailcap
+#-------------------------------------------------
+UpdateMailcap() {
+   if [ -w ${MAILCAP_FILE} ]; then
+      # Remove existing entry, if present
+      if [ -n "`grep ${MIME_TYPE} ${MAILCAP_FILE}`" ] ; then
+        grep -v "${MIME_TYPE}" ${MAILCAP_FILE} | \
+        grep -v "${MC_COMMENT}" > /tmp/mailcap.$$
+	mv /tmp/mailcap.$$ ${MAILCAP_FILE}
+        chmod 644 ${MAILCAP_FILE}
+      fi
+   fi
+   # Add new entry
+   if [ -w `dirname ${MAILCAP_FILE}` ]; then
+	touch ${MAILCAP_FILE}
+        echo "${MC_COMMENT}" >> ${MAILCAP_FILE}
+        echo "${MIME_TYPE}; $JAVAWS_LINK %s" >> ${MAILCAP_FILE}
+        chmod 644 ${MAILCAP_FILE}
+   else
+	echo "Cannot write to file ${MAILCAP_FILE} check permissions"
+   fi
+}
+  
+#=================================================
+# Add Java Web Start entry to /etc/.mime.types
+#-------------------------------------------------
+UpdateMimeTypes() {
+   # Create the file if it does not exist
+   if [ ! -w ${MIME_FILE} ]; then
+     if [ -w `dirname ${MIME_FILE}` ]; then
+        echo '#--Netscape Communications Corporation MIME Information' > \
+              ${MIME_FILE}
+        echo '#Do not delete the above line. It is used to identify the file type.' \
+          >> ${MIME_FILE}
+        echo '#mime types added by Netscape Helper' >> ${MIME_FILE}
+      else
+        echo "Cannot write to file ${MIME_FILE} check permissions"
+        return
+      fi
+    fi
+    # Add the jnlp entry if it does not already exist.
+    if [ -z "`grep ${MIME_TYPE} ${MIME_FILE}`" ]; then
+      echo 'type=application/x-java-jnlp-file desc="Java Web Start" exts="jnlp"' \
+        >> ${MIME_FILE}
+      chmod 644 ${MIME_FILE}
+    fi
+}
+
+
+#=================================================
+# Roll it
+#-------------------------------------------------
+CreateUtilPrefs
+UpdateMailcap
+UpdateMimeTypes

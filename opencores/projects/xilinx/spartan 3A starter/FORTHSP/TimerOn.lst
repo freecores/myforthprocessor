@@ -1,0 +1,36 @@
+00000009  1b00         §0 LABEL 
+0000000b  54687265616453746174652e74696d6572a7333931353431373630 " ThreadState.timer§391541760 " 
+00000028  0d0d000000   §0 VAL 
+0000002d  0d00000000   FIND VAL ( will be modified! ) 
+00000032  00           NOP ( will be modified! ) 
+00000033  36           0<> 
+00000034  1c           AND 
+00000035  0d00000000   JAVATIMER VAL ( will be modified! ) 
+0000003a  00           NOP ( will be modified! ) 
+0000003b  01           ! 
+0000003c  3d           EXIT 
+
+instruction usage:
+load/store:		1	(11.11111111111111%)
+32-bit values:		3	(33.33333333333333%)
+16-bit values:		0	(0.0%)
+5-bit values:		0	(0.0%)
+values total:		3	(33.33333333333333%)
+arithmetic/logical:	1	(11.11111111111111%)
+relations:		1	(11.11111111111111%)
+flow control:		1	(11.11111111111111%)
+other:			2	(22.22222222222222%)
+total:			9
+
+average bytes per instruction: 3.3333333333333335
+
+string storage in byte:	29
+unresolved references:	3
+
+Size of static code: 38
+Size of initial code: 21
+
+references:
+ffffffff	1	FIND
+ffffffff	1	JAVATIMER
+d	1	§0

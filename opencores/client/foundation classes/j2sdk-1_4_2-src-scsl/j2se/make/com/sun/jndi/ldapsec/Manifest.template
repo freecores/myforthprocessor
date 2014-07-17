@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Specification-Title: JNDI/LDAP Service Provider:  Security Components
+Specification-Version: $SPECVERS
+Specification-Vendor: Sun Microsystems, Inc.
+Implementation-Title: JNDI/LDAP Service Provider:  Security Components
+Implementation-Version: $IMPLVERS
+Implementation-Vendor: Sun Microsystems, Inc.

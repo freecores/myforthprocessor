@@ -1,0 +1,312 @@
+00000027               
+00000027               IllegalMonitorStateException.IllegalMonitorStateException§46614784 LABEL 
+00000027  55           1 VAL 
+00000028  0d00000000   VALLOCATE VAL ( will be modified! ) 
+0000002d  00           NOP ( will be modified! ) 
+0000002e  90           A:R@ ( §base0 declared ) 
+0000002f  08           DROP 
+00000030  56           0 VAL 
+00000031  90           A:R@ ( §this declared ) 
+00000032  08           DROP 
+00000033  0d00000000   RuntimeException§-1151249920.table VAL ( will be modified! ) 
+00000038  00           NOP ( will be modified! ) 
+00000039  0d00529e3b   1000231424 VAL 
+0000003e  0d00000000   EXECUTE-NEW VAL ( will be modified! ) 
+00000043  00           NOP ( will be modified! ) 
+00000044  461c00       28 VAL 
+00000047  0d00000000   MALLOC VAL ( will be modified! ) 
+0000004c  00           NOP ( will be modified! ) 
+0000004d  08           DROP 
+0000004e  0e           DUP 
+0000004f  0e           DUP ( §base0 will be fetched! ) 
+00000050  d5           1 A:VAL 
+00000051  8b           A:PICK 
+00000052  10           R@ 
+00000053  88           A:DROP 
+00000054  0d00000000   V! VAL ( will be modified! ) 
+00000059  00           NOP ( will be modified! ) ( §this will be modified! ) 
+0000005a  88           A:DROP 
+0000005b  90           A:R@ 
+0000005c  08           DROP 
+0000005d  0f           OVER 
+0000005e  420900       §1 0BRANCH 
+00000061  0f           OVER 
+00000062  1d           CELL+ 
+00000063  02           @ 
+00000064  52           4 VAL 
+00000065  16           + 
+00000066  0f           OVER 
+00000067  0f           OVER 
+00000068  01           ! 
+00000069  08           DROP 
+0000006a               §1 LABEL 
+0000006a  1d           CELL+ 
+0000006b  02           @ 
+0000006c  0f           OVER 
+0000006d  0f           OVER 
+0000006e  01           ! 
+0000006f  0a           NIP 
+00000070  0d00000000   IllegalMonitorStateException§-52541184.table VAL ( will be modified! ) 
+00000075  00           NOP ( will be modified! ) 
+00000076  0f           OVER 
+00000077  4a           12 VAL 
+00000078  16           + 
+00000079  01           ! 
+0000007a  0d0000defc   -52559872 VAL 
+0000007f  0f           OVER 
+00000080  461400       20 VAL 
+00000083  16           + 
+00000084  01           ! 
+00000085  0db3000000   §2 VAL 
+0000008a  0f           OVER 
+0000008b  461000       16 VAL 
+0000008e  16           + 
+0000008f  01           ! 
+00000090  56           0 VAL 
+00000091  0f           OVER 
+00000092  461800       24 VAL 
+00000095  16           + 
+00000096  01           ! 
+00000097  08           DROP ( §this will be fetched! ) 
+00000098  10           R@ 
+00000099  0e           DUP 
+0000009a  56           0 VAL 
+0000009b  0d00000000   V! VAL ( will be modified! ) 
+000000a0  00           NOP ( will be modified! ) 
+000000a1  56           0 VAL 
+000000a2               §break32830 LABEL ( §base0 will be fetched! ) 
+000000a2  d5           1 A:VAL 
+000000a3  8b           A:PICK 
+000000a4  10           R@ 
+000000a5  88           A:DROP 
+000000a6  0d00000000   SETVTOP VAL ( will be modified! ) 
+000000ab  00           NOP ( will be modified! ) remove §this remove §base0 
+000000ac  89           A:2DROP 
+000000ad  08           DROP 
+000000ae               §0 LABEL 
+000000ae  3d           EXIT 
+000000af  1c00         §2 LABEL 
+000000b1  496c6c6567616c4d6f6e69746f725374617465457863657074696f6e " IllegalMonitorStateException " 
+000000cd               
+000000cd               IllegalMonitorStateException.IllegalMonitorStateException§894191872 LABEL 
+000000cd  54           2 VAL 
+000000ce  0d00000000   VALLOCATE VAL ( will be modified! ) 
+000000d3  00           NOP ( will be modified! ) 
+000000d4  90           A:R@ ( §base0 declared ) 
+000000d5  08           DROP 
+000000d6  0e           DUP 
+000000d7  52           4 VAL ( §base0 will be fetched! ) 
+000000d8  10           R@ 
+000000d9  16           + 
+000000da  0d00000000   V! VAL ( will be modified! ) 
+000000df  00           NOP ( will be modified! ) 
+000000e0  90           A:R@ ( s declared ) 
+000000e1  08           DROP 
+000000e2  56           0 VAL 
+000000e3  90           A:R@ ( §this declared ) 
+000000e4  08           DROP ( s will be fetched! ) 
+000000e5  d5           1 A:VAL 
+000000e6  8b           A:PICK 
+000000e7  10           R@ 
+000000e8  88           A:DROP 
+000000e9  0d00000000   RuntimeException§-1151249920.table VAL ( will be modified! ) 
+000000ee  00           NOP ( will be modified! ) 
+000000ef  0d005295d3   -745188864 VAL 
+000000f4  0d00000000   EXECUTE-NEW VAL ( will be modified! ) 
+000000f9  00           NOP ( will be modified! ) 
+000000fa  461c00       28 VAL 
+000000fd  0d00000000   MALLOC VAL ( will be modified! ) 
+00000102  00           NOP ( will be modified! ) 
+00000103  08           DROP 
+00000104  0e           DUP 
+00000105  0e           DUP ( §base0 will be fetched! ) 
+00000106  d4           2 A:VAL 
+00000107  8b           A:PICK 
+00000108  10           R@ 
+00000109  88           A:DROP 
+0000010a  0d00000000   V! VAL ( will be modified! ) 
+0000010f  00           NOP ( will be modified! ) ( §this will be modified! ) 
+00000110  88           A:DROP 
+00000111  90           A:R@ 
+00000112  08           DROP 
+00000113  0f           OVER 
+00000114  420900       §4 0BRANCH 
+00000117  0f           OVER 
+00000118  1d           CELL+ 
+00000119  02           @ 
+0000011a  52           4 VAL 
+0000011b  16           + 
+0000011c  0f           OVER 
+0000011d  0f           OVER 
+0000011e  01           ! 
+0000011f  08           DROP 
+00000120               §4 LABEL 
+00000120  1d           CELL+ 
+00000121  02           @ 
+00000122  0f           OVER 
+00000123  0f           OVER 
+00000124  01           ! 
+00000125  0a           NIP 
+00000126  0d00000000   IllegalMonitorStateException§-52541184.table VAL ( will be modified! ) 
+0000012b  00           NOP ( will be modified! ) 
+0000012c  0f           OVER 
+0000012d  4a           12 VAL 
+0000012e  16           + 
+0000012f  01           ! 
+00000130  0d0000defc   -52559872 VAL 
+00000135  0f           OVER 
+00000136  461400       20 VAL 
+00000139  16           + 
+0000013a  01           ! 
+0000013b  0db3000000   §2 VAL 
+00000140  0f           OVER 
+00000141  461000       16 VAL 
+00000144  16           + 
+00000145  01           ! 
+00000146  56           0 VAL 
+00000147  0f           OVER 
+00000148  461800       24 VAL 
+0000014b  16           + 
+0000014c  01           ! 
+0000014d  08           DROP ( §this will be fetched! ) 
+0000014e  10           R@ 
+0000014f  0e           DUP 
+00000150  56           0 VAL 
+00000151  0d00000000   V! VAL ( will be modified! ) 
+00000156  00           NOP ( will be modified! ) 
+00000157  56           0 VAL 
+00000158               §break32831 LABEL ( §base0 will be fetched! ) 
+00000158  d4           2 A:VAL 
+00000159  8b           A:PICK 
+0000015a  10           R@ 
+0000015b  88           A:DROP 
+0000015c  0d00000000   SETVTOP VAL ( will be modified! ) 
+00000161  00           NOP ( will be modified! ) remove §this remove s remove §base0 
+00000162  89           A:2DROP 
+00000163  88           A:DROP 
+00000164  08           DROP 
+00000165               §3 LABEL 
+00000165  3d           EXIT 
+00000166  2c00         §7 LABEL 
+00000168  496c6c6567616c4d6f6e69746f725374617465457863657074696f6ea72d35323534313138342e7461626c65 " IllegalMonitorStateException§-52541184.table " 
+00000194  2a00         §6 LABEL 
+00000196  496c6c6567616c4d6f6e69746f725374617465457863657074696f6e2e5f737461746963546872656164 " IllegalMonitorStateException._staticThread " 
+000001c0  2c00         §5 LABEL 
+000001c2  496c6c6567616c4d6f6e69746f725374617465457863657074696f6e2e5f737461746963426c6f636b696e67 " IllegalMonitorStateException._staticBlocking " 
+000001f0  0d00000000   ALIGN VAL ( will be modified! ) 
+000001f5  00           NOP ( will be modified! ) 
+000001f6  0d00000000   HERE VAL ( will be modified! ) 
+000001fb  00           NOP ( will be modified! ) 
+000001fc  54           2 VAL 
+000001fd  0dc4010000   §5 VAL 
+00000202  0d00000000   create VAL ( will be modified! ) 
+00000207  00           NOP ( will be modified! ) 
+00000208  55           1 VAL 
+00000209  1a           2* 
+0000020a  1a           2* 
+0000020b  0d00000000   ALLOT VAL ( will be modified! ) 
+00000210  00           NOP ( will be modified! ) 
+00000211  0d00000000   ALIGN VAL ( will be modified! ) 
+00000216  00           NOP ( will be modified! ) 
+00000217  0d00000000   HERE VAL ( will be modified! ) 
+0000021c  00           NOP ( will be modified! ) 
+0000021d  54           2 VAL 
+0000021e  0d98010000   §6 VAL 
+00000223  0d00000000   create VAL ( will be modified! ) 
+00000228  00           NOP ( will be modified! ) 
+00000229  55           1 VAL 
+0000022a  1a           2* 
+0000022b  1a           2* 
+0000022c  0d00000000   ALLOT VAL ( will be modified! ) 
+00000231  00           NOP ( will be modified! ) 
+00000232  0d00000000   HERE VAL ( will be modified! ) 
+00000237  00           NOP ( will be modified! ) 
+00000238  52           4 VAL 
+00000239  17           - 
+0000023a  0d00000000   SALLOCATE VAL ( will be modified! ) 
+0000023f  00           NOP ( will be modified! ) 
+00000240  8d00000000   HERE A:VAL ( will be modified! ) 
+00000245  80           A:NOP ( will be modified! ) 
+00000246  0d00000000   ALIGN VAL ( will be modified! ) 
+0000024b  00           NOP ( will be modified! ) 
+0000024c  0d00000000   HERE VAL ( will be modified! ) 
+00000251  00           NOP ( will be modified! ) 
+00000252  54           2 VAL 
+00000253  0d6a010000   §7 VAL 
+00000258  0d00000000   create VAL ( will be modified! ) 
+0000025d  00           NOP ( will be modified! ) 
+0000025e  55           1 VAL 
+0000025f  1a           2* 
+00000260  1a           2* 
+00000261  0d00000000   ALLOT VAL ( will be modified! ) 
+00000266  00           NOP ( will be modified! ) 
+00000267  54           2 VAL 
+00000268  0e           DUP 
+00000269  1a           2* 
+0000026a  1a           2* 
+0000026b  1a           2* 
+0000026c  0d00000000   ALLOT VAL ( will be modified! ) 
+00000271  00           NOP ( will be modified! ) 
+00000272  10           R@ 
+00000273  01           ! 
+00000274  9d           A:CELL+ 
+00000275  0d0049c702   46614784 VAL 
+0000027a  10           R@ 
+0000027b  01           ! 
+0000027c  9d           A:CELL+ 
+0000027d  0d2b000000   IllegalMonitorStateException.IllegalMonitorStateException§46614784 VAL 
+00000282  10           R@ 
+00000283  01           ! 
+00000284  9d           A:CELL+ 
+00000285  0d00494c35   894191872 VAL 
+0000028a  10           R@ 
+0000028b  01           ! 
+0000028c  9d           A:CELL+ 
+0000028d  0dd1000000   IllegalMonitorStateException.IllegalMonitorStateException§894191872 VAL 
+00000292  10           R@ 
+00000293  01           ! 
+00000294  9d           A:CELL+ 
+00000295  88           A:DROP 
+00000296  3d           EXIT 
+
+instruction usage:
+load/store:		21	(8.333333333333332%)
+32-bit values:		46	(18.253968253968253%)
+16-bit values:		8	(3.1746031746031744%)
+5-bit values:		28	(11.11111111111111%)
+values total:		82	(32.53968253968254%)
+arithmetic/logical:	30	(11.904761904761903%)
+relations:		0	(0.0%)
+flow control:		5	(1.984126984126984%)
+other:			114	(45.23809523809524%)
+total:			252
+
+average bytes per instruction: 1.9642857142857142
+
+string storage in byte:	166
+unresolved references:	40
+
+Size of static code: 494
+Size of initial code: 167
+
+references:
+ffffffff	3	ALIGN
+ffffffff	4	ALLOT
+ffffffff	2	EXECUTE-NEW
+ffffffff	5	HERE
+2b	1	IllegalMonitorStateException.IllegalMonitorStateException§46614784
+2b	1	IllegalMonitorStateException.IllegalMonitorStateException§46614784
+d1	1	IllegalMonitorStateException.IllegalMonitorStateException§894191872
+d1	1	IllegalMonitorStateException.IllegalMonitorStateException§894191872
+ffffffff	2	IllegalMonitorStateException§-52541184.table
+ffffffff	2	MALLOC
+ffffffff	2	RuntimeException§-1151249920.table
+ffffffff	1	SALLOCATE
+ffffffff	2	SETVTOP
+ffffffff	5	V!
+ffffffff	2	VALLOCATE
+ffffffff	3	create
+b3	2	§2
+1c4	1	§5
+198	1	§6
+16a	1	§7

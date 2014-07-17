@@ -1,0 +1,73 @@
+00000010  0600         §0 LABEL 
+00000012  546872656164 " Thread " 
+00000018  56           0 VAL 
+00000019  0d00000000   Equation._staticBlocking VAL ( will be modified! ) 
+0000001e  00           NOP ( will be modified! ) 
+0000001f  01           ! 
+00000020  56           0 VAL 
+00000021  0d00000000   Equation._staticThread VAL ( will be modified! ) 
+00000026  00           NOP ( will be modified! ) 
+00000027  01           ! 
+00000028  0d00000000   Equation.eq§1990485248.table VAL ( will be modified! ) 
+0000002d  00           NOP ( will be modified! ) 
+0000002e  0d00656764   1684497664 VAL 
+00000033  0d00000000   EXECUTE-NEW VAL ( will be modified! ) 
+00000038  00           NOP ( will be modified! ) 
+00000039  0d14000000   §0 VAL 
+0000003e  0d00000000   CASTTO VAL ( will be modified! ) 
+00000043  00           NOP ( will be modified! ) 
+00000044  0e           DUP 
+00000045  0d00000000   Equation.x VAL ( will be modified! ) 
+0000004a  00           NOP ( will be modified! ) 
+0000004b  01           ! 
+0000004c  90           A:R@ 
+0000004d  08           DROP 
+0000004e  10           R@ 
+0000004f  88           A:DROP 
+00000050  0d0073c709   164066048 VAL 
+00000055  57           -1 VAL 
+00000056  0d00000000   EXECUTE-METHOD VAL ( will be modified! ) 
+0000005b  00           NOP ( will be modified! ) 
+0000005c  56           0 VAL 
+0000005d  08           DROP 
+0000005e  56           0 VAL 
+0000005f  0d00000000   Equation.eq._staticBlocking VAL ( will be modified! ) 
+00000064  00           NOP ( will be modified! ) 
+00000065  01           ! 
+00000066  56           0 VAL 
+00000067  0d00000000   Equation.eq._staticThread VAL ( will be modified! ) 
+0000006c  00           NOP ( will be modified! ) 
+0000006d  01           ! 
+0000006e  3d           EXIT 
+
+instruction usage:
+load/store:		5	(12.82051282051282%)
+32-bit values:		12	(30.76923076923077%)
+16-bit values:		0	(0.0%)
+5-bit values:		6	(15.384615384615385%)
+values total:		18	(46.15384615384615%)
+arithmetic/logical:	0	(0.0%)
+relations:		0	(0.0%)
+flow control:		1	(2.564102564102564%)
+other:			15	(38.46153846153847%)
+total:			39
+
+average bytes per instruction: 2.641025641025641
+
+string storage in byte:	8
+unresolved references:	10
+
+Size of static code: 24
+Size of initial code: 87
+
+references:
+ffffffff	1	CASTTO
+ffffffff	1	EXECUTE-METHOD
+ffffffff	1	EXECUTE-NEW
+ffffffff	1	Equation._staticBlocking
+ffffffff	1	Equation._staticThread
+ffffffff	1	Equation.eq._staticBlocking
+ffffffff	1	Equation.eq._staticThread
+ffffffff	1	Equation.eq§1990485248.table
+ffffffff	1	Equation.x
+14	1	§0

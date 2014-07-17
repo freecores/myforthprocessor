@@ -1,0 +1,71 @@
+//Microsoft Developer Studio generated resource script.
+//
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_ICON1               ICON    DISCARDABLE     "icon.ico"
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    JAVAWS_TEST             "這是測試。"
+    JAVAWS_ERROR_RESOURCE   "載入資源錯誤。"
+    JAVAWS_ERROR_RESOURCE_CAPTION "安裝程式錯誤"
+    JAVAWS_ERROR_DEFLATEINIT "add_data_compress：deflateInit() 失敗！中斷！"
+    JAVAWS_ERROR_COMPRESS   "add_data_compress：ack! compress 執行錯誤！中斷！"
+    JAVAWS_UNINST_SECTION   "add_section：切換至解除安裝區段"
+    JAVAWS_ERROR_UNINST     "add_section：錯誤：解除安裝區段已指定，且編譯器不是以 NSIS_CONFIG_UNINSTALL_SUPPORT 建立！"
+    JAVAWS_DONE_UNINST      "add_section：切換自解除安裝區段"
+    JAVAWS_PROCESSING_SCRIPT "正在處理指令集"
+    JAVAWS_ERROR_TOKEN      "錯誤：指令 ""%1"" 要求第 %3!d 行有 %2!d! 個參數！"
+    JAVAWS_ERROR_INVALIDCOMMAND 
+                            "錯誤：無效指令 (""%1"") 出現在第 %2!d 行！"
+    JAVAWS_PARSE_NAME       "名稱：""%1"""
+    JAVAWS_PARSE_ICON       "圖示：""%1"""
+    JAVAWS_ERROR_NOUNINSTALLSUPPORT 
+                            "UninstallIcon：安裝程式不是以 NSIS_CONFIG_UNINSTALL_SUPPORT 建立"
+    JAVAWS_PARSE_UNINSTALLICON "UninstallIcon：""%1"""
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    JAVAWS_PARSE_ENABLEDBITMAP "EnabledBitmap：""%1"""
+    JAVAWS_PARSE_DISABLEDBITMAP "DisabledBitmap：""%1"""
+    JAVAWS_PARSE_DIRTEXT    "DirText：""%1"""
+    JAVAWS_PARSE_COMPONENTTEXT "ComponentText：""%1"""
+END

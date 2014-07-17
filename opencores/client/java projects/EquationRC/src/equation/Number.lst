@@ -1,0 +1,149 @@
+00000011               
+00000011               Number.byteValue§-1994235392 LABEL 
+00000011  90           A:R@ ( §this declared ) 
+00000012  08           DROP ( §this will be fetched! ) 
+00000013  10           R@ 
+00000014  90           A:R@ 
+00000015  10           R@ 
+00000016  88           A:DROP 
+00000017  0d0069e4e9   -370906880 VAL 
+0000001c  57           -1 VAL 
+0000001d  0d00000000   EXECUTE-METHOD VAL ( will be modified! ) 
+00000022  00           NOP ( will be modified! ) 
+00000023  467f00       127 VAL 
+00000026  2d           CMP 
+00000027  5c           U0> 
+00000028  0a           NIP 
+00000029  420400       §1 0BRANCH 
+0000002c  4600ff       -256 VAL 
+0000002f  22           OR 
+00000030               §1 LABEL 
+00000030  56           0 VAL 
+00000031  400100       §break2140 BRANCH 
+00000034  56           0 VAL 
+00000035               §break2140 LABEL 
+00000035  88           A:DROP 
+00000036  08           DROP 
+00000037               §0 LABEL 
+00000037  3d           EXIT 
+00000038               
+00000038               Number.shortValue§715813632 LABEL 
+00000038  90           A:R@ ( §this declared ) 
+00000039  08           DROP ( §this will be fetched! ) 
+0000003a  10           R@ 
+0000003b  90           A:R@ 
+0000003c  10           R@ 
+0000003d  88           A:DROP 
+0000003e  0d0069e4e9   -370906880 VAL 
+00000043  57           -1 VAL 
+00000044  0d00000000   EXECUTE-METHOD VAL ( will be modified! ) 
+00000049  00           NOP ( will be modified! ) 
+0000004a  46ff7f       32767 VAL 
+0000004d  2d           CMP 
+0000004e  5c           U0> 
+0000004f  0a           NIP 
+00000050  420400       §3 0BRANCH 
+00000053  460000       -65536 VAL 
+00000056  22           OR 
+00000057               §3 LABEL 
+00000057  56           0 VAL 
+00000058  400100       §break2141 BRANCH 
+0000005b  56           0 VAL 
+0000005c               §break2141 LABEL 
+0000005c  88           A:DROP 
+0000005d  08           DROP 
+0000005e               §2 LABEL 
+0000005e  3d           EXIT 
+0000005f  1700         §5 LABEL 
+00000061  4e756d626572a72d3435303630353536382e7461626c65 " Number§-450605568.table " 
+00000078  1700         §4 LABEL 
+0000007a  4e756d6265722e73657269616c56657273696f6e554944 " Number.serialVersionUID " 
+00000094  0d00000000   ALIGN VAL ( will be modified! ) 
+00000099  00           NOP ( will be modified! ) 
+0000009a  0d00000000   HERE VAL ( will be modified! ) 
+0000009f  00           NOP ( will be modified! ) 
+000000a0  4f           7 VAL 
+000000a1  0d7c000000   §4 VAL 
+000000a6  0d00000000   create VAL ( will be modified! ) 
+000000ab  00           NOP ( will be modified! ) 
+000000ac  54           2 VAL 
+000000ad  1a           2* 
+000000ae  1a           2* 
+000000af  0d00000000   ALLOT VAL ( will be modified! ) 
+000000b4  00           NOP ( will be modified! ) 
+000000b5  8d00000000   HERE A:VAL ( will be modified! ) 
+000000ba  80           A:NOP ( will be modified! ) 
+000000bb  0d00000000   ALIGN VAL ( will be modified! ) 
+000000c0  00           NOP ( will be modified! ) 
+000000c1  0d00000000   HERE VAL ( will be modified! ) 
+000000c6  00           NOP ( will be modified! ) 
+000000c7  54           2 VAL 
+000000c8  0d63000000   §5 VAL 
+000000cd  0d00000000   create VAL ( will be modified! ) 
+000000d2  00           NOP ( will be modified! ) 
+000000d3  55           1 VAL 
+000000d4  1a           2* 
+000000d5  1a           2* 
+000000d6  0d00000000   ALLOT VAL ( will be modified! ) 
+000000db  00           NOP ( will be modified! ) 
+000000dc  54           2 VAL 
+000000dd  0e           DUP 
+000000de  1a           2* 
+000000df  1a           2* 
+000000e0  1a           2* 
+000000e1  0d00000000   ALLOT VAL ( will be modified! ) 
+000000e6  00           NOP ( will be modified! ) 
+000000e7  10           R@ 
+000000e8  01           ! 
+000000e9  9d           A:CELL+ 
+000000ea  0d00622289   -1994235392 VAL 
+000000ef  10           R@ 
+000000f0  01           ! 
+000000f1  9d           A:CELL+ 
+000000f2  0d15000000   Number.byteValue§-1994235392 VAL 
+000000f7  10           R@ 
+000000f8  01           ! 
+000000f9  9d           A:CELL+ 
+000000fa  0d0073aa2a   715813632 VAL 
+000000ff  10           R@ 
+00000100  01           ! 
+00000101  9d           A:CELL+ 
+00000102  0d3c000000   Number.shortValue§715813632 VAL 
+00000107  10           R@ 
+00000108  01           ! 
+00000109  9d           A:CELL+ 
+0000010a  88           A:DROP 
+0000010b  3d           EXIT 
+
+instruction usage:
+load/store:		5	(4.901960784313726%)
+32-bit values:		20	(19.607843137254903%)
+16-bit values:		4	(3.9215686274509802%)
+5-bit values:		11	(10.784313725490197%)
+values total:		35	(34.31372549019608%)
+arithmetic/logical:	16	(15.686274509803921%)
+relations:		2	(1.9607843137254901%)
+flow control:		7	(6.862745098039216%)
+other:			37	(36.27450980392157%)
+total:			102
+
+average bytes per instruction: 2.107843137254902
+
+string storage in byte:	50
+unresolved references:	16
+
+Size of static code: 145
+Size of initial code: 120
+
+references:
+ffffffff	2	ALIGN
+ffffffff	3	ALLOT
+ffffffff	2	EXECUTE-METHOD
+ffffffff	3	HERE
+15	1	Number.byteValue§-1994235392
+15	1	Number.byteValue§-1994235392
+3c	1	Number.shortValue§715813632
+3c	1	Number.shortValue§715813632
+ffffffff	2	create
+7c	1	§4
+63	1	§5

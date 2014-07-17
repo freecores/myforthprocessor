@@ -1,0 +1,12 @@
+#
+# @(#)FILES_java.gmk	1.4 02/10/08
+#
+FILES_java = \
+	$(TARGDIR)sun/security/action/GetBooleanAction.java \
+	$(TARGDIR)sun/security/action/GetIntegerAction.java \
+	$(TARGDIR)sun/security/action/GetLongAction.java \
+	$(TARGDIR)sun/security/action/GetPropertyAction.java \
+	$(TARGDIR)sun/security/action/LoadLibraryAction.java \
+	$(TARGDIR)sun/security/action/OpenFileInputStreamAction.java
+
+

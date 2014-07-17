@@ -1,0 +1,531 @@
+--------------------------------------------------------------------------------
+Release 14.2 Trace  (nt64)
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+E:\Xilinx\14.2\ISE_DS\ISE\bin\nt64\unwrapped\trce.exe -intstyle ise -e 3 -s 4
+-n 3 -xml MYCPU.twx MYCPU.ncd -o MYCPU.twr MYCPU.pcf -ucf MYCPU.ucf
+
+Design file:              MYCPU.ncd
+Physical constraint file: MYCPU.pcf
+Device,package,speed:     xc3s700a,fg484,-4 (PRODUCTION 1.42 2012-07-09)
+Report level:             error report
+
+Environment Variable      Effect 
+--------------------      ------ 
+NONE                      No environment variables were set
+--------------------------------------------------------------------------------
+
+INFO:Timing:3412 - To improve timing, see the Timing Closure User Guide (UG612).
+INFO:Timing:2752 - To get complete path coverage, use the unconstrained paths 
+   option. All paths that are not constrained will be reported in the 
+   unconstrained paths section(s) of the report.
+INFO:Timing:3339 - The clock-to-out numbers in this timing report are based on 
+   a 50 Ohm transmission line loading model.  For the details of this model, 
+   and for more information on accounting for different loading conditions, 
+   please see the device datasheet.
+INFO:Timing:3390 - This architecture does not support a default System Jitter 
+   value, please add SYSTEM_JITTER constraint to the UCF to modify the Clock 
+   Uncertainty calculation.
+INFO:Timing:3389 - This architecture does not support 'Discrete Jitter' and 
+   'Phase Error' calculations, these terms will be zero in the Clock 
+   Uncertainty calculation.  Please make appropriate modification to 
+   SYSTEM_JITTER to account for the unsupported Discrete Jitter and Phase 
+   Error.
+
+================================================================================
+Timing constraint: NET "mydcm/CLKIN_IBUFG" PERIOD = 20 ns HIGH 40%;
+For more information, see Period Analysis in the Timing Closure User Guide (UG612).
+
+ 0 paths analyzed, 0 endpoints analyzed, 0 failing endpoints
+ 0 timing errors detected. (0 component switching limit errors)
+ Minimum period is   7.500ns.
+--------------------------------------------------------------------------------
+
+================================================================================
+Timing constraint: PERIOD analysis for net "mydcm/CLKFX_BUF" derived from  NET 
+"mydcm/CLKIN_IBUFG" PERIOD = 20 ns HIGH 40%;  divided by 1.20 to 16.667 nS and 
+duty cycle corrected to HIGH 8.333 nS  
+For more information, see Period Analysis in the Timing Closure User Guide (UG612).
+
+ 10845271 paths analyzed, 11471 endpoints analyzed, 0 failing endpoints
+ 0 timing errors detected. (0 setup errors, 0 hold errors, 0 component switching limit errors)
+ Minimum period is  16.512ns.
+--------------------------------------------------------------------------------
+
+================================================================================
+Timing constraint: PERIOD analysis for net 
+"myRAM/infrastructure_top0/clk_dcm0/clk0dcm" derived from  PERIOD analysis for 
+net "mydcm/CLKFX_BUF" derived from NET "mydcm/CLKIN_IBUFG" PERIOD = 20 ns HIGH 
+40%; divided by 1.20 to 16.667 nS and duty cycle corrected to HIGH 8.333 nS   
+duty cycle corrected to 16.667 nS  HIGH 8.333 nS  
+For more information, see Period Analysis in the Timing Closure User Guide (UG612).
+
+ 2303 paths analyzed, 987 endpoints analyzed, 0 failing endpoints
+ 0 timing errors detected. (0 setup errors, 0 hold errors, 0 component switching limit errors)
+ Minimum period is  15.434ns.
+--------------------------------------------------------------------------------
+
+================================================================================
+Timing constraint: PERIOD analysis for net 
+"myRAM/infrastructure_top0/clk_dcm0/clk90dcm" derived from  PERIOD analysis for 
+net "mydcm/CLKFX_BUF" derived from NET "mydcm/CLKIN_IBUFG" PERIOD = 20 ns HIGH 
+40%; divided by 1.20 to 16.667 nS and duty cycle corrected to HIGH 8.333 nS   
+duty cycle corrected to 16.667 nS  HIGH 8.333 nS  
+For more information, see Period Analysis in the Timing Closure User Guide (UG612).
+
+ 505 paths analyzed, 294 endpoints analyzed, 0 failing endpoints
+ 0 timing errors detected. (0 setup errors, 0 hold errors, 0 component switching limit errors)
+ Minimum period is  15.421ns.
+--------------------------------------------------------------------------------
+
+================================================================================
+Timing constraint: NET "myRAM/top0/rst_dqs_div_int" MAXDELAY = 3 ns;
+
+ 1 net analyzed, 0 failing nets detected.
+ 0 timing errors detected.
+ Maximum net delay is   2.005ns.
+--------------------------------------------------------------------------------
+
+================================================================================
+Timing constraint: NET "SD_LOOP_IN" MAXDELAY = 3 ns;
+
+ 0 nets analyzed, 0 failing nets detected.
+ 0 timing errors detected.
+--------------------------------------------------------------------------------
+
+================================================================================
+Timing constraint: NET "myRAM/top0/dqs_div_rst" MAXDELAY = 3 ns;
+
+ 1 net analyzed, 0 failing nets detected.
+ 0 timing errors detected.
+ Maximum net delay is   1.454ns.
+--------------------------------------------------------------------------------
+
+================================================================================
+Timing constraint: NET "SD_LOOP_OUT" MAXDELAY = 3 ns;
+
+ 0 nets analyzed, 0 failing nets detected.
+ 0 timing errors detected.
+--------------------------------------------------------------------------------
+
+================================================================================
+Timing constraint: NET "myRAM/infrastructure_top0/cal_top0/tap_dly0/tap<7>" 
+MAXDELAY = 0.7 ns;
+
+ 1 net analyzed, 0 failing nets detected.
+ 0 timing errors detected.
+ Maximum net delay is   0.398ns.
+--------------------------------------------------------------------------------
+
+================================================================================
+Timing constraint: NET "myRAM/infrastructure_top0/cal_top0/tap_dly0/tap<15>" 
+MAXDELAY = 0.7 ns;
+
+ 1 net analyzed, 0 failing nets detected.
+ 0 timing errors detected.
+ Maximum net delay is   0.398ns.
+--------------------------------------------------------------------------------
+
+================================================================================
+Timing constraint: NET "myRAM/infrastructure_top0/cal_top0/tap_dly0/tap<23>" 
+MAXDELAY = 0.7 ns;
+
+ 1 net analyzed, 0 failing nets detected.
+ 0 timing errors detected.
+ Maximum net delay is   0.398ns.
+--------------------------------------------------------------------------------
+
+================================================================================
+Timing constraint: NET "myRAM/top0/data_path0/fifo_01_wr_en" MAXDELAY = 2 ns;
+
+ 1 net analyzed, 0 failing nets detected.
+ 0 timing errors detected.
+ Maximum net delay is   1.410ns.
+--------------------------------------------------------------------------------
+
+================================================================================
+Timing constraint: NET "myRAM/top0/data_path0/fifo_11_wr_en" MAXDELAY = 2 ns;
+
+ 1 net analyzed, 0 failing nets detected.
+ 0 timing errors detected.
+ Maximum net delay is   1.246ns.
+--------------------------------------------------------------------------------
+
+================================================================================
+Timing constraint: NET "myRAM/top0/data_path0/fifo_00_wr_en" MAXDELAY = 2 ns;
+
+ 1 net analyzed, 0 failing nets detected.
+ 0 timing errors detected.
+ Maximum net delay is   0.907ns.
+--------------------------------------------------------------------------------
+
+================================================================================
+Timing constraint: NET "myRAM/top0/data_path0/fifo_10_wr_en" MAXDELAY = 2 ns;
+
+ 1 net analyzed, 0 failing nets detected.
+ 0 timing errors detected.
+ Maximum net delay is   1.149ns.
+--------------------------------------------------------------------------------
+
+================================================================================
+Timing constraint: NET 
+"myRAM/top0/data_path0/data_read_controller0/rst_dqs_div" MAXDELAY = 3 ns;
+
+ 1 net analyzed, 0 failing nets detected.
+ 0 timing errors detected.
+ Maximum net delay is   1.662ns.
+--------------------------------------------------------------------------------
+
+================================================================================
+Timing constraint: NET 
+"myRAM/top0/data_path0/data_read_controller0/rst_dqs_div_delayed1/delay5"       
+  MAXDELAY = 3 ns;
+
+ 0 nets analyzed, 0 failing nets detected.
+ 0 timing errors detected.
+--------------------------------------------------------------------------------
+
+================================================================================
+Timing constraint: NET 
+"myRAM/top0/data_path0/data_read_controller0/rst_dqs_div_delayed1/delay3"       
+  MAXDELAY = 3 ns;
+
+ 0 nets analyzed, 0 failing nets detected.
+ 0 timing errors detected.
+--------------------------------------------------------------------------------
+
+================================================================================
+Timing constraint: NET 
+"myRAM/top0/data_path0/data_read_controller0/rst_dqs_div_delayed1/delay4"       
+  MAXDELAY = 3 ns;
+
+ 1 net analyzed, 0 failing nets detected.
+ 0 timing errors detected.
+ Maximum net delay is   0.046ns.
+--------------------------------------------------------------------------------
+
+================================================================================
+Timing constraint: NET 
+"myRAM/top0/data_path0/data_read_controller0/rst_dqs_div_delayed1/delay1"       
+  MAXDELAY = 3 ns;
+
+ 0 nets analyzed, 0 failing nets detected.
+ 0 timing errors detected.
+--------------------------------------------------------------------------------
+
+================================================================================
+Timing constraint: NET 
+"myRAM/top0/data_path0/data_read_controller0/rst_dqs_div_delayed1/delay2"       
+  MAXDELAY = 3 ns;
+
+ 1 net analyzed, 0 failing nets detected.
+ 0 timing errors detected.
+ Maximum net delay is   0.105ns.
+--------------------------------------------------------------------------------
+
+================================================================================
+Timing constraint: NET "myRAM/top0/dqs_int_delay_in0" MAXDELAY = 0.7 ns;
+
+ 1 net analyzed, 0 failing nets detected.
+ 0 timing errors detected.
+ Maximum net delay is   0.524ns.
+--------------------------------------------------------------------------------
+
+================================================================================
+Timing constraint: NET 
+"myRAM/top0/data_path0/data_read_controller0/dqs_delay0_col0/delay2"         
+MAXDELAY = 0.36 ns;
+
+ 0 nets analyzed, 0 failing nets detected.
+ 0 timing errors detected.
+--------------------------------------------------------------------------------
+
+================================================================================
+Timing constraint: NET 
+"myRAM/top0/data_path0/data_read_controller0/dqs_delay0_col0/delay3"         
+MAXDELAY = 0.36 ns;
+
+ 1 net analyzed, 0 failing nets detected.
+ 0 timing errors detected.
+ Maximum net delay is   0.121ns.
+--------------------------------------------------------------------------------
+
+================================================================================
+Timing constraint: NET 
+"myRAM/top0/data_path0/data_read_controller0/dqs_delay0_col0/delay4"         
+MAXDELAY = 0.36 ns;
+
+ 0 nets analyzed, 0 failing nets detected.
+ 0 timing errors detected.
+--------------------------------------------------------------------------------
+
+================================================================================
+Timing constraint: NET 
+"myRAM/top0/data_path0/data_read_controller0/dqs_delay0_col0/delay5"         
+MAXDELAY = 0.36 ns;
+
+ 1 net analyzed, 0 failing nets detected.
+ 0 timing errors detected.
+ Maximum net delay is   0.155ns.
+--------------------------------------------------------------------------------
+
+================================================================================
+Timing constraint: NET 
+"myRAM/top0/data_path0/data_read_controller0/dqs_delay0_col0/delay1"         
+MAXDELAY = 0.36 ns;
+
+ 1 net analyzed, 0 failing nets detected.
+ 0 timing errors detected.
+ Maximum net delay is   0.165ns.
+--------------------------------------------------------------------------------
+
+================================================================================
+Timing constraint: NET 
+"myRAM/top0/data_path0/data_read_controller0/dqs_delay0_col1/delay2"         
+MAXDELAY = 0.36 ns;
+
+ 0 nets analyzed, 0 failing nets detected.
+ 0 timing errors detected.
+--------------------------------------------------------------------------------
+
+================================================================================
+Timing constraint: NET 
+"myRAM/top0/data_path0/data_read_controller0/dqs_delay0_col1/delay3"         
+MAXDELAY = 0.36 ns;
+
+ 1 net analyzed, 0 failing nets detected.
+ 0 timing errors detected.
+ Maximum net delay is   0.121ns.
+--------------------------------------------------------------------------------
+
+================================================================================
+Timing constraint: NET 
+"myRAM/top0/data_path0/data_read_controller0/dqs_delay0_col1/delay4"         
+MAXDELAY = 0.36 ns;
+
+ 1 net analyzed, 0 failing nets detected.
+ 0 timing errors detected.
+ Maximum net delay is   0.341ns.
+--------------------------------------------------------------------------------
+
+================================================================================
+Timing constraint: NET 
+"myRAM/top0/data_path0/data_read_controller0/dqs_delay0_col1/delay5"         
+MAXDELAY = 0.36 ns;
+
+ 0 nets analyzed, 0 failing nets detected.
+ 0 timing errors detected.
+--------------------------------------------------------------------------------
+
+================================================================================
+Timing constraint: NET 
+"myRAM/top0/data_path0/data_read_controller0/dqs_delay0_col1/delay1"         
+MAXDELAY = 0.36 ns;
+
+ 1 net analyzed, 0 failing nets detected.
+ 0 timing errors detected.
+ Maximum net delay is   0.165ns.
+--------------------------------------------------------------------------------
+
+================================================================================
+Timing constraint: NET "myRAM/top0/dqs_int_delay_in1" MAXDELAY = 0.7 ns;
+
+ 1 net analyzed, 0 failing nets detected.
+ 0 timing errors detected.
+ Maximum net delay is   0.511ns.
+--------------------------------------------------------------------------------
+
+================================================================================
+Timing constraint: NET 
+"myRAM/top0/data_path0/data_read_controller0/dqs_delay1_col0/delay2"         
+MAXDELAY = 0.36 ns;
+
+ 0 nets analyzed, 0 failing nets detected.
+ 0 timing errors detected.
+--------------------------------------------------------------------------------
+
+================================================================================
+Timing constraint: NET 
+"myRAM/top0/data_path0/data_read_controller0/dqs_delay1_col0/delay3"         
+MAXDELAY = 0.36 ns;
+
+ 1 net analyzed, 0 failing nets detected.
+ 0 timing errors detected.
+ Maximum net delay is   0.121ns.
+--------------------------------------------------------------------------------
+
+================================================================================
+Timing constraint: NET 
+"myRAM/top0/data_path0/data_read_controller0/dqs_delay1_col0/delay4"         
+MAXDELAY = 0.36 ns;
+
+ 0 nets analyzed, 0 failing nets detected.
+ 0 timing errors detected.
+--------------------------------------------------------------------------------
+
+================================================================================
+Timing constraint: NET 
+"myRAM/top0/data_path0/data_read_controller0/dqs_delay1_col0/delay5"         
+MAXDELAY = 0.36 ns;
+
+ 1 net analyzed, 0 failing nets detected.
+ 0 timing errors detected.
+ Maximum net delay is   0.155ns.
+--------------------------------------------------------------------------------
+
+================================================================================
+Timing constraint: NET 
+"myRAM/top0/data_path0/data_read_controller0/dqs_delay1_col0/delay1"         
+MAXDELAY = 0.36 ns;
+
+ 1 net analyzed, 0 failing nets detected.
+ 0 timing errors detected.
+ Maximum net delay is   0.165ns.
+--------------------------------------------------------------------------------
+
+================================================================================
+Timing constraint: NET 
+"myRAM/top0/data_path0/data_read_controller0/dqs_delay1_col1/delay2"         
+MAXDELAY = 0.36 ns;
+
+ 0 nets analyzed, 0 failing nets detected.
+ 0 timing errors detected.
+--------------------------------------------------------------------------------
+
+================================================================================
+Timing constraint: NET 
+"myRAM/top0/data_path0/data_read_controller0/dqs_delay1_col1/delay3"         
+MAXDELAY = 0.36 ns;
+
+ 1 net analyzed, 0 failing nets detected.
+ 0 timing errors detected.
+ Maximum net delay is   0.121ns.
+--------------------------------------------------------------------------------
+
+================================================================================
+Timing constraint: NET 
+"myRAM/top0/data_path0/data_read_controller0/dqs_delay1_col1/delay4"         
+MAXDELAY = 0.36 ns;
+
+ 0 nets analyzed, 0 failing nets detected.
+ 0 timing errors detected.
+--------------------------------------------------------------------------------
+
+================================================================================
+Timing constraint: NET 
+"myRAM/top0/data_path0/data_read_controller0/dqs_delay1_col1/delay5"         
+MAXDELAY = 0.36 ns;
+
+ 1 net analyzed, 0 failing nets detected.
+ 0 timing errors detected.
+ Maximum net delay is   0.155ns.
+--------------------------------------------------------------------------------
+
+================================================================================
+Timing constraint: NET 
+"myRAM/top0/data_path0/data_read_controller0/dqs_delay1_col1/delay1"         
+MAXDELAY = 0.36 ns;
+
+ 1 net analyzed, 0 failing nets detected.
+ 0 timing errors detected.
+ Maximum net delay is   0.165ns.
+--------------------------------------------------------------------------------
+
+================================================================================
+Timing constraint: TS_Clock = PERIOD TIMEGRP "Clock" 16 ns HIGH 50%;
+For more information, see Period Analysis in the Timing Closure User Guide (UG612).
+
+ 0 paths analyzed, 0 endpoints analyzed, 0 failing endpoints
+ 0 timing errors detected. (0 component switching limit errors)
+ Minimum period is   6.000ns.
+--------------------------------------------------------------------------------
+
+================================================================================
+Timing constraint: TS_myRAM_infrastructure_top0_clk_dcm0_clk0dcm = PERIOD 
+TIMEGRP         "myRAM_infrastructure_top0_clk_dcm0_clk0dcm" TS_Clock HIGH 50%;
+For more information, see Period Analysis in the Timing Closure User Guide (UG612).
+
+ 0 paths analyzed, 0 endpoints analyzed, 0 failing endpoints
+ 0 timing errors detected. (0 component switching limit errors)
+ Minimum period is   2.014ns.
+--------------------------------------------------------------------------------
+
+================================================================================
+Timing constraint: TS_myRAM_infrastructure_top0_clk_dcm0_clk90dcm = PERIOD 
+TIMEGRP         "myRAM_infrastructure_top0_clk_dcm0_clk90dcm" TS_Clock PHASE 4 
+ns HIGH         50%;
+For more information, see Period Analysis in the Timing Closure User Guide (UG612).
+
+ 0 paths analyzed, 0 endpoints analyzed, 0 failing endpoints
+ 0 timing errors detected. (0 component switching limit errors)
+ Minimum period is   3.204ns.
+--------------------------------------------------------------------------------
+
+
+Derived Constraint Report
+Derived Constraints for mydcm/CLKIN_IBUFG
++-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+|                               |   Period    |       Actual Period       |      Timing Errors        |      Paths Analyzed       |
+|           Constraint          | Requirement |-------------+-------------|-------------+-------------|-------------+-------------|
+|                               |             |   Direct    | Derivative  |   Direct    | Derivative  |   Direct    | Derivative  |
++-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+|mydcm/CLKIN_IBUFG              |     20.000ns|      7.500ns|     19.814ns|            0|            0|            0|     10848079|
+| mydcm/CLKFX_BUF               |     16.667ns|     16.512ns|     15.434ns|            0|            0|     10845271|         2808|
+|  myRAM/infrastructure_top0/clk|     16.667ns|     15.434ns|          N/A|            0|            0|         2303|            0|
+|  _dcm0/clk0dcm                |             |             |             |             |             |             |             |
+|  myRAM/infrastructure_top0/clk|     16.667ns|     15.421ns|          N/A|            0|            0|          505|            0|
+|  _dcm0/clk90dcm               |             |             |             |             |             |             |             |
++-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+
+Derived Constraints for TS_Clock
++-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+|                               |   Period    |       Actual Period       |      Timing Errors        |      Paths Analyzed       |
+|           Constraint          | Requirement |-------------+-------------|-------------+-------------|-------------+-------------|
+|                               |             |   Direct    | Derivative  |   Direct    | Derivative  |   Direct    | Derivative  |
++-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+|TS_Clock                       |     16.000ns|      6.000ns|      3.204ns|            0|            0|            0|            0|
+| TS_myRAM_infrastructure_top0_c|     16.000ns|      2.014ns|          N/A|            0|            0|            0|            0|
+| lk_dcm0_clk0dcm               |             |             |             |             |             |             |             |
+| TS_myRAM_infrastructure_top0_c|     16.000ns|      3.204ns|          N/A|            0|            0|            0|            0|
+| lk_dcm0_clk90dcm              |             |             |             |             |             |             |             |
++-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+
+All constraints were met.
+
+
+Data Sheet report:
+-----------------
+All values displayed in nanoseconds (ns)
+
+Clock to Setup on destination clock SysClock
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+SysClock       |   16.499|    8.256|    5.510|    9.997|
+---------------+---------+---------+---------+---------+
+
+
+Timing summary:
+---------------
+
+Timing errors: 0  Score: 0  (Setup/Max: 0, Hold: 0)
+
+Constraints cover 10848079 paths, 26 nets, and 36729 connections
+
+Design statistics:
+   Minimum period:  16.512ns   (Maximum frequency:  60.562MHz)
+   Maximum net delay:   2.005ns
+
+
+Analysis completed Mon Oct 29 10:55:11 2012 
+--------------------------------------------------------------------------------
+
+Trace Settings:
+-------------------------
+Trace Settings 
+
+Peak Memory Usage: 320 MB
+
+
+

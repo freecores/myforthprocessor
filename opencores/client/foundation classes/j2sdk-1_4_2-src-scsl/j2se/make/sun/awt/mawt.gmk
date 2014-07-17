@@ -1,0 +1,210 @@
+#
+# @(#)mawt.gmk	1.45 03/01/23
+#
+# Copyright 2003 Sun Microsystems, Inc. All rights reserved.
+# SUN PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
+#
+
+#
+# to create directory:
+#
+INIT += $(LIB_LOCATION)
+
+#
+# Files
+#
+# mawt.gmk is just used in building X/Motif native code, so
+# this list of java files is no longer included.
+#include FILES_java_unix.gmk
+include $(BUILDDIR)/sun/awt/FILES_c_unix.gmk
+
+include $(BUILDDIR)/sun/awt/FILES_export_unix.gmk
+
+# Check which C files should be built.  Headless uses only
+# non-motif files.  Also, a version-specific motif file is
+# compiled based on the motif version.
+ifdef HEADLESS
+  FILES_c = $(FILES_NO_MOTIF_c)
+else
+  FILES_c = $(FILES_MOTIF_c) $(FILES_NO_MOTIF_c)
+
+  ifeq ($(MOTIF_VERSION), 1)
+    FILES_c += $(TARGDIR)awt_motif12.c
+    FILES_c += $(TARGDIR)awt_Choice12.c
+  endif
+
+  ifeq ($(MOTIF_VERSION), 2)
+    FILES_c += $(TARGDIR)awt_motif21.c
+    FILES_c += $(TARGDIR)awt_Choice21.c
+  endif
+
+endif
+
+ifeq ($(PLATFORM), solaris)
+  FILES_reorder += reorder-$(ARCH)
+endif
+
+#
+# Rules
+#
+
+# Class files should be built & clobbered in make/sun/awt
+# If removing this line, also reinclude sun_awt.jmk
+DONT_CLOBBER_CLASSES = true
+
+
+ifndef HEADLESS
+ifeq ($(VARIANT), OPT)
+FILES_m = ../awt/mapfile-mawt-vers
+endif
+endif
+
+
+include $(BUILDDIR)/common/Mapfile-vers.gmk
+include $(BUILDDIR)/common/Library.gmk
+
+$(LIB_LOCATION):
+	$(MKDIR) -p $@
+
+# Solaris production release specific
+ifeq ($(PLATFORM), solaris)
+  ifeq ($(VARIANT),OPT)
+    ifndef GLOBAL_KPIC
+      CFLAGS += -Kpic
+    else
+      GLOBAL_KPIC = -Kpic
+    endif
+  endif
+
+  ifeq ($(ARCH_DATA_MODEL), 64)
+    CFLAGS += -K PIC
+  endif
+
+endif # PLATFORM
+
+clean:: 
+
+#
+# Add to the ambient vpath to pick up files in subdirectories
+#
+vpath %.c   $(SHARE_SRC)/native/$(PKGDIR)/alphacomposite
+vpath %.c   $(SHARE_SRC)/native/$(PKGDIR)/image
+vpath %.c   $(SHARE_SRC)/native/$(PKGDIR)/image/gif
+vpath %.c   $(SHARE_SRC)/native/$(PKGDIR)/image/cvutils
+vpath %.c   $(SHARE_SRC)/native/$(PKGDIR)/shell
+vpath %.c   $(SHARE_SRC)/native/$(PKGDIR)/medialib
+vpath %.c   $(SHARE_SRC)/native/$(PKGDIR)/debug
+vpath %.c   $(SHARE_SRC)/native/$(PKGDIR)/../java2d
+vpath %.c   $(SHARE_SRC)/native/$(PKGDIR)/../java2d/loops
+vpath %.c   $(SHARE_SRC)/native/$(PKGDIR)/../java2d/pipe
+vpath %.cpp $(SHARE_SRC)/native/$(PKGDIR)/image
+vpath %.c   $(PLATFORM_SRC)/native/$(PKGDIR)/robot_child
+
+#
+# Libraries to link in.
+#
+
+# If your platform has DPS, it will have Type1 fonts too, in which case
+# it is best to enable DPS support until such time as 2D's rasteriser
+# can fully handle Type1 fonts in all cases. Default is "yes".
+# HAVE_DPS should only be "no" if the platform has no DPS headers or libs
+# The setting of HAVE_DPS is found in the $(BUILDDIR)/common/Defs-$(PLATFORM).gmk 
+# file.
+ifeq ($(HAVE_DPS),yes)
+CFLAGS   += -DHAVE_DPS
+CXXFLAGS += -DHAVE_DPS
+endif # HAVE_DPS
+
+
+ifeq ($(HEADLESS),true)
+CFLAGS += -DHEADLESS=$(HEADLESS)
+CPPFLAGS += -DHEADLESS=$(HEADLESS)
+OTHER_LDLIBS =
+else
+CFLAGS += -DMOTIF_VERSION=$(MOTIF_VERSION)
+
+ifeq ($(STATIC_MOTIF),true)
+LIBXM = $(MOTIF_LIB)/libXm.a -lXp
+else
+LIBXM = -lXm
+endif
+
+LIBXTST = -lXtst
+
+ifeq ($(VARIANT),DBG)
+# Use -lXmu for EditRes support
+LIBXMU	= -lXmu
+else
+LIBXMU	=
+endif
+
+OTHER_LDLIBS = $(LIBXM) -lXt -lXext $(LIBXTST) $(LIBXMU) -lX11 
+ifeq ($(HAVE_DPS),yes)
+OTHER_LDLIBS  += -ldps
+endif # HAVE_DPS
+
+endif
+# !HEADLESS
+
+OTHER_LDLIBS += -lmlib_image$(SUFFIX) $(JVMLIB) $(LIBCXX) \
+                -lawt$(SUFFIX) $(LIBM) -ldl
+
+#
+# Extra C flags.
+#
+ifneq ($(CC_VERSION),gcc)
+CFLAGS += -xCC
+endif
+
+#
+# Sun CC with -Xa misdefines __STDC__ to 0 (zero).
+# The following will force checking of X11 prototypes.
+# 
+ifneq ($(CC_VERSION),gcc)
+CPPFLAGS += -DFUNCPROTO=15
+endif
+
+#
+# Other extra flags needed for compiling.
+#
+
+ifndef HEADLESS
+CPPFLAGS += -I$(OPENWIN_HOME)/include \
+	    -I$(MOTIF_DIR)/include
+LDFLAGS  += -L$(MOTIF_LIB) -L$(OPENWIN_LIB)
+
+ifeq ($(HAVE_DPS),yes)
+CPPFLAGS += -I$(OPENWIN_HOME)/include/X11
+endif # HAVE_DPS
+
+endif # !HEADLESS
+
+CPPFLAGS += -I$(SHARE_SRC)/native/$(PKGDIR)/debug \
+            -I$(PLATFORM_SRC)/native/$(PKGDIR)/font \
+            -I$(SHARE_SRC)/native/$(PKGDIR)/image \
+	    -I$(SHARE_SRC)/native/$(PKGDIR)/image/cvutils \
+	    -I$(SHARE_SRC)/native/$(PKGDIR)/shell \
+	    -I$(SHARE_SRC)/native/$(PKGDIR)/alphacomposite \
+            -I$(SHARE_SRC)/native/$(PKGDIR)/medialib \
+            -I$(PLATFORM_SRC)/native/$(PKGDIR)/medialib \
+	    -I$(SHARE_SRC)/native/$(PKGDIR)/../java2d \
+	    -I$(PLATFORM_SRC)/native/$(PKGDIR)/../java2d \
+	    -I$(SHARE_SRC)/native/$(PKGDIR)/../java2d/loops \
+	    -I$(SHARE_SRC)/native/$(PKGDIR)/../java2d/pipe \
+	    -I$(SHARE_SRC)/native/$(PKGDIR)/../dc/doe \
+	    -I$(SHARE_SRC)/native/$(PKGDIR)/../dc/path \
+            -I$(PLATFORM_SRC)/native/$(PKGDIR)/../jdga \
+	    $(EVENT_MODEL)
+
+LDFLAGS += -L$(LIBDIR)/$(LIBARCH)/$(TSOBJDIR) \
+	   $(AWT_RUNPATH)
+
+CLASSES.export += java.io.InputStream \
+		  java.lang.ThreadGroup \
+		  sun.io.CharToByteConverter \
+		  sun.io.ByteToCharConverter
+
+#
+# Has been converted to the JNI: generate JNI-style header files
+#
+JAVAHFLAGS += -jni

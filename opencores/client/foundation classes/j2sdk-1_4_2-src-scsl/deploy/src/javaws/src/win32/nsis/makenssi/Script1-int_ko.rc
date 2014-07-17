@@ -1,0 +1,71 @@
+//Microsoft Developer Studio generated resource script.
+//
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_ICON1               ICON    DISCARDABLE     "icon.ico"
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    JAVAWS_TEST             "테스트입니다."
+    JAVAWS_ERROR_RESOURCE   "자원을 로드하는 중 오류가 발생했습니다."
+    JAVAWS_ERROR_RESOURCE_CAPTION "설치 관리자 오류"
+    JAVAWS_ERROR_DEFLATEINIT "add_data_compress: deflateInit() 실패! 중지!"
+    JAVAWS_ERROR_COMPRESS   "add_data_compress: ack! 압축이 잘못되었습니다! 중지!"
+    JAVAWS_UNINST_SECTION   "add_section: 제거 섹션으로 전환 중"
+    JAVAWS_ERROR_UNINST     "add_section: 오류: 제거 섹션이 지정되었고 NSIS_CONFIG_UNINSTALL_SUPPORT를 사용하여 컴파일러를 구성하지 않았습니다!"
+    JAVAWS_DONE_UNINST      "add_section: 제거 섹션에서 전환 중"
+    JAVAWS_PROCESSING_SCRIPT "스크립트 처리 중"
+    JAVAWS_ERROR_TOKEN      "오류 : ""%1"" 명령어에서는 줄 %3!d에 %2!d! 매개 변수가 필요합니다!"
+    JAVAWS_ERROR_INVALIDCOMMAND 
+                            "오류 : 줄 %2!d의 (""%1"") 명령어가 잘못되었습니다!"
+    JAVAWS_PARSE_NAME       "이름: ""%1"""
+    JAVAWS_PARSE_ICON       "아이콘: ""%1"""
+    JAVAWS_ERROR_NOUNINSTALLSUPPORT 
+                            "UninstallIcon: 설치 관리자가 NSIS_CONFIG_UNINSTALL_SUPPORT를 사용하여 구성되지 않았습니다."
+    JAVAWS_PARSE_UNINSTALLICON "UninstallIcon: ""%1"""
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    JAVAWS_PARSE_ENABLEDBITMAP "EnabledBitmap: ""%1"""
+    JAVAWS_PARSE_DISABLEDBITMAP "DisabledBitmap: ""%1"""
+    JAVAWS_PARSE_DIRTEXT    "DirText: ""%1"""
+    JAVAWS_PARSE_COMPONENTTEXT "ComponentText: ""%1"""
+END

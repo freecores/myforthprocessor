@@ -1,0 +1,97 @@
+load C:\Dokumente und Einstellungen\Gerhard Hohner\jbproject\sort\src\sort\BasicIO.obj
+load C:\Dokumente und Einstellungen\Gerhard Hohner\jbproject\sort\src\sort\Math.obj
+sort.JavaArray.createUnicode?-675323136 undefined
+sort.JavaArray.createString?-105880832 undefined
+sort.Object?-1890496768.table undefined
+sort.JavaArray.kill?1620077312 undefined
+
+OK>load C:\Dokumente und Einstellungen\Gerhard Hohner\jbproject\sort\src\sort\Exception.obj
+sort.Object?-1890496768.table undefined
+sort.JavaArray.kill?1620077312 undefined
+
+OK>load C:\Dokumente und Einstellungen\Gerhard Hohner\jbproject\sort\src\sort\JavaArray.obj
+sort.JavaArray.createUnicode?-675323136 undefined
+sort.Object?-1890496768.table undefined
+sort.JavaArray.kill?1620077312 undefined
+
+OK>load C:\Dokumente und Einstellungen\Gerhard Hohner\jbproject\sort\src\sort\Comparator.obj
+shift undefined
+sort.String?1651856128.table undefined
+sort.Object?-1890496768.table undefined
+sort.JavaArray.JavaArray?1352878592.table undefined
+
+OK>load C:\Dokumente und Einstellungen\Gerhard Hohner\jbproject\sort\src\sort\CharSequence.obj
+sort.Comparator.~destructor?-1086882304 undefined
+sort.Comparator.equals?-240098048 undefined
+sort.Comparator.compare?2079286016 undefined
+
+OK>load C:\Dokumente und Einstellungen\Gerhard Hohner\jbproject\sort\src\sort\Comparable.obj
+sort.CharSequence.charAt?-1014275328 undefined
+sort.CharSequence.~destructor?-1086882304 undefined
+sort.CharSequence.subSequence?602239744 undefined
+sort.CharSequence.length?188050432 undefined
+sort.CharSequence.toString?1621718016 undefined
+
+OK>load C:\Dokumente und Einstellungen\Gerhard Hohner\jbproject\sort\src\sort\String.obj
+sort.Comparable.compareTo?-879140096 undefined
+sort.Comparable.~destructor?-1086882304 undefined
+
+OK>load C:\Dokumente und Einstellungen\Gerhard Hohner\jbproject\sort\src\sort\Object.obj
+sort.JavaArray.createUnicode?-675323136 undefined
+java.lang.Math.min?61172992 undefined
+sort.JavaArray.createString?-105880832 undefined
+sort.Object?-1890496768.table undefined
+sort.JavaArray.kill?1620077312 undefined
+sort.JavaArray.JavaArray?1352878592.table undefined
+
+OK>load C:\Dokumente und Einstellungen\Gerhard Hohner\jbproject\sort\src\sort\Sort.obj
+sort.JavaArray.createUnicode?-675323136 undefined
+sort.JavaArray.createString?-105880832 undefined
+sort.JavaArray.kill?1620077312 undefined
+
+OK>load C:\Dokumente und Einstellungen\Gerhard Hohner\jbproject\sort\src\sort\BasicIO.start.obj
+sort.String?1651856128.table undefined
+sort.JavaArray.createUnicode?-675323136 undefined
+sort.BasicIO.newLine?-283087360 undefined
+sort.Object?-1890496768.table undefined
+sort.BasicIO.print?-1271697408 undefined
+sort.JavaArray.kill?1620077312 undefined
+sort.BasicIO.print?562786304 undefined
+
+OK>load C:\Dokumente und Einstellungen\Gerhard Hohner\jbproject\sort\src\sort\Math.start.obj
+sort.BasicIO._staticBlocking undefined
+
+OK>load C:\Dokumente und Einstellungen\Gerhard Hohner\jbproject\sort\src\sort\Exception.start.obj
+java.lang.Math.PI undefined
+java.lang.Math.E undefined
+java.lang.Math._staticBlocking undefined
+
+OK>load C:\Dokumente und Einstellungen\Gerhard Hohner\jbproject\sort\src\sort\JavaArray.start.obj
+java.lang.Exception._staticBlocking undefined
+java.lang.Exception.serialVersionUID undefined
+
+OK>load C:\Dokumente und Einstellungen\Gerhard Hohner\jbproject\sort\src\sort\Comparator.start.obj
+sort.JavaArray._staticBlocking undefined
+
+OK>load C:\Dokumente und Einstellungen\Gerhard Hohner\jbproject\sort\src\sort\CharSequence.start.obj
+
+OKload C:\Dokumente und Einstellungen\Gerhard Hohner\jbproject\sort\src\sort\Comparable.start.obj
+>load C:\Dokumente und Einstellungen\Gerhard Hohner\jbproject\sort\src\sort\String.start.obj
+
+OK>
+OK>load C:\Dokumente und Einstellungen\Gerhard Hohner\jbproject\sort\src\sort\Object.start.obj
+sort.String.CASE_INSENSITIVE_ORDER undefined
+sort.String.CaseInsensitiveComparator.serialVersionUID undefined
+sort.String.CaseInsensitiveComparator._staticBlocking undefined
+sort.String.CaseInsensitiveComparator.CaseInsensitiveComparator?-42253568 undefined
+sort.String._staticBlocking undefined
+sort.String.CaseInsensitiveComparator.~destructor?-1086882304 undefined
+sort.JavaArray.kill?1620077312 undefined
+sort.String.serialVersionUID undefined
+
+OK>load C:\Dokumente und Einstellungen\Gerhard Hohner\jbproject\sort\src\sort\Sort.start.obj
+sort.Object._staticBlocking undefined
+
+OK>sort.Sort._staticBlocking undefined
+
+OK>

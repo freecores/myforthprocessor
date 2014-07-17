@@ -1,0 +1,1377 @@
+00000010               
+00000010               java.lang.Math.IEEEremainder§1596082432 LABEL 
+00000010  91           A:R1@ ( f2 declared ) 
+00000011  90           A:R@ 
+00000012  09           2DROP 
+00000013  91           A:R1@ ( f1 declared ) 
+00000014  90           A:R@ 
+00000015  09           2DROP ( f1 will be fetched! ) 
+00000016  11           R1@ 
+00000017  10           R@ ( f2 will be fetched! ) 
+00000018  d3           3 A:VAL 
+00000019  8b           A:PICK 
+0000001a  10           R@ 
+0000001b  88           A:DROP 
+0000001c  d4           2 A:VAL 
+0000001d  8b           A:PICK 
+0000001e  10           R@ 
+0000001f  88           A:DROP 
+00000020  0d00000000   F/ VAL ( will be modified! ) 
+00000025  00           NOP ( will be modified! ) 
+00000026  0f           OVER 
+00000027  0f           OVER 
+00000028  0d00000000   stripf VAL ( will be modified! ) 
+0000002d  00           NOP ( will be modified! ) 
+0000002e  0d00000000   F- VAL ( will be modified! ) 
+00000033  00           NOP ( will be modified! ) ( f2 will be fetched! ) 
+00000034  d3           3 A:VAL 
+00000035  8b           A:PICK 
+00000036  10           R@ 
+00000037  88           A:DROP 
+00000038  d4           2 A:VAL 
+00000039  8b           A:PICK 
+0000003a  10           R@ 
+0000003b  88           A:DROP 
+0000003c  0d00000000   F* VAL ( will be modified! ) 
+00000041  00           NOP ( will be modified! ) 
+00000042  56           0 VAL 
+00000043               §break432 LABEL 
+00000043  89           A:2DROP 
+00000044  89           A:2DROP 
+00000045  08           DROP 
+00000046               §0 LABEL 
+00000046  3d           EXIT 
+00000047               
+00000047               java.lang.Math.Math§-590525184 LABEL 
+00000047  56           0 VAL 
+00000048  90           A:R@ ( §this declared ) 
+00000049  08           DROP 
+0000004a  0d00000000   sort.Object§-1890496768.table VAL ( will be modified! ) 
+0000004f  00           NOP ( will be modified! ) 
+00000050  0d004fea6c   1827294976 VAL 
+00000055  0d00000000   EXECUTE-NEW VAL ( will be modified! ) 
+0000005a  00           NOP ( will be modified! ) 
+0000005b  461c00       28 VAL 
+0000005e  0d00000000   MALLOC VAL ( will be modified! ) 
+00000063  00           NOP ( will be modified! ) 
+00000064  08           DROP 
+00000065  0e           DUP ( §this will be modified! ) 
+00000066  88           A:DROP 
+00000067  90           A:R@ 
+00000068  08           DROP 
+00000069  0f           OVER 
+0000006a  420900       §3 0BRANCH 
+0000006d  0f           OVER 
+0000006e  1d           CELL+ 
+0000006f  02           @ 
+00000070  52           4 VAL 
+00000071  16           + 
+00000072  0f           OVER 
+00000073  0f           OVER 
+00000074  01           ! 
+00000075  08           DROP 
+00000076               §3 LABEL 
+00000076  1d           CELL+ 
+00000077  02           @ 
+00000078  0f           OVER 
+00000079  0f           OVER 
+0000007a  01           ! 
+0000007b  0a           NIP 
+0000007c  0d00000000   java.lang.Math§-1239069440.table VAL ( will be modified! ) 
+00000081  00           NOP ( will be modified! ) 
+00000082  0f           OVER 
+00000083  4a           12 VAL 
+00000084  16           + 
+00000085  01           ! 
+00000086  0d000025b6   -1239089152 VAL 
+0000008b  0f           OVER 
+0000008c  461400       20 VAL 
+0000008f  16           + 
+00000090  01           ! 
+00000091  0daf000000   §4 VAL 
+00000096  0f           OVER 
+00000097  461000       16 VAL 
+0000009a  16           + 
+0000009b  01           ! 
+0000009c  08           DROP 
+0000009d  56           0 VAL ( §this will be fetched! ) 
+0000009e  10           R@ 
+0000009f  1d           CELL+ 
+000000a0  02           @ 
+000000a1  461800       24 VAL 
+000000a4  16           + 
+000000a5  01           ! ( §this will be fetched! ) 
+000000a6  10           R@ 
+000000a7  56           0 VAL 
+000000a8               §break420 LABEL 
+000000a8  88           A:DROP 
+000000a9  08           DROP 
+000000aa               §2 LABEL 
+000000aa  3d           EXIT 
+000000ab  0400         §4 LABEL 
+000000ad  4d617468     " Math " 
+000000b1  2700         §1 LABEL 
+000000b3  6a6176612e6c616e672e4d6174682e4945454572656d61696e646572a731353936303832343332 " java.lang.Math.IEEEremainder§1596082432 " 
+000000da               
+000000da               java.lang.Math.abs§-537370368 LABEL 
+000000da  91           A:R1@ ( a declared ) 
+000000db  90           A:R@ 
+000000dc  09           2DROP ( a will be fetched! ) 
+000000dd  11           R1@ 
+000000de  10           R@ 
+000000df  90           A:R@ 
+000000e0  08           DROP 
+000000e1  0dffffff7f   2147483647 VAL 
+000000e6  1c           AND 
+000000e7  10           R@ 
+000000e8  88           A:DROP 
+000000e9  56           0 VAL 
+000000ea               §break442 LABEL 
+000000ea  89           A:2DROP 
+000000eb  08           DROP 
+000000ec               §5 LABEL 
+000000ec  3d           EXIT 
+000000ed               
+000000ed               java.lang.Math.abs§1087791360 LABEL 
+000000ed  90           A:R@ ( a declared ) 
+000000ee  08           DROP ( a will be fetched! ) 
+000000ef  10           R@ 
+000000f0  29           0<! 
+000000f1  420100       §8 0BRANCH 
+000000f4  21           NEGATE 
+000000f5               §8 LABEL 
+000000f5  56           0 VAL 
+000000f6               §break440 LABEL 
+000000f6  88           A:DROP 
+000000f7  08           DROP 
+000000f8               §7 LABEL 
+000000f8  3d           EXIT 
+000000f9  1d00         §6 LABEL 
+000000fb  6a6176612e6c616e672e4d6174682e616273a72d353337333730333638 " java.lang.Math.abs§-537370368 " 
+00000118               
+00000118               java.lang.Math.abs§55402752 LABEL 
+00000118  91           A:R1@ ( a declared ) 
+00000119  90           A:R@ 
+0000011a  09           2DROP ( a will be fetched! ) 
+0000011b  11           R1@ 
+0000011c  10           R@ 
+0000011d  0f           OVER 
+0000011e  2a           0< 
+0000011f  420900       §11 0BRANCH 
+00000122  21           NEGATE 
+00000123  90           A:R@ 
+00000124  08           DROP 
+00000125  56           0 VAL 
+00000126  0f           OVER 
+00000127  26           -B 
+00000128  0a           NIP 
+00000129  10           R@ 
+0000012a  88           A:DROP 
+0000012b               §11 LABEL 
+0000012b  56           0 VAL 
+0000012c               §break441 LABEL 
+0000012c  89           A:2DROP 
+0000012d  08           DROP 
+0000012e               §10 LABEL 
+0000012e  3d           EXIT 
+0000012f  1d00         §9 LABEL 
+00000131  6a6176612e6c616e672e4d6174682e616273a731303837373931333630 " java.lang.Math.abs§1087791360 " 
+0000014e               
+0000014e               java.lang.Math.acos§1364418816 LABEL 
+0000014e  91           A:R1@ ( a declared ) 
+0000014f  90           A:R@ 
+00000150  09           2DROP ( a will be fetched! ) 
+00000151  11           R1@ 
+00000152  10           R@ 
+00000153  0d00000000   FACOS VAL ( will be modified! ) 
+00000158  00           NOP ( will be modified! ) 
+00000159  56           0 VAL 
+0000015a               §break425 LABEL 
+0000015a  89           A:2DROP 
+0000015b  08           DROP 
+0000015c               §13 LABEL 
+0000015c  3d           EXIT 
+0000015d  1b00         §12 LABEL 
+0000015f  6a6176612e6c616e672e4d6174682e616273a73535343032373532 " java.lang.Math.abs§55402752 " 
+0000017a               
+0000017a               java.lang.Math.acosh§-571776768 LABEL 
+0000017a  91           A:R1@ ( a declared ) 
+0000017b  90           A:R@ 
+0000017c  09           2DROP ( a will be fetched! ) 
+0000017d  11           R1@ 
+0000017e  10           R@ 
+0000017f  0d00000000   FACOSH VAL ( will be modified! ) 
+00000184  00           NOP ( will be modified! ) 
+00000185  56           0 VAL 
+00000186               §break453 LABEL 
+00000186  89           A:2DROP 
+00000187  08           DROP 
+00000188               §15 LABEL 
+00000188  3d           EXIT 
+00000189  1e00         §14 LABEL 
+0000018b  6a6176612e6c616e672e4d6174682e61636f73a731333634343138383136 " java.lang.Math.acos§1364418816 " 
+000001a9               
+000001a9               java.lang.Math.asin§-904437504 LABEL 
+000001a9  91           A:R1@ ( a declared ) 
+000001aa  90           A:R@ 
+000001ab  09           2DROP ( a will be fetched! ) 
+000001ac  11           R1@ 
+000001ad  10           R@ 
+000001ae  0d00000000   FASIN VAL ( will be modified! ) 
+000001b3  00           NOP ( will be modified! ) 
+000001b4  56           0 VAL 
+000001b5               §break424 LABEL 
+000001b5  89           A:2DROP 
+000001b6  08           DROP 
+000001b7               §17 LABEL 
+000001b7  3d           EXIT 
+000001b8  1f00         §16 LABEL 
+000001ba  6a6176612e6c616e672e4d6174682e61636f7368a72d353731373736373638 " java.lang.Math.acosh§-571776768 " 
+000001d9               
+000001d9               java.lang.Math.asinh§-649043712 LABEL 
+000001d9  91           A:R1@ ( a declared ) 
+000001da  90           A:R@ 
+000001db  09           2DROP ( a will be fetched! ) 
+000001dc  11           R1@ 
+000001dd  10           R@ 
+000001de  0d00000000   FASINH VAL ( will be modified! ) 
+000001e3  00           NOP ( will be modified! ) 
+000001e4  56           0 VAL 
+000001e5               §break452 LABEL 
+000001e5  89           A:2DROP 
+000001e6  08           DROP 
+000001e7               §19 LABEL 
+000001e7  3d           EXIT 
+000001e8  1e00         §18 LABEL 
+000001ea  6a6176612e6c616e672e4d6174682e6173696ea72d393034343337353034 " java.lang.Math.asin§-904437504 " 
+00000208               
+00000208               java.lang.Math.atan§1069965568 LABEL 
+00000208  91           A:R1@ ( a declared ) 
+00000209  90           A:R@ 
+0000020a  09           2DROP ( a will be fetched! ) 
+0000020b  11           R1@ 
+0000020c  10           R@ 
+0000020d  0d00000000   FATAN VAL ( will be modified! ) 
+00000212  00           NOP ( will be modified! ) 
+00000213  56           0 VAL 
+00000214               §break426 LABEL 
+00000214  89           A:2DROP 
+00000215  08           DROP 
+00000216               §21 LABEL 
+00000216  3d           EXIT 
+00000217  1f00         §20 LABEL 
+00000219  6a6176612e6c616e672e4d6174682e6173696e68a72d363439303433373132 " java.lang.Math.asinh§-649043712 " 
+00000238               
+00000238               java.lang.Math.atan2§1799971072 LABEL 
+00000238  91           A:R1@ ( x declared ) 
+00000239  90           A:R@ 
+0000023a  09           2DROP 
+0000023b  91           A:R1@ ( y declared ) 
+0000023c  90           A:R@ 
+0000023d  09           2DROP ( y will be fetched! ) 
+0000023e  11           R1@ 
+0000023f  10           R@ ( x will be fetched! ) 
+00000240  d3           3 A:VAL 
+00000241  8b           A:PICK 
+00000242  10           R@ 
+00000243  88           A:DROP 
+00000244  d4           2 A:VAL 
+00000245  8b           A:PICK 
+00000246  10           R@ 
+00000247  88           A:DROP 
+00000248  0d00000000   FATAN2 VAL ( will be modified! ) 
+0000024d  00           NOP ( will be modified! ) 
+0000024e  56           0 VAL 
+0000024f               §break436 LABEL 
+0000024f  89           A:2DROP 
+00000250  89           A:2DROP 
+00000251  08           DROP 
+00000252               §23 LABEL 
+00000252  3d           EXIT 
+00000253  1e00         §22 LABEL 
+00000255  6a6176612e6c616e672e4d6174682e6174616ea731303639393635353638 " java.lang.Math.atan§1069965568 " 
+00000273               
+00000273               java.lang.Math.atanh§513892608 LABEL 
+00000273  91           A:R1@ ( a declared ) 
+00000274  90           A:R@ 
+00000275  09           2DROP ( a will be fetched! ) 
+00000276  11           R1@ 
+00000277  10           R@ 
+00000278  0d00000000   FATANH VAL ( will be modified! ) 
+0000027d  00           NOP ( will be modified! ) 
+0000027e  56           0 VAL 
+0000027f               §break454 LABEL 
+0000027f  89           A:2DROP 
+00000280  08           DROP 
+00000281               §25 LABEL 
+00000281  3d           EXIT 
+00000282  1f00         §24 LABEL 
+00000284  6a6176612e6c616e672e4d6174682e6174616e32a731373939393731303732 " java.lang.Math.atan2§1799971072 " 
+000002a3               
+000002a3               java.lang.Math.ceil§1303274240 LABEL 
+000002a3  91           A:R1@ ( a declared ) 
+000002a4  90           A:R@ 
+000002a5  09           2DROP ( a will be fetched! ) 
+000002a6  11           R1@ 
+000002a7  10           R@ 
+000002a8  0d00000000   FROUND VAL ( will be modified! ) 
+000002ad  00           NOP ( will be modified! ) 
+000002ae  56           0 VAL 
+000002af               §break433 LABEL 
+000002af  89           A:2DROP 
+000002b0  08           DROP 
+000002b1               §27 LABEL 
+000002b1  3d           EXIT 
+000002b2  1e00         §26 LABEL 
+000002b4  6a6176612e6c616e672e4d6174682e6174616e68a7353133383932363038 " java.lang.Math.atanh§513892608 " 
+000002d2               
+000002d2               java.lang.Math.cos§-587308288 LABEL 
+000002d2  91           A:R1@ ( a declared ) 
+000002d3  90           A:R@ 
+000002d4  09           2DROP ( a will be fetched! ) 
+000002d5  11           R1@ 
+000002d6  10           R@ 
+000002d7  0d00000000   FCOS VAL ( will be modified! ) 
+000002dc  00           NOP ( will be modified! ) 
+000002dd  56           0 VAL 
+000002de               §break422 LABEL 
+000002de  89           A:2DROP 
+000002df  08           DROP 
+000002e0               §29 LABEL 
+000002e0  3d           EXIT 
+000002e1  1e00         §28 LABEL 
+000002e3  6a6176612e6c616e672e4d6174682e6365696ca731333033323734323430 " java.lang.Math.ceil§1303274240 " 
+00000301               
+00000301               java.lang.Math.cosh§-1551277312 LABEL 
+00000301  91           A:R1@ ( a declared ) 
+00000302  90           A:R@ 
+00000303  09           2DROP ( a will be fetched! ) 
+00000304  11           R1@ 
+00000305  10           R@ 
+00000306  0d00000000   FCOSH VAL ( will be modified! ) 
+0000030b  00           NOP ( will be modified! ) 
+0000030c  56           0 VAL 
+0000030d               §break450 LABEL 
+0000030d  89           A:2DROP 
+0000030e  08           DROP 
+0000030f               §31 LABEL 
+0000030f  3d           EXIT 
+00000310  1d00         §30 LABEL 
+00000312  6a6176612e6c616e672e4d6174682e636f73a72d353837333038323838 " java.lang.Math.cos§-587308288 " 
+0000032f               
+0000032f               java.lang.Math.exp§-1340119808 LABEL 
+0000032f  91           A:R1@ ( a declared ) 
+00000330  90           A:R@ 
+00000331  09           2DROP ( a will be fetched! ) 
+00000332  11           R1@ 
+00000333  10           R@ 
+00000334  0d00000000   FEXP VAL ( will be modified! ) 
+00000339  00           NOP ( will be modified! ) 
+0000033a  56           0 VAL 
+0000033b               §break429 LABEL 
+0000033b  89           A:2DROP 
+0000033c  08           DROP 
+0000033d               §33 LABEL 
+0000033d  3d           EXIT 
+0000033e  1f00         §32 LABEL 
+00000340  6a6176612e6c616e672e4d6174682e636f7368a72d31353531323737333132 " java.lang.Math.cosh§-1551277312 " 
+0000035f               
+0000035f               java.lang.Math.floor§2139252224 LABEL 
+0000035f  91           A:R1@ ( a declared ) 
+00000360  90           A:R@ 
+00000361  09           2DROP ( a will be fetched! ) 
+00000362  11           R1@ 
+00000363  10           R@ 
+00000364  0d00000000   FLOOR VAL ( will be modified! ) 
+00000369  00           NOP ( will be modified! ) 
+0000036a  56           0 VAL 
+0000036b               §break434 LABEL 
+0000036b  89           A:2DROP 
+0000036c  08           DROP 
+0000036d               §35 LABEL 
+0000036d  3d           EXIT 
+0000036e  1e00         §34 LABEL 
+00000370  6a6176612e6c616e672e4d6174682e657870a72d31333430313139383038 " java.lang.Math.exp§-1340119808 " 
+0000038e               
+0000038e               java.lang.Math.log§3501056 LABEL 
+0000038e  91           A:R1@ ( a declared ) 
+0000038f  90           A:R@ 
+00000390  09           2DROP ( a will be fetched! ) 
+00000391  11           R1@ 
+00000392  10           R@ 
+00000393  0d00000000   FLN VAL ( will be modified! ) 
+00000398  00           NOP ( will be modified! ) 
+00000399  56           0 VAL 
+0000039a               §break430 LABEL 
+0000039a  89           A:2DROP 
+0000039b  08           DROP 
+0000039c               §37 LABEL 
+0000039c  3d           EXIT 
+0000039d  1f00         §36 LABEL 
+0000039f  6a6176612e6c616e672e4d6174682e666c6f6f72a732313339323532323234 " java.lang.Math.floor§2139252224 " 
+000003be               
+000003be               java.lang.Math.max§-67736320 LABEL 
+000003be  91           A:R1@ ( b declared ) 
+000003bf  90           A:R@ 
+000003c0  09           2DROP 
+000003c1  91           A:R1@ ( a declared ) 
+000003c2  90           A:R@ 
+000003c3  09           2DROP ( a will be fetched! ) 
+000003c4  11           R1@ 
+000003c5  10           R@ ( b will be fetched! ) 
+000003c6  d3           3 A:VAL 
+000003c7  8b           A:PICK 
+000003c8  10           R@ 
+000003c9  88           A:DROP 
+000003ca  d4           2 A:VAL 
+000003cb  8b           A:PICK 
+000003cc  10           R@ 
+000003cd  88           A:DROP 
+000003ce  91           A:R1@ 
+000003cf  0a           NIP 
+000003d0  17           - 
+000003d1  10           R@ 
+000003d2  91           A:R1@ 
+000003d3  0a           NIP 
+000003d4  26           -B 
+000003d5  10           R@ 
+000003d6  89           A:2DROP 
+000003d7  08           DROP 
+000003d8  2a           0< 
+000003d9  1f           INVERT 
+000003da  420500       §40 0BRANCH ( a will be fetched! ) 
+000003dd  11           R1@ 
+000003de  10           R@ 
+000003df  400800       §41 BRANCH 
+000003e2               §40 LABEL ( b will be fetched! ) 
+000003e2  d3           3 A:VAL 
+000003e3  8b           A:PICK 
+000003e4  10           R@ 
+000003e5  88           A:DROP 
+000003e6  d4           2 A:VAL 
+000003e7  8b           A:PICK 
+000003e8  10           R@ 
+000003e9  88           A:DROP 
+000003ea               §41 LABEL 
+000003ea  56           0 VAL 
+000003eb  400100       §break444 BRANCH 
+000003ee  56           0 VAL 
+000003ef               §break444 LABEL 
+000003ef  89           A:2DROP 
+000003f0  89           A:2DROP 
+000003f1  08           DROP 
+000003f2               §39 LABEL 
+000003f2  3d           EXIT 
+000003f3  1a00         §38 LABEL 
+000003f5  6a6176612e6c616e672e4d6174682e6c6f67a733353031303536 " java.lang.Math.log§3501056 " 
+0000040f               
+0000040f               java.lang.Math.max§1704291584 LABEL 
+0000040f  90           A:R@ ( b declared ) 
+00000410  08           DROP 
+00000411  90           A:R@ ( a declared ) 
+00000412  08           DROP ( a will be fetched! ) 
+00000413  10           R@ ( b will be fetched! ) 
+00000414  d5           1 A:VAL 
+00000415  8b           A:PICK 
+00000416  10           R@ 
+00000417  88           A:DROP 
+00000418  2d           CMP 
+00000419  2a           0< 
+0000041a  420400       §44 0BRANCH 
+0000041d  91           A:R1@ 
+0000041e  0a           NIP 
+0000041f  10           R@ 
+00000420  88           A:DROP 
+00000421               §44 LABEL 
+00000421  08           DROP 
+00000422  56           0 VAL 
+00000423               §break443 LABEL 
+00000423  89           A:2DROP 
+00000424  08           DROP 
+00000425               §43 LABEL 
+00000425  3d           EXIT 
+00000426  1c00         §42 LABEL 
+00000428  6a6176612e6c616e672e4d6174682e6d6178a72d3637373336333230 " java.lang.Math.max§-67736320 " 
+00000444               
+00000444               java.lang.Math.max§76639488 LABEL 
+00000444  91           A:R1@ ( b declared ) 
+00000445  90           A:R@ 
+00000446  09           2DROP 
+00000447  91           A:R1@ ( a declared ) 
+00000448  90           A:R@ 
+00000449  09           2DROP ( a will be fetched! ) 
+0000044a  11           R1@ 
+0000044b  10           R@ ( b will be fetched! ) 
+0000044c  d3           3 A:VAL 
+0000044d  8b           A:PICK 
+0000044e  10           R@ 
+0000044f  88           A:DROP 
+00000450  d4           2 A:VAL 
+00000451  8b           A:PICK 
+00000452  10           R@ 
+00000453  88           A:DROP 
+00000454  0d00000000   FMAX VAL ( will be modified! ) 
+00000459  00           NOP ( will be modified! ) 
+0000045a  56           0 VAL 
+0000045b               §break445 LABEL 
+0000045b  89           A:2DROP 
+0000045c  89           A:2DROP 
+0000045d  08           DROP 
+0000045e               §46 LABEL 
+0000045e  3d           EXIT 
+0000045f  1d00         §45 LABEL 
+00000461  6a6176612e6c616e672e4d6174682e6d6178a731373034323931353834 " java.lang.Math.max§1704291584 " 
+0000047e               
+0000047e               java.lang.Math.min§1264872704 LABEL 
+0000047e  91           A:R1@ ( b declared ) 
+0000047f  90           A:R@ 
+00000480  09           2DROP 
+00000481  91           A:R1@ ( a declared ) 
+00000482  90           A:R@ 
+00000483  09           2DROP ( a will be fetched! ) 
+00000484  11           R1@ 
+00000485  10           R@ ( b will be fetched! ) 
+00000486  d3           3 A:VAL 
+00000487  8b           A:PICK 
+00000488  10           R@ 
+00000489  88           A:DROP 
+0000048a  d4           2 A:VAL 
+0000048b  8b           A:PICK 
+0000048c  10           R@ 
+0000048d  88           A:DROP 
+0000048e  91           A:R1@ 
+0000048f  0a           NIP 
+00000490  17           - 
+00000491  10           R@ 
+00000492  91           A:R1@ 
+00000493  0a           NIP 
+00000494  26           -B 
+00000495  10           R@ 
+00000496  89           A:2DROP 
+00000497  91           A:R1@ 
+00000498  22           OR 
+00000499  36           0<> 
+0000049a  10           R@ 
+0000049b  88           A:DROP 
+0000049c  2a           0< 
+0000049d  1f           INVERT 
+0000049e  1c           AND 
+0000049f  1f           INVERT 
+000004a0  420500       §49 0BRANCH ( a will be fetched! ) 
+000004a3  11           R1@ 
+000004a4  10           R@ 
+000004a5  400800       §50 BRANCH 
+000004a8               §49 LABEL ( b will be fetched! ) 
+000004a8  d3           3 A:VAL 
+000004a9  8b           A:PICK 
+000004aa  10           R@ 
+000004ab  88           A:DROP 
+000004ac  d4           2 A:VAL 
+000004ad  8b           A:PICK 
+000004ae  10           R@ 
+000004af  88           A:DROP 
+000004b0               §50 LABEL 
+000004b0  56           0 VAL 
+000004b1  400100       §break447 BRANCH 
+000004b4  56           0 VAL 
+000004b5               §break447 LABEL 
+000004b5  89           A:2DROP 
+000004b6  89           A:2DROP 
+000004b7  08           DROP 
+000004b8               §48 LABEL 
+000004b8  3d           EXIT 
+000004b9  1b00         §47 LABEL 
+000004bb  6a6176612e6c616e672e4d6174682e6d6178a73736363339343838 " java.lang.Math.max§76639488 " 
+000004d6               
+000004d6               java.lang.Math.min§1500146944 LABEL 
+000004d6  91           A:R1@ ( b declared ) 
+000004d7  90           A:R@ 
+000004d8  09           2DROP 
+000004d9  91           A:R1@ ( a declared ) 
+000004da  90           A:R@ 
+000004db  09           2DROP ( a will be fetched! ) 
+000004dc  11           R1@ 
+000004dd  10           R@ ( b will be fetched! ) 
+000004de  d3           3 A:VAL 
+000004df  8b           A:PICK 
+000004e0  10           R@ 
+000004e1  88           A:DROP 
+000004e2  d4           2 A:VAL 
+000004e3  8b           A:PICK 
+000004e4  10           R@ 
+000004e5  88           A:DROP 
+000004e6  0d00000000   FMIN VAL ( will be modified! ) 
+000004eb  00           NOP ( will be modified! ) 
+000004ec  56           0 VAL 
+000004ed               §break448 LABEL 
+000004ed  89           A:2DROP 
+000004ee  89           A:2DROP 
+000004ef  08           DROP 
+000004f0               §52 LABEL 
+000004f0  3d           EXIT 
+000004f1  1d00         §51 LABEL 
+000004f3  6a6176612e6c616e672e4d6174682e6d696ea731323634383732373034 " java.lang.Math.min§1264872704 " 
+00000510               
+00000510               java.lang.Math.min§61172992 LABEL 
+00000510  90           A:R@ ( b declared ) 
+00000511  08           DROP 
+00000512  90           A:R@ ( a declared ) 
+00000513  08           DROP ( a will be fetched! ) 
+00000514  10           R@ ( b will be fetched! ) 
+00000515  d5           1 A:VAL 
+00000516  8b           A:PICK 
+00000517  10           R@ 
+00000518  88           A:DROP 
+00000519  2d           CMP 
+0000051a  38           0> 
+0000051b  420400       §55 0BRANCH 
+0000051e  91           A:R1@ 
+0000051f  0a           NIP 
+00000520  10           R@ 
+00000521  88           A:DROP 
+00000522               §55 LABEL 
+00000522  08           DROP 
+00000523  56           0 VAL 
+00000524               §break446 LABEL 
+00000524  89           A:2DROP 
+00000525  08           DROP 
+00000526               §54 LABEL 
+00000526  3d           EXIT 
+00000527  1d00         §53 LABEL 
+00000529  6a6176612e6c616e672e4d6174682e6d696ea731353030313436393434 " java.lang.Math.min§1500146944 " 
+00000546               
+00000546               java.lang.Math.pow§1665822720 LABEL 
+00000546  91           A:R1@ ( b declared ) 
+00000547  90           A:R@ 
+00000548  09           2DROP 
+00000549  91           A:R1@ ( a declared ) 
+0000054a  90           A:R@ 
+0000054b  09           2DROP ( a will be fetched! ) 
+0000054c  11           R1@ 
+0000054d  10           R@ ( b will be fetched! ) 
+0000054e  d3           3 A:VAL 
+0000054f  8b           A:PICK 
+00000550  10           R@ 
+00000551  88           A:DROP 
+00000552  d4           2 A:VAL 
+00000553  8b           A:PICK 
+00000554  10           R@ 
+00000555  88           A:DROP 
+00000556  0d00000000   F** VAL ( will be modified! ) 
+0000055b  00           NOP ( will be modified! ) 
+0000055c  56           0 VAL 
+0000055d               §break437 LABEL 
+0000055d  89           A:2DROP 
+0000055e  89           A:2DROP 
+0000055f  08           DROP 
+00000560               §57 LABEL 
+00000560  3d           EXIT 
+00000561  1b00         §56 LABEL 
+00000563  6a6176612e6c616e672e4d6174682e6d696ea73631313732393932 " java.lang.Math.min§61172992 " 
+0000057e               
+0000057e               java.lang.Math.rint§486240768 LABEL 
+0000057e  91           A:R1@ ( a declared ) 
+0000057f  90           A:R@ 
+00000580  09           2DROP ( a will be fetched! ) 
+00000581  11           R1@ 
+00000582  10           R@ 
+00000583  0d00000000   D>F VAL ( will be modified! ) 
+00000588  00           NOP ( will be modified! ) 
+00000589  0d00000000   F>D VAL ( will be modified! ) 
+0000058e  00           NOP ( will be modified! ) 
+0000058f  56           0 VAL 
+00000590               §break435 LABEL 
+00000590  89           A:2DROP 
+00000591  08           DROP 
+00000592               §59 LABEL 
+00000592  3d           EXIT 
+00000593  1d00         §58 LABEL 
+00000595  6a6176612e6c616e672e4d6174682e706f77a731363635383232373230 " java.lang.Math.pow§1665822720 " 
+000005b2               
+000005b2               java.lang.Math.round§-1758170624 LABEL 
+000005b2  91           A:R1@ ( a declared ) 
+000005b3  90           A:R@ 
+000005b4  09           2DROP ( a will be fetched! ) 
+000005b5  11           R1@ 
+000005b6  10           R@ 
+000005b7  0d0000e03f   1071644672 VAL 
+000005bc  56           0 VAL 
+000005bd  0d00000000   F+ VAL ( will be modified! ) 
+000005c2  00           NOP ( will be modified! ) 
+000005c3  3e99fd       java.lang.Math.floor§2139252224 CALL 
+000005c6  0d00000000   F>D VAL ( will be modified! ) 
+000005cb  00           NOP ( will be modified! ) 
+000005cc  0a           NIP 
+000005cd  56           0 VAL 
+000005ce  400100       §break438 BRANCH 
+000005d1  56           0 VAL 
+000005d2               §break438 LABEL 
+000005d2  89           A:2DROP 
+000005d3  08           DROP 
+000005d4               §61 LABEL 
+000005d4  3d           EXIT 
+000005d5  1d00         §60 LABEL 
+000005d7  6a6176612e6c616e672e4d6174682e72696e74a7343836323430373638 " java.lang.Math.rint§486240768 " 
+000005f4               
+000005f4               java.lang.Math.round§-1814662656 LABEL 
+000005f4  91           A:R1@ ( a declared ) 
+000005f5  90           A:R@ 
+000005f6  09           2DROP ( a will be fetched! ) 
+000005f7  11           R1@ 
+000005f8  10           R@ 
+000005f9  0d0000e03f   1071644672 VAL 
+000005fe  56           0 VAL 
+000005ff  0d00000000   F+ VAL ( will be modified! ) 
+00000604  00           NOP ( will be modified! ) 
+00000605  3e57fd       java.lang.Math.floor§2139252224 CALL 
+00000608  0d00000000   F>D VAL ( will be modified! ) 
+0000060d  00           NOP ( will be modified! ) 
+0000060e  56           0 VAL 
+0000060f  400100       §break439 BRANCH 
+00000612  56           0 VAL 
+00000613               §break439 LABEL 
+00000613  89           A:2DROP 
+00000614  08           DROP 
+00000615               §63 LABEL 
+00000615  3d           EXIT 
+00000616  2000         §62 LABEL 
+00000618  6a6176612e6c616e672e4d6174682e726f756e64a72d31373538313730363234 " java.lang.Math.round§-1758170624 " 
+00000638               
+00000638               java.lang.Math.sin§1203401472 LABEL 
+00000638  91           A:R1@ ( a declared ) 
+00000639  90           A:R@ 
+0000063a  09           2DROP ( a will be fetched! ) 
+0000063b  11           R1@ 
+0000063c  10           R@ 
+0000063d  0d00000000   FSIN VAL ( will be modified! ) 
+00000642  00           NOP ( will be modified! ) 
+00000643  56           0 VAL 
+00000644               §break421 LABEL 
+00000644  89           A:2DROP 
+00000645  08           DROP 
+00000646               §65 LABEL 
+00000646  3d           EXIT 
+00000647  2000         §64 LABEL 
+00000649  6a6176612e6c616e672e4d6174682e726f756e64a72d31383134363632363536 " java.lang.Math.round§-1814662656 " 
+00000669               
+00000669               java.lang.Math.sinh§-1489865984 LABEL 
+00000669  91           A:R1@ ( a declared ) 
+0000066a  90           A:R@ 
+0000066b  09           2DROP ( a will be fetched! ) 
+0000066c  11           R1@ 
+0000066d  10           R@ 
+0000066e  0d00000000   FSINH VAL ( will be modified! ) 
+00000673  00           NOP ( will be modified! ) 
+00000674  56           0 VAL 
+00000675               §break449 LABEL 
+00000675  89           A:2DROP 
+00000676  08           DROP 
+00000677               §67 LABEL 
+00000677  3d           EXIT 
+00000678  1d00         §66 LABEL 
+0000067a  6a6176612e6c616e672e4d6174682e73696ea731323033343031343732 " java.lang.Math.sin§1203401472 " 
+00000697               
+00000697               java.lang.Math.sqrt§851931904 LABEL 
+00000697  91           A:R1@ ( a declared ) 
+00000698  90           A:R@ 
+00000699  09           2DROP ( a will be fetched! ) 
+0000069a  11           R1@ 
+0000069b  10           R@ 
+0000069c  0d00000000   FSQRT VAL ( will be modified! ) 
+000006a1  00           NOP ( will be modified! ) 
+000006a2  56           0 VAL 
+000006a3               §break431 LABEL 
+000006a3  89           A:2DROP 
+000006a4  08           DROP 
+000006a5               §69 LABEL 
+000006a5  3d           EXIT 
+000006a6  1f00         §68 LABEL 
+000006a8  6a6176612e6c616e672e4d6174682e73696e68a72d31343839383635393834 " java.lang.Math.sinh§-1489865984 " 
+000006c7               
+000006c7               java.lang.Math.tan§-1301580800 LABEL 
+000006c7  91           A:R1@ ( a declared ) 
+000006c8  90           A:R@ 
+000006c9  09           2DROP ( a will be fetched! ) 
+000006ca  11           R1@ 
+000006cb  10           R@ 
+000006cc  0d00000000   FTAN VAL ( will be modified! ) 
+000006d1  00           NOP ( will be modified! ) 
+000006d2  56           0 VAL 
+000006d3               §break423 LABEL 
+000006d3  89           A:2DROP 
+000006d4  08           DROP 
+000006d5               §71 LABEL 
+000006d5  3d           EXIT 
+000006d6  1d00         §70 LABEL 
+000006d8  6a6176612e6c616e672e4d6174682e73717274a7383531393331393034 " java.lang.Math.sqrt§851931904 " 
+000006f5               
+000006f5               java.lang.Math.tanh§1623421952 LABEL 
+000006f5  91           A:R1@ ( a declared ) 
+000006f6  90           A:R@ 
+000006f7  09           2DROP ( a will be fetched! ) 
+000006f8  11           R1@ 
+000006f9  10           R@ 
+000006fa  0d00000000   FTANH VAL ( will be modified! ) 
+000006ff  00           NOP ( will be modified! ) 
+00000700  56           0 VAL 
+00000701               §break451 LABEL 
+00000701  89           A:2DROP 
+00000702  08           DROP 
+00000703               §73 LABEL 
+00000703  3d           EXIT 
+00000704  1e00         §72 LABEL 
+00000706  6a6176612e6c616e672e4d6174682e74616ea72d31333031353830383030 " java.lang.Math.tan§-1301580800 " 
+00000724               
+00000724               java.lang.Math.toDegrees§2084860928 LABEL 
+00000724  91           A:R1@ ( angrad declared ) 
+00000725  90           A:R@ 
+00000726  09           2DROP ( angrad will be fetched! ) 
+00000727  11           R1@ 
+00000728  10           R@ 
+00000729  0d00806640   1080459264 VAL 
+0000072e  56           0 VAL 
+0000072f  0d00000000   F* VAL ( will be modified! ) 
+00000734  00           NOP ( will be modified! ) 
+00000735  0d00000000   java.lang.Math.PI VAL ( will be modified! ) 
+0000073a  00           NOP ( will be modified! ) 
+0000073b  90           A:R@ 
+0000073c  1d           CELL+ 
+0000073d  02           @ 
+0000073e  10           R@ 
+0000073f  88           A:DROP 
+00000740  02           @ 
+00000741  0d00000000   F/ VAL ( will be modified! ) 
+00000746  00           NOP ( will be modified! ) 
+00000747  56           0 VAL 
+00000748  400100       §break428 BRANCH 
+0000074b  56           0 VAL 
+0000074c               §break428 LABEL 
+0000074c  89           A:2DROP 
+0000074d  08           DROP 
+0000074e               §75 LABEL 
+0000074e  3d           EXIT 
+0000074f  1e00         §74 LABEL 
+00000751  6a6176612e6c616e672e4d6174682e74616e68a731363233343231393532 " java.lang.Math.tanh§1623421952 " 
+0000076f               
+0000076f               java.lang.Math.toRadians§-173575168 LABEL 
+0000076f  91           A:R1@ ( angdeg declared ) 
+00000770  90           A:R@ 
+00000771  09           2DROP ( angdeg will be fetched! ) 
+00000772  11           R1@ 
+00000773  10           R@ 
+00000774  0d00806640   1080459264 VAL 
+00000779  56           0 VAL 
+0000077a  0d00000000   F/ VAL ( will be modified! ) 
+0000077f  00           NOP ( will be modified! ) 
+00000780  0d00000000   java.lang.Math.PI VAL ( will be modified! ) 
+00000785  00           NOP ( will be modified! ) 
+00000786  90           A:R@ 
+00000787  1d           CELL+ 
+00000788  02           @ 
+00000789  10           R@ 
+0000078a  88           A:DROP 
+0000078b  02           @ 
+0000078c  0d00000000   F* VAL ( will be modified! ) 
+00000791  00           NOP ( will be modified! ) 
+00000792  56           0 VAL 
+00000793  400100       §break427 BRANCH 
+00000796  56           0 VAL 
+00000797               §break427 LABEL 
+00000797  89           A:2DROP 
+00000798  08           DROP 
+00000799               §77 LABEL 
+00000799  3d           EXIT 
+0000079a  2300         §76 LABEL 
+0000079c  6a6176612e6c616e672e4d6174682e746f44656772656573a732303834383630393238 " java.lang.Math.toDegrees§2084860928 " 
+000007bf               
+000007bf               java.lang.Math.~destructor§-1086882304 LABEL 
+000007bf  90           A:R@ ( §this declared ) 
+000007c0  08           DROP 
+000007c1  56           0 VAL 
+000007c2  90           A:R@ ( obj declared ) 
+000007c3  08           DROP ( §this will be fetched! ) 
+000007c4  d5           1 A:VAL 
+000007c5  8b           A:PICK 
+000007c6  10           R@ 
+000007c7  88           A:DROP 
+000007c8  02           @ 
+000007c9  19           1- 
+000007ca  2c           0= 
+000007cb  422600       §80 0BRANCH ( §this will be fetched! ) 
+000007ce  d5           1 A:VAL 
+000007cf  8b           A:PICK 
+000007d0  10           R@ 
+000007d1  88           A:DROP 
+000007d2  1d           CELL+ 
+000007d3  02           @ 
+000007d4  02           @ ( obj will be modified! ) 
+000007d5  88           A:DROP 
+000007d6  90           A:R@ 
+000007d7  08           DROP ( obj will be fetched! ) 
+000007d8  10           R@ 
+000007d9  56           0 VAL 
+000007da  0d00000000   equation.JavaArray.kill§1620077312 VAL ( will be modified! ) 
+000007df  00           NOP ( will be modified! ) ( §this will be fetched! ) 
+000007e0  d5           1 A:VAL 
+000007e1  8b           A:PICK 
+000007e2  10           R@ 
+000007e3  88           A:DROP 
+000007e4  1d           CELL+ 
+000007e5  02           @ 
+000007e6  4e           8 VAL 
+000007e7  16           + 
+000007e8  02           @ ( obj will be modified! ) 
+000007e9  88           A:DROP 
+000007ea  90           A:R@ 
+000007eb  08           DROP ( obj will be fetched! ) 
+000007ec  10           R@ 
+000007ed  56           0 VAL 
+000007ee  0d00000000   equation.JavaArray.kill§1620077312 VAL ( will be modified! ) 
+000007f3  00           NOP ( will be modified! ) 
+000007f4               §80 LABEL ( §this will be fetched! ) 
+000007f4  d5           1 A:VAL 
+000007f5  8b           A:PICK 
+000007f6  10           R@ 
+000007f7  88           A:DROP 
+000007f8  0d00000000   DECREFERENCE VAL ( will be modified! ) 
+000007fd  00           NOP ( will be modified! ) 
+000007fe  56           0 VAL 
+000007ff               §break455 LABEL 
+000007ff  89           A:2DROP 
+00000800  08           DROP 
+00000801               §79 LABEL 
+00000801  3d           EXIT 
+00000802  2300         §78 LABEL 
+00000804  6a6176612e6c616e672e4d6174682e746f52616469616e73a72d313733353735313638 " java.lang.Math.toRadians§-173575168 " 
+00000827  2000         §84 LABEL 
+00000829  6a6176612e6c616e672e4d617468a72d313233393036393434302e7461626c65 " java.lang.Math§-1239069440.table " 
+00000849  1e00         §83 LABEL 
+0000084b  6a6176612e6c616e672e4d6174682e5f737461746963426c6f636b696e67 " java.lang.Math._staticBlocking " 
+00000869  1100         §82 LABEL 
+0000086b  6a6176612e6c616e672e4d6174682e5049 " java.lang.Math.PI " 
+0000087c  1000         §81 LABEL 
+0000087e  6a6176612e6c616e672e4d6174682e45 " java.lang.Math.E " 
+00000890  0d14000000   java.lang.Math.IEEEremainder§1596082432 VAL 
+00000895  53           3 VAL 
+00000896  0db5000000   §1 VAL 
+0000089b  0d00000000   create VAL ( will be modified! ) 
+000008a0  00           NOP ( will be modified! ) 
+000008a1  0dde000000   java.lang.Math.abs§-537370368 VAL 
+000008a6  53           3 VAL 
+000008a7  0dfd000000   §6 VAL 
+000008ac  0d00000000   create VAL ( will be modified! ) 
+000008b1  00           NOP ( will be modified! ) 
+000008b2  0df1000000   java.lang.Math.abs§1087791360 VAL 
+000008b7  53           3 VAL 
+000008b8  0d33010000   §9 VAL 
+000008bd  0d00000000   create VAL ( will be modified! ) 
+000008c2  00           NOP ( will be modified! ) 
+000008c3  0d1c010000   java.lang.Math.abs§55402752 VAL 
+000008c8  53           3 VAL 
+000008c9  0d61010000   §12 VAL 
+000008ce  0d00000000   create VAL ( will be modified! ) 
+000008d3  00           NOP ( will be modified! ) 
+000008d4  0d52010000   java.lang.Math.acos§1364418816 VAL 
+000008d9  53           3 VAL 
+000008da  0d8d010000   §14 VAL 
+000008df  0d00000000   create VAL ( will be modified! ) 
+000008e4  00           NOP ( will be modified! ) 
+000008e5  0d7e010000   java.lang.Math.acosh§-571776768 VAL 
+000008ea  53           3 VAL 
+000008eb  0dbc010000   §16 VAL 
+000008f0  0d00000000   create VAL ( will be modified! ) 
+000008f5  00           NOP ( will be modified! ) 
+000008f6  0dad010000   java.lang.Math.asin§-904437504 VAL 
+000008fb  53           3 VAL 
+000008fc  0dec010000   §18 VAL 
+00000901  0d00000000   create VAL ( will be modified! ) 
+00000906  00           NOP ( will be modified! ) 
+00000907  0ddd010000   java.lang.Math.asinh§-649043712 VAL 
+0000090c  53           3 VAL 
+0000090d  0d1b020000   §20 VAL 
+00000912  0d00000000   create VAL ( will be modified! ) 
+00000917  00           NOP ( will be modified! ) 
+00000918  0d0c020000   java.lang.Math.atan§1069965568 VAL 
+0000091d  53           3 VAL 
+0000091e  0d57020000   §22 VAL 
+00000923  0d00000000   create VAL ( will be modified! ) 
+00000928  00           NOP ( will be modified! ) 
+00000929  0d3c020000   java.lang.Math.atan2§1799971072 VAL 
+0000092e  53           3 VAL 
+0000092f  0d86020000   §24 VAL 
+00000934  0d00000000   create VAL ( will be modified! ) 
+00000939  00           NOP ( will be modified! ) 
+0000093a  0d77020000   java.lang.Math.atanh§513892608 VAL 
+0000093f  53           3 VAL 
+00000940  0db6020000   §26 VAL 
+00000945  0d00000000   create VAL ( will be modified! ) 
+0000094a  00           NOP ( will be modified! ) 
+0000094b  0da7020000   java.lang.Math.ceil§1303274240 VAL 
+00000950  53           3 VAL 
+00000951  0de5020000   §28 VAL 
+00000956  0d00000000   create VAL ( will be modified! ) 
+0000095b  00           NOP ( will be modified! ) 
+0000095c  0dd6020000   java.lang.Math.cos§-587308288 VAL 
+00000961  53           3 VAL 
+00000962  0d14030000   §30 VAL 
+00000967  0d00000000   create VAL ( will be modified! ) 
+0000096c  00           NOP ( will be modified! ) 
+0000096d  0d05030000   java.lang.Math.cosh§-1551277312 VAL 
+00000972  53           3 VAL 
+00000973  0d42030000   §32 VAL 
+00000978  0d00000000   create VAL ( will be modified! ) 
+0000097d  00           NOP ( will be modified! ) 
+0000097e  0d33030000   java.lang.Math.exp§-1340119808 VAL 
+00000983  53           3 VAL 
+00000984  0d72030000   §34 VAL 
+00000989  0d00000000   create VAL ( will be modified! ) 
+0000098e  00           NOP ( will be modified! ) 
+0000098f  0d63030000   java.lang.Math.floor§2139252224 VAL 
+00000994  53           3 VAL 
+00000995  0da1030000   §36 VAL 
+0000099a  0d00000000   create VAL ( will be modified! ) 
+0000099f  00           NOP ( will be modified! ) 
+000009a0  0d92030000   java.lang.Math.log§3501056 VAL 
+000009a5  53           3 VAL 
+000009a6  0df7030000   §38 VAL 
+000009ab  0d00000000   create VAL ( will be modified! ) 
+000009b0  00           NOP ( will be modified! ) 
+000009b1  0dc2030000   java.lang.Math.max§-67736320 VAL 
+000009b6  53           3 VAL 
+000009b7  0d2a040000   §42 VAL 
+000009bc  0d00000000   create VAL ( will be modified! ) 
+000009c1  00           NOP ( will be modified! ) 
+000009c2  0d13040000   java.lang.Math.max§1704291584 VAL 
+000009c7  53           3 VAL 
+000009c8  0d63040000   §45 VAL 
+000009cd  0d00000000   create VAL ( will be modified! ) 
+000009d2  00           NOP ( will be modified! ) 
+000009d3  0d48040000   java.lang.Math.max§76639488 VAL 
+000009d8  53           3 VAL 
+000009d9  0dbd040000   §47 VAL 
+000009de  0d00000000   create VAL ( will be modified! ) 
+000009e3  00           NOP ( will be modified! ) 
+000009e4  0d82040000   java.lang.Math.min§1264872704 VAL 
+000009e9  53           3 VAL 
+000009ea  0df5040000   §51 VAL 
+000009ef  0d00000000   create VAL ( will be modified! ) 
+000009f4  00           NOP ( will be modified! ) 
+000009f5  0dda040000   java.lang.Math.min§1500146944 VAL 
+000009fa  53           3 VAL 
+000009fb  0d2b050000   §53 VAL 
+00000a00  0d00000000   create VAL ( will be modified! ) 
+00000a05  00           NOP ( will be modified! ) 
+00000a06  0d14050000   java.lang.Math.min§61172992 VAL 
+00000a0b  53           3 VAL 
+00000a0c  0d65050000   §56 VAL 
+00000a11  0d00000000   create VAL ( will be modified! ) 
+00000a16  00           NOP ( will be modified! ) 
+00000a17  0d4a050000   java.lang.Math.pow§1665822720 VAL 
+00000a1c  53           3 VAL 
+00000a1d  0d97050000   §58 VAL 
+00000a22  0d00000000   create VAL ( will be modified! ) 
+00000a27  00           NOP ( will be modified! ) 
+00000a28  0d82050000   java.lang.Math.rint§486240768 VAL 
+00000a2d  53           3 VAL 
+00000a2e  0dd9050000   §60 VAL 
+00000a33  0d00000000   create VAL ( will be modified! ) 
+00000a38  00           NOP ( will be modified! ) 
+00000a39  0db6050000   java.lang.Math.round§-1758170624 VAL 
+00000a3e  53           3 VAL 
+00000a3f  0d1a060000   §62 VAL 
+00000a44  0d00000000   create VAL ( will be modified! ) 
+00000a49  00           NOP ( will be modified! ) 
+00000a4a  0df8050000   java.lang.Math.round§-1814662656 VAL 
+00000a4f  53           3 VAL 
+00000a50  0d4b060000   §64 VAL 
+00000a55  0d00000000   create VAL ( will be modified! ) 
+00000a5a  00           NOP ( will be modified! ) 
+00000a5b  0d3c060000   java.lang.Math.sin§1203401472 VAL 
+00000a60  53           3 VAL 
+00000a61  0d7c060000   §66 VAL 
+00000a66  0d00000000   create VAL ( will be modified! ) 
+00000a6b  00           NOP ( will be modified! ) 
+00000a6c  0d6d060000   java.lang.Math.sinh§-1489865984 VAL 
+00000a71  53           3 VAL 
+00000a72  0daa060000   §68 VAL 
+00000a77  0d00000000   create VAL ( will be modified! ) 
+00000a7c  00           NOP ( will be modified! ) 
+00000a7d  0d9b060000   java.lang.Math.sqrt§851931904 VAL 
+00000a82  53           3 VAL 
+00000a83  0dda060000   §70 VAL 
+00000a88  0d00000000   create VAL ( will be modified! ) 
+00000a8d  00           NOP ( will be modified! ) 
+00000a8e  0dcb060000   java.lang.Math.tan§-1301580800 VAL 
+00000a93  53           3 VAL 
+00000a94  0d08070000   §72 VAL 
+00000a99  0d00000000   create VAL ( will be modified! ) 
+00000a9e  00           NOP ( will be modified! ) 
+00000a9f  0df9060000   java.lang.Math.tanh§1623421952 VAL 
+00000aa4  53           3 VAL 
+00000aa5  0d53070000   §74 VAL 
+00000aaa  0d00000000   create VAL ( will be modified! ) 
+00000aaf  00           NOP ( will be modified! ) 
+00000ab0  0d28070000   java.lang.Math.toDegrees§2084860928 VAL 
+00000ab5  53           3 VAL 
+00000ab6  0d9e070000   §76 VAL 
+00000abb  0d00000000   create VAL ( will be modified! ) 
+00000ac0  00           NOP ( will be modified! ) 
+00000ac1  0d73070000   java.lang.Math.toRadians§-173575168 VAL 
+00000ac6  53           3 VAL 
+00000ac7  0d06080000   §78 VAL 
+00000acc  0d00000000   create VAL ( will be modified! ) 
+00000ad1  00           NOP ( will be modified! ) 
+00000ad2  0d00000000   ALIGN VAL ( will be modified! ) 
+00000ad7  00           NOP ( will be modified! ) 
+00000ad8  0d00000000   HERE VAL ( will be modified! ) 
+00000add  00           NOP ( will be modified! ) 
+00000ade  4f           7 VAL 
+00000adf  0d80080000   §81 VAL 
+00000ae4  0d00000000   create VAL ( will be modified! ) 
+00000ae9  00           NOP ( will be modified! ) 
+00000aea  54           2 VAL 
+00000aeb  1a           2* 
+00000aec  1a           2* 
+00000aed  0d00000000   ALLOT VAL ( will be modified! ) 
+00000af2  00           NOP ( will be modified! ) 
+00000af3  0d00000000   ALIGN VAL ( will be modified! ) 
+00000af8  00           NOP ( will be modified! ) 
+00000af9  0d00000000   HERE VAL ( will be modified! ) 
+00000afe  00           NOP ( will be modified! ) 
+00000aff  4f           7 VAL 
+00000b00  0d6d080000   §82 VAL 
+00000b05  0d00000000   create VAL ( will be modified! ) 
+00000b0a  00           NOP ( will be modified! ) 
+00000b0b  54           2 VAL 
+00000b0c  1a           2* 
+00000b0d  1a           2* 
+00000b0e  0d00000000   ALLOT VAL ( will be modified! ) 
+00000b13  00           NOP ( will be modified! ) 
+00000b14  0d00000000   ALIGN VAL ( will be modified! ) 
+00000b19  00           NOP ( will be modified! ) 
+00000b1a  0d00000000   HERE VAL ( will be modified! ) 
+00000b1f  00           NOP ( will be modified! ) 
+00000b20  54           2 VAL 
+00000b21  0d4d080000   §83 VAL 
+00000b26  0d00000000   create VAL ( will be modified! ) 
+00000b2b  00           NOP ( will be modified! ) 
+00000b2c  55           1 VAL 
+00000b2d  1a           2* 
+00000b2e  1a           2* 
+00000b2f  0d00000000   ALLOT VAL ( will be modified! ) 
+00000b34  00           NOP ( will be modified! ) 
+00000b35  8d00000000   HERE A:VAL ( will be modified! ) 
+00000b3a  80           A:NOP ( will be modified! ) 
+00000b3b  0d00000000   ALIGN VAL ( will be modified! ) 
+00000b40  00           NOP ( will be modified! ) 
+00000b41  0d00000000   HERE VAL ( will be modified! ) 
+00000b46  00           NOP ( will be modified! ) 
+00000b47  54           2 VAL 
+00000b48  0d2b080000   §84 VAL 
+00000b4d  0d00000000   create VAL ( will be modified! ) 
+00000b52  00           NOP ( will be modified! ) 
+00000b53  55           1 VAL 
+00000b54  1a           2* 
+00000b55  1a           2* 
+00000b56  0d00000000   ALLOT VAL ( will be modified! ) 
+00000b5b  00           NOP ( will be modified! ) 
+00000b5c  54           2 VAL 
+00000b5d  0e           DUP 
+00000b5e  1a           2* 
+00000b5f  1a           2* 
+00000b60  1a           2* 
+00000b61  0d00000000   ALLOT VAL ( will be modified! ) 
+00000b66  00           NOP ( will be modified! ) 
+00000b67  10           R@ 
+00000b68  01           ! 
+00000b69  9d           A:CELL+ 
+00000b6a  0d004dcddc   -590525184 VAL 
+00000b6f  10           R@ 
+00000b70  01           ! 
+00000b71  9d           A:CELL+ 
+00000b72  0d4b000000   java.lang.Math.Math§-590525184 VAL 
+00000b77  10           R@ 
+00000b78  01           ! 
+00000b79  9d           A:CELL+ 
+00000b7a  0d007e37bf   -1086882304 VAL 
+00000b7f  10           R@ 
+00000b80  01           ! 
+00000b81  9d           A:CELL+ 
+00000b82  0dc3070000   java.lang.Math.~destructor§-1086882304 VAL 
+00000b87  10           R@ 
+00000b88  01           ! 
+00000b89  9d           A:CELL+ 
+00000b8a  88           A:DROP 
+00000b8b  3d           EXIT 
+
+instruction usage:
+load/store:		23	(2.36382322713258%)
+32-bit values:		180	(18.499486125385406%)
+16-bit values:		4	(0.41109969167523125%)
+5-bit values:		124	(12.744090441932169%)
+values total:		308	(31.654676258992804%)
+arithmetic/logical:	45	(4.6248715313463515%)
+relations:		8	(0.8221993833504625%)
+flow control:		55	(5.65262076053443%)
+other:			534	(54.88180883864337%)
+total:			973
+
+average bytes per instruction: 1.801644398766701
+
+string storage in byte:	1201
+unresolved references:	171
+
+Size of static code: 2190
+Size of initial code: 764
+
+references:
+ffffffff	4	ALIGN
+ffffffff	5	ALLOT
+ffffffff	1	D>F
+ffffffff	1	DECREFERENCE
+ffffffff	1	EXECUTE-NEW
+ffffffff	3	F*
+ffffffff	1	F**
+ffffffff	2	F+
+ffffffff	1	F-
+ffffffff	3	F/
+ffffffff	3	F>D
+ffffffff	1	FACOS
+ffffffff	1	FACOSH
+ffffffff	1	FASIN
+ffffffff	1	FASINH
+ffffffff	1	FATAN
+ffffffff	1	FATAN2
+ffffffff	1	FATANH
+ffffffff	1	FCOS
+ffffffff	1	FCOSH
+ffffffff	1	FEXP
+ffffffff	1	FLN
+ffffffff	1	FLOOR
+ffffffff	1	FMAX
+ffffffff	1	FMIN
+ffffffff	1	FROUND
+ffffffff	1	FSIN
+ffffffff	1	FSINH
+ffffffff	1	FSQRT
+ffffffff	1	FTAN
+ffffffff	1	FTANH
+ffffffff	5	HERE
+ffffffff	1	MALLOC
+ffffffff	38	create
+ffffffff	2	equation.JavaArray.kill§1620077312
+14	1	java.lang.Math.IEEEremainder§1596082432
+14	1	java.lang.Math.IEEEremainder§1596082432
+4b	1	java.lang.Math.Math§-590525184
+4b	1	java.lang.Math.Math§-590525184
+ffffffff	2	java.lang.Math.PI
+de	1	java.lang.Math.abs§-537370368
+de	1	java.lang.Math.abs§-537370368
+f1	1	java.lang.Math.abs§1087791360
+f1	1	java.lang.Math.abs§1087791360
+11c	1	java.lang.Math.abs§55402752
+11c	1	java.lang.Math.abs§55402752
+17e	1	java.lang.Math.acosh§-571776768
+17e	1	java.lang.Math.acosh§-571776768
+152	1	java.lang.Math.acos§1364418816
+152	1	java.lang.Math.acos§1364418816
+1dd	1	java.lang.Math.asinh§-649043712
+1dd	1	java.lang.Math.asinh§-649043712
+1ad	1	java.lang.Math.asin§-904437504
+1ad	1	java.lang.Math.asin§-904437504
+23c	1	java.lang.Math.atan2§1799971072
+23c	1	java.lang.Math.atan2§1799971072
+277	1	java.lang.Math.atanh§513892608
+277	1	java.lang.Math.atanh§513892608
+20c	1	java.lang.Math.atan§1069965568
+20c	1	java.lang.Math.atan§1069965568
+2a7	1	java.lang.Math.ceil§1303274240
+2a7	1	java.lang.Math.ceil§1303274240
+305	1	java.lang.Math.cosh§-1551277312
+305	1	java.lang.Math.cosh§-1551277312
+2d6	1	java.lang.Math.cos§-587308288
+2d6	1	java.lang.Math.cos§-587308288
+333	1	java.lang.Math.exp§-1340119808
+333	1	java.lang.Math.exp§-1340119808
+363	3	java.lang.Math.floor§2139252224
+363	3	java.lang.Math.floor§2139252224
+392	1	java.lang.Math.log§3501056
+392	1	java.lang.Math.log§3501056
+3c2	1	java.lang.Math.max§-67736320
+3c2	1	java.lang.Math.max§-67736320
+413	1	java.lang.Math.max§1704291584
+413	1	java.lang.Math.max§1704291584
+448	1	java.lang.Math.max§76639488
+448	1	java.lang.Math.max§76639488
+482	1	java.lang.Math.min§1264872704
+482	1	java.lang.Math.min§1264872704
+4da	1	java.lang.Math.min§1500146944
+4da	1	java.lang.Math.min§1500146944
+514	1	java.lang.Math.min§61172992
+514	1	java.lang.Math.min§61172992
+54a	1	java.lang.Math.pow§1665822720
+54a	1	java.lang.Math.pow§1665822720
+582	1	java.lang.Math.rint§486240768
+582	1	java.lang.Math.rint§486240768
+5b6	1	java.lang.Math.round§-1758170624
+5b6	1	java.lang.Math.round§-1758170624
+5f8	1	java.lang.Math.round§-1814662656
+5f8	1	java.lang.Math.round§-1814662656
+66d	1	java.lang.Math.sinh§-1489865984
+66d	1	java.lang.Math.sinh§-1489865984
+63c	1	java.lang.Math.sin§1203401472
+63c	1	java.lang.Math.sin§1203401472
+69b	1	java.lang.Math.sqrt§851931904
+69b	1	java.lang.Math.sqrt§851931904
+6f9	1	java.lang.Math.tanh§1623421952
+6f9	1	java.lang.Math.tanh§1623421952
+6cb	1	java.lang.Math.tan§-1301580800
+6cb	1	java.lang.Math.tan§-1301580800
+728	1	java.lang.Math.toDegrees§2084860928
+728	1	java.lang.Math.toDegrees§2084860928
+773	1	java.lang.Math.toRadians§-173575168
+773	1	java.lang.Math.toRadians§-173575168
+7c3	1	java.lang.Math.~destructor§-1086882304
+7c3	1	java.lang.Math.~destructor§-1086882304
+ffffffff	1	java.lang.Math§-1239069440.table
+ffffffff	1	sort.Object§-1890496768.table
+ffffffff	1	stripf
+b5	1	§1
+161	1	§12
+18d	1	§14
+1bc	1	§16
+1ec	1	§18
+21b	1	§20
+257	1	§22
+286	1	§24
+2b6	1	§26
+2e5	1	§28
+314	1	§30
+342	1	§32
+372	1	§34
+3a1	1	§36
+3f7	1	§38
+af	1	§4
+42a	1	§42
+463	1	§45
+4bd	1	§47
+4f5	1	§51
+52b	1	§53
+565	1	§56
+597	1	§58
+fd	1	§6
+5d9	1	§60
+61a	1	§62
+64b	1	§64
+67c	1	§66
+6aa	1	§68
+6da	1	§70
+708	1	§72
+753	1	§74
+79e	1	§76
+806	1	§78
+880	1	§81
+86d	1	§82
+84d	1	§83
+82b	1	§84
+133	1	§9

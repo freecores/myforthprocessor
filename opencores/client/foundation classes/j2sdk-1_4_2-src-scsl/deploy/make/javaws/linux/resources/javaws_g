@@ -1,0 +1,45 @@
+#!/bin/bash -P
+
+# @(#)javaws_g	1.4 02/12/11
+#Script to start Java Web Start. Directory that this script is in is added to the
+#LD_LIBRARY_PATH. JAVAWS_HOME is also set to the directory this script is in,
+#unless it is already set.
+
+PRG=`type -path $0`
+
+while [ -L "$PRG" ]; do
+    ls=`/bin/ls -ld "$PRG"`
+    link=`/usr/bin/expr "$ls" : '.*-> \(.*\)$'`
+    if /usr/bin/expr "$link" : '/' > /dev/null; then
+       prg="$link"
+    else
+       prg="`/usr/bin/dirname $PRG`/$link"
+    fi
+    PRG=`type -path "$prg"`
+done
+
+DIRNAME=`/usr/bin/dirname "$PRG"`
+APPHOME=`cd $DIRNAME; pwd`
+
+if [ "${APPHOME##/}" = "${APPHOME}" ]; then
+  # Doesn't start with a /, must be relative
+  APPHOME=`pwd`/${APPHOME}
+fi
+
+# update LD_LIBRARY_PATH to include the directory containing this file
+if [ -z "${LD_LIBRARY_PATH}" ]; then
+  LD_LIBRARY_PATH=${APPHOME}
+else
+  LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:${APPHOME}
+fi
+
+export LD_LIBRARY_PATH
+
+# Update JAVAWS_HOME to be the directory the script is running from.
+if [ -z "${JAVAWS_HOME}" ]; then
+  JAVAWS_HOME=${APPHOME}
+  export JAVAWS_HOME
+fi
+
+exec ${APPHOME}/javawsbin_g "$@"
+

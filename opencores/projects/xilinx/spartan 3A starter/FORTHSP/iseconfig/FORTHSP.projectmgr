@@ -1,0 +1,122 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!--This is an ISE project configuration file.-->
+<!--It holds project specific layout data for the projectmgr plugin.-->
+<!--Copyright (c) 1995-2009 Xilinx, Inc.  All rights reserved.-->
+<Project version="1" owner="projectmgr" name="FORTHSP" >
+   <!--This is an ISE project configuration file.-->
+   <ItemView engineview="SynthesisOnly" guiview="Source" compilemode="AutoCompile" >
+      <ClosedNodes>
+         <ClosedNodesVersion>2</ClosedNodesVersion>
+         <ClosedNode>/MYCPU - Rtl C:|Xilinx|FORTHSP|mycpu.vhd/myCore - theCore - Rtl/myStacks - theStacks - Rtl</ClosedNode>
+         <ClosedNode>/MYCPU - Rtl C:|Xilinx|FORTHSP|mycpu.vhd/myRAM - vhdl_syn_bl4 - arc_mem_interface_top</ClosedNode>
+         <ClosedNode>/MYCPU - Rtl C:|Xilinx|FORTHSP|mycpu.vhd/oneUART - UART - Rtl</ClosedNode>
+         <ClosedNode>/MYCPU - Rtl E:|Xilinx|FORTHSP|mycpu.vhd/myRAM - vhdl_syn_bl4 - arc_mem_interface_top</ClosedNode>
+         <ClosedNode>/vhdl_syn_bl4_ddr2_test_bench_0 - arc E:|Xilinx|FORTHSP|vhdl_syn_bl4_ddr2_test_bench_0.vhd</ClosedNode>
+      </ClosedNodes>
+      <SelectedItems>
+         <SelectedItem>MYCPU - Rtl (E:/opencores/projects/xilinx/spartan 3A starter/FORTHSP/mycpu.vhd)</SelectedItem>
+      </SelectedItems>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000202000000010000000100000064000002c9000000020000000000000000000000000000000064ffffffff000000810000000000000002000002c90000000100000000000000000000000100000000</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem>MYCPU - Rtl (E:/opencores/projects/xilinx/spartan 3A starter/FORTHSP/mycpu.vhd)</CurrentItem>
+   </ItemView>
+   <ItemView engineview="SynthesisOnly" sourcetype="DESUT_VHDL_ARCHITECTURE" guiview="Process" >
+      <ClosedNodes>
+         <ClosedNodesVersion>1</ClosedNodesVersion>
+         <ClosedNode>Design Utilities</ClosedNode>
+         <ClosedNode>Implement Design/Map</ClosedNode>
+         <ClosedNode>Implement Design/Place &amp; Route</ClosedNode>
+         <ClosedNode>Implement Design/Translate</ClosedNode>
+         <ClosedNode>Synthesize - XST</ClosedNode>
+         <ClosedNode>User Constraints</ClosedNode>
+      </ClosedNodes>
+      <SelectedItems>
+         <SelectedItem>Generate Programming File</SelectedItem>
+      </SelectedItems>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000000f8000000010000000100000000000000000000000064ffffffff000000810000000000000001000000f80000000100000000</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem>Generate Programming File</CurrentItem>
+   </ItemView>
+   <ItemView guiview="File" >
+      <ClosedNodes>
+         <ClosedNodesVersion>1</ClosedNodesVersion>
+      </ClosedNodes>
+      <SelectedItems/>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000000000000010000000000000000000000000000000000000392000000040101000100000000000000000000000064ffffffff000000810000000000000004000000e800000001000000000000009d0000000100000000000000660000000100000000000001a70000000100000000</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem>ALU.vhd</CurrentItem>
+   </ItemView>
+   <ItemView guiview="Library" >
+      <ClosedNodes>
+         <ClosedNodesVersion>1</ClosedNodesVersion>
+         <ClosedNode>work</ClosedNode>
+      </ClosedNodes>
+      <SelectedItems/>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000000000000010000000000000000000000000000000000000109000000010001000100000000000000000000000064ffffffff000000810000000000000001000001090000000100000000</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem>work</CurrentItem>
+   </ItemView>
+   <SourceProcessView>000000ff00000000000000020000011b0000011b01000000050100000002</SourceProcessView>
+   <CurrentView>Implementation</CurrentView>
+   <ItemView engineview="SynthesisOnly" sourcetype="" guiview="Process" >
+      <ClosedNodes>
+         <ClosedNodesVersion>1</ClosedNodesVersion>
+         <ClosedNode>Design Utilities</ClosedNode>
+      </ClosedNodes>
+      <SelectedItems>
+         <SelectedItem/>
+      </SelectedItems>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000000f8000000010000000100000000000000000000000064ffffffff000000810000000000000001000000f80000000100000000</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem/>
+   </ItemView>
+   <CopyAdditionalFiles>
+      <CopyAdditionalFile>E:/Xilinx/FORTHSP/bios.fs</CopyAdditionalFile>
+      <CopyAdditionalFile>E:/Xilinx/FORTHSP/bubble.fs</CopyAdditionalFile>
+      <CopyAdditionalFile>E:/Xilinx/FORTHSP/buddy.fs</CopyAdditionalFile>
+      <CopyAdditionalFile>E:/Xilinx/FORTHSP/buddytest.fs</CopyAdditionalFile>
+      <CopyAdditionalFile>E:/Xilinx/FORTHSP/consoleIn.fs</CopyAdditionalFile>
+      <CopyAdditionalFile>E:/Xilinx/FORTHSP/consoleOut.fs</CopyAdditionalFile>
+      <CopyAdditionalFile>E:/Xilinx/FORTHSP/counter.fs</CopyAdditionalFile>
+      <CopyAdditionalFile>E:/Xilinx/FORTHSP/countt.fs</CopyAdditionalFile>
+      <CopyAdditionalFile>E:/Xilinx/FORTHSP/fifo_generator_v6_1.ngc</CopyAdditionalFile>
+      <CopyAdditionalFile>E:/Xilinx/FORTHSP/fileIO.fs</CopyAdditionalFile>
+      <CopyAdditionalFile>E:/Xilinx/FORTHSP/fmath.fs</CopyAdditionalFile>
+      <CopyAdditionalFile>E:/Xilinx/FORTHSP/formatnumber.fs</CopyAdditionalFile>
+      <CopyAdditionalFile>E:/Xilinx/FORTHSP/Hanoi.obj</CopyAdditionalFile>
+      <CopyAdditionalFile>E:/Xilinx/FORTHSP/Hanoi.txt</CopyAdditionalFile>
+      <CopyAdditionalFile>E:/Xilinx/FORTHSP/Input.sav</CopyAdditionalFile>
+      <CopyAdditionalFile>E:/Xilinx/FORTHSP/interruptservice.fs</CopyAdditionalFile>
+      <CopyAdditionalFile>E:/Xilinx/FORTHSP/java.txt</CopyAdditionalFile>
+      <CopyAdditionalFile>E:/Xilinx/FORTHSP/juchu.txt</CopyAdditionalFile>
+      <CopyAdditionalFile>E:/Xilinx/FORTHSP/linker.fs</CopyAdditionalFile>
+      <CopyAdditionalFile>E:/Xilinx/FORTHSP/math.fs</CopyAdditionalFile>
+      <CopyAdditionalFile>E:/Xilinx/FORTHSP/memorymanagement.fs</CopyAdditionalFile>
+      <CopyAdditionalFile>E:/Xilinx/FORTHSP/memorytest.fs</CopyAdditionalFile>
+      <CopyAdditionalFile>E:/Xilinx/FORTHSP/memtest.txt</CopyAdditionalFile>
+      <CopyAdditionalFile>E:/Xilinx/FORTHSP/noonthefly.fs</CopyAdditionalFile>
+      <CopyAdditionalFile>E:/Xilinx/FORTHSP/onthefly.fs</CopyAdditionalFile>
+      <CopyAdditionalFile>E:/Xilinx/FORTHSP/ROMcode.t</CopyAdditionalFile>
+      <CopyAdditionalFile>E:/Xilinx/FORTHSP/shift.fs</CopyAdditionalFile>
+      <CopyAdditionalFile>E:/Xilinx/FORTHSP/SIO.fs</CopyAdditionalFile>
+      <CopyAdditionalFile>E:/Xilinx/FORTHSP/testall.obj</CopyAdditionalFile>
+      <CopyAdditionalFile>E:/Xilinx/FORTHSP/testall.txt</CopyAdditionalFile>
+      <CopyAdditionalFile>E:/Xilinx/FORTHSP/testf.fs</CopyAdditionalFile>
+      <CopyAdditionalFile>E:/Xilinx/FORTHSP/TimerOff.fs</CopyAdditionalFile>
+      <CopyAdditionalFile>E:/Xilinx/FORTHSP/TimerOff.obj</CopyAdditionalFile>
+      <CopyAdditionalFile>E:/Xilinx/FORTHSP/TimerOn.fs</CopyAdditionalFile>
+      <CopyAdditionalFile>E:/Xilinx/FORTHSP/TimerOn.obj</CopyAdditionalFile>
+      <CopyAdditionalFile>E:/Xilinx/FORTHSP/whetstone.fs</CopyAdditionalFile>
+      <CopyAdditionalFile>E:/Xilinx/FORTHSP/whetstone.obj</CopyAdditionalFile>
+   </CopyAdditionalFiles>
+</Project>

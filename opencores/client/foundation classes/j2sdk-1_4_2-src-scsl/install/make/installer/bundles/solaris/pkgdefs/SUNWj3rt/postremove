@@ -1,0 +1,176 @@
+#!/bin/sh
+#
+# Copyright 2000 Sun Microsystems, Inc. All rights reserved.
+# Copyright 2000 Sun Microsystems, Inc. Tous droits réservés.
+#
+# This software is the proprietary information of Sun Microsystems, Inc.
+# Use is subject to license terms.
+#
+# pragma ident "@(#)postremove	1.22 03/05/12 Sun Microsystems"
+
+#=================================================
+# Used variables
+#-------------------------------------------------
+SHARED_LINK=$BASEDIR/java
+SHARED_LOCATION=$BASEDIR/bin
+DEFAULT=FALSE
+INSTALL_DIR="j2se"
+JAVAWS_BIN=../j2se/jre/javaws/javaws
+if [ x$PKG_INSTALL_ROOT = "x" ]; then
+    JAVAWS_LINK=$BASEDIR/bin/javaws
+  else
+    JAVAWS_LINK=$PKG_INSTALL_ROOT/usr/bin/javaws #used by SUNWj3cfg	
+fi
+
+#=================================================
+# Check for default package. Data is from SHARED_FILE
+#-------------------------------------------------
+CheckDefault() {
+  sharLinkRec=`pkgchk -lp $CLIENT_BASEDIR/java | awk '/^Referenced/ {getline ; print}'`
+  prevPkg=`echo $sharLinkRec | awk '{ if ($NF ~ /^\-.*/ || $NF ~ /^\+.*/) print substr($NF, 2); else print $NF }'`
+  prevPkgCl=`echo $sharLinkRec | awk '{ if ($NF ~ /^\-.*/ || $NF ~ /^\+.*/) str=substr($NF, 2); else str=$NF; split(str, arr, "."); print arr[1]; }'`
+  if [ -n "$prevPkg" ]; then
+    DEFAULT=TRUE
+    if [ "$prevPkgCl" = "SUNWjvrt" ] || [ "$prevPkgCl" = "SUNWj2rt" ] || [ "$prevPkgCl" = "SUNWj3rt" ] ; then
+      FIND_BIN="\/native_threads\/java"
+    else
+      FIND_BIN="\/native_threads\/javac"
+    fi
+    link=`pkgchk -l  $prevPkg | grep "$FIND_BIN" | awk '{ print $2}' | \
+                awk 'BEGIN{savedLn=""}{ \
+                   if (NR == 1) {savedLn=$1; next; } \
+                   if (length(savedLn) > length($1)) savedLn=$1; \
+                }END{print savedLn;}' | sed "s/\/bin\/[a-z0-9]*$FIND_BIN//"`
+    link=`echo $link | sed "s/.*\/java1\./\.\/java1\./" | sed "s/java1.2\/jre/java1.2/" | sed "s/j2se\/jre/j2se/"`
+    if [ -z "$link" ]; then
+      prevPkg=""
+    fi
+  else
+    DEFAULT=FALSE
+  fi
+}
+#=================================================
+# Restore links for prev installed packages.
+#-------------------------------------------------
+RestoreLinks() {
+  latestPkg=`echo $1 | awk '{print $NF}'`  
+  if [ "X$latestPkg" != "X" ] && [ $latestPkg != $1 ]; then
+    allPkg=`echo $1 | sed 's/ '$latestPkg"/:$latestPkg/"`
+    othersPkg=`echo $allPkg | awk 'BEGIN{FS=":"}{print $1}'`
+  else
+    allPkg=""
+    othersPkg=""
+  fi
+  if [ "X$PKG_INSTALL_ROOT" != "X" ]; then
+    lVersion=`pkgparam -R $PKG_INSTALL_ROOT $latestPkg VERSION`
+  else
+    lVersion=`pkgparam $latestPkg VERSION`
+  fi
+  for pkg in $othersPkg; do
+    if [ "X$PKG_INSTALL_ROOT" != "X" ]; then
+        pVersion=`pkgparam -R $PKG_INSTALL_ROOT $pkg VERSION`
+    else
+        pVersion=`pkgparam $pkg VERSION`
+    fi
+    if [ "$pVersion" = "$lVersion" ] && [ "$pkg" != $latestPkg ]; then
+      foundPkg=$pkg 
+      break;
+    else
+      rmList=`pkgchk -l $pkg | awk '/Pathname/{ pathname = $2 } /..\/java\/bin/ {print pathname}'`
+      for link in $rmList; do
+        rm -f $PKG_INSTALL_ROOT$link
+      done
+    fi
+  done
+  if [ "X$foundPkg" != "X" ]; then
+    bitList=`pkgchk -l $foundPkg | awk '/Pathname/{ pathname = $2 } /link:/{linkname = $4} /..\/java\/bin/ { print pathname"="linkname }'`
+  fi
+  bitList="$bitList "`pkgchk -l $latestPkg | awk '/Pathname/{ pathname = $2 } /link:/{linkname = $4} /..\/java\/bin/ { print pathname"="linkname }'`
+  for link in $bitList; do
+    rFile=`echo $link | sed 's/=/ /' | awk '{print $2}'`
+    rLink=`echo $link | sed 's/=/ /' | awk '{print $1}'`
+    if [ ! -h $PKG_INSTALL_ROOT$rLink ] && /usr/bin/test -e $rFile ; then
+      ln -s $rFile $PKG_INSTALL_ROOT$rLink
+    fi
+  done
+}
+#=================================================
+# Move /usr/java link
+#-------------------------------------------------
+MoveLink() {
+  if [ -n "$prevPkg" ]; then
+    installf -c none $prevPkg "$SHARED_LINK=$link" s
+    RestoreLinks "$sharLinkRec"
+    installf -f $prevPkg
+    if [ $? -ne 0 ]; then
+      echo "$PKG:  unable to add $SHARED_LINK to package $prevPkg" \
+       "database." 1>&2
+      return 2
+    fi
+  fi
+}
+#================================================
+# Install /usr/bin link for Java Web Start
+# by retrieving the latest version on the system.
+# Java Web Start exists in 1.4.2 and later only
+# Note: /etc/mailcap refers to this.	
+#================================================
+InstallJavaWSLink() {
+  LATEST_JAVAWS_PATH=""
+  if [ x$PKG_INSTALL_ROOT = "x" ]; then
+	pInfoCmd="pkginfo"
+        pParamCmd="pkgparam"
+  else
+	pInfoCmd="pkginfo -R $PKG_INSTALL_ROOT"
+        pParamCmd="pkgparam -R $PKG_INSTALL_ROOT"
+  fi
+  jres=`$pInfoCmd SUNWj3rt.\* 2>/dev/null | awk '{print $2}'`
+  tfile="/tmp/jawsfind$$.tmp"
+  rm -f $tfile
+  touch $tfile
+  #get a list of pkgs and their versions.
+  for i in $jres; do
+    version=`$pParamCmd -v $i VERSION | awk -F\' '{printf $2}' | \
+	awk -F, '{printf $1}'`
+    printf "%s\t%s\t%s\n" $version $i >> $tfile
+  done
+
+  #reverse order to find the latest, takes care of CTE releases.
+  list=`sort -r $tfile | awk '{print $2}'`
+  rm -f $tfile
+
+  for i in $list; do
+    # Set the LATEST_JAVAWS_PATH to test the relative path.
+    LATEST_JAVAWS_PATH=$PKG_INSTALL_ROOT`$pParamCmd $i BASEDIR`/$INSTALL_DIR/$JAVAWS_BIN
+    
+    if [ \( -n "${LATEST_JAVAWS_PATH}" -a -x "${LATEST_JAVAWS_PATH}" \) ]; then
+      dir_name=`dirname $JAVAWS_LINK`
+      if [ ! -d "$dir_name" ]; then
+	installf -c none $PKGINST ${dir_name} d 0755 root bin
+      fi
+      installf -c none $PKGINST "$JAVAWS_LINK=$JAVAWS_BIN" s
+      installf -f $PKGINST
+      return
+    fi
+  done
+}
+
+
+#=================================================
+# Roll it
+#-------------------------------------------------
+removef -f $PKGINST
+# No need to run if package is not SUNWj3rt
+if [ "$PKG" = "SUNWj3rt" ]; then
+  InstallJavaWSLink
+fi
+CheckDefault
+if [ "$DEFAULT" = "FALSE" ]; then
+  removef -f $PKGINST
+  exit 0
+fi
+MoveLink
+if [ $? -ne 0 ]; then
+  removef -f $PKGINST
+  exit 2
+fi

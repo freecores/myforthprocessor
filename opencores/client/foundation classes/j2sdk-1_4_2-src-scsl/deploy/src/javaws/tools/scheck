@@ -1,0 +1,267 @@
+#!/bin/ksh -f
+
+#Constants
+root=$CODEMGR_WS
+src=$root/src
+strfile=$root/src/share/classes/com/sun/javaws/resources/strings.properties
+
+workdir=/tmp/scheck.tmp ; export workdir
+javafile=$workdir/java_files ; export javafile
+exceptionfile=$javafile".exc" ; export exceptionfile
+errorfile=$javafile".err" ; export errorfile
+keepfile=$javafile".keep" ; export keepfile
+stroutfile=$workdir/str.1 ; export stroutfile
+strtxtfile=$workdir/str.txt; export strtxtfile
+logfile=$workdir/scheck.log ; export logfile
+
+#Init
+rm -rf $workdir
+mkdir $workdir 
+
+
+#Massage the strings file to get lineno and string props only
+#And create a file to dump just the text part
+#echo 'Processing strings.properties'
+nawk -F= -v strtxtfile="$strtxtfile" '
+/^#/ {next}
+/^\ / {next}
+/^\n/ {next}
+{
+	str=$1
+	txt=$2
+	if (str != "") {
+		printf("%d:%s\n",NR,str) 
+		printf("%d: %s\n",NR,txt) > strtxtfile
+	}
+}' $strfile > $stroutfile
+
+
+
+#echo 'Finding all the javafiles'
+#Find all the Java files and dont go into SCCS
+#Assumption is that wherever we have a SCCS dir we have sources
+find $src -name "*.java" -print | grep -v SCCS >  $javafile
+jfiles=`cat $javafile`
+fgrep -n Resources.getString `cat $javafile` > $javafile.grep
+egrep -n 'System.err|System.out|Debug.println' `cat $javafile` | egrep -v -e 'import|Global' > $javafile.grep.Debug
+
+#We create an exception file ie. those java files that may have the 
+#actual string in the next line or it may not have one at all.
+nawk -F: -v excfile="$exceptionfile" -v keepfile="$keepfile" '
+BEGIN {
+	#printf "Echo processing Java Files\n"
+}
+{
+	jfile=$1
+	lineno=$2
+	resstr=$3
+	# The reason we do the following is when we have ex:
+	# case FOO: get Resource.getString("bar");
+	if (NF > 3) {
+		i=0
+		for (fld=4 ; fld <= NF ; fld++) {
+			startidx = index($fld,"Resources.getString");
+			if (startidx > 0 ) 
+				resstr = $fld
+				break;
+		}
+	}
+	startidx = index(resstr,"Resources.getString");
+	if (startidx > 0 ) {
+		startidx += length("Resources.getString");
+		res0 = substr(resstr, startidx)
+	    #Get the first quote
+		startidx = index(res0,"\"")
+		if (startidx > 0) {
+			startidx++
+			res1 = substr(res0,startidx)
+			#get the second quote
+			endidx = index(res1,"\"") - 1
+			if (endidx > 0) {
+				res2 = substr(res1,1,endidx)
+				len = length(res2)
+				if (len > 0) {
+					printf("%s:%d:%s\n",jfile,lineno,res2) > keepfile
+				} else {
+					printf("%s:%d:%s\n",jfile,lineno,res2) > excfile
+				}
+			} else {
+				printf("%s:%d:%s\n",jfile,lineno,res1) > excfile
+			}
+		} else {
+			printf("%s:%d:%s\n",jfile,lineno,res0) > excfile
+		}
+	} else {
+		printf("%s:%d:%s\n",jfile,lineno,resstr) > excfile
+	}
+}' $javafile.grep 
+
+#echo 'Finding strings in strings.properties file '
+#Now we process the file where strings are present with the strings.properties.
+nawk -F: -v stroutfile="$stroutfile" -v logfile="$logfile" '
+BEGIN {
+	printf("Strings in .java files and not in strings.properties file\n")
+}
+{
+	jfile  = $1
+	lineno = $2
+	resstr = $3
+	ret=1
+	xmatch=0
+	while (ret == 1) {
+		ret = getline inrecord < stroutfile
+		split(inrecord,fields,":")
+		if (index(fields[2],resstr) > 0) {
+			printf("Found %s in the properties file at line %d\n",resstr, fields[1]) > logfile
+			xmatch++
+			break
+		}
+	}
+	close(stroutfile)
+	if (xmatch == 0) {
+		printf("\"%s\" was not found in strings.properties\n\tat %s:%s\n", resstr, $1,$2)
+	}
+}' $keepfile
+
+#Now we find the exception files and try to see if we can get the properties.
+#We assume that if we getString( and no closing ) the properties could be in the
+#line following.
+#echo 'Doing exception file'
+nawk -F: -v logfile="$logfile" -v stroutfile="$stroutfile" -v errorfile="$errorfile" '
+# we go and dump the strings which are represented by a variable
+/.\(./ {
+	printf("%s:%s:%s\n",$1,$2,$3) > errorfile
+	next
+}
+
+{
+	jfile  = $1
+	lineno = $2
+
+	#since we know that the string is not present in the current line 
+    #we go to see if its present in the next line.
+
+	nextlineno = lineno+1
+	ret=1
+	count = 0
+	while (ret == 1) {
+		ret = getline inrecord < jfile
+		count++
+		if (count == nextlineno) {
+			#get the first quote
+			startidx = index(inrecord,"\"")
+			if (startidx > 0) {
+				res0 = substr(inrecord,startidx+1)
+				#get the second quote
+				endidx = index(res0,"\"") - 1
+				if (endidx > 0) {
+					res1 = substr(res0,1,endidx)
+					len = length(res1)
+					if (len > 1) { # OK we have something match this with strings
+						ret = 1 
+						xmatch=0
+						strmatch = res1
+						#Before we match we go back and update the keepfile so we can do revers
+   						#match later
+						while (ret == 1) {
+							ret = getline strecord < stroutfile
+							split(strecord,fields,":")
+							if (index(fields[2],strmatch) > 0) {
+								printf("Found %s properties -> %s,%d\n",strmatch, fields[1],fields[2]) > logfile
+								xmatch++
+								break
+							}
+						}
+						close(stroutfile)
+						if (xmatch == 0) {
+							printf("\"%s\" was not found in strings.properties\n\tat %s:%s\n",strmatch, $1,$2)
+						}					
+					} else {
+						printf("%s:%d:%s\n",jfile,lineno,res1) > errorfile
+					}
+				} else {
+					printf("%s:%d:%s\n",jfile,lineno,res0) > errorfile
+				}
+			} else {
+				printf("%s:%d:%s\n",jfile,lineno,res0) > errorfile
+			}
+		}
+	}
+	close(jfile)
+
+}' $exceptionfile
+
+echo 'The following files need to be carefully inspected'
+cat $errorfile
+
+nawk -F:  '
+BEGIN {
+	printf "The following Debug.println may not be within Globals.*\n"
+}
+{
+	jfile=$1
+	lineno=$2
+	str=$3
+
+	if (match($3,"^//") > 0) {
+		next
+	}
+	# We skip consecutive Debug.println ie we check the first one
+	# we find
+	if (ojfile == jfile && lineno == oline+1) {
+		#printf "Skipping %s:%d\n",jfile,lineno
+		ojfile = jfile
+		oline = lineno
+		next
+	}
+
+	prevlineno = lineno-1
+	ret=1
+	count=0
+	while (ret == 1 && count <= prevlineno) {
+		ret = getline inrecord < jfile
+		count++
+		if (count == prevlineno) {
+			if (index(inrecord,"Globals") > 0) {
+				#printf "Found jfile->%s\tinrecord=%s\n",jfile,inrecord
+			} else {
+				printf "\t%s:%d\n\t\t%s\n",jfile,lineno,str
+				break
+			}
+		}
+	}
+	close(jfile)
+	ojfile = jfile
+	oline = lineno
+} '  $javafile.grep.Debug
+
+
+exit
+
+#Now do the reverse lookup ie. ensure all the strings in strings.props exist in the java files
+#this takes a long time so we do it last
+echo 'Doing reverse lookup'
+list=`nawk -F: '{print $2}' < $stroutfile`
+jfiles=`cat $javafile`
+found=0
+for res in $list 
+do 
+	for jfile in $jfiles
+	do
+		fgrep $res $jfile > /dev/null 2>&1 
+		if [ $? -eq 0 ]; then 
+			found=$found+1
+			break
+		fi
+	done
+	if [ $found -eq 0 ]; then 
+		echo "Warning:$res unused "
+	fi
+done
+
+cleanup()
+{
+/bin/rm -f $workdir/*
+/bin/rmdir $workdir
+exit
+}

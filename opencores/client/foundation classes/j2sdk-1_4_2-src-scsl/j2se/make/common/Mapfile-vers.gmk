@@ -1,0 +1,66 @@
+#
+# @(#)Mapfile-vers.gmk	1.19 03/01/23
+#
+# Copyright 2003 Sun Microsystems, Inc. All rights reserved.
+# SUN PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
+#
+
+#
+# Makefile for linking with mapfiles.
+# ---> only for solaris and Linux/x86 <--
+
+ifeq ($(PLATFORM), solaris)
+
+#
+# Establish some intial versioning by defining the exported interface.
+#
+
+# Only the optimized one has the full versioning mapfile
+ifeq ($(VARIANT), OPT)
+  ifndef FILES_m
+    FILES_m =        mapfile-vers
+  endif
+
+INIT += $(TMPDIR)/mapfile-vers
+
+$(TMPDIR)/mapfile-vers : $(TMPDIR) $(FILES_m) $(FILES_reorder)
+	$(RM) $(TMPDIR)/mapfile-vers
+	$(CAT) $(FILES_m) > $(TMPDIR)/mapfile-vers
+  ifdef FILES_reorder
+	$(SED) -e 's=OUTPUTDIR=$(OUTPUTDIR)=' $(FILES_reorder) >> $(TMPDIR)/mapfile-vers
+  endif
+endif
+
+# Both debug and optimized could have other files in FILES_m (i.e. mapfiles
+#	that force as .o files into the data section so that ld's -ztext
+#	works)
+ifndef LDNOMAP
+  LDFLAGS_OPT +=  -M$(TMPDIR)/mapfile-vers
+  LDFLAGS_DBG +=  $(FILES_m:%=-M%)
+endif
+
+endif # PLATFORM
+
+ifeq ($(PLATFORM), linux)
+ifeq ($(ARCH_DATA_MODEL), 32)
+
+# Only the optimized one has the full versioning mapfile
+ifeq ($(VARIANT), OPT)
+  ifndef FILES_m
+    FILES_m =        mapfile-vers
+  endif
+
+  INIT += $(TMPDIR)/mapfile-vers
+
+$(TMPDIR)/mapfile-vers : $(TMPDIR) $(FILES_m)
+	$(RM) $(TMPDIR)/mapfile-vers
+	$(CAT) $(FILES_m) > $(TMPDIR)/mapfile-vers
+
+ifndef LDNOMAP
+  LDFLAGS_OPT +=  -Xlinker -version-script=$(TMPDIR)/mapfile-vers
+endif
+
+endif # VARIANT
+endif # ARCH_DATA_MODEL
+endif # PLATFORM
+

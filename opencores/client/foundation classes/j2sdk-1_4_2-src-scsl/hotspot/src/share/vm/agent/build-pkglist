@@ -1,0 +1,10 @@
+#!/bin/sh -f
+
+SH=`which sh`
+MKS_HOME=`dirname $SH`
+
+FIND=$MKS_HOME/find
+SED=$MKS_HOME/sed
+SORT=$MKS_HOME/sort
+
+$FIND sun/jvm/hotspot \( -name SCCS -prune \) -o -type d -print | $SED -e 's/\//./g' | $SORT > pkglist.txt

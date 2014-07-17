@@ -1,0 +1,184 @@
+<!DOCTYPE REFENTRY PUBLIC "-//Sun Microsystems//DTD DocBook V3.0-Based SolBook Subset V2.0//EN" [
+<!--ArborText, Inc., 1988-1998, v.4001-->
+<!ENTITY % javaents SYSTEM "javaman.ent">
+%javaents;
+]>
+<?Pub UDT _bookmark _target>
+<?Pub Inc>
+<refentry id="jar-1">
+<!--@(#)jar.1 1.19 01/03/14 SMI;-->
+<refmeta><refentrytitle>jar</refentrytitle><manvolnum>1</manvolnum>
+<refmiscinfo class="date">2001 年 11 月 30 日</refmiscinfo>
+<refmiscinfo class="sectdesc">&man1;</refmiscinfo>
+<refmiscinfo class="software">&java-release;</refmiscinfo>
+<refmiscinfo class="arch">generic</refmiscinfo>
+<refmiscinfo class="copyright"> Copyright 2001 Sun Microsystems, Inc. All rights reserved.  Copyright 2001 Sun Microsystems, Inc. Tous droits r&eacute;serv&eacute;s.</refmiscinfo>
+</refmeta>
+<refnamediv><refname>jar</refname><refpurpose>Java アーカイブツール</refpurpose></refnamediv>
+<refsynopsisdiv><title>&synp-tt;</title>
+<cmdsynopsis><command>jar</command><arg choice="opt"><option>C</option></arg><arg choice="opt">c</arg><arg choice="opt">f</arg><arg choice="opt">i</arg><arg choice="opt">J</arg><arg choice="opt">M</arg><arg choice="opt">m</arg><arg choice="opt">0</arg><arg choice="opt">t</arg><arg choice="opt">u</arg><arg choice="opt">v</arg><arg choice="opt"><arg choice="plain">x</arg><arg choice="plain"><replaceable>file</replaceable></arg></arg><arg choice="opt"><replaceable>manifest-file</replaceable></arg><arg choice="plain"><replaceable>destination</replaceable></arg><arg choice="plain"><replaceable>input-file</replaceable></arg><arg choice="opt"><replaceable>input-files</replaceable></arg>
+</cmdsynopsis></refsynopsisdiv>
+<refsect1><title>&desc-tt;</title>
+<indexterm id="jar-1-indx-1"><primary sortas="Java archive tool">Java archive tool &mdash; jar</primary></indexterm><indexterm id="jar-1-indx-2"><primary sortas="jar">jar &mdash; Java archive tool</primary></indexterm>
+<para><command>jar</command> は Java&trade; アプリケーションの 1 つで、複数個のファイルを 1 個の JAR アーカイブファイルに統合します。また、<command>jar</command> は汎用的なアーカイブ作成用および圧縮用のツールでもあり、圧縮は <acronym remap="small">ZIP</acronym> または <acronym remap="small">ZLIB</acronym> 形式で行います。
+ただし <command>jar</command> ツールの主な目的は、いくつかの Java アプレットやアプリケーションを 1 個のアーカイブに統合して簡略化することです。 アプレットやアプリケーションのコンポーネント、たとえばクラスファイル、イメージ、サウンドなどを単一のアーカイブにまとめると、ブラウザのような Java エージェントにダウンロードするときに、一度の <acronym remap="small">HTTP</acronym> トランザクションで済みます。
+コンポーネントごとに新たに接続する必要がありません。 これによりダウンロード時間が大幅に短縮できます。
+また <command>jar</command> はファイルの圧縮も行うので、ダウンロードがより高速になります。 さらに、ファイル中の個々のエントリに対してアプレットの作成者が署名できるので、作成元を明確化できます。<command>jar</command> ツールの構文は、<citerefentry><refentrytitle>tar</refentrytitle><manvolnum>1</manvolnum></citerefentry> コマンドの構文とほぼ同一です。
+<acronym>JAR</acronym> アーカイブは、圧縮されているかどうかにかかわらず、クラスパスエントリとして使用できます。
+</para>
+<para><command>jar</command> を使用する場合は、以下に示す 3 種類のファイルを入力します。</para>
+<itemizedlist>
+<listitem><para>manifest ファイル (任意指定)</para>
+</listitem><listitem><para>出力先 <acronym>JAR</acronym> ファイル</para>
+</listitem><listitem><para>アーカイブされるファイル群</para>
+</listitem></itemizedlist>
+<para>標準的な使い方は次のとおりです。</para>
+<informalexample><screen>example% <userinput>jar cf myjarfile *.class</userinput></screen>
+</informalexample>
+<para>この例では、現在のディレクトリ中のすべてのクラスファイルが <literal>myjarfile</literal> という名前のファイルに置かれます。manifest ファイルは <command>jar</command> ツールが自動的に生成し、常に <acronym>JAR</acronym> ファイルの先頭のエントリとなります。デフォルトでは manifest ファイルの名前は <literal remap="small and bold">META-INF/MANIFEST.MF</literal> になります。manifest ファイルには、アーカイブに関するすべてのメタ情報が記録されます。どのように記録されるかについては、<acronym>JAR</acronym> <?Pub Caret>ファイルの仕様の「マニフェストフォーマット」を参照してください。</para>
+<para>既存の manifest ファイルを使って新たな <acronym>JAR</acronym> アーカイブを作成したいときは、<option role="nodash">m</option> オプションを使ってその manifest ファイルを指定します。以下に例を示します。</para>
+<informalexample><screen>example% <userinput>jar cmf myManifestFile myJarFile *.class</userinput></screen>
+</informalexample>
+<para><option role="nodash">cmf</option> ではなく <option role="nodash">cfm</option> を指定する場合 (つまり、<option role="nodash">m</option> オプションと <option role="nodash">f</option> オプションの順番を逆にする場合)、最初に <acronym>JAR</acronym> アーカイブ名を指定し、次に manifest ファイル名を指定する必要があります。</para>
+<informalexample><screen>example% <userinput>jar cfm myJarFile myManifestFile *.class</userinput></screen>
+</informalexample>
+<para>manifest は RFC822 <acronym remap="small">ASCII</acronym> 形式を使用するため、manifest ファイルの内容は簡単に表示および処理できます。</para>
+</refsect1>
+<refsect1><title>&opts-tt;</title>
+<para>次のオプションをサポートします。</para>
+<variablelist termlength="xtranarrow"><varlistentry><term><option>C</option></term><listitem><para><command>jar</command> コマンドの実行中にディレクトリを変更します。次に例を示します。<informalexample><screen>example% <userinput>jar uf foo.jar -C classes *</userinput></screen>
+</informalexample></para>
+</listitem></varlistentry>
+<varlistentry><term><option role="nodash">c</option></term><listitem><para>標準出力上に新規のアーカイブまたは空のアーカイブを作成します。</para>
+</listitem></varlistentry>
+<varlistentry><term><option role="nodash">f</option></term><listitem><para>2 つ目の引数が、処理される <acronym>JAR</acronym> ファイルであることを指定します。作成 <option>c</option> オプションで作成を行う場合には、2 つ目の引数は作成する <acronym>JAR</acronym> ファイルの名前 (標準出力の代わりに使用) を表します。<option>t</option> オプションで内容の一覧表示、または <option>x</option> オプションで抽出を行う場合には、2 つ目の引数はその対象となる <acronym>JAR</acronym> ファイルの名前を表します。</para>
+</listitem></varlistentry>
+<varlistentry><term><option role="nodash">i</option></term><listitem><para>指定された <acronym>JAR</acronym> ファイルおよび関連付けられている <acronym>JAR</acronym> ファイルのインデックス情報を生成します。次に例を示します。<informalexample><screen>example% <userinput>jar i foo.jar</userinput></screen>
+</informalexample>foo.jar に <literal remap="small and bold">INDEX.LIST</literal> ファイルが生成されます。このファイルには、<literal>foo.jar</literal> の各パッケージおよび <literal>foo.jar</literal> の Class-Path 属性に指定されているすべての <acronym>JAR</acronym> ファイルの位置情報が書き込まれています。</para>
+</listitem></varlistentry>
+<varlistentry><term><option role="nodash">J</option><replaceable>option</replaceable></term><listitem><para>オプションを Java 仮想マシンに渡します。ここで <replaceable>option</replaceable> は、Java アプリケーション起動ツール java(1) のマニュアルページに記載されたオプションの 1 つです。 たとえば、<literal>-J-Xms48m</literal> と指定すると、スタートアップメモリは 48M バイトに設定されます。 <literal>-J</literal> を使って背後の仮想マシンにオプションを渡すことはよく行われています。</para>
+</listitem></varlistentry>
+<varlistentry><term><option role="nodash">M</option></term><listitem><para>当該エントリにマニフェストファイルを生成しません。</para>
+</listitem></varlistentry>
+<varlistentry><term><option role="nodash">m</option></term><listitem><para>指定した既存のマニフェストファイルからマニフェスト情報をインクルードします。次に例を示します。<informalexample><screen>example% <userinput>jar cmf myManifestFile myJarFile *.class</userinput></screen>
+</informalexample>マニフェストファイルには、デフォルトのマニフェストに含まれていない、専用の「名前-値」属性ヘッダを追加できます。このようなヘッダの例としては、ベンダ情報、バージョン情報、パッケージシーリング、および <acronym>JAR</acronym> に含まれるアプリケーションを実行するためのヘッダがあります。<option role="nodash">m</option> オプションの使用例については、「<citetitle>Java Tutorial</citetitle>」の「<citetitle>JAR Files</citetitle>」節と「JRE 開発者向けノート」Web ページを参照してください。</para>
+</listitem></varlistentry>
+<varlistentry><term><option role="nodash">0</option></term><listitem><para><acronym remap="small">ZIP</acronym> 圧縮を使用せずに格納します。</para>
+</listitem></varlistentry>
+<varlistentry><term><option role="nodash">t</option></term><listitem><para>標準入力の内容の一覧を表示します。</para>
+</listitem></varlistentry>
+<varlistentry><term><option role="nodash">u</option></term><listitem><para>ファイルを追加するか、マニフェストを変更することによって、既存の <acronym>JAR</acronym> ファイルを更新します。次に例を示します。<informalexample><screen>example% <userinput>jar uf foo.jar foo.class</userinput></screen>
+</informalexample>この例は、ファイル <literal>foo.class</literal> を既存の <acronym>JAR</acronym> ファイル <literal>foo.jar</literal> に追加します。<informalexample><screen>example% <userinput>jar umf foo.jar</userinput></screen>
+</informalexample>この例は、<literal>foo.jar</literal> のマニフェストをマニフェストの情報で更新します。</para>
+</listitem></varlistentry>
+<varlistentry><term><option role="nodash">v</option></term><listitem><para>標準エラー出力に、詳細情報を出力します。</para>
+</listitem></varlistentry>
+<varlistentry><term><option role="nodash">x</option> <replaceable>file</replaceable></term><listitem><para>標準入力からファイルを抽出します。<replaceable>file</replaceable> 引数は、抽出するファイルを指定します。引数を省略すると、すべてのファイルが抽出されます。引数に指定したファイルのどれかがディレクトリの場合、そのディレクトリは再帰的に処理されます。</para>
+</listitem></varlistentry>
+</variablelist>
+</refsect1>
+<refsect1><title>&exam-tt;</title>
+<example role="example"><title>あるディレクトリ中のファイルをすべてアーカイブに追加する</title>
+<para><screen>example% <userinput>ls</userinput>
+0.au         3.au         6.au          9.au            at_work.gif
+1.au         4.au         7.au          Animator.class  monkey.jpg
+e.au         5.au         8.au          Wave.class      spacemusic.au
+example% jar cvf bundle.jar *
+adding: 0.au
+adding: 1.au
+adding: 2.au
+adding: 3.au
+adding: 4.au
+adding: 5.au
+adding: 6.au
+adding: 7.au
+adding: 8.au
+adding: 9.au
+adding: Animator.class
+adding: Wave.class
+adding: at_work.gif
+adding: monkey.jpg
+adding: spacemusic.au
+example%</screen></para>
+</example>
+<example role="example"><title>サブディレクトリのアーカイブ</title>
+<para>イメージ、オーディオファイル、およびクラス用のサブディレクトリがすでに HTML ディレクトリ中に存在している場合、<command>jar</command> を使って個々のサブディレクトリを単一の <acronym>JAR</acronym> ファイルにアーカイブできます。</para>
+<para><screen>example% <userinput>ls</userinput>
+audio classes images
+example% <userinput>jar cvf bundle.jar audio classes images</userinput>
+adding: audio/1.au
+adding: audio/2.au
+adding: audio/3.au
+adding: audio/spacemusic.au
+adding: classes/Animator.class
+adding: classes/Wave.class
+adding: images/monkey.jpg
+adding: images/at_work.gif
+example% ls -l
+total 142
+drwxr-xr-x   2 brown    green        512 Aug  1 22:33 audio
+-rw-r--r--   1 brown    green      68677 Aug  1 22:36 bundle.jar
+drwxr-xr-x   2 brown    green        512 Aug  1 22:26 classes
+drwxr-xr-x   2 brown    green        512 Aug  1 22:25 images
+example%</screen></para>
+</example>
+<example role="example"><title>JAR ファイル内のエントリ名の検索</title>
+<para>次の例では、<command>jar</command> ツールに <option role="nodash">t</option> オプションを指定して <acronym>JAR</acronym> ファイル中のエントリ名を表示できます。</para>
+<para><screen>example% <userinput>ls</userinput>
+audio bundle.jar classes images
+example% <userinput>jar tf bundle.jar</userinput>
+META-INF/MANIFEST.MF
+audio/1.au
+audio/2.au
+audio/3.au
+audio/spacemusic.au
+classes/Animator.class
+classes/Wave.class
+images/monkey.jpg
+images/at_work.gif
+example%</screen></para>
+</example>
+<example role="example"><title>アーカイブ内のファイルに関する詳細情報の表示</title>
+<para>アーカイブ中の各ファイルの詳細情報、たとえばサイズや最新更新日付なども表示したい場合は、<option role="nodash">v</option> オプションを使用します。次に例を示します。</para>
+<para><screen>example% <userinput>jar tvf bundle.jar</userinput>
+145 Thu Aug 01 22:27:00 PDT 1996 META-INF/MANIFEST.MF
+946 Thu Aug 01 22:24:22 PDT 1996 audio/1.au
+1039 Thu Aug 01 22:24:22 PDT 1996 audio/2.au
+993 Thu Aug 01 22:24:22 PDT 1996 audio/3.au
+48072 Thu Aug 01 22:24:23 PDT 1996 audio/spacemusic.au
+16711 Thu Aug 01 22:25:50 PDT 1996 classes/Animator.class
+3368 Thu Aug 01 22:26:02 PDT 1996 classes/Wave.class
+12809 Thu Aug 01 22:24:48 PDT 1996 images/monkey.jpg
+527 Thu Aug 01 22:25:20 PDT 1996 images/at_work.gif
+example%</screen></para>
+</example>
+<example role="example"><title>アプリケーションのクラスのロードの高速化</title>
+<para>株取引アプリケーション (アプレット) を次の複数の <acronym>JAR</acronym> ファイルにバンドルし、<informalexample><screen>main.jar buy.jar sell.jar other.jar</screen>
+</informalexample><literal>main.jar</literal> のマニフェストの <literal>Class-Path</literal> 属性に次のように指定した場合、<informalexample><screen>Class-Path: buy.jar sell.jar other.jar</screen>
+</informalexample><option role="nodash">i</option> オプションを使用すれば、アプリケーションのクラスのロードを高速化できます。<informalexample><screen>example$ <userinput>jar i main.jar</userinput></screen>
+</informalexample><literal remap="small and bold">INDEX.LIST</literal> ファイルが <literal remap="small and bold">META-INF</literal> ディレクトリに追加されます。この結果、アプリケーションのクラスローダによってクラスまたはリソースの検索が行われるときに、適切な <acronym>JAR</acronym> ファイルがダウンロードされます。</para>
+</example>
+</refsect1>
+<refsect1><title>&attr-tt;</title>
+<para>次の属性については、<citerefentry><refentrytitle>attributes</refentrytitle><manvolnum>5</manvolnum></citerefentry> のマニュアルページを参照してください。</para>
+<informaltable frame="all" orient="port"><tgroup cols="2" colsep="1" rowsep="1"><colspec colnum="1" colname="col1" colwidth="1*" colsep="1" align="left"><colspec colnum="2" colname="col2" colwidth="1*" align="left"><thead><row><entry colname="col1" align="center" valign="top">属性タイプ</entry><entry colname="col2" align="center" valign="top">属性値</entry></row></thead><tbody><row><entry>使用条件</entry><entry>SUNWj3dev</entry></row></tbody></tgroup></informaltable>
+</refsect1>
+<refsect1><title>&also-tt;</title>
+<para><citerefentry><refentrytitle>keytool</refentrytitle><manvolnum>1</manvolnum></citerefentry>, <citerefentry><refentrytitle>attributes</refentrytitle><manvolnum>5</manvolnum></citerefentry></para>
+<variablelist termlength="wholeline"><varlistentry><term remap="10"><citetitle>JAR Files :</citetitle></term><listitem><para><ulink url="http://java.sun.com/docs/books/tutorial/jar">http://java.sun.com/docs/books/tutorial/jar</ulink></para>
+</listitem></varlistentry>
+<varlistentry><term remap="10"><citetitle>JRE 開発者向けノート (JRE Notes) :</citetitle></term><listitem><comment><ulink url="http://java.sun.com/j2se/1.4/ja/runtime.html#example">http://java.sun.com/j2se/1.4/ja/runtime.html#example</ulink></comment><para><ulink url="http://java.sun.com/j2se/1.4/runtime.html#example">http://java.sun.com/j2se/1.4/runtime.html#example</ulink> : 英語版</para>
+</listitem></varlistentry>
+<varlistentry><term remap="10"><citetitle>JAR ガイド (JAR Guide) :</citetitle></term><listitem><comment><ulink url="http://java.sun.com/j2se/1.4/ja/docs/guide/jar/index.html">http://java.sun.com/j2se/1.4/ja/docs/guide/jar/index.html</ulink></comment><para><ulink url="http://java.sun.com/j2se/1.4/docs/guide/jar/index.html">http://java.sun.com/j2se/1.4/docs/guide/jar/index.html</ulink> : 英語版</para>
+</listitem></varlistentry>
+<varlistentry><term>関連項目の詳細は、以下の URL 中のサーチリンクを使用して参照してください。</term><listitem><para><ulink url="http://java.sun.com/">http://java.sun.com/</ulink></para>
+</listitem></varlistentry>
+</variablelist>
+</refsect1>
+<!--+ 07/27/00 08:33:12
+    | tagMorph:  $Id: tagMorph-engine 1.54 1998/01/19 05:44:48 $
+    | tagMorph library:  $Id: libtagMorph.a 1.50 1998/01/19 22:02:51 $
+    | sunman-to-solbook 1.17
+    +-->
+</refentry>
+<?Pub *0000014093 0>

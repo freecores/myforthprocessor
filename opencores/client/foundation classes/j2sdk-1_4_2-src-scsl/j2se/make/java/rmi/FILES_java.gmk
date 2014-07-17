@@ -1,0 +1,22 @@
+#
+# @(#)FILES_java.gmk	1.12 01/04/05
+#
+FILES_java = \
+	$(TARGDIR)java/rmi/AccessException.java \
+	$(TARGDIR)java/rmi/AlreadyBoundException.java \
+	$(TARGDIR)java/rmi/ConnectException.java \
+	$(TARGDIR)java/rmi/ConnectIOException.java \
+	$(TARGDIR)java/rmi/MarshalException.java \
+	$(TARGDIR)java/rmi/NoSuchObjectException.java \
+	$(TARGDIR)java/rmi/NotBoundException.java \
+	$(TARGDIR)java/rmi/RMISecurityException.java \
+	$(TARGDIR)java/rmi/RMISecurityManager.java \
+	$(TARGDIR)java/rmi/Remote.java \
+	$(TARGDIR)java/rmi/RemoteException.java \
+	$(TARGDIR)java/rmi/ServerError.java \
+	$(TARGDIR)java/rmi/ServerException.java \
+	$(TARGDIR)java/rmi/ServerRuntimeException.java \
+	$(TARGDIR)java/rmi/StubNotFoundException.java \
+	$(TARGDIR)java/rmi/UnexpectedException.java \
+	$(TARGDIR)java/rmi/UnknownHostException.java \
+	$(TARGDIR)java/rmi/UnmarshalException.java

@@ -1,0 +1,46 @@
+#
+# @(#)Defs.gmk	1.3 03/01/23
+# 
+# Copyright 2003 Sun Microsystems, Inc. All rights reserved.
+# SUN PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
+#
+
+ifndef J2SE_TOPDIR
+
+ifndef J2SE_TOPDIR_NAME
+J2SE_TOPDIR_NAME=j2se
+endif #J2SE_TOPDIR_NAME
+
+J2SE_TOPDIR=$(PLUGIN_TOP)/../$(J2SE_TOPDIR_NAME)
+
+ifdef ALT_TOPDIR
+J2SE_TOPDIR=$(ALT_TOPDIR)/$(J2SE_TOPDIR_NAME)
+endif #ALT_TOPDIR
+
+ifdef ALT_J2SE_TOPDIR
+J2SE_TOPDIR=$(ALT_J2SE_TOPDIR)
+endif #ALT_J2SE_TOPDIR
+
+endif #J2SE_TOPDIR
+
+PLUGIN_LOCALES = de es fr it ja ko sv zh_CN zh_TW
+
+# for plugin jre files
+PLUGINDIR           = $(OUTPUTDIR)/plugin
+
+TOPDIR=$(PLUGIN_TOP)
+BUILDDIR:=$(J2SE_TOPDIR)/make
+include $(J2SE_TOPDIR)/make/common/Defs.gmk
+
+# choose the output directory if it is not specified. It really
+# should be outside of the workspace, but there is no guarantee 
+# anyplace outside is writeable and unique. So, it will be
+# in the root of the workspace.
+#
+OUTPUTDIR = $(PLUGIN_TOP)/build/$(PLATFORM)-$(ARCH)
+
+ifdef ALT_OUTPUTDIR
+  OUTPUTDIR = $(subst \,/,$(ALT_OUTPUTDIR))
+endif # ALT_OUTPUTDIR
+
+include $(PLUGIN_TOP)/make/plugin/common/Defs-$(PLATFORM).gmk

@@ -1,0 +1,151 @@
+'\" t
+.\" @(#)orbd.1 1.20 01/03/10 SMI;
+.\" Copyright 2003 Sun Microsystems, Inc. All rights reserved.
+.\" Copyright 2003 Sun Microsystems, Inc. Tous droits riservis.
+.\" 
+.TH orbd 1 "10 March 2001"
+.SH NAME
+orbd - The Object Request Broker Daemon
+.LP
+.B orbd
+is used to enable clients to transparently locate and invoke
+persistent objects on servers in the CORBA environment.
+.SH SYNOPSIS
+.B orbd
+<
+.IB options
+>
+.SH DESCRIPTION 
+The
+.B orbd
+tool is used to enable clients to transparently locate and
+invoke persistent objects on server in the CORBA environment.
+The persistent servers, while publishing the persistent
+object references in the Naming Service, include the port
+number of the ORBD in the object reference instead of the
+port number of the Server. The inclusion of ORBD port 
+number in the object reference for persistent object
+references has the following advantages:
+.LP
+.TP 2
+\(bu The object reference in the Naming Service remains 
+independent of the server life cycle. For example, the object
+reference could be published by the server in the Naming
+Service when it is first installed, and then independent
+of how many times the server is started or shutdown, the
+ORBD will always return the correct object reference
+to the invoking client.
+.TP 2
+\(bu The client needs to lookup the object reference in
+the Naming Service only once, and can keep re-using
+this reference independent of the chanes introduced
+due to server life cycle.
+.LP
+The 
+.B orbd
+tool incorporates the following functionality:
+.LP
+.TP 2
+\(bu Server Manager
+When used in conjunction with the servertool,
+the Server Manager locates, registers, and
+activates a server when a client wants to access
+the server.
+.TP 2
+\(bu Interoperable Naming Service (INS)
+The naming service maps logical names to object
+references so that you can use the name to
+retrieve the object reference and invoke
+operations on that object. ORBD is used instead of
+the Transient Naming Service, tnameserv. ORBD
+includes both a Transient Naming Service and a
+Persistent Naming Service.
+.TP 2
+\(bu Bootstrap Name Server
+The persistent servers publish their object
+references in this Name Server. The clients can, in
+turn, contact this Name Server for looking up the
+object references. The advantage of providing this
+bootstrap name server as part of ORBD is that the
+user doesn't need to start an additional Name
+Server process for publishing and resolving object
+references. 
+.LP
+The ORBD works with the 
+.B servertool,
+which is used to register, unregister, and list server information.
+.SH OPTIONS
+.TP
+.BI \-port " port"
+Specifies the activation port where the ORBD
+should be started. The default value for this port
+is 1049. This port number is added to the port
+field of the persistent Interoperable Object
+References (IOR). (optional) 
+.TP
+.BI \-defaultdb " directory"
+Specifies the base where the ORBD persistent
+storage directory 
+.BI orb.db 
+is created. If this option
+is not specified, the default value is "./orb.db".
+(optional)
+.TP
+.BI \-serverid " ID"
+Specifies the persistent server ID to be assigned
+to this ORBD. The default value is 1. (optional) 
+.TP
+.BI \-ORBInitialPort " nameserverport"
+Specifies the port on which the bootstrap name
+server is running. Note that when using Solaris
+software, you must become root to start a process
+on a port under 1024. For this reason, we
+recommend that you use a port number greater
+than or equal to 1024. (required) 
+.TP
+.BI \-serverPollingTime " milliseconds"
+Specifies how often the daemon thread checks for
+the health of registered servers. ORBD polls
+process health every 
+.BR milliseconds. 
+The default
+value is 1,000 ms (or 1 second). The value
+specified for 
+.BR milliseconds 
+must be a valid integer.
+.TP
+.BI \-serverStartupDelay " milliseconds" 
+Specifies how long the ServerManager waits
+before sending a location forward exception after
+the server is restarted. ORBD waits for
+.BR milliseconds 
+before raising a location forward
+exception. The default value is 1,000 ms (or 1
+second). The value specified for 
+.BR milliseconds 
+must be a valid integer. 
+.TP
+.B J " option"
+Pass
+.I option
+to the Java virtual machine, where 
+.I option
+is one of the options described on the man page for the
+java application launcher, java(1). For example,
+.I \-J-Xms48m
+sets the startup memory to 48 megabytes. It is a common convention for
+.B \-J
+to pass options to the underlying virtual machine.
+.SS ENVIRONMENT VARIABLES
+.TP
+.B CLASSPATH
+Used to provide the system a path to
+user-defined classes. Directories are separated by
+colons. For information on setting the CLASSPATH,
+see 
+.BR "Setting the Class Path" . 
+.SH SEE ALSO
+.BR java,
+.BR javac,
+.BR classpath, 
+.BR servertool

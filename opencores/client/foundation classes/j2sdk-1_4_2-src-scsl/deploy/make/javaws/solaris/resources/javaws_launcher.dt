@@ -1,0 +1,36 @@
+ACTION javaws_launcher
+{
+  WINDOW_TYPE    NO_STDIO
+  DESCRIPTION    Double-click this icon or drop \
+                          a jnlp data file on it to run \
+                          Java Web Start.
+  TYPE           COMMAND
+  EXEC_STRING
+}
+
+DATA_ATTRIBUTES JNLPFile
+{
+  DESCRIPTION    JNLP data file.
+  ACTIONS        Open
+  MIME_TYPE      application/x-java-jnlp-file
+  TYPE_LABEL     JNLPFile
+}
+
+DATA_CRITERIA JNLPFile1
+{
+  DATA_ATTRIBUTES_NAME   JNLPFile
+  NAME_PATTERN      *.jnlp
+  MODE         f
+}
+
+ACTION Open
+{
+  ARG_TYPE   JNLPFile
+  TYPE MAP
+  MAP_ACTION javaws_launcher
+}
+
+
+
+
+

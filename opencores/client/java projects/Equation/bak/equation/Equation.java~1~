@@ -1,0 +1,22 @@
+package equation;
+
+/**
+ * <p>Überschrift: </p>
+ *
+ * <p>Beschreibung: </p>
+ *
+ * <p>Copyright: Copyright (c) 2005</p>
+ *
+ * <p>Organisation: </p>
+ *
+ * @author unbekannt
+ * @version 1.0
+ */
+public class Equation
+{
+ public static void main(String[] args)
+  {
+   BasicIO.print("Enter coeffizients of first row of equation\n");
+
+  }
+}

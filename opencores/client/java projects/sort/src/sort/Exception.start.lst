@@ -1,0 +1,39 @@
+00000014  56           0 VAL 
+00000015  0d00000000   java.lang.Exception._staticBlocking VAL ( will be modified! ) 
+0000001a  00           NOP ( will be modified! ) 
+0000001b  01           ! 
+0000001c  0d3e1ffdd0   -788717762 VAL 
+00000021  0dc41c3b1a   440081604 VAL 
+00000026  0d00000000   java.lang.Exception.serialVersionUID VAL ( will be modified! ) 
+0000002b  00           NOP ( will be modified! ) 
+0000002c  90           A:R@ 
+0000002d  01           ! 
+0000002e  10           R@ 
+0000002f  88           A:DROP 
+00000030  1d           CELL+ 
+00000031  01           ! 
+00000032  3d           EXIT 
+
+instruction usage:
+load/store:		3	(20.0%)
+32-bit values:		4	(26.666666666666668%)
+16-bit values:		0	(0.0%)
+5-bit values:		1	(6.666666666666667%)
+values total:		5	(33.33333333333333%)
+arithmetic/logical:	1	(6.666666666666667%)
+relations:		0	(0.0%)
+flow control:		1	(6.666666666666667%)
+other:			5	(33.33333333333333%)
+total:			15
+
+average bytes per instruction: 3.2
+
+string storage in byte:	0
+unresolved references:	2
+
+Size of static code: 17
+Size of initial code: 31
+
+references:
+ffffffff	1	java.lang.Exception._staticBlocking
+ffffffff	1	java.lang.Exception.serialVersionUID

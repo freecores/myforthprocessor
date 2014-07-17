@@ -1,0 +1,66 @@
+# Warning: this file was automatically generated!  Consult
+# the co-located "create-mkfiles" script to make changes.
+
+DEMO_java = \
+  $(DEMODST_SRC)AquaMetalTheme.java \
+  $(DEMODST_SRC)BigContrastMetalTheme.java \
+  $(DEMODST_SRC)ContrastMetalTheme.java \
+  $(DEMODST_SRC)DemoMetalTheme.java \
+  $(DEMODST_SRC)GreenMetalTheme.java \
+  $(DEMODST_SRC)KhakiMetalTheme.java \
+  $(DEMODST_SRC)MetalThemeMenu.java \
+  $(DEMODST_SRC)Metalworks.java \
+  $(DEMODST_SRC)MetalworksDocumentFrame.java \
+  $(DEMODST_SRC)MetalworksFrame.java \
+  $(DEMODST_SRC)MetalworksHelp.java \
+  $(DEMODST_SRC)MetalworksInBox.java \
+  $(DEMODST_SRC)MetalworksPrefs.java \
+  $(DEMODST_SRC)PropertiesMetalTheme.java \
+  $(DEMODST_SRC)UISwitchListener.java \
+
+
+DEMO_class = \
+  $(DEMODST_CLASS)/AquaMetalTheme.class \
+  $(DEMODST_CLASS)/BigContrastMetalTheme.class \
+  $(DEMODST_CLASS)/ContrastMetalTheme.class \
+  $(DEMODST_CLASS)/DemoMetalTheme.class \
+  $(DEMODST_CLASS)/GreenMetalTheme.class \
+  $(DEMODST_CLASS)/KhakiMetalTheme.class \
+  $(DEMODST_CLASS)/MetalThemeMenu.class \
+  $(DEMODST_CLASS)/Metalworks.class \
+  $(DEMODST_CLASS)/MetalworksDocumentFrame.class \
+  $(DEMODST_CLASS)/MetalworksFrame.class \
+  $(DEMODST_CLASS)/MetalworksHelp.class \
+  $(DEMODST_CLASS)/MetalworksInBox.class \
+  $(DEMODST_CLASS)/MetalworksPrefs.class \
+  $(DEMODST_CLASS)/PropertiesMetalTheme.class \
+  $(DEMODST_CLASS)/UISwitchListener.class \
+
+
+DEMO_dirs = \
+  $(DEMODST) \
+  $(DEMODST)/HelpFiles \
+  $(DEMODST)/images \
+
+
+DEMO_other = \
+  $(DEMODST)/HelpFiles/back.gif \
+  $(DEMODST)/HelpFiles/credits.html \
+  $(DEMODST)/HelpFiles/duke.gif \
+  $(DEMODST)/HelpFiles/javalogo.gif \
+  $(DEMODST)/HelpFiles/metal.html \
+  $(DEMODST)/HelpFiles/metalworks.html \
+  $(DEMODST)/HelpFiles/swing.html \
+  $(DEMODST)/HelpFiles/toc.html \
+  $(DEMODST)/images/palette_crop.gif \
+  $(DEMODST)/images/palette_draw.gif \
+  $(DEMODST)/images/palette_hand.gif \
+  $(DEMODST)/images/palette_select.gif \
+  $(DEMODST)/images/palette_text.gif \
+  $(DEMODST)/images/palette_zoom.gif \
+  $(DEMODST)/MyTheme.theme \
+  $(DEMODST)/README.txt \
+  $(DEMODST)/runnit \
+  $(DEMODST)/runnit.bat \
+
+

@@ -1,0 +1,72 @@
+//Microsoft Developer Studio generated resource script.
+//
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_ICON1               ICON    DISCARDABLE     "icon.ico"
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    JAVAWS_TEST             "これはテストです。"
+    JAVAWS_ERROR_RESOURCE   "リソースの読み込み中にエラーが発生しました。"
+    JAVAWS_ERROR_RESOURCE_CAPTION "インストールプログラムのエラー"
+    JAVAWS_ERROR_DEFLATEINIT "add_data_compress: deflateInit() に失敗しました! 中止します!"
+    JAVAWS_ERROR_COMPRESS   "add_data_compress: ack! 圧縮で奇妙な動作をしました! 中止します!"
+    JAVAWS_UNINST_SECTION   "add_section: アンインストールセクションに切り替え"
+    JAVAWS_ERROR_UNINST     "add_section: エラー: アンインストールセクションが指定されました。コンパイラは NSIS_CONFIG_UNINSTALL_SUPPORT で構築されていません!"
+    JAVAWS_DONE_UNINST      "add_section: アンインストールセクションから切り替え"
+    JAVAWS_PROCESSING_SCRIPT "スクリプト処理"
+    JAVAWS_ERROR_TOKEN      "エラー : コマンド ""%1"" が %3!d! 行めでパラメータ  %2!d! を要求しました"
+    JAVAWS_ERROR_INVALIDCOMMAND 
+                            "エラー: %2!d! 行めのコマンド (""%1"") は無効です"
+    JAVAWS_PARSE_NAME       "名前 : ""%1"""
+    JAVAWS_PARSE_ICON       "アイコン : ""%1"""
+    JAVAWS_ERROR_NOUNINSTALLSUPPORT 
+                            "UninstallIcon: インストールプログラムは NSIS_CONFIG_UNINSTALL_SUPPORT で構築されていません"
+    JAVAWS_PARSE_UNINSTALLICON "UninstallIcon: ""%1"""
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    JAVAWS_PARSE_ENABLEDBITMAP "EnabledBitmap: ""%1"""
+    JAVAWS_PARSE_DISABLEDBITMAP "DisabledBitmap: ""%1"""
+    JAVAWS_PARSE_DIRTEXT    "DirText: ""%1"""
+    JAVAWS_PARSE_COMPONENTTEXT "ComponentText: ""%1"""
+END
+

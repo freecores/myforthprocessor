@@ -1,0 +1,132 @@
+\ Baden's consistent spelling rules:
+\ STANDARD WORDS
+\ Words That Don't Take An Argument
+\ words that take an argument
+
+\ MARKER Virtue
+
+\ aspirant's words
+: message  ( a u -- )  0 1 AT-XY TYPE ;
+: Wait  ( -- )  KEY DROP ;
+: Empty  ( -- )  DEPTH depth @ - 0 ?DO DROP LOOP ;
+: Enter  ( -- )  S" Please (press) Enter. " message ;
+: Quit?  ( -- )  KEY? IF  Wait Empty Enter QUIT  THEN ;
+: Number  ( -- u )
+   0. HERE DUP 10 ACCEPT
+   >NUMBER 2DROP  D>S ;
+
+DEFINE Max-Elements 20    \ keep within screen depth
+0 VALUE Elements          \ elements to move
+VARIABLE Moves            \ tally
+VARIABLE depth
+
+\ three stacks
+HERE VALUE A 0 C, Max-Elements ALLOT
+HERE VALUE B 0 C, Max-Elements ALLOT
+HERE VALUE C 0 C, Max-Elements ALLOT
+
+\ put a character on a stack
+: push  ( char stack -- )
+   DUP C@
+   DUP Max-Elements = IF .( Blown stack ) ABORT ENDIF
+   1+ 2DUP  SWAP C!
+   CHARS + C! ;
+
+\ take a character from a stack
+: pop  ( stack - char )
+   DUP C@
+   DUP 0= IF .( Empty stack ) ENDIF
+   2DUP 1-  SWAP C!
+   CHARS + C@ ;
+
+\ look at the ith character in a stack
+: snoop  ( index stack -- char flag )
+   2DUP  SWAP 1+  CHARS +  C@
+   ROT ROT C@ < ;
+
+\ display the element or blanks
+: .element  ( char flag -- )
+   IF  4 U.R  ELSE  DROP  4 SPACES  ENDIF SPACE ;
+
+\ display the three stacks
+: .Stacks  ( -- )
+   0 0 AT-XY     .( Stacks of Forth - Moves= ) Moves @ .
+   0 2 AT-XY     .(    A    B    C )
+   A C@  B C@  C C@ MAX MAX 1+  Elements MIN  0
+   DO  CR
+       I A snoop .element
+       I B snoop .element
+       I C snoop .element
+   LOOP ;
+
+\ go to top of stack on screen
+: taxy  ( stack -- )
+   DUP
+   CASE A OF  2       ENDOF
+        B OF  7       ENDOF
+             12
+   ENDCASE
+   SWAP C@ 2 + AT-XY ;
+
+\ move an element from one stack to another, show count
+: move-n  ( from-stack to-stack --  )
+   >R  DUP taxy  2 SPACES  pop
+   R>  2DUP push  taxy  2 U.R
+   1 Moves +!  Moves @  24 0 AT-XY U.
+   \ as if we had time:
+   S" Press a key to continue. " message  Wait
+   ;
+
+\ yes, it's just the Towers of Hanoi
+: hanoi  ( from via to n -- from via to n )
+   DUP
+   IF                          ( A B C n )
+      >R
+          SWAP R@  1- hanoi    ( A C B n-1 )
+          DROP ROT ROT         ( B A C )
+          2DUP move-n
+               R@  1- hanoi    ( B A C n-1 )
+          DROP ROT SWAP        ( A B C )
+      R>                       ( A B C n )
+   THEN  Quit? ;
+
+\ how many elements to move
+: Request ( -- )
+   0
+   BEGIN
+      DROP
+      CR
+      .( Move how many elements  )
+      .( from stack A to stack C? )
+      CR .( Max = ) Max-Elements .  .(   - 0 to quit. )
+      Number
+   DUP 0 Max-Elements  1+ WITHIN UNTIL  TO Elements ;
+
+\ clear stacks, add elements to A,
+\ zero moves, display stacks
+: stacks  ( n -- )
+   0 A C!  0 B C!  0 C C!
+   0 DO I 1+ A push LOOP
+   0 Moves !
+   PAGE .Stacks
+   S" Press a key to start. " message  Wait
+   S" Press a key to quit. " message ;
+
+\ not the 49ers
+: SF  ( -- )
+   DEPTH depth !
+   BEGIN
+      PAGE
+      .( Stacks of Forth, or ionaH fo srewoT ehT ) CR
+      Request Elements
+   WHILE
+      Elements stacks
+      A B C Elements hanoi
+      2DROP 2DROP
+      S" DONE!  Press a key to begin again. " message
+      Wait
+   REPEAT ;
+
+\ SF
+
+\ 10 July 1997 +

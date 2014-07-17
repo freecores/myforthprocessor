@@ -1,0 +1,103 @@
+mkdir sa14
+jar -cvf sa14/sa.jar -C classes .
+cp ../../../os/solaris/agent/proc/libsaproc.so sa14
+chmod 755 sa14/libsaproc.so
+cp ../../../os/win32/agent/windbg/sawindbg.dll sa14
+chmod 755 sa14/sawindbg.dll
+cat > sa14/hsdbproc.sh <<EOF
+#!/usr/bin/csh
+
+if (! (\$?SA_JAVA) ) then
+  set SA_JAVA = java
+endif
+
+\$SA_JAVA -Djava.library.path=. -Dsun.jvm.hotspot.debugger.useProcDebugger -Djava.class.path=./lib/jlfgr-1_0.jar:./lib/maf-1_0.jar:./sa.jar sun.jvm.hotspot.HSDB \$*
+EOF
+chmod 755 sa14/hsdbproc.sh
+cat > sa14/jstackproc.sh <<EOF
+#!/usr/bin/csh
+
+if (! (\$?SA_JAVA) ) then
+  set SA_JAVA = java
+endif
+
+\$SA_JAVA -Djava.library.path=. -Dsun.jvm.hotspot.debugger.useProcDebugger -Djava.class.path=./lib/jlfgr-1_0.jar:./lib/maf-1_0.jar:./sa.jar sun.jvm.hotspot.StackTrace \$*
+EOF
+chmod 755 sa14/jstackproc.sh
+cat > sa14/hsdbwindbg.bat <<EOF
+REM set jre\bin and jre\bin\client (or server) in PATH
+REM WINDBG_HOME must also be in PATH
+
+%SA_JAVA% -Dsun.jvm.hotspot.debugger.useWindbgDebugger -Dsun.jvm.hotspot.debugger.windbg.imagePath=%PATH% -Djava.library.path=. -cp sa.jar;lib\maf-1_0.jar;lib\jlfgr-1_0.jar sun.jvm.hotspot.HSDB %1 %2
+EOF
+chmod 755 sa14/hsdbwindbg.bat
+cat > sa14/jstackwindbg.bat <<EOF
+REM set jre\bin and jre\bin\client (or server) in PATH
+REM WINDBG_HOME must also be in PATH
+
+%SA_JAVA% -Dsun.jvm.hotspot.debugger.useWindbgDebugger -Dsun.jvm.hotspot.debugger.windbg.imagePath=%PATH% -Djava.library.path=. -cp sa.jar;lib\maf-1_0.jar;lib\jlfgr-1_0.jar sun.jvm.hotspot.StackTrace %1 %2
+EOF
+chmod 755 sa14/jstackwindbg.bat
+cat > sa14/jcoreproc.sh <<EOF
+#!/usr/bin/csh
+
+if (! (\$?SA_JAVA) ) then
+  set SA_JAVA = java
+endif
+
+# set the environment variable JCORE_PACKAGES to comman separated list of
+# packages whose classes have to be retrieved from the core file.
+
+\$SA_JAVA -Djava.library.path=. -Dsun.jvm.hotspot.debugger.useProcDebugger -Dsun.jvm.hotspot.tools.jcore.filter=sun.jvm.hotspot.tools.jcore.PackageNameFilter -Dsun.jvm.hotspot.tools.jcore.PackageNameFilter.pkgList=\$JCORE_PACKAGES -classpath ./sa.jar sun.jvm.hotspot.tools.jcore.ClassDump \$*
+EOF
+chmod 755 sa14/jcoreproc.sh
+cat > sa14/jcorewindbg.bat <<EOF
+REM set jre\bin and jre\bin\client (or server) in PATH
+REM WINDBG_HOME must also be in PATH
+
+REM set the environment variable JCORE_PACKAGES to comman separated list of
+REM packages whose classes have to be retrieved from the core file.
+
+%SA_JAVA% -Dsun.jvm.hotspot.debugger.useWindbgDebugger -Dsun.jvm.hotspot.debugger.windbg.imagePath=%PATH% -Djava.library.path=. -cp sa.jar;lib\maf-1_0.jar;lib\jlfgr-1_0.jar -Dsun.jvm.hotspot.tools.jcore.filter=sun.jvm.hotspot.tools.jcore.PackageNameFilter -Dsun.jvm.hotspot.tools.jcore.PackageNameFilter.pkgList=%JCORE_PACKAGES% sun.jvm.hotspot.tools.jcore.ClassDump %1 %2
+EOF
+chmod 755 sa14/jcorewindbg.bat
+cat > sa14/start-rmiregistry.sh <<EOF
+#!/usr/bin/csh
+
+\$JAVA_HOME/bin/rmiregistry -J-Xbootclasspath/p:./sa.jar
+EOF
+chmod 755 sa14/start-rmiregistry.sh
+cat > sa14/start-rmiregistry.bat <<EOF
+
+start %JAVA_HOME%\bin\rmiregistry -J-Xbootclasspath/p:sa.jar
+EOF
+chmod 755 sa14/start-rmiregistry.bat
+cat > sa14/grantAll.policy <<EOF
+// Do NOT use this policy file in a production system!
+
+grant {
+        // Allow everything for now
+        permission java.security.AllPermission;
+};
+EOF
+cat > sa14/start-debug-server-proc.sh <<EOF
+#!/bin/csh -f
+
+if (! (\$?SA_JAVA) ) then
+  set SA_JAVA = java
+endif
+
+\$SA_JAVA -classpath ./sa.jar -Djava.library.path=. -Djava.rmi.server.codebase=file:/./sa.jar -Djava.security.policy=./grantAll.policy -Dsun.jvm.hotspot.debugger.useProcDebugger sun.jvm.hotspot.DebugServer \$*
+EOF
+chmod 755 sa14/start-debug-server-proc.sh
+cat > sa14/start-debug-server-windbg.bat <<EOF
+set CLASSPATH=.\sa.jar
+
+%JAVA_HOME%\bin\java -classpath %CLASSPATH% -Djava.rmi.server.codebase=file:/%CLASSPATH% -Djava.security.policy=grantAll.policy -Dsun.jvm.hotspot.debugger.useWindbgDebugger -Djava.library.path=. -Dsun.jvm.hotspot.debugger.windbg.imagePath=%PATH% sun.jvm.hotspot.DebugServer %1 %2 %3 %4 %5 %6 %7 %8 %9
+EOF
+chmod 755 sa14/start-debug-server-windbg.bat
+mkdir sa14/lib
+cp lib/*.jar sa14/lib
+tar -cvf sa14.tar sa14
+gzip sa14.tar
+\rm -rf sa14

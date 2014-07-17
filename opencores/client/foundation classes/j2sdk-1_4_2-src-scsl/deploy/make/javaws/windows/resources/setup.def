@@ -1,0 +1,4 @@
+LIBRARY	setup
+
+EXPORTS
+	 ViseEntry

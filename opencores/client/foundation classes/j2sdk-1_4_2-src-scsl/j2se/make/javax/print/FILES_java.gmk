@@ -1,0 +1,186 @@
+#
+# @(#)FILES_java.gmk	1.14 02/09/24
+#
+
+FILES_shared = \
+	$(TARGDIR)javax/print/AttributeException.java \
+	$(TARGDIR)javax/print/CancelablePrintJob.java \
+	$(TARGDIR)javax/print/Doc.java \
+	$(TARGDIR)javax/print/DocFlavor.java \
+	$(TARGDIR)javax/print/DocPrintJob.java \
+	$(TARGDIR)javax/print/FlavorException.java \
+	$(TARGDIR)javax/print/MimeType.java \
+	$(TARGDIR)javax/print/MultiDoc.java \
+	$(TARGDIR)javax/print/MultiDocPrintJob.java \
+	$(TARGDIR)javax/print/MultiDocPrintService.java \
+	$(TARGDIR)javax/print/PrintException.java \
+	$(TARGDIR)javax/print/PrintService.java \
+	$(TARGDIR)javax/print/PrintServiceLookup.java \
+	$(TARGDIR)javax/print/ServiceUI.java \
+	$(TARGDIR)javax/print/ServiceUIFactory.java \
+	$(TARGDIR)javax/print/SimpleDoc.java \
+	$(TARGDIR)javax/print/StreamPrintService.java \
+	$(TARGDIR)javax/print/StreamPrintServiceFactory.java \
+	$(TARGDIR)javax/print/URIException.java \
+	$(TARGDIR)javax/print/event/PrintEvent.java \
+	$(TARGDIR)javax/print/event/PrintJobAdapter.java \
+	$(TARGDIR)javax/print/event/PrintJobAttributeEvent.java \
+	$(TARGDIR)javax/print/event/PrintJobAttributeListener.java \
+	$(TARGDIR)javax/print/event/PrintJobEvent.java \
+	$(TARGDIR)javax/print/event/PrintJobListener.java \
+	$(TARGDIR)javax/print/event/PrintServiceAttributeEvent.java \
+	$(TARGDIR)javax/print/event/PrintServiceAttributeListener.java \
+	$(TARGDIR)javax/print/attribute/Attribute.java \
+	$(TARGDIR)javax/print/attribute/AttributeSet.java \
+	$(TARGDIR)javax/print/attribute/AttributeSetUtilities.java \
+	$(TARGDIR)javax/print/attribute/DateTimeSyntax.java \
+	$(TARGDIR)javax/print/attribute/DocAttribute.java \
+	$(TARGDIR)javax/print/attribute/DocAttributeSet.java \
+	$(TARGDIR)javax/print/attribute/EnumSyntax.java \
+	$(TARGDIR)javax/print/attribute/HashAttributeSet.java \
+	$(TARGDIR)javax/print/attribute/HashDocAttributeSet.java \
+	$(TARGDIR)javax/print/attribute/HashPrintJobAttributeSet.java \
+	$(TARGDIR)javax/print/attribute/HashPrintRequestAttributeSet.java \
+	$(TARGDIR)javax/print/attribute/HashPrintServiceAttributeSet.java \
+	$(TARGDIR)javax/print/attribute/IntegerSyntax.java \
+	$(TARGDIR)javax/print/attribute/PrintJobAttribute.java \
+	$(TARGDIR)javax/print/attribute/PrintJobAttributeSet.java \
+	$(TARGDIR)javax/print/attribute/PrintRequestAttribute.java \
+	$(TARGDIR)javax/print/attribute/PrintRequestAttributeSet.java \
+	$(TARGDIR)javax/print/attribute/PrintServiceAttribute.java \
+	$(TARGDIR)javax/print/attribute/PrintServiceAttributeSet.java \
+	$(TARGDIR)javax/print/attribute/ResolutionSyntax.java \
+	$(TARGDIR)javax/print/attribute/SetOfIntegerSyntax.java \
+	$(TARGDIR)javax/print/attribute/Size2DSyntax.java \
+	$(TARGDIR)javax/print/attribute/SupportedValuesAttribute.java \
+	$(TARGDIR)javax/print/attribute/TextSyntax.java \
+	$(TARGDIR)javax/print/attribute/URISyntax.java \
+	$(TARGDIR)javax/print/attribute/UnmodifiableSetException.java \
+	$(TARGDIR)javax/print/attribute/standard/Chromaticity.java \
+	$(TARGDIR)javax/print/attribute/standard/ColorSupported.java \
+	$(TARGDIR)javax/print/attribute/standard/Compression.java \
+	$(TARGDIR)javax/print/attribute/standard/Copies.java \
+	$(TARGDIR)javax/print/attribute/standard/CopiesSupported.java \
+	$(TARGDIR)javax/print/attribute/standard/DateTimeAtCompleted.java \
+	$(TARGDIR)javax/print/attribute/standard/DateTimeAtCreation.java \
+	$(TARGDIR)javax/print/attribute/standard/DateTimeAtProcessing.java \
+	$(TARGDIR)javax/print/attribute/standard/Destination.java \
+	$(TARGDIR)javax/print/attribute/standard/DocumentName.java \
+	$(TARGDIR)javax/print/attribute/standard/Fidelity.java \
+	$(TARGDIR)javax/print/attribute/standard/Finishings.java \
+	$(TARGDIR)javax/print/attribute/standard/JobHoldUntil.java \
+	$(TARGDIR)javax/print/attribute/standard/JobImpressions.java \
+	$(TARGDIR)javax/print/attribute/standard/JobImpressionsCompleted.java \
+	$(TARGDIR)javax/print/attribute/standard/JobImpressionsSupported.java \
+	$(TARGDIR)javax/print/attribute/standard/JobKOctets.java \
+	$(TARGDIR)javax/print/attribute/standard/JobKOctetsProcessed.java \
+	$(TARGDIR)javax/print/attribute/standard/JobKOctetsSupported.java \
+	$(TARGDIR)javax/print/attribute/standard/JobMediaSheets.java \
+	$(TARGDIR)javax/print/attribute/standard/JobMediaSheetsCompleted.java \
+	$(TARGDIR)javax/print/attribute/standard/JobMediaSheetsSupported.java \
+	$(TARGDIR)javax/print/attribute/standard/JobMessageFromOperator.java \
+	$(TARGDIR)javax/print/attribute/standard/JobName.java \
+	$(TARGDIR)javax/print/attribute/standard/JobOriginatingUserName.java \
+	$(TARGDIR)javax/print/attribute/standard/JobPriority.java \
+	$(TARGDIR)javax/print/attribute/standard/JobPrioritySupported.java \
+	$(TARGDIR)javax/print/attribute/standard/JobSheets.java \
+	$(TARGDIR)javax/print/attribute/standard/JobState.java \
+	$(TARGDIR)javax/print/attribute/standard/JobStateReason.java \
+	$(TARGDIR)javax/print/attribute/standard/JobStateReasons.java \
+	$(TARGDIR)javax/print/attribute/standard/Media.java \
+	$(TARGDIR)javax/print/attribute/standard/MediaName.java \
+	$(TARGDIR)javax/print/attribute/standard/MediaPrintableArea.java \
+	$(TARGDIR)javax/print/attribute/standard/MediaSize.java \
+	$(TARGDIR)javax/print/attribute/standard/MediaSizeName.java \
+	$(TARGDIR)javax/print/attribute/standard/MediaTray.java \
+	$(TARGDIR)javax/print/attribute/standard/MultipleDocumentHandling.java \
+	$(TARGDIR)javax/print/attribute/standard/NumberOfDocuments.java \
+	$(TARGDIR)javax/print/attribute/standard/NumberOfInterveningJobs.java \
+	$(TARGDIR)javax/print/attribute/standard/NumberUp.java \
+	$(TARGDIR)javax/print/attribute/standard/NumberUpSupported.java \
+	$(TARGDIR)javax/print/attribute/standard/OrientationRequested.java \
+	$(TARGDIR)javax/print/attribute/standard/OutputDeviceAssigned.java \
+	$(TARGDIR)javax/print/attribute/standard/PageRanges.java \
+	$(TARGDIR)javax/print/attribute/standard/PagesPerMinute.java \
+	$(TARGDIR)javax/print/attribute/standard/PagesPerMinuteColor.java \
+	$(TARGDIR)javax/print/attribute/standard/PDLOverrideSupported.java \
+	$(TARGDIR)javax/print/attribute/standard/PresentationDirection.java \
+	$(TARGDIR)javax/print/attribute/standard/PrinterInfo.java \
+	$(TARGDIR)javax/print/attribute/standard/PrinterIsAcceptingJobs.java \
+	$(TARGDIR)javax/print/attribute/standard/PrinterLocation.java \
+	$(TARGDIR)javax/print/attribute/standard/PrinterMakeAndModel.java \
+	$(TARGDIR)javax/print/attribute/standard/PrinterMessageFromOperator.java \
+	$(TARGDIR)javax/print/attribute/standard/PrinterMoreInfo.java \
+	$(TARGDIR)javax/print/attribute/standard/PrinterMoreInfoManufacturer.java \
+	$(TARGDIR)javax/print/attribute/standard/PrinterName.java \
+	$(TARGDIR)javax/print/attribute/standard/PrinterResolution.java \
+	$(TARGDIR)javax/print/attribute/standard/PrinterState.java \
+	$(TARGDIR)javax/print/attribute/standard/PrinterStateReason.java \
+	$(TARGDIR)javax/print/attribute/standard/PrinterStateReasons.java \
+	$(TARGDIR)javax/print/attribute/standard/PrintQuality.java \
+	$(TARGDIR)javax/print/attribute/standard/PrinterURI.java \
+	$(TARGDIR)javax/print/attribute/standard/QueuedJobCount.java \
+	$(TARGDIR)javax/print/attribute/standard/ReferenceUriSchemesSupported.java \
+	$(TARGDIR)javax/print/attribute/standard/RequestingUserName.java \
+	$(TARGDIR)javax/print/attribute/standard/Severity.java \
+	$(TARGDIR)javax/print/attribute/standard/SheetCollate.java \
+	$(TARGDIR)javax/print/attribute/standard/Sides.java \
+	$(TARGDIR)sun/print/BackgroundLookupListener.java \
+	$(TARGDIR)sun/print/BackgroundServiceLookup.java \
+	$(TARGDIR)sun/print/OpenBook.java \
+	$(TARGDIR)sun/print/PathGraphics.java \
+	$(TARGDIR)sun/print/PeekGraphics.java \
+	$(TARGDIR)sun/print/PeekMetrics.java \
+	$(TARGDIR)sun/print/PrintJob2D.java \
+	$(TARGDIR)sun/print/ProxyGraphics.java \
+	$(TARGDIR)sun/print/ProxyGraphics2D.java \
+	$(TARGDIR)sun/print/ProxyPrintGraphics.java \
+	$(TARGDIR)sun/print/RasterPrinterJob.java \
+	$(TARGDIR)sun/print/PrintJobAttributeException.java \
+	$(TARGDIR)sun/print/PrintJobFlavorException.java \
+	$(TARGDIR)sun/print/AttributeUpdater.java \
+	$(TARGDIR)sun/print/ServiceNotifier.java \
+	$(TARGDIR)sun/print/SunAlternateMedia.java \
+	$(TARGDIR)sun/print/ImagePrinter.java \
+	$(TARGDIR)sun/print/NumericField.java \
+	$(TARGDIR)sun/print/Separator.java \
+	$(TARGDIR)sun/print/PageableDoc.java \
+	$(TARGDIR)sun/print/SunPrinterJobService.java \
+	$(TARGDIR)sun/print/PSStreamPrintService.java \
+	$(TARGDIR)sun/print/PSStreamPrinterFactory.java \
+	$(TARGDIR)sun/print/PSStreamPrintJob.java \
+	$(TARGDIR)sun/print/PSPathGraphics.java \
+	$(TARGDIR)sun/print/PSPrinterJob.java \
+        $(TARGDIR)sun/print/ServiceDialog.java
+
+ifeq ($(PLATFORM),windows)
+FILES_platform = \
+	$(TARGDIR)sun/print/Win32PrintJob.java \
+	$(TARGDIR)sun/print/Win32PrintService.java \
+	$(TARGDIR)sun/print/Win32PrintServiceLookup.java \
+	$(TARGDIR)sun/print/Win32MediaTray.java
+else
+FILES_platform = \
+	$(TARGDIR)sun/print/UnixPrintJob.java \
+	$(TARGDIR)sun/print/UnixPrintService.java \
+	$(TARGDIR)sun/print/UnixPrintServiceLookup.java
+
+endif
+
+FILES_java = $(FILES_shared) $(FILES_platform)
+
+#
+# Files that just need cp.
+#
+SERVICEDIR = $(CLASSBINDIR)/META-INF/services
+
+FILES_copy = \
+	$(SERVICEDIR)/javax.print.StreamPrintServiceFactory \
+	$(SERVICEDIR)/javax.print.PrintServiceLookup
+
+FILES_mkdirs = \
+	$(CLASSBINDIR)/META-INF \
+	$(CLASSBINDIR)/META-INF/services
+
+FILES_copydirs = \
+	$(FILES_mkdirs)

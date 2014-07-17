@@ -1,0 +1,72 @@
+//Microsoft Developer Studio generated resource script.
+//
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_ICON1               ICON    DISCARDABLE     "icon.ico"
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    JAVAWS_TEST             "Questo è un test."
+    JAVAWS_ERROR_RESOURCE   "Errore nel caricamento della risorsa."
+    JAVAWS_ERROR_RESOURCE_CAPTION "Errore nel programma di installazione"
+    JAVAWS_ERROR_DEFLATEINIT "add_data_compress: deflateInit() non riuscito! PROCEDURA TERMINATA!"
+    JAVAWS_ERROR_COMPRESS   "add_data_compress: attenzione! compress ha eseguito un'azione non valida! PROCEDURA TERMINATA!"
+    JAVAWS_UNINST_SECTION   "add_section: passaggio alla sezione di disinstallazione"
+    JAVAWS_ERROR_UNINST     "add_section: ERRORE: è stata specificata la sezione di disinstallazione ma il compilatore non è stato costruito con NSIS_CONFIG_UNINSTALL_SUPPORT!"
+    JAVAWS_DONE_UNINST      "add_section: passaggio dalla sezione di disinstallazione"
+    JAVAWS_PROCESSING_SCRIPT "Elaborazione script in corso"
+    JAVAWS_ERROR_TOKEN      "Errore: il comando ""%1"" richiede i parametri %2!d! alla riga %3!d!"
+    JAVAWS_ERROR_INVALIDCOMMAND 
+                            "Errore: comando non valido (""%1"") alla riga %2!d!"
+    JAVAWS_PARSE_NAME       "Nome: ""%1"""
+    JAVAWS_PARSE_ICON       "Icona: ""%1"""
+    JAVAWS_ERROR_NOUNINSTALLSUPPORT 
+                            "UninstallIcon: il programma di installazione non è stato costruito con NSIS_CONFIG_UNINSTALL_SUPPORT"
+    JAVAWS_PARSE_UNINSTALLICON "UninstallIcon: ""%1"""
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    JAVAWS_PARSE_ENABLEDBITMAP "EnabledBitmap: ""%1"""
+    JAVAWS_PARSE_DISABLEDBITMAP "DisabledBitmap: ""%1"""
+    JAVAWS_PARSE_DIRTEXT    "DirText: ""%1"""
+    JAVAWS_PARSE_COMPONENTTEXT "ComponentText: ""%1"""
+END
+

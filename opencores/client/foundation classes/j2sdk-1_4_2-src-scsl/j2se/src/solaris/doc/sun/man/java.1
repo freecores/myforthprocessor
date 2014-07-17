@@ -1,0 +1,490 @@
+'\" t
+.\" @(#)java.1 1.28 03/01/23 SMI;
+.\" Copyright 2003 Sun Microsystems, Inc. All rights reserved.
+.\" Copyright 2003 Sun Microsystems, Inc. Tous droits réservés.
+.\" 
+.TH java 1 "3 May 2001"
+.SH NAME
+java \- Java interpreter
+.SH SYNOPSIS
+.B java 
+[ 
+.IB options 
+] 
+.I class 
+[ 
+.I argument ... 
+]
+.LP
+.B java 
+[ 
+.I options 
+] 
+.BI \-jar " file.jar"
+.if n .ti +5n
+[ 
+.I argument ... 
+]
+.SH  PARAMETERS
+Options may be in any order.
+For a discussion of
+parameters which apply to a specific option, see
+.B OPTIONS
+below.
+.TP 15
+.I options
+Command-line options.
+See
+.B OPTIONS
+below.
+.TP
+.I class
+Name of the class to be invoked.
+.TP
+.I file.jar
+Name of the jar 
+file to be invoked.
+Used only with the 
+.B \-jar
+option.
+.SH DESCRIPTION
+.IX "Java interpreter" "" "Java interpreter \(em \fLjava\fP"
+.IX "java" "" "\fLjava\fP \(em Java interpreter"
+The 
+.B java 
+utility launches a Java application.
+It does this by
+starting a Java runtime environment, loading a specified class,
+and invoking that class's 
+.B main 
+method.
+The method must have the following signature:
+.LP
+.ft 3
+.nf
+   public static void main(String args[])
+.fi
+.ft 1
+.LP
+The method must be declared 
+.B public 
+and 
+.BR static , 
+it must not
+return any value, and it must accept a 
+.B String 
+array as a parameter.
+By default, the first non-option argument is the name of the class
+to be invoked.
+A fully-qualified class name should be used.
+If the
+.B \-jar
+option is specified, the first non-option argument is the
+name of a
+.SM JAR
+archive containing class and resource files for the
+application, with the startup class indicated by the Main-Class
+manifest header.
+.LP
+The Java runtime searches for the startup class, and other classes
+used, in three sets of locations: the bootstrap class path, the
+installed extensions, and the user class path.
+.LP
+Non-option arguments after the class name or
+.SM JAR
+file name are
+passed to the main function.
+.SH OPTIONS
+The launcher has a set of standard options that are supported on
+the current runtime environment and will be supported in future
+releases.
+However, options below that are described as having been
+replaced by another one are obsolete and may be removed in
+a future release.
+In addition, the current implementations of the virtual machines 
+support a set of non-standard options that are subject to change 
+in future releases.
+.SS Standard Options
+.IX "java" "Standard Options" "\fLjava\fP \(em Java interpreter"
+.TP 20
+.B \-client
+Selects the Java HotSpot Client
+.SM VM\s0.
+This is the default.
+.TP
+.B \-server
+Selects the Java HotSpot Server
+.SM VM\s0.
+.LP
+Note: The exact form of the
+.B \-client
+and
+.B \-server
+options may 
+be modified in a future release.
+.TP
+.BI \-classpath " classpath"
+.PD 0
+.TP
+.BI \-cp " classpath"
+.PD
+Specifies a list of directories,
+.SM JAR
+archives, and
+.SM ZIP
+archives
+to search for class files.
+Class path entries are separated
+by colons (:). Specifying
+.B \-classpath 
+or 
+.B \-cp 
+overrides any
+setting of the 
+.SB CLASSPATH 
+environment variable.
+.sp 1n
+Used with 
+.BR java , 
+the
+.B \-classpath 
+or 
+.B \-cp 
+options only specify the
+class path for user classes.
+If 
+.B \-classpath 
+and 
+.B \-cp 
+are not used and 
+.SB CLASSPATH 
+is not set,
+the user class path consists of the current directory (.).
+.TP
+.B \-debug
+This has been replaced by 
+.BR \-Xdebug .
+.TP
+.BI \-D property=value
+Sets a system property value.
+.TP
+.B \-jar
+Executes a program encapsulated in a
+.SM JAR
+archive.
+The first
+argument is the name of a
+.SM JAR
+file instead of a
+startup class name. 
+In order for this option to work, the manifest of the
+.SM JAR
+file must contain a line of the form 
+\f3Main-Class:\f1\f2classname\f1. 
+Here, 
+.I classname 
+identifies the class having the
+.B public static void main(String[] args) 
+method that serves as
+your application's starting point.
+See the Jar tool reference
+page and the Jar trail of the Java Tutorial for information
+about working with Jar files and Jar-file manifests.
+When you use this option, the
+.SM JAR
+file is the source of all
+user classes, and other user class path settings are ignored.
+.sp 1n
+On Solaris 8,
+.SM JAR
+files that can be run with
+the "\f3java \-jar\f1" option can have their permissions
+set so they can be run without using "\f3java \-jar\f1". 
+Note that, in this case, the standard java installation on 
+the system will be used. This is normally the installation 
+accessible via the /usr/java symbolic link.
+.TP
+.B  \-noclassgc
+This has been replaced by 
+.BR \-Xnoclassgc .
+.TP
+.BI \-ms n
+This has been replaced by 
+.B \-Xms
+.IR n .
+.TP
+.BI \-mx n
+This has been replaced by 
+.B \-Xmx
+.IR n .
+.TP
+.BI \-ss n
+This has been replaced by 
+.B \-Xss
+.IR n .
+.TP
+.B \-verbose
+.PD 0
+.TP
+.BI \-verbose: class
+Displays information about each class loaded.
+.PD
+.TP
+.B \-verbosegc
+This has been replaced by 
+.BR \-verbose:gc .
+.TP
+.B \-verbose:gc
+Reports on each garbage collection event.
+.TP
+.B \-verbose:jni
+Reports information about use of native methods and other Java
+Native Interface activity.
+.TP
+.B \-version
+Displays version information and exit.
+.TP
+.B \-showversion
+Displays version information and continues.
+.TP
+.B \-?
+.PD 0
+.TP
+.B \-help
+Displays usage information and exit.
+.PD
+.TP
+.B \-X
+Displays information about non-standard options and exit.
+.SS Non-Standard Options
+.IX "java" "Non-Standard Options" "\fLjava\fP \(em Java interpreter"
+.TP 20
+.B \-Xint
+Operates in interpreted-only mode.
+Compilation to native code is disabled, and all bytecodes are
+executed by the interpreter.
+The performance benefits offered by the
+Java HotSpot VMs' adaptive compiler will not
+be present in this mode.
+.TP 20
+.BI \-Xbootclasspath: bootclasspath
+Specifies a colon-separated list of directories,
+.SM JAR
+archives, and
+.SM ZIP
+archives to search for boot class files.
+These are used in place of the boot class files included in
+the Java 2 SDK and Java 2 Runtime Environment.
+.TP
+.BI \-Xbootclasspath/a: path
+Specifies a colon-separated
+.I path
+of directories,
+.SM JAR
+archives, and
+.SM ZIP
+archives to append to the
+default bootstrap class path.
+.TP
+.BI \-Xbootclasspath/p: path
+Specifies a colon-separated
+.I path
+of directories,
+.SM JAR
+archives, and
+.SM ZIP
+archives to prepend in
+front of the default bootstrap class path.
+Note: Applications that use this option for the purpose of
+overriding a class in
+.B rt.jar
+should not be deployed,
+as doing so would contravene the Java 2 Runtime
+Environment binary code license.
+.TP
+.B \-Xdebug
+Starts with the debugger enabled.
+.\" -- Not supported yet: --
+.\" .TP
+.\" .B \-Xcheck:jni
+.\" Perform additional check for Java Native Interface functions.
+.TP
+.B \-Xfuture
+Performs strict class-file format checks.
+For purposes of backwards compatibility,
+the default format checks performed by the
+Java 2 SDK's virtual machine are no stricter than
+the checks performed by 1.1.x versions of the JDK software.
+The
+.B \-Xfuture
+flag turns on stricter class-file format checks
+that enforce closer conformance to the class-file format
+specification.
+Developers are encouraged to use this flag
+when developing new code because the stricter checks will
+become the default in future releases of the Java application launcher.
+.TP
+.B \-Xnoclassgc
+Disables class garbage collection
+.TP
+.BI \-Xms n
+Specifies the initial size of the memory allocation pool.
+This value must be greater than 1000.
+To modify the meaning of
+.IR n ,
+append either the letter 
+.B k 
+for kilobytes or the letter 
+.B m 
+for megabytes.
+The default value is 2m.
+.TP
+.BI \-Xmx n
+Specifies the maximum size of the memory allocation pool.
+This value must be greater than 1000.
+To modify the meaning of
+.IR n ,
+append either the letter 
+.B k 
+for kilobytes or the letter 
+.B m 
+for megabytes.
+The default value is 64m. The upper limit for this value 
+will be approximately 4000m on SPARC platforms and 
+2000m on x86 platforms, minus overhead amounts.
+.TP
+.BI \-Xprof
+Profiles the running program, and sends profiling
+data to standard output.
+This option is provided as
+a utility that is useful in program development
+and is not intended to be be used in production systems.
+.TP
+\f3\-Xrunhprof[:help][:\f2suboption\f3=\f2value\f1,...]
+Enables cpu, heap, or monitor profiling.
+This option is
+typically followed by a list of comma-separated
+.IR suboption = value
+pairs.
+Run the command
+.B java \-Xrunhprof:help 
+to obtain a list of suboptions and their
+default values.
+.\" .TP
+.\" -Xcheck:jni
+.\" Perform additional check for Java Native Interface functions.
+.\" .TP
+.\" -Xverify
+.\" -Xverify:all
+.\" Verify that all class files obey language constraints.
+.\" .TP
+.\" -Xverify:remote
+.\" Verify only remote class files. This is the default
+.\" verification level.
+.\" .TP
+.\" -Xverify:none
+.\" Disable class file verification.
+.TP
+.BI \-Xss n
+Each Java thread has two stacks: one for Java code and
+one for C code.
+The
+.B \-Xss
+option sets the maximum stack
+size that can be used by C code in a thread to
+.IR n .
+Every thread that is spawned during the execution of the
+program passed to
+.B java
+has
+.I n
+as its C stack size.
+The default units for
+.I n
+are bytes and
+.I n
+must be > 1000 bytes.
+.sp 1n
+To modify the meaning of
+.IR n ,
+append either the letter 
+.B k 
+for kilobytes or the letter 
+.B m 
+for megabytes.
+The default stack size is 512 kilobytes
+(\f3\-Xss512k\f1).
+.TP
+.BI \-Xrs
+Reduce usage of operating-system signals by Java virtual machine (JVM).
+.sp 1n
+Sun's JVM catches signals to implement shutdown hooks for abnormal JVM 
+termination. The JVM uses SIGHUP, SIGINT, and SIGTERM to initiate the 
+running of shutdown hooks. The JVM uses SIGQUIT to perform thread dumps.
+.sp 1n
+Applications that embed the JVM frequently need to trap signals like 
+SIGINT or SIGTERM, and in such cases there is the possibility of 
+interference between the applications' signal handlers and the JVM 
+shutdown-hooks facility. 
+.sp 1n
+To avoid such interference, the 
+.B\-Xrs 
+option can be used to turn off 
+the JVM shutdown-hooks feature. When 
+.B\-Xrs 
+is used, the signal masks 
+for SIGINT, SIGTERM, SIGHUP, and SIGQUIT are not changed by the JVM, 
+and signal handlers for these signals are not installed.
+.SH ENVIRONMENT VARIABLES
+.TP 20
+.SB CLASSPATH
+Used to provide the system with a path to user-defined classes.
+Directories are separated by colons.
+For example:
+.RS 25
+.sp 1n
+.B .:/home/avh/classes:/usr/local/java/classes
+.RE 
+.br
+.ne 12
+.SH ATTRIBUTES
+See
+.BR attributes (5)
+for a description of the following attributes: 
+.sp 1n
+.TS
+box;
+cbp-1 | cbp-1
+l | l .
+ATTRIBUTE TYPE	ATTRIBUTE VALUE
+=
+Availability	SUNWj3rt, SUNWj3dev
+Interface Stability	See \f3NOTES\f1.
+.TE
+.SH SEE ALSO
+.BR javac (1),
+.BR jdb (1),
+.BR javac (1),
+.BR jar (1),
+.BR set (1),
+.BR attributes (5)
+.LP
+See (or search
+.BR java.sun.com )
+for the following:
+.TP 10
+.B JDK File Structure @
+http://java.sun.com/j2se/1.3/docs/tooldocs/solaris/jdkfiles.html
+.TP
+.B Setting the Classpath @
+http://java.sun.com/j2se/1.3/docs/tooldocs/solaris/classpath.html
+.TP
+.B JAR Files @ 
+http://java.sun.com/docs/books/tutorial/jar/
+.SH NOTES
+All the
+.B \-X
+options are unstable.
+As noted in the
+.B OPTIONS
+section, some of the "standard" options are obsolete.

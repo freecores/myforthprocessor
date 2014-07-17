@@ -1,0 +1,129 @@
+'\" t
+.\" @(#)orbd.1 1.20 01/03/10 SMI;
+.\" Copyright 2003 Sun Microsystems, Inc. All rights reserved.
+.\" Copyright 2003 Sun Microsystems, Inc. Tous droits riservis.
+.\" 
+.TH orbd 1 "2001 年 11 月 30 日"
+.SH "名前"
+orbd - Object Request Broker Daemon
+.LP
+.B orbd
+は、クライアントが CORBA 環境内のサーバ上に存在する
+持続オブジェクトを透過的に特定して呼び出す場合に使用します。
+.SH "形式"
+.B orbd
+<
+.IB options
+>
+.SH "機能説明"
+.B orbd
+ツールは、クライアントが CORBA 環境内のサーバ上に存在する
+持続オブジェクトを透過的に特定して呼び出す場合に使用し
+ます。持続サーバは、ネームサービス内の持続オブジェクト
+参照を発行する一方で、オブジェクト参照内にサーバのポート番
+号ではなく ORBD のポート番号を組み込みます。持続オブジェクト
+参照のためにオブジェクト参照内に ORBD ポート番号
+を組み込むと、以下の利点が得られます。
+.LP
+.TP 2
+\(bu ネームサービス内のオブジェクト参照は、サーバのライフ
+サイクルとは無関係に維持されます。たとえば、オブジェクト参照
+はサーバの最初のインストール時にネームサービス内でサーバ
+によって発行され、その後は何度サーバの起動または停止が行わ
+れても ORBD は常に呼び出し側のクライアントに正しいオブジェクト
+参照を返します。
+.TP 2
+\(bu クライアントはネームサービス内でオブジェクト参照
+を 1 度確認する必要があり、サーバのライフサイクルが原因
+で起きる変更に関係なくこの参照を繰り返し使用できます。
+.LP
+.B orbd
+ツールには、以下の機能が含まれています。
+.LP
+.TP 2
+\(bu Server Manager
+servertool と共に使用されると、Server Manager はクライアントが
+サーバへのアクセスを望む時にサーバを特定し、登録し、起動します。
+.TP 2
+\(bu Interoperable Naming Service (INS)
+このネーミングサービスは、オブジェクト参照に論理名を割
+り当てます。これにより、ユーザはこの論理名を使用してオ
+ブジェクト参照を検出し、そのオブジェクトに対する処理を
+呼び出すことができます。ORBD は、Transient Naming Service 
+,tnameserv(1) の代わりに使用されます。ORBD には、Transient 
+Naming Service と Persistent Naming Service の両方が含まれます。
+.TP 2
+\(bu Bootstrap Name Server
+持続サーバは、このネームサーバでオブジェクト参照
+を発行します。クライアントは、オブジェクト参照を探すため
+にこのネームサーバとコンタクトをとります。この Bootstrap 
+Name Server を ORBD の一部として提供すると、ユーザは
+オブジェクト参照の発行と解決のために別のネームサーバ
+プロセスを開始する必要がないという利点が得られます。
+.LP
+ORBD は、サーバ情報の登録、登録解除、列挙に使用される 
+.B servertool(1) と連係動作します。
+.SH "オプション"
+.TP
+.BI \-port " port"
+ORBD を開始する起動ポートを指定します。この
+ポートのデフォルト値は 1049 です。このポート番号は、
+持続 Interoperable Object References (IOR) 
+のポートフィールドに追加されます。(省略可能)
+.TP
+.BI \-defaultdb " directory"
+ORBD 持続ストレージディレクトリである 
+.BI orb.db
+が作成されるベースを指定します。このオプションが
+指定されない場合、デフォルト値は ./orb.db です。(省略可能)
+.TP
+.BI \-serverid " ID"
+この ORBD に割り当てる持続サーバ ID を
+指定します。デフォルト値は 1 です。(省略可能)
+.TP
+.BI \-ORBInitialPort " nameserverport"
+ブートストラップネームサーバが動作している
+ポートを指定します。Solaris ソフトウェアを使用している
+場合には、1024 未満のポートでプロセスを開始するに
+は root になる必要があります。このため、1024 またはそれ以上の
+ポート番号を使用することをお勧めします。(必須)
+.TP
+.BI \-serverPollingTime " milliseconds"
+デーモンスレッドが登録されているサーバの健全度を検査する頻度を指定し
+ます。ORBD は、
+.BR milliseconds
+ごとにプロセスの状態をポーリングします。デフォルト値は 1,000 ミリ秒
+ (1 秒) です。
+.BR milliseconds
+に指定される値は、有効な整数でなければなりません。
+.TP
+.BI \-serverStartupDelay " milliseconds" 
+サーバの再起動の後ロケーション転送例外を送信する
+までに ServerManager がどれだけの間待機するかを指定
+します。ORBD は、ロケーション転送例外を生成するまでに 
+.BR milliseconds 
+の間待機します。デフォルト値は、1,000 ミリ秒 (1 秒) です。
+.BR milliseconds 
+に指定される値は、有効な整数でなければなりません。
+.TP 15
+.BI \-J " option"
+.I option
+を Java 仮想マシンに渡します。ここで、
+.I option
+は、Java アプリケーション起動プログラム java(1) のマニュアルページで
+説明されているオプションの 1 つです。たとえば、
+.I \-J-Xms48m
+は、起動時に使用するメモリを 48M バイトに設定します。
+.B \-J
+が基本にする仮想マシンにオプションを渡すことは、共通の規約です。
+.SS "環境変数"
+.TP
+.B CLASSPATH
+システムにユーザ定義クラスへのパスを提供するために使用されます。ディレクトリはコロンで区切ります。
+.B CLASSPATH
+の設定については、「クラスパスの設定」を参照してください。
+.SH "関連項目"
+.BR java,
+.BR javac,
+.BR classpath, 
+.BR servertool

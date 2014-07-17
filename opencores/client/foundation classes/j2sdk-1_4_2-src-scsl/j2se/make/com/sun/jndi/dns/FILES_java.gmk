@@ -1,0 +1,18 @@
+#
+# @(#)FILES_java.gmk	1.1 00/11/21
+#
+FILES_java = \
+	$(TARGDIR)com/sun/jndi/dns/DnsClient.java \
+	$(TARGDIR)com/sun/jndi/dns/DnsContext.java \
+	$(TARGDIR)com/sun/jndi/dns/DnsContextFactory.java \
+	$(TARGDIR)com/sun/jndi/dns/DnsName.java \
+	$(TARGDIR)com/sun/jndi/dns/DnsNameParser.java \
+	$(TARGDIR)com/sun/jndi/dns/DnsUrl.java \
+	$(TARGDIR)com/sun/jndi/dns/Header.java \
+	$(TARGDIR)com/sun/jndi/dns/NameNode.java \
+	$(TARGDIR)com/sun/jndi/dns/Resolver.java \
+	$(TARGDIR)com/sun/jndi/dns/ResourceRecord.java \
+	$(TARGDIR)com/sun/jndi/dns/ResourceRecords.java \
+	$(TARGDIR)com/sun/jndi/dns/ZoneNode.java \
+	$(TARGDIR)com/sun/jndi/url/dns/dnsURLContext.java \
+	$(TARGDIR)com/sun/jndi/url/dns/dnsURLContextFactory.java

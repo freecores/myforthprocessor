@@ -1,0 +1,19 @@
+Action	Condition	Sequence	ISComments	ISAttributes
+s72	S255	I2	S255	I4
+AdvtExecuteSequence	Action
+CostFinalize		100	CostFinalize	
+CostInitialize		50	CostInitialize	
+CreateShortcuts		250	CreateShortcuts	
+InstallFinalize		700	InstallFinalize	
+InstallInitialize		200	InstallInitialize	
+InstallValidate		150	InstallValidate	
+MsiPublishAssemblies		575	MsiPublishAssemblies	
+PublishComponents		550	PublishComponents	
+PublishFeatures	PRIVATE=0	600	PublishFeatures	
+PublishProduct	PRIVATE=0	650	PublishProduct	
+RegisterClassInfo		300	RegisterClassInfo	
+RegisterExtensionInfo		350	RegisterExtensionInfo	
+RegisterMIMEInfo		450	RegisterMIMEInfo	
+RegisterProgIdInfo		400	RegisterProgIdInfo	
+RegisterTypeLibraries		500	RegisterTypeLibraries	
+ScheduleReboot	ISSCHEDULEREBOOT	675	ScheduleReboot	

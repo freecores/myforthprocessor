@@ -1,0 +1,73 @@
+#
+#ident	"@(#)mapfile-vers	1.13	02/04/18 SMI"
+#
+# Copyright 2000 Sun Microsystems, Inc. All rights reserved.
+# Copyright 2000 Sun Microsystems, Inc. Tous droits réservés.
+#
+# This software is the proprietary information of Sun Microsystems, Inc.
+# Use is subject to license terms.
+#
+
+# Define public interface.
+
+SUNWprivate_1.1 {
+	global:
+		JNI_OnLoad;
+		Java_java_text_Bidi_nativeBidiChars;
+		Java_java_text_Bidi_nativeGetDirectionCode;
+		Java_sun_awt_font_GlyphList_discardData;
+		Java_sun_awt_font_GlyphList_fillBounds;
+		Java_sun_awt_font_GlyphList_fillGrayBits;
+		Java_sun_awt_font_GlyphList_fillMetrics;
+		Java_sun_awt_font_GlyphList_getNumGlyphs;
+		Java_sun_awt_font_GlyphList_initIDs;
+		Java_sun_awt_font_GlyphList_setupByteData;
+		Java_sun_awt_font_GlyphList_setupCharData;
+		Java_sun_awt_font_GlyphList_setupGlyphData;
+		Java_sun_awt_font_GlyphList_setupStringData;
+		Java_sun_awt_font_NativeFontWrapper_canDisplay;
+		Java_sun_awt_font_NativeFontWrapper_charsToGlyphs;
+		Java_sun_awt_font_NativeFontWrapper_createFont;
+		Java_sun_awt_font_NativeFontWrapper_doesGlyphShaping;
+		Java_sun_awt_font_NativeFontWrapper_fontCanRotate;
+		Java_sun_awt_font_NativeFontWrapper_fontCanRotateGlyphVector;
+		Java_sun_awt_font_NativeFontWrapper_fontCanRotateText;
+		Java_sun_awt_font_NativeFontWrapper_getCharMetrics;
+		Java_sun_awt_font_NativeFontWrapper_getFamilyName;
+		Java_sun_awt_font_NativeFontWrapper_getFamilyNameByIndex;
+		Java_sun_awt_font_NativeFontWrapper_getFontMetrics;
+		Java_sun_awt_font_NativeFontWrapper_getFullName;
+		Java_sun_awt_font_NativeFontWrapper_getPostscriptName;
+		Java_sun_awt_font_NativeFontWrapper_getFullNameByFileName;
+		Java_sun_awt_font_NativeFontWrapper_getFullNameByIndex;
+		Java_sun_awt_font_NativeFontWrapper_getGlyphInfo;
+		Java_sun_awt_font_NativeFontWrapper_getGlyphLogicalBounds;
+		Java_sun_awt_font_NativeFontWrapper_getGlyphMetrics;
+		Java_sun_awt_font_NativeFontWrapper_getGlyphOutline;
+		Java_sun_awt_font_NativeFontWrapper_getGlyphPixelBounds;
+		Java_sun_awt_font_NativeFontWrapper_getGlyphVectorOutline;
+		Java_sun_awt_font_NativeFontWrapper_getGlyphVisualBounds;
+		Java_sun_awt_font_NativeFontWrapper_getItalicAngle;
+		Java_sun_awt_font_NativeFontWrapper_getMissingGlyphCode;
+		Java_sun_awt_font_NativeFontWrapper_getNumFonts;
+		Java_sun_awt_font_NativeFontWrapper_getNumGlyphs;
+		Java_sun_awt_font_NativeFontWrapper_getPixelBounds;
+		Java_sun_awt_font_NativeFontWrapper_getType1FontVar;
+		Java_sun_awt_font_NativeFontWrapper_getVisualBounds;
+		Java_sun_awt_font_NativeFontWrapper_initializeFont;
+		Java_sun_awt_font_NativeFontWrapper_isFontRegistered;
+		Java_sun_awt_font_NativeFontWrapper_isStyleSupported;
+		Java_sun_awt_font_NativeFontWrapper_layoutGlyphVector;
+		Java_sun_awt_font_NativeFontWrapper_populateAndLayoutGlyphVector;
+		Java_sun_awt_font_NativeFontWrapper_populateGlyphVector;
+		Java_sun_awt_font_NativeFontWrapper_registerCompositeFont;
+		Java_sun_awt_font_NativeFontWrapper_registerFonts;
+		Java_sun_awt_font_NativeFontWrapper_shapeGlyphVector;
+		Java_sun_awt_font_NativeFontWrapper_fontSupportsEncoding;
+		Java_sun_awt_font_X11TextRenderer_doDrawGlyphList;
+		Java_sun_java2d_loops_DrawGlyphListAA_DrawGlyphListAA;
+		Java_sun_java2d_loops_DrawGlyphList_DrawGlyphList;
+
+	local:
+		*;
+};

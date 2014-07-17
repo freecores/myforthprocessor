@@ -1,0 +1,48 @@
+00000010  56           0 VAL 
+00000011  0d00000000   Thread._staticBlocking VAL ( will be modified! ) 
+00000016  00           NOP ( will be modified! ) 
+00000017  01           ! 
+00000018  56           0 VAL 
+00000019  0d00000000   Thread._staticThread VAL ( will be modified! ) 
+0000001e  00           NOP ( will be modified! ) 
+0000001f  01           ! 
+00000020  55           1 VAL 
+00000021  0d00000000   Thread.MIN_PRIORITY VAL ( will be modified! ) 
+00000026  00           NOP ( will be modified! ) 
+00000027  01           ! 
+00000028  51           5 VAL 
+00000029  0d00000000   Thread.NORM_PRIORITY VAL ( will be modified! ) 
+0000002e  00           NOP ( will be modified! ) 
+0000002f  01           ! 
+00000030  4c           10 VAL 
+00000031  0d00000000   Thread.MAX_PRIORITY VAL ( will be modified! ) 
+00000036  00           NOP ( will be modified! ) 
+00000037  01           ! 
+00000038  3d           EXIT 
+
+instruction usage:
+load/store:		5	(23.809523809523807%)
+32-bit values:		5	(23.809523809523807%)
+16-bit values:		0	(0.0%)
+5-bit values:		5	(23.809523809523807%)
+values total:		10	(47.61904761904761%)
+arithmetic/logical:	0	(0.0%)
+relations:		0	(0.0%)
+flow control:		1	(4.761904761904762%)
+other:			5	(23.809523809523807%)
+total:			21
+
+average bytes per instruction: 2.619047619047619
+
+string storage in byte:	0
+unresolved references:	5
+
+Size of static code: 14
+Size of initial code: 41
+
+references:
+ffffffff	1	Thread.MAX_PRIORITY
+ffffffff	1	Thread.MIN_PRIORITY
+ffffffff	1	Thread.NORM_PRIORITY
+ffffffff	1	Thread._staticBlocking
+ffffffff	1	Thread._staticThread

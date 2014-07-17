@@ -1,0 +1,196 @@
+//Microsoft Developer Studio generated resource script.
+//
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_LICENSE DIALOG DISCARDABLE  0, 0, 246, 125
+STYLE DS_CONTROL | DS_CENTER | WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+    ICON            IDI_ICON2,-1,0,1,20,20
+    LTEXT           "texte de licence\r\ndeux lignes",IDC_LICTEXT,30,0,216,16
+    EDITTEXT        IDC_EDIT1,0,24,246,100,ES_MULTILINE | ES_READONLY | 
+                    WS_VSCROLL
+END
+
+IDD_DIR DIALOG DISCARDABLE  0, 0, 246, 125
+STYLE DS_CONTROL | DS_CENTER | WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_DIR,12,43,180,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "Parcourir...",IDC_BROWSE,193,43,50,14
+    LTEXT           "description textuelle\r\ndeux lignes\r\ntrois lignes",
+                    IDC_INTROTEXT,23,0,204,26
+    ICON            IDI_ICON2,-1,0,0,20,20
+    LTEXT           "Static",IDC_SELDIRTEXT,0,33,190,8
+    LTEXT           "Espace requis :  128 k",IDC_SPACEREQUIRED,0,97,97,8
+    LTEXT           "Espace disponible sur le disque : 2234000 k",IDC_SPACEAVAILABLE,
+                    0,86,165,8
+    // CHANGED FOR 1.2
+    CONTROL         "Créer des raccourcis pour tous les utilisateurs",IDC_CHECK1,"Button",
+                    BS_AUTOCHECKBOX | NOT WS_VISIBLE | WS_TABSTOP,12,64,231,
+                    10
+END
+
+IDD_INST DIALOG DISCARDABLE  0, 0, 260, 159
+STYLE DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+FONT 8, "MS Sans Serif"
+BEGIN
+    PUSHBUTTON      "Suivant > ",IDOK,203,139,50,14
+    PUSHBUTTON      "Annuler",IDCANCEL,7,139,50,14
+    CONTROL         "",-1,"Static",SS_ETCHEDHORZ,7,134,246,1
+    CONTROL         "",IDC_CHILDRECT,"Static",SS_BLACKRECT | NOT WS_VISIBLE,
+                    7,6,246,125
+    PUSHBUTTON      "< Retour",IDC_BACK,151,139,50,14
+    LTEXT           "Nullsoft Install System v1.0j",IDC_INSTVER,60,143,116,18,
+                    NOT WS_VISIBLE
+END
+
+IDD_INSTFILES DIALOG DISCARDABLE  0, 0, 246, 125
+STYLE DS_CONTROL | DS_CENTER | WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "Progress2",IDC_PROGRESS1,"msctls_progress32",WS_BORDER,
+                    24,10,221,11
+    LTEXT           "Progression de l'installation :",IDC_PROGRESSTEXT,24,0,117,8
+    LISTBOX         IDC_LIST1,0,23,245,101,LBS_NOINTEGRALHEIGHT | LBS_NOSEL | 
+                    WS_VSCROLL | WS_TABSTOP
+    ICON            IDI_ICON2,IDC_STATIC,0,0,20,20
+END
+
+IDD_UNINST DIALOG DISCARDABLE  0, 0, 246, 125
+STYLE DS_CONTROL | DS_CENTER | WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+    ICON            IDI_ICON2,IDC_STATIC,0,1,20,20
+    LTEXT           "",IDC_UNINSTTEXT,30,0,216,20
+    LTEXT           "Désinstallation à partir de :",IDC_STATIC,0,31,56,17
+    EDITTEXT        IDC_EDIT1,55,29,190,12,ES_AUTOHSCROLL | ES_READONLY
+END
+
+IDD_DIR1 DIALOG DISCARDABLE  0, 0, 246, 127
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_DIR,10,55,180,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "Parcourir...",IDC_BROWSE,195,55,50,14
+    LTEXT           "description textuelle\r\ndeux lignes",IDC_INTROTEXT,25,2,204,
+                    16
+    ICON            IDI_ICON2,-1,0,0,20,20
+    LTEXT           "Statique",IDC_SELDIRTEXT,0,45,245,10
+    DEFPUSHBUTTON   "Ok",IDC_OK,140,110,50,14
+    PUSHBUTTON      "Annuler",IDC_CANCEL,195,110,50,14
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_INST, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 253
+        TOPMARGIN, 6
+        BOTTOMMARGIN, 153
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    JAVAWS_TEST             "Il ne s'agit que d'un test."
+    JAVAWS_NS_COPYRIGHT     "NSIS Copyright (C) 2000 Nullsoft, Inc."
+    JAVAWS_ERROR_RESOURCE   "Erreur au cours du chargement d'une ressource."
+    JAVAWS_ERROR_RESOURCE_CAPTION "Erreur de l'installateur"
+    JAVAWS_ERROR_OPENSELF   "Erreur d'auto ouverture."
+    JAVAWS_ERROR_GCAPTION   "Erreur Nullsoft d'installation de système"
+    JAVAWS_ERROR_READCRC    "Erreur de lecture de CRC dans le fichier de l'installateur."
+    JAVAWS_ERROR_READDATA   "Erreur de lecture de données dans le fichier de l'installateur."
+    JAVAWS_ERROR_CRC        "Le contrôle de redondance cyclique a échoué pour l'installateur.  Veuillez reprendre le téléchargement de cet installateur."
+    JAVAWS_ERROR_TOOSHORT   "Erreur : bloc de données d'installation trop court."
+    JAVAWS_ERROR_FINDDATA   "Erreur pendant la recherche des données d'installation."
+    JAVAWS_STATUS_OUTDIR    "Répertoire de sortie : %1"
+    JAVAWS_STATUS_SKIPPED   "Sautés : %1"
+    JAVAWS_ERROR_OPENWRITE  "Erreur d'ouverture du fichier en mode d'écriture : %1\r\nSélectionnez Abandonner pour abandonner l'installation, Réessayer pour reprendre l'écriture du fichier ou Ignorer pour sauter ce fichier."
+    JAVAWS_ERROR_ABORTWRITE "Abandon lors d'une tentative d'écriture du fichier : %1"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    JAVAWS_STATUS_EXTRACT   "Extraire : %1"
+    JAVAWS_STATUS_EXECUTE   "Exécuter : %1"
+    JAVAWS_STATUS_CREATESHORTCUT "Raccourci créé : %1"
+    JAVAWS_STATUS_DELETEFILE "Supprimer le fichier : %1"
+    JAVAWS_STATUS_ABORTED   "Abandon par l'utilisateur : %1"
+    JAVAWS_STATUS_REMOVEDIR "Retirer le répertoire : %1"
+    JAVAWS_ERROR_INSTCORRUPT "Installateur détérioré."
+    JAVAWS_MESSAGE_UNINSTALL "Désinstallation de %1"
+    JAVAWS_MESSAGE_SETUP    "Installation de %1"
+    JAVAWS_MESSAGE_SELECTDIR "Sélectionnez le répertoire d'installation"
+    JAVAWS_MESSAGE_LICENSE  "Contrat de licence"
+    JAVAWS_MESSAGE_INSTOPT  "Options d'installation"
+    JAVAWS_MESSAGE_INSTDIR  "Répertoire d'installation"
+    JAVAWS_MESSAGE_INSTFILES "Installation des fichiers"
+    JAVAWS_MESSAGE_SETUP2   "Installation de %1 : %2"
+    JAVAWS_MESSAGE_CONFIRM  "Confirmation"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    JAVAWS_MESSAGE_UNINSTFILES "Désinstallation des fichiers"
+    JAVAWS_MESSAGE_UNINSTALL2 "Désinstallation de %1 : %2"
+    JAVAWS_MESSAGE_SELECTDIR2 "Sélectionnez le répertoire d'installation de %1 :"
+    JAVAWS_MESSAGE_SELECTDIR3 "Sélectionnez un répertoire :"
+    JAVAWS_MESSAGE_SPACEREQ "Espace requis :  %1!d! Ko"
+    JAVAWS_MESSAGE_SPACEAVAIL "Espace disponible :  %1!d! Ko"
+    JAVAWS_MESSAGE_SELECTCOMPS "Sélectionnez les composants à installer :"
+    JAVAWS_MESSAGE_CUSTOMTYPE "Personnalisée"
+    JAVAWS_MESSAGE_REQDCOMPS "Composants obligatoires"
+    JAVAWS_STATUS_CREATEUNINST "Création du désinstallateur"
+    JAVAWS_MESSAGE_UNINSTPROGRESS "Progression de la désinstallation :"
+    JAVAWS_ERROR_STRINGTABLE "Avertissement : texte adapté introuvable."
+    JAVAWS_STATUS_MAKEDIR   "Créer le répertoire : %1"
+    JAVAWS_STATUS_REGDLL    "DLL enregistrée : %1"
+    JAVAWS_STATUS_UNREGDLL  "DLL non enregistrée :"
+    JAVAWS_ERROR_REGDLL     "Erreur d'enregistrement de la DLL.\r\nDllRegisterServer introuvable dans %1."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    JAVAWS_ERROR_REGDLLU    "Erreur d'enregistrement de la DLL.\r\nImpossible de charger %1."
+    JAVAWS_ERROR_OLEINIT    "Erreur d'enregistrement de la DLL : %1.\r\nImpossible d'initialiser la fonction OLE."
+    JAVAWS_MESSAGE_REBOOT   "Vous devez arrêter et redémarrer votre ordinateur avant de lancer Java Web Start.\r\nVoulez-vous redémarrer votre ordinateur maintenant ?"
+    JAVAWS_ERROR_PRIVALUE   "Erreur de recherche de privilèges."
+    JAVAWS_ERROR_OPENTOKEN  "Erreur d'ouverture de jeton de processus."
+    JAVAWS_ERROR_ADJUSTTOKEN "Erreur de définition des privilèges du jeton."
+    JAVAWS_ERROR_EXITWINDOWS 
+                            "Erreur en cours de redémarrage.\r\nVeuillez arrêter et redémarrer votre ordinateur à partir du menu Démarrer."
+    JAVAWS_MESSAGE_INSTPROG "Progression de l'installation :"
+    JAVAWS_DECLINE          "Refuser"
+    JAVAWS_ACCEPT           "Accepter"
+    JAVAWS_NEXT             "Suivant > "
+    JAVAWS_BACK             "< Retour"
+    JAVAWS_CANCEL           "Annuler"
+    JAVAWS_MESSAGE_JRE      "Le programme d'installation n'a pu détecter aucun environnement d'exécution Java 2 utilisable."
+    JAVAWS_MESSAGE_JRE2     "Voulez-vous installer la version %1 de l'environnement d'exécution Java 2 ?"
+    JAVAWS_MESSAGE_NEWERVERSION 
+                            "Le programme d'installation a déterminé que vous tentez de remplacer Java Web Start %1 par Java Web Start %2.  Voulez-vous vraiment le faire ?"
+    // Following is NEW FOR 1.2 -sbohne
+    JAVAWS_ERROR_PRIVILEGE  "Le programme de configuration a détecté que vous n'êtes pas un membre du groupe Administrateurs ou Utilisateurs intensifs. Il est vivement conseillé de permettre à un membre de l'un de ces groupes d'installer ce logiciel. Cliquez sur Ok pour quitter ou sur Annuler pour ignorer cet avertissement."
+END
+
+

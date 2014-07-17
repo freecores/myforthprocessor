@@ -1,0 +1,17 @@
+/*
+ * @(#)V9PrivilegedReadWriteDecoder.java	1.2 03/01/23 11:21:59
+ *
+ * Copyright 2003 Sun Microsystems, Inc.  All rights reserved.
+ * SUN PROPRIETARY/CONFIDENTIAL.  Use is subject to license terms.
+ */
+
+package sun.jvm.hotspot.asm.sparc;
+
+import sun.jvm.hotspot.asm.*;
+
+abstract class V9PrivilegedReadWriteDecoder extends InstructionDecoder
+                  implements V9InstructionDecoder {
+    static boolean isLegalPrivilegedRegister(int reg) {
+        return (reg > -1 && reg < 16) || reg == 31;
+    }
+}

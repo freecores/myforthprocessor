@@ -1,0 +1,173 @@
+#
+# @(#)Defs.gmk	1.32 03/03/12
+# 
+# Copyright 2003 Sun Microsystems, Inc. All rights reserved.
+# SUN PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
+#
+
+ifndef CONTROL_TOPDIR
+
+ifndef CONTROL_TOPDIR_NAME
+CONTROL_TOPDIR_NAME=control
+endif #CONTROL_TOPDIR_NAME
+
+CONTROL_TOPDIR=$(DEPLOY_TOPDIR)/../$(CONTROL_TOPDIR_NAME)
+
+ifdef ALT_TOPDIR
+CONTROL_TOPDIR=$(ALT_TOPDIR)/$(CONTROL_TOPDIR_NAME)
+endif #ALT_TOPDIR
+
+ifdef ALT_CONTROL_TOPDIR
+CONTROL_TOPDIR=$(ALT_CONTROL_TOPDIR)
+endif #ALT_CONTROL_TOPDIR
+
+endif #CONTROL_TOPDIR
+
+#
+# Set JAVAWS_BOOTDIR: Use ALT_JAVAWS_BOOTDIR if it's set, otherwise use the
+# default from BOOTDIR.
+#
+
+include $(CONTROL_TOPDIR)/make/common/Platform.gmk
+include $(CONTROL_TOPDIR)/make/common/Defs.gmk
+
+JAVAWS_BOOTDIR = $(BOOTDIR)
+ifdef ALT_JAVAWS_BOOTDIR
+  JAVAWS_BOOTDIR = $(subst \,/,$(ALT_JAVAWS_BOOTDIR))
+endif # ALT_JAVAWS_BOOTDIR
+export JAVAWS_BOOTDIR
+
+JAVAWS_VERSION  = $(JDK_VERSION)
+
+DEPLOY_WIN32_SRC = $(DEPLOY_TOPDIR)/src/plugin/src/win32
+
+ifeq ($(PLATFORM), windows)
+  BUILD_PLUGIN := $(shell if [ -r $(DEPLOY_WIN32_SRC) ]; then \
+                            $(ECHO) true; \
+                          else \
+                            $(ECHO) false; \
+                          fi)
+else 
+  BUILD_PLUGIN := true
+endif 
+
+ifneq ($(MILESTONE),fcs)
+BUILD_ID     = $(MILESTONE)-$(BUILD_NUMBER)
+else
+BUILD_ID     = $(BUILD_NUMBER)
+endif
+
+JAVAWS_UNDERSCORE_VERSION = $(JDK_UNDERSCORE_VERSION)
+
+JAVAWSNAME     = "Java\(TM\) Web Start"
+JAVAWSNAMEVAR  = JAVAWS_NAME
+IDURL          = "http://java.sun.com/products/javawebstart"
+BINDIR_12      = $(JAVAWS_BOOTDIR)/bin/
+LIBDIR_12      = $(JAVAWS_BOOTDIR)/lib/
+JAVAC          = $(BINDIR_12)javac -target 1.2
+JAR            = $(BINDIR_12)jar
+JAVA_BOOT      = $(BINDIR_12)java
+JAVA           = $(JAVA_BOOT)
+JAVADOC        = $(BINDIR_12)javadoc
+CLASSDIR       = $(OUTPUTDIR)/jawsClasses
+CLASSDESTDIR   = $(CLASSDIR)/$(JMKDIR)
+GENSRCBASE     = $(OUTPUTDIR)/jawsgensrc
+GENSRCDIR      = $(GENSRCBASE)/classes
+GENHDIR        = $(GENSRCBASE)/headers
+I18NDESTDIR    = $(OUTPUTDIR)/i18nClasses
+JARDIFF_DESTDIR= $(OUTPUTDIR)/jardiffClasses
+SERVLET_DESTDIR= $(OUTPUTDIR)/servletClasses
+DEVBUNDLEDIR_US= $(OUTPUTDIR)/devbundle
+DEVBUNDLEDIR_JA= $(OUTPUTDIR)/devbundle_ja
+SAMBUNDLEDIR_US= $(OUTPUTDIR)/samplebundle
+SAMBUNDLEDIR_JA= $(OUTPUTDIR)/samplebundle_ja
+JAVADOCDIR     = $(DEVBUNDLEDIR)/javadoc
+JAVADOCSRC     = $(JAVAWS_TOPDIR)/src/javaws/share/resources/javadoc
+SHARE_SRC      = $(JAVAWS_TOPDIR)/src/javaws/src/share
+RESOURCE_SRC   = $(JAVAWS_TOPDIR)/src/javaws/share/resources
+JAVAC_CLASSPATH= $(CLASSDESTDIR)$(CLASSPATH_SEP)$(SHARE_SRC)/classes$(CLASSPATH_SEP)$(PLATFORM_SRC)/classes$(CLASSPATH_SEP)$(UNIX_SHARE_SRC)/classes$(CLASSPATH_SEP)$(GENSRCDIR)
+JAVAC_CMD      = $(JAVAC) $(JDEBUG_OPTION) $(OTHER_JAVACFLAGS) $(JAVAWS_JAVACFLAGS) -classpath "$(JAVAC_CLASSPATH)" -d $(CLASSDESTDIR)
+SERVLET_CLASSPATH = $(JAVAC_CLASSPATH)$(CLASSPATH_SEP)$(BUILDDIR)/common/lib/jaxp-1_0_1.jar$(CLASSPATH_SEP)$(BUILDDIR)/common/lib/parser.jar$(CLASSPATH_SEP)$(BUILDDIR)/common/lib/servlet-2_2.jar
+OBJDIR         = $(OUTPUTDIR)/jawsobj$(SUFFIX)
+SERVLET_JAR    = $(PROTO_DIR)/jnlp-servlet.jar
+JUMP_JAR       = $(PROTO_DIR)/javaws.jar
+JUMP_JAR_TAG   = $(PROTO_DIR)/javaws.jtg
+JNLP_API_JAR   = $(PROTO_DIR)/jnlp.jar
+JARDIFF_JAR    = $(PROTO_DIR)/jardiff.jar
+AU_FILE        = javaws-1_0.conf
+AU_PATH        = $(JAVAWS_TOPDIR)/src/javaws/share/autoupdate/$(AU_FILE)
+I18N_JAR_ABS   = javaws-l10n.jar
+I18N_JAR       = $(PROTO_DIR)/$(I18N_JAR_ABS)
+ZIP            = $(ZIPEXE)
+TMPDIR         = $(OUTPUTDIR)/tmp/javaws
+
+SUFFIX         = $($(VARIANT)_SUFFIX)
+OPT_SUFFIX     =
+DBG_SUFFIX     = _g
+
+C_FLAGS = $(C_FLAGS_COMMON) $(C_FLAGS_$(VARIANT))
+CC_FLAGS = $(CC_FLAGS_COMMON) $(CC_FLAGS_$(VARIANT))
+LINK_FLAGS = $(LINK_FLAGS_COMMON) $(LINK_FLAGS_$(VARIANT))
+
+SAMPLES=\
+	CORBA \
+	Extinstaller \
+	Libinstaller \
+	RAFSample \
+	webpad \
+	lib
+
+DEMO_SRC=$(SHARE_SRC)/samples
+
+ifdef I18N
+I18N_PARAM=-i
+else
+I18N_PARAM=
+endif
+
+PROTO_DIR_EXE  = $(EXEDIR)
+PROTO_DIR_US   = $(OUTPUTDIR)/proto-us
+PROTO_DIR_INT  = $(OUTPUTDIR)/proto-int
+
+ifneq ($(RELEASE_BUILD),1)
+   PROTO_DIR=$(PROTO_DIR_EXE)
+   _IMAGE_DIR=$(OUTPUTDIR)/jaws-image-i
+   DEVBUNDLEDIR=$(DEVBUNDLEDIR_US)
+   SAMBUNDLEDIR=$(SAMBUNDLEDIR_US)
+else
+   ifeq ($(I18N),1)
+      PROTO_DIR=$(PROTO_DIR_INT)
+      DEVBUNDLEDIR=$(DEVBUNDLEDIR_JA)
+      SAMBUNDLEDIR=$(SAMBUNDLEDIR_JA)
+      _IMAGE_DIR=$(OUTPUTDIR)/jaws-image-i
+   else
+      PROTO_DIR=$(PROTO_DIR_US)
+      DEVBUNDLEDIR=$(DEVBUNDLEDIR_US)
+      SAMBUNDLEDIR=$(SAMBUNDLEDIR_US)
+      _IMAGE_DIR=$(OUTPUTDIR)/jaws-image
+   endif
+endif
+
+IMAGE_DIR=$(_IMAGE_DIR)
+ifdef ALT_JAVAWS_IMAGE_DIR
+   IMAGE_DIR = $(subst \,/,$(ALT_JAVAWS_IMAGE_DIR))
+endif
+export IMAGE_DIR
+
+BUNDLE_DIR=$(BIN_BUNDLEDIR)
+
+SHORTNAME_PREFIX = $(JAVAWS_UNDERSCORE_VERSION)-$(MILESTONE)
+BIN_BUNDLE_PREFIX = $(SHORTNAME_PREFIX)-bin-$(BUILD_NUMBER)
+
+SAMPLES_ZIP    = javaws-$(BIN_BUNDLE_PREFIX)-samples$(I18N_PARAM)-$(BUNDLE_DATE).zip
+
+DEV_BUNDLE_NAME = javaws-$(BIN_BUNDLE_PREFIX)$(I18N_PARAM)-dev-$(BUNDLE_DATE).zip
+
+DOC_BUNDLE_NAME = javaws-$(SHORTNAME_PREFIX)-doc-$(BUILD_NUMBER)-$(BUNDLE_DATE).zip
+
+PLUGIN_LOCALES = de es fr it ja ko sv zh_CN zh_TW
+
+# for plugin jre files
+PLUGINDIR           = $(OUTPUTDIR)/plugin
+
+include $(BUILDDIR)/common/Defs-$(PLATFORM).gmk

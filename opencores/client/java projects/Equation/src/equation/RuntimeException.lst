@@ -1,0 +1,563 @@
+0000001b               
+0000001b               RuntimeException.RuntimeException§-745188864 LABEL 
+0000001b  54           2 VAL 
+0000001c  0d00000000   VALLOCATE VAL ( will be modified! ) 
+00000021  00           NOP ( will be modified! ) 
+00000022  90           A:R@ ( §base0 declared ) 
+00000023  08           DROP 
+00000024  0e           DUP 
+00000025  52           4 VAL ( §base0 will be fetched! ) 
+00000026  10           R@ 
+00000027  16           + 
+00000028  0d00000000   V! VAL ( will be modified! ) 
+0000002d  00           NOP ( will be modified! ) 
+0000002e  90           A:R@ ( message declared ) 
+0000002f  08           DROP 
+00000030  56           0 VAL 
+00000031  90           A:R@ ( §this declared ) 
+00000032  08           DROP ( message will be fetched! ) 
+00000033  d5           1 A:VAL 
+00000034  8b           A:PICK 
+00000035  10           R@ 
+00000036  88           A:DROP 
+00000037  0d00000000   Exception§-1574681344.table VAL ( will be modified! ) 
+0000003c  00           NOP ( will be modified! ) 
+0000003d  0d0045be0f   264127744 VAL 
+00000042  0d00000000   EXECUTE-NEW VAL ( will be modified! ) 
+00000047  00           NOP ( will be modified! ) 
+00000048  461c00       28 VAL 
+0000004b  0d00000000   MALLOC VAL ( will be modified! ) 
+00000050  00           NOP ( will be modified! ) 
+00000051  08           DROP 
+00000052  0e           DUP 
+00000053  0e           DUP ( §base0 will be fetched! ) 
+00000054  d4           2 A:VAL 
+00000055  8b           A:PICK 
+00000056  10           R@ 
+00000057  88           A:DROP 
+00000058  0d00000000   V! VAL ( will be modified! ) 
+0000005d  00           NOP ( will be modified! ) ( §this will be modified! ) 
+0000005e  88           A:DROP 
+0000005f  90           A:R@ 
+00000060  08           DROP 
+00000061  0f           OVER 
+00000062  420900       §1 0BRANCH 
+00000065  0f           OVER 
+00000066  1d           CELL+ 
+00000067  02           @ 
+00000068  52           4 VAL 
+00000069  16           + 
+0000006a  0f           OVER 
+0000006b  0f           OVER 
+0000006c  01           ! 
+0000006d  08           DROP 
+0000006e               §1 LABEL 
+0000006e  1d           CELL+ 
+0000006f  02           @ 
+00000070  0f           OVER 
+00000071  0f           OVER 
+00000072  01           ! 
+00000073  0a           NIP 
+00000074  0d00000000   RuntimeException§-1151249920.table VAL ( will be modified! ) 
+00000079  00           NOP ( will be modified! ) 
+0000007a  0f           OVER 
+0000007b  4a           12 VAL 
+0000007c  16           + 
+0000007d  01           ! 
+0000007e  0d000061bb   -1151270912 VAL 
+00000083  0f           OVER 
+00000084  461400       20 VAL 
+00000087  16           + 
+00000088  01           ! 
+00000089  0db8000000   §2 VAL 
+0000008e  0f           OVER 
+0000008f  461000       16 VAL 
+00000092  16           + 
+00000093  01           ! 
+00000094  56           0 VAL 
+00000095  0f           OVER 
+00000096  461800       24 VAL 
+00000099  16           + 
+0000009a  01           ! 
+0000009b  08           DROP ( §this will be fetched! ) 
+0000009c  10           R@ 
+0000009d  0e           DUP 
+0000009e  56           0 VAL 
+0000009f  0d00000000   V! VAL ( will be modified! ) 
+000000a4  00           NOP ( will be modified! ) 
+000000a5  56           0 VAL 
+000000a6               §break28207 LABEL ( §base0 will be fetched! ) 
+000000a6  d4           2 A:VAL 
+000000a7  8b           A:PICK 
+000000a8  10           R@ 
+000000a9  88           A:DROP 
+000000aa  0d00000000   SETVTOP VAL ( will be modified! ) 
+000000af  00           NOP ( will be modified! ) remove §this remove message remove §base0 
+000000b0  89           A:2DROP 
+000000b1  88           A:DROP 
+000000b2  08           DROP 
+000000b3               §0 LABEL 
+000000b3  3d           EXIT 
+000000b4  1000         §2 LABEL 
+000000b6  52756e74696d65457863657074696f6e " RuntimeException " 
+000000c6               
+000000c6               RuntimeException.RuntimeException§-883863040 LABEL 
+000000c6  53           3 VAL 
+000000c7  0d00000000   VALLOCATE VAL ( will be modified! ) 
+000000cc  00           NOP ( will be modified! ) 
+000000cd  90           A:R@ ( §base0 declared ) 
+000000ce  08           DROP 
+000000cf  0e           DUP 
+000000d0  52           4 VAL ( §base0 will be fetched! ) 
+000000d1  10           R@ 
+000000d2  16           + 
+000000d3  0d00000000   V! VAL ( will be modified! ) 
+000000d8  00           NOP ( will be modified! ) 
+000000d9  90           A:R@ ( cause declared ) 
+000000da  08           DROP 
+000000db  0e           DUP 
+000000dc  4e           8 VAL ( §base0 will be fetched! ) 
+000000dd  d5           1 A:VAL 
+000000de  8b           A:PICK 
+000000df  10           R@ 
+000000e0  88           A:DROP 
+000000e1  16           + 
+000000e2  0d00000000   V! VAL ( will be modified! ) 
+000000e7  00           NOP ( will be modified! ) 
+000000e8  90           A:R@ ( message declared ) 
+000000e9  08           DROP 
+000000ea  56           0 VAL 
+000000eb  90           A:R@ ( §this declared ) 
+000000ec  08           DROP ( message will be fetched! ) 
+000000ed  d5           1 A:VAL 
+000000ee  8b           A:PICK 
+000000ef  10           R@ 
+000000f0  88           A:DROP ( cause will be fetched! ) 
+000000f1  d4           2 A:VAL 
+000000f2  8b           A:PICK 
+000000f3  10           R@ 
+000000f4  88           A:DROP 
+000000f5  0d00000000   Exception§-1574681344.table VAL ( will be modified! ) 
+000000fa  00           NOP ( will be modified! ) 
+000000fb  0d00453f25   624903424 VAL 
+00000100  0d00000000   EXECUTE-NEW VAL ( will be modified! ) 
+00000105  00           NOP ( will be modified! ) 
+00000106  461c00       28 VAL 
+00000109  0d00000000   MALLOC VAL ( will be modified! ) 
+0000010e  00           NOP ( will be modified! ) 
+0000010f  08           DROP 
+00000110  0e           DUP 
+00000111  0e           DUP ( §base0 will be fetched! ) 
+00000112  d3           3 A:VAL 
+00000113  8b           A:PICK 
+00000114  10           R@ 
+00000115  88           A:DROP 
+00000116  0d00000000   V! VAL ( will be modified! ) 
+0000011b  00           NOP ( will be modified! ) ( §this will be modified! ) 
+0000011c  88           A:DROP 
+0000011d  90           A:R@ 
+0000011e  08           DROP 
+0000011f  0f           OVER 
+00000120  420900       §4 0BRANCH 
+00000123  0f           OVER 
+00000124  1d           CELL+ 
+00000125  02           @ 
+00000126  52           4 VAL 
+00000127  16           + 
+00000128  0f           OVER 
+00000129  0f           OVER 
+0000012a  01           ! 
+0000012b  08           DROP 
+0000012c               §4 LABEL 
+0000012c  1d           CELL+ 
+0000012d  02           @ 
+0000012e  0f           OVER 
+0000012f  0f           OVER 
+00000130  01           ! 
+00000131  0a           NIP 
+00000132  0d00000000   RuntimeException§-1151249920.table VAL ( will be modified! ) 
+00000137  00           NOP ( will be modified! ) 
+00000138  0f           OVER 
+00000139  4a           12 VAL 
+0000013a  16           + 
+0000013b  01           ! 
+0000013c  0d000061bb   -1151270912 VAL 
+00000141  0f           OVER 
+00000142  461400       20 VAL 
+00000145  16           + 
+00000146  01           ! 
+00000147  0db8000000   §2 VAL 
+0000014c  0f           OVER 
+0000014d  461000       16 VAL 
+00000150  16           + 
+00000151  01           ! 
+00000152  56           0 VAL 
+00000153  0f           OVER 
+00000154  461800       24 VAL 
+00000157  16           + 
+00000158  01           ! 
+00000159  08           DROP ( §this will be fetched! ) 
+0000015a  10           R@ 
+0000015b  0e           DUP 
+0000015c  56           0 VAL 
+0000015d  0d00000000   V! VAL ( will be modified! ) 
+00000162  00           NOP ( will be modified! ) 
+00000163  56           0 VAL 
+00000164               §break28208 LABEL ( §base0 will be fetched! ) 
+00000164  d3           3 A:VAL 
+00000165  8b           A:PICK 
+00000166  10           R@ 
+00000167  88           A:DROP 
+00000168  0d00000000   SETVTOP VAL ( will be modified! ) 
+0000016d  00           NOP ( will be modified! ) remove §this remove message remove cause remove §base0 
+0000016e  89           A:2DROP 
+0000016f  89           A:2DROP 
+00000170  08           DROP 
+00000171               §3 LABEL 
+00000171  3d           EXIT 
+00000172               
+00000172               RuntimeException.RuntimeException§-945597952 LABEL 
+00000172  54           2 VAL 
+00000173  0d00000000   VALLOCATE VAL ( will be modified! ) 
+00000178  00           NOP ( will be modified! ) 
+00000179  90           A:R@ ( §base0 declared ) 
+0000017a  08           DROP 
+0000017b  0e           DUP 
+0000017c  52           4 VAL ( §base0 will be fetched! ) 
+0000017d  10           R@ 
+0000017e  16           + 
+0000017f  0d00000000   V! VAL ( will be modified! ) 
+00000184  00           NOP ( will be modified! ) 
+00000185  90           A:R@ ( cause declared ) 
+00000186  08           DROP 
+00000187  56           0 VAL 
+00000188  90           A:R@ ( §this declared ) 
+00000189  08           DROP ( cause will be fetched! ) 
+0000018a  d5           1 A:VAL 
+0000018b  8b           A:PICK 
+0000018c  10           R@ 
+0000018d  88           A:DROP 
+0000018e  0d00000000   Exception§-1574681344.table VAL ( will be modified! ) 
+00000193  00           NOP ( will be modified! ) 
+00000194  0d0045a51b   463815936 VAL 
+00000199  0d00000000   EXECUTE-NEW VAL ( will be modified! ) 
+0000019e  00           NOP ( will be modified! ) 
+0000019f  461c00       28 VAL 
+000001a2  0d00000000   MALLOC VAL ( will be modified! ) 
+000001a7  00           NOP ( will be modified! ) 
+000001a8  08           DROP 
+000001a9  0e           DUP 
+000001aa  0e           DUP ( §base0 will be fetched! ) 
+000001ab  d4           2 A:VAL 
+000001ac  8b           A:PICK 
+000001ad  10           R@ 
+000001ae  88           A:DROP 
+000001af  0d00000000   V! VAL ( will be modified! ) 
+000001b4  00           NOP ( will be modified! ) ( §this will be modified! ) 
+000001b5  88           A:DROP 
+000001b6  90           A:R@ 
+000001b7  08           DROP 
+000001b8  0f           OVER 
+000001b9  420900       §6 0BRANCH 
+000001bc  0f           OVER 
+000001bd  1d           CELL+ 
+000001be  02           @ 
+000001bf  52           4 VAL 
+000001c0  16           + 
+000001c1  0f           OVER 
+000001c2  0f           OVER 
+000001c3  01           ! 
+000001c4  08           DROP 
+000001c5               §6 LABEL 
+000001c5  1d           CELL+ 
+000001c6  02           @ 
+000001c7  0f           OVER 
+000001c8  0f           OVER 
+000001c9  01           ! 
+000001ca  0a           NIP 
+000001cb  0d00000000   RuntimeException§-1151249920.table VAL ( will be modified! ) 
+000001d0  00           NOP ( will be modified! ) 
+000001d1  0f           OVER 
+000001d2  4a           12 VAL 
+000001d3  16           + 
+000001d4  01           ! 
+000001d5  0d000061bb   -1151270912 VAL 
+000001da  0f           OVER 
+000001db  461400       20 VAL 
+000001de  16           + 
+000001df  01           ! 
+000001e0  0db8000000   §2 VAL 
+000001e5  0f           OVER 
+000001e6  461000       16 VAL 
+000001e9  16           + 
+000001ea  01           ! 
+000001eb  56           0 VAL 
+000001ec  0f           OVER 
+000001ed  461800       24 VAL 
+000001f0  16           + 
+000001f1  01           ! 
+000001f2  08           DROP ( §this will be fetched! ) 
+000001f3  10           R@ 
+000001f4  0e           DUP 
+000001f5  56           0 VAL 
+000001f6  0d00000000   V! VAL ( will be modified! ) 
+000001fb  00           NOP ( will be modified! ) 
+000001fc  56           0 VAL 
+000001fd               §break28209 LABEL ( §base0 will be fetched! ) 
+000001fd  d4           2 A:VAL 
+000001fe  8b           A:PICK 
+000001ff  10           R@ 
+00000200  88           A:DROP 
+00000201  0d00000000   SETVTOP VAL ( will be modified! ) 
+00000206  00           NOP ( will be modified! ) remove §this remove cause remove §base0 
+00000207  89           A:2DROP 
+00000208  88           A:DROP 
+00000209  08           DROP 
+0000020a               §5 LABEL 
+0000020a  3d           EXIT 
+0000020b               
+0000020b               RuntimeException.RuntimeException§1000231424 LABEL 
+0000020b  55           1 VAL 
+0000020c  0d00000000   VALLOCATE VAL ( will be modified! ) 
+00000211  00           NOP ( will be modified! ) 
+00000212  90           A:R@ ( §base0 declared ) 
+00000213  08           DROP 
+00000214  56           0 VAL 
+00000215  90           A:R@ ( §this declared ) 
+00000216  08           DROP 
+00000217  0d00000000   Exception§-1574681344.table VAL ( will be modified! ) 
+0000021c  00           NOP ( will be modified! ) 
+0000021d  0d00450589   -1996143360 VAL 
+00000222  0d00000000   EXECUTE-NEW VAL ( will be modified! ) 
+00000227  00           NOP ( will be modified! ) 
+00000228  461c00       28 VAL 
+0000022b  0d00000000   MALLOC VAL ( will be modified! ) 
+00000230  00           NOP ( will be modified! ) 
+00000231  08           DROP 
+00000232  0e           DUP 
+00000233  0e           DUP ( §base0 will be fetched! ) 
+00000234  d5           1 A:VAL 
+00000235  8b           A:PICK 
+00000236  10           R@ 
+00000237  88           A:DROP 
+00000238  0d00000000   V! VAL ( will be modified! ) 
+0000023d  00           NOP ( will be modified! ) ( §this will be modified! ) 
+0000023e  88           A:DROP 
+0000023f  90           A:R@ 
+00000240  08           DROP 
+00000241  0f           OVER 
+00000242  420900       §8 0BRANCH 
+00000245  0f           OVER 
+00000246  1d           CELL+ 
+00000247  02           @ 
+00000248  52           4 VAL 
+00000249  16           + 
+0000024a  0f           OVER 
+0000024b  0f           OVER 
+0000024c  01           ! 
+0000024d  08           DROP 
+0000024e               §8 LABEL 
+0000024e  1d           CELL+ 
+0000024f  02           @ 
+00000250  0f           OVER 
+00000251  0f           OVER 
+00000252  01           ! 
+00000253  0a           NIP 
+00000254  0d00000000   RuntimeException§-1151249920.table VAL ( will be modified! ) 
+00000259  00           NOP ( will be modified! ) 
+0000025a  0f           OVER 
+0000025b  4a           12 VAL 
+0000025c  16           + 
+0000025d  01           ! 
+0000025e  0d000061bb   -1151270912 VAL 
+00000263  0f           OVER 
+00000264  461400       20 VAL 
+00000267  16           + 
+00000268  01           ! 
+00000269  0db8000000   §2 VAL 
+0000026e  0f           OVER 
+0000026f  461000       16 VAL 
+00000272  16           + 
+00000273  01           ! 
+00000274  56           0 VAL 
+00000275  0f           OVER 
+00000276  461800       24 VAL 
+00000279  16           + 
+0000027a  01           ! 
+0000027b  08           DROP ( §this will be fetched! ) 
+0000027c  10           R@ 
+0000027d  0e           DUP 
+0000027e  56           0 VAL 
+0000027f  0d00000000   V! VAL ( will be modified! ) 
+00000284  00           NOP ( will be modified! ) 
+00000285  56           0 VAL 
+00000286               §break28206 LABEL ( §base0 will be fetched! ) 
+00000286  d5           1 A:VAL 
+00000287  8b           A:PICK 
+00000288  10           R@ 
+00000289  88           A:DROP 
+0000028a  0d00000000   SETVTOP VAL ( will be modified! ) 
+0000028f  00           NOP ( will be modified! ) remove §this remove §base0 
+00000290  89           A:2DROP 
+00000291  08           DROP 
+00000292               §7 LABEL 
+00000292  3d           EXIT 
+00000293  2200         §12 LABEL 
+00000295  52756e74696d65457863657074696f6ea72d313135313234393932302e7461626c65 " RuntimeException§-1151249920.table " 
+000002b7  2100         §11 LABEL 
+000002b9  52756e74696d65457863657074696f6e2e73657269616c56657273696f6e554944 " RuntimeException.serialVersionUID " 
+000002da  1e00         §10 LABEL 
+000002dc  52756e74696d65457863657074696f6e2e5f737461746963546872656164 " RuntimeException._staticThread " 
+000002fa  2000         §9 LABEL 
+000002fc  52756e74696d65457863657074696f6e2e5f737461746963426c6f636b696e67 " RuntimeException._staticBlocking " 
+0000031c  0d00000000   ALIGN VAL ( will be modified! ) 
+00000321  00           NOP ( will be modified! ) 
+00000322  0d00000000   HERE VAL ( will be modified! ) 
+00000327  00           NOP ( will be modified! ) 
+00000328  54           2 VAL 
+00000329  0dfe020000   §9 VAL 
+0000032e  0d00000000   create VAL ( will be modified! ) 
+00000333  00           NOP ( will be modified! ) 
+00000334  55           1 VAL 
+00000335  1a           2* 
+00000336  1a           2* 
+00000337  0d00000000   ALLOT VAL ( will be modified! ) 
+0000033c  00           NOP ( will be modified! ) 
+0000033d  0d00000000   ALIGN VAL ( will be modified! ) 
+00000342  00           NOP ( will be modified! ) 
+00000343  0d00000000   HERE VAL ( will be modified! ) 
+00000348  00           NOP ( will be modified! ) 
+00000349  54           2 VAL 
+0000034a  0dde020000   §10 VAL 
+0000034f  0d00000000   create VAL ( will be modified! ) 
+00000354  00           NOP ( will be modified! ) 
+00000355  55           1 VAL 
+00000356  1a           2* 
+00000357  1a           2* 
+00000358  0d00000000   ALLOT VAL ( will be modified! ) 
+0000035d  00           NOP ( will be modified! ) 
+0000035e  0d00000000   HERE VAL ( will be modified! ) 
+00000363  00           NOP ( will be modified! ) 
+00000364  52           4 VAL 
+00000365  17           - 
+00000366  0d00000000   SALLOCATE VAL ( will be modified! ) 
+0000036b  00           NOP ( will be modified! ) 
+0000036c  0d00000000   ALIGN VAL ( will be modified! ) 
+00000371  00           NOP ( will be modified! ) 
+00000372  0d00000000   HERE VAL ( will be modified! ) 
+00000377  00           NOP ( will be modified! ) 
+00000378  4f           7 VAL 
+00000379  0dbb020000   §11 VAL 
+0000037e  0d00000000   create VAL ( will be modified! ) 
+00000383  00           NOP ( will be modified! ) 
+00000384  54           2 VAL 
+00000385  1a           2* 
+00000386  1a           2* 
+00000387  0d00000000   ALLOT VAL ( will be modified! ) 
+0000038c  00           NOP ( will be modified! ) 
+0000038d  8d00000000   HERE A:VAL ( will be modified! ) 
+00000392  80           A:NOP ( will be modified! ) 
+00000393  0d00000000   ALIGN VAL ( will be modified! ) 
+00000398  00           NOP ( will be modified! ) 
+00000399  0d00000000   HERE VAL ( will be modified! ) 
+0000039e  00           NOP ( will be modified! ) 
+0000039f  54           2 VAL 
+000003a0  0d97020000   §12 VAL 
+000003a5  0d00000000   create VAL ( will be modified! ) 
+000003aa  00           NOP ( will be modified! ) 
+000003ab  55           1 VAL 
+000003ac  1a           2* 
+000003ad  1a           2* 
+000003ae  0d00000000   ALLOT VAL ( will be modified! ) 
+000003b3  00           NOP ( will be modified! ) 
+000003b4  52           4 VAL 
+000003b5  0e           DUP 
+000003b6  1a           2* 
+000003b7  1a           2* 
+000003b8  1a           2* 
+000003b9  0d00000000   ALLOT VAL ( will be modified! ) 
+000003be  00           NOP ( will be modified! ) 
+000003bf  10           R@ 
+000003c0  01           ! 
+000003c1  9d           A:CELL+ 
+000003c2  0d005295d3   -745188864 VAL 
+000003c7  10           R@ 
+000003c8  01           ! 
+000003c9  9d           A:CELL+ 
+000003ca  0d1f000000   RuntimeException.RuntimeException§-745188864 VAL 
+000003cf  10           R@ 
+000003d0  01           ! 
+000003d1  9d           A:CELL+ 
+000003d2  0d005251cb   -883863040 VAL 
+000003d7  10           R@ 
+000003d8  01           ! 
+000003d9  9d           A:CELL+ 
+000003da  0dca000000   RuntimeException.RuntimeException§-883863040 VAL 
+000003df  10           R@ 
+000003e0  01           ! 
+000003e1  9d           A:CELL+ 
+000003e2  0d0052a3c7   -945597952 VAL 
+000003e7  10           R@ 
+000003e8  01           ! 
+000003e9  9d           A:CELL+ 
+000003ea  0d76010000   RuntimeException.RuntimeException§-945597952 VAL 
+000003ef  10           R@ 
+000003f0  01           ! 
+000003f1  9d           A:CELL+ 
+000003f2  0d00529e3b   1000231424 VAL 
+000003f7  10           R@ 
+000003f8  01           ! 
+000003f9  9d           A:CELL+ 
+000003fa  0d0f020000   RuntimeException.RuntimeException§1000231424 VAL 
+000003ff  10           R@ 
+00000400  01           ! 
+00000401  9d           A:CELL+ 
+00000402  88           A:DROP 
+00000403  3d           EXIT 
+
+instruction usage:
+load/store:		41	(8.436213991769549%)
+32-bit values:		80	(16.46090534979424%)
+16-bit values:		16	(3.292181069958848%)
+5-bit values:		55	(11.316872427983538%)
+values total:		151	(31.069958847736622%)
+arithmetic/logical:	53	(10.905349794238683%)
+relations:		0	(0.0%)
+flow control:		9	(1.8518518518518516%)
+other:			232	(47.73662551440329%)
+total:			486
+
+average bytes per instruction: 1.7962962962962963
+
+string storage in byte:	155
+unresolved references:	68
+
+Size of static code: 796
+Size of initial code: 232
+
+references:
+ffffffff	4	ALIGN
+ffffffff	5	ALLOT
+ffffffff	4	EXECUTE-NEW
+ffffffff	4	Exception§-1574681344.table
+ffffffff	6	HERE
+ffffffff	4	MALLOC
+1f	1	RuntimeException.RuntimeException§-745188864
+1f	1	RuntimeException.RuntimeException§-745188864
+ca	1	RuntimeException.RuntimeException§-883863040
+ca	1	RuntimeException.RuntimeException§-883863040
+176	1	RuntimeException.RuntimeException§-945597952
+176	1	RuntimeException.RuntimeException§-945597952
+20f	1	RuntimeException.RuntimeException§1000231424
+20f	1	RuntimeException.RuntimeException§1000231424
+ffffffff	4	RuntimeException§-1151249920.table
+ffffffff	1	SALLOCATE
+ffffffff	4	SETVTOP
+ffffffff	12	V!
+ffffffff	4	VALLOCATE
+ffffffff	4	create
+2de	1	§10
+2bb	1	§11
+297	1	§12
+b8	4	§2
+2fe	1	§9

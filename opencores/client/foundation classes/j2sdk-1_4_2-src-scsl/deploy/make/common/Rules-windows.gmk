@@ -1,0 +1,97 @@
+#
+# @(#)Rules-windows.gmk	1.13 03/01/23
+#
+# Copyright 2003 Sun Microsystems, Inc. All rights reserved.
+# SUN PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
+#
+# these are specific to Windows
+
+FILES_java = $(JDK_1_2_FILES) $(WINDOWS_FILES)
+
+JUMPPLDLL      = $(PROTO_DIR)/javawspl.dll
+PLATFORM_SRC   = $(JAVAWS_TOPDIR)/src/javaws/src/win32
+WINRESDIR      = $(BUILDDIR)/javaws/windows/resources
+
+PL_DLL_o = $(PL_DLL_c:%.cpp=$(OBJDIR)/%.o)
+
+SUBDIRS=activex
+
+all optimized debug clean::
+	@for i in $(SUBDIRS) ; do \
+	    $(ECHO) ">>>Recursively making "$$i" "$@" @ `$(DATE)` ..."; \
+	    $(CD) $$i; $(MAKE) $(MAKEOVERRIDES) $@ || exit 1; $(CD) ..; \
+	    $(ECHO) "<<<Finished Recursively making "$$i" "$@" @ `$(DATE)`."; \
+	done
+
+proto-platform:: $(JUMPPLDLL)
+
+$(GENRGS):
+	@$(MKDIR) -p $(@D)
+	$(CAT) $(FILES_GENRGS) | $(JAVAWS_SUBSTITUTE_VERSIONS) > $@
+
+$(JUMPPLDLL): $(PL_DLL_o)
+	$(LINK) /machine:I386 /DLL $(PL_DLL_o) /OUT:$(JUMPPLDLL) \
+		 user32.lib advapi32.lib ole32.lib shell32.lib
+
+$(OBJDIR)/%.o: $(PLATFORM_SRC)/native/%.cpp
+	$(MKDIR) -p $(@D)
+	$(CC) /I$(JAVAWS_BOOTDIR)/include /I$(JAVAWS_BOOTDIR)/include/win32 -c -Fo$@ $?
+
+$(ts_JUMP_EXE): $(FILES_o) FRC
+	$(LINK) $(LINK_FLAGS) $(FILES_o) \
+		/out:$(JUMP_EXE)
+	@$(MKDIR) -p $(@D)
+	@$(TOUCH) $@
+
+$(OBJDIR)/%.o: $(SHARE_SRC)/native/%.c
+	$(CC) $(C_FLAGS) -c -Fo$@ $?
+
+$(JPDA_OBJDIR)/%.o: $(SHARE_SRC)/native/%.c
+	@$(MKDIR) -p $(@D)
+	$(CC) $(C_FLAGS) -c -Fo$@ $?
+
+$(OBJDIR)/%.o: $(PLATFORM_SRC)/native/%.c
+	$(CC) $(C_FLAGS) -c -Fo$@ $?
+
+$(OBJDIR)/%.o: $(SHARE_SRC)/native/jpeg/%.c
+	$(CC) $(C_FLAGS) -c -Fo$@ $?
+
+proto-platform::
+	$(CP) -f $(JAVAWS_TOPDIR)/src/javaws/src/share/config/javaws.policy $(PROTO_DIR)
+	$(CP) -f $(RESOURCE_SRC)/Readme.html $(PROTO_DIR)/Readme.html
+ifdef I18N
+	-$(CP) -f $(README_I18N_SRC) $(PROTO_DIR)
+endif
+	$(CP) -f $(RESOURCE_SRC)/javalogo52x88.gif $(PROTO_DIR)
+	$(CP) -f $(RESOURCE_SRC)/sunlogo64x30.gif $(PROTO_DIR)
+	$(CP) -f $(AU_PATH) $(PROTO_DIR)
+	$(CP) -f $(WINRESDIR)/JavaCup.ico $(PROTO_DIR)
+
+image: $(IMAGE_DIR)
+	$(CP) -f $(PROTO_DIR)/javaws.exe \
+		 $(PROTO_DIR)/javaws.jar \
+                 $(PROTO_DIR)/javawspl.dll \
+		 $(PROTO_DIR)/JavaCup.ico \
+		 $(PROTO_DIR)/cacerts \
+                 $(PROTO_DIR)/javaws.policy \
+	         $(WINRESDIR)/javaws-license.txt \
+		 $(PROTO_DIR)/JavaWebStart.dll $(IMAGE_DIR)
+	$(CP) -Rf $(PROTO_DIR)/resources $(IMAGE_DIR)
+	$(CP) -f $(PROTO_DIR)/Readme.html $(IMAGE_DIR)/Readme.html
+ifdef I18N
+	-$(CP) -f $(README_I18N_PROTO) $(IMAGE_DIR)
+endif
+	$(CP) -f $(PROTO_DIR)/javalogo52x88.gif \
+		 $(PROTO_DIR)/sunlogo64x30.gif $(IMAGE_DIR)
+ifdef I18N
+	$(CP) -f $(I18N_JAR) $(IMAGE_DIR)
+endif
+
+$(JUMP_JAR_TAG):
+	$(TOUCH) $(JUMP_JAR_TAG)
+
+dev-platform:
+
+FRC:
+.PHONY: installer clean dev-platform image \
+proto-platform optimized debug

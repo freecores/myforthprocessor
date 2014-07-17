@@ -1,0 +1,57 @@
+#
+# @(#)FILES_java.gmk	1.7 99/05/18
+#
+FILES_java = \
+	$(TARGDIR)com/sun/tools/example/debug/bdi/AmbiguousMethodException.java \
+	$(TARGDIR)com/sun/tools/example/debug/bdi/BreakpointSpec.java \
+	$(TARGDIR)com/sun/tools/example/debug/bdi/ChildSession.java \
+	$(TARGDIR)com/sun/tools/example/debug/bdi/EvaluationException.java \
+	$(TARGDIR)com/sun/tools/example/debug/bdi/EventRequestSpec.java \
+	$(TARGDIR)com/sun/tools/example/debug/bdi/EventRequestSpecList.java \
+	$(TARGDIR)com/sun/tools/example/debug/bdi/ExceptionSpec.java \
+	$(TARGDIR)com/sun/tools/example/debug/bdi/ExecutionManager.java \
+	$(TARGDIR)com/sun/tools/example/debug/bdi/FrameIndexOutOfBoundsException.java \
+	$(TARGDIR)com/sun/tools/example/debug/bdi/InputListener.java \
+	$(TARGDIR)com/sun/tools/example/debug/bdi/JDIEventSource.java \
+	$(TARGDIR)com/sun/tools/example/debug/bdi/LineBreakpointSpec.java \
+	$(TARGDIR)com/sun/tools/example/debug/bdi/LineNotFoundException.java \
+	$(TARGDIR)com/sun/tools/example/debug/bdi/MalformedMemberNameException.java \
+	$(TARGDIR)com/sun/tools/example/debug/bdi/MethodBreakpointSpec.java \
+	$(TARGDIR)com/sun/tools/example/debug/bdi/MethodNotFoundException.java \
+	$(TARGDIR)com/sun/tools/example/debug/bdi/NoSessionException.java \
+	$(TARGDIR)com/sun/tools/example/debug/bdi/NoThreadException.java \
+	$(TARGDIR)com/sun/tools/example/debug/bdi/OutputListener.java \
+	$(TARGDIR)com/sun/tools/example/debug/bdi/ParseException.java \
+	$(TARGDIR)com/sun/tools/example/debug/bdi/PatternReferenceTypeSpec.java \
+	$(TARGDIR)com/sun/tools/example/debug/bdi/ReferenceTypeSpec.java \
+	$(TARGDIR)com/sun/tools/example/debug/bdi/Session.java \
+	$(TARGDIR)com/sun/tools/example/debug/bdi/SessionListener.java \
+	$(TARGDIR)com/sun/tools/example/debug/bdi/SourceNameReferenceTypeSpec.java \
+	$(TARGDIR)com/sun/tools/example/debug/bdi/SpecErrorEvent.java \
+	$(TARGDIR)com/sun/tools/example/debug/bdi/SpecEvent.java \
+	$(TARGDIR)com/sun/tools/example/debug/bdi/SpecListener.java \
+	$(TARGDIR)com/sun/tools/example/debug/bdi/ThreadGroupIterator.java \
+	$(TARGDIR)com/sun/tools/example/debug/bdi/ThreadInfo.java \
+	$(TARGDIR)com/sun/tools/example/debug/bdi/ThreadIterator.java \
+	$(TARGDIR)com/sun/tools/example/debug/bdi/Utils.java \
+	$(TARGDIR)com/sun/tools/example/debug/bdi/VMLaunchFailureException.java \
+	$(TARGDIR)com/sun/tools/example/debug/bdi/VMNotInterruptedException.java \
+	$(TARGDIR)com/sun/tools/example/debug/bdi/WatchpointSpec.java \
+\
+	$(TARGDIR)com/sun/tools/example/debug/event/AbstractEventSet.java \
+	$(TARGDIR)com/sun/tools/example/debug/event/AccessWatchpointEventSet.java \
+	$(TARGDIR)com/sun/tools/example/debug/event/ClassPrepareEventSet.java \
+	$(TARGDIR)com/sun/tools/example/debug/event/ClassUnloadEventSet.java \
+	$(TARGDIR)com/sun/tools/example/debug/event/ExceptionEventSet.java \
+	$(TARGDIR)com/sun/tools/example/debug/event/JDIAdapter.java \
+	$(TARGDIR)com/sun/tools/example/debug/event/JDIListener.java \
+	$(TARGDIR)com/sun/tools/example/debug/event/LocatableEventSet.java \
+	$(TARGDIR)com/sun/tools/example/debug/event/LocationTriggerEventSet.java \
+	$(TARGDIR)com/sun/tools/example/debug/event/ModificationWatchpointEventSet.java \
+	$(TARGDIR)com/sun/tools/example/debug/event/ThreadDeathEventSet.java \
+	$(TARGDIR)com/sun/tools/example/debug/event/ThreadStartEventSet.java \
+	$(TARGDIR)com/sun/tools/example/debug/event/VMDeathEventSet.java \
+	$(TARGDIR)com/sun/tools/example/debug/event/VMDisconnectEventSet.java \
+	$(TARGDIR)com/sun/tools/example/debug/event/VMStartEventSet.java \
+	$(TARGDIR)com/sun/tools/example/debug/event/WatchpointEventSet.java 
+

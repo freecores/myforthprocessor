@@ -1,0 +1,14 @@
+#
+# @(#)mapfile-vers	1.2 02/11/11
+#
+# Copyright 2002 Sun Microsystems, Inc. All rights reserved.
+# SUN PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
+#
+
+SUNWprivate_1.1 {
+   global:
+		DLL_Initialize;
+
+   local:
+           *;
+};

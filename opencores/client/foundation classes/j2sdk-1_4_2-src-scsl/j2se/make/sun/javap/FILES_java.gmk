@@ -1,0 +1,27 @@
+#
+# @(#)FILES_java.gmk	1.6 02/10/28
+#
+FILES_java = \
+	$(TARGDIR)sun/tools/javap/AttrData.java \
+	$(TARGDIR)sun/tools/javap/CPX.java \
+	$(TARGDIR)sun/tools/javap/CPX2.java \
+	$(TARGDIR)sun/tools/javap/ClassData.java \
+	$(TARGDIR)sun/tools/javap/Constants.java \
+	$(TARGDIR)sun/tools/javap/FieldData.java \
+	$(TARGDIR)sun/tools/javap/InnerClassData.java \
+	$(TARGDIR)sun/tools/javap/JavapEnvironment.java \
+	$(TARGDIR)sun/tools/javap/JavapPrinter.java \
+	$(TARGDIR)sun/tools/javap/LineNumData.java \
+	$(TARGDIR)sun/tools/javap/LocVarData.java \
+	$(TARGDIR)sun/tools/javap/Main.java \
+	$(TARGDIR)sun/tools/javap/MethodData.java \
+	$(TARGDIR)sun/tools/javap/RuntimeConstants.java \
+	$(TARGDIR)sun/tools/javap/Tables.java \
+	$(TARGDIR)sun/tools/javap/TrapData.java \
+	$(TARGDIR)sun/tools/javap/TypeSignature.java \
+	$(TARGDIR)sun/tools/javap/oldjavap/JavaP.java \
+	$(TARGDIR)sun/tools/javap/oldjavap/JavaPBinaryCode.java \
+	$(TARGDIR)sun/tools/javap/oldjavap/JavaPClassPrinter.java \
+	$(TARGDIR)sun/tools/javap/oldjavap/JavaPEnvironment.java \
+	$(TARGDIR)sun/tools/javap/oldjavap/ConstantPrinter.java	
+	

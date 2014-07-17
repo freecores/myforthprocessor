@@ -1,0 +1,523 @@
+'\" t
+.\" @(#)jar.1 1.16 00/05/12 SMI;
+.\" Copyright 2003 Sun Microsystems, Inc. All rights reserved.
+.\" Copyright 2003 Sun Microsystems, Inc. Tous droits r\351serv\351s.
+.\" `
+.TH jar 1 "2000 年 7 月 28 日"
+.SH "名前"
+jar \- Java アーカイブツール
+.\" 
+.\"  This document was created by saving an HTML file as text
+.\"  from the JavaSoft web site:
+.\" 
+.\" http://java.sun.com/products/jdk/1.2/docs/tooldocs/tools.html
+.\" 
+.\"  and adding appropriate troff macros.  Because the JavaSoft web site 
+.\"  man pages can change without notice, it may be helpful to diff
+.\"  files to identify changes other than new functionality. 
+.\" 
+.SH "形式"
+.B jar
+[ 
+.B \-C
+] [
+.B c 
+] [
+.B f 
+] [
+.B i 
+] [
+.B M 
+] [
+.B m 
+] [
+.B O 
+] [
+.B t 
+] [
+.B u 
+] [
+.B v 
+] 
+.if n.ti +5n
+[
+.BI x " file" 
+] 
+[
+.I manifest-file 
+] 
+.if t.ti +5n
+.I destination input-file
+.if n.ti +5n
+[
+.I input-files
+]
+
+.SH "機能説明"
+.IX "Java archive tool" "" "Java archive tool \(em \fLjar\fP"
+.IX "jar" "" "\fLjar\fP \(em Java archive tool"
+.B jar
+は
+Java\(tm
+アプリケーションの
+1
+つで、複数個のファイルを
+1
+個の
+JAR
+アーカイブファイルに統合します。また、
+.B jar
+は汎用的なアーカイブ作成用および圧縮用のツールでもあり、
+圧縮は
+ZIP
+または
+ZLIB
+形式で行います。ただし
+.B jar
+ツールの主な目的は、いくつかの
+Java
+アプレットやアプリケーションを
+1
+個のアーカイブに統合して簡略化することです。
+アプレットやアプリケーションのコンポーネント、たとえば
+クラスファイル、イメージ、サウンドなどを単一のアーカイブに
+まとめると、ブラウザのような
+Java
+エージェントにダウンロードするときに、一度の
+HTTP
+トランザクションで済みます。コンポーネントごとに
+新たに接続する必要がありません。
+これによりダウンロード時間が大幅に短縮できます。
+また
+.B jar
+はファイルの圧縮も行うので、ダウンロードがより高速になります。
+さらに、ファイル中の個々のエントリに対してアプレットの作成者が
+署名できるので、作成元を明確化できます。
+.B jar
+ツールの構文は、
+.BR tar (1)
+コマンドの構文とほぼ同一です。
+.B jar
+アーカイブは、圧縮されているかどうかにかかわらず、
+クラスパスエントリとして使用できます。
+.LP
+.B jar
+を使用する場合は、以下に示す
+3
+種類のファイルを入力します。
+.LP
+.RS 5
+.TP 2
+\(bu
+manifest
+ファイル
+(任意指定)
+.TP 2
+\(bu
+出力先
+\f3jar\fP
+ファイル
+.TP 2
+\(bu
+アーカイブされるファイル群
+.LP
+.RE
+標準的な使い方は次のとおりです。
+.LP
+.RS 5
+.B example% jar cf myjarfile *.class
+.RE
+.LP
+この例では、現在のディレクトリ中のすべてのクラスファイルが
+.BR myjarfile
+という名前のファイルに置かれます。
+manifest
+ファイルは
+.B jar
+ツールが自動的に生成し、常に
+.B jar
+ファイルの先頭のエントリとなります。
+デフォルトでは
+manifest
+ファイルの名前は
+.SB "META-INF/MANIFEST.INF"\f1\s0
+になります。
+manifest
+ファイルには、アーカイブに関するすべてのメタ情報が
+記録されます。
+どのように記録されるかについては、「関連項目」の「
+.I マニフェストフォーマット
+」を参照してください。
+.LP
+既存の
+manifest
+ファイルを使って新たな
+.B jar
+アーカイブを作成したいときは、
+.B \-m
+オプションを使ってその
+manifest
+ファイルを指定します。以下に例を示します。
+.LP
+.RS 5
+.B example% jar cmf myManifestFile myJarFile *.class
+.RE
+.LP
+.B cmf
+ではなく 
+.B cfm 
+を指定する場合 (つまり、
+.B m 
+オプションと
+.B f
+オプションの順番を逆にする場合)、最初に
+.SM jar 
+アーカイブ名を指定し、次に manifest ファイル名を指定する
+必要があります。
+.LP
+.RS 5
+.B example% jar cfm myJarFile myManifestFile *.class
+.RE
+.LP
+manifest は RFC822 
+.SM ASCII 
+形式を使用するため、manifest ファイルの内容は
+簡単に表示および処理できます。
+.SH "オプション"
+次のオプションをサポートします。
+.if t .TP 10
+.if n .TP 5
+.B \-C
+.B jar
+コマンドの実行中にディレクトリを変更します。次に例を示します。
+.LP
+.if t .RS 15
+.if n .RS 8
+.ft 3
+example% jar uf foo.jar \-C classes *
+.ft 1
+.RE
+.if t .TP 10
+.if n .TP 5
+.B c
+標準出力上に新規のアーカイブまたは空のアーカイブを作成します。
+.if t .TP 10
+.if n .TP 5
+.B f
+2
+つ目の引数が、処理される
+.B jar
+ファイルであることを指定します。作成
+.B \-c
+オプションで作成を行う場合には、
+2
+つ目の引数は作成する
+.B jar
+ファイルの名前
+(標準出力の代わりに使用)
+を表します。
+.B \-t
+オプションで内容の一覧表示、または
+.B \-x
+オプションで抽出を行う場合には、
+2
+つ目の引数はその対象となる
+.B jar
+ファイルの名前を表します。
+.if t .TP 10
+.if n .TP 5
+.B i
+指定された 
+.B jar
+ファイルおよび関連付けられている 
+.B jar
+ファイルのインデックス情報を生成します。次に例を示します。 
+.LP
+.if t .RS 15
+.if n .RS 8
+.ft 3
+example% jar i foo.jar
+.ft 1
+.RE
+.LP
+foo.jar に
+.SB INDEX.LIST
+ファイルが生成されます。 このファイルには、
+.B foo.jar
+の各パッケージおよび
+.B foo.jar
+の Class-Path 属性に指定されているすべての
+.B jar
+ファイルの位置情報が書き込まれています。 
+.if t .TP 10
+.if n .TP 5
+.B M
+当該エントリにマニフェストファイルを生成しません。
+.if t .TP 10
+.if n .TP 5
+.B m
+指定した既存のマニフェストファイルからマニフェスト情報を
+インクルードします。
+次に例を示します。
+.LP
+.if t .RS 15
+.if n .RS 8
+.ft 3
+example% jar cmf myManifestFile myJarFile *.class
+.ft 1
+.RE
+.LP
+.if t .RS 10
+.if n .RS 5
+マニフェストファイルには、デフォルトのマニフェストに含まれていない、
+専用の「名前-値」属性ヘッダを追加できます。このようなヘッダの
+例としては、ベンダ情報、バージョン情報、パッケージシーリング、
+および JAR に含まれるアプリケーションを実行するためのヘッダが
+あります。
+.B m
+オプションの使用例については、「Java Tutorial」の「JAR Files」節と
+「JRE 開発者向けノート」Web ページを参照してください。
+.RE
+.if t .TP 10
+.if n .TP 5
+.B O
+ZIP 圧縮を使用せずに格納します。
+.if t .TP 10
+.if n .TP 5
+.B t
+標準入力の内容の一覧を表示します。
+.if t .TP 10
+.if n .TP 5
+.B u
+ファイルを追加するか、マニフェストを変更することによって、
+既存の JAR ファイルを更新します。次に例を示します。
+.LP
+.if t .RS 15
+.if n .RS 8
+.ft 3
+.B example% jar uf foo.jar foo.class
+.ft 1
+.RE
+.LP
+.if t .RS 10
+.if n .RS 5
+この例は、ファイル
+.B foo.class
+を既存の JAR ファイル 
+.BR foo.jar
+に追加します。
+.RE
+.LP
+.if t .RS 15
+.if n .RS 8
+.ft 3
+.B example% jar umf foo.jar 
+.ft 1
+.RE
+.LP
+.if t .RS 10
+.if n .RS 5
+この例は、
+.BR foo.jar
+のマニフェストをマニフェストの情報で更新します。
+.RE
+.if t .TP 10
+.if n .TP 5
+.B v
+標準エラー出力に、詳細情報を出力します。
+.if t .TP 10
+.if n .TP 5
+.BI x " file"
+標準入力からファイルを抽出します。
+.I file
+引数は、抽出するファイルを指定します。
+引数を省略すると、
+すべてのファイルが抽出されます。
+.sp 1n
+引数に指定したファイルのどれかがディレクトリの場合、
+そのディレクトリは再帰的に処理されます。
+.SH "使用例"
+あるディレクトリ中のファイルをすべてアーカイブに追加する例を示します。
+.RS
+.\" .LP
+\f3
+.nf
+example% ls
+0.au         3.au         6.au          9.au            at_work.gif
+1.au         4.au         7.au          Animator.class  monkey.jpg
+e.au         5.au         8.au          Wave.class      spacemusic.au
+example% jar cvf bundle.jar *
+adding: 0.au
+adding: 1.au
+adding: 2.au
+adding: 3.au
+adding: 4.au
+adding: 5.au
+adding: 6.au
+adding: 7.au
+adding: 8.au
+adding: 9.au
+adding: Animator.class
+adding: Wave.class
+adding: at_work.gif
+adding: monkey.jpg
+adding: spacemusic.au
+example%
+\f1
+.fi
+.RE
+イメージ、オーディオファイル、およびクラス用のサブディレクトリが
+すでに
+HTML
+ディレクトリ中に存在している場合、
+.B jar
+を使って個々のサブディレクトリを単一の
+.B jar
+ファイルにアーカイブできます。
+.RS
+\f3
+.nf
+example% ls
+audio classes images
+example% jar cvf bundle.jar audio classes images
+adding: audio/1.au
+adding: audio/2.au
+adding: audio/3.au
+adding: audio/spacemusic.au
+adding: classes/Animator.class
+adding: classes/Wave.class
+adding: images/monkey.jpg
+adding: images/at_work.gif
+example% ls \-l
+total 142
+drwxr-xr-x   2 brown    green        512 Aug  1 22:33 audio
+-rw-r--r--   1 brown    green      68677 Aug  1 22:36 bundle.jar
+drwxr-xr-x   2 brown    green        512 Aug  1 22:26 classes
+drwxr-xr-x   2 brown    green        512 Aug  1 22:25 images
+example%
+.fi
+\f1
+.RE
+次の例では、
+.B jar
+ツールに
+.B t
+オプションを指定して\^
+.B jar
+ファイル中のエントリ名を表示できます。
+.RS
+\f3
+.nf
+example% ls
+audio bundle.jar classes images
+example% jar tf bundle.jar
+META-INF/MANIFEST.MF
+audio/1.au
+audio/2.au
+audio/3.au
+audio/spacemusic.au
+classes/Animator.class
+classes/Wave.class
+images/monkey.jpg
+images/at_work.gif
+example%
+.fi
+\f1
+.RE
+アーカイブ中の各ファイルの詳細情報、たとえばサイズや
+最新更新日付なども表示したい場合は、
+.B v
+オプションを使用します。次に例を示します。
+.RS
+\f3
+.nf
+example% jar tvf bundle.jar
+145 Thu Aug 01 22:27:00 PDT 1996 META-INF/MANIFEST.MF
+946 Thu Aug 01 22:24:22 PDT 1996 audio/1.au
+1039 Thu Aug 01 22:24:22 PDT 1996 audio/2.au
+993 Thu Aug 01 22:24:22 PDT 1996 audio/3.au
+48072 Thu Aug 01 22:24:23 PDT 1996 audio/spacemusic.au
+16711 Thu Aug 01 22:25:50 PDT 1996 classes/Animator.class
+3368 Thu Aug 01 22:26:02 PDT 1996 classes/Wave.class
+12809 Thu Aug 01 22:24:48 PDT 1996 images/monkey.jpg
+527 Thu Aug 01 22:25:20 PDT 1996 images/at_work.gif
+example%
+
+
+
+.fi
+\f1
+.RE
+.LP
+
+株取引アプリケーション (アプレット) を次の複数の
+.B jar
+ファイルにバンドルし、
+.LP
+.RS
+.B main.jar buy.jar sell.jar other.jar
+.RE
+.LP
+
+.BR main.jar 
+のマニフェストの
+.B Class-Path
+属性に次のように指定した場合、 
+.LP
+.RS
+.B Class-Path: buy.jar sell.jar other.jar
+.RE
+.LP
+.B i
+オプションを使用すれば、アプリケーションのクラスの
+ロードを高速化できます。
+.LP
+.RS
+.B
+example$ jar i main.jar
+.RE
+.LP
+.SB INDEX.LIST
+ファイルが
+.SB META-INF
+ディレクトリに追加されます。 この結果、アプリケーションのクラスローダ
+によってクラスまたはリソースの検索が行われるときに、適切な
+.B jar
+ファイルがダウンロードされます。 
+.fi
+\f1
+.RE
+.SH "属性"
+次の属性については、
+.BR attributes (5)
+のマニュアルページを参照してください。
+.sp
+.TS
+box;
+cbp-1 | cbp-1
+l | l .
+属性タイプ	属性値
+=
+使用条件	SUNWj2dev
+.TE
+.SH "関連項目"
+.BR keytool (1)
+.LP
+.TP 10
+\f2JAR Files\fP @
+http://java.sun.com/docs/books/tutorial/jar/
+.LP
+.TP 10
+\f2JRE 開発者向けノート\fP @
+http://java.sun.com/j2se/1.3/ja/runtime.html#example
+(http://java.sun.com/j2se/1.3/runtime.html#example ：英語版)
+.LP
+.TP 10
+\f2JAR ガイド\fP @
+http://java.sun.com/j2se/1.3/ja/docs/ja/guide/jar/index.html
+(http://java.sun.com/j2se/1.3/docs/guide/jar/index.html ：英語版)
+.LP
+.TP 10
+関連項目の詳細は、以下の URL 中のサーチリンクを使用して参照してください。
+http://java.sun.com/
+

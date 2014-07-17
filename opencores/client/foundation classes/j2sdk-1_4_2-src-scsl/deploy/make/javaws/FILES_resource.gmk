@@ -1,0 +1,100 @@
+#
+# @(#)FILES_resource.gmk	1.34 03/04/22
+# 
+# Copyright 2003 Sun Microsystems, Inc. All rights reserved.
+# SUN PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
+#
+
+RESOURCES = \
+	$(CLASSDESTDIR)/com/sun/javaws/resources/bAlert.gif \
+	$(CLASSDESTDIR)/com/sun/javaws/resources/bInfo.gif \
+	$(CLASSDESTDIR)/com/sun/javaws/resources/bLock.gif \
+	$(CLASSDESTDIR)/com/sun/javaws/resources/bDivider.gif \
+	$(CLASSDESTDIR)/com/sun/javaws/resources/strings.properties \
+	$(CLASSDESTDIR)/com/sun/javaws/resources/sunLogo.gif \
+	$(CLASSDESTDIR)/com/sun/javaws/resources/javaCup.gif \
+	$(CLASSDESTDIR)/com/sun/javaws/resources/defaultImage.gif \
+	$(CLASSDESTDIR)/com/sun/javaws/ui/player/resources/defaultIcon.gif \
+	$(CLASSDESTDIR)/com/sun/javaws/ui/player/resources/updateAvailable.gif \
+	$(CLASSDESTDIR)/com/sun/javaws/ui/player/resources/updateUnavailable.gif \
+	$(CLASSDESTDIR)/com/sun/javaws/ui/player/resources/online.gif \
+	$(CLASSDESTDIR)/com/sun/javaws/ui/player/resources/offline.gif \
+	$(CLASSDESTDIR)/com/sun/javaws/ui/player/resources/inCache.gif \
+	$(CLASSDESTDIR)/com/sun/javaws/ui/player/resources/notInCache.gif \
+	$(CLASSDESTDIR)/com/sun/javaws/ui/player/resources/signed.gif \
+	$(CLASSDESTDIR)/com/sun/javaws/ui/player/resources/unsigned.gif \
+	$(CLASSDESTDIR)/com/sun/javaws/ui/player/resources/netYes.gif \
+	$(CLASSDESTDIR)/com/sun/javaws/ui/player/resources/netNo.gif \
+	$(CLASSDESTDIR)/com/sun/javaws/ui/player/resources/more.gif \
+	$(CLASSDESTDIR)/com/sun/javaws/ui/player/resources/less.gif \
+	$(CLASSDESTDIR)/com/sun/javaws/ui/player/resources/launch.gif
+
+
+RESOURCES_I18N = \
+	$(I18NDESTDIR)/com/sun/javaws/resources/strings_de.properties \
+	$(I18NDESTDIR)/com/sun/javaws/resources/strings_es.properties \
+	$(I18NDESTDIR)/com/sun/javaws/resources/strings_fr.properties \
+	$(I18NDESTDIR)/com/sun/javaws/resources/strings_it.properties \
+	$(I18NDESTDIR)/com/sun/javaws/resources/strings_ja.properties \
+	$(I18NDESTDIR)/com/sun/javaws/resources/strings_ko.properties \
+	$(I18NDESTDIR)/com/sun/javaws/resources/strings_sv.properties \
+	$(I18NDESTDIR)/com/sun/javaws/resources/strings_zh_CN.properties \
+	$(I18NDESTDIR)/com/sun/javaws/resources/strings_zh_TW.properties 
+
+RESOURCES_JARDIFF_UNBUNDLED_US = \
+	$(RESOURCES_JARDIFF:$(CLASSDESTDIR)/%=$(JARDIFF_DESTDIR)/%) 
+
+RESOURCES_JARDIFF_UNBUNDLED_INT = \
+	$(RESOURCES_JARDIFF_UNBUNDLED_US) \
+	$(RESOURCES_JARDIFF_I18N_DEV:$(I18NDESTDIR)/%=$(JARDIFF_DESTDIR)/%) 
+
+RESOURCES_JARDIFF_UNBUNDLED_ALL = $(RESOURCES_JARDIFF_UNBUNDLED_INT)
+
+RESOURCES_JARDIFF = \
+	$(CLASSDESTDIR)/com/sun/javaws/jardiff/resources/strings.properties 
+
+RESOURCES_JARDIFF_I18N = \
+	$(I18NDESTDIR)/com/sun/javaws/jardiff/resources/strings_de.properties \
+	$(I18NDESTDIR)/com/sun/javaws/jardiff/resources/strings_es.properties \
+	$(I18NDESTDIR)/com/sun/javaws/jardiff/resources/strings_fr.properties \
+	$(I18NDESTDIR)/com/sun/javaws/jardiff/resources/strings_it.properties \
+	$(I18NDESTDIR)/com/sun/javaws/jardiff/resources/strings_ja.properties \
+	$(I18NDESTDIR)/com/sun/javaws/jardiff/resources/strings_ko.properties \
+	$(I18NDESTDIR)/com/sun/javaws/jardiff/resources/strings_sv.properties \
+	$(I18NDESTDIR)/com/sun/javaws/jardiff/resources/strings_zh_CN.properties \
+	$(I18NDESTDIR)/com/sun/javaws/jardiff/resources/strings_zh_TW.properties 
+
+RESOURCES_JARDIFF_I18N_DEV = \
+	$(I18NDESTDIR)/com/sun/javaws/jardiff/resources/strings_ja.properties 
+
+RESOURCES_SERVLET_US = \
+	$(SERVLET_DESTDIR)/com/sun/javaws/servlet/resources/strings.properties 
+
+RESOURCES_SERVLET_INT = \
+	$(RESOURCES_SERVLET_US) \
+	$(SERVLET_DESTDIR)/com/sun/javaws/servlet/resources/strings_ja.properties 
+
+RESOURCES_SERVLET_ALL = $(RESOURCES_SERVLET_INT)
+
+README_I18N = \
+Readme_fr.html \
+Readme_de.html \
+Readme_it.html \
+Readme_es.html \
+Readme_sv.html \
+Readme_ko.html \
+Readme_ja.html \
+Readme_zh_TW.html \
+Readme_zh_CN.html 
+
+README_I18N_SRC = $(README_I18N:%=$(JAVAWS_TOPDIR)/src/javaws/share/resources/%)
+README_I18N_PROTO = $(README_I18N:%=$(PROTO_DIR)/%)
+
+README_DEV_US = Readme.html
+README_DEV_INT= Readme_ja.html
+
+RELNOTES_I18N = \
+relnotes_ja.html 
+
+RELNOTES_I18N_SRC = $(RELNOTES_I18N:%=$(JAVAWS_TOPDIR)/src/javaws/share/resources/%)
+

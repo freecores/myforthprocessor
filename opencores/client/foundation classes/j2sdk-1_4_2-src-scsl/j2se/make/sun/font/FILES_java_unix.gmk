@@ -1,0 +1,11 @@
+#
+# @(#)FILES_java_unix.gmk	1.11 02/09/19
+#
+FILES_java = \
+	$(TARGDIR)sun/awt/font/X11TextRenderer.java \
+	$(TARGDIR)sun/awt/font/FontResolver.java \
+	$(TARGDIR)sun/awt/font/GlyphCacheOverFlowException.java \
+	$(TARGDIR)sun/awt/font/ShapingException.java \
+	$(TARGDIR)java/awt/Font.java \
+	$(TARGDIR)sun/awt/font/NativeFontWrapper.java \
+	$(TARGDIR)java/text/Bidi.java

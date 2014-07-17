@@ -1,0 +1,20 @@
+# Warning: this file was automatically generated!  Consult
+# the co-located "create-mkfiles" script to make changes.
+
+DEMO_java = \
+  $(DEMODST_SRC)SwingApplet.java \
+
+
+DEMO_class = \
+  $(DEMODST_CLASS)/SwingApplet.class \
+
+
+DEMO_dirs = \
+  $(DEMODST) \
+
+
+DEMO_other = \
+  $(DEMODST)/README.txt \
+  $(DEMODST)/SwingApplet.html \
+
+

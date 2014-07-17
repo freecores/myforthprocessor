@@ -1,0 +1,8 @@
+INTSTYLE=impact
+INFILE=E:\Xilinx\FORTHSPMC\impact.xsl
+OUTFILE=E:\Xilinx\FORTHSPMC\impact.xsl
+FAMILY=Multiple
+PART=Multiple
+WORKINGDIR=E:\Xilinx\FORTHSPMC
+LICENSE=iMPACT
+USER_INFO=iMPACT

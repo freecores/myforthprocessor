@@ -1,0 +1,55 @@
+0000000c  56           0 VAL 
+0000000d  0d00000000   lang.Math._staticBlocking VAL ( will be modified! ) 
+00000012  00           NOP ( will be modified! ) 
+00000013  01           ! 
+00000014  56           0 VAL 
+00000015  0d00000000   lang.Math._staticThread VAL ( will be modified! ) 
+0000001a  00           NOP ( will be modified! ) 
+0000001b  01           ! 
+0000001c  0d0abf0540   1074118410 VAL 
+00000021  0d6957148b   -1961601175 VAL 
+00000026  0d00000000   lang.Math.E VAL ( will be modified! ) 
+0000002b  00           NOP ( will be modified! ) 
+0000002c  90           A:R@ 
+0000002d  01           ! 
+0000002e  10           R@ 
+0000002f  88           A:DROP 
+00000030  1d           CELL+ 
+00000031  01           ! 
+00000032  0dfb210940   1074340347 VAL 
+00000037  0d182d4454   1413754136 VAL 
+0000003c  0d00000000   lang.Math.PI VAL ( will be modified! ) 
+00000041  00           NOP ( will be modified! ) 
+00000042  90           A:R@ 
+00000043  01           ! 
+00000044  10           R@ 
+00000045  88           A:DROP 
+00000046  1d           CELL+ 
+00000047  01           ! 
+00000048  3d           EXIT 
+
+instruction usage:
+load/store:		6	(20.689655172413794%)
+32-bit values:		8	(27.586206896551722%)
+16-bit values:		0	(0.0%)
+5-bit values:		2	(6.896551724137931%)
+values total:		10	(34.48275862068966%)
+arithmetic/logical:	2	(6.896551724137931%)
+relations:		0	(0.0%)
+flow control:		1	(3.4482758620689653%)
+other:			10	(34.48275862068966%)
+total:			29
+
+average bytes per instruction: 2.5172413793103448
+
+string storage in byte:	0
+unresolved references:	4
+
+Size of static code: 12
+Size of initial code: 61
+
+references:
+ffffffff	1	lang.Math.E
+ffffffff	1	lang.Math.PI
+ffffffff	1	lang.Math._staticBlocking
+ffffffff	1	lang.Math._staticThread

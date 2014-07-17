@@ -1,0 +1,9 @@
+#
+# @(#)FILES_java.gmk	1.4 02/09/19
+#
+FILES_java = \
+	$(TARGDIR)java/util/Locale.java \
+	$(TARGDIR)java/applet/Applet.java \
+	$(TARGDIR)java/applet/AppletContext.java \
+	$(TARGDIR)java/applet/AppletStub.java \
+	$(TARGDIR)java/applet/AudioClip.java 

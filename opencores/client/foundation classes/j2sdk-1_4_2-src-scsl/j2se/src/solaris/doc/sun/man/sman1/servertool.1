@@ -1,0 +1,83 @@
+<!DOCTYPE REFENTRY PUBLIC "-//Sun Microsystems//DTD DocBook V3.0-Based SolBook Subset V2.0//EN" [
+<!--ArborText, Inc., 1988-1999, v.4002-->
+<!ENTITY % javaents SYSTEM "javaman.ent">
+%javaents;
+]>
+<?Pub UDT _bookmark _target>
+<?Pub EntList minus bsol>
+<?Pub Inc>
+<refentry id="servertool-1">
+<!--@(#)servertool.1 1.1 01/03/14 SMI;-->
+<refmeta><refentrytitle>servertool</refentrytitle><manvolnum>1</manvolnum>
+<refmiscinfo class="date">23 Apr 2001</refmiscinfo>
+<refmiscinfo class="sectdesc">&man1;</refmiscinfo>
+<refmiscinfo class="software">&java-release;</refmiscinfo>
+<refmiscinfo class="arch">generic</refmiscinfo>
+<refmiscinfo class="copyright"> Copyright 2001 Sun Microsystems, Inc. All rights reserved.  Copyright 2001 Sun Microsystems, Inc. Tous droits r&eacute;serv&eacute;s.  </refmiscinfo>
+</refmeta>
+<refnamediv><indexterm><primary sortas="servertool">servertool &mdash; Java IDL Server Tool</primary></indexterm><indexterm><primary sortas="Java server tool">Java IDL Server Tool &mdash; servertool</primary></indexterm><refname>servertool</refname><refpurpose>Java IDL Server Tool</refpurpose></refnamediv>
+<refsynopsisdiv><title>&synp-tt;</title>
+<cmdsynopsis><command>servertool</command><arg choice="opt">&nbsp;<replaceable>options</replaceable></arg>
+</cmdsynopsis></refsynopsisdiv>
+<refsect1><title>&desc-tt;</title>
+<para>The Java&trade; IDL Server Tool, <command>servertool</command>, provides the ease-of-use interface for the application programmers to <command>register</command>, <command>unregister</command>, <command>startup</command>, and <command>shutdown</command> a server. In addition to these four commands, other commands are provided to obtain various statistical information about the server.</para>
+<para>When the server tool starts, enter one of the options at the <literal>servertool ></literal> prompt.</para>
+</refsect1>
+<refsect1><title>&opts-tt;</title>
+<para>The following options are supported:</para>
+<cmdsynopsis><command>register</command><arg choice="plain"><option>server</option>&nbsp;<replaceable>server-class-name</replaceable></arg><arg choice="plain"><option>applicationName</option> <replaceable>alternate-server-name</replaceable></arg><arg choice="plain"><option>classpath</option> <replaceable>classpath-to-server</replaceable></arg><arg choice="plain"><option>args</option> <replaceable>args-to-server
+</replaceable></arg><arg choice="plain"><option>vmargs</option> <replaceable>flags-to-be-passed-to-Java-VM</replaceable></arg>
+</cmdsynopsis><para><simplelist><member>Registers a new server with the Object Request Broker Daemon (<acronym>ORBD</acronym>). If the server is not already registered, it is registered and activated.</member></simplelist></para>
+<cmdsynopsis><command>unregister</command><group><arg choice="plain"><option>serverid</option>&nbsp;<replaceable>server-ID</replaceable></arg><arg choice="plain"><option>applicationName</option> <replaceable>name</replaceable></arg></group>
+</cmdsynopsis><para><simplelist><member>Unregisters a server from the <acronym>ORBD</acronym>.</member></simplelist></para>
+<cmdsynopsis><command>getserverid</command><arg choice="plain"><option>applicationName</option>&nbsp;<replaceable>name</replaceable></arg>
+</cmdsynopsis><para><simplelist><member>Returns the server id from the <acronym>ORBD</acronym> that is associated with a server.</member></simplelist></para>
+<cmdsynopsis><command>list</command>
+</cmdsynopsis><para><simplelist><member>Lists all information about all servers registered with the Object Request Broker Daemon (<acronym>ORBD</acronym>). In response to this command, the server id, server name, and the corresponding server application name for each server in the <acronym>ORBD</acronym> is retrieved and displayed to the user.</member></simplelist></para>
+<cmdsynopsis><command>listappnames</command>
+</cmdsynopsis><para><simplelist><member>Lists the application names for all servers currently registered with the <acronym>ORBD</acronym>.</member></simplelist></para>
+<cmdsynopsis><command>listactive</command>
+</cmdsynopsis><para><simplelist><member>Lists all information about all currently active servers on a machine. The active servers have been launched by the <acronym>ORBD</acronym> and are currently running. In response to this command, the server id, server name, and the corresponding server application name for each active server is retrieved and displayed to the user.</member></simplelist></para>
+<cmdsynopsis><command>locate</command><group><arg choice="plain"><option>serverid</option>&nbsp;<replaceable>server-id</replaceable></arg><arg choice="plain"><option>applicationName</option> <replaceable>name</replaceable></arg></group><arg><option>endpointType</option> <replaceable>endpointType</replaceable></arg>
+</cmdsynopsis><para><simplelist><member>Locates the endpoints (ports) of a specific type for all <acronym>ORB</acronym>s created by a registered server. If a server is not already running, it is activated. If an endpoint type is not specified, then the plain/non-protected endpoint associated with each <acronym>ORB</acronym> in a server is returned.</member></simplelist></para>
+<cmdsynopsis><command>locateperorb</command><group><arg choice="plain"><option>serverid</option>&nbsp;<replaceable>server-id</replaceable></arg><arg choice="plain"><option>applicationName</option> <replaceable>name</replaceable></arg></group><arg><option>orbid</option> <replaceable>ORB-name</replaceable></arg>
+</cmdsynopsis><para><simplelist><member>Locates all the endpoints (ports) registered by a specific <acronym>ORB</acronym> of registered server. If a server is not already running, then it is activated. If an <replaceable>orbid</replaceable> is not specified, the default value of "" is assigned to the <replaceable>orbid</replaceable>. If any <acronym>ORBs</acronym> are created with an <replaceable>orbid
+</replaceable> of empty string, all ports registered by it are returned.</member></simplelist></para>
+<cmdsynopsis><command>orblist</command><group><arg choice="plain"><option>serverid</option>&nbsp;<replaceable>server-id</replaceable></arg><arg choice="plain"><option>applicationName</option> <replaceable>name</replaceable></arg></group>
+</cmdsynopsis><para><simplelist><member>Lists the integer mapping for the <acronym>ORBId</acronym>s. An <acronym>ORBId</acronym> is the string name for the <acronym>ORB</acronym> created by the server. When a server initializes an <acronym>ORB</acronym> with a particular <acronym>ORBId</acronym>, an integer mapping for that particular <acronym>ORBId</acronym> is obtained. This integer mapping is put
+into the object key to help in locating the correct <acronym>ORB</acronym> in the server during requests on the Object Request Broker Daemon (<acronym>ORBD</acronym>). If the server is not already running, it is activated.</member></simplelist></para>
+<cmdsynopsis><command>shutdown</command><group><arg choice="plain"><option>serverid</option>&nbsp;<replaceable>server-id</replaceable></arg><arg choice="plain"><option>applicationName</option> <replaceable>name</replaceable></arg></group>
+</cmdsynopsis><para><simplelist><member>Shuts down a registered, active server. During execution of this command, the <literal>shutdown()</literal> method defined in the server application program is also invoked to shutdown the server process appropriately.</member></simplelist></para>
+<cmdsynopsis><command>startup</command><group><arg choice="plain"><option>serverid</option>&nbsp;<replaceable>server-id</replaceable></arg><arg choice="plain"><option>applicationName</option> <replaceable>name</replaceable></arg></group>
+</cmdsynopsis><para><simplelist><member>Starts up or activates a registered server. If the server is not running, this command launches the server. If the server is already running, an error message is returned to the user.</member></simplelist></para>
+<cmdsynopsis><command>help</command>
+</cmdsynopsis><para><simplelist><member>Lists all the commands available to the server through the server tool.</member></simplelist></para>
+<cmdsynopsis><command>quit</command>
+</cmdsynopsis><para><?Pub Caret><simplelist><member>Exits the server tool.</member></simplelist></para>
+</refsect1>
+<refsect1><title>&envr-tt;</title>
+<variablelist termlength="narrow"><varlistentry><term remap="15"><envar>CLASSPATH</envar> </term><listitem><para>Used to provide the system with a path to user-defined classes. Directories are separated by colons. For example: <informalexample><para><literal>.:/home/avh/classes:/usr/local/java/classes</literal> </para>
+</informalexample></para>
+</listitem></varlistentry>
+</variablelist></refsect1>
+<refsect1><title>&attr-tt;</title>
+<para>See <citerefentry><refentrytitle>attributes</refentrytitle><manvolnum>5</manvolnum></citerefentry> for a description of the following attributes:</para>
+<informaltable frame="All" orient="Port">
+<tgroup cols="2" colsep="1" rowsep="1"><colspec colnum="1" colname="col1" colwidth="1*" colsep="1" align="Left"><colspec colnum="2" colname="col2" colwidth="1*" align="Left">
+<thead>
+<row><entry colname="col1" align="center" valign="top">ATTRIBUTE TYPE</entry><entry colname="col2" align="center" valign="top">ATTRIBUTE VALUE</entry></row>
+</thead>
+<tbody>
+<row><entry>Availability</entry><entry>SUNWj3dev</entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1><title>&also-tt;</title>
+<para><citerefentry><refentrytitle>orbd</refentrytitle><manvolnum>1</manvolnum></citerefentry>, <citerefentry><refentrytitle>attributes</refentrytitle><manvolnum>5</manvolnum></citerefentry> </para>
+<para>See (or search <literal>java.sun.com</literal>) for the following:</para>
+<variablelist termlength="wholeline"><varlistentry><term remap="10"><citetitle>Setting the Classpath</citetitle> @</term><listitem><para><ulink url="http://java.sun.com/j2se/1.4/docs/tooldocs/solaris/classpath.html">http://java.sun.com/j2se/1.4/docs/tooldocs/solaris/classpath.html</ulink></para>
+</listitem></varlistentry>
+</variablelist></refsect1>
+</refentry>
+<?Pub *0000010094 0>

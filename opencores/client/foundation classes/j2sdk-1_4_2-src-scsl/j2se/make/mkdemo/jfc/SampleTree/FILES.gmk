@@ -1,0 +1,32 @@
+# Warning: this file was automatically generated!  Consult
+# the co-located "create-mkfiles" script to make changes.
+
+DEMO_java = \
+  $(DEMODST_SRC)DynamicTreeNode.java \
+  $(DEMODST_SRC)SampleData.java \
+  $(DEMODST_SRC)SampleTree.java \
+  $(DEMODST_SRC)SampleTreeCellRenderer.java \
+  $(DEMODST_SRC)SampleTreeModel.java \
+
+
+DEMO_class = \
+  $(DEMODST_CLASS)/DynamicTreeNode.class \
+  $(DEMODST_CLASS)/SampleData.class \
+  $(DEMODST_CLASS)/SampleTree.class \
+  $(DEMODST_CLASS)/SampleTreeCellRenderer.class \
+  $(DEMODST_CLASS)/SampleTreeModel.class \
+
+
+DEMO_dirs = \
+  $(DEMODST) \
+  $(DEMODST)/images \
+
+
+DEMO_other = \
+  $(DEMODST)/images/collapsed.gif \
+  $(DEMODST)/images/expanded.gif \
+  $(DEMODST)/README.txt \
+  $(DEMODST)/runnit \
+  $(DEMODST)/runnit.bat \
+
+

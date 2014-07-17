@@ -1,0 +1,5 @@
+ISRelease_	ISProductConfiguration_	WebType	WebURL	WebCabSize	OneClickCabName	OneClickHtmlName	WebLocalCachePath	EngineLocation	Win9xMsiUrl	WinNTMsiUrl	ISEngineLocation	ISEngineURL	OneClickTargetBrowser	DigitalCertificateIdNS	DigitalCertificateDBaseNS	DigitalCertificatePasswordNS	DotNetRedistLocation	DotNetRedistURL
+s72	s72	I4	S255	I4	S255	S255	S255	I4	S255	S255	I4	S255	I4	S255	S255	S255	I4	S255
+ISReleaseExtended	ISRelease_	ISProductConfiguration_
+iftw	sdk	2	CABLOCATION	0	install	install	[LocalAppDataFolder]	2	http://www.installengine.com/Msiengine20	http://www.installengine.com/Msiengine20	2	http://www.installengine.com/cert02/isengine					3	http://www.installengine.com/cert02/dotnetfx
+singleexe	sdk	0	http://	0	install	install	[LocalAppDataFolder]	1	http://www.installengine.com/Msiengine20	http://www.installengine.com/Msiengine20	2	http://www.installengine.com/cert02/isengine					3	http://www.installengine.com/cert02/dotnetfx

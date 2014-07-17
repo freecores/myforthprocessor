@@ -1,0 +1,59 @@
+#
+# @(#)Classes.gmk	1.33 03/01/23
+#
+# Copyright 2003 Sun Microsystems, Inc. All rights reserved.
+# SUN PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
+#
+
+#
+# @(#)Classes.gmk	1.33 03/01/23
+#
+# Generic makefile for building collections of classes that doesn't
+# also have to build programs or libraries.
+#
+
+all: optimized debug
+
+FILES_class = $(FILES_java:%.java=$(CLASSDESTDIR)/%.class)
+
+include $(BUILDDIR)/common/Rules.gmk
+
+DEBUG     = classes
+OPTIMIZED = classes
+
+#
+# Say you built classes into $(ALT_CLASSBINDIR) and then at the end of
+# the build you might want to copy them over to $(ALT_CLASSDESTDIR);
+# this rule takes care of that.  No one should really set these
+# variables except the bootstrap/recompile stage of the java compiler.
+#
+ifdef ALT_CLASSBINDIR
+
+# By default post-processing is copying.  Suppose you want to build
+# a jar file then set ALT_CLASSES_DISPOSITION to '../../dest/nameof.jar'
+# before including this file.
+ifndef ALT_CLASSES_DISPOSITION
+ALT_CLASSES_DISPOSITION = copy-classes
+endif
+
+OPTIMIZED += $(ALT_CLASSES_DISPOSITION)
+DEBUG     += $(ALT_CLASSES_DISPOSITION)
+
+copy-classes: 
+ifneq ($(ALT_CLASSBINDIR), $(ALT_CLASSDESTDIR))
+	@if [ -s $(TMPDIR)/.classes.list ]; then \
+	  $(ECHO) "Copying $(ALT_CLASSBINDIR)..."; \
+	  $(ECHO) "($(CD) $(ALT_CLASSBINDIR); $(TAR) cf - .) | \
+			($(CD) $(ALT_CLASSDESTDIR); $(TAR) xf -)"; \
+	  ($(CD) $(ALT_CLASSBINDIR); $(TAR) cf - .) | \
+			($(CD) $(ALT_CLASSDESTDIR); $(TAR) xf -); \
+	fi
+else # ALT_CLASSBINDIR
+	@if [ -s $(TMPDIR)/.classes.list ]; then \
+	  $(ECHO) "Copy source and destination are the same: $(ALT_CLASSBINDIR) -- Copy skipped..."; \
+	fi
+endif # ALT_CLASSBINDIR
+
+.PHONY: copy-classes
+endif # ALT_CLASSBINDIR
+

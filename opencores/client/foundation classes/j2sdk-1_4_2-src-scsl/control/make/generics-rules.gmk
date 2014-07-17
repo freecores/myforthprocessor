@@ -1,0 +1,75 @@
+#
+# Copyright 2003 Sun Microsystems, Inc. All rights reserved.
+# SUN PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
+#
+
+#
+# @(#)generics-rules.gmk	1.17 03/04/18
+
+################################################################
+# GENERICS TARGETS
+################################################################
+#
+# Note: the generics build sets the MAKEFLAG variable to "-w" which
+#       messes up both SolarisMake and NMake builds used later.
+#
+
+generics: generics-sanity generics-build generics-verify
+
+# The generated java files are generated as a set, so instead of
+# setting the GENERICS variable to that list of files, set it to
+# the .PHONY target that generates the set of files.
+GENERICS  = generics
+
+# put the generated generics in their own place in OUTPUTDIR
+GENERICS_OUTPUTDIR = $(ABS_OUTPUTDIR)/generics
+
+GENERICS_BUILD_TARGETS = all
+GENERICS_BUILD_ARGUMENTS = ALT_J2SE_TOPDIR=$(J2SE_TOPDIR) ALT_OUTPUTDIR=$(GENERICS_OUTPUTDIR)
+
+generics: generics-build
+generics-build:
+	if [ -r $(GENERICS_TOPDIR)/make/Makefile ]; then \
+	  ( $(CD) $(GENERICS_TOPDIR)/make; $(MAKE) $(GENERICS_BUILD_TARGETS) $(GENERICS_BUILD_ARGUMENTS) ); \
+	fi
+
+generics-verify:
+	if [ -r $(GENERICS_TOPDIR)/make/Makefile ]; then \
+	  ( $(CD) $(GENERICS_TOPDIR)/make; $(MAKE) verify $(GENERICS_BUILD_ARGUMENTS) ; ); \
+	fi
+
+generics-sync:
+	if [ -r $(GENERICS_TOPDIR)/make/Makefile ]; then \
+	  ( $(CD) $(GENERICS_TOPDIR)/make; $(MAKE) gensync $(GENERICS_BUILD_ARGUMENTS) ; ); \
+	fi
+
+generics-clobber:
+	if [ -r $(GENERICS_TOPDIR)/make/Makefile ]; then \
+	  ( $(CD) $(GENERICS_TOPDIR)/make; $(MAKE) clobber $(GENERICS_BUILD_ARGUMENTS) ; ); \
+	fi
+
+# curently there is no sanity test for the generics build.
+generics-sanity::
+	@$(TRUE)		
+
+generics-bringover:
+	@if [ -d $(GENERICS_TOPDIR)/Codemgr_wsdata ]; then \
+	  $(BRINGOVER) -p $(GENERICS_MASTER) -w $(GENERICS_TOPDIR) $(GENERICS_SOURCE) ; \
+	else \
+	  $(BRINGOVER) -C -q -p $(GENERICS_MASTER) -w $(GENERICS_TOPDIR) $(GENERICS_SOURCE) ; \
+	fi
+
+######################################
+# Rules for making the generics source
+######################################
+
+GENERICS_SOURCE_BUNDLE_NAME = generics-$(JDK_UNDERSCORE_VERSION)-$(MILESTONE)-src-$(BUILD_NUMBER)-$(BUNDLE_DATE).zip
+
+generics-source: $(ABS_SRC_BUNDLEDIR) 
+	if [ -r $(GENERICS_TOPDIR)/make/Makefile ]; then \
+	  ( $(CD) $(TOPDIR) ; \
+	    $(FIND) $(subst $(TOPDIR)/,,$(GENERICS_SOURCE_DIRS)) -name SCCS -prune -o -print | \
+	    $(ZIPEXE) -q@ $(ABS_SRC_BUNDLEDIR)/$(GENERICS_SOURCE_BUNDLE_NAME) ); \
+	fi
+
+.PHONY: generics generics-build generics-verify generics-clobber generics-sanity generics-bringover

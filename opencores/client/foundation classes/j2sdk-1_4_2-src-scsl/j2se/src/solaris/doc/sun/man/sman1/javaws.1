@@ -1,0 +1,110 @@
+<!DOCTYPE REFENTRY PUBLIC "-//Sun Microsystems//DTD DocBook V3.0-Based SolBook Subset V2.0//EN" [
+<!--ArborText, Inc., 1988-1999, v.4002-->
+<!ENTITY % javaents SYSTEM "javaman.ent">
+%javaents;
+]>
+<?Pub UDT _bookmark _target>
+<?Pub Inc>
+<refentry id="javaws">
+<!--@(#)javaws.1  02/03/25 SMI;-->
+<refmeta><refentrytitle>javaws</refentrytitle><manvolnum>1</manvolnum>
+<refmiscinfo class="date">25 Feb 2003</refmiscinfo>
+<refmiscinfo class="sectdesc">&man1;</refmiscinfo>
+<refmiscinfo class="software">&java-release;</refmiscinfo>
+<refmiscinfo class="arch">generic</refmiscinfo>
+<refmiscinfo class="copyright"> Copyright 2003 Sun Microsystems, Inc. All
+rights reserved.  Copyright 2003 Sun Microsystems, Inc. Tous droits r&eacute;serv&eacute;s.
+</refmiscinfo>
+</refmeta>
+<refnamediv><refname>javaws</refname><refpurpose>Java Web Start command launcher
+</refpurpose></refnamediv>
+<refsynopsisdiv><title>&synp-tt;</title>
+<cmdsynopsis><command>javaws</command>
+</cmdsynopsis>
+<cmdsynopsis><command>javaws</command><arg choice="opt">options</arg>
+</cmdsynopsis>
+<cmdsynopsis><command>javaws</command><arg choice="opt">options</arg>&nbsp;<?Pub Caret1>
+<replaceable>URL</replaceable>
+</cmdsynopsis></refsynopsisdiv>
+<refsect1><title>PARAMETERS</title>
+<para>Options may be in any order. For a discussion of a specific option,
+see OPTIONS below.</para>
+<varlistentry><term remap="15">options</term><listitem><para>Command-line
+options. See OPTIONS below.</para>
+</listitem></varlistentry>
+<varlistentry><term remap="15">URL</term><listitem><para>Uniform Resource
+Locator (URL) of the JNLP (Java Network Launching Protocol) file.</para>
+</listitem></varlistentry>
+</refsect1>
+<refsect1><title>&desc-tt;</title>
+<indexterm id="native2ascii-1-indx-1"><primary sortas="native to ASCII converter">
+native to ASCII converter &mdash; native2ascii</primary></indexterm><indexterm
+id="native2ascii-1-indx-2"><primary sortas="native2ascii">native2ascii &mdash;
+native to ASCII converter</primary></indexterm><para>The <command>javaws</command>command
+launches Java Web Start, which is the reference implementation of the Java
+Network Launching Protocol (JNLP).  Java Web Start launches Java application/applets
+hosted on a network.</para>
+<para>Without any options <command>javaws</command> will launch the Java Web
+Start application manager, which users can launch applications/applet or configure
+Java Web Start.</para>
+<para>If an URL specifying a JNLP (Java Network Launching Protocol) file is
+specified, <command>javaws</command> will launch the Java application/applet
+specified in the JNLP file.</para>
+</refsect1>
+<refsect1><title>OPTIONS</title>
+<para>The <command>javaws</command> launcher has a set of options that are
+supported in the current release.  However, the options may be removed in
+a future release.  All <option>X</option> options are non-standard and subject
+to change.</para>
+<variablelist termlength="wholeline">
+<varlistentry><term><option>offline</option> </term><listitem><para>Runs Java
+Web Start in offline mode.</para>
+</listitem></varlistentry>
+<varlistentry><term><option>uninstall</option><replaceable> &lt;URL></replaceable></term>
+<listitem><para>Removes a specific application/applet indicated by the URL
+to the JNLP file from the user's cache. If <replaceable>&lt;URL></replaceable>
+is not specified, the entire cache is removed.  Java Web Start will exit after
+the command is completed.</para>
+</listitem></varlistentry>
+<varlistentry><term><option>updateVersions</option></term><listitem><para>
+Updates the Java Web Start configuration file based on the current machine's
+settings.  Java Web Start will exit after the command is completed.</para>
+</listitem></varlistentry>
+<varlistentry><term><option>Xclearcache</option></term><listitem><para>Clears
+the user's cache.  Java Web Start will exit after the command is completed.
+</para>
+</listitem></varlistentry>
+<varlistentry><term><option>Xnosplash</option></term><listitem><para>Disable
+the display of the initial splash screen.</para>
+</listitem></varlistentry>
+</variablelist></refsect1>
+<refsect1><title>FILES</title>
+<variablelist>
+<varlistentry><term><filename>$HOME/.java/.deployment/deployment.properties
+</filename></term><listitem><para>System configuration file for Java Deployment
+Products</para>
+</listitem></varlistentry>
+<varlistentry><term><filename>$HOME/.mailcap</filename></term><listitem><para>
+User's mailcap file to specify helper applications for Netscape/Mozilla Browser
+</para>
+</listitem></varlistentry>
+<varlistentry><term><filename>$HOME/.mime.types</filename></term><listitem>
+<para>User's mimetype file to specify mimetypes supported in Netscape/Mozilla
+Browser </para>
+</listitem></varlistentry>
+<varlistentry><term><filename>/etc/mailcap</filename></term><listitem><para>
+System mailcap file to specify helper applications for Netscape/Mozilla Browser
+</para>
+</listitem></varlistentry>
+<varlistentry><term><filename>/etc/mime.types</filename></term><listitem>
+<para>System mimetype file to specify mimetypes supported in Netscape/Mozilla
+Browser</para>
+</listitem></varlistentry>
+</variablelist></refsect1>
+<refsect1><title>NOTES</title>
+<varlistentry><term><citetitle>The Java Web Start Product Pages</citetitle>
+@</term><listitem><para><ulink url="http://java.sun.com/products/javawebstart"></ulink>http://java.sun.com/products/javawebstart 
+</para>
+</listitem></varlistentry>
+</refsect1>
+</refentry>

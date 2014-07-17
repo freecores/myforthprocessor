@@ -1,0 +1,25 @@
+#
+# @(#)FILES_java.gmk	1.4 02/09/19
+#
+FILES_java = \
+	$(TARGDIR)com/sun/jndi/toolkit/corba/CorbaUtils.java \
+	$(TARGDIR)com/sun/jndi/toolkit/ctx/AtomicContext.java \
+	$(TARGDIR)com/sun/jndi/toolkit/ctx/AtomicDirContext.java \
+	$(TARGDIR)com/sun/jndi/toolkit/ctx/ComponentContext.java \
+	$(TARGDIR)com/sun/jndi/toolkit/ctx/ComponentDirContext.java \
+	$(TARGDIR)com/sun/jndi/toolkit/ctx/Continuation.java \
+	$(TARGDIR)com/sun/jndi/toolkit/ctx/HeadTail.java \
+	$(TARGDIR)com/sun/jndi/toolkit/ctx/PartialCompositeContext.java \
+	$(TARGDIR)com/sun/jndi/toolkit/ctx/PartialCompositeDirContext.java \
+	$(TARGDIR)com/sun/jndi/toolkit/ctx/StringHeadTail.java \
+	$(TARGDIR)com/sun/jndi/toolkit/dir/AttrFilter.java \
+	$(TARGDIR)com/sun/jndi/toolkit/dir/ContainmentFilter.java \
+	$(TARGDIR)com/sun/jndi/toolkit/dir/ContextEnumerator.java \
+	$(TARGDIR)com/sun/jndi/toolkit/dir/DirSearch.java \
+	$(TARGDIR)com/sun/jndi/toolkit/dir/HierMemDirCtx.java \
+	$(TARGDIR)com/sun/jndi/toolkit/dir/LazySearchEnumerationImpl.java \
+	$(TARGDIR)com/sun/jndi/toolkit/dir/SearchFilter.java \
+	$(TARGDIR)com/sun/jndi/toolkit/url/GenericURLContext.java \
+	$(TARGDIR)com/sun/jndi/toolkit/url/GenericURLDirContext.java \
+	$(TARGDIR)com/sun/jndi/toolkit/url/Uri.java \
+	$(TARGDIR)com/sun/jndi/toolkit/url/UrlUtil.java

@@ -1,0 +1,11 @@
+[Setup Hooks]
+hook1=hook1
+
+; jinstall.exe will be executed.
+[hook1]
+run=%EXTRACT_DIR%\jinstall.exe #HTTP_SERVER_XML#/jinstall_javaws-#JAVAWS_VERSION_FOR_FILE##JAVAWS_RT_PARAM#.xml
+
+; Version number and signature of INF file.
+[Version]
+signature="$CHICAGO$"
+AdvancedINF=2.0

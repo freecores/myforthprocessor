@@ -1,0 +1,15 @@
+#
+# @(#)FILES_c.gmk	1.17 02/04/22
+#
+
+FILES_c = \
+        DatagramChannelImpl.c \
+        DatagramDispatcher.c \
+	FileChannelImpl.c \
+	FileDispatcher.c \
+	IOUtil.c \
+        MappedByteBuffer.c \
+	Net.c \
+	ServerSocketChannelImpl.c \
+	SocketChannelImpl.c \
+	SocketDispatcher.c

@@ -1,0 +1,70 @@
+00000008  0d0000e0bf   -1075838976 VAL 
+0000000d  56           0 VAL 
+0000000e  0d0000f8bf   -1074266112 VAL 
+00000013  56           0 VAL 
+00000014  0000000000   FATAN2 NOP will be modified! 
+00000019  00           NOP will be modified! 
+0000001a  0000000000   F. NOP will be modified! 
+0000001f  00           NOP will be modified! 
+00000020  0000000000   CR NOP will be modified! 
+00000025  00           NOP will be modified! 
+00000026  0d3333fb3f   1073427251 VAL 
+0000002b  0d34333333   858993460 VAL 
+00000030  0000000000   FLN NOP will be modified! 
+00000035  00           NOP will be modified! 
+00000036  0000000000   FE. NOP will be modified! 
+0000003b  00           NOP will be modified! 
+0000003c  0000000000   CR NOP will be modified! 
+00000041  00           NOP will be modified! 
+00000042  0d3333fb3f   1073427251 VAL 
+00000047  0d34333333   858993460 VAL 
+0000004c  0000000000   FSIN NOP will be modified! 
+00000051  00           NOP will be modified! 
+00000052  0000000000   F. NOP will be modified! 
+00000057  00           NOP will be modified! 
+00000058  0000000000   CR NOP will be modified! 
+0000005d  00           NOP will be modified! 
+0000005e  0d3333fb3f   1073427251 VAL 
+00000063  0d34333333   858993460 VAL 
+00000068  0000000000   FEXP NOP will be modified! 
+0000006d  00           NOP will be modified! 
+0000006e  0000000000   F. NOP will be modified! 
+00000073  00           NOP will be modified! 
+00000074  0000000000   CR NOP will be modified! 
+00000079  00           NOP will be modified! 
+0000007a  0d3333fb3f   1073427251 VAL 
+0000007f  0d34333333   858993460 VAL 
+00000084  0000000000   FCOS NOP will be modified! 
+00000089  00           NOP will be modified! 
+0000008a  0000000000   FE. NOP will be modified! 
+0000008f  00           NOP will be modified! 
+00000090  3d           EXIT 
+
+instruction usage:
+load/store:		0	(0.0%)
+32-bit values:		10	(24.390243902439025%)
+16-bit values:		0	(0.0%)
+5-bit values:		2	(4.878048780487805%)
+arithmetic/logical:	0	(0.0%)
+relations:		0	(0.0%)
+fow control:		1	(2.4390243902439024%)
+other:			28	(68.29268292682927%)
+total:			41
+
+average bytes per instruction: 3.5121951219512195
+
+string storage in byte:	0
+unresolved references:	14
+
+Size of static code: 7
+Size of initial code: 137
+
+references:
+ffffffff	4	CR
+ffffffff	3	F.
+ffffffff	1	FATAN2
+ffffffff	1	FCOS
+ffffffff	2	FE.
+ffffffff	1	FEXP
+ffffffff	1	FLN
+ffffffff	1	FSIN

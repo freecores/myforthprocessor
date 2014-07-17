@@ -1,0 +1,317 @@
+#
+# @(#)Rules.gmk	1.17 03/04/22
+#
+# Copyright 2003 Sun Microsystems, Inc. All rights reserved.
+# SUN PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
+#
+
+# Makefile shared for windows and unix'es
+
+optimized::
+	$(MAKE) $(OPTIMIZED) VARIANT=OPT
+
+debug::
+	$(MAKE) VARIANT=DBG JPDA=JWSJNL $(DEBUG)
+
+jump: $(OUTPUTDIR) $(CLASSDESTDIR) jumpexe $(ts_JUMP_JAR) $(I18N_JAR) $(ts_JNLP_API_JAR) proto-platform
+
+include $(BUILDDIR)/common/Rules-$(PLATFORM).gmk
+
+# Strings
+COPYRIGHT      = "Copyright (c) 2001-2002 Sun Microsystems, Inc. All Rights Reserved"
+JAVADOC_WIN    = "JNLP API Reference 1.0"
+JAVADOC_DOC    = $(JAVADOC_WIN)
+
+# Platform specific java files should be defined in the variable
+# PLATFORM_FILES
+
+# Java files for javaws.jar (all files)
+FILES_class = $(FILES_java:%.java=$(CLASSDESTDIR)/%.class)
+GENSRC = $(FILES_GENSRC:%_pre.java=$(GENSRCDIR)/%.java)
+
+CONVERT_CMD = s/\#\#RELEASE\#\#/$(RELEASE)/g
+
+# Resources
+ifdef I18N
+RESOURCES_JARDIFF_UNBUNDLED=$(RESOURCES_JARDIFF_UNBUNDLED_INT)
+RESOURCES_SERVLET=$(RESOURCES_SERVLET_INT)
+README_DEV=$(README_DEV_INT)
+else
+RESOURCES_JARDIFF_UNBUNDLED=$(RESOURCES_JARDIFF_UNBUNDLED_US)
+RESOURCES_SERVLET=$(RESOURCES_SERVLET_US)
+README_DEV=$(README_DEV_US)
+endif
+
+# Splash screen resources:
+SPLASH_RESOURCES = resources
+MSG_RESOURCES = resources
+
+ifdef I18N
+SPLASH_FILES = \
+	$(PROTO_DIR)/$(SPLASH_RESOURCES)/splash.jpg \
+	$(PROTO_DIR)/$(SPLASH_RESOURCES)/miniSplash.jpg \
+	$(PROTO_DIR)/$(SPLASH_RESOURCES)/copyright.jpg 
+MSG_FILES = \
+	$(PROTO_DIR)/$(MSG_RESOURCES)/messages.properties \
+        $(PROTO_DIR)/$(MSG_RESOURCES)/messages_zh_TW.properties \
+        $(PROTO_DIR)/$(MSG_RESOURCES)/messages_de.properties \
+        $(PROTO_DIR)/$(MSG_RESOURCES)/messages_es.properties \
+        $(PROTO_DIR)/$(MSG_RESOURCES)/messages_fr.properties \
+        $(PROTO_DIR)/$(MSG_RESOURCES)/messages_it.properties \
+        $(PROTO_DIR)/$(MSG_RESOURCES)/messages_ja.properties \
+        $(PROTO_DIR)/$(MSG_RESOURCES)/messages_ko.properties \
+        $(PROTO_DIR)/$(MSG_RESOURCES)/messages_sv.properties \
+        $(PROTO_DIR)/$(MSG_RESOURCES)/messages_zh_CN.properties
+else
+SPLASH_FILES = \
+	$(PROTO_DIR)/$(SPLASH_RESOURCES)/splash.jpg \
+	$(PROTO_DIR)/$(SPLASH_RESOURCES)/miniSplash.jpg \
+	$(PROTO_DIR)/$(SPLASH_RESOURCES)/copyright.jpg
+MSG_FILES = \
+	$(PROTO_DIR)/$(MSG_RESOURCES)/messages.properties
+endif
+
+
+# Java files for JNLP API jar file
+FILES_java_jnlp_api = $(JNLP_API_FILES)
+FILES_class_jnlp_api  = $(FILES_java_jnlp_api:%.java=$(CLASSDESTDIR)/%.class)
+FILES_class_jardiff  = $(JARDIFF_FILES:%.java=$(JARDIFF_DESTDIR)/%.class)
+#FILES_class2_jnlp_api = $(FILES_java_jnlp_api:%.java=%.class)
+
+# Java files for servlets
+FILES_java_servlet = $(SERVLET_FILES)
+FILES_class_servlet = $(FILES_java_servlet:%.java=$(SERVLET_DESTDIR)/%.class)
+
+# Files for executables
+FILES_less2_o = $(FILES_less2_c:%.c=$(OBJDIR)/%.o)
+JPEG_o = $(JPEG_c:%.c=$(OBJDIR)/%.o)
+
+ifdef JPDA
+   LAUNCHER_o = $(JPDA_OBJDIR)/launcher.o
+   JPDA_o     = $(JPDA_OBJDIR)/jpda.o
+else
+   LAUNCHER_o = $(OBJDIR)/launcher.o
+   JPDA_o     =
+endif
+FILES_o = $(LAUNCHER_o) $(JPDA_o) $(FILES_less2_o) $(JPEG_o)
+
+CLASSES_ALL = $(FILES_class)
+
+RESOURCES_ALL = $(RESOURCES) $(RESOURCES_I18N) $(RESOURCES_SERVLET) $(RESOURCES_JARDIFF) $(RESOURCES_JARDIFF_I18N)
+
+$(OUTPUTDIR) $(SERVLET_DESTDIR) $(JARDIFF_DESTDIR) $(PROTO_DIR) $(OBJDIR) $(JPDA_OBJDIR) $(CLASSDESTDIR) $(JAVADOCDIR) $(DEVBUNDLEDIR) $(I18NDESTDIR) $(IMAGE_DIR) $(BUNDLE_DIR) $(SAMBUNDLEDIR) $(GENHDIR)::
+	$(MKDIR) -p $@
+
+$(SERVLET_DESTDIR)/%.class: $(SHARE_SRC)/classes/%.java
+	$(JAVAC) -classpath "$(SERVLET_CLASSPATH)" -d $(SERVLET_DESTDIR) $?
+
+$(SERVLET_DESTDIR)/%.properties: $(SHARE_SRC)/classes/%.properties
+	@$(MKDIR) -p $(@D)
+	$(CP) -f $? $@
+
+$(JARDIFF_DESTDIR)/%.class: $(SHARE_SRC)/classes/%.java
+	$(JAVAC) $(JDEBUG_OPTION) -classpath "$(JAVAC_CLASSPATH)" -d $(JARDIFF_DESTDIR) $?
+
+$(GENSRCDIR)/%.java: $(SHARE_SRC)/classes/%_pre.java
+	@$(MKDIR) -p $(@D)
+	$(SED) $(CONVERT_CMD) $? > $@
+
+$(CLASSDESTDIR)/%.class: $(SHARE_SRC)/classes/%.java
+	$(JAVAC_CMD) $?
+
+$(CLASSDESTDIR)/%.class: $(PLATFORM_SRC)/classes/%.java
+	$(JAVAC_CMD) $?
+
+$(CLASSDESTDIR)/%.class: $(UNIX_SHARE_SRC)/classes/%.java
+	$(JAVAC_CMD) $?
+
+$(JARDIFF_DESTDIR)/%.properties: $(SHARE_SRC)/classes/%.properties
+	@$(MKDIR) -p $(@D)
+	$(CP) -f $? $@
+
+$(CLASSDESTDIR)/%.properties: $(SHARE_SRC)/classes/%.properties
+	@$(MKDIR) -p $(@D)
+	@$(RM) $@
+	$(SED) $(CONVERT_CMD) $? > $@
+
+$(I18NDESTDIR)/%.properties: $(SHARE_SRC)/classes/%.properties
+	@$(MKDIR) -p $(@D)
+	@$(RM) $@
+	$(SED) $(CONVERT_CMD) $? > $@
+
+$(PROTO_DIR)/$(SPLASH_RESOURCES)/%.jpg: $(SHARE_SRC)/splash/%.jpg
+	@$(MKDIR) -p $(@D)
+	$(CP) -f $? $@
+	$(CHMOD) a+rw $@
+
+$(PROTO_DIR)/$(MSG_RESOURCES)/%.properties: $(SHARE_SRC)/native/%.properties
+	@$(MKDIR) -p $(@D)
+	$(CP) -f $? $@
+	$(CHMOD) a+rw $@
+
+$(PROTO_DIR)/cacerts: $(SHARE_SRC)/config/cacerts
+	@$(MKDIR) -p $(@D)
+	$(CP) -f $? $@
+	$(CHMOD) a+rw $@
+
+$(CLASSDESTDIR)/%.jpg: $(SHARE_SRC)/classes/%.jpg
+	@$(MKDIR) -p $(@D)
+	$(CP) -f $? $@
+
+$(CLASSDESTDIR)/%.gif: $(SHARE_SRC)/classes/%.gif
+	@$(MKDIR) -p $(@D)
+	$(CP) -f $? $@
+
+$(GENH):
+	@$(MKDIR) -p $(@D)
+	$(CAT) $(FILES_GENH) | $(JAVAWS_SUBSTITUTE_VERSIONS) > $@
+	$(ECHO) "#define $(JAVAWSNAMEVAR) \"$(JAVAWSNAME) $(RELEASE)\"" >> $@
+
+aubundle: $(BUNDLE_DIR)
+	$(CP) -f $(AU_PATH) $(BUNDLE_DIR)
+
+# Note: ts_JUMP_EXE is defined in TSfile.gmk
+jumpexe: $(OBJDIR) $(JPDA_OBJDIR) $(PROTO_DIR) $(GENH) $(GENRGS) $(FILES_o) $(ts_JUMP_EXE) $(PROTO_DIR)/cacerts $(SPLASH_FILES) $(MSG_FILES)
+
+$(ts_JNLP_API_JAR): $(FILES_class_jnlp_api) FRC
+	@$(MKDIR) -p $(CLASSDESTDIR) $(PROTO_DIR)
+	$(JAR) cf $(JNLP_API_JAR) -C $(CLASSDESTDIR) javax/jnlp/
+	@$(MKDIR) -p $(@D)
+	@$(TOUCH) $@
+
+$(ts_JUMP_JAR): $(GENSRC) $(RESOURCES_ALL) $(CLASSES_ALL) FRC
+	$(JAR) cf $(JUMP_JAR) -C $(CLASSDESTDIR) javax/jnlp -C $(CLASSDESTDIR) com/sun/javaws -C $(CLASSDESTDIR) com/sun/jnlp
+	$(JAR) uf0 $(JUMP_JAR) -C $(RESOURCE_SRC) COPYRIGHT
+	$(ECHO) $(BUILD_ID) > $(OUTPUTDIR)/build.id
+	$(JAR) fu $(JUMP_JAR) -C $(OUTPUTDIR) build.id
+	$(RM) $(OUTPUTDIR)/build.id
+	$(TOUCH) $(JUMP_JAR_TAG)
+	@$(MKDIR) -p $(@D)
+	@$(TOUCH) $@
+
+$(I18N_JAR): $(I18NDESTDIR) $(RESOURCES_I18N)
+	$(JAR) cf $(I18N_JAR) -C $(I18NDESTDIR) .
+
+force-jardiff-resources:
+	$(RM) -r $(RESOURCES_JARDIFF_UNBUNDLED_ALL)
+
+$(JARDIFF_JAR): $(JARDIFF_DESTDIR) $(FILES_class_jardiff) force-jardiff-resources $(RESOURCES_JARDIFF_UNBUNDLED)
+	$(ECHO) 'Main-Class:' com.sun.javaws.jardiff.JarDiff > $(TMPDIR)/jardiff.manifest
+	$(JAR) cfm $(JARDIFF_JAR) $(TMPDIR)/jardiff.manifest -C $(JARDIFF_DESTDIR) .
+	$(RM) $(TMPDIR)/jardiff.manifest
+
+servlet: $(SERVLET_JAR)
+
+force-servlet-resources:
+	$(RM) -r $(RESOURCES_SERVLET_ALL)
+
+# Generate jnlp-servlets.jar file
+$(SERVLET_JAR): $(SERVLET_DESTDIR) $(PROTO_DIR) force-servlet-resources $(RESOURCES_SERVLET) $(FILES_class_servlet);
+	$(JAR) cf $(SERVLET_JAR)  -C $(SERVLET_DESTDIR) .
+
+# Generates javadoc for the JNLP API
+apidoc: $(DEVBUNDLEDIR) $(JAVADOCDIR) $(ts_JNLP_API_JAR)
+ifndef I18N
+	$(JAVADOC) -classpath $(CLASSDESTDIR) \
+	           -sourcepath $(SHARE_SRC)/classes \
+                   -d $(JAVADOCDIR)  \
+		   -version \
+		   -windowtitle $(JAVADOC_WIN) \
+		   -doctitle $(JAVADOC_DOC) \
+                   -bottom $(COPYRIGHT) \
+	           -nohelp \
+                   -nodeprecatedlist \
+                   javax.jnlp
+else
+	($(CD) $(JAVADOCDIR); $(RM) -r *) ; \
+	($(CD) $(JAVADOCSRC); \
+	$(TAR) cvf - `$(FIND) . -name SCCS -prune -o -type f -print`) | \
+	($(CD) $(JAVADOCDIR); $(TAR) xvf -)
+endif
+
+README_I18N_LOWER=$(subst R,r,$(README_I18N))
+# Build 
+docbundle: $(BUNDLE_DIR) $(PROTO_DIR)
+	$(CP) -f $(RESOURCE_SRC)/Readme.html $(PROTO_DIR)/readme.html
+	for file in $(README_I18N_SRC) ; do \
+	   fname=`$(BASENAME) $$file`; \
+	   lname=$(PROTO_DIR)/`$(ECHO) $$fname | $(SED) s/R/r/`; \
+	   $(ECHO) "Copying "$$file" to "$$lname; \
+	   $(CP) -f $$file $$lname; \
+	done
+	$(CP) -f $(RESOURCE_SRC)/splash.gif $(PROTO_DIR)
+	$(CP) -f $(RESOURCE_SRC)/miniSplash.jpg $(PROTO_DIR)
+	$(CP) -f $(RESOURCE_SRC)/relnotes.html $(PROTO_DIR)
+	-$(CP) -f $(RELNOTES_I18N_SRC) $(PROTO_DIR)
+	$(CP) -f $(RESOURCE_SRC)/javalogo52x88.gif $(PROTO_DIR)
+	$(CP) -f $(RESOURCE_SRC)/sunlogo64x30.gif $(PROTO_DIR)
+	($(CD) $(PROTO_DIR); $(ZIP) doc.zip \
+	splash.gif \
+	miniSplash.jpg \
+	sunlogo64x30.gif \
+	javalogo52x88.gif \
+	readme.html $(README_I18N_LOWER) \
+	relnotes.html $(RELNOTES_I18N))
+	$(MV) -f $(PROTO_DIR)/doc.zip $(BUNDLE_DIR)/$(DOC_BUNDLE_NAME)
+
+stage-demos:
+	$(RM) -r $(SAMBUNDLEDIR)
+	$(MKDIR) -p $(SAMBUNDLEDIR)
+	($(CD) $(DEMO_SRC); $(TAR) cf - `$(FIND) . -name SCCS -prune -o -type f -print`) | ($(CD) $(SAMBUNDLEDIR); $(TAR) xvf -)
+
+$(SAMPLES_ZIP):
+	$(CD) $(SAMBUNDLEDIR); $(ZIP) -r $(SAMPLES_ZIP) $(SAMPLES)
+
+# Builds developer's bundlels
+dev: $(BUNDLE_DIR) $(CLASSDESTDIR) $(DEVBUNDLEDIR) $(SAMBUNDLEDIR) $(GENSRC) $(ts_JNLP_API_JAR) $(JARDIFF_JAR) $(SERVLET_JAR) apidoc dev-platform stage-demos $(SAMPLES_ZIP);
+	$(CP) $(SAMBUNDLEDIR)/$(SAMPLES_ZIP) $(BUNDLE_DIR)
+	$(CP) $(JNLP_API_JAR) $(DEVBUNDLEDIR)
+	$(CP) $(JARDIFF_JAR) $(DEVBUNDLEDIR)
+	$(CP) $(SERVLET_JAR) $(DEVBUNDLEDIR)
+ifeq ($(I18N),1)
+	$(RM) $(DEVBUNDLEDIR)/Readme_ja.html
+	$(CP) $(RESOURCE_SRC)/$(README_DEV) $(DEVBUNDLEDIR)/Readme_ja.html
+else
+	$(RM) $(DEVBUNDLEDIR)/readme.html
+	$(CP) $(RESOURCE_SRC)/$(README_DEV) $(DEVBUNDLEDIR)/readme.html
+endif
+	$(RM) $(DEVBUNDLEDIR)/javalogo52x88.gif
+	$(CP) $(RESOURCE_SRC)/javalogo52x88.gif $(DEVBUNDLEDIR)
+	$(RM) $(DEVBUNDLEDIR)/sunlogo64x30.gif
+	$(CP) $(RESOURCE_SRC)/sunlogo64x30.gif $(DEVBUNDLEDIR)
+	($(CD) $(DEVBUNDLEDIR); $(ZIP) -r $(ZIPDASHY) javaws-dev.zip *)
+	$(CP) -f $(DEVBUNDLEDIR)/javaws-dev.zip $(PROTO_DIR)
+	$(MV) $(DEVBUNDLEDIR)/javaws-dev.zip $(BUNDLE_DIR)/$(DEV_BUNDLE_NAME)
+
+# Unix specific rules
+ifneq ($(PLATFORM),windows)
+PL_SO_o = $(PL_SO_c:%.cpp=$(OBJDIR)/%.o)
+
+$(ts_JUMP_EXE): $(FILES_o) FRC
+	$(CC) $(LINK_FLAGS) $(FILES_o) $(LIBS) -o $(JUMP_EXE)
+	@$(MKDIR) -p $(@D)
+	@$(TOUCH) $@
+
+$(JUMPPLSO): $(PL_SO_o)
+	$(LD) -r -o $(JUMPPLSO) $(PL_SO_o)
+
+$(OBJDIR)/%.o: $(SHARE_SRC)/native/%.c
+	$(CC) $(C_FLAGS) $? -c -o $@
+
+$(JPDA_OBJDIR)/%.o: $(SHARE_SRC)/native/%.c
+	$(CC) $(C_FLAGS) $? -c -o $@
+
+$(OBJDIR)/%.o: $(MD_SRC)/native/%.c
+	$(CC) $(C_FLAGS) $? -c -o $@
+
+$(OBJDIR)/%.o: $(MD_SRC)/native/%.cpp
+	$(CPP) $(CC_FLAGS) $? -c -o $@
+
+$(OBJDIR)/%.o: $(SHARE_SRC)/native/jpeg/%.c
+	$(CC) $(C_FLAGS) $? -c -o $@
+endif
+
+FRC:
+.PHONY: resources jclasses jumpexe force-jardiff-resources \
+	force-servlet-resources servlet apidoc docbundle stage-demos dev \
+	optimized debug jumpexe jumpexe_g

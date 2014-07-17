@@ -1,0 +1,147 @@
+'\" t
+.\" @(#)servertool.1 1.20 01/03/10 SMI;
+.\" Copyright 2003 Sun Microsystems, Inc. All rights reserved.
+.\" Copyright 2003 Sun Microsystems, Inc. Tous droits riservis.
+.\" 
+.TH servertool 1 "2001 年 11 月 30 日"
+.SH "名前"
+servertool - The Java(TM) IDL Server Tool
+.LP
+.B servertool は、アプリケーション開発者がサーバの登録、登録解除、起動、停止を行うための使いやすいインタフェースを提供します。
+.SH "形式"
+.B servertool
+.LP
+Java IDL Server Tool が起動します。
+.BR 
+\f3"servertool >"\fP
+プロンプトに以下のオプションのうち 1 つを入力してください。
+.SH "機能説明"
+Java(TM) IDL Server Tool 
+.BR (servertool) は、アプリケーション開発者が
+サーバの登録 (register)、登録解除 (unregister)、起動 (startup)、停止 (shutdown) を行うための使いやすいインタフェースを提供します。これらの 4 つのコマンドのほかに、サーバに関するさまざまな統計情報を取得するためのコマンドも用意されています。
+.SH "オプション"
+.TP
+.B register  -server  <server class name>
+.B \-applicationName <alternate server name>
+.B \-classpath <classpath to server> 
+.B \-args <args to server>
+.B \-vmargs <flags to be passed 
+.B to Java VM>
+.RS
+.LP
+Object Request Broker Daemon (ORBD) に新しいサーバを登録します。
+サーバがまだ登録されてない場合は、登録と起動が行われます。
+.RE
+.TP
+.B unregister [ -serverid <server id >
+| \-applicationName <name> ]
+.RS
+.LP
+ORBD からサーバの登録を解除します。
+.RE
+.TP
+.B getserverid [ -applicationName <name> ]
+サーバに関連付けられた ORBD からサーバ ID を返します。
+.TP
+.B list 
+.br
+Object Request Broker Daemon (ORBD) に登録されているすべて
+のサーバのすべての情報を一覧で示します。このコマンドを実行す
+ると、ORBD 内の各サーバのサーバ ID、サーバ名、対応するサーバ
+アプリケーション名が取り出され、ユーザに表示されます。
+.TP
+.B listappnames
+ORBD に現在登録されているすべてのサーバのアプリケーション名
+を一覧で示します。
+.TP
+.B listactive
+マシン上のすべての現アクティブサーバのすべて
+に関する情報を一覧で示します。アクティブサーバとは、ORBD によって
+起動され、現在稼動しているサーバのことです。このコマンドを実
+行すると、各アクティブサーバのサーバ ID、サーバ名、および対
+応するサーバアプリケーション名が取り出され、ユーザに表示されます。
+.TP
+.B locate [ -serverid <server id> | -applicationName <name> ]
+.B [-endpointType <endpointType> ]
+.RS
+.LP
+登録されているサーバによって作成されたすべての ORB の特定のタイプ
+のエンドポイント (ポート) を特定します。サーバがまだ稼動していな
+い場合は、起動されます。エンドポイントタイプが指定されないと、サ
+ーバ内の各 ORB に関連したプレーン/非保護の 
+エンドポイントが返されます。
+.RE
+.TP
+.B locateperorb [ -serverid <server id> | -application Name <name> ]
+.B [-orbid <ORB name> ]
+.RS
+.LP
+登録されているサーバの特定の ORB によって登録されたすべてのエンド
+ポイント (ポート) を特定します。サーバがまだ動作していない場合は、
+起動されます。
+.BR orbid
+が指定されないと、デフォルト値である "" が
+.BR orbid
+に割り当てられます。空の文字列の
+.BR orbid
+を使用して ORB が作成されると、それによって登録されているす
+べてのポートが返されます。
+.RE
+.TP
+.B orblist [ -serverid <server id> | 
+.B \-applicationName <name> ]
+.RS
+.LP
+ORBId の整数マッピングを一覧で示します。ORBId は、そのサーバによって
+作成された ORB の文字列名です。サーバが特定の ORBId を使用し
+て ORB を初期化する場合、その特定の ORBId の整数マッピングが取得され
+ます。Object Request Broker Daemon (ORBD) における要求でサーバ
+内の正しい ORB を特定しやすいように、この整数マッピングはオブジ
+ェクトキー内に配置されます。サーバがまだ稼動していない場合は、起
+動されます。
+.RE
+.TP
+.B shutdown [ \-serverid <server id> \(br 
+.B \-applicationName <name> ]
+.RS
+.LP
+登録されているアクティブサーバを停止します。このコマンドの実行時に
+は、サーバプロセスを適切に停止するために、サーバアプリケーション
+プログラム内で定義されている
+.BR shutdown() 
+メソッドも呼び出されます。
+.RE
+.TP
+.B startup [ -serverid <server id> | 
+.B -applicationName <name> ]
+.RS
+.LP
+登録されているサーバを起動または有効化します。サーバが稼動していな
+い場合、このコマンドはサーバを起動します。サーバが既に稼動して
+いる場合は、エラーメッセージがユーザに返されます。
+.RE
+.TP
+.B help
+.br
+このサーバツールを使用してサーバに対して実行できるすべての
+コマンドを一覧表示します。
+.TP
+.B quit 
+.br
+このサーバツールを終了します。
+.RE
+.TP 15
+.BI \-J " option"
+.I option
+を Java 仮想マシンに渡します。ここで、
+.I option
+は、Java アプリケーション起動プログラム java(1) のマニュアルページで
+説明されているオプションの 1 つです。たとえば、
+.I \-J-Xms48m
+は、起動時に使用するメモリを 48M バイトに設定します。
+.B \-J
+が基本にする仮想マシンにオプションを渡すことは、共通の規約です。
+.SH "環境"
+.LP
+.SS "関連項目"
+.BR orbd

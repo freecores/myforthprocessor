@@ -1,0 +1,18 @@
+#
+# @(#)FILES_java.gmk	1.23 02/09/19
+#
+FILES_java = \
+	$(TARGDIR)sun/audio/AudioData.java \
+	$(TARGDIR)sun/audio/AudioDataStream.java \
+	$(TARGDIR)sun/audio/AudioDevice.java \
+	$(TARGDIR)sun/audio/AudioPlayer.java \
+	$(TARGDIR)sun/audio/AudioStream.java \
+	$(TARGDIR)sun/audio/AudioStreamSequence.java \
+	$(TARGDIR)sun/audio/ContinuousAudioDataStream.java \
+	$(TARGDIR)sun/audio/InvalidAudioFormatException.java \
+	$(TARGDIR)sun/audio/AudioSecurity.java \
+	$(TARGDIR)sun/audio/AudioSecurityAction.java \
+	$(TARGDIR)sun/audio/AudioSecurityActionException.java \
+	$(TARGDIR)sun/audio/AudioSecurityExceptionAction.java \
+	$(TARGDIR)sun/audio/AudioTranslatorStream.java \
+	$(TARGDIR)sun/audio/NativeAudioStream.java

@@ -1,0 +1,369 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+#include "config.h"
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Japanese resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_JPN)
+#ifdef _WIN32
+LANGUAGE LANG_JAPANESE, SUBLANG_DEFAULT
+#pragma code_page(932)
+#endif //_WIN32
+#include "resource-int_ja.rc"
+#endif    // Japanese resources
+/////////////////////////////////////////////////////////////////////////////
+
+/////////////////////////////////////////////////////////////////////////////
+// Chinese (P.R.C.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+#ifdef _WIN32
+LANGUAGE LANG_CHINESE, SUBLANG_CHINESE_SIMPLIFIED
+#pragma code_page(936)
+#endif //_WIN32
+#include "resource-int_zh_CN.rc"
+#endif    // Chinese (P.R.C.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+/////////////////////////////////////////////////////////////////////////////
+// Korean resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_KOR)
+#ifdef _WIN32
+LANGUAGE LANG_KOREAN, SUBLANG_DEFAULT
+#pragma code_page(949)
+#endif //_WIN32
+#include "resource-int_ko.rc"
+#endif    // Korean resources
+/////////////////////////////////////////////////////////////////////////////
+
+/////////////////////////////////////////////////////////////////////////////
+// Chinese (Taiwan) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHT)
+#ifdef _WIN32
+LANGUAGE LANG_CHINESE, SUBLANG_CHINESE_TRADITIONAL
+#pragma code_page(950)
+#endif //_WIN32
+#include "resource-int_zh_TW.rc"
+#endif    // Chinese (Taiwan) resources
+/////////////////////////////////////////////////////////////////////////////
+
+/////////////////////////////////////////////////////////////////////////////
+// German (Germany) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
+#ifdef _WIN32
+LANGUAGE LANG_GERMAN, SUBLANG_NEUTRAL
+#pragma code_page(1252)
+#endif //_WIN32
+#include "resource-int_de.rc"
+#endif    // German (Germany) resources
+/////////////////////////////////////////////////////////////////////////////
+
+/////////////////////////////////////////////////////////////////////////////
+// Spanish (Castilian) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ESP)
+#ifdef _WIN32
+LANGUAGE LANG_SPANISH, SUBLANG_NEUTRAL
+#pragma code_page(1252)
+#endif //_WIN32
+#include "resource-int_es.rc"
+#endif    // Spanish (Castilian) resources
+/////////////////////////////////////////////////////////////////////////////
+
+/////////////////////////////////////////////////////////////////////////////
+// French (France) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_FRA)
+#ifdef _WIN32
+LANGUAGE LANG_FRENCH, SUBLANG_NEUTRAL
+#pragma code_page(1252)
+#endif //_WIN32
+#include "resource-int_fr.rc"
+#endif    // French (France) resources
+/////////////////////////////////////////////////////////////////////////////
+
+/////////////////////////////////////////////////////////////////////////////
+// Italian (Italy) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ITA)
+#ifdef _WIN32
+LANGUAGE LANG_ITALIAN, SUBLANG_NEUTRAL
+#pragma code_page(1252)
+#endif //_WIN32
+#include "resource-int_it.rc"
+#endif    // Italian (Italy) resources
+/////////////////////////////////////////////////////////////////////////////
+
+/////////////////////////////////////////////////////////////////////////////
+// Swedish resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_SVE)
+#ifdef _WIN32
+LANGUAGE LANG_SWEDISH, SUBLANG_NEUTRAL
+#pragma code_page(1252)
+#endif //_WIN32
+#include "resource-int_sv.rc"
+#endif    // Swedish resources
+/////////////////////////////////////////////////////////////////////////////
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_LICENSE DIALOG DISCARDABLE  0, 0, 246, 125
+STYLE DS_CONTROL | DS_CENTER | WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+    ICON            IDI_ICON2,-1,0,1,20,20
+    LTEXT           "license text\r\ntwo lines",IDC_LICTEXT,30,0,216,16
+    EDITTEXT        IDC_EDIT1,0,24,246,100,ES_MULTILINE | ES_READONLY | 
+                    WS_VSCROLL
+END
+
+IDD_DIR DIALOG DISCARDABLE  0, 0, 246, 125
+STYLE DS_CONTROL | DS_CENTER | WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_DIR,12,43,180,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "Browse...",IDC_BROWSE,193,43,50,14
+    LTEXT           "text description\r\ntwo lines\r\nthree lines",
+                    IDC_INTROTEXT,23,0,204,26
+    ICON            IDI_ICON2,-1,0,0,20,20
+    LTEXT           "Static",IDC_SELDIRTEXT,0,33,190,8
+    LTEXT           "Space required: 128k",IDC_SPACEREQUIRED,0,97,97,8
+    LTEXT           "Space available on drive: 2234000k",IDC_SPACEAVAILABLE,
+                    0,86,131,8
+    // CHANGED FOR 1.2
+    CONTROL         "Create shortcuts for all users",IDC_CHECK1,"Button",
+                    BS_AUTOCHECKBOX | NOT WS_VISIBLE | WS_TABSTOP,12,64,231,
+                    10
+END
+
+IDD_INST DIALOG DISCARDABLE  0, 0, 260, 159
+STYLE DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+FONT 8, "MS Sans Serif"
+BEGIN
+    PUSHBUTTON      "Next >",IDOK,203,139,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,7,139,50,14
+    CONTROL         "",-1,"Static",SS_ETCHEDHORZ,7,134,246,1
+    CONTROL         "",IDC_CHILDRECT,"Static",SS_BLACKRECT | NOT WS_VISIBLE,
+                    7,6,246,125
+    PUSHBUTTON      "< Back",IDC_BACK,151,139,50,14
+    LTEXT           "Nullsoft Install System v1.0j",IDC_INSTVER,60,143,86,8,
+                    NOT WS_VISIBLE
+END
+
+IDD_INSTFILES DIALOG DISCARDABLE  0, 0, 246, 125
+STYLE DS_CONTROL | DS_CENTER | WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "Progress2",IDC_PROGRESS1,"msctls_progress32",WS_BORDER,
+                    24,10,221,11
+    LTEXT           "Install progress:",IDC_PROGRESSTEXT,24,0,79,8
+    LISTBOX         IDC_LIST1,0,23,245,101,LBS_NOINTEGRALHEIGHT | LBS_NOSEL | 
+                    WS_VSCROLL | WS_TABSTOP
+    ICON            IDI_ICON2,IDC_STATIC,0,0,20,20
+END
+
+IDD_UNINST DIALOG DISCARDABLE  0, 0, 246, 125
+STYLE DS_CONTROL | DS_CENTER | WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+    ICON            IDI_ICON2,IDC_STATIC,0,1,20,20
+    LTEXT           "",IDC_UNINSTTEXT,30,0,216,20
+    LTEXT           "Uninstalling from:",IDC_STATIC,0,31,54,8
+    EDITTEXT        IDC_EDIT1,55,29,190,12,ES_AUTOHSCROLL | ES_READONLY
+END
+
+IDD_DIR1 DIALOG DISCARDABLE  0, 0, 246, 127
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_DIR,10,55,180,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "Browse...",IDC_BROWSE,195,55,50,14
+    LTEXT           "text description\r\ntwo lines",IDC_INTROTEXT,25,2,204,
+                    16
+    ICON            IDI_ICON2,-1,0,0,20,20
+    LTEXT           "Static",IDC_SELDIRTEXT,0,45,245,10
+    DEFPUSHBUTTON   "Ok",IDC_OK,140,110,50,14
+    PUSHBUTTON      "Cancel",IDC_CANCEL,195,110,50,14
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_INST, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 253
+        TOPMARGIN, 6
+        BOTTOMMARGIN, 153
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "#include ""config.h""\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_ICON2               ICON    DISCARDABLE     "nullsoft.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_BITMAP1             BITMAP  DISCARDABLE     "bitmap1.bmp"
+IDB_BITMAP2             BITMAP  DISCARDABLE     "bitmap2.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    JAVAWS_TEST             "This is only a test."
+    JAVAWS_NS_COPYRIGHT     "NSIS Copyright (C) 2000 Nullsoft, Inc."
+    JAVAWS_ERROR_RESOURCE   "Error loading resource."
+    JAVAWS_ERROR_RESOURCE_CAPTION "Installer Error"
+    JAVAWS_ERROR_OPENSELF   "Error opening self."
+    JAVAWS_ERROR_GCAPTION   "Nullsoft Install System Error"
+    JAVAWS_ERROR_READCRC    "Error reading CRC from installer file."
+    JAVAWS_ERROR_READDATA   "Error reading data from installer file."
+    JAVAWS_ERROR_CRC        "CRC check on installer failed.  Please try downloading this installer again."
+    JAVAWS_ERROR_TOOSHORT   "Error: Install datablock too short."
+    JAVAWS_ERROR_FINDDATA   "Error finding install data."
+    JAVAWS_STATUS_OUTDIR    "Output directory: %1"
+    JAVAWS_STATUS_SKIPPED   "Skipped: %1"
+    JAVAWS_ERROR_OPENWRITE  "Error opening file for writing: %1\r\nHit abort to abort installation, retry to retry writing the file, or ignore to skip this file."
+    JAVAWS_ERROR_ABORTWRITE "Aborted when couldn't write file: %1"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    JAVAWS_STATUS_EXTRACT   "Extract: %1"
+    JAVAWS_STATUS_EXECUTE   "Execute: %1"
+    JAVAWS_STATUS_CREATESHORTCUT "Created shortcut: %1"
+    JAVAWS_STATUS_DELETEFILE "Delete file: %1"
+    JAVAWS_STATUS_ABORTED   "Aborted on user abort: %1"
+    JAVAWS_STATUS_REMOVEDIR "Remove directory: %1"
+    JAVAWS_ERROR_INSTCORRUPT "Installer corrupted."
+    JAVAWS_MESSAGE_UNINSTALL "%1 Uninstall"
+    JAVAWS_MESSAGE_SETUP    "%1 Setup"
+    JAVAWS_MESSAGE_SELECTDIR "Select install directory"
+    JAVAWS_MESSAGE_LICENSE  "License Agreement"
+    JAVAWS_MESSAGE_INSTOPT  "Installation Options"
+    JAVAWS_MESSAGE_INSTDIR  "Installation Directory"
+    JAVAWS_MESSAGE_INSTFILES "Installing Files"
+    JAVAWS_MESSAGE_SETUP2   "%1 Setup: %2"
+    JAVAWS_MESSAGE_CONFIRM  "Confirmation"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    JAVAWS_MESSAGE_UNINSTFILES "Uninstalling Files"
+    JAVAWS_MESSAGE_UNINSTALL2 "%1 Uninstall: %2"
+    JAVAWS_MESSAGE_SELECTDIR2 "Select the directory to install %1 in:"
+    JAVAWS_MESSAGE_SELECTDIR3 "Select a directory:"
+    JAVAWS_MESSAGE_SPACEREQ "Space required: %1!d! KB"
+    JAVAWS_MESSAGE_SPACEAVAIL "Space available: %1!d! KB"
+    JAVAWS_MESSAGE_SELECTCOMPS "Select components to install:"
+    JAVAWS_MESSAGE_CUSTOMTYPE "Custom"
+    JAVAWS_MESSAGE_REQDCOMPS "Required components"
+    JAVAWS_STATUS_CREATEUNINST "Creating uninstaller"
+    JAVAWS_MESSAGE_UNINSTPROGRESS "Uninstall progress:"
+    JAVAWS_ERROR_STRINGTABLE "Warning: localized text not found."
+    JAVAWS_STATUS_MAKEDIR   "Make directory: %1"
+    JAVAWS_STATUS_REGDLL    "Registered DLL: %1"
+    JAVAWS_STATUS_UNREGDLL  "Unregistered DLL:"
+    JAVAWS_ERROR_REGDLL     "Error registering DLL.\r\nDllRegisterServer not found in %1."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    JAVAWS_ERROR_REGDLLU    "Error registering DLL.\r\nCould not load %1."
+    JAVAWS_ERROR_OLEINIT    "Error registering DLL: %1.\r\nCould not initialize OLE."
+    JAVAWS_MESSAGE_REBOOT   "You must shut down and restart your computer before running Java Web Start.\r\nDo you wish to restart your computer now?"
+    JAVAWS_ERROR_PRIVALUE   "Privilege lookup error."
+    JAVAWS_ERROR_OPENTOKEN  "Error opening process token."
+    JAVAWS_ERROR_ADJUSTTOKEN "Error adjusting token privileges."
+    JAVAWS_ERROR_EXITWINDOWS 
+                            "There was an error restarting.\r\nPlease shut down and restart your computer using the Start menu."
+    JAVAWS_MESSAGE_INSTPROG "Install progress:"
+    JAVAWS_DECLINE          "Decline"
+    JAVAWS_ACCEPT           "Accept"
+    JAVAWS_NEXT             "Next >"
+    JAVAWS_BACK             "< Back"
+    JAVAWS_CANCEL           "Cancel"
+    JAVAWS_MESSAGE_JRE      "Setup was unable to detect a usable Java 2 Runtime Environment."
+    JAVAWS_MESSAGE_JRE2     "Do you wish to install version %1 of the Java 2 Runtime Environment?"
+    JAVAWS_MESSAGE_NEWERVERSION 
+                            "Setup has detected that you are attempting to replace Java Web Start %1 with Java Web Start %2.  Are you sure you wish to do this?"
+    // Following is NEW FOR 1.2 -sbohne
+    JAVAWS_ERROR_PRIVILEGE  "Setup has detected that you are not a member of the Administrators or Power Users group.  It is highly recommended that you allow an Administrator or Power User to install this software.  Click Ok to exit or Cancel to ignore this warning."
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+

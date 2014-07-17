@@ -1,0 +1,253 @@
+#!/bin/sh
+
+#     
+# @(#)sfx2sh	1.23 03/01/07
+# 
+# Copyright 2002 Sun Microsystems, Inc. All rights reserved.
+# SUN PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
+#
+
+#
+# Tom Rodriguez
+#
+# Convert a self-extracting zip file into a shell script that requires
+# the LICENSE be read.
+#
+#
+# Usage:
+#	 % sfx2sh <SFX_FILE> <LICENSE_FILE> <OUTPUT_FILE> <NODOTVERSION> <EXTRACT_ROOTDIR> <PACKED_JARS> <JAVAWS_BIN> <IMAGE_DIR> <LIBTHREAD_LOCATION>
+# IMAGE_DIR is required to compute the disk space requirments,
+# which is SIZE(IMAGE_DIR) + SIZE(INSTALL_IMAGE)  which should be sufficient for unpack
+# when the INSTALL_IMAGE is deleted right after the zip extraction 
+# LIBTHREAD_LOCATION is optional
+#
+
+PATH=/usr/bin:/bin
+data_file=$1
+license_file=$2
+out_file=$3
+tmp_file=/tmp/install.bin.$$
+javahome=`basename $5`
+
+#Compute the disk space
+_jre_image_disk_space=`du -sk $5 | cut -f1`
+_data_file_size=`du -sk $1 | cut -f1`
+diskSpaceRequired=`expr $_jre_image_disk_space + $_data_file_size`
+
+
+# emit the beginning of the script
+cat - > $tmp_file <<'EOF'
+#!/bin/sh
+PATH=/usr/bin:/bin
+EOF
+
+echo "NODOT_VERSION=$4" >> $tmp_file
+echo "javahome=$javahome" >> $tmp_file
+echo "PACKED_JARS=\"$6\"" >> $tmp_file
+echo "LINUX_RPM=$7" >> $tmp_file
+echo "JAVAWS_BIN=$8" >> $tmp_file
+echo "libthread_path=$9" >> $tmp_file
+echo 'localinstall=$1' >> $tmp_file
+echo "diskSpaceRequired=$diskSpaceRequired" >> $tmp_file
+echo "MIME_TYPE=application/x-java-jnlp-file" >> $tmp_file
+
+if [ x$license_file != "x" ] ; then
+
+    # emit the code the show the license file
+    echo 'more <<"EOF"' >> $tmp_file
+    cat $license_file >> $tmp_file
+    echo EOF >> $tmp_file
+
+    # emit the script to ask if they agree to the license
+    cat - >> $tmp_file <<'EOF'
+agreed=
+while [ x$agreed = x ]; do
+    echo
+    echo "Do you agree to the above license terms? [yes or no] "
+    read reply leftover
+    case $reply in
+	y* | Y*)
+	    agreed=1;;
+	n* | N*)
+    echo "If you don't agree to the license you can't install this software";
+    exit 1;;
+    esac
+done
+EOF
+fi
+cat - >> $tmp_file <<'EOF'
+outname=install.sfx.$$
+diskSpace=`df -k . | tail -1 | awk '{if ( $4 ~ /%/) { print $3 } else { print $4 } }'`
+if [ $diskSpace -lt $diskSpaceRequired ]; then
+    printf "You will need atleast %s kBytes of Disk Free\n" $diskSpaceRequired
+    printf "Please free up the required Disk Space and try again\n"
+    exit 3
+fi
+trap 'rm -f $outname; exit 1' HUP INT QUIT TERM
+echo "Unpacking..."
+tail +_LINES_TO_STRIP_ $0 > $outname
+if [ -x /usr/bin/sum ] ; then
+    echo "Checksumming..."
+
+    sum=`/usr/bin/sum $outname`
+    index=1
+    for s in $sum
+    do
+	case $index in
+	1)  sum1=$s;
+	    index=2;
+	    ;;
+	2)  sum2=$s;
+	    index=3;
+	    ;;
+	esac
+    done
+    if expr $sum1 != _SUM_1_ || expr $sum2 != _SUM_2_  ; then
+	echo "The download file appears to be corrupted.  Please refer"
+	echo "to the Troubleshooting section of the Installation"
+	echo "Instructions on the download page for more information."
+	echo "Please do not attempt to install this archive file."
+	exit 1
+    fi
+else
+    echo "Can't find /usr/bin/sum to do checksum.  Continuing anyway."
+fi
+chmod +x $outname
+echo "Extracting..."
+./$outname
+rm -f $outname #we dont need it anymore, so conserve disk space
+
+if [ -z "$LINUX_RPM" ]; then
+ UNPACK_CMD=""
+ if [ -f $javahome/lib/unpack ]; then
+   UNPACK_CMD=$javahome/lib/unpack
+   chmod +x $UNPACK_CMD 
+   packerror=""
+   for i in $PACKED_JARS; do
+	if [ -f $javahome/`dirname $i`/`basename $i .jar`.pack ]; then
+	    printf "Creating %s\n" $javahome/$i
+	    $UNPACK_CMD $javahome/`dirname $i`/`basename $i .jar`.pack $javahome/$i
+	    if [ ! -f $javahome/$i ]; then
+		printf "Failed to unpack jar files %s. Please refer\n" $i
+		printf "to the Troubleshooting section of the Installation\n"
+		printf "Instructions on the download page for more information.\n"
+		packerror="1"
+	    fi
+	    rm -f $javahome/`dirname $i`/`basename $i .jar`.pack
+	fi
+   done
+   rm -f $UNPACK_CMD 
+   if [  x$packerror = x1 ]; then 
+	printf "ERROR: Installation failed. Please refer to the "
+	printf "Troubleshooting Section of the Installation "
+	printf "Instructions on the download page "
+        if [ -d $javahome ]; then
+	    /bin/rm -rf $javahome
+	    exit 2
+	fi
+   fi
+ fi
+
+ if [ -n "$libthread_path" ] && [ -f "$libthread_path/`uname -r`/libthread.so.1" ]; then
+  echo "Making libthread links"
+  ln -s `uname -r`/libthread.so.1 $libthread_path/libthread.so.1
+  ln -s libthread.so.1 $libthread_path/libthread.so
+ fi
+
+ userid=`expr "\`id\`" : ".*uid=[0-9]*(\(.[0-9a-z]*\)) .*"`
+ if [ -f $HOME/.java/properties$NODOT_VERSION ]; then
+  if [ x$userid = "xroot" ] ; then
+    su $USER -c "mv -f $HOME/.java/properties$NODOT_VERSION $HOME/.java/_properties$NODOT_VERSION"
+  else
+    mv -f $HOME/.java/properties$NODOT_VERSION $HOME/.java/_properties$NODOT_VERSION
+  fi
+ fi
+
+ if [ ! x$javahome = "x" ]; then
+  PREFS_LOCATION=$javahome
+  if [ x$userid = "xroot" ] ; then
+    if [ x$localinstall = "x-localinstall" ] ; then
+      PREFS_LOCATION=/etc/.java
+    fi
+  fi
+  if [ ! -d $PREFS_LOCATION ] ; then
+    mkdir -m 755 $PREFS_LOCATION
+  fi
+  if [ ! -d $PREFS_LOCATION/.systemPrefs ] ; then
+    mkdir -m 755 $PREFS_LOCATION/.systemPrefs
+  fi
+  if [ ! -f $PREFS_LOCATION/.systemPrefs/.system.lock ] ; then
+    touch $PREFS_LOCATION/.systemPrefs/.system.lock
+    chmod 644 $PREFS_LOCATION/.systemPrefs/.system.lock
+  fi
+  if [ ! -f $PREFS_LOCATION/.systemPrefs/.systemRootModFile ] ; then
+    touch $PREFS_LOCATION/.systemPrefs/.systemRootModFile
+    chmod 644 $PREFS_LOCATION/.systemPrefs/.systemRootModFile
+  fi
+ fi
+
+ if [ -n "$JAVAWS_BIN" -a -z "$JAVAWS_PRIVATE" ]; then
+  FULLJAVAHOME=`cd $javahome; pwd`
+  if [ -w ${HOME}/.mailcap ]; then
+    jGrep=`grep -n ${MIME_TYPE} ${HOME}/.mailcap`      
+    if [ -n "$jGrep" ] ; then
+      grep -v ${MIME_TYPE} < ${HOME}/.mailcap | grep -v "# Java Web Start" > /tmp/.mailcap1
+      mv /tmp/.mailcap1 ${HOME}/.mailcap
+    fi
+    # Doesn't contain application/x-java-jnlp-file file, add it.
+    echo "# Java Web Start" >> ${HOME}/.mailcap
+    echo "${MIME_TYPE}; $FULLJAVAHOME/$JAVAWS_BIN %s" >> ${HOME}/.mailcap
+  elif [ -w ${HOME}/ ]; then
+    # .mailcap doesn't exist, create it.
+    echo "# Java Web Start" > ${HOME}/.mailcap
+    echo "${MIME_TYPE}; $FULLJAVAHOME/$JAVAWS_BIN %s" >> ${HOME}/.mailcap
+  fi
+  if [ -w ${HOME}/.mime.types ]; then
+    # the file exists, make sure it contains jnlp
+    jGrep=`grep ${MIME_TYPE} ${HOME}/.mime.types`
+    if [ -z "${jGrep}" ]; then
+      # doesn't contain Javaws, add it
+      echo "type=${MIME_TYPE} desc=\"Java Web Start\" exts=\"jnlp\"" >> ${HOME}/.mime.types
+    fi
+  elif [ -w ${HOME}/ ]; then
+    # Doesn't exist so create it, even though if it doesn't exist it
+    # implies you are not using Communicator, but we'll create it on the
+    # chance that you do install Communicator.
+    echo '#--Netscape Communications Corporation MIME Information' > \
+     ${HOME}/.mime.types
+    echo '#Do not delete the above line. It is used to identify the file type.' \
+     >> ${HOME}/.mime.types
+    echo '#mime types added by Netscape Helper' >> ${HOME}/.mime.types
+    echo 'type=application/x-java-jnlp-file desc="Java Web Start" exts="jnlp"' \
+     >> ${HOME}/.mime.types
+  fi
+ fi
+fi
+
+echo "Done."
+exit 0
+EOF
+
+# count the number of lines in the file and rewrite it so that tail
+# strips the right amount off
+lines=`wc -l $tmp_file | awk '{ print $1 + 1; }'`
+sum=`/usr/bin/sum $data_file`
+index=1
+for s in $sum
+do
+    case $index in
+    1)  sum1=$s;
+	index=2;
+	;;
+    2)	sum2=$s;
+	index=3;
+	;;
+    esac
+done
+
+sed -e "s/_LINES_TO_STRIP_/$lines/" -e "s/_SUM_1_/$sum1/" \
+    -e "s/_SUM_2_/$sum2/" $tmp_file  > $out_file
+
+cat $data_file >> $out_file
+chmod +x $out_file
+rm -f $tmp_file

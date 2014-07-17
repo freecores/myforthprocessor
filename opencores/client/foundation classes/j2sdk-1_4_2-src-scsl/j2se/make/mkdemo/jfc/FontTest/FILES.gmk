@@ -1,0 +1,15 @@
+#
+# @(#)FILES.gmk	1.3 02/09/19
+#
+# FontTest.
+#
+
+FILES_java = \
+	$(TARGDIR)FontTest.java \
+	$(TARGDIR)FontTest2DStroke.java \
+	$(TARGDIR)FontTest2DText.java \
+	$(TARGDIR)FontTestApplet.java
+
+FILES_dirs = \
+        $(DEMODST) \
+        $(SRCDST)

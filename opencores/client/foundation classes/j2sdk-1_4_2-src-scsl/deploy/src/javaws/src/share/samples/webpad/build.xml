@@ -1,0 +1,130 @@
+<?xml version="1.0"?>
+
+<!--
+ @(#)build.xml	1.5 03/01/23
+ 
+ Copyright (c) 2003 Sun Microsystems, Inc. All Rights Reserved.
+ 
+ Redistribution and use in source and binary forms, with or without
+ modification, are permitted provided that the following conditions are met:
+ 
+ -Redistribution of source code must retain the above copyright notice, this
+  list of conditions and the following disclaimer.
+ 
+ -Redistribution in binary form must reproduce the above copyright notice, 
+  this list of conditions and the following disclaimer in the documentation
+  and/or other materials provided with the distribution.
+ 
+ Neither the name of Sun Microsystems, Inc. or the names of contributors may 
+ be used to endorse or promote products derived from this software without 
+ specific prior written permission.
+ 
+ This software is provided "AS IS," without a warranty of any kind. ALL 
+ EXPRESS OR IMPLIED CONDITIONS, REPRESENTATIONS AND WARRANTIES, INCLUDING
+ ANY IMPLIED WARRANTY OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE
+ OR NON-INFRINGEMENT, ARE HEREBY EXCLUDED. SUN MIDROSYSTEMS, INC. ("SUN")
+ AND ITS LICENSORS SHALL NOT BE LIABLE FOR ANY DAMAGES SUFFERED BY LICENSEE
+ AS A RESULT OF USING, MODIFYING OR DISTRIBUTING THIS SOFTWARE OR ITS
+ DERIVATIVES. IN NO EVENT WILL SUN OR ITS LICENSORS BE LIABLE FOR ANY LOST 
+ REVENUE, PROFIT OR DATA, OR FOR DIRECT, INDIRECT, SPECIAL, CONSEQUENTIAL, 
+ INCIDENTAL OR PUNITIVE DAMAGES, HOWEVER CAUSED AND REGARDLESS OF THE THEORY 
+ OF LIABILITY, ARISING OUT OF THE USE OF OR INABILITY TO USE THIS SOFTWARE, 
+ EVEN IF SUN HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+ 
+ You acknowledge that this software is not designed, licensed or intended
+ for use in the design, construction, operation or maintenance of any
+ nuclear facility.
+-->
+
+
+<project name="WebPad" default="main" basedir=".">
+
+   <!-- ***************************************************************** -->
+   <!-- Initialization needed for any target                              -->
+   <!-- ***************************************************************** -->
+
+   <target name="init">
+      <property name="jh.jar" value="../lib/jh.jar" />
+      <property name="jnlp.jar" value="../lib/jnlp.jar" />   
+      <property name="servlet.jar" value="../lib/servlet.jar" />
+      <property name="jnlp-servlet.jar" value="../lib/jnlp-servlet.jar" />
+      <property name="xalan.jar" value="../lib/xalan.jar" />
+      <property name="src.dir" value="src/version1" />
+      <property name="src.servlet.dir" value="src/servlet" />
+      <property name="class.dir" value="class/version1" />
+      <property name="class.servlet.dir" value="class/servlet" />
+      <property name="lib.dir" value="lib" />
+      <property name="war.dir" value="war/app" />
+      <property name="war.lib.dir" value="war/WEB-INF/lib"/>
+      <property name="war.file.dir" value="war"/>
+      <property name="classpath" value="${lib.dir}/jnlp.jar;${lib.dir}/jh.jar;${lib.dir}/servlet.jar" />
+   </target>
+
+
+   <!-- ***************************************************************** -->
+   <!-- Removes all generated files and directories                       -->
+   <!-- ***************************************************************** -->
+
+   <target name="clean" depends="init">
+      <delete dir="${class.dir}" />
+      <delete dir="${class.servlet.dir}" />
+   </target>
+
+
+   <!-- ***************************************************************** -->
+   <!-- Prepares any other class target by creating the expected          -->
+   <!-- directory structure.                                              -->
+   <!-- ***************************************************************** -->
+ 
+   <target name="prepare" depends="init">
+	<mkdir dir="${class.dir}" />
+	<mkdir dir="${class.servlet.dir}" />
+	<mkdir dir="${lib.dir}" />
+        <mkdir dir="${war.lib.dir}" />
+	<copy file="${jnlp-servlet.jar}" tofile="${war.lib.dir}/jnlp-servlet.jar" overwrite="yes"/>
+	<copy file="${xalan.jar}" tofile="${war.lib.dir}/xalan.jar" overwrite="yes"/>
+	<copy file="${jh.jar}" tofile="${lib.dir}/jh.jar" overwrite="yes"/>
+	<copy file="${jnlp.jar}" tofile="${lib.dir}/jnlp.jar" overwrite="yes"/>
+        <copy file="${servlet.jar}" tofile="${lib.dir}/servlet.jar" overwrite="yes"/>
+   </target>
+
+   <!-- ***************************************************************** -->
+   <!-- Compiles the classes                                              -->
+   <!-- ***************************************************************** -->
+
+   <target name="webpad-v1.0-core-compile" depends="prepare">
+      <javac srcdir="${src.dir}"
+             destdir="${class.dir}"
+             classpath="${classpath}" excludes="**/SCCS/*"/>
+   </target>
+   
+   <target name="servlet-compile" depends="prepare">
+      <javac srcdir="${src.servlet.dir}"
+             destdir="${class.servlet.dir}"
+             classpath="${classpath}" excludes="**/SCCS/*"/>
+   </target>
+   
+   <target name="v1.0-core-jar" depends="webpad-v1.0-core-compile">
+      <jar jarfile="${war.dir}/webpad.jar"
+           basedir="${class.dir}"
+      />
+   </target>
+   
+   <target name="servlet-jar" depends="servlet-compile">
+      <jar jarfile="${war.lib.dir}/txtservlet.jar"
+           basedir="${class.servlet.dir}"
+      />
+   </target>
+
+   <target name="war-file" depends="class-jars">
+      <jar jarfile="${basedir}/webpad.war"
+           basedir="${war.file.dir}"
+      />
+   </target>
+
+   <target name="class-jars" depends="v1.0-core-jar,servlet-jar"/>
+   
+   <target name="main" depends="class-jars,war-file" />
+
+</project>
+

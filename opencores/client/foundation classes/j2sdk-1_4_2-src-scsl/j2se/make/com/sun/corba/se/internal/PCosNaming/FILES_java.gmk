@@ -1,0 +1,13 @@
+#
+# @(#)FILES_java.gmk	1.5 02/09/19
+# Files for Persistent CosNaming
+#
+
+FILES_java = \
+	$(TARGDIR)com/sun/corba/se/internal/PCosNaming/NameServer.java \
+	$(TARGDIR)com/sun/corba/se/internal/PCosNaming/NameService.java \
+	$(TARGDIR)com/sun/corba/se/internal/PCosNaming/ServantManagerImpl.java \
+	$(TARGDIR)com/sun/corba/se/internal/PCosNaming/PersistentBindingIterator.java \
+	$(TARGDIR)com/sun/corba/se/internal/PCosNaming/InternalBindingKey.java \
+	$(TARGDIR)com/sun/corba/se/internal/PCosNaming/InternalBindingValue.java \
+	$(TARGDIR)com/sun/corba/se/internal/PCosNaming/NamingContextImpl.java
